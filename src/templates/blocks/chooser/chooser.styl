@@ -1,0 +1,59 @@
+.chooser
+	margin-bottom 20px
+	&__inner
+		position relative
+		border-radius 0 0 border_radius_sm border_radius_sm
+		padding 19px 28px
+		background-color #fff
+	section
+		margin-bottom 8px
+	&__title
+		margin 0
+		font-size 16px
+		line-height 20px
+	&__list
+		height 120px
+		overflow hidden
+		margin 0
+		padding 0
+		list-style none
+		font-size 16px
+		line-height 1.25
+		clearfix()
+		&.columnized
+			height auto
+		&_offset 
+			div
+				padding 0 20px
+				&:first-child
+					padding-left 0
+		&__item
+			margin-bottom 3px
+			padding-right 20px
+				
+			&-link
+				display inline-block
+				border-radius 100px
+				padding 1px 15px 2px
+				margin-left -15px
+				color: #4b89d3
+			&_parent
+				> .chooser__list__item-link
+					font-weight bold
+					text-transform uppercase
+					letter-spacing .5pt
+		&__sublist
+			margin 5px 0 15px
+			padding 0
+			list-style none
+			.chooser__list__item
+				line-height 17px
+				margin-bottom 7px
+	.more-toggle
+		display block
+		font-size 14px
+		&__link
+			background-color #fff
+			margin-top 0
+			padding-top 0
+			color: #5e6e71

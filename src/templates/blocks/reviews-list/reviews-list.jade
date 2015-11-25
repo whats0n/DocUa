@@ -1,0 +1,24 @@
+- items = data.items
+each item in items
+    +e("li").item.hreview
+        if item.about
+            +e.review-about.item
+                span.grey Отзыв о&nbsp;
+                a.fn(href="/", title=item.about)= item.about
+        if !diagnosticCenter
+            +b("ul").rating-list
+                each rating in item.ratings
+                    +b.rating.hide_value: +i({ label: rating.label, value: rating.value, tooltip: rating.tooltip })
+        +e.content
+            .description
+                +e.item-header
+                    if diagnosticCenter
+                        +e("span").name.reviewer= item.name
+                        | , узи брюшной полости,&nbsp;
+                        +e("span").date.dtreviewed #{item.date}
+                            span.value-title.hidden(title=item.date)
+                    else
+                        +e("span").name.reviewer= item.name
+                        +e("span").date.dtreviewed #{item.date}
+                            span.value-title.hidden(title=item.date)
+                p= item.summary

@@ -1,0 +1,9 @@
+a(href="/", title=site.title)
+    if data.mobileLogo
+        +e("img").image(src=site.logoMobile, alt=site.title, width="82", height="25")
+    else if mobileLogoInternational
+        +e("img").image(src=site.logoMobileInternational, alt=site.title, width="64", height="19")
+    else if logoWorld
+        +e("img").image(src=site.logoWorld, alt=site.title, width="207", height="70 ")
+    else
+        +e("img").image(src=site.logo, alt=site.title, width="481", height="46")

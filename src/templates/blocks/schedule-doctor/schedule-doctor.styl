@@ -1,0 +1,81 @@
+.schedule-doctor
+  display none
+  position absolute
+  top 29px
+  right -1px
+  width 638px
+  height 92px
+  overflow hidden
+  z-index 1
+  background #fff9e9
+  border 1px solid #fff
+  border-radius border_radius_sm 0 border_radius_sm border_radius_sm
+  box-shadow 0 2px 8px #b6c8cc
+
+  @media tablet
+    width 438px
+    right auto
+    left 0
+  @media phone
+    width 388px
+    right auto
+    left 0
+
+    .owl-carousel .owl-wrapper-outer
+      width 292px
+
+  @media screen560
+    width 290px
+    right auto
+    left 0
+    .owl-carousel .owl-wrapper-outer
+      width 245px
+  .disabled
+    .schedule__day, .schedule__date
+      color #b2b2b2
+  .schedule__date
+    line-height 1.2
+  .owl
+    list-style none
+    position relative
+    padding 0 21px
+    &-prev
+    &-next
+      top 43px
+    &-prev
+      left 6px
+    &-next
+      right 6px
+    &-item
+      position relative
+      text-align center
+      margin 6px 0
+      width 100px
+      border-right 1px dashed #C0D2D6
+      &.current
+        background #fff9e9 + 10%
+  &__day
+    font-weight bold
+  &__message
+    margin-top 20px
+    font-size 14px
+    line-height 1.285
+  &__working-hours
+    margin 5px 0 3px 0
+    padding 0
+    list-style none
+    line-height 1.2
+  &__hours-item
+    text-decoration none
+    display inline-block
+    color text_grey
+    font-size 13px
+    span
+      color #0089d1
+      text-decoration underline
+    &:hover
+      span
+        text-decoration none
+    &.disabled
+      cursor default
+      color #b2b2b2

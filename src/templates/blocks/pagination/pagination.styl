@@ -1,0 +1,47 @@
+.pagination
+    clearfix()
+    width 400px
+    >li
+        &.active
+            &.start
+                border-top-left-radius 100px
+                border-bottom-left-radius 100px
+                border-top-right-radius 0
+                border-bottom-right-radius 0
+                border-right 0
+            &.end
+                border-top-left-radius 0
+                border-bottom-left-radius 0
+                border-top-right-radius 100px
+                border-bottom-right-radius 100px
+            @media screen560
+                border-radius 100px
+                margin-right 2px
+                border-color transparent
+                background-color #c0d2d6
+                a
+                    color #fff
+                &.start, &.end
+                    border-radius 100px
+                    margin-right 2px
+                    color #fff
+                    background-color #c0d2d6
+
+.active:not(.start)
+    border-radius 0
+    border-left 0
+.active:not(.end)
+    border-radius 0
+    border-right 0
+.active.single
+    border 1px solid #91b5bc
+    border-radius 100px
+
+.pg-xs-show
+    display none !important
+    @media screen560
+        display inline !important
+.pg-xs-hide
+    display inline !important
+    @media screen560
+        display none !important               

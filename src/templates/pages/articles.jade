@@ -1,0 +1,26 @@
+//---
+   layout: layouts/main
+   title: Блог
+   modals: select-area, select-actions
+   page_name: articles
+   activeMenuItem: 5
+
+.row 
+   section.col-md-9
+      h1= file.title
+      +b("ul").blog-submenu: +i
+       
+      +b("ul").articles-list.blog-page
+         each article, i in articlesData
+            if i > 2
+               +b.article-list-item: +i({article: article, news: true})
+      +b("a").load-items(href="#"): +i({articles: true})
+      +b("ul").pagination.offset-top30: +i
+   
+   aside.col-md-3.hidden-sm.hidden-xs.themes 
+      .widget
+         h3 Темы
+         +b.menu: +i({prefix: "page", items: articleThemes, activeIndex: 2})
+      .widget
+         a.banner(href="#")
+            img(src="i/_side-banner.jpg")

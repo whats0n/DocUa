@@ -1,0 +1,100 @@
+//
+// Pagination (multiple pages)
+// --------------------------------------------------
+.pagination {
+  display: block;
+  padding-left: 0;
+  margin: @line-height-computed auto;
+
+  > li {
+    float: left;
+    font-size: 16px;
+    line-height: 18px;
+    > a,
+    > span {
+      position: relative;
+      display: inline-block;
+      padding: 3px 7px 2px;
+      line-height: 17px;
+      text-decoration: none;
+    }
+  }
+  > li.previous {
+    margin-right: 5px;
+  }
+  >li.next {
+    margin-left: 5px;
+  }
+  > li.previous,
+  >li.next {
+    font-size: 17px;
+  }
+
+  > li.previous > a,
+  >li.next > a {
+    vertical-align: top;
+    font-size: 16px;
+    padding: 4px 10px 3px;
+    margin-top: -2px;
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  > li.previous > a > span {
+    margin-left: 3px;
+  }
+
+  >li.next > a > span {
+    margin-right: 3px;
+  }
+
+  > li > a {
+    &:hover,
+    &:focus {
+      color: @link-hover-color;
+      border-color: #f0f0f0;
+    }
+  }
+  
+  > .active{
+    border: 1px solid #91b5bc;
+    border-radius: 100px;
+  }
+  > .active > a,
+  > .active > span {
+    &,
+    &:hover,
+    &:focus {
+      z-index: 2;
+      color: @pagination-active-color;
+      cursor: default;
+    }
+  }
+
+  > .disabled {
+    > span,
+    > span:hover,
+    > span:focus,
+    > a,
+    > a:hover,
+    > a:focus {
+      color: @pagination-disabled-color;
+      border-color: @pagination-border;
+      cursor: default;
+    }
+  }
+}
+
+// Sizing
+// --------------------------------------------------
+
+// Large
+.pagination-lg {
+  .pagination-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @border-radius-large);
+}
+
+// Small
+.pagination-sm {
+  .pagination-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @border-radius-small);
+}

@@ -1,0 +1,13 @@
+- var linkPrefix = ''
+- var modalToggle = ''
+
+if showModals
+    - linkPrefix = '#'
+    - modalToggle = 'modal'
+else
+    - linkPrefix = '/modals.html#'
+    - modalToggle = ''
+
++e("a").link.btn.btn-default.btn-xs(href="#{linkPrefix}login", data-toggle=modalToggle, title="Вход / Регистрация") Вход
+    +e("span").separator /
+    | Регистрация

@@ -1,0 +1,774 @@
+center-block()
+	text-align center
+	letter-spacing 0
+	font-size 0
+	&:after
+		content ""
+		display inline-block
+		height 100%
+		width 0
+		vertical-align middle
+	>div
+	>span
+		letter-spacing normal
+		font-size 18px
+		margin 0 auto
+		display inline-block
+		vertical-align middle
+
+@font-face
+	font-family 'intro'
+	src url('f/intro.eot')
+	src url('f/intro.eot?#iefix') format('embedded-opentype'),
+		url('f/intro.woff') format('woff'),
+		url('f/intro.ttf') format('truetype')
+	font-weight normal
+	font-style normal
+
+*
+	font-smoothing antialiased
+
+body
+	min-width 1100px !important
+
+.main-content
+	padding-bottom 178px
+	padding-top 0 !important
+
+.btn
+	transition background-color .15s ease
+	&-orange
+		border 0 none
+		color #fff
+		background-color #ffb546
+		text-shadow 0 1px 0 rgba(203, 140, 157, .5)
+		&:hover
+		&:active
+			color #fff
+		&:hover
+			background-color #f4a124
+		&:active
+			background-color #ee9002
+	&-green
+		border 0 none
+		color #fff
+		background-color #35bfae
+		text-shadow 0 1px 0 rgba(17, 144, 128, .5)
+		&:hover
+		&:active
+			color #fff
+		&:hover
+			background-color #06b29d
+		&:active
+			background-color #2ea697
+
+// footer
+.footer
+	position absolute
+	z-index 5
+	overflow hidden
+	width 100%
+	height 180px
+	bottom 0
+	margin-left auto
+	margin-right auto
+	border-radius 3px 3px 0 0
+	background url("i/footer-bg.jpg") no-repeat center bottom #00829b
+	&-inner
+		height 100%
+		background url("i/doc-pattern.png") repeat top center
+		padding 38px 65px 20px
+		clearfix()
+	&-menu
+		margin 0
+		padding 0
+		list-style none
+		a:hover
+			color #fff
+		&__item
+			float left
+			width 50%
+			&-link
+				font-weight bold
+				font-size 16px
+				line-height 20px
+				color #fff
+				text-transform uppercase
+				letter-spacing 1pt
+	&-sub-menu
+		margin 18px 0 0
+		padding 0
+		list-style none
+		font-size 14px
+		line-height 27px
+		&__item-link
+			color #fff
+	.social-links
+		margin 10px 0
+	.menu
+		float left
+		width 500px
+		
+// header
+.header
+	clearfix()
+	position relative
+	padding 30px 65px 15px
+	&__nav
+		height 48px
+		border-radius 3px
+		border 1px solid #c0e2e6
+		background-color #f0faf9
+		.menu
+			height 100%
+		.mobile-header &
+			clearfix()
+			clear both
+			height auto
+			border-radius 0
+			border 0 none
+			background-color transparent
+	&__top-panel
+		clearfix()
+		margin-bottom 25px
+	&__container
+		float right
+		width 700px
+	.user-panel
+		float right
+		margin-left 20px
+		>*
+			float right
+			
+.logo
+	float left
+	margin-top -3px
+	position relative
+	
+.search
+	position relative
+	float right
+	width 230px
+	&__field
+		padding-right 30px !important
+		border-color #dbdbdb
+		&::-webkit-input-placeholder
+			color #cacaca
+			font-style italic
+	&__button
+		position absolute
+		display block
+		top 0
+		right 0
+		width 16px
+		height 16px
+		border 0 none
+		margin 5px 8px 0 0
+		padding 0
+		opacity 0.15
+		transition opacity 0.2s ease
+		background url("i/icons.png") no-repeat
+		background-position -70px -107px
+		outline none
+		&:hover
+			opacity 0.3
+		&:active
+			opacity 0.5
+			
+.feedback
+	float right
+	&__link
+		font-size 16px
+		color #000
+		text-decoration none
+		margin-left 20px
+		&:first-child
+			margin-left 0
+	.docicon
+		vertical-align middle
+		margin -2px 5px 0 0
+		
+.phones
+	float right
+	margin 0
+	font-size 16px
+	line-height 1
+	font-weight bold
+	color #000
+	margin-right 30px
+	.mobile-header &
+		margin 0 0 0 auto
+	.select7
+		&__current-value
+			border-bottom-color transparent !important
+			.select7__icon img
+				vertical-align top
+		&__drop
+			font-size 16px
+		&__option
+			font-weight bold
+		&__icon
+			margin-right 5px
+	&__number
+		margin-top 5px
+		position relative
+		display inline-block
+		padding-left 20px
+		&:before
+			content ""
+			position absolute
+			top 1px
+			left 0
+			width 16px
+			height 16px
+			background-image url("i/docicons.png")
+		&.mts
+			&:before
+				background-position 0 -296px
+		&.life
+			&:before
+				background-position -16px -312px
+		&.kyivstar
+			&:before
+				background-position 0 -328px
+		&.phone
+			&:before
+				background-position -16px -344px
+		
+			
+// select7
+normalColor = #222
+hoverColor = #00829b
+borderColor = #ccc
+selectHeight = 36px
+borderRadius = 4px
+paddingV = 7px
+paddingH = 10px
+optionFontSize = 14px
+
+.select7
+	position relative
+	text-align left
+	display block
+	line-height 1.428571429
+	&
+	& *
+		box-sizing border-box
+	&_native_dropdown
+		.select7__current
+			cursor default !important
+		.select7__caret
+			border-color #7fc0cd transparent transparent !important
+	&_dropdown
+		display inline-block
+		margin 0 (paddingH * (-1) + 5)
+		.select7
+			&__current
+				height auto
+				padding 0 (paddingH + 5) 0 paddingH
+				border 0 none
+				position relative
+				cursor pointer
+				background-color transparent
+				&:hover
+					.select7
+						&__current-value
+							color hoverColor
+						&__caret
+							border-color #7fc0cd transparent transparent
+			&__drop
+				z-index 1000
+				top 0
+				left 0
+				min-width 100%
+				padding selectHeight 0 5px
+				margin-top -6px
+				border-width 1px
+				border-radius borderRadius
+				background-clip padding-box
+			&__current-value
+				overflow visible
+				display inline-block
+				border-bottom 1px dotted
+			&__caret
+				position static
+				margin-top 0
+				border-color #7fc0cd transparent transparent
+			&__option
+				padding paddingV paddingH
+
+	&_noopts
+		.select7__caret
+			display none
+		.select7__current
+			cursor default
+			&:hover
+				.select7__current-value
+					color inherit
+			&-value
+				border-bottom-color transparent
+	&_position_right
+		.select7
+			&__drop
+				left auto
+				right 0
+			&__option
+				text-align right
+
+	&__current
+		position relative
+		color normalColor
+		border-radius borderRadius
+		background-color #fff
+		padding paddingV (paddingH + 12) paddingV paddingH
+		cursor pointer
+		height selectHeight
+		&-value
+			overflow ellipsis
+			display block
+		&:hover
+			.select7
+				&__caret
+					border-color #7fc0cd transparent transparent
+
+	&__drop
+		display none
+		position absolute
+		top 0
+		left 0
+		z-index 1000
+		min-width 100%
+		padding selectHeight 0 5px
+		margin 0
+		font-size optionFontSize
+		background-color #fff
+		border-radius borderRadius
+		box-shadow 0 3px 4px rgba(0,0,0,.1)
+		background-clip padding-box
+	&__drop-list
+		list-style none
+		margin 0
+		padding 0
+		max-height 168px
+		overflow-y auto
+		-webkit-overflow-scrolling touch
+
+	&__caret
+		position absolute
+		top 50%
+		margin-top -3px
+		right 9px
+		display inline-block
+		width 0
+		height 0
+		margin-left 5px
+		vertical-align middle
+		border-width 4px
+		border-style solid
+		border-color #7fc0cd transparent transparent
+
+	&__option
+	&__optgroup
+		display block
+		overflow hidden
+		padding paddingV paddingH
+		clear both
+		text-decoration none
+		font-weight normal
+		color lighten(normalColor, 10%)
+		white-space nowrap
+	&__option
+		cursor pointer
+		transition background-color .2s ease-in-out
+		font-weight normal
+		.select7_readonly &
+			transition none
+		&_disabled
+			background-color lighten(normalColor, 98%) !important
+			color lighten(normalColor, 60%) !important
+			cursor default !important
+		&:hover
+			color normalColor
+			background-color lighten(normalColor, 95%)
+			.select7_readonly &
+				color inherit
+				background-color inherit
+		&_current
+			&:before
+				content "✓ " 
+	&__optgroup
+		cursor default
+		font-weight bold
+		&:hover
+			background-color lighten(normalColor, 99%)
+		&_collapse
+			.select7__optgroup
+				&-label
+					&:after
+						content " ↓"
+				&-items
+					display none
+			&_open
+				.select7__optgroup
+					&-label
+						&:after
+							content " ↑" 
+					&-items
+						display block
+	&__optgroup-items
+		padding 0
+	&__placeholder
+		color lighten(normalColor, 60%) !important
+
+	&__icon
+		display inline-block
+		height selectHeight - (paddingV * 2) - 1
+		margin-right 5px
+		vertical-align text-top
+		text-align center
+		letter-spacing 0
+		font-size 0
+		&:after
+			content ""
+			display inline-block
+			height 100%
+			width 0
+			vertical-align middle
+		> img
+			letter-spacing normal
+			font-size 12px
+			border 0 none
+			margin 0 auto
+			max-width 100%
+			max-height 100%
+			display inline-block
+			vertical-align middle
+
+	&_open
+		.select7
+			&__current
+				z-index 1001
+				border-color transparent
+				box-shadow none
+				background-color transparent
+				&:hover
+					.select7
+						&__current-value
+							border-color transparent
+						&__caret
+							border-color transparent transparent #7fc0cd
+			&__caret
+				border-color transparent transparent #7fc0cd
+				border-width 4px
+				margin-top -6px
+			&__drop
+				display block
+		&.select7_dropdown
+			.select7
+				&__current
+					box-shadow none
+					&:hover
+						.select7__caret
+							border-color transparent transparent #7fc0cd
+				&__caret
+					border-color transparent transparent #7fc0cd
+					
+// footer contacts
+.contacts
+	float left
+	width 250px
+	font-size 14px
+	line-height 27px
+	color #fff
+	a
+		color #fff
+	p
+		margin 0
+	&__title
+		margin 0 0 18px
+		font-size 16px
+		line-height 1.25
+		font-weight bold
+		color #fff
+		text-transform uppercase
+		letter-spacing 1pt
+	&__copyright
+		a
+			text-decoration none
+	&__rights
+		font-size 12px
+		line-height 1.166
+		&_international
+			display none
+	&__phone
+		&-number
+			margin 0
+		.select7
+			margin 0 -10px
+			&_open
+				.select7
+					&__current
+						cursor default
+						&-value
+							color #333
+							border-color #333
+						&:hover .select7__current-value
+							color #333
+					&__caret
+						margin-top -5px
+						border-color transparent transparent #35bfae
+			&__current
+				&-value
+					color #fff
+					border-bottom-color transparent
+				&:hover
+					.select7__current-value
+						color #fff
+			&__caret
+				margin-top 3px
+				border-color #fff transparent transparent
+			&__option
+				cursor default
+				&:hover
+					background-color #fff
+				&_disabled
+					color #333 !important
+	&_international
+		.contacts
+			&__footer
+				position absolute
+				top 34px
+				right 55px
+			&__rights
+				display none
+				&_international
+					display block
+					color #c3dae0
+					width 230px
+
+.page-promo
+	position relative
+	height 395px
+	&__image
+		position absolute
+		left 0
+		top 0
+	&__title
+		position absolute
+		top 70px
+		right 90px
+		width 510px
+		padding 17px 35px 43px
+		background-color rgba(0, 130, 155, .5)
+		font-family intro
+		font-size 30px
+		line-height 1.2
+		color #fff
+		text-align center
+		text-transform uppercase
+	&__button
+		position absolute
+		top 280px
+		right 230px
+		font-size 26px
+		padding 13px 30px 11px
+		box-shadow 0 7px 10px rgba(13, 93, 105, .45)
+		
+.services
+	position relative
+	padding 40px 0 90px
+	background-color #eefbf9
+	&:before
+		content ""
+		position absolute
+		top -10px
+		left 0
+		width 100%
+		height 14px
+		background url("i/top-waves.png") repeat-x center 0
+	&__title
+		font-family intro
+		font-size 32px
+		color #00829b
+		text-transform uppercase
+		text-align center
+	&__list
+		list-style none
+		padding 0
+		margin 0
+	&__item
+		display inline-block
+		vertical-align top
+		width 33%
+		margin-top 50px
+		text-align center
+	&__text
+		font-size 18px
+		line-height 1.11
+		color #00829b
+	&__icon
+		display inline-block
+		width 95px
+		height 95px
+		margin-bottom 20px
+		
+.process
+	position relative
+	z-index 2
+	padding-top 50px
+	background-color #d6ecf0
+	text-align center
+	&:before
+		content ""
+		position absolute
+		top -10px
+		left 0
+		width 100%
+		height 14px
+		background url("i/top-waves-blue.png") repeat-x center 0
+	&__title
+		margin-bottom 50px
+		font-family intro
+		font-size 32px
+		color #00829b
+		text-transform uppercase
+	&__list
+		margin 0
+		padding 15px 0 0
+		list-style none
+		clearfix()
+	&__number
+		position absolute
+		top 10px
+		left 10px
+		width 27px
+		height 27px
+		padding-top 2px
+		background-color rgba(255, 255, 255, .2)
+		border-radius 100%
+	&__text
+		display inline-block
+		vertical-align middle
+		height 55px
+		font-size 17px
+	&__icon
+		display inline-block
+		width 95px
+		height 80px
+		margin-bottom 10px
+	&__item
+		position relative
+		width 33.33%
+		float left
+		height 235px
+		margin 0
+		padding 45px 40px
+		color #fff
+		&:before
+			content ""
+			position absolute
+			left 0
+			width 0
+			height 0
+		&:first-child
+		&:nth-child(2)
+		&:nth-child(3)
+			&:before
+				top -15px
+		&:nth-child(4)
+		&:nth-child(5)
+		&:nth-child(6)
+			&:before
+				top 100%
+		&:first-child
+			background-color #35bfae
+			&:before
+				border-left 0 solid transparent
+				border-right 353px solid transparent
+				border-bottom 15px solid #35bfae
+		&:nth-child(2)
+			background-color #24aba8
+			&:before
+				border-right 0 solid transparent
+				border-left 367px solid transparent
+				border-bottom 15px solid #24aba8
+		&:nth-child(3)
+			background-color #1297a1
+			&:before
+				border-left 0 solid transparent
+				border-right 366px solid transparent
+				border-bottom 15px solid #1297a1
+		&:nth-child(4)
+			background-color #24aba8
+			&:before
+				border-left 0 solid transparent
+				border-right 367px solid transparent
+				border-top 15px solid #24aba8
+		&:nth-child(5)
+			background-color #1297a1
+			&:before
+				border-right 0 solid transparent
+				border-left 367px solid transparent
+				border-top 15px solid #1297a1
+		&:nth-child(6)
+			background-color #00829b
+			&:before
+				border-left 0 solid transparent
+				border-right 367px solid transparent
+				border-top 15px solid #00829b
+.scheme
+	position relative
+	height 730px
+	padding 35px 50px
+	&__title
+		font-size 30px
+		font-family intro
+		text-align center
+		text-transform uppercase
+		color #35bfae
+		margin-bottom 25px
+	&__box
+		position relative
+		height 560px
+		background url("i/scheme.png") no-repeat center bottom
+	&__label
+		position absolute
+		padding 10px 15px 0
+		width 220px
+		height 128px
+		font-size 18px
+		line-height 22px
+		color #00829b
+		text-align center
+		background url("i/scheme-label-bg.png") no-repeat 0 0
+		center-block()
+		&:before
+			content ""
+			position absolute
+			left 50%
+			top -23px
+			margin-left -23px
+			width 46px
+			height 46px
+			background url("i/label-icon.png") no-repeat 0 0
+		&_1
+			left 0
+			top 18px
+		&_2
+			left 260px
+			top 18px
+		&_3
+			left 520px
+			top 18px
+		&_4
+			left 780px
+			top 18px
+		&_5
+			left 130px
+			top 204px
+		&_6
+			left 390px
+			top 204px
+		&_7
+			left 650px
+			top 204px

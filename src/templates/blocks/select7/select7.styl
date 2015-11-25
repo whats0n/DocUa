@@ -1,0 +1,218 @@
+hoverColor = #d7f2ef
+.select7:not(.disabled)
+    .select7__current
+        cursor pointer
+        
+select.select7
+    display none
+    
+.select7
+    position relative
+    display inline-block
+    min-width 85px
+    margin 0 -10px
+    .picker &
+        text-align left
+
+    &__icon
+        margin-right 3px
+    &__current
+        padding 0 15px
+        border 0 none
+        position relative
+        .select7__icon
+            position relative
+            top 1px
+        &:hover
+            .select7
+                &__current-value
+                    border-color transparent
+
+    &__current-value
+        display inline-block
+        line-height 16px
+        border-bottom 1px dotted
+
+    &__caret
+        display inline-block
+        width 0
+        height 0
+        margin-left 5px
+        margin-top 4px
+        vertical-align middle
+        border-width 4px
+        border-style solid
+        border-color #0089d1 transparent transparent
+
+    &__drop
+        display none
+        position absolute
+        top 100%
+        left 0
+        z-index 1000
+        min-width 100%
+        padding 35px 0 5px
+        margin -30px 0 0
+        font-size 14px
+        background-color #fff
+        border-width 1px
+        border-style solid
+        border-color #ccc
+        border-radius border_radius_sm
+        box-shadow 0 3px 4px rgba(0,0,0,.1)
+        background-clip padding-box
+        overflow hidden
+    &__drop-list
+        list-style none
+        margin 0
+        padding 0
+        .picker &
+            max-height 168px
+            overflow-y auto
+
+    &__option
+        display block
+        padding 3px 15px
+        clear both
+        text-decoration none
+        font-weight 400
+        line-height 1.428571429
+        color #333
+        background-color #fff
+        white-space nowrap
+        cursor pointer
+        .select7_readonly &
+            transition none
+        &:hover
+            color #262626
+            background-color #f5f5f5
+            .select7_readonly &
+                color inherit
+                background-color inherit
+    &__optgroup
+        cursor default
+        font-weight bold
+        &:hover
+            background-color #f5f5f5
+        &_collapse
+            >.select7__optgroup
+                &-label
+                    .price-item:after
+                        content " ↓"
+                &-items
+                    display none
+                    padding-left 15px
+            &_open
+                >.select7__optgroup
+                    &-label
+                        .price-item:after
+                            content " ↑" 
+                    &-items
+                        display block
+    &__optgroup-items
+        padding 0
+
+    &_open
+        .select7
+            &__current
+                z-index 1001
+                &:hover
+                    .select7
+                        &__current-value
+                            border-color transparent
+            &__caret
+                margin-top -4px
+                border-color transparent transparent #0089d1
+            &__drop
+                display block
+
+    &_view_select
+        margin 0
+        display block
+        width 100%
+        height 32px
+        padding 0 8px
+        font-size 14px
+        line-height 32px
+        color #555
+        vertical-align middle
+        background-color #fff
+        background-image none
+        border 1px solid #ccc
+        border-radius 0
+        &.select7_open
+            border-color #5dccbe
+            outline 0
+        .select7
+            &__current
+                padding 0 15px 0 0
+            &__current-value
+                border 0 none
+                display block
+            &__caret
+                position absolute
+                right 2px
+                top 10px
+            &__drop
+                left -1px
+                right -1px
+                width auto
+                top -1px
+                margin 0
+                border-radius 0
+                border 1px solid #5dccbe
+            &__optgroup
+            &__option
+                background none
+                padding 0
+            &__optgroup-label
+                display block
+            &__optgroup-label
+            &__option
+                padding 0 10px
+                &:hover
+                &_current
+                    position relative
+                    background-color hoverColor
+                    &:before
+                        content " "
+                        position absolute
+                        background hoverColor
+                        top 0
+                        bottom 0
+                        right 100%
+                        width 50%
+    &_collapse
+        .select7
+            &__drop
+                padding-bottom 0
+            &__option
+                white-space normal
+                .price-item
+                    border-bottom 1px solid #e5e5e5
+            &__optgroup
+                &:last-child
+                    margin-bottom 0
+                    .select7__option:last-child
+                        .price-item
+                            border-bottom 0 none
+                    .select7__optgroup-label
+                        >.price-item
+                            border-bottom 0 none
+                &-items
+                    .select7__option
+                        padding-left 30px
+                        @media phone
+                            padding-left 10px
+                &-label
+                    >.price-item
+                        border-bottom 1px solid #e5e5e5
+                    .price-item__description
+                        font-style normal
+                &_collapse_open
+                    margin-bottom 20px
+                    .select7__optgroup-label >.price-item
+                        border-bottom-color transparent
+            &__current
+                height 32px
+                overflow hidden

@@ -1,0 +1,60 @@
+.how-its-made
+    padding 10px 0 0
+    margin-top 15px
+    list-style none
+    text-align center
+    @media phone_tablet
+        margin 15px 0 0
+    &__item
+        position relative
+        padding 0 25px
+        @media phone_tablet
+            padding 0
+        &:before
+            content ""
+            position absolute
+            right 75%
+            width 170px
+            height 25px
+            background-repeat no-repeat
+            background-position 0 0
+            @media phone
+                width 64px
+                height 9px
+                background-size 64px 9px
+        &.even:before
+            top -10px
+            background-image url("i/how-its-made-arrow-1.png")
+            @media phone
+                top -5px
+        &.odd:before
+            top 55px
+            background-image url("i/how-its-made-arrow-2.png")
+            @media phone
+                top 35px
+        &:first-child:before
+        &.first-child:before
+            display none
+    &__title
+        font-weight bold
+        font-size 20px
+        @media phone
+            margin-top 5px
+            font-size 14px
+            line-height 16px
+    &__description
+        margin-top 15px
+        font-size 16px
+        line-height 21px
+    &__icon
+        @media phone
+            height 50px
+    &_list
+        @media phone
+            .how-its-made__item
+                float none
+                width 100%
+                margin-bottom 20px
+                &:before
+                    content none
+                    display none

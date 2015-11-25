@@ -1,0 +1,80 @@
+.more-toggle
+    display none
+    cursor pointer
+    position absolute
+    bottom 0
+    left 0
+    height 5px
+    width 100%
+    background-color #fff
+    border-radius 0 0 border_radius_sm border_radius_sm
+    text-align center
+    transition border-color 0.2s ease, box-shadow 0.2s ease
+    &__link
+        position relative
+        top 5px
+        display inline-block
+        padding 0 30px 0 20px
+        background-color #fff
+        border-radius 0 0 border_radius_sm border_radius_sm
+        text-decoration none
+        .more-toggle_with-icon &
+            padding-right 15px
+    &__show-label 
+    &__hide-label
+        position relative
+        top -8px
+        > span
+            display inline-block
+            border-bottom 1px dotted
+            line-height 14px
+    &__show-label
+        position relative
+        display inline-block
+        .show-hidden-small-cards &
+            display none
+        .more-toggle_with-icon &
+            padding-right 27px
+        
+        &:after
+            content ''
+            position absolute
+    &__hide-label
+        display none
+        .show-hidden-small-cards &
+            display inline-block
+
+.has-hidden-small-cards
+    margin-bottom 32px !important
+    .more-toggle
+        display block
+
+.chooser
+    .more-toggle
+        &__show-label:after
+            top 6px
+            right 0
+            sprite($square)
+.card
+    .more-toggle
+        background beige_light
+        &__show-label
+            padding-right 11px
+            &:after
+                top 6px
+                right -11px
+                sprite($arrows_down1)
+        &__hide-label
+            padding-right 11px
+            &:after
+                content ''
+                position absolute
+                top 4px
+                right -11px
+                sprite($arrows_up1)
+        &__link
+            border 1px solid #f5f6f9;
+            border-top 0
+            background beige_light
+            box-shadow 0 2px 3px #e3e4ed
+                    

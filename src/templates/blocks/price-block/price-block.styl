@@ -1,0 +1,117 @@
+.price-block
+    hOut = 20px
+    padding-left hOut
+    padding-right hOut
+    margin-left hOut * (-1)
+    margin-right hOut * (-1)
+    position relative
+    &:after
+        content " "
+        position absolute
+        bottom 0
+        left hOut
+        right hOut
+        border-bottom 1px solid rgba(0,0,0,0.1)
+    @media phone
+        hOut = 10px
+        padding-left hOut
+        padding-right hOut
+        margin-left hOut * (-1)
+        margin-right hOut * (-1)
+        &:after
+            left hOut
+            right hOut
+    &:first-child
+        margin-top -20px
+        @media phone
+            margin-top -9px
+    &:last-child
+        margin-bottom -15px
+        &:after
+            content none
+            display none
+            border 0 none
+        @media phone
+            margin-bottom -10px
+    &_selected
+        background-color #fff3de
+        & + .price-block:before
+            display none
+            content none
+    &__header
+        .price-item
+            border 0 none
+            @media phone
+                min-height inherit
+            > .price-item__value
+                position absolute
+                top 50%
+                right 0
+                margin 0
+                margin-top -11px
+                @media phone
+                    display none
+            &__title
+                font-weight bold
+    &__list
+        margin 0
+        padding 0 0 0 20px
+        list-style none
+        @media phone
+            padding 0
+    &__list-item
+        &:last-child
+            .price-item
+                border 0 none
+    &_collapse
+        .price-block
+            &__header
+                cursor pointer
+                .price-item__title
+                    &:after
+                        content "↓"
+                        margin-left 3px
+                        font-weight normal
+            &__content
+                display none
+        &_open
+            .price-block
+                &__header
+                    .price-item
+                        &__value
+                            display none
+                        &__title
+                            &:after
+                                content "↑"
+                &__content
+                    display block
+    @media tablet_desktop
+        &:only-child:not(.price-block_collapse)
+            min-height 60px
+            center-block()
+            > div
+            > span
+                width 99%
+            &:after
+                position static
+                min-height 60px
+
+            .price-block__header
+            .price-block__list-item:only-child
+                .price-item
+                    overflow visible
+                    position static
+                    &__aside
+                        font-weight bold
+                        right 0
+                        right 20px
+                        font-size 18px
+                        padding-right 145px
+                        padding-left 7px
+                        width 233px
+                        min-height 25px
+                .btn
+                    padding 8px 20px
+                    font-size 18px
+                    width 131px
+                    top -13px

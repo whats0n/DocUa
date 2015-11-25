@@ -1,0 +1,247 @@
+- card = data.card
+- clinic= data.clinic
+- clinicFilials= data.clinicFilials
+- clinicInnerFilials= data.clinicInnerFilials
+- doctorWorld = data.doctorWorld
+- landing = data.landing
+- clinicDiagnostic = data.clinicDiagnostic
+- uid = data.uid
+- moreLink = data.moreLink
+- clinic_inner = data.clinic_inner
+- doctors_page = data.doctors_page
+
+article.hreview-aggregate.vcard.hcard
+    .item
+        if card.actions && !doctorWorld
+            +b("a").action-badge(href="/", title="")
+                +e("span").content
+                    +e("span").content-inner
+                        span.underline 50% скидка на консультации
+                        |  всех специалистов Института планирования семьи!
+        if clinicWorld
+            +e.title.fn.org
+                h1.h3
+                    - var pageLink = card.filename
+                    if onlineConsultation
+                        - pageLink = '/doctors/consultation.html'
+                    a(href=pageLink, title=card.name)= card.name
+        +e.left-side
+            +e.image(class=card.gender)
+                if landing
+                    a(href=card.filename, title=card.name)
+                        img.photo(src=card.photo.main, alt="")
+                else if !clinic
+                    a.owlbox(href=card.photo.main, title="", rel="doctor-photo")
+                        img.photo(src=card.photo.main, alt="")
+                else
+                    img.photo(src=card.photo.main, alt="")
+            if card.status != 'inactive' && !landing
+                if card.photo.other && !doctorWorld
+                    ul.thumbs
+                        each photo in card.photo.other
+                            li.thumbs__item
+                                a.thumbs__item-link.owlbox(href=photo.full, rel="doctor-photo", title="")
+                                    img(src=photo.thumb, alt="")
+            if !clinicDiagnostic
+                +b.rating.value-size_big(class=ratingColorBlack): +i({ value: card.averageRating })
+
+            if clinicDiagnostic && landing
+                +b.likebox.likebox_centered: +i({ likes: card.likes, dislikes: card.dislikes })
+
+            if onlineConsultation
+                +e.consultations
+                    span.count= card.onlineConsultationCount
+                    |  консультаций
+            else
+                - testimonialsClass = ""
+                +e.testimonials(class=testimonialsClass)
+                    a(href="#{card.filename}#tab-reviews", title="#{card.testimonialsCount} отзывов")
+                        span.count= card.testimonialsCount
+                        |  отзывов
+                    if !doctorWorld && !clinicWorld
+                        +e("a").info(href="/modals.html#rating-clinic")
+            if card.schedule && !clinic_inner & !doctors_page
+                +e.schedule(class=additionalClass)
+                    ul
+                        each item in card.schedule
+                            li
+                                span.left= item.day
+                                span.right= item.time
+        +e.right-side
+            if !card.hasFilials
+                +b.favorites-block.pull-right: +i
+            +e.title.fn.org
+                if !clinicWorld
+                    if landing
+                        h1.h3
+                            if clinic
+                                - pageLink = '/clinic-inner.html'
+                            else
+                                - pageLink = '/doctor-consultation.html'
+                            a(href=pageLink, title=card.name)= card.name
+                    else
+                        h1= card.name
+            if !clinicDiagnostic
+                if card.label
+                    +e.label.title
+                        strong= card.label
+                +e.label-description
+                    span #{card.labelDescription}&nbsp;
+                    if clinic || clinic_inner
+                        a(href="#" data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+            if card.benefits
+                if clinicWorld
+                    - var benefitsClasses = "benefits_width_auto"
+                +b("ul").benefits(class=benefitsClasses)
+                    each benefit in card.benefits
+                        +e.item
+                            +e("img").icon(src="#{benefit.image}", alt="")
+                            +e("span").title
+                                != benefit.title
+            if clinic || clinic_inner
+                hr.dashed
+            if clinic || clinic_inner
+                .address-info
+                    if card.address && !clinicWorld
+                        +e.address.adr
+                            a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=card.adress)= card.address
+                        .geo.hidden
+                            .latitude: span.value-title(title=card.googleMapCordinates.lat)
+                            .longitude: span.value-title(title=card.googleMapCordinates.lng)
+                    if card.metro && !clinicWorld
+                        +e.location.card__location_metro(class=card.metroType)
+                            = card.metro.join(", ")
+                    if !onlineConsultation && !doctorWorld && !clinicWorld
+                        +e.location= card.location.join(", ")
+            if onlineConsultation || doctorWorld || clinicWorld
+                if doctorWorld || clinicWorld
+                    - var regionBig = "card__region_big"
+                +e.region(class=regionBig)
+                    +e("img").region-icon(src=card.region.flag, alt="")
+                    +e("span").region-label= card.region.label
+                    if clinicWorld
+                        +e("span").region-adress= card.adress
+            if !doctorWorld && clinic || clinic_inner
+                hr.dashed.margin-top-5
+            if clinic_inner
+                p= card.about_general
+
+            if landing
+                +e.short-summary
+                    p
+                        | #{card.shortSummary} &nbsp;
+                        if moreLink
+                            a(href="#") далее
+            if !clinic
+                if card.jobs && !doctorWorld
+                    each job in card.jobs
+                        +e.job(data-id= 'f' + job.id)
+                            +e.job-top
+                                +e("a").job-title(href='#')= job.clinic
+                                &nbsp;
+                                +e("span").job-price стоимость приема от #{job.price}
+                                +b.job-schedule: +i
+                            if landing
+                                +e.desc= job.desc
+                            .address-info
+                                +e.address.adr
+                                    a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=job.adress)= job.address
+                                +e.location.card__location_metro(class=job.metroType)
+                                    = job.metro
+                                +e.location= job.location
+            if !clinic_inner
+                +e.footer
+                    if doctors_page && !landing
+                        +e.socwrap
+                            +e.socitem
+                                a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
+                                script.
+                                    !function (d, s, id) {
+                                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                        if (!d.getElementById(id)) {
+                                            js = d.createElement(s);
+                                            js.id = id;
+                                            js.src = p + '://platform.twitter.com/widgets.js';
+                                            fjs.parentNode.insertBefore(js, fjs);
+                                        }
+                                    }(document, 'script', 'twitter-wjs');
+                            +e.socitem
+                                .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button_count', data-action='like', data-show-faces='true', data-share='false')
+                            +e.socitem
+                                div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="175")
+            
+                    if clinic
+                        a.link(href="#") Акции клиники (17)
+                        a.link(href="#") Пакеты услуг (2)
+                    if !card.hasFilials && (clinicDiagnosticSingle != "big") && (clinicDiagnosticSingle != "small")
+                        if card.status == 'inactive' && !onlineConsultation && !clinicDiagnostic
+                            .pull-right(data-toggle="tooltip", data-original-title="Извините, но этот врач временно недоступен", data-placement="bottom")
+                                button.btn.btn-primary(disabled="disabled") Записаться на прием
+                        else if clinicDiagnostic && landing || doctorWorld
+                            if doctorWorld
+                                - var buttonBigger ="card__submits__button"
+                            a.btn.btn-primary.pull-right(href="/modals.html#diagnostic-request", title="", class=buttonBigger) Записаться
+                        else if clinicDiagnostic
+                            a.btn.btn-primary.pull-right(href="/modals.html#diagnostic-request", title="") Записаться на диагностику
+                        else if onlineConsultation
+                            a.btn.btn-primary.pull-right(href="/modals.html#doctor-request-online", title="") Задать вопрос
+                            +e.reply
+                                | до&nbsp;
+                                +e("span").reply-value= card.reply.value
+                                |  #{card.reply.label}
+                                +e("span").reply-label на ответ врача
+                        else
+                            if clinic
+                                a.btn.btn-success.pull-right(href="#clinic-request" data-toggle="modal" title="") Записаться в клинику
+                            else if !clinic_inner
+                                a.btn.btn-success.pull-right(href="#doctor-request" data-toggle="modal" title="") Записаться на прием
+        if clinic && card.hasFilials
+            if clinicFilials
+                section
+                    h6 Филиалы клиники
+                    +b("ul").filials-list
+                        - var limit = 5
+                        each clinicFilial, i in clinicFilials
+                            if i < limit
+                                if i < 3
+                                    +b.small-card(data-id= 'f' + clinicFilial.id): +i({ item: clinicFilial, clinic: true })
+                                else
+                                    +b.small-card.small-card_hidden(data-id= 'f' + clinicFilial.id): +i({ item: clinicFilial, clinic: true })
+                    +b.more-toggle: +i({ title: "Все филиалы", className: "show-hidden-small-cards", absSelector: "[data-uid='" + uid + "']" })
+
+if clinic_inner
+    +e.bottom
+        +b.photo-gallery._owlbox.hidden-xs: +i({ items: photoGallerySample })
+
+        div.margin-top-10
+            +e.socitem
+                a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
+                script.
+                    !function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = p + '://platform.twitter.com/widgets.js';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, 'script', 'twitter-wjs');
+            +e.socitem
+                .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button_count', data-action='like', data-show-faces='true', data-share='false')
+            +e.socitem
+                div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="175")
+
+            +e.bottom-links
+                a(href="#") Акции клиники (17)
+                a(href="#") Пакеты услуг (2)
+
+if clinicInnerFilials
+    section
+        h6 Филиалы клиники
+        +b("ul").filials-list
+            - var limit = 5
+            each clinicFilial, i in clinicInnerFilials
+                if i < limit
+                    if i < 3
+                        +b.small-card(data-id= 'f' + clinicFilial.id): +i({ item: clinicFilial, clinic: true, clinic_inner: true})
+        +b.more-toggle: +i({ title: "Все филиалы", className: "show-hidden-small-cards", absSelector: "[data-uid='" + uid + "']" })

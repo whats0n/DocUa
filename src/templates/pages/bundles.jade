@@ -1,0 +1,19 @@
+//---
+    layout: layouts/main
+    title: Пакеты услуг
+    activeMenuItem: 3
+    finder: bundles
+    modals: select-area, select-bundles
+    find_text: пакетов
+    page_name: bundles
+
+.row.offers-container
+    each action, i in actionsData
+        .col-md-3.col-sm-4.col-xs-6
+            +b("article").post: +i(action)
+    .col-md-3.col-sm-4.col-xs-6
+        +b.post-load.post
+            +e("a").link(href="#")
+                span Показать еще <br> 20 пакетов услуг
+    .col-xs-12
+        +b("ul").pagination: +i

@@ -1,0 +1,23 @@
+.owl
+  &-prev
+  &-next
+    position absolute
+    top 50%
+    width 12px
+    height 22px
+    margin-top -(@height / 2)
+    transition opacity 0.2s ease-in-out
+    sprite($owl_prev)
+    &.disabled
+      opacity 0.3
+      cursor default !important
+  &-prev
+    left 20px
+    sprite($owl_prev)
+    &:hover:not(.disabled), &:active:not(.disabled)
+      sprite($owl_prev_act)
+  &-next
+    right 20px
+    sprite($owl_next)
+    &:hover:not(.disabled), &:active:not(.disabled)
+      sprite($owl_next_act)

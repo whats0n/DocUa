@@ -1,0 +1,365 @@
+modal_font_size = 15px
+.modal-title 
+    font-size 20px
+            
+.modal
+    form, .form-horizontal
+        .control-label
+            font-size modal_font_size
+            line-height 20px
+            padding-top 6px
+    @media phone
+        .select2-container .select2-choice>.select2-chosen
+            max-width none
+    .form-group
+        @media phone
+            div[class^="col-sm-"] + div[class^="col-sm-"]
+                margin-top 15px
+    &-dialog
+        width 96%
+        max-width 600px
+        &.wide
+            .modal-body
+                padding-left 30px
+                padding-right 20px
+    &.bs-modal-md
+        .modal-dialog
+            max-width 1050px
+    &.bs-modal-sm
+        .modal-dialog
+            max-width 340px
+    .submits
+        text-align center
+    &-header
+        position relative
+        margin-bottom 22px
+        padding 12px 22px 12px 17px
+        min-height 31.43px
+        background grey_base
+        box-shadow 0 2px 4px #AFB1B2
+        border-radius border_radius_sm border_radius_sm 0 0
+
+        p
+            margin-bottom 0
+        .close
+            position absolute
+            top 18px
+            right 20px
+            opacity 0.8
+            transition opacity .2s ease-in-out
+            sprite($modal_close)
+            &:hover
+                text-decoration none
+                cursor pointer
+                opacity 1.0
+    &-body
+        padding-bottom 20px
+    &-title
+        margin 0
+        padding-right 25px
+        font-size 24px
+        line-height 1.33
+        font-weight 700
+
+
+    &-footer
+        &.footer-default
+              position relative
+              overflow hidden
+              width 100%
+              display block
+              border-radius 0 0 (border_radius_sm * 2) (border_radius_sm * 2)
+        .abs a
+            cursor pointer
+        .btn
+            min-width 200px
+            font-weight 400
+            font-size 22px
+            padding-top 7px
+            padding-bottom 7px
+    .btn-xs-block
+        min-width 200px
+        font-weight 400
+        font-size 18px
+        padding-top 7px
+        padding-bottom 7px
+
+
+    &#select-specialization
+        @media phone
+            .modal-title
+                margin-bottom 30px
+
+     .modal-footer
+         .btn+.btn
+             margin 0 0 10px
+         .abs-helper
+             @media phone
+                 text-align center
+                 display block
+                 margin 10px 0 0 0 !important
+                 .abs
+                     position static
+
+    .request
+        &__card
+            margin-bottom 20px
+            &:after
+                content " "
+                display table
+                clear both
+            &-image
+                width 75px
+                height 100px
+                border-radius 3px
+                overflow hidden
+                float left
+                margin 3px 15px 0 0
+                background-color #b2d9e1
+                background-image url("i/no-photo-male-small.jpg")
+                background-repeat no-repeat
+                background-position 0 0
+                img
+                    height 100%
+                &.female
+                    background-image url("i/no-photo-female-small.jpg")
+            &-content
+                overflow hidden
+            &-title
+                font-size 16px
+                line-height 20px
+                font-weight bold
+                margin-top 10px
+                margin-bottom 10px
+            &-location
+                padding-left ($location_width + 8)
+                position relative
+                &:before
+                    content ""
+                    position absolute
+                    left 0
+                    top 0px
+                    sprite($location)
+                @media phone
+                    overflow hidden
+    form
+        .row
+            margin-bottom 10px
+            .control-label
+                margin-bottom 0
+.modal
+    @media phone
+        &-header
+            padding-left 10px
+            padding-right 10px
+        &-title
+            font-size 18px
+    .input-group
+        width 100%
+
+    .form-control
+        height 30px
+        &:focus
+            border-color green_base
+            box-shadow none
+    textarea.form-control
+        min-height 72px
+
+    .services-list
+        padding 10px
+        list-style-type disc
+        background-color #d7f2ef
+        li
+            margin-bottom 5px
+            margin-left 20px
+    .rating-block
+        >.row >.col-sm-6
+            padding-left 0
+            padding-right 0
+        .statistics-item__label
+            font-size 13px
+        .rating-info
+            padding-left 10px
+    .rating-steps
+        &__item
+            text-align left
+            &:before
+                width 120px
+
+.margin-bottom-0
+    margin-bottom 0 !important
+
+#rating, #rating-clinic
+    .modal-dialog
+        max-width 740px
+#select-area
+#select-countries
+#select-area-diagnostics
+    .modal
+        &-footer
+            .abs-helper
+                margin-left 20px
+                font-size 16px
+
+#select-area
+    .modal-header
+        padding-bottom 34px
+        box-shadow none
+        @media screen560
+            .nav-pills
+                padding-left 0
+                li:nth-child(1)
+                    display none
+            
+        .nav-pills
+            position absolute
+            left 0
+            bottom 0
+            width 100%
+            padding-left 22px
+            border-bottom 2px solid green_base
+            li
+                margin-bottom 0
+                font-size 16px
+                line-height 24px
+
+                a
+                    position relative
+                    top -2px
+                    font-size 22px
+                    color green_base
+                    background-color transparent
+                    &:hover
+                        text-decoration underline
+                    span
+                        border-color transparent
+                &.active
+                    &:after
+                        border 1px solid blue_base
+                        content ''
+                        width 100%
+                        height 0
+                        position absolute
+                        left 0
+                        bottom -2px
+                    a
+                        color blue_base
+                        font-weight 700
+                        &:before
+                            content ""
+                            position absolute
+                            left 50%
+                            width 0
+                            height 0
+                            bottom -9px
+                            margin-left -10px
+                            border-style solid
+                            border-width 7px 10px 0 10px
+                            border-color blue_base transparent transparent transparent
+                        &:after
+                            content ""
+                            position absolute
+                            left 50%
+                            bottom -7px
+                            width 0
+                            height 0
+                            margin-left -6px
+                            border-style solid
+                            border-width 5px 6px 0 6px
+                            z-index 2
+                            border-color grey_base transparent transparent transparent
+#clinic-location-map
+    .modal
+        &-header
+            margin-bottom 4px
+        &-body
+            padding 0 2px
+        &-footer
+            padding 0 0 2px 0
+
+.info-modal
+    &__visual
+        height 125px
+        margin 0 -35px 20px
+        padding 20px 35px 20px 150px
+        background-image url("i/blur-infomodal-bg.jpg")
+        background-repeat no-repeat
+        background-position center center
+        background-color #3297a9
+        background-size cover
+        @media phone
+            margin 0 -10px 15px
+            padding 15px
+        &:after
+            content ""
+            display inline-block
+            height 100%
+            width 0
+            vertical-align middle
+        &-icon
+            position absolute
+            top 23px
+            left 43px
+            @media phone
+                display none
+        &-text
+            position relative
+            display inline-block
+            vertical-align middle
+            width 95%
+            font-size 18px
+            line-height 1.2
+            color #fff
+            text-shadow 0 1px 3px rgba(0,0,0,.3)
+            br
+                @media phone
+                    display none
+    &__text
+        font-size 16px
+        line-height 1.28
+        text-align center
+    &__message
+        font-size 18px
+        color #00829b
+        font-weight bold
+        text-align center
+        margin-top 20px
+    .modal
+        &-dialog
+            width 540px
+            @media phone
+                width 500px
+            @media screen560
+                width 300px
+        &-body
+            padding 0 35px 30px
+
+.login-form-popup
+    .remind-password-link
+        display inline-block
+        padding-top 5px
+        font-size modal_font_size
+        @media phone
+            margin-left 10px
+    .abs-helper
+        font-size modal_font_size
+        @media phone
+            position absolute
+            left 50%
+            margin-left -79px
+            bottom -5px
+
+.rating-modal
+    .rating-block .rating-list
+        padding-left 9% !important
+    .likebox
+        margin-left 9% !important
+    .modal-footer
+        text-align left
+        h4
+            margin-top 0
+.request_clinic
+    .radio-inline
+        @media phone
+            padding-left 0
+            padding-right 20px

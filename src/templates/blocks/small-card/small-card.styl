@@ -1,0 +1,175 @@
+.filials-list
+    background beige_light
+.small-card
+    padding 20px 0
+    &:not(:first-child)
+        border-top 1px dashed #ccc
+    
+    &__label-description
+        a
+            display inline-block
+    .rating__value
+        top 1px
+    &__footer
+        @media phone
+            .btn
+                float none !important
+        @media screen560
+            .btn
+                wide-btn()
+    &__left-side
+        margin-bottom 0
+
+        .rating
+            margin-top 3px
+    &__right-side
+        position relative
+        @media phone
+            margin-left 20px 
+    &__action
+        display inline-block
+        width 440px
+        margin 16px 0 8px
+        @media phone_tablet
+            width 100%
+        span
+            position relative
+            margin-right 17px
+            padding 0 9px
+            color #fff
+            line-height 18px
+            font-weight 700
+            border-radius border_radius_sm 0 0 border_radius_sm
+            &.orange
+                background orange_color
+            &:after
+                content ''
+                position absolute
+                right -9px
+                top 0
+                border-style: solid;
+                border-width: 9px 0 9px 9px;
+                border-color: transparent transparent transparent orange_color;
+                
+    &__title
+        >*
+            margin 0 !important
+            font-size 18px !important
+            line-height 1.7 !important
+    &
+    &_hidden
+    .show-hidden-small-cards &_hidden
+        max-height 400px
+        padding-top 20px
+        overflow visible
+        opacity 1
+        position relative
+        display block
+        width 100%
+        transition all .3s linear
+    &_hidden
+        max-height 0
+        padding-top 0
+        padding-bottom 0
+        margin-top 0
+        border-top 0 none
+        overflow hidden
+        opacity 0
+
+.show-hidden-small-cards .small-card_hidden
+    padding-bottom: 20px
+        
+#tab-doctors
+    .form-group-filter
+        margin-bottom 0
+        padding 20px 20px 0
+        label
+            font-size 16px
+    .small-card
+        padding 15px 20px
+        &__title>*
+            line-height 22px !important
+        &__add-info
+            width 205px
+            @media phone
+                .rating
+                    float right
+                    margin-right 5px
+        .favorites-block
+            float right
+            margin-bottom 8px
+        .rating-wrap
+            width 100%
+            float right
+        .rating
+            margin-right 5px
+            margin-bottom 10px
+        &__title
+            margin-bottom 6px
+            line-height 1
+        &__image
+            float left
+            width 75px
+        &__content
+            padding-left 90px
+        &__label
+            font-weight 700
+        &__label-description
+            margin-bottom 0
+        &__cost
+            float left
+            margin-top 14px
+            line-height 1
+            font-size 16px
+            span
+                font-weight 700
+        &__footer
+            margin-top 0
+            .btn
+                font-size 14px
+            @media phone
+                .btn
+                    float right !important
+
+        @media screen560
+            .rating
+                right 0
+                top 10px
+            &__image
+                float none
+                width 35%
+            &__content
+                padding-left 0
+            &__add-info
+                position absolute
+                top 17px
+                right 20px
+            .btn
+                wide-btn()
+        @media phone
+            .rating
+                width 117px
+                position absolute
+                right 20px
+                top 20px
+                margin-right 0
+                padding-right 0
+            .small-card__testimonials
+                margin-top 30px
+            
+#tab-news
+    .article-list-item
+        &__content
+            max-height 72px
+    @media tablet_desktop
+        .article-list-item
+            &__inner
+                height 133px
+                position relative
+            &__meta
+                width 100%
+                position absolute
+                padding-left 214px
+                left 0
+                bottom -3px
+            

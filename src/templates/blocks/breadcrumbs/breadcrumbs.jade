@@ -1,0 +1,13 @@
+- breadcrumbs = data.breadcrumbs
+ol.breadcrumb
+    li(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
+        a(href="/", title="Главная", itemprop="url")
+            span(itemprop="title") Главная
+    each crumb, i in breadcrumbs
+        if i < breadcrumbs.length - 1
+            li(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
+                a(href=crumb.url, title=crumb.title, itemprop="url")
+                    span(itemprop="title")= crumb.title
+        else
+            li
+                    span(itemprop="title")= crumb.title

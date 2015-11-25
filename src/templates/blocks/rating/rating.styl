@@ -1,0 +1,101 @@
+.rating
+    display inline-block
+    >*
+        display inline-block
+        vertical-align top
+    &__label
+        cursor default
+        font-size 14px
+    &__stars
+        position relative
+        width 83px
+        height 14px
+        margin 5px 0 0
+        padding 0
+        list-style none
+    &__star
+        float left
+        width 15px
+        height 14px
+        background-image url("i/rating-icons.png")
+        background-repeat no-repeat
+        background-position 0 0
+        &:hover, &.hover, &.active
+            background-position -85px 0
+        &:hover
+            .star-label
+                display block
+        input
+            height 13px
+            width 13px
+            padding 0
+            margin 0
+            visibility hidden
+    .star-label
+        display none
+        padding 0 10px 1px 5px
+        position absolute
+        top -4px
+        left 125%
+        white-space nowrap
+        background-color #35bfae
+        border-radius 0 100px 100px 0
+        color #fff
+        font-size 14px
+        line-height 21px
+        &:before
+            content ""
+            position absolute
+            top 0
+            right 100%
+            width 0
+            height 0
+            border-style solid
+            border-width 11px 11px 11px 0
+            border-color transparent #35bfae transparent transparent
+    &__value
+        margin-left 3px
+        position relative
+        top 1px
+        font-size 18px
+        line-height 1.1
+        font-weight bold
+        color #00829b
+    &__stars-bg, &__stars-overlay
+        position absolute
+        top 0
+        left 0
+        height 100%
+    &__stars-bg
+        width 100%
+        background url("i/rating-icons.png") no-repeat 0 0
+    &__stars-overlay
+        background url("i/rating-icons.png") no-repeat -85px 0
+    &_size_small
+        .rating
+            &__stars
+                width 59px
+                height 10px
+            &__value
+                font-size 14px
+                margin-top -2px
+                vertical-align middle
+            &__stars
+                margin-top 4px
+                &-bg
+                    background url("i/rating-icons-small.png") no-repeat 0 0
+                &-overlay
+                    background url("i/rating-icons-small.png") no-repeat -59px 0
+    &.value-size_big
+        .rating__value
+            font-size 22px
+            margin-left 0
+            margin-top -2px
+    &.hide_value
+        .rating__value
+            display none
+    &.value_black
+        .rating
+            &__value
+                color #000
+        

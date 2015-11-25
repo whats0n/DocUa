@@ -1,0 +1,116 @@
+.widget-map
+  position relative
+
+  .btn
+    position: absolute
+    left 50%
+    bottom 40px
+    width 188px
+    margin-left -94px
+    padding-left 12 + $expand_map_width
+    font-size 16px
+    &:before
+      content ''
+      position absolute
+      left 15px
+      top 8px
+      sprite($expand_map)
+    @media phone_tablet
+      width 150px
+      font-size 15px
+      margin-left -75px
+      &:before
+        left 8px
+        padding-left 6 + $expand_map_width
+
+/*.marker-window*/
+  /*display none*/
+.map-marker-content
+  background #fff
+  border-radius border_radius_sm
+  box-shadow 0 5px 11px #DDDADA
+  font-size 11px
+
+  .image
+    text-align center
+  .marker-logo
+    width 115px
+    margin-bottom 10px
+  .title
+    display block
+    white-space nowrap
+    font-weight 700
+    font-size 14px
+  .card__address
+    width 100%
+    margin 5px 0
+  .marker-review
+    float right
+    font-size 14px
+  .rating
+    &__value
+      float left
+      top 2px
+    &__stars
+      margin-left 5px
+
+
+  footer
+  .btn
+    width 100%
+    margin-top 10px
+
+.modal-body-map
+  height 500px
+  #modal-map
+    height 500px
+
+.big-map
+  &__container
+    width 80%
+    @media only screen and (max-width: 1400px)
+      width 75%
+  &__widget
+    position absolute
+    right 0
+    top 0
+    width 20%
+    height 100%
+    background #fff
+
+    @media only screen and (max-width: 1400px)
+      width 25%
+
+    .short-list
+      border-radius 0
+      border 0px
+
+      &__header
+        padding 0 10%
+        height 84px
+        margin-bottom 3px
+        color #fff
+        text-align center
+        background green_base
+        .count
+          float left
+          font-weight 700
+          font-size 43px
+          line-height 60px
+          padding 12px 0
+          margin-right 15px
+        .title
+          font-size 16px
+          line-height 20px
+          height 100%
+          display table
+          >span
+            vertical-align middle
+            display table-cell
+      &__items
+        padding-top 0
+      &__item
+        padding 20px
+        margin-bottom 0
+        &:first-child
+          border-top transparent

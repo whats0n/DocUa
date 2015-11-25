@@ -1,0 +1,238 @@
+$finder_input_padding = 8px
+.finder
+    margin-top 20px
+    margin-bottom 0
+    position relative
+    z-index 2
+    background blue_base
+    border-radius border_radius_sm
+    white-space nowrap
+    clearfix()
+
+    &__search-title
+        position relative
+        float left
+        width 12%
+        height 78px
+        padding 25px 0
+        color #fff
+        font-size 14px
+        line-height 28px
+        text-transform uppercase
+        text-align center
+        background-color green_base
+        border-radius border_radius_sm 0 0 border_radius_sm
+        
+        @media phone_tablet
+            display none
+        
+        &:after
+            content ""
+            position absolute
+            right -20px
+            top 0
+            width 0
+            height 0
+            border-style solid
+            border-width 39px 0 39px 20px
+            border-color transparent transparent transparent green_base
+    form
+        float left
+        width 88%
+        padding 20px 3% 20px
+        @media phone_tablet
+            width 100%
+        fieldset
+            position relative
+    &__field
+        position relative
+        float left
+        display inline-block
+        margin-right 1.6%
+        width 41%
+        height 38px
+        padding 0 45px 0 18px
+        font-size 16px
+        line-height 38px
+        border-radius border_radius_sm
+        box-shadow 0 0 20px transparent
+        transition box-shadow .2s ease-in-out
+        background-color #fff
+        white-space nowrap
+        cursor pointer
+        
+        input.form-control
+            width 100%
+            padding-left 0
+            font-size 16px
+            border 0
+            box-shadow none
+
+        @media tablet
+            width 39%
+        @media phone
+            width 100%
+            margin-bottom 20px
+        &:before
+            content ""
+            position absolute
+            transition opacity .2s ease-in-out
+            background-repeat no-repeat
+            width 35px
+        &:before
+            height 27px
+            right $finder_input_padding
+            top 6px
+            border-left 1px solid #eaf2f3
+        &:hover
+            box-shadow 0 0 20px rgba(53, 191, 174, 1)
+            span
+                opacity .75
+        span
+            display inline-block
+            position absolute
+            transition opacity .2s ease-in-out
+            background-repeat no-repeat
+        &-icon
+            &-doctors
+                >span
+                    right $finder_input_padding
+                    top 6px
+                    sprite($finder_doctor)
+            &-location
+                >span
+                    right $finder_input_padding + 4
+                    top 6px
+                    sprite($finder_location)
+            &-clinics
+                >span
+                    right $finder_input_padding
+                    top 6px
+                    sprite($finder_clinic)
+            &-aim
+                >span
+                    right $finder_input_padding
+                    top 6px
+                    sprite($finder_aim)
+                
+        &-text
+            display inline-block
+            color form_input_color
+            overflow hidden
+            text-overflow ellipsis
+            white-space nowrap
+            width 260px
+            @media phone_tablet
+                width 100%
+        .select7
+            position absolute
+            top 0
+            left 0
+            height 100%
+            width 100%
+            margin 0
+            &__current
+                padding 2px 45px 0 18px
+                &-value
+                    border 0 none
+            &__caret
+                display none
+            &__placeholder
+                color #d5d5d5
+            &__drop
+                border 0 none
+                padding 5px 0 0 0
+                margin -5px 0 0 0
+                border-radius 0 0 border_radius_sm border_radius_sm
+                overflow hidden
+            &__option
+                font-size 18px
+                line-height 38px
+                padding 0 18px
+                &:hover
+                    background-color #d7f2ef
+    &__submit
+        display inline-block
+        width 17%
+        @media tablet
+            width 19%
+        @media phone
+            float left
+            width 100%
+        .btn
+            height 38px
+            font-size 20px
+            padding 0
+            font-weight: 700
+            text-shadow: 0 1px 1px rgba(180, 137, 63, 0.75)
+            background-color: #ffc02a
+            outline: none !important
+            box-shadow: none 
+    .nav-pills
+        margin 0
+        >li
+            margin -6px 0 0 5px
+            &:first-child
+                margin-left 0
+            >a
+                background-color transparent
+                color #0089d1
+                border-radius border_radius_sm
+                border 0 none
+                padding 0 10px
+                font-size 16px
+                line-height 30px
+                &:hover
+                    background none
+                span
+                    border-bottom 1px dotted
+            &.active
+                >a
+                    color #fff
+                    background #52aab3
+                    border 0 none !important
+                    span
+                        border-bottom-color transparent
+    &.hidden-sm
+        display inline-block !important
+
+    .livesearch
+        width 100% !important
+
+.finder-map
+    width 762px
+    position absolute
+    left 50%
+    margin-left -381px
+    z-index 101
+
+    form
+        width 82%
+        margin-left 2%
+
+    .finder
+        &__search-title
+            width 16%
+        &__field
+            width 70%
+        &__submit
+            width 30%
+            a
+                font-size 16px
+                line-height 28px
+
+    @media only screen and (max-width: 1400px)
+        width 60%
+        left 7.5%
+        margin-left 0
+
+        .finder__search-title
+            display none
+
+        form
+            width 96% !important
+
+        .finder__field
+            width 70%
+        .finder__submit
+            width 28.4%

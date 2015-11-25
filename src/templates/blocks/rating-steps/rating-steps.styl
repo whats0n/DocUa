@@ -1,0 +1,50 @@
+.rating-steps
+    margin 0 0 10px
+    padding 0
+    list-style none
+    overflow hidden
+    &__item
+        position relative
+        float left
+        width 25%
+        padding-right 40px
+        @media phone_tablet
+            padding-right 10px
+        @media phone
+            float none
+            width 100%
+            overflow hidden
+            margin-bottom 10px
+        &:before
+            content ""
+            position absolute
+            right 100%
+            top 23px
+            width 150px
+            height 25px
+            background-image url("i/list-arrows.png")
+            background-repeat no-repeat
+            background-position center 0
+            @media phone
+                content none
+                display none
+        &:first-child
+            &:before
+                content none
+                display none
+    &__icon
+        position relative
+        width 60px
+        height @width
+        z-index 2
+        @media phone
+            float left
+            margin-right 20px
+    &__title
+        margin-top 10px
+        font-size 14px
+        line-height 1.285
+        @media tablet
+            padding-right 30px
+        @media phone
+            margin-top 14px

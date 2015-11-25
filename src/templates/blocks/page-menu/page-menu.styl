@@ -1,0 +1,30 @@
+.page-menu
+	margin-top 31px
+	&__item
+		position relative
+		margin-bottom 6px
+		&-link
+			text-decoration none
+			&:hover
+				text-decoration underline
+		&.active
+			padding-left 14px
+			.page-menu__item-link
+				font-weight 700
+				color text_color
+			&:before, &:after
+				content ''
+				position absolute
+				width 0
+				height 0
+				left 0
+			&:before
+				top 4px
+				border-style solid
+				border-width 6px 0 5px 6px
+				border-color transparent transparent transparent text_blue
+			&:after
+				top 5px
+				border-style solid
+				border-width 5px 0 4px 5px
+				border-color transparent transparent transparent grey_base

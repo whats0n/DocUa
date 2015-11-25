@@ -1,0 +1,89 @@
+//
+// Navbars
+// --------------------------------------------------
+
+
+// Wrapper and base class
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
+
+.navbar {
+  position: relative;
+  min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+  padding: 6px 0;
+
+  // Prevent floats from breaking the navbar
+  &:extend(.clearfix all);
+}
+
+// Navbar heading
+//
+// Groups `.navbar-brand` and `.navbar-toggle` into a single component for easy
+// styling of responsive aspects.
+
+.navbar-header {
+  &:extend(.clearfix all);
+
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+  }
+}
+
+.navbar-main{
+    background-color: @blue-base;
+}
+
+.navbar-fixed-top{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: @zindex-navbar-fixed;
+}
+
+
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// JavaScript plugin.
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  margin-left: @navbar-padding-horizontal;
+  .navbar-vertical-align(28px);
+  background-color: transparent;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 0;
+
+  // We remove the `outline` here, but later compensate by attaching `:hover`
+  // styles to `:focus`.
+  &:focus {
+    outline: 0;
+  }
+
+  // Bars
+  .icon-bar {
+    display: block;
+    width: 30px;
+    height: 4px;
+    border-radius: 3px;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 6px;
+  }
+}
+
+.navbar-toggle {
+  border-color: @navbar-default-toggle-border-color;
+  &:hover,
+  &:focus {
+    .icon-bar {
+      background-color: #fff;
+    }
+  }
+  .icon-bar {
+    background-color: @navbar-default-toggle-icon-bar-bg;
+  }
+}

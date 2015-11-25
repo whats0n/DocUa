@@ -1,0 +1,136 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$advant_call_name = 'advant_call';
+$advant_call_x = 93px;
+$advant_call_y = 0px;
+$advant_call_offset_x = -93px;
+$advant_call_offset_y = 0px;
+$advant_call_width = 65px;
+$advant_call_height = 65px;
+$advant_call_total_width = 243px;
+$advant_call_total_height = 153px;
+$advant_call_image = '/i/sprites-index.png';
+$advant_call = 93px 0px -93px 0px 65px 65px 243px 153px '/i/sprites-index.png' 'advant_call';
+$advant_free_name = 'advant_free';
+$advant_free_x = 0px;
+$advant_free_y = 0px;
+$advant_free_offset_x = 0px;
+$advant_free_offset_y = 0px;
+$advant_free_width = 73px;
+$advant_free_height = 68px;
+$advant_free_total_width = 243px;
+$advant_free_total_height = 153px;
+$advant_free_image = '/i/sprites-index.png';
+$advant_free = 0px 0px 0px 0px 73px 68px 243px 153px '/i/sprites-index.png' 'advant_free';
+$advant_secure_name = 'advant_secure';
+$advant_secure_x = 178px;
+$advant_secure_y = 85px;
+$advant_secure_offset_x = -178px;
+$advant_secure_offset_y = -85px;
+$advant_secure_width = 56px;
+$advant_secure_height = 64px;
+$advant_secure_total_width = 243px;
+$advant_secure_total_height = 153px;
+$advant_secure_image = '/i/sprites-index.png';
+$advant_secure = 178px 85px -178px -85px 56px 64px 243px 153px '/i/sprites-index.png' 'advant_secure';
+$stat_daily_name = 'stat_daily';
+$stat_daily_x = 0px;
+$stat_daily_y = 88px;
+$stat_daily_offset_x = 0px;
+$stat_daily_offset_y = -88px;
+$stat_daily_width = 65px;
+$stat_daily_height = 65px;
+$stat_daily_total_width = 243px;
+$stat_daily_total_height = 153px;
+$stat_daily_image = '/i/sprites-index.png';
+$stat_daily = 0px 88px 0px -88px 65px 65px 243px 153px '/i/sprites-index.png' 'stat_daily';
+$stat_doctors_name = 'stat_doctors';
+$stat_doctors_x = 85px;
+$stat_doctors_y = 88px;
+$stat_doctors_offset_x = -85px;
+$stat_doctors_offset_y = -88px;
+$stat_doctors_width = 65px;
+$stat_doctors_height = 65px;
+$stat_doctors_total_width = 243px;
+$stat_doctors_total_height = 153px;
+$stat_doctors_image = '/i/sprites-index.png';
+$stat_doctors = 85px 88px -85px -88px 65px 65px 243px 153px '/i/sprites-index.png' 'stat_doctors';
+$stat_reviews_name = 'stat_reviews';
+$stat_reviews_x = 178px;
+$stat_reviews_y = 0px;
+$stat_reviews_offset_x = -178px;
+$stat_reviews_offset_y = 0px;
+$stat_reviews_width = 65px;
+$stat_reviews_height = 65px;
+$stat_reviews_total_width = 243px;
+$stat_reviews_total_height = 153px;
+$stat_reviews_image = '/i/sprites-index.png';
+$stat_reviews = 178px 0px -178px 0px 65px 65px 243px 153px '/i/sprites-index.png' 'stat_reviews';
+$spritesheet_width = 243px;
+$spritesheet_height = 153px;
+$spritesheet_image = '/i/sprites-index.png';
+$spritesheet_sprites = $advant_call $advant_free $advant_secure $stat_daily $stat_doctors $stat_reviews;
+$spritesheet = 243px 153px '/i/sprites-index.png' $spritesheet_sprites;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}

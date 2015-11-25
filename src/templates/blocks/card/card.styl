@@ -1,0 +1,313 @@
+.card
+    position relative
+    padding 12px 0 0
+    margin-bottom 20px
+    background #fff
+    border 1px solid border_grey
+    border-radius border_radius_sm
+    box-shadow 0 2px 3px #e3e4ed
+    transition border-color 0.2s ease, box-shadow 0.2s ease
+    &:not(.has-hidden-small-cards)
+        padding-bottom 12px
+    &.has-hidden-small-cards
+        .card__footer
+            margin-bottom 10px
+            .link
+                margin-top 0
+    &:after
+        content " "
+        display table
+        clear both
+    .rating__value
+        top 2px
+    &__footer
+        .btn
+            font-size 18px
+            padding 10px 23px
+            line-height 23px
+    h6
+        font-size 16px
+        margin 0
+        padding 10px 0 0
+        font-weight 700
+        text-align center
+        background beige_light
+        border-top 1px solid #e9eff0
+    &__bottom
+        margin 0 15px 15px
+        clearfix()
+        &-links
+            float right
+            width: 270px
+            @media phone
+                float none
+                padding-top 30px
+            @media screen560
+                padding-top 0
+            a
+                font-size 15px
+                display inline-block
+                &:last-child
+                    margin-left 15px
+                    padding-left 15px
+                    border-left 1px solid blue_base
+    &__socwrap
+        float left
+        clearfix()
+        .card__socitem
+            margin-top 13px
+        @media only screen and (max-width: 1200px)
+            float none
+            margin-bottom 10px
+    &__socitem
+        float left
+        margin-right 9px
+        height 20px
+        @media screen560
+            float none
+            margin-top 5px
+    &-list
+        margin 0
+        padding 0
+        list-style none
+        .card
+            &:hover
+                box-shadow 0 10px 15px #e3e4ed
+                border-color #35bfae
+                .more-toggle__link
+                    box-shadow 0 10px 15px #e3e4ed
+                    border-color #35bfae
+    &__title
+        margin-bottom 7px
+        >*
+            margin 0 !important
+            font-size 22px !important
+            line-height 1.4 !important
+            @media phone_tablet
+                font-size 18px !important
+            @media screen560
+                margin-top 7px !important
+
+    &__job
+        margin-top 10px
+        padding 11px 20px 8px
+        border 1px dashed blue_light
+        border-radius border_radius_sm
+        @media phone_tablet
+            &-top
+                padding-right 0
+        &-top
+            position relative
+            padding-right 130px
+        &-title, &-price
+            font-size 16px
+
+        .card__desc, .address-info
+            font-size 12px
+        .card__desc
+            color text_grey
+        .address-info
+            margin-top 8px
+            line-height 20px
+    &__label + &__label-description
+        margin-top: 3px
+    .benefits + &__short-summary
+        margin-top: 4px
+
+.card, .small-card
+    .rating__value
+        float left
+        position relative
+        margin-right 3px
+        font-size 20px
+
+    &__schedule
+        position relative
+        margin-top 38px
+        padding 13px 10px
+        font-size 13px
+        border 1px dashed text_blue
+        border-radius border_radius_sm
+        &:before
+            content ''
+            position absolute
+            top -11px
+            left 59px
+            sprite($calendar)
+            @media phone
+                left 50%
+                margin-left -7px
+
+        li
+            clearfix()
+            span
+                display inline-block
+            .left
+                float left
+                width 48px
+                color text_blue
+                text-align left
+            .right
+                float left
+                width 70px
+    @media screen560
+        &__right-side
+            .right-side-rating
+                clearfix()
+            .card__image, .small-card__image
+                float left
+                width 100%
+                img
+                    width 40%
+            .rating
+                float left
+                margin-right 15px
+            .small-card__testimonials
+                float left
+                position relative
+        &__right-side
+            margin-left 20px
+    &__left-side
+        float left
+        width 160px
+        margin-bottom 10px
+        padding-left 20px
+        text-align center
+        @media screen560
+            float none
+            min-height 150px 
+            .rating
+                position absolute
+                right 10px
+                top 20px
+                width 120px
+            .card__schedule
+                position absolute
+                right 20px
+                top 55px
+            .card__testimonials
+                position absolute
+                right 20px
+                top 50px
+    &__right-side
+        margin-left 180px
+        padding-right 20px
+        clearfix()
+        @media screen560
+            margin-left 20px
+    &__title
+        display block
+    &__image
+        width 140px
+        margin 3px 0 10px
+        @media screen560
+            width 130px
+        a
+            display block
+        img
+            width 100%
+    &__testimonials
+        padding-top 1px
+        font-size 16px
+    &__info
+        position relative
+        top 3px
+        left 5px
+        display inline-block
+        sprite($info)
+        outline none
+    &__consultations
+        padding-top 7px
+        font-size 14px
+        color #7f7f7f
+    .favorites-block
+        margin-top 9px
+    
+    &__label-description
+        margin-bottom 10px
+    &__address, &__location, &__metro
+        float left
+        position relative
+        &:before
+            content ''
+            position absolute
+            left 0
+            top 0
+    &__address
+        margin-right 16px
+        padding-left ($location_width + 8)
+        &:before
+            sprite($location)
+        a
+            display inline
+    &__location
+        margin-right 16px
+        padding-left ($district_width + 8)
+        &:before
+            top 2px
+            sprite($district)
+        &_metro
+            padding-left ($metro_blue_width + 8)
+            &:before
+                top 3px
+                sprite($metro_default)
+            &.blue
+                &:before
+                    sprite($metro_blue)
+            &.red
+                &:before
+                    sprite($metro_red)
+            &.green
+                &:before
+                    sprite($metro_green)
+    &__short-summary
+        padding 0
+        p:last-child
+          margin-bottom 0
+    &__footer
+        display inline-block
+        width 100%
+        margin-top 10px
+        clearfix()
+        .link
+            display inline-block
+            margin 10px 0
+            font-size 16px
+            &:not(:first-child)
+                margin-left 14px
+                padding-left 14px
+                border-left 1px solid text_blue
+            @media screen560
+                display block
+                margin-left 0 !important
+                padding-left 0 !important
+                border-left 0 !important
+        @media screen560
+            .btn
+                wide-btn()
+        .small-card__schedule
+            float left
+            margin-top 0
+            padding 8px 5px 8px 23px
+            border-color transparent
+            clearfix()
+            @media phone
+                float none
+            li
+                float left
+                margin-right 9px
+                .left
+                    width auto
+                    margin-right 4px
+            &:before
+                left 0
+                top 6px
+                margin-left 0
+    hr
+        margin 13px 0
+    .address-info
+        display inline-block
+        clearfix()
+
+    &.inner h6, &.inner .filials-list
+        background-color #fff

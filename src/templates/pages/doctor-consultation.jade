@@ -1,0 +1,119 @@
+//---
+    layout: layouts/main
+    title: Александрийский Константин Константинович
+    activeMenuItem: 0
+    finder: doctors
+    modals: select-area, select-specialization, clinic-location-map
+    page_name: doctor_consultation
+
+.row 
+    section.col-md-9 
+        +b.card: +i({card: doctors[0], landing: false, doctors_page: true})
+
+        ul.nav.nav-tabs.nav-doctor
+            li.active: a(href="#tab-about", data-toggle="tab") О враче
+            li
+                a(href="#tab-reviews", data-toggle="tab") Отзывы
+            li
+                a(href="#tab-actions", data-toggle="tab") Акции к врачу (4)
+        .tab-content
+            #tab-about.tab-pane.active
+                +b.rating-block
+                    .row
+                        .col-sm-7
+                            .row
+                                .col-xs-4
+                                    +b.statistics-item._simple
+                                        +e.label Рекомендуют
+                                        +e.value 95
+                                            +e("span").value-label %
+                                .col-xs-4
+                                    +b.statistics-item._simple
+                                        +e.label Средний балл
+                                        +e.value 5.0
+                                .col-xs-4
+                                    +b.statistics-item._simple
+                                        +e.label Кол-во отзывов
+                                        +e.value 152
+                            +b.rating-info
+                                +e("span").icon
+                                +e.text Рейтинг врача рассчитывается<br>на основе&nbsp;
+                                    +e("a").more-link(href="/", title="реальных отзывов пациентов"): span реальных отзывов пациентов
+                        .col-sm-5 
+                            +b("ul").rating-list
+                                each rating in doctors[0].ratings
+                                    +b.rating: +i({ label: rating.label, value: rating.value, tooltip: rating.tooltip })
+                            +b.likebox: +i({ likes: doctors[0].likes, dislikes: doctors[0].dislikes, label: "Рекомендуют врача" })
+                .text
+                    each about in doctors[0].about
+                        p
+                            strong.doctors= about.title
+                            ul.style-disc.about-list
+                                each item in about.items
+                                    li= item
+
+            #tab-reviews.tab-pane
+                +b.rating-block
+                    .row
+                        .col-sm-7
+                            .row
+                                .col-xs-4
+                                    +b.statistics-item._simple
+                                        +e.label Рекомендуют
+                                        +e.value 95
+                                            +e("span").value-label %
+                                .col-xs-4
+                                    +b.statistics-item._simple
+                                        +e.label Средний балл
+                                        +e.value 5.0
+                                .col-xs-4
+                                    +b.statistics-item._simple
+                                        +e.label Кол-во отзывов
+                                        +e.value 152
+                            +b.rating-info
+                                +e("span").icon
+                                +e.text Рейтинг врача рассчитывается на основе отзывов пациентов относительно квалификации, внимания к пациенту и соотношения цены и качества приема.
+                        .col-sm-5
+                            +b("ul").rating-list
+                                each rating in doctors[0].ratings
+                                    +b.rating: +i({label: rating.label, value: rating.value, tooltip: rating.tooltip})
+                            +b.likebox: +i({
+                                likes: doctors[0].likes,
+                                dislikes: doctors[0].dislikes,
+                                label: "Рекомендуют врача"
+                            })
+                    h4 Как мы собираем отзывы?
+                    p Все отзывы достоверны и получены в результате опроса пациентов, побывавших на приеме у врача
+                    +b("ul").rating-steps: +i
+                if file.status != 'inactive'
+                    +b("ul").reviews-list: +i({ items: doctors[0].testimonials })
+                else
+                    .text-center.middle
+                        | У этого врача еще нет ни одного отзыва.&nbsp;
+                        strong
+                            a(href="/", title="Будьте первыми") Будьте первыми!
+                .pagination-wrap
+                    +b("ul").pagination: +i
+
+            #tab-actions.tab-pane
+                .offers-list
+                    .row
+                        - var limit = 4
+                        each action, i in actionsData
+                            if i < limit
+                                .col-sm-4.col-xs-6
+                                    +b("article").post: +i(action)
+    aside.col-md-3.hidden-sm.hidden-xs
+        .widget.widget-map
+            #map-canvas-right
+        .widget.widget-doctor
+            h3 Похожие врачи
+            - var items = []
+            - var limit = 4
+            each doctor, i in doctors
+                if i < limit
+                    - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
+            +b.short-list: +i({ items: items })
+            .link
+                   a(href="/doctors.html") Все врачи
+                

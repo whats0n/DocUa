@@ -1,0 +1,53 @@
+minWidth = 15px
+.go-top
+    position fixed
+    z-index 999
+    cursor pointer
+    overflow hidden
+    height 100%
+    top 0
+    left 0
+    width 63px
+    padding 0
+    transition none
+    &__icon
+        display block
+        position fixed
+        top 36px
+        left 0
+        margin 0 auto 4px
+        width 63px
+        height 100%
+        background-repeat no-repeat
+        background-image url('i/go-top.png')
+        background-position -63px 0
+        color #afb7bc
+    &__title
+        text-align center
+        text-decoration none
+        font-size 12px
+        line-height 14px
+        font-weight bold
+        color #9fa8ae
+        transition none
+        display block
+    &:hover
+        .go-top__icon
+            color #008fa5
+            background-color rgba(60, 50, 50, 0.1)
+            background-position 0 -63px
+    @media (min-width: 768px) and (max-width: 868px), (min-width: 980px) and (max-width: 1085px)
+        width minWidth
+        .go-top__icon
+            width minWidth
+            background-image none
+            &:after
+                content "^"
+                font-size 13px
+                position absolute
+                top 0
+                width 100%
+                text-align center
+                font-family "Verdana", Arial
+    @media (max-width: 768px)
+        display none !important

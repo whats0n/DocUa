@@ -1,0 +1,1037 @@
+html
+    background red
+html, body
+    background grey_base
+
+body
+    &.lock
+        height 100%
+        overflow hidden
+    >.container-fluid //parallax overflow
+        position relative
+        z-index 2
+        >.row:not(.row-finder)
+            background grey_base
+        &.container-menu
+            z-index 3
+            border-bottom 2px solid green_base
+        &.container-header
+            z-index 5
+        &.container-finder
+            z-index 4
+    &.body-map
+        height 100%
+        overflow hidden
+
+ul
+    list-style: none
+    margin: 0
+    padding: 0
+
+    &.style-disc
+      padding-left: 20px
+      li
+          position: relative
+          margin-bottom: 4px
+          padding-left: 20px
+          line-height: 1.75
+          &:before
+              content "•"
+              position: absolute
+              top: 0
+              left: 0
+              font-size: 22px
+              line-height: 24px
+              color: #96b8bf
+
+.navbar-fixed-top
+    @media phone_tablet
+        position relative
+
+.prarallax-wrap
+    position fixed
+    left 0
+    top 0
+    width 100%
+    height 750px
+    @media tablet_desktop
+        background url('i/parallax-bg.jpg') center center no-repeat
+    @media tablet
+        position absolute
+.row
+    &-white
+        background #fff !important
+    &-blog
+        padding-bottom 30px
+    &-finder
+        @media phone
+            background transparent
+
+            .container
+                margin-bottom 40px
+                @media phone
+                    margin-bottom 10px
+
+a
+    transition all .2s ease-in-out
+    text-decoration underline
+    &:hover
+        color inherit
+        text-decoration none
+    &.grey
+        color text_color
+    &.under-dot
+        text-decoration none
+        span
+            transition all .2s ease-in-out
+            border-bottom 1px dotted blue_base
+        &:hover
+            span
+                border-color transparent
+a, span
+    &.dotted
+        text-decoration none
+        border-bottom 1px dotted
+        line-height 1
+        display inline-block
+a.dotted:hover, a:hover span.dotted
+    border-bottom-color transparent
+
+.offset-bottom-0
+  margin-bottom: 0!important
+  padding-bottom: 0!important
+
+.offset-top-25
+    margin-top: 25px!important
+
+hr
+    border-color #ccc
+    &.dotted
+        border-style dotted
+    &.dashed
+        border-style dashed
+    &.invisible
+        border-style solid
+        border-color transparent
+        border-width 0
+    &.color
+        border-color #00829b
+        border-width 2px
+        margin 13px 0 11px
+
+input[type="text"]::-ms-clear
+    display none
+
+.splash.island
+    width 100%
+    margin-bottom 20px
+    padding 20px
+    background #fff
+    border-radius border_radius_sm
+    box-shadow 0 2px 3px #e3e4ed
+    clearfix()
+// Finder popups
+.districts-check-list
+    margin 0
+    padding 0
+    list-style none
+    // min-height 500px
+    li
+        margin 0 0 20px
+        padding 0
+        list-style none
+        font-weight bold
+        font-size 16px
+        line-height 24px
+        ul
+            margin 0
+            padding 0
+        li
+            font-weight normal
+            font-size 15px
+            line-height 22px
+            margin-bottom 0
+
+.metro-map
+    position relative
+    width 895px
+    height 580px
+    margin 0 auto
+    background url('i/metro-map.png') no-repeat top left transparent
+    @media tablet
+        transform scale(0.8)
+        margin -50px auto
+    @media phone
+        width auto
+        height auto
+        background none
+        margin-bottom 20px
+    .pill
+        position absolute
+        margin 0
+        font-size 12px
+        @media phone
+            position static
+            display block
+            font-size 14px
+            margin-bottom 2px
+        &.icon-left
+            margin-left -15px
+            @media phone
+                margin-left inherit
+    &_kharkiv
+        height 565px
+        background url('i/metro-map-kharkiv.png') no-repeat 115px 0 transparent
+
+
+
+.pill
+    input
+        position absolute
+        opacity 0
+    >span
+        border-radius 12px
+        text-decoration none
+        padding 1px 10px
+        color #000
+        display inline-block
+        cursor pointer
+        > span
+            line-height 1
+            border-bottom 1px dotted
+            transition border-color .2s ease-in-out
+        &:hover
+            background-color transparent
+            > span
+                border-bottom-color transparent
+    input:checked
+        + span
+            &
+            &:hover
+            &:focus
+                color white
+                background-color #00829b
+                > span
+                    border-bottom-color transparent
+
+form
+    input.form-control, textarea.form-control
+        color form_input_color
+        placeholder(#91b5bc, 14px)
+    textarea
+        resize vertical
+
+.error-message
+    display none
+    position absolute
+    z-index 5
+    top 100%
+    left 15px
+    right 15px
+    width auto
+    color #fff
+    background-color #ff4f4f
+    border-radius 0 0 3px 3px
+    padding 5px
+    font-size 12px
+    line-height 14px
+    .input-group &
+        left 0
+        width 100%
+    @media phone
+        left 10px
+        right 10px
+.middle
+    font-size 125% 
+.large
+    font-size 135%
+
+.border-box
+    position relative
+    border 1px solid #ccc
+    border-radius 3px
+    padding 20px
+    margin-bottom 30px            
+.datepicker-icon
+    position relative
+    width 13px
+    height 13px
+    margin 9px 10px 0 0
+
+    &:before
+        content ""
+        position absolute
+        top 50%
+        left 50%
+        margin-left -7px
+        margin-top -7px
+        font-size 22px
+        line-height 24px
+        color #96b8bf
+        sprite($date_grid)
+
+.docicon-shadow-doc
+    sprite($green_doctor)
+.docicon-shadow-clinic
+    sprite($green_clinic)
+
+
+// Footer blog links.blog-links
+.blog-links
+    @media tablet
+        margin-top 20px
+        &__item
+            float left
+            width 50%
+            padding-right 2%
+    &__item
+        margin-bottom 6px
+        &:last-child
+            margin-bottom 0
+        a
+            font-size 15px
+            line-height 20px
+            text-decoration underline
+            &:hover
+                text-decoration none
+
+.abs
+    position absolute
+.abs-helper
+    position relative
+    white-space nowrap
+    margin-left 10px
+    .abs
+        top 0
+        left 0
+
+.inline-block
+    display inline-block
+    margin 0
+    vertical-align middle
+    ul&
+        li
+            margin 0
+            padding-left 0
+            padding-right 0
+            display inline-block
+        li, li a, li span
+            padding-top 0
+            font-size inherit
+            line-height inherit
+
+.nav-pills
+    > li
+        &, & + li
+            margin 0 0 5px 0
+        &.active a
+            // posa
+            padding-bottom 0
+            border-radius 12px
+            color: #fff;
+            background-color: #00829b;
+            span
+                border-color transparent
+        >a
+            padding 1px 10px
+            outline none
+            &>span
+                line-height 1.2
+                display: inline-block;
+                border-bottom: 1px dotted;
+                transition: border-color .2s ease-in-out;
+.modal-title .nav-pills.inline-block>li>a
+    padding-left 15px
+    padding-right 15px
+
+ul
+    &.border-dotted
+        margin 0 -15px 10px
+        padding 0 0 15px
+        list-style none
+        font-size 15px
+        position relative
+        clearfix()
+        &:before
+            content ""
+            display block
+            height 2px
+            background-color #9adfd6
+            border-width 0 15px
+            border-color white
+            border-style solid
+            position absolute
+            bottom 0
+            left 0
+            width 99%
+        li
+            border-bottom 1px dotted #ccc
+            margin-left 15px
+            margin-right 15px
+            &:last-child
+                border-bottom-color transparent
+        a
+            display block
+            padding 5px 0
+        .column
+            li:last-child
+                border-bottom 0 none
+        .first
+            li
+                margin-left 0  
+// main-content
+.main-content
+    h1
+        margin-top 0
+        margin-bottom 14px
+        font-weight 700
+        font-size 24px
+    .content-inner
+        margin-bottom 20px
+        padding 20px
+        background #fff
+        border-radius border_radius_sm
+        box-shadow 0 2px 4px #e3e4ed
+    .rich-content
+        font-size 16px
+        em
+            font-weight 700
+            font-size 18px
+        h2
+            font-weight 700
+            font-size 20px
+        img.full-width
+            margin 10px -20px
+        ul
+            padding-left: 20px
+            li
+                position: relative
+                margin-bottom: 4px
+                padding-left: 20px
+                line-height: 1.75
+                &:before
+                    content "•"
+                    position: absolute
+                    top: 3px
+                    left: 0
+                    font-size: 22px
+                    line-height: 24px
+                    color: #96b8bf
+        .note
+            position relative
+            margin 28px 0 28px 75px
+            padding-left 25px
+            font-style italic
+            border-left 1px solid text_blue
+            &:before
+                content ""
+                position absolute
+                top 50%
+                left -57px
+                margin-top -13px
+                sprite($dcoma)
+    .info-link
+        position relative
+        float right
+        display block
+        margin-top 5px
+        padding-left ($info_width + 5)
+        color text_blue
+        text-align right
+        outline none
+
+        @media phone
+            float none
+            text-align left
+            margin-top 0
+            margin-bottom 10px
+        &:before
+            content ''
+            position absolute
+            left 0
+            top 3px
+            margin-right 5px
+            display inline-block
+            sprite($info)
+        &__details
+            overflow hidden
+            max-height 0
+            transition max-height 0.5s ease-in-out
+            &_active
+                max-height 1000px
+    .catalog-controls
+        margin-bottom 20px
+        &__results
+            display inline-block
+            margin-right 3px
+            font-size 14px
+        @media phone_tablet
+            margin-bottom 10px
+            .catalog-controls__column
+                margin-bottom 10px
+        .select7
+            @media phone
+                margin-right 60px
+            @media screen560
+                &__current
+                    padding-left 11px
+            &__current-value
+                color link_color
+
+    .nav-tabs
+        width 100%
+        padding-left 4px
+        border-color blue_light
+        >li
+            >a
+                padding 0 21px 11px
+                font-size 16px
+                text-decoration none
+                border 0 !important
+                outline none
+                &:hover
+                    background-color transparent
+                    border 0
+            &.active
+                position: relative
+                &:before, &:after
+                    content ''
+                    position absolute
+                    width 0
+                    height 0
+                    left 50%
+                &:before
+                    bottom 0
+                    margin-left: -10px
+                    border-style: solid
+                    border-width: 0 8px 7px 8px
+                    border-color: transparent transparent blue_light  transparent
+                &:after
+                    bottom -1px
+                    margin-left: -8px
+                    border-style: solid
+                    border-width: 0 6px 6px 6px
+                    border-color: transparent transparent #fff transparent
+                a
+                    color text_color
+                    font-weight 700
+                    background-color transparent
+        &.nav-clinic
+            >li:nth-child(1).active, >li:nth-child(3).active
+                &:after
+                    border-color transparent transparent yellow_light transparent
+            >li:nth-child(4).active
+                &:after
+                    border-color transparent transparent grey_base transparent
+        &.nav-doctor
+            >li:nth-child(1).active, >li:nth-child(2).active
+                &:after
+                    border-color transparent transparent yellow_light transparent
+            >li:nth-child(3).active
+                &:after
+                    border-color transparent transparent grey_base transparent
+        @media phone
+            padding-left 0
+            border-color transparent
+            li
+                float none
+                text-align center
+                background blue_base
+                margin-bottom 3px
+                &:before, &:after
+                    display none
+                &.active
+                    background-color green_base
+                    a
+                        color #fff
+                        font-weight 400
+                a
+                    padding 3px 0
+                    color #fff
+    .tab-content
+        border 1px solid #F5F6F9
+        
+
+        .pagination
+            margin-bottom 0
+            padding-bottom 20px
+        .text
+            padding 20px 40px
+            @media phone
+                padding 20px
+            font-size: 15px
+            clearfix()
+            p strong.doctors
+                font-size: 17px
+            ul.about-list
+                margin-bottom: 26px
+        .tab-pane
+            background #fff
+            border-radius 0 0 border_radius_sm border_radius_sm
+            box-shadow 0 3px 3px #e3e4ed
+            margin-bottom 3px
+            &#tab-actions
+                background-color transparent
+                box-shadow none
+        .post__more-link
+            padding-left 6%
+            padding-right 6%
+//Right
+    aside
+        margin-bottom 20px
+        .widget h3
+            font-size 18px
+            font-weight 700
+        &.themes
+            h3
+                margin-top 43px
+        .widget
+            .banner img
+                width 100%
+            &-action
+                h3
+                    margin-top 0
+                    margin-bottom 20px
+                .post
+                    &:last-child
+                        margin-bottom 0
+            .link
+                text-align center
+                font-size 16px
+                margin-top 20px
+    .widget + .widget
+        margin-top 23px
+// Index
+.offers-list
+    .post
+        margin-bottom 10px
+    >.row>div
+        @media tablet
+            &:nth-child(3)
+                display none
+        @media screen560
+            width 100%
+.offers-container
+    >div
+        @media screen560
+            width 100%
+#tab-actions
+    .text
+        padding-top 8px
+    .header-styled
+        margin-top 8px
+        margin-bottom 15px
+    .offers-list
+        margin-top 20px
+        >.row>div
+            @media tablet
+                &:nth-child(3)
+                    display block
+        .post__desc
+            font-size 14px
+    .header-styled + .offers-list
+        margin-top 0
+
+
+.highlight
+    position relative
+    margin-bottom 20px
+    margin-right 5px
+    padding 16px 30px 4px
+    overflow hidden
+    border-radius 3px
+    background-color green_light
+    @media phone
+        padding 14px 20px 2px
+        font-size 16px
+
+.header-styled
+    margin-top 28px
+    margin-bottom 19px
+    .h1
+        margin 0
+        color: #00829b
+        font-size 24px
+        font-weight 700
+    @media phone
+        .h1
+            font-size 18px
+        .text-right a
+            font-size 13px
+
+.main-more-link
+    display inline-block
+    margin-top 2px
+    color blue_base
+    font-size 16px
+    text-decoration underline
+
+    &:hover
+        text-decoration none
+
+a:focus, a:hover
+    color #1997AF
+
+.margin-bottom-0
+    margin-bottom 0 !important
+.margin-top-20
+    margin-top 20px !important
+.alignright
+    float right
+    margin 5px 0 30px 30px
+.alignleft
+    float left
+    margin 5px 30px 30px 0
+@media phone
+    .alignleft
+    .alignright
+        float none
+        margin-left auto
+        margin-right auto
+.offset-top-100
+    margin-top -100px !important
+
+
+// datepicker
+.picker
+    @media phone
+        width auto
+    &__holder
+        min-width 250px
+        overflow-y none
+    &--time
+        min-width 0
+        .picker-holder
+            overflow-y auto
+    &__list
+        padding 0
+    &__input
+        &.picker__input--active
+            border-color #ccc
+    &--opened
+    .picker__holder
+        box-shadow none
+        border-color #ccc
+        top -1px
+    &__day
+        padding 0.17em 0
+    &__year
+        font-style normal
+        color #000
+    &__button--close
+        display none
+    &__day--today:before
+        top 1px
+        right 1px
+    &__list-item
+        padding 6px 7px
+        transition all .2s ease-in-out
+        &:hover
+            background #d7f2ef
+            border-color #5dccbe
+.picker__nav--prev, .picker__nav--next
+    box-sizing content-box
+    -moz-box-sizing content-box
+    &:hover
+        background transparent
+.picker--focused
+    .picker__list-item--highlighted, .picker__day--highlighted
+        background #00829b !important
+.picker__list-item--selected, .picker__day--selected
+    border-color #00829b
+.picker__day--today, .picker__button--today
+    &:before
+        border-top-color #00829b
+    &:hover
+        background #d7f2ef
+.picker__day--today
+    color #00829b
+.picker__day--infocus, .picker__day--outfocus
+    &:hover
+        background #d7f2ef
+
+// select2
+.select2
+.select2-drop
+.select2-drop-mask
+    font-size 14px
+    color #555
+
+.select2-container-active, .select2-container-multi.select2-container-active
+    .select2-choice, .select2-choices
+        box-shadow none
+        border-color #5dccbe !important
+        transition border-color .2s ease-in-out
+.select2-container
+    width 100%
+    .select2-choice
+        height 32px
+        line-height 30px
+        border-radius 3px
+        border-color #ccc
+        background #fff
+        .select2-arrow
+            background #fff
+            border-left 0 none
+            b
+                position relative
+                top 2px
+                background none
+                border-color #7f7f7f transparent transparent
+                border-style solid
+                border-width 4px
+                display inline-block
+                vertical-align middle
+                width 0
+                height 0
+                transition border-color .2s ease-in-out
+        @media phone
+            > .select2-chosen
+                max-width 240px
+    &.select2-dropdown-open
+        .select2-choice
+            .select2-arrow
+                b
+                    border-color transparent #7fc0cd transparent transparent
+.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-dropdown-open.select2-drop-above .select2-choices
+    background #fff
+
+.select2-with-searchbox
+    .select2-search
+        display none
+    &.show-search
+        .select2-search
+            display block
+        .select2-input
+            border 1px solid #D1E8D7
+            background none
+            margin 5px 0
+            font-size 13px
+            padding 5px 5px 4px
+.select2-drop
+    box-shadow none
+.select2-default
+    color #c8c8c8 !important
+    font-size 13px !important
+
+.select2-container-multi
+    .select2-choices
+        padding-top 1px
+        border-color #ccc
+        min-height 30px !important
+        background #fff
+        border-radius border_radius_sm
+        .select2-search-field
+            &:first-child
+                input.select2-default
+                    border-radius 100px !important
+                    border 1px dashed #b5b5b5 !important
+            input
+                margin 0
+                &.select2-default
+                    margin-left 10px
+                    margin-top 3px
+                    padding 1px 10px 2px!important
+                    line-height 14px
+                    width auto !important
+        .select2-search-choice
+            background #00829b
+            border-radius 15px
+            border 0 none
+            color #fff
+            font-weight bold
+            box-shadow none
+            padding 6px 27px 3px 10px
+            max-width 99%
+            .select2-search-choice-close
+                sprite($close_white_16)
+                opacity .3
+                right 5px
+                left auto
+                top 50%
+                margin-top -7px
+                transition opacity .2s ease-in-out
+                &:hover
+                    background-position 0 0
+                    opacity .75
+.select2-drop-active
+    border-color #5dccbe
+.select2-results
+    padding 0
+    margin 0
+    .select2-highlighted
+        background #d7f2ef
+        color #000
+    .select2-result
+        transition background .2s ease-in-out
+    .select2-no-results
+        display none
+    .select2-result-label
+        padding 6px 7px 7px
+
+.select2-collapse
+    .select2-results .select2-result-label
+        padding 0 10px
+    .select2-collapsed
+        > .select2-result-label
+            .price-item__description:after
+                content "\00a0↓"
+                font-style normal
+                color #999
+                font-weight normal
+        .select2-result-sub
+            display none
+        &.select2-collapse-open
+            > .select2-result-label
+                .price-item__description:after
+                    content "\00a0↑"
+            .select2-result-sub
+                display block
+
+.select2-drop-mask
+    z-index 100013
+.select2-drop
+    z-index 100014
+
+.select2-container .select2-choice>.select2-chosen
+    border-right 1px solid #ccc
+    margin-right 24px
+.select2-container .select2-choice .select2-arrow
+    width 16px
+
+.select2-container.select2-dropdown-open .select2-choice .select2-arrow b
+    top 0
+    right 3px
+    
+//cr
+.row-articles
+    padding: 0 0 20px 
+.article-block
+    background-color: white
+    border-radius: 3px
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
+    margin-bottom: 10px
+    &__img
+        position: relative
+        width: 100%
+        height: 140px
+        overflow: hidden
+        border-radius: 3px 3px 0 0
+        margin-bottom: 12px
+        img
+            position: absolute
+            left: 50%
+            top: 0
+            width: 350px
+            height: 179px
+            margin-left: -175px
+    &__title
+        font-size: 16px
+        font-weight: 700
+        line-height: 1
+        padding: 0 15px 16px
+        a
+            display: inline-block
+    &__info
+        padding: 0 15px 15px
+        clearfix()
+    .main-time
+        float: left
+    &__list
+        font-size: 0
+        float: right
+        @media only screen and (max-width: screenLg)
+            float: none
+            clear: both
+        li
+            display: inline-block
+            vertical-align: top
+            font-size: 13px
+            line-height: 20px
+            padding: 0 0 0 14px 
+            &.first-child
+                padding: 0
+            a
+                color: #5e6e71
+                text-decoration: none
+                position: relative
+                background-repeat: no-repeat
+                background-position: center left 
+                display: inline-block
+                &.is-view
+                    padding: 0 0 0 28px
+                    background-image: url("i/icons/in-view.png")
+                &.is-like
+                    padding: 0 0 0 20px
+                    background-image: url("i/icons/in-like.png")
+                &.is-share
+                    padding: 0 0 0 20px
+                    background-image: url("i/icons/in-share.png")
+.main-time
+    font-size: 13px
+    color: #96b8bf
+    line-height: 20px
+    display: block
+
+.blog-list
+    &__item
+        border-bottom: 1px solid rgba(#00829b, 0.15)
+        padding: 0 0 15px 
+        margin-bottom: 10px
+        &.last-child
+            padding: 0
+            margin: 0
+            border: none
+    .main-time
+        margin-bottom: 2px
+    &__link
+        font-size: 16px
+        line-height: 19px
+        text-decoration: underline
+        font-weight: 700 
+        display: inline-block
+
+.container_find
+    .header-styled
+        margin-top: 0
+        padding-top: 0
+.find
+    background-color: white
+    border-radius: 3px
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
+    clearfix()
+    padding: 31px 0 20px
+    margin-bottom: 37px
+    &-item
+        text-align: center
+        width: 20%
+        padding: 20px 10px 
+        float: left 
+        &__block
+            display: inline-block
+            max-width: 140px
+            text-decoration: none
+        &__title
+            display: block
+            font-size: 18px
+            font-weight: 700
+            color: #5e6e71
+            line-height: 1
+        &__icon
+            display: block
+            width: 70px
+            height: 58px
+            background-repeat: no-repeat
+            background-position: center center
+            margin: 0 auto 16px 
+            &.is-doc
+                background-image: url("i/icons/in-doc.png") 
+            &.is-clinic
+                background-image: url("i/icons/in-clinic.png") 
+            &.is-centers
+                background-image: url("i/icons/in-centers.png") 
+            &.is-diseases
+                background-image: url("i/icons/in-diseases.png") 
+            &.is-promotions
+                background-image: url("i/icons/in-promotions.png") 

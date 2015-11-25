@@ -1,0 +1,99 @@
+.comment-quotes
+    position relative
+    overflow hidden
+    @media phone
+        margin-bottom 20px
+    &__header
+        padding 0
+        list-style none
+        margin-bottom 15px
+        @media phone
+            min-height 80px
+            margin 0 0 10px
+            white-space nowrap
+            -webkit-overflow-scrolling touch
+            text-align center
+    &__item
+        position relative
+        display inline-block
+        text-align center
+        cursor pointer
+        .owl-carousel &
+            display block
+        @media phone
+            min-width 100px
+            height 100%
+        img
+            apply-grayscale()
+            @media tablet
+                transform scale(0.8)
+            @media phone
+                height 100%
+                transform scale(0.7)
+        &.active
+            img
+                -webkit-filter none
+                filter none
+            &:before
+                content " "
+                position absolute
+                bottom -16px
+                left 50%
+                margin-left -11px
+                border-left 11px solid transparent
+                border-right 11px solid transparent
+                border-bottom 12px solid #ccc
+                z-index 1
+                @media phone
+                    bottom -11px
+            &:after
+                content " "
+                position absolute
+                bottom -18px
+                left 50%
+                margin-left -11px
+                border-left 11px solid transparent
+                border-right 11px solid transparent
+                border-bottom 13px solid #fff
+                z-index 2
+                @media phone
+                    bottom -13px
+    &__content
+        height 182px
+        padding 22px 20px 20px
+        border 1px solid #ccc
+        @media phone
+            height auto
+        &:before
+            content none
+        &:after
+            content ""
+            display inline-block
+            vertical-align middle
+            height 100%
+    &__pane
+        display none
+        font-size 18px
+        &.active 
+            display inline-block
+            vertical-align middle
+            @media phone
+                font-size 16px				
+    .owl
+        &-wrapper
+            @media phone
+                text-align left
+            &-outer
+                overflow visible
+        &-item
+            @media phone
+                height 100px
+                float none
+                display inline-block
+        &-controls
+            @media phone
+                display block !important
+        &-prev
+            left 0
+        &-next
+            right 0

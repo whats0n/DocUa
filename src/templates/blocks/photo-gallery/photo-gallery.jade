@@ -1,0 +1,8 @@
+- items = data.items
+ul
+    each item in items
+        li
+            a(href=item.image, title=item.title)
+                img(src=item.thumb, alt="")
+if title
+    +e.title!= data.title

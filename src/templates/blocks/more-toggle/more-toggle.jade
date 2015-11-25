@@ -1,0 +1,13 @@
+- title = data.title
+- className = data.className
+- absSelector = data.absSelector
+- toggle = className ? "class" : undefined
+
++e("span").link(data-toggle=toggle, data-class-name=className, data-abs-selector=absSelector) 
+    +e("span").show-label
+        span= title
+    +e("span").hide-label
+        if hideLabel
+            span= hideLabel
+        else
+            span Скрыть

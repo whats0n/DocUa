@@ -1,0 +1,10 @@
+.dropdown.dropdown_clickable
+    button.btn.btn-default.btn-xs.dropdown-toggle.user-panel-menu__button(data-toggle="dropdown")
+        span.user-panel-menu__name Личный кабинет
+    ul.dropdown-menu
+        each item in loggedUserPopup
+            if item.divider
+                li.divider
+            else
+                li
+                    a.dropdown-menu__item(href=item.url, title=item.title, class=item.class)= item.title

@@ -1,0 +1,68 @@
+w = 385px
+h = 50px
+/*badge = 64px*/
+
+.action-badge
+    position absolute
+    top -4px
+    left -4px
+    width $action_label_ru_width
+    height $action_label_ru_height
+    text-decoration none
+    z-index 1 
+    &:hover
+        .action-badge__content
+            width w
+            padding 0 0 0 ($action_label_ru_width - 22px)
+            &-inner
+                opacity 1
+                font-size 14px
+            @media phone
+                display none
+    &:after
+        content ""
+        position absolute
+        left 0
+        top 0
+        sprite($action_label_ru)
+    &__content
+        position absolute
+        width 0
+        height h
+        left 22px
+        top 3px
+        background-color #FFC02A
+        transition width .2s linear, padding .2s linear
+        padding 0
+        white-space nowrap
+        &-inner
+            display inline-block
+            width 98%
+            line-height 1.3
+            color #fff
+            vertical-align middle
+            max-height 50px
+            overflow hidden
+            white-space normal
+            transition opacity .2s linear, font-size .2s linear
+            opacity 0
+            font-size 1px
+        &:after
+            content " "
+            display inline-block
+            width 1px
+            height h
+            vertical-align middle
+        &:before
+            content ""
+            position absolute
+            width 0
+            height 0
+            top 0
+            left 100%
+            border-style solid
+            border-color #FFC02A transparent transparent #FFC02A
+            border-width 25px
+
+.action-badge.uk:after
+	sprite($action_label_uk)

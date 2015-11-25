@@ -1,0 +1,33 @@
+- items = data.items
+- showLikebox = data.showLikebox
+- title = data.title
+- map = data.map
+- count = data.count
+- clinic = data.clinic
++e.body
+    if map
+        +e.header
+            .count= count
+            .title
+                span 
+                    span.spec дерматолога 
+                    | на карте 
+                    span.city Киева
+    +e.items-wrapper
+        +e("ul").items
+            each item in items
+                +e("li").item
+                    +e.image(class=item.gender)
+                        img(src=item.image, alt="")
+                    +e.item-content
+                        +e("a").title(href=item.url, title=item.title)= item.title
+                        if item.label
+                            +e.label= item.label 
+                                if clinic
+                                    a(href="#") еще 17
+                        if item.rating && !showLikebox
+                            +b.rating: +i({ value: 4.3 })
+                        if showLikebox
+                            +b.likebox: +i({ likes: item.likes, dislikes: item.dislikes })
+                        if (item.actionDate) && (!hideData)
+                            +e.date= item.actionDate

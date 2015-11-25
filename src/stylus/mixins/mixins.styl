@@ -1,0 +1,153 @@
+@import 'sprites_general'
+@import 'sprites_index'
+
+// Variables
+border_radius_sm = 3px
+
+
+blue_base = #00829b
+light_blue_text = #91b5bc
+blue_light = #c0d2d6
+
+green_base = #35bfae
+green_light = #ccefea
+
+grey_base = #f4f8f8
+text_color = #5e6e71
+text_blue = #96b8bf
+text_grey = #99a3a5
+
+red_base = #b62110
+red_light = #f85a5a
+beige_light = #fcfcfa
+
+border_grey = #f5f6f9
+orange_color = #FFB546
+yellow_base = #ffc02a
+yellow_light = #fff9e9
+header_icons_color = #95d8e5
+form_input_color = #000
+
+link_color = #0089d1
+
+screenLg = 1200px
+tabletWidth = 768px
+desktopWidth = 992px
+
+screen560 = "only screen and (max-width: 560px)"
+phone = "only screen and (max-width: " + (tabletWidth - 1) + ")"
+tablet = "only screen and (min-width: " + tabletWidth + ") and (max-width: " + (desktopWidth - 1) + ")"
+desktop = "only screen and (min-width: " + desktopWidth + ")"
+tablet_desktop = "only screen and (min-width: " + tabletWidth + ")"
+phone_tablet = "only screen and (max-width: " + (desktopWidth - 1) + ")"
+
+
+wide-btn()
+    float none
+    width 100%
+    height auto
+    margin 10px 0
+    padding 7px
+    font-size 18px
+    line-height 1.4
+
+placeholder(color, font_size)
+    &::-webkit-input-placeholder 
+       color color !important
+       font_size font_size
+    &:-moz-placeholder  /* Firefox 18- */
+       color color !important
+       font_size font_size
+    &::-moz-placeholder  /* Firefox 19+ */
+       color color !important
+       font_size font_size
+    &:-ms-input-placeholder  
+       color color !important
+       font_size font_size
+// background-transparency
+background-transparency(color)
+    background-size 100% 100%
+    background color
+
+background-gradient(from, to)
+    // svg = base64_encode('<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1 1" preserveAspectRatio="none"><linearGradient id="g743" gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="0%" y2="100%"><stop stop-color="' + from + '" offset="0"/><stop stop-color="' + to + '" offset="1"/></linearGradient><rect x="0" y="0" width="1" height="1" fill="url(#g743)"/></svg>');
+    svg = base64_encode('<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1 1" preserveAspectRatio="none"><linearGradient id="g743" gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="0%" y2="100%"><stop stop-color="#00708c" offset="0"/><stop stop-color="#0094aa" offset="1"/></linearGradient><rect x="0" y="0" width="1" height="1" fill="url(#g743)"/></svg>');
+    background-image unquote('url("data:image/svg+xml;base64,') + svg + unquote('")')
+    background-repeat repeat-x
+    background-size 100% 100%
+    background linear-gradient(top, from 0%, to 100%)
+
+background-gradient-horizontal(fromColor, toColor, alpha1 = 1, alpha2 = 1)
+    from = rgba(fromColor, alpha1)
+    to = rgba(toColor, alpha2)
+    ms-from = argb(fromColor, alpha1)
+    ms-to = argb(toColor, alpha2)
+    background-color from
+    background-image linear-gradient(left, from 0%, to 100%)
+    filter s("progid:DXImageTransform.Microsoft.gradient(startColorstr='%s', endColorstr='%s', GradientType=1)", ms-from, ms-to)
+    zoom 1
+    
+
+
+hex(decimal)
+    hex-value = ('0') ('1') ('2') ('3') ('4') ('5') ('6') ('7') ('8') ('9') ('A') ('B') ('C') ('D') ('E') ('F')
+    unquote(hex-value[floor(decimal / 16)] + hex-value[floor(decimal % 16)])
+
+argb(color, alpha = 1)
+    unquote('#') + hex(alpha * 255) + hex(red(color)) + hex(green(color)) + hex(blue(color))
+    
+fit-image()
+    text-align center
+    letter-spacing 0
+    font-size 0
+    &:after
+        content ""
+        display inline-block
+        height 100%
+        width 0
+        vertical-align middle
+    >img
+        letter-spacing normal
+        font-size 12px
+        border 0 none
+        margin 0 auto
+        max-width 100%
+        max-height 100%
+        display inline-block
+        vertical-align middle
+
+center-block()
+    text-align center
+    letter-spacing 0
+    font-size 0
+    &:after
+        content ""
+        display inline-block
+        height 100%
+        width 0
+        vertical-align middle
+    >div
+    >span
+        text-align left
+        letter-spacing normal
+        font-size 14px
+        margin 0 auto
+        display inline-block
+        vertical-align middle
+        
+apply-grayscale()
+    // Chrome 18+
+    -webkit-filter: grayscale(1)
+    -webkit-filter: grayscale(100%)
+    -moz-filter: grayscale(100%)
+    -ms-filter: grayscale(100%)
+    -o-filter: grayscale(100%)
+    filter: grayscale(100%)
+    
+    // Firefox 4+
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale")
+    
+    // IE
+    background-color: #fff
+    filter: s('alpha(opacity = 100)')
+    zoom: 1

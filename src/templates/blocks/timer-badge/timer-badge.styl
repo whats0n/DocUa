@@ -1,0 +1,40 @@
+borderColor = #6cb155
+borderFillerColor = #e0e5df
+redColor = #fe5d5d
+
+.timer-badge
+  position: absolute
+  left: 0
+  bottom: 0
+  width: 40%
+  height: 26px
+  padding-left: 17px
+  background-color: #fff
+  clearfix()
+  &:after
+    content: ''
+    position: absolute
+    top: 0
+    right: -18px
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 26px 0 0 18px
+    border-color: transparent transparent transparent #fff
+
+  &__days, &__text
+    display: inline-block
+  &__days + &__text
+    line-height: 11px
+  &__days
+    margin-right: 7px
+    color: red_light
+    font-weight: 700
+    font-size: 22px
+    line-height: 24px
+  &__text
+    color text_blue
+    font-size: 11px
+    line-height: 12px
+    padding-top: 2px
+

@@ -1,0 +1,60 @@
+.badge-label
+    position absolute
+    top -4px
+    right 15px
+    font-size 12px
+    line-height 1.16
+    text-align center
+    color #fff
+    padding 3px 7px
+    height 40px
+    &:before
+        content ""
+        position absolute
+        top 0
+        width 0
+        height 0
+        border-style solid
+    &:before
+        right 100%
+        border-width 0 0 4px 3px
+    &_background
+        &_green
+            background-color rgba(53, 191, 174, .9)
+            &:before
+                border-color transparent transparent #169081 transparent
+            .badge-label__arrow
+                border-top-color rgba(53, 191, 174, .9)
+        &_blue
+            background-color rgba(0, 130, 155, .9)
+            &:before
+                border-color transparent transparent blue_base transparent
+            .badge-label__arrow
+                border-top-color rgba(0, 130, 155, .9)
+        &_yellow
+            background-color rgba(255, 192, 42, .9)
+            &:before
+                border-color transparent transparent yellow_base transparent
+            &:after
+                border-color transparent transparent transparent yellow_base
+            .badge-label__arrow
+                border-top-color rgba(255, 192, 42, .9)
+    &__arrow
+        display block
+        position absolute
+        bottom -16px
+        left 0
+        border-width 8px
+        border-style solid
+        border-color #000 transparent transparent
+    .big
+        font-size 20px
+        line-height 1
+    .middle
+        font-size 14px
+        line-height 1
+    p
+        margin 0 0 4px
+    img
+        &:first-child
+            margin-top 4px

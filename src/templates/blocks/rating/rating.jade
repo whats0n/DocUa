@@ -1,0 +1,27 @@
+- value = data.value
+- tooltip = data.tooltip
+- label = data.label
+if label
+    +e.label(data-toggle="tooltip", data-original-title=tooltip, data-placement="bottom")= label
+if value
+    +e.stars
+        +e.stars-bg
+        +e.stars-overlay(style="width: #{value * 20}%;")
+    +e.value.value= value
+else
+    +e("ul").stars
+        +e("li").star
+            input(type="radio", value="1-star")
+            span.star-label Очень плохо
+        +e("li").star
+            input(type="radio", value="2-star")
+            span.star-label Плохо
+        +e("li").star
+            input(type="radio", value="3-star")
+            span.star-label Средне
+        +e("li").star
+            input(type="radio", value="4-star")
+            span.star-label Хорошо
+        +e("li").star
+            input(type="radio", value="5-star")
+            span.star-label Отлично

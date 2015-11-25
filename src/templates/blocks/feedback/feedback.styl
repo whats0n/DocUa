@@ -1,0 +1,28 @@
+.feedback
+    float left
+    &__link
+        float left
+        position relative
+        
+        &:before
+            content ''
+            position absolute
+            left 0
+            top 4px
+        &:first-child
+            padding-left $navbar_callback_width + 5
+            &:before
+                sprite($navbar_callback)
+        &:last-child
+            padding-left $navbar_pencil_width + 5
+            &:before
+                sprite($navbar_pencil)
+        &:hover
+            color #fff
+            border none
+
+.navbar-main .feedback__link
+    color #fff
+    
+    &:hover
+        color #fff

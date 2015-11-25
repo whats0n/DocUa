@@ -1,0 +1,49 @@
+$counter_radius = 65px
+.row-counters
+    margin 39px 0 40px
+    
+    >div
+        padding-left 20px
+        @media tablet
+            padding 0
+        &:nth-child(1)
+            .counter
+                &:before
+                    sprite($stat_daily)
+        &:nth-child(2)
+            padding-left 8%
+            @media tablet
+                padding-left 5%
+            .counter
+                &:before
+                    sprite($stat_doctors)
+        &:nth-child(3)
+            .counter
+                float right
+                padding-right 10px
+                &:before
+                    sprite($stat_reviews)
+    
+.counter
+    position relative
+    height $counter_radius
+    padding-left ($counter_radius + 12)
+    color #fff
+    
+    &:before
+        content ''
+        position absolute
+        left 0
+        top 0
+            
+    &__digits
+        font-size 36px
+        font-weight 700
+        line-height 1.1
+        
+    &__title
+        font-size 18px
+        line-height 1.4
+        @media tablet
+            font-size 16px
+    

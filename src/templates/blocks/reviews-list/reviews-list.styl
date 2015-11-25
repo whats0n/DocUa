@@ -1,0 +1,124 @@
+.reviews-list
+    margin 0
+    padding 0
+    list-style none
+    &__item
+        position relative
+        display inline-block
+        width 100%
+        border-bottom 1px dashed #ccc
+        &:last-child
+            border-color transparent
+            &:after
+                content none
+                display none
+    &__result
+        position relative
+        margin 10px 0 5px
+        clear both
+        padding-left 10px
+        .reviews-list
+            &__name
+                color #00829b
+            &__separator
+                position absolute
+                left 0
+                top 0
+                width 3px
+                height 100%
+                background-color #00829b
+    &__date
+        position relative
+        top 3px
+        float right
+        margin-left 5px
+        font-size 13px
+        color text_blue
+        @media phone
+            position static
+            float none
+            margin-left 0
+    &__name
+        color text_blue
+        font-weight bold
+        font-size 16px
+        @media phone
+            display block
+            width 100%
+    &__item-header
+    &__review-about
+        margin-bottom 6px
+    &__review-about
+        max-width 400px
+        @media phone_tablet
+            max-width inherit
+    p
+        margin 0 0 5px
+    .rating-list
+        float right
+        width 250px
+        @media phone
+            float none
+            width 100%
+    &__content
+        overflow hidden
+        padding-right 44px
+        font-size 14px
+        @media phone
+            padding-top 15px
+            padding-right 0
+    .recommend
+        position relative
+        font-size 14px
+        margin-bottom 7px
+        @media phone
+            float none !important
+        &-icon
+            width 16px
+            height 19px
+            display inline-block
+            vertical-align middle
+            margin-right 8px
+        &-no
+            color #ff4c4c
+            .recommend-icon
+                vertical-align bottom
+                &:before
+                    content ''
+                    position absolute
+                    left 0
+                    top 6px
+                    zoom 0.7
+                    sprite($not_like)
+        &-yes
+            color #35bfae
+            .recommend-icon
+                margin-top -6px
+                &:before
+                    content ''
+                    position absolute
+                    left 0
+                    top 0
+                    zoom 0.7
+                    sprite($like)
+
+.tab-content
+    #tab-reviews
+        .reviews-list
+            &__item
+                padding 15px 20px
+                p
+                    margin-bottom 0
+        .rating-list
+            margin-top 1px
+            .rating__label
+                color text_blue
+        .rating-block .rating-list .rating__label
+            color text_color
+    .pagination-wrap
+        border-top 1px solid #ccc
+    .reviews-denied
+        background yellow_light
+        padding 15px 30px
+        text-align center
+        font-size 16px

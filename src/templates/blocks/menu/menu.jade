@@ -1,0 +1,27 @@
+mixin menu(prefix, items, addUlClasses, addLiClasses, activeIndex, activeSubindex)
+    - ulClasses = [ prefix + "-menu" ]
+    - if (!!addUlClasses) ulClasses.push(addUlClasses);
+
+    ul(class=ulClasses)
+        - i = 0
+        each item in items
+            - liClasses = [ prefix + "-menu__item" ]
+            - if (!!item.children) liClasses.push(prefix + "-menu__item-has_sub");
+            - if (!!addLiClasses) liClasses.push(addLiClasses);
+            - if (parseInt(activeIndex) === i) liClasses.push("active");
+
+            li(class=liClasses)
+                if item.url
+                    a(href=item.url, title=item.title, class="#{prefix}-menu__item-link")= item.title
+                else
+                    span(class="#{prefix}-menu__item-link")= item.title
+                if item.children
+                    if activeIndex === i
+                        +menu(prefix + "-sub", item.children, null, null, activeSubindex)
+                    else
+                        +menu(prefix + "-sub", item.children)
+                if item.partners
+                    +b.partners: +i
+            - i++
+
++menu(data.prefix, data.items, data.addUlClasses, data.addLiClasses, data.activeIndex, data.activeSubindex)

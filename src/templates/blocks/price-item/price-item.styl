@@ -1,0 +1,144 @@
+.price-item
+    position relative
+    display inline-block
+    width 100%
+    padding 7px 230px 8px 0
+    border-width 0 0 1px 0
+    border-style solid
+    border-color rgba(0, 0, 0, .1)
+    .price-block &
+        overflow hidden
+    @media phone
+        padding-right 0
+    &:hover
+        .price-item__aside
+            right 0
+    &__body
+        width 100%
+        overflow ellipsis
+        color #999
+        padding-top 3px
+        padding-bottom 3px
+        margin-top -3px
+        margin-bottom -3px
+        @media phone
+            margin-bottom 0
+
+    .select2-container &
+    .select2-results &
+        padding-right 100px
+        border 0 none
+        @media phone
+            padding-right 0
+        &__aside
+            right 0
+            top 9px
+            padding 0
+            margin 0
+            @media phone
+                margin -1px 0 0 3px
+                display inline-block
+                vertical-align middle
+        &__title
+            color #000
+    .select2-container &
+        padding-top 0
+        padding-bottom 0
+        &__aside
+            top 0
+    .select2-search-choice &
+        &__title
+        &__description
+        &__body
+            color white
+            @media phone
+                width auto
+                display inline-block
+                vertical-align middle
+        &__title
+            @media phone
+                display inline
+        &__body
+            @media phone
+                white-space normal
+        &__description
+            font-weight normal
+    .select2-result-with-children>.select2-result-label &
+        &__value
+            font-weight normal
+    // .select2-result-with-children .select2-result:last-child &
+    // 	margin-bottom 10px
+
+    .select7__optgroup_collapse_open .select7__optgroup-label &
+        .price-item__aside
+            display none
+    .select7__optgroup-label &
+        padding-top 1px
+        padding-bottom 1px
+        @media phone
+            line-height 20px
+    .select7__current-value &
+        padding-top 0
+        padding-bottom 0
+        line-height 32px
+    .select7 &
+        border 0 none
+        padding-right 100px
+        &__aside
+            right 0
+            top 0
+            padding 0
+            margin 0
+            position absolute
+        &__title
+            color #000
+        &__value
+            margin 0
+            padding-top 0
+            font-weight normal
+    &__aside
+        position absolute
+        right -105px
+        top 50%
+        margin-top -10px
+        padding-right 105px
+        transition right .2s ease-in-out
+        white-space nowrap
+        @media tablet
+            right 0
+        @media phone
+            margin-top 10px
+            position static
+            padding 0
+            width auto
+            display block
+            clearfix()
+        .select7__optgroup-label &
+            top 1px
+        .select7__option &
+            top 7px
+        .select2-result-with-children.select2-collapse-open>.select2-result-label &
+            display none
+        .btn
+            position absolute
+            top -3px
+            right 0
+            width 95px
+            @media phone
+                float right
+                position static
+    &__value
+        display block
+        text-align right
+        margin-bottom 5px
+        @media phone
+            text-align left
+            float left
+            padding-top 0
+            margin-bottom 0
+    &__description
+        color #999
+        font-style italic
+        .select7__optgroup-label &
+        .select2-result-label &
+            color #000

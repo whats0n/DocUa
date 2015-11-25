@@ -1,0 +1,97 @@
+article
+    - item= data.item
+    - clinic = data.clinic
+    - clinic_inner = data.clinic_inner
+    - tab_doctors = data.tab_doctors
+    if tab_doctors
+        article
+            .male.small-card__image
+                a(href='/doctor-consultation.html', title=item.name)
+                    img(src='/i/_alexandriyskiy-constantin.jpg', alt='')
+            .small-card__content
+                +e.add-info.pull-right
+                    +b.favorites-block: +i
+                    .rating-wrap
+                        +e.testimonials.pull-right
+                            a(href='doctors/consultation.html#tab-reviews', title='10 отзывов')
+                                span 10 отзывов
+                        .rating
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 86%;')
+                            .rating__value.value 4.3
+                h1.h4.small-card__title
+                    a(href='doctors/consultation.html', title=item.name) #{item.name}
+                .small-card__label= item.label
+                .small-card__label-description= item.labelDescription
+
+                +e.footer
+                    +e.cost
+                        | Стоимость приема:&nbsp;
+                        span 320 грн
+                    a(class="btn btn-sm btn-primary pull-right") Записаться на прием
+    else
+        +e.left-side.hidden-xs
+            +b.rating.value-size_big(class=ratingColorBlack): +i({ value: card.averageRating })
+
+            +e.testimonials(class=testimonialsClass)
+                a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+                    span.count= item.testimonialsCount
+                    |  отзывов
+
+            if !clinic_inner
+                +e.schedule
+                    ul
+                        each item1 in item.schedule
+                            li
+                                span.left= item1.day
+                                span.right= item1.time
+        +e.right-side
+            if !item.hasFilials && !clinic_inner
+                +b.favorites-block.pull-right: +i
+            +e.title.fn.org
+                if !clinicWorld
+                    if landing
+                        h1.h3
+                            - var pageLink = item.filename
+                            if onlineConsultation
+                                - pageLink = '/doctors/consultation.html'
+                            if clinic
+                                - pageLink = '/clinic-inner.html'
+                            a(href=pageLink, title=item.name)= item.name
+                    else
+                        h1= card.name
+            
+            .right-side-rating.visible-xs
+                +b.rating.value-size_big(class=ratingColorBlack): +i({ value: card.averageRating })
+                +e.testimonials(class=testimonialsClass)
+                    a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+                        span.count= item.testimonialsCount
+                        |  отзывов
+                
+            +e.label-description
+                span #{item.labelDescription}&nbsp;
+                a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+            .address-info
+                if item.address && !clinicWorld
+                    +e.address.adr
+                        a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
+                if item.metro && !clinicWorld
+                    +e.location.card__location_metro(class=item.metroType)
+                        = item.metro.join(", ")
+                if !onlineConsultation && !doctorWorld && !clinicWorld
+                    +e.location= item.location.join(", ")
+
+            +e.footer
+                if clinic_inner
+                    +e.schedule
+                        ul
+                            each item1 in item.schedule
+                                li
+                                    span.left #{item1.day}:
+                                    span.right= item1.time
+                else
+                    +e.action
+                        span.orange Акция
+                        a(href="#{item.url}#tab-actions", title=item.actions[0].title)= item.actions[0].title
+                a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику

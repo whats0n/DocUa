@@ -1,0 +1,193 @@
+$post_hor_padding = 14px
+.post
+    position relative
+    width 100%
+    margin-bottom 20px
+    padding-bottom 15px
+    background #fff
+    border-radius border_radius_sm
+    box-shadow 0 2px 4px #e3e4ed
+    transition: box-shadow 0.3s
+    &:hover
+        box-shadow 0 2px 12px rgba(0, 64, 76, 0.35)
+        .post__add-info
+            visibility visible
+            opacity 1
+            transition-delay 0s
+        .badge-label
+            display none
+    &-load
+        display block
+        height 361px
+        padding $post_hor_padding
+        &__link
+            position relative
+            display block
+            height 100%
+            border 1px dashed text_blue
+            span
+                position absolute
+                left 50%
+                top 50%
+                width 190px
+                height 100px
+                margin-left -95px
+                margin-top -50px
+                color text_blue
+                font-size 22px
+                text-align center
+                &:after
+                    content ''
+                    position absolute
+                    bottom 0
+                    left 50%
+                    margin-left -($arrows_down2_width / 2)
+                    sprite($arrows_down2)
+
+
+    &__add-info
+        visibility hidden
+        opacity 0
+        transition visibility 0s linear 0.3s,opacity 0.3s linear
+        position absolute
+        left 0
+        top 0
+        width 100%
+        height 140px
+        padding $post_hor_padding
+        background #fff
+        border-bottom 1px solid grey_base
+        border-radius border_radius_sm border_radius_sm 0 0
+        @media screen560
+            height 200px
+            padding $post_hor_padding + 10 $post_hor_padding 
+        
+        ul
+            padding 0
+            list-style none
+            li
+                position relative
+                margin-bottom 5px
+                padding-left ($post_metro_width + 10)
+                font-size 16px
+                .metro
+                    white-space nowrap
+                    overflow hidden
+                    text-overflow ellipsis
+                &:before
+                    content ""
+                    position absolute
+                    left 0
+                    top 5px
+                &:nth-child(1)
+                    &:before
+                        sprite($post_clinic)
+                &:nth-child(2)
+                    &:before
+                        sprite($post_metro)
+                &:nth-child(3)
+                    &:before
+                        sprite($post_service)
+        @media tablet
+            padding 10px
+            ul
+                li
+                    font-size 14px 
+        a
+            color: #4b89d3
+                
+    &__thumb
+        position relative
+        width 100%
+        height 140px
+        overflow hidden
+        border-radius border_radius_sm border_radius_sm 0 0
+        &-image
+            position absolute
+            left 50%
+            top 0
+            width 350px
+            height 179px
+            margin-left -175px
+        @media screen560
+            height 200px
+            &-image
+                width 518px
+                height 265px
+                margin-left -259px
+    &__body
+        height 162px
+        padding 0 $post_hor_padding
+        @media screen560
+            height auto
+    &__title
+        margin-top 6px
+        margin-bottom 12px
+        max-height 44px
+        line-height 1.35
+        overflow hidden
+        a
+            font-size 16px
+            font-weight 700
+    &__desc
+        height 100px
+        overflow hidden
+        @media screen560
+            height auto
+    
+    &__footer
+        position relative
+        height 40px
+        margin-top 13px
+        padding 0 $post_hor_padding
+        clearfix()
+
+        @media tablet
+            height 80px
+    &__price
+        float left
+        width 42%
+        height 25px 
+        @media tablet
+            width 100%
+            &-old + &-value
+                float right
+            &-old
+                float left
+                line-height 2
+        
+        &-value
+            display inline-block
+            font-weight 700
+            font-size 18px
+        &-old + &-value
+            margin-top 0
+            display inline
+        &-old
+            display block
+            color light_blue_text
+            line-height 1.1
+            text-decoration line-through
+    &__more
+        float left
+        width 58%
+        &-link
+            float right
+            padding 9px 18%
+            font-size 16px
+            color green_base
+            line-height 19px
+            background-color transparent
+            border-color green_base
+            &:hover
+                color #fff
+                background-color green_base
+        @media only screen and (max-width: 1200px)
+            &-link
+                padding 9px 8%
+        @media tablet
+            width 100%
+            margin-top 10px
+            &-link
+                width 100%
+        

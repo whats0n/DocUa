@@ -1,0 +1,33 @@
+.load-items
+  display block
+  padding 18px 0
+  color text_blue
+  font-size 24px
+  text-align center
+  text-decoration none
+  background #fff
+  border 1px solid #F5F6F9
+  border-radius 3px
+  border-radius border_radius_sm
+  box-shadow 0 2px 3px #e3e4ed
+  transition border-color 0.2s ease, box-shadow 0.2s ease
+
+  &:hover
+    color text_blue
+    box-shadow 0 10px 15px #e3e4ed
+    border-color #35bfae
+
+  span
+    position relative
+    &:before, &:after
+      content ''
+      position absolute
+      top 8px
+      sprite($arrows_down2)
+      @media phone
+        display none
+
+    &:before
+      left -($arrows_down2_width + 30)
+    &:after
+      right -($arrows_down2_width + 30)

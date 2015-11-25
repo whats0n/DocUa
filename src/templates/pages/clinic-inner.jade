@@ -1,0 +1,169 @@
+//---
+    layout: layouts/main
+    title: Инсайт Медикал
+    activeMenuItem: 1
+    finder: doctors
+    find_text: клиник
+    modals: select-area, select-specialization, clinic-location-map
+    page_name: doctor_consultation
+
+.row
+    section.col-md-9
+        +b.card.inner: +i({ card: clinics[0], landing: false, clinic_inner: true, clinicInnerFilials: affilatesIsida})
+        ul.nav.nav-tabs.nav-clinic
+            li.active: a(href="#tab-about", data-toggle="tab") О клинике
+            li
+                a(href="#tab-doctors", data-toggle="tab") Врачи
+            li
+                a(href="#tab-reviews", data-toggle="tab") Отзывы
+            li
+                a(href="#tab-actions", data-toggle="tab") Акции и пакеты услуг (4)
+            li
+                a(href="#tab-news", data-toggle="tab") Новости
+        .tab-content  
+            #tab-about.tab-pane.active
+                +b.rating-block
+                    +e.separator
+                    .row
+                        .col-sm-7
+                            .row
+                                .col-xs-5.col-xs-offset-1
+                                    +b.statistics-item._simple
+                                        +e.label Средний балл
+                                        +e.value 5.0
+                                .col-xs-5
+                                    +b.statistics-item._simple
+                                        +e.label Кол-во отзывов
+                                        +e.value 152
+                            +b.rating-info
+                                +e("span").icon
+                                +e.text Рейтинг врача рассчитывается<br>на основе&nbsp;
+                                    +e("a").more-link(href="/", title="реальных отзывов пациентов"): span реальных отзывов пациентов
+                        .col-sm-5
+                            +b("ul").rating-list
+                                each rating in clinics[0].ratings
+                                    +b.rating: +i({label: rating.label, value: rating.value, tooltip: rating.tooltip})
+                            +b.likebox: +i({
+                                likes: doctors[0].likes,
+                                dislikes: doctors[0].dislikes,
+                                label: "Рекомендуют клинику"
+                            })  
+                .text 
+                    each about in clinics[0].about
+                        if about.paragraphs
+                            each paragraph in about.paragraphs
+                                p= paragraph
+                        else
+                            p
+                                strong= about.title
+                                ul.style-disc
+                                    each item in about.items
+                                        li= item
+            #tab-doctors.tab-pane
+                form.form-horizontal(action="/")
+                    .form-group.form-group-filter
+                        label.col-sm-3.col-sm-offset-6.control-label(for="speciality"): span Специальность:
+                        .col-sm-3
+                            select#speciality.form-control(type="text")
+                                option(value="1") Акушер-гинеколог
+                                option(value="2") Аллерголог
+                                option(value="3") Андролог
+                                option(value="4") Анестезиолог 
+                +b("ul").doctors-list.small-card-list_clear-top.offset-bottom20
+                    -limit = 2
+                    each doctor, i in doctors
+                        if i < limit
+                            +b.small-card: +i({ item: doctor, tab_doctors: true})
+                .pagination-wrap
+                    +b("ul").pagination: +i
+
+            #tab-reviews.tab-pane
+                +b.rating-block
+                    +e.separator
+                    .row
+                        .col-sm-7
+                            .row
+                                .col-xs-5.col-xs-offset-1
+                                    +b.statistics-item._simple
+                                        +e.label Средний балл
+                                        +e.value 5.0
+                                .col-xs-5
+                                    +b.statistics-item._simple
+                                        +e.label Кол-во отзывов
+                                        +e.value 152
+                            +b.rating-info
+                                +e("span").icon
+                                +e.text Рейтинг врача рассчитывается<br>на основе&nbsp;
+                                    +e("a").more-link(href="/", title="реальных отзывов пациентов"): span реальных отзывов пациентов
+                        .col-sm-5
+                            +b("ul").rating-list
+                                each rating in clinics[0].ratings
+                                    +b.rating: +i({label: rating.label, value: rating.value, tooltip: rating.tooltip})
+                            +b.likebox: +i({
+                                likes: doctors[0].likes,
+                                dislikes: doctors[0].dislikes,
+                                label: "Рекомендуют клинику"
+                            })
+                    h4 Как мы собираем отзывы?
+                    p Все отзывы достоверны и получены в результате опроса пациентов, побывавших на приеме у врача
+                    +b("ul").rating-steps: +i
+                if file.status != 'inactive'
+                    +b("ul").reviews-list: +i({items: clinics[0].testimonials})
+                else
+                    .text-center.middle 
+                        strong
+                            a(href="/", title="Будьте первыми") Будьте первыми!
+
+                .pagination-wrap
+                    +b("ul").pagination: +i
+                .reviews-denied
+                    strong Почему Вы не можете оставить отзыв?
+                    br
+                    | Отзывы на сайте могут оставлять только пациенты, побывавшие на приеме у врача. Это исключает публикацию заказных и неправдивых отзывов. Мы собираем отзывы путем обзвона реальных пациентов, которые посетили врача, записавшись через наш сервис.
+
+            #tab-actions.tab-pane
+                header.header-styled
+                    h2.h1 Акции клиники
+                .offers-list
+                    .row
+                        - var limit = 3
+                        each action, i in actionsData
+                            if i < limit
+                                .col-sm-4.col-xs-6
+                                    +b("article").post: +i(action)
+
+                header.header-styled
+                    h2.h1 Пакетные предложения
+                .offers-list
+                    .row
+                        - var limit = 3
+                        each action, i in actionsData
+                            if i < limit
+                                .col-sm-4.col-xs-6
+                                    +b("article").post: +i(action)
+            #tab-news.tab-pane  
+                +b("ul").articles-list.news-list
+                    - var limit = 3
+                    each article, i in articlesData
+                        if i < limit
+                            +b.article-list-item: +i({ article: article, news: true})
+                .pagination-wrap
+                    +b("ul").pagination: +i
+
+    aside.col-md-3.hidden-sm.hidden-xs 
+        .widget.widget-map
+            #map-canvas-right
+            a.btn.btn-success(href="/map.html") Развернуть карту
+        .widget.widget-clinic
+            h3 Похожие клиники
+            - var items = []
+            - var limit = 4
+            each clinic, i in clinics
+                if i < limit
+                    - items.push({ gender: clinic.gender, image: clinic.photo.main, title: clinic.name, url: '/' , label: clinic.label, location: clinic.location, rating: clinic.averageRating })
+            +b.short-list: +i({
+                items: items,
+                clinic: true
+            })
+            .link
+                a(href="/doctors.html") Все клиники

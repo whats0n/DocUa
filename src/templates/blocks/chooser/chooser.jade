@@ -1,0 +1,120 @@
++e.inner.bottom-shadow__inner
+    section
+        case data.page
+            when "doctors"
+                ul.chooser__list.columnize(data-columns="6", data-balance-method="balanceCount")
+                    each specialization in specializations
+                        li.chooser__list__item(class=specialization.class)
+                            a.chooser__list__item-link(href=specialization.url, title=specialization.title)= specialization.title
+                +b.more-toggle.more-toggle_with-icon
+                    +e("a").link(href="#select-specialization", data-toggle="modal", title="Все специальности")
+                        +e("span").show-label
+                            span Все специальности
+            when "worldDoctors"
+                ul.chooser__list.chooser__list_offset.columnize(data-columns="6", data-balance-method="balanceCount")
+                    each specialization in worldSpecializations
+                        li.chooser__list__item(class=specialization.class)
+                            a.chooser__list__item-link(href=specialization.url, title=specialization.title)= specialization.title
+                +b.more-toggle.more-toggle_with-icon
+                    +e("a").link(href="#select-specialization", data-toggle="modal", title="Все специальности")
+                        +e("span").show-label
+                            span Все специальности
+            when "clinics"
+                a.more-link.pull-right(href="/clinics.html", title="Все направления") Все направления
+                h3.chooser__title Найти клинику по направлению
+                hr.dotted
+                ul.chooser__list.columnize(data-columns="6", data-balance-method="balanceCount")
+                    each branch in branches
+                        li.chooser__list__item
+                            a.chooser__list__item-link(href=branch.url, title=branch.title)= branch.title
+            when "onlineConsultations"
+                a.more-link.pull-right(href="/doctors.html", title="Все специальности") Все специальности
+                h3.chooser__title Выберите специальность врача для онлайн-консультации
+                hr.dotted
+                ul.chooser__list.columnize(data-columns="6", data-balance-method="balanceCount")
+                    each specialization in specializations
+                        li.chooser__list__item
+                            a.chooser__list__item-link(href=specialization.url, title=specialization.title)= specialization.title
+            when "diagnosticCenters"
+                a.more-link.pull-right(href="/", title="Все диагностические центры") Все диагностические центры
+                h3.chooser__title Популярные виды диагностики
+                hr.dotted
+                ul.chooser__list.columnize(data-columns="6", data-balance-method="balanceCount")
+                    each diagnostic in diagnostics
+                        if diagnostic.popular
+                            li.chooser__list__item.chooser__list__item_parent
+                                a.chooser__list__item-link(href=diagnostic.url, title=diagnostic.title)= diagnostic.title
+                                if diagnostic.children
+                                    ul.chooser__list__sublist
+                                        each subDiagnostic in diagnostic.children
+                                            if subDiagnostic.popular
+                                                li.chooser__list__item
+                                                    a.chooser__list__item-link(href=subDiagnostic.url, title=subDiagnostic.title)= subDiagnostic.title
+                +b.more-toggle
+                    +e("a").link(href="#select-area-diagnostics", data-toggle="modal", title="Показать все виды диагностики")
+                        +e("span").show-label
+                            span Показать все виды диагностики
+            when "onlineConsultations2"
+                a.more-link.pull-right(href="/consultations.html", title="Читать подробнее") Читать подробнее
+                .consultations-chooser
+                    ul.nav.nav-pills
+                        li: a(href="#consultation-benefits", data-toggle="tab"): span Преимущества
+                        li: a(href="#consultation-how-its-made", data-toggle="tab"): span Как это работает
+                        li: a(href="#consultation-what-you-get", data-toggle="tab"): span Что вы получаете?
+                    .tab-content
+                        hr.dotted
+                        #consultation-benefits.tab-pane
+                            .row.text-center.offset-bottom-0
+                                .col-sm-3
+                                    p: img(src="/i/certificate-icon.png", alt="")
+                                    h2.h3 Врачи с именем
+                                    p.middle Мы отобрали лучших специалистов, которые представят медицинское заключение.
+                                .col-sm-3
+                                    p: img(src="/i/numbers-icon.png", alt="")
+                                    h2.h3 Второе мнение
+                                    p.middle Независимое мнение специалистов о результатах исследований.
+                                .col-sm-3
+                                    p: img(src="/i/hourglass-icon.png", alt="")
+                                    h2.h3 Экономия времени
+                                    p.middle Вам не нужно тратить время в очередях и ехать в клинику для очного приема с врачом.
+                                .col-sm-3
+                                    p: img(src="/i/transcript-icon.png", alt="")
+                                    h2.h3 Расшифровка анализов
+                                    p.middle Правильная интерпретация медицинских исследований залог верного диагноза.
+                        #consultation-how-its-made.tab-pane
+                            ul.style-clear-box.with-arrow.odd-even.text-center.row
+                                li.col-sm-3
+                                    p: img(src="/i/doctor-selected-icon.png", alt="")
+                                    h2.h3 Вибираете врача
+                                    p.middle в разделе онлайн-консультации.
+                                li.col-sm-3
+                                    p: img(src="/i/blank-form-icon.png", alt="")
+                                    h2.h3 Описываете
+                                    p.middle вашу проблему через онлайн-форму.
+                                li.col-sm-3
+                                    p: img(src="/i/cards-icon.png", alt="")
+                                    h2.h3 Оплачиваете
+                                    p.middle и получаете доступ к онлайн-консультации.
+                                li.col-sm-3
+                                    p: img(src="/i/clock-icon.png", alt="")
+                                    h2.h3 За 24 часа
+                                    p.middle получаете развернутый ответ врача.
+                            .highlight.middle.text-center.offset-bottom10
+                                p Обратите внимание! Чем детальней вы опишите ваш случай, тем легче будет специалисту расшифровать анализы и дать исчерпывающую консультацию.
+                        #consultation-what-you-get.tab-pane
+                            .row.text-center.offset-bottom-0
+                                .col-sm-4
+                                    p: img(src="/i/blank-icon.png", alt="")
+                                    h2.h3 Развернутый ответ
+                                    p.middle Высококачественное заключение и предметный ответ на заданный Вами вопрос от выбранного специалиста.
+                                .col-sm-4
+                                    p: img(src="/i/dialog-icon.png", alt="")
+                                    h2.h3 Диалог с врачом
+                                    p.middle Ответы на дополнительные вопросы после получения заключения.
+                                .col-sm-4
+                                    p: img(src="/i/doctor-icon.png", alt="")
+                                    h2.h3 Медицинское заключение
+                                    p.middle Вы получите авторитетное мнение специалиста и предположительный диагноз.
+                            .highlight.middle.text-center.offset-bottom10
+                                p Окончательный диагноз и назначение препаратов по Законодательству Украины Вы можете получить только на личном приеме у врача. Если после онлайн-консультации Вы захотите попасть к врачу на прием -  <a href="/modals.html#doctor-request" title="воспользуйтесь записью">воспользуйтесь записью</a> через наш сайт.
+                    +b.more-toggle: +i({ title: "Раскрыть подсказку", hideLabel: "Cкрыть подсказку"})

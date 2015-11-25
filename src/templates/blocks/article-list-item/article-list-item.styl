@@ -1,0 +1,132 @@
+.articles-list
+    clearfix()
+    
+    .article-list-item
+        position relative
+        clearfix()
+        
+        &__image
+            float left
+        border-radius border_radius_sm 0 0 border_radius_sm
+        &__title
+            margin-top 0
+            margin-bottom 7px
+            font-weight 700
+            font-size 16px
+                
+        &__content
+            max-height 111px
+            overflow hidden
+            line-height 18.8px
+        &__meta
+            font-size 13px
+        &__category
+            margin-right 4%
+            span
+                color text_blue
+        &__themes
+            span
+                color text_blue
+        &__date
+            float right
+            color text_blue
+            span
+                display none
+
+    &.blog-list
+        @media tablet
+            margin- 20px
+        .article-list-item
+            float left
+            width 50%
+            &__inner
+                box-shadow 0 2px 4px #e3e4ed
+                &:hover
+                    box-shadow 0 4px 8px #CDCDCF
+            &:first-child
+                padding-right 20px
+            &__title
+                max-height 51px
+                overflow hidden
+            &__image
+                width 165px
+                height 194px
+                img
+                    width 100%
+                    height 100%
+                    border-radius border_radius_sm 0 0 border_radius_sm
+            &__right-column
+                height 194px
+                padding-top 14px
+                padding-right 10px
+                padding-left 179px
+                background #fff
+    &.news-list
+        .article-list-item
+            width 100%
+            padding 15px 20px
+            clearfix()
+            &:not(:first-child)
+                border-top 1px dashed #ccc
+            &__title
+                font-size 18px
+            &__image
+                width 200px
+                height 133px
+                overflow hidden
+                img
+                    width 100%
+            &__right-column
+                padding-right 10px
+                padding-left 214px
+            @media phone
+                &__category, &__themes
+                    float none
+                    display block
+                &__date
+                    float none
+                    color text_color
+                    span
+                        display inline-block
+                        color text_blue
+
+            @media screen560
+                &__image
+                    float none
+                    width 100%
+                    height auto
+                    max-height 300px
+                &__right-column
+                    margin-top 20px
+                    padding-left 0
+    &.blog-page
+        .article-list-item
+            height 170px
+            margin-bottom 20px
+            padding 0 20px 0 0
+            background #fff
+            border-radius border_radius_sm
+            box-shadow 0 3px 4px #e3e4ed
+            &__image
+                width 220px
+                height 170px
+                overflow hidden
+                border-radius border_radius_sm 0 0 border_radius_sm
+            &__right-column
+                padding-top 12px
+                padding-left 240px
+            &__title
+                font-size 18px
+            &__content
+                max-height 75px
+            
+            @media tablet_desktop
+                &__inner
+                    height 170px
+                    position relative
+                &__meta
+                    width 100%
+                    position absolute
+                    padding-left 240px
+                    left 0
+                    bottom 15px

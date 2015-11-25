@@ -1,0 +1,9 @@
+- quotes = data.quotes
++e("ul").header
+    each quote in quotes
+        +e("li").item(class=quote.classes)
+            img(src=quote.image, alt=quote.title)
++e.content
+    each quote in quotes
+        +e.pane(class=quote.classes)
+            != quote.title

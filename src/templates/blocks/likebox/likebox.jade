@@ -1,0 +1,20 @@
+- label = data.label
+- likes = data.likes
+- dislikes = data.dislikes
+if label
+    +e.label(data-toggle="tooltip", data-original-title="Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.", data-placement="bottom")= label
+if likes && dislikes
+    +e.like
+        +e.votes= likes
+    +e.dislike
+        +e.votes= dislikes
+else if likes
+    +e.like
+        +e.votes= likes
+else
+    +e("label").like
+        input(type="radio", name=radioName, value="yes")
+        span
+    +e("label").dislike
+        input(type="radio", name=radioName, value="no")
+        span

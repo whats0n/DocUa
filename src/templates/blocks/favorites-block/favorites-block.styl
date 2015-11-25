@@ -1,0 +1,41 @@
+.favorites-block
+    white-space nowrap
+    margin-top 3px
+    @media phone
+        width 20px
+        display none
+    &__star
+        position relative
+        top 2px
+        display inline-block
+        sprite($favorite2)
+        opacity .7
+        .favorites-block_favored &
+            opacity 1
+    &__link
+        font-size 14px
+        line-height 14px
+        color #000
+        text-decoration none
+        cursor pointer
+        &:hover
+            text-decoration none
+            .favorites-block__text
+                border-color transparent
+    &__text
+        display inline-block
+        border-bottom 1px dotted
+        transition border-color .2s ease
+        @media phone
+            display none
+        &-favored
+            display none
+            .favorites-block_favored &
+                display block
+        &-not-favored
+            display block
+            .favorites-block_favored &
+                display none
+.favorites-block_favored
+    .favorites-block__star
+        sprite($favorite2_favored)

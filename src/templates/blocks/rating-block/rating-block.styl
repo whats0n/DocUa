@@ -1,0 +1,59 @@
+.rating-block
+    position relative
+    padding 20px 40px 26px 20px
+    background-color yellow_light
+    @media screen and (min-width: 992px ) and (max-width: 1200px)
+        padding-right: 20px
+    @media screen560
+        padding 20px 20px 26px 5px
+    .statistics-item__label
+        font-size 14px
+    .row
+        margin-bottom 0
+    >.row
+        >div:nth-child(2)
+            &:before
+                content ''
+                position absolute
+                left 10px
+                top 0
+                width 1px
+                height 118px
+                border-right 1px dashed blue_light
+
+                @media phone
+                    border-color transparent
+    hr
+        border-color #b7e0e2
+        margin 10px -20px 20px 0
+    h4
+        font-weight 700
+        font-size 16px
+        margin-top 20px
+        margin-bottom 0
+    .likebox
+        @media phone_tablet
+            text-align right
+        &__label
+            width 164px
+            @media tablet
+                width 201px
+            @media phone
+                width 141px
+        &__dislike
+            margin-right 0
+
+    .rating-info
+        padding-left 20px
+        @media phone_tablet
+            margin-bottom 20px
+        @media phone
+            padding-left 0
+        &__icon
+            float left
+            display inline-block
+            margin-top 5px
+            sprite($rating_icon_big)
+        &__text
+            margin-left 44px
+            padding-top 3px

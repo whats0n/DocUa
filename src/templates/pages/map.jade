@@ -1,0 +1,18 @@
+//---
+    layout: layouts/map
+    title: Врачи дерматологи в Киеве
+    finder: map
+    modals: select-area, select-specialization, doctor-request, clinic-request
+    page_name: map
+    find_text: врачей
+
++b.big-map
+    +e.container
+        #map-canvas-big.map-canvas-big
+    +e.widget
+        - var items = []
+        - var limit = 4
+        each doctor, i in doctors
+            if i < limit
+                - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/doctor-consultation.html' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
+        +b.short-list: +i({ count: 124, items: [], map: true})

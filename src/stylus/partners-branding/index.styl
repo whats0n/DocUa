@@ -1,0 +1,149 @@
+.body-partners
+    
+    >.main-content
+        padding-top 0 !important
+        padding-bottom 0
+            
+    .partners-splash
+        position relative
+        margin-bottom 0
+        margin-left -15px !important
+        margin-right -15px !important
+        background #fff
+        
+        .doc-link
+            float right
+            color #fff
+            font-size 18px
+            text-decoration none
+        
+        &__bg
+            position absolute
+            bottom 0
+            width 50%
+            height 34px
+            &:nth-child(1)
+                left 0
+                background #00839d
+            &:nth-child(2)
+                right 0
+                background #35bfae
+        &__item
+            float left
+            position relative
+            width 50%
+            height 34px
+            padding-top: 5px;
+            padding-bottom: 5px;
+            
+            &:first-child
+                &:after
+                    content ""
+                    position absolute
+                    left 100%
+                    top 0
+                    height 0
+                    width 0
+                    border-style solid
+                    border-width 17px 0 17px 12px
+                    border-color: transparent transparent transparent #00829b;
+                    z-index 2
+                
+    .partners-text
+        margin-left 12px
+        color #fff
+        font-weight 600
+        font-size 12px
+        text-transform uppercase
+
+    .location
+        float left
+        margin-left 26px
+        background-image url("i/location-icon-point-white.png")
+                
+    .info-text
+        position absolute
+        right 0
+        padding-right 112px
+        color #fff
+        font-weight 600
+        font-size 14px
+        line-height 23px
+        text-transform uppercase
+        
+        .select7
+            position absolute
+            right 0
+            top 0
+            
+        .select7.disabled
+            .select7__current-value
+                border-color transparent
+        
+    .location .select7, .info-text .select7
+            &__caret
+                display none
+            &__current-value
+                color #fff
+                font-size 14px
+                font-weight 600
+                text-transform uppercase
+        
+        .location .select7.select7_open, .info-text .select7.select7_open
+            .select7__current-value
+                color #333
+                font-weight: normal;
+                text-transform: none;
+        
+        .location .select7.select7_open
+            .select7__current-value
+                font-size 16px !important
+                
+    @media only screen and (max-width: 982px)
+        .partners-splash
+            .info-text
+                span:nth-child(1)
+                    display none
+                            
+    @media only screen and (max-width: 768px)
+        .partners-splash
+            
+            &__bg
+                height 70px
+            
+            &__item
+                height 70px
+                    
+                &:first-child
+                    padding-right 10px
+                    
+                    .logo
+                        float none
+                    
+                    .partners-text
+                        display block
+                        margin-left 0
+                        font-size 11px
+                        line-height 1.2
+                        
+                    &:after
+                        display none
+                
+                &:last-child
+                    padding-left 5px
+                    
+                    .location
+                        float none
+                        margin-left 0
+                        
+                        .select7
+                            &__current-value
+                                font-size 13px
+                
+                    .info-text
+                        position static
+                        font-size 13px
+                        span:nth-child(2)
+                            display block
+                            line-height 1
+                            
