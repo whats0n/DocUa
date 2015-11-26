@@ -4,8 +4,8 @@
     margin: 0 15px 20px 0 
     padding 21px 0 22px
     @media phone
-        padding 15px 20px
-        margin-right 10px
+        padding 15px 0
+        margin-right 0
     &__list
         margin 0
         padding 0
@@ -19,6 +19,8 @@
             margin: 0
             padding: 14px 35px 13px 
             position: relative
+            @media phone
+                padding: 12px 15px 
             &:last-child
                 margin-bottom 0
             &:before
@@ -35,6 +37,8 @@
             &.active
                 &:before
                     display: block
+                    @media phone
+                        display: none
         &-link
             display block
             padding 0 !important
@@ -60,6 +64,9 @@ article
 .rich-content
     position relative
 .rich-box
-    // display: none
+    display: none
     &.active
         display: block
+    ul
+        margin-bottom: 6px
+        padding: 0 !important
