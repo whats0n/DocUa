@@ -6,10 +6,8 @@
     &__header
         padding 0
         list-style none
-        margin-bottom 15px
         @media phone
             min-height 80px
-            margin 0 0 10px
             white-space nowrap
             -webkit-overflow-scrolling touch
             text-align center
@@ -18,13 +16,19 @@
         display inline-block
         text-align center
         cursor pointer
+        padding: 0 0 37px 
         .owl-carousel &
             display block
         @media phone
             min-width 100px
             height 100%
+            padding: 10px 0 
         img
             apply-grayscale()
+            border: 1px solid rgba(198, 221, 226, 0.9)
+            border-radius: 3px
+            background-color: white
+            max-width: 100%
             @media tablet
                 transform scale(0.8)
             @media phone
@@ -37,31 +41,18 @@
             &:before
                 content " "
                 position absolute
-                bottom -16px
-                left 50%
-                margin-left -11px
-                border-left 11px solid transparent
-                border-right 11px solid transparent
-                border-bottom 12px solid #ccc
+                top: 100%
+                left: 60%
+                margin -14px 0 0 -9px
+                border-style: solid
+                border-width: 0 18px 14px 0
+                border-color: transparent transparent #e5f2f5
                 z-index 1
-                @media phone
-                    bottom -11px
-            &:after
-                content " "
-                position absolute
-                bottom -18px
-                left 50%
-                margin-left -11px
-                border-left 11px solid transparent
-                border-right 11px solid transparent
-                border-bottom 13px solid #fff
-                z-index 2
-                @media phone
-                    bottom -13px
     &__content
-        height 182px
-        padding 22px 20px 20px
-        border 1px solid #ccc
+        padding 38px
+        background-color: #e5f2f5
+        border-radius: 5px
+        font-size: 0
         @media phone
             height auto
         &:before
@@ -73,12 +64,9 @@
             height 100%
     &__pane
         display none
-        font-size 18px
+        font-size: 15px
         &.active 
-            display inline-block
-            vertical-align middle
-            @media phone
-                font-size 16px				
+            display: block			
     .owl
         &-wrapper
             @media phone
