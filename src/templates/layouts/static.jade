@@ -102,31 +102,32 @@ body
                   block content
     
     //- Blog
-    .container-fluid.hidden-xs
-        .row.row-blog
-            .container
-                section
-                    header.header-styled
+    if file.page_name != 'about' && file.page_name != 'about-rating'
+        .container-fluid.hidden-xs
+            .row.row-blog
+                .container
+                    section
+                        header.header-styled
+                            .row.offset-bottom-0
+                                .col-sm-6
+                                    h2.h1 В блоге здоровья
+                                .col-sm-6.text-right
+                                    a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
                         .row.offset-bottom-0
-                            .col-sm-6
-                                h2.h1 В блоге здоровья
-                            .col-sm-6.text-right
-                                a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
-                    .row.offset-bottom-0
-                        - var limit = 2
-                        .col-md-9
-                            +b.articles-list.blog-list
-                                each article, i in articlesData
-                                    if i < limit
-                                        +b.article-list-item: +i({article: article})
-                        .col-md-3
-                            - var start = 3
-                            - var limit = 4
-                            +b("ul").blog-links
-                                each article, i in articlesData
-                                    if i > start || i < from + limit
-                                        +e("li").item
-                                            a(href= article.link)= article.title
+                            - var limit = 2
+                            .col-md-9
+                                +b.articles-list.blog-list
+                                    each article, i in articlesData
+                                        if i < limit
+                                            +b.article-list-item: +i({article: article})
+                            .col-md-3
+                                - var start = 3
+                                - var limit = 4
+                                +b("ul").blog-links
+                                    each article, i in articlesData
+                                        if i > start || i < from + limit
+                                            +e("li").item
+                                                a(href= article.link)= article.title
     //- Footer
     .container-fluid
         .row.footer
