@@ -17,10 +17,40 @@
       +b("a").load-items(href="#"): +i({articles: true})
       +b("ul").pagination.offset-top30: +i
    
-   aside.col-md-3.hidden-sm.hidden-xs.themes 
+   aside.col-md-3.hidden-sm.hidden-xs.themes  
       .widget
          h3 Темы
-         +b.menu: +i({prefix: "page", items: articleThemes, activeIndex: 2})
-      .widget
-         a.banner(href="#")
-            img(src="i/_side-banner.jpg")
+         .themes-section
+            +b.menu: +i({prefix: "page", items: articleThemes, activeIndex: 2})
+            .themes-more
+               a(href="#").themes-more__link Больше направлений
+      .widget.themes-blocks
+         h3 Популярные статьи
+         .article-block
+            .article-block__img
+               img(src="http://placecage.com/350/179", alt="")
+            .article-block__title
+               a(href="#") Школьные болезни: к чему готовиться?
+            .article-block__info
+               time.main-time 27.07.2015 
+               ul.info-list
+                  li
+                     a.is-view(href="#") 18
+                  li
+                     a.is-like(href="#") 35
+                  li
+                     a.is-share(href="#") 169
+         .article-block
+            .article-block__img
+               img(src="http://placecage.com/350/179", alt="")
+            .article-block__title
+               a(href="#") Школьные болезни: к чему готовиться?
+            .article-block__info
+               time.main-time 27.07.2015
+               ul.info-list
+                  li
+                     a.is-view(href="#") 18
+                  li
+                     a.is-like(href="#") 35
+                  li
+                     a.is-share(href="#") 169 

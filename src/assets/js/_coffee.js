@@ -1636,6 +1636,8 @@ $(document).ready(function() {
   });
 });
 
+
+
 var phonesAutoChange;
 
 phonesAutoChange = {
@@ -1878,8 +1880,6 @@ $(document).on("change", ".pill-group .pill input", function(e) {
     }
   }
 });
-
-
 
 var postLocationWidthFix;
 

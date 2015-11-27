@@ -4,18 +4,25 @@
     if article.thumb
         +e.image
             img(src=article.thumb, alt=article.title)
+            ul.info-list
+                li
+                    a(href="#").is-view 18
+                li
+                    a(href="#").is-like 35
+                li
+                    a(href="#").is-share 169
     +e.right-column
-        +e("h1").title
+        +e("h2").title
             a(href=article.link, title=article.title)= article.title
-        +e.content
-            p
-                != article.shortDesc
-
         if news
-            +e.meta
+            +e("ul").meta
+                if article.date
+                    +e("span").date
+                        |  <span>Дата: </span>
+                        =article.date
                 if article.category
                     +e("span").category
-                        | <span>Категория:</span>&nbsp;
+                        | <span>Категория: </span>&nbsp;
                         a(href="#", title="")= article.category
                 if article.themes
                     +e("span").themes
@@ -24,7 +31,6 @@
                             a(href="#", title="")= theme
                                 if i < article.themes.length -1
                                     | ,&nbsp
-                if article.date
-                    +e("span").date
-                        |  <span>Дата: </span>&nbsp;
-                        =article.date
+        +e.content
+            p
+                != article.shortDesc

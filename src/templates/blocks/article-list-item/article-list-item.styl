@@ -1,34 +1,80 @@
 .articles-list
     clearfix()
-    
+    background: #FFF 
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
+    margin-bottom: 21px
     .article-list-item
         position relative
         clearfix()
-        
+        padding: 21px 21px 15px
+        border-bottom: 1px dashed #c0d2d6   
+        &.last-child
+            border: none
         &__image
             float left
-        border-radius border_radius_sm 0 0 border_radius_sm
+            position: relative
+            border-radius border_radius_sm 
+            margin-bottom: 6px
+            @media phone
+                float: none
+                margin: 0 auto 10px 
+            img
+                max-width: 100%
+        .info-list
+            font-size: 0
+            text-align: center
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 0
+            background-color: rgba(white, 0.63)
+            padding: 7px 7px 6px 
         &__title
             margin-top 0
-            margin-bottom 7px
+            margin-bottom 12px
             font-weight 700
             font-size 16px
+            a
+                color: #4b89d3
                 
         &__content
             max-height 111px
             overflow hidden
-            line-height 18.8px
+            font-size: 15px
+            line-height: 20px
         &__meta
-            font-size 13px
+            font-size: 0
+            padding: 0 0 10px
+            li
+                font-size: 13px
+                display: inline-block
+                vertical-align: top
+                position: relative
+                padding: 0 25px 0 0
+                &.last-child
+                    &:before
+                        display: none
+                &:before
+                    content: "" 
+                    position: absolute
+                    top: 50%
+                    right: 12px
+                    width: 1px
+                    height: 10px
+                    margin-top: -5px
+                    opacity: 0.28
+                    background-color: #00829b
+                    @media phone
+                        display: none
+                a
+                    color: #4b89d3
         &__category
-            margin-right 4%
             span
                 color text_blue
         &__themes
             span
                 color text_blue
         &__date
-            float right
             color text_blue
             span
                 display none
@@ -54,7 +100,7 @@
                 img
                     width 100%
                     height 100%
-                    border-radius border_radius_sm 0 0 border_radius_sm
+                    border-radius border_radius_sm 
             &__right-column
                 height 194px
                 padding-top 14px
@@ -64,7 +110,6 @@
     &.news-list
         .article-list-item
             width 100%
-            padding 15px 20px
             clearfix()
             &:not(:first-child)
                 border-top 1px dashed #ccc
@@ -79,6 +124,8 @@
             &__right-column
                 padding-right 10px
                 padding-left 214px
+                @media phone
+                    padding-left: 0
             @media phone
                 &__category, &__themes
                     float none
@@ -101,32 +148,20 @@
                     padding-left 0
     &.blog-page
         .article-list-item
-            height 170px
-            margin-bottom 20px
-            padding 0 20px 0 0
-            background #fff
-            border-radius border_radius_sm
-            box-shadow 0 3px 4px #e3e4ed
             &__image
-                width 220px
-                height 170px
+                width 200px
+                height 133px
                 overflow hidden
-                border-radius border_radius_sm 0 0 border_radius_sm
+                border-radius border_radius_sm
             &__right-column
-                padding-top 12px
-                padding-left 240px
+                padding-left 220px
+                @media phone
+                    padding-left: 0
             &__title
                 font-size 18px
             &__content
-                max-height 75px
+                max-height 80px
             
             @media tablet_desktop
                 &__inner
-                    height 170px
                     position relative
-                &__meta
-                    width 100%
-                    position absolute
-                    padding-left 240px
-                    left 0
-                    bottom 15px

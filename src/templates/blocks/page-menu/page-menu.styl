@@ -1,30 +1,51 @@
 .page-menu
-	margin-top 31px
+	// margin-top 31px
+	padding: 12px 21px 
+	border-bottom: 1px dashed #c0d2d6 
 	&__item
 		position relative
-		margin-bottom 6px
+		font-size: 15px
+		line-height: 19px
+		padding: 5px 0 
 		&-link
-			text-decoration none
+			color: #4b89d3
+			text-decoration underline
+			display: block
+			padding-left 15px
+			position relative
 			&:hover
-				text-decoration underline
-		&.active
-			padding-left 14px
-			.page-menu__item-link
-				font-weight 700
-				color text_color
-			&:before, &:after
+				text-decoration none
+			&:before
 				content ''
 				position absolute
-				width 0
 				height 0
 				left 0
-			&:before
-				top 4px
-				border-style solid
-				border-width 6px 0 5px 6px
-				border-color transparent transparent transparent text_blue
-			&:after
-				top 5px
-				border-style solid
-				border-width 5px 0 4px 5px
-				border-color transparent transparent transparent grey_base
+				top 6px
+				width: 8px
+				height: 8px
+				background-color: #ddecef
+				border-radius: 50%
+		&.active
+			.page-menu__item-link
+				color: #35bfae
+				text-decoration none
+				&:before
+					background-color: #35bfae
+.themes-section
+	background: #fff 
+	border-radius: 3px
+	box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
+.themes-blocks
+	.article-block
+		margin-bottom: 21px
+
+.themes-more
+	text-align: center
+	padding: 12px 
+	&__link
+		color: #4b89d3
+		font-size: 16px
+		text-decoration: underline
+		display: inline-block
+		vertical-align: top
+		line-height: 1
