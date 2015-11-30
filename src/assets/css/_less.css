@@ -4121,15 +4121,25 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: left;
   font-size: 16px;
   line-height: 18px;
+  padding: 0 2px;
 }
 .pagination > li > a,
 .pagination > li > span {
   position: relative;
   display: inline-block;
-  padding: 3px 7px 2px;
   line-height: 19px;
   text-decoration: none;
   font-size: 20px;
+  text-align: center;
+  min-width: 26px;
+  padding: 4px 5px 3px;
+}
+.pagination > li.pg-long > a,
+.pagination > li.pg-long > span {
+  min-width: 32px;
+}
+.pagination > li.pg-long {
+  padding: 0;
 }
 .pagination > li.previous {
   margin-right: 5px;
@@ -4164,12 +4174,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pagination > li > a:hover,
 .pagination > li > a:focus {
   color: #00424e;
-  border-color: #f0f0f0;
+  /*border-color: #f0f0f0;*/
 }
-.pagination > .active {
+.pagination > .active a {
   border: 1px solid #91b5bc;
   border-radius: 100px;
   font-weight: 700;
+  padding: 3px 5px 2px;
 }
 .pagination > .active > a,
 .pagination > .active > span,

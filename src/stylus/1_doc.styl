@@ -383,7 +383,7 @@ ul
 .main-content
     h1
         margin-top 0
-        margin-bottom 14px
+        margin-bottom 12px
         font-weight 700
         font-size 28px
     .content-inner
@@ -601,6 +601,10 @@ ul
                 text-align center
                 font-size 16px
                 margin-top 20px
+            .post
+                padding-bottom: 21px
+                &__body, &__footer, .timer-badge
+                    padding: 0 22px 
     .widget + .widget
         margin-top 23px
 // Index
@@ -955,18 +959,11 @@ a:focus, a:hover
         padding: 0 0 0 14px 
         &.first-child
             padding: 0
-        a
+        a, span
             color: #5e6e71
             text-decoration: none
             position: relative
             display: inline-block
-            &:hover
-                &:before
-                    opacity: 0
-                    visibility: hidden
-                &:after
-                    opacity: 0.73
-                    visibility: visible
             &.is-view
                 padding: 0 0 0 28px
                 &:before, &:after
@@ -979,6 +976,7 @@ a:focus, a:hover
                 padding: 0 0 0 20px
                 &:before, &:after
                     width: 20px
+                    bottom: 4px
                 &:before
                     background-image: url("i/icons/in-like.png")
                 &:after
@@ -1003,6 +1001,14 @@ a:focus, a:hover
             &:after
                 visibility: hidden
                 opacity: 0
+        a
+            &:hover
+                &:before
+                    opacity: 0
+                    visibility: hidden
+                &:after
+                    opacity: 0.73
+                    visibility: visible
 .main-time
     font-size: 13px
     color: #96b8bf
