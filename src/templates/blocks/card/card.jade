@@ -20,7 +20,7 @@ article.hreview-aggregate.vcard.hcard
                         |  всех специалистов Института планирования семьи!
         if clinicWorld
             +e.title.fn.org
-                h1.h3
+                h3.h3
                     - var pageLink = card.filename
                     if onlineConsultation
                         - pageLink = '/doctors/consultation.html'
@@ -73,14 +73,14 @@ article.hreview-aggregate.vcard.hcard
             +e.title.fn.org
                 if !clinicWorld
                     if landing
-                        h1.h3
+                        h3.h3
                             if clinic
                                 - pageLink = '/clinic-inner.html'
                             else
                                 - pageLink = '/doctor-consultation.html'
                             a(href=pageLink, title=card.name)= card.name
                     else
-                        h1= card.name
+                        h3= card.name
             if !clinicDiagnostic
                 if card.label
                     +e.label.title
@@ -126,12 +126,12 @@ article.hreview-aggregate.vcard.hcard
             if clinic_inner
                 p= card.about_general
 
-            if landing
-                +e.short-summary
-                    p
-                        | #{card.shortSummary} &nbsp;
-                        if moreLink
-                            a(href="#") далее
+            //- if landing
+            //-     +e.short-summary
+            //-         p
+            //-             | #{card.shortSummary} &nbsp;
+            //-             if moreLink
+            //-                 a(href="#") далее
             if !clinic
                 if card.jobs && !doctorWorld
                     each job in card.jobs

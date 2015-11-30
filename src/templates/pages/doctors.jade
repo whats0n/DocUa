@@ -9,14 +9,14 @@
 
 .row
     section.col-md-9
-        .splash.island
-            .border-box.text-center
-                strong.large К сожалению, в выбранном Вами районе "Беличи" врачи-иммунологи не найдены. Найдите своего иммунолога в ближайшем районе
-            h3 Врачи-иммунологи в других районах (4)
-            ul.directory-patient.border-dotted.columnize(data-columns="3")
-                each item in ["Осокорки", "Оболонь", "Шулявка", "Нижний Печерск"]
-                    li.directory-patient__item
-                        a.directory-patient__link(href="#")= item
+        //- .splash.island
+        //-     .border-box.text-center
+        //-         strong.large К сожалению, в выбранном Вами районе "Беличи" врачи-иммунологи не найдены. Найдите своего иммунолога в ближайшем районе
+        //-     h3 Врачи-иммунологи в других районах (4)
+        //-     ul.directory-patient.border-dotted.columnize(data-columns="3")
+        //-         each item in ["Осокорки", "Оболонь", "Шулявка", "Нижний Печерск"]
+        //-             li.directory-patient__item
+        //-                 a.directory-patient__link(href="#")= item
         +b("ul").card-list
             each doctor in doctors
                 +b.card(data-id= 'c' + doctor.id): +i({ card: doctor, landing: true, moreLink: true, doctors_page: true })

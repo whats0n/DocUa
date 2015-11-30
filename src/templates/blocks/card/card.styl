@@ -1,14 +1,14 @@
 .card
     position relative
-    padding 12px 0 0
+    padding 18px 0 0
     margin-bottom 20px
     background #fff
     border 1px solid border_grey
     border-radius border_radius_sm
-    box-shadow 0 2px 3px #e3e4ed
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
     transition border-color 0.2s ease, box-shadow 0.2s ease
     &:not(.has-hidden-small-cards)
-        padding-bottom 12px
+        padding-bottom 21px
     &.has-hidden-small-cards
         .card__footer
             margin-bottom 10px
@@ -87,6 +87,11 @@
                 font-size 18px !important
             @media screen560
                 margin-top 7px !important
+        .h3
+            font-weight: 700 
+        a
+            color: #4b89d3
+            text-decoration: none
 
     &__job
         margin-top 10px
@@ -106,13 +111,18 @@
             font-size 12px
         .card__desc
             color text_grey
+            padding-right: 130px
         .address-info
             margin-top 8px
             line-height 20px
-    &__label + &__label-description
-        margin-top: 3px
-    .benefits + &__short-summary
-        margin-top: 4px
+    &__label
+        margin-bottom: 5px
+    &__label, &__label-description        
+        font-size: 16px
+        line-height: 18px
+    .benefits
+        margin: 0
+        padding: 8px 0
 
 .card, .small-card
     .rating__value
@@ -265,9 +275,9 @@
         p:last-child
           margin-bottom 0
     &__footer
-        display inline-block
+        display: block
         width 100%
-        margin-top 10px
+        margin-top 21px
         clearfix()
         .link
             display inline-block
