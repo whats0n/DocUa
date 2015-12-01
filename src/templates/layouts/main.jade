@@ -169,6 +169,9 @@ body
                           +b.catalog-checkboxes: +i({items: ["Работает в воскресенье", "Работает в субботу"]})
                         if file.page_name == 'doctors'
                           +b.catalog-checkboxes: +i({items: ["С выездом на дом", "Детский врач"]})
+                .col-md-12
+                  .doctors-alert
+                    strong К сожалению, в выбранном Вами районе "с. Софиевская Борщаговка" врачи-фтизиатры не найдены. Найдите своего фтизиатра в ближайшем районе
           //- Content
           block content
 
@@ -185,12 +188,20 @@ body
         .row.row-articles
           .container
             section
-              header.header-styled
-                .row.offset-bottom-0
-                  .col-sm-6
-                    h2.h1 В блоге здоровья
-                  .col-sm-6.text-right
-                    a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
+              if file.page_name != doctor_consultation && file.page_name != doctors
+                header.header-styled.header-styled-mod
+                  .row.offset-bottom-0
+                    .col-sm-6
+                      h2.h1 В блоге здоровья
+                    .col-sm-6.text-right
+                      a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
+              else 
+                header.header-styled
+                  .row.offset-bottom-0
+                    .col-sm-6
+                      h2.h1 В блоге здоровья
+                    .col-sm-6.text-right
+                      a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
               .row.offset-bottom-0
                 - var limit = 2
                 .col-md-3.col-sm-4

@@ -8,7 +8,7 @@
 
 .row 
     section.col-md-9 
-        +b.card: +i({card: doctors[0], landing: false, doctors_page: true})
+        +b.card.card-mod: +i({card: doctors[0], landing: false, doctors_page: true})
 
         ul.nav.nav-tabs.nav-doctor
             li.active: a(href="#tab-about", data-toggle="tab") О враче
@@ -46,9 +46,9 @@
                             +b.likebox: +i({ likes: doctors[0].likes, dislikes: doctors[0].dislikes, label: "Рекомендуют врача" })
                 .text
                     each about in doctors[0].about
-                        p
-                            strong.doctors= about.title
-                            ul.style-disc.about-list
+                        p.doctor-title
+                            strong= about.title
+                            ul.doctor-list
                                 each item in about.items
                                     li= item
 
@@ -93,8 +93,10 @@
                         strong
                             a(href="/", title="Будьте первыми") Будьте первыми!
                 .pagination-wrap
-                    +b("ul").pagination: +i
-
+                    +b("ul").pagination: +i 
+                .doctors-quote
+                    strong Почему Вы не можете оставить отзыв?
+                    | Отзывы на сайте могут оставлять только пациенты, побывавшие на приеме у врача. Это исключает публикацию заказных и неправдивых отзывов. Мы собираем отзывы путем обзвона реальных пациентов, которые посетили врача, записавшись через наш сервис. 
             #tab-actions.tab-pane
                 .offers-list
                     .row
@@ -114,6 +116,6 @@
                 if i < limit
                     - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
             +b.short-list: +i({ items: items })
-            .link
+            .link.link-more
                    a(href="/doctors.html") Все врачи
                 

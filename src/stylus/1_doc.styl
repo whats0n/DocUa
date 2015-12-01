@@ -484,11 +484,12 @@ ul
         border-color blue_light
         >li
             >a
-                padding 0 21px 11px
+                padding 9px 21px 9px
                 font-size 16px
                 text-decoration none
                 border 0 !important
                 outline none
+                color: #4b89d3
                 &:hover
                     background-color transparent
                     border 0
@@ -502,9 +503,9 @@ ul
                     left 50%
                 &:before
                     bottom 0
-                    margin-left: -10px
+                    margin-left: -8px
                     border-style: solid
-                    border-width: 0 8px 7px 8px
+                    border-width: 0 6px 6px
                     border-color: transparent transparent blue_light  transparent
                 &:after
                     bottom -1px
@@ -561,14 +562,36 @@ ul
                 padding 20px
             font-size: 15px
             clearfix()
-            p strong.doctors
-                font-size: 17px
+            p
+                margin: 0
+                &.doctor-title
+                    margin-bottom: 6px
+                    font-size: 18px
             ul.about-list
                 margin-bottom: 26px
+            ul.doctor-list
+                padding: 0 0 4px 30px 
+                @media phone
+                    padding-left: 0
+                li
+                    line-height: 20px
+                    font-size: 15px
+                    padding: 0 0 0 25px 
+                    position: relative
+                    margin-bottom: 15px
+                    &:before
+                        content: "" 
+                        width: 8px
+                        height: 8px
+                        background-color: #96b8bf
+                        border-radius: 50%
+                        position: absolute
+                        top: 6px
+                        left: 0
         .tab-pane
             background #fff
             border-radius 0 0 border_radius_sm border_radius_sm
-            box-shadow 0 3px 3px #e3e4ed
+            box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
             margin-bottom 3px
             &#tab-actions
                 background-color transparent
@@ -601,12 +624,28 @@ ul
                 text-align center
                 font-size 16px
                 margin-top 20px
+                &-more
+                    margin: 0
+                    line-height: 1
+                    padding: 13px 0 14px 
+                    a
+                        color: #4b89d3
+                        display: inline-block
             .post
                 padding-bottom: 21px
                 &__body, &__footer, .timer-badge
                     padding: 0 22px 
     .widget + .widget
         margin-top 23px
+    .widget-doctor
+        background: #fff
+        border-radius: 3px
+        box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
+        h3
+            margin: 0
+            text-align: center
+            padding: 13px 0
+            line-height: 1 
 // Index
 .offers-list
     .post
@@ -1116,8 +1155,10 @@ article.static-page
     .header-styled
         &.header-styled-mod
             padding-bottom: 14px
-            .h1
-                color: #5e6e71
+.header-styled
+    &.header-styled-mod
+        .h1
+            color: #5e6e71
 .about
     &-row
         margin-bottom: 25px

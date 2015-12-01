@@ -101,7 +101,29 @@
                     top 0
                     zoom 0.7
                     sprite($like)
-
+    &__liked, &__unliked
+        font-size: 14px
+        line-height: 18px
+        padding: 4px 0 0 24px 
+        position: relative
+        margin-bottom: 10px
+        &:before
+            content: "" 
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 0
+            width: 24px
+            background-position: center left
+            background-repeat: no-repeat
+    &__liked 
+        color: #35bfae
+        &:before
+            background-image: url("i/icons/review-liked.png")
+    &__unliked 
+        color: #ef3d5e
+        &:before
+            background-image: url("i/icons/review-unliked.png")
 .tab-content
     #tab-reviews
         .reviews-list

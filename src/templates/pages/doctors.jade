@@ -9,17 +9,63 @@
 
 .row
     section.col-md-9
-        //- .splash.island
-        //-     .border-box.text-center
-        //-         strong.large К сожалению, в выбранном Вами районе "Беличи" врачи-иммунологи не найдены. Найдите своего иммунолога в ближайшем районе
-        //-     h3 Врачи-иммунологи в других районах (4)
-        //-     ul.directory-patient.border-dotted.columnize(data-columns="3")
-        //-         each item in ["Осокорки", "Оболонь", "Шулявка", "Нижний Печерск"]
-        //-             li.directory-patient__item
-        //-                 a.directory-patient__link(href="#")= item
+        +b.doctors-region
+            h3 Врачи-иммунологи в других районах (4)
+            //- div.directory-patient.border-dotted.columnize(data-columns="3")
+            //-     each item in ["Осокорки", "Оболонь", "Шулявка", "Нижний Печерск"]
+            //-         div.directory-patient__item
+            //-             a.directory-patient__link(href="#")= item
+            +e("ul").list
+                +e("li").item
+                    +e("a").link(href="#").is-red Осокорки
+                +e("li").item
+                    +e("a").link(href="#").is-blue Липки
+                +e("li").item.is-last
+                    +e("a").link(href="#").is-green Лукьяновка
+                +e("li").item.is-last
+                    +e("a").link(href="#").is-blue Позняки
         +b("ul").card-list
             each doctor in doctors
                 +b.card(data-id= 'c' + doctor.id): +i({ card: doctor, landing: true, moreLink: true, doctors_page: true })
+        +b("ul").doctors-card
+            +e("li").item
+                +e("div").img
+                    img(src="i/_alexandriyskiy-constantin.jpg", alt="")
+                +e("div").container
+                    +b.favorites-block.pull-right: +i
+                    +e("h3").title
+                        a(href="#") Хобзей Кузьма Николаевич
+                    +e("div").text
+                        +e("ul").list
+                            li
+                                strong Дерматолог, Трихолог,  Дерматовенеролог, Косметолог
+                            li Доктор медицинских наук. Врач высшей категории
+                        +e("div").price Стоимость приема: 
+                            strong 605 грн
+                    +e("div").info
+                        +e("div").rating
+                            +b.rating: +i({ value: 4.9 })
+                            +e("a").views(href="#") 233 отзыва
+                        +b("a").btn.btn-success(href="#doctor-request" data-toggle="modal") Записаться на прием
+            +e("li").item
+                +e("div").img
+                    img(src="i/_alexandriyskiy-constantin.jpg", alt="")
+                +e("div").container
+                    +b.favorites-block.pull-right: +i
+                    +e("h3").title
+                        a(href="#") Хобзей Кузьма Николаевич
+                    +e("div").text
+                        +e("ul").list
+                            li
+                                strong Дерматолог, Трихолог,  Дерматовенеролог, Косметолог
+                            li Доктор медицинских наук. Врач высшей категории
+                        +e("div").price Стоимость приема: 
+                            strong 605 грн
+                    +e("div").info
+                        +e("div").rating
+                            +b.rating: +i({ value: 4.9 })
+                            +e("a").views(href="#") 233 отзыва
+                        +b("a").btn.btn-success(href="#doctor-request" data-toggle="modal") Записаться на прием
 
         +b("a").load-items(href="#"): +i({clnics: true})
 
@@ -27,4 +73,4 @@
     aside.col-md-3.hidden-sm.hidden-xs
         .widget.widget-map
             #map-canvas-right
-            a.btn.btn-success(href="/map.html") Развернуть карту
+            a.btn.btn-success(href="/map.html") Развернуть карту 
