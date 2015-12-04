@@ -1,13 +1,24 @@
 .filials-list
-    background beige_light
+    // background beige_light
 .small-card
-    padding 20px 0
+    padding 9px 0 19px
+    clearfix()
     &:not(:first-child)
         border-top 1px dashed #ccc
-    
+    &_mod
+        border: none
+        background: #fff
+        border-radius: 3px
+        box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
+        padding-top: 11px !important
+        margin-bottom: 21px
+        &:not(:first-child)
+            border: none
     &__label-description
         a
             display inline-block
+    article
+        clearfix()
     .rating__value
         top 1px
     &__footer
@@ -17,6 +28,10 @@
         @media screen560
             .btn
                 wide-btn()
+        .btn
+            font-weight: 700
+            border-radius: 3px
+            padding: 4px 19px 5px
     &__left-side
         margin-bottom 0
 
@@ -29,17 +44,19 @@
     &__action
         display inline-block
         width 440px
-        margin 16px 0 8px
+        margin 0
+        padding: 5px 0 4px
         @media phone_tablet
             width 100%
         span
             position relative
             margin-right 17px
-            padding 0 9px
+            padding 0 9px 2px
             color #fff
-            line-height 18px
+            line-height 20px
             font-weight 700
             border-radius border_radius_sm 0 0 border_radius_sm
+            font-size: 16px
             &.orange
                 background orange_color
             &:after
@@ -48,33 +65,45 @@
                 right -9px
                 top 0
                 border-style: solid;
-                border-width: 9px 0 9px 9px;
+                border-width: 11px 0 11px 9px;
                 border-color: transparent transparent transparent orange_color;
+        a
+            color: #4b89d3
+            font-size: 16px
                 
     &__title
         >*
             margin 0 !important
             font-size 18px !important
             line-height 1.7 !important
+        h3
+            font-weight: 700
+        a
+            color: #4b89d3
     &
     &_hidden
     .show-hidden-small-cards &_hidden
-        max-height 400px
-        padding-top 20px
+        // max-height 400px
+        padding-top 9px
         overflow visible
         opacity 1
         position relative
         display block
         width 100%
         transition all .3s linear
+        display: block
     &_hidden
-        max-height 0
+        display: none
         padding-top 0
         padding-bottom 0
         margin-top 0
         border-top 0 none
         overflow hidden
         opacity 0
+    &__description-mod
+        padding: 2px 0 14px
+    &__address-mod
+        padding: 0 0 5px
 
 .show-hidden-small-cards .small-card_hidden
     padding-bottom: 20px
@@ -105,7 +134,7 @@
             margin-right 5px
             margin-bottom 10px
         &__title
-            margin-bottom 6px
+            margin 0 0 8px
             line-height 1
         &__image
             float left
@@ -116,6 +145,8 @@
             font-weight 700
         &__label-description
             margin-bottom 0
+        &__label, &__label-description
+            font-size: 13px
         &__cost
             float left
             margin-top 14px
@@ -161,15 +192,22 @@
     .article-list-item
         &__content
             max-height 72px
+    .articles-list
+        margin: 0
+        box-shadow: none
     @media tablet_desktop
         .article-list-item
             &__inner
                 height 133px
                 position relative
-            &__meta
-                width 100%
-                position absolute
-                padding-left 214px
-                left 0
-                bottom -3px
-            
+            // &__meta
+            //     width 100%
+            //     position absolute
+            //     padding-left 214px
+            //     left 0
+            //     bottom -3px
+#tab-about
+    p
+        margin: 0 0 10px
+    ul.style-disc
+        padding: 0

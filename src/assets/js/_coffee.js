@@ -1581,6 +1581,8 @@ $("#select-area").on("areaSelected", function(e, arg) {
   return $("#select-area").modal("hide");
 });
 
+
+
 var $goTop, SHOW_GOTOP_AFTER, goTopShown;
 
 SHOW_GOTOP_AFTER = 500;
@@ -1636,47 +1638,11 @@ $(document).ready(function() {
   });
 });
 
-
-
-var phonesAutoChange;
-
-phonesAutoChange = {
-  select: $('.navbar-main .phones .select7'),
-  options: ['mts', 'life', 'kyivstar', 'landline'],
-  checked: 0,
-  interval: 0,
-  init: function() {
-    this.listeners();
-    return this.startSwitch();
-  },
-  listeners: function() {
-    $('body').on('click', function(e) {
-      clearInterval(phonesAutoChange.interval);
-      return phonesAutoChange.startSwitch();
-    });
-    phonesAutoChange.select.find('.select7__current').click(function(e) {
-      e.stopPropagation();
-      if (!phonesAutoChange.select.hasClass('select7_open')) {
-        return startSwitch();
-      }
-    });
-    return $('body').on('select7Opened', function(e) {
-      return clearInterval(phonesAutoChange.interval);
-    });
-  },
-  startSwitch: function() {
-    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 5000);
-  },
-  switchPhone: function() {
-    phonesAutoChange.checked += 1;
-    if (phonesAutoChange.checked >= phonesAutoChange.options.length) {
-      phonesAutoChange.checked = 0;
-    }
-    return phonesAutoChange.select.val(phonesAutoChange.options[phonesAutoChange.checked]).trigger('change');
-  }
-};
-
-phonesAutoChange.init();
+$(function() {
+  return $(".price-block_collapse .price-block__header").on("click", function() {
+    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
+  });
+});
 
 var galleryCount, generateMarkupForOwlCarousel, initOwlCarousel, syncOwlCarousels;
 
@@ -1792,7 +1758,7 @@ initOwlCarousel = function(container, items, opts) {
   }
   if (!opts.simpleThumbs) {
     return $thumbs.owlCarousel({
-      items: 4,
+      items: 5,
       itemsTablet: [979, 6],
       itemsMobile: [767, 2],
       lazyLoad: true,
@@ -1864,22 +1830,45 @@ $(function() {
   return $(".photo-gallery").makeCustomPhotoGallery();
 });
 
-$(document).on("change", ".pill-group .pill input", function(e) {
-  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
-  $pill = $(e.target).closest(".pill");
-  checked = $(e.target).is(":checked");
-  $childrenPills = $pill.siblings("ul").find(".pill");
-  if ($childrenPills.length > 0) {
-    return $childrenPills.find("input").prop("checked", checked);
-  } else {
-    $parentPill = $pill.closest("ul").siblings(".pill");
-    if ($parentPill.length === 1) {
-      $pillsGroup = $parentPill.siblings("ul").find(".pill");
-      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
-      return $parentPill.find("input").prop("checked", allChecked);
+var phonesAutoChange;
+
+phonesAutoChange = {
+  select: $('.navbar-main .phones .select7'),
+  options: ['mts', 'life', 'kyivstar', 'landline'],
+  checked: 0,
+  interval: 0,
+  init: function() {
+    this.listeners();
+    return this.startSwitch();
+  },
+  listeners: function() {
+    $('body').on('click', function(e) {
+      clearInterval(phonesAutoChange.interval);
+      return phonesAutoChange.startSwitch();
+    });
+    phonesAutoChange.select.find('.select7__current').click(function(e) {
+      e.stopPropagation();
+      if (!phonesAutoChange.select.hasClass('select7_open')) {
+        return startSwitch();
+      }
+    });
+    return $('body').on('select7Opened', function(e) {
+      return clearInterval(phonesAutoChange.interval);
+    });
+  },
+  startSwitch: function() {
+    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 5000);
+  },
+  switchPhone: function() {
+    phonesAutoChange.checked += 1;
+    if (phonesAutoChange.checked >= phonesAutoChange.options.length) {
+      phonesAutoChange.checked = 0;
     }
+    return phonesAutoChange.select.val(phonesAutoChange.options[phonesAutoChange.checked]).trigger('change');
   }
-});
+};
+
+phonesAutoChange.init();
 
 var postLocationWidthFix;
 
@@ -1927,10 +1916,21 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
-$(function() {
-  return $(".price-block_collapse .price-block__header").on("click", function() {
-    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
-  });
+$(document).on("change", ".pill-group .pill input", function(e) {
+  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
+  $pill = $(e.target).closest(".pill");
+  checked = $(e.target).is(":checked");
+  $childrenPills = $pill.siblings("ul").find(".pill");
+  if ($childrenPills.length > 0) {
+    return $childrenPills.find("input").prop("checked", checked);
+  } else {
+    $parentPill = $pill.closest("ul").siblings(".pill");
+    if ($parentPill.length === 1) {
+      $pillsGroup = $parentPill.siblings("ul").find(".pill");
+      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
+      return $parentPill.find("input").prop("checked", allChecked);
+    }
+  }
 });
 
 var smallCardInit;

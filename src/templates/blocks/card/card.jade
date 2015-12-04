@@ -82,10 +82,10 @@ article.hreview-aggregate.vcard.hcard
                     else
                         h3= card.name
             if !clinicDiagnostic
-                if card.label
-                    +e.label.title
-                        strong= card.label
-                +e.label-description
+                //- if card.label
+                //-     +e.label.title
+                //-         strong= card.label
+                +e.label-description.card__label-descroption-mod
                     span #{card.labelDescription}&nbsp;
                     if clinic || clinic_inner
                         a(href="#" data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
@@ -122,8 +122,6 @@ article.hreview-aggregate.vcard.hcard
                     if clinicWorld
                         +e("span").region-adress= card.adress
             if !doctorWorld && clinic || clinic_inner
-                hr.dashed.margin-top-5
-            if clinic_inner
                 p= card.about_general
 
             //- if landing
@@ -198,7 +196,8 @@ article.hreview-aggregate.vcard.hcard
         if clinic && card.hasFilials
             if clinicFilials
                 section
-                    h6 Филиалы клиники
+                    h6
+                        span Филиалы клиники
                     +b("ul").filials-list
                         - var limit = 5
                         each clinicFilial, i in clinicFilials
@@ -211,9 +210,9 @@ article.hreview-aggregate.vcard.hcard
 
 if clinic_inner
     +e.bottom
-        +b.photo-gallery._owlbox.hidden-xs: +i({ items: photoGallerySample })
+        +b.photo-gallery._mod._owlbox.hidden-xs: +i({ items: photoGallerySample })
 
-        div.margin-top-10
+        div.card__soc
             +e.socitem
                 a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
                 script.
@@ -228,16 +227,19 @@ if clinic_inner
                     }(document, 'script', 'twitter-wjs');
             +e.socitem
                 .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button_count', data-action='like', data-show-faces='true', data-share='false')
-            +e.socitem
-                div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="175")
+            +e.socitem._last
+                div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="55")
 
-            +e.bottom-links
-                a(href="#") Акции клиники (17)
-                a(href="#") Пакеты услуг (2)
+            +e.bottom-links-mod
+                +e.bottom-link
+                    a(href="#") Акции клиники (17)
+                    a(href="#") Пакеты услуг (2)            
+                a.btn.btn-success.pull-right(href="#doctor-request" data-toggle="modal" title="") Записаться на прием
 
 if clinicInnerFilials
     section
-        h6 Филиалы клиники
+        h6 
+            span Филиалы клиники
         +b("ul").filials-list
             - var limit = 5
             each clinicFilial, i in clinicInnerFilials

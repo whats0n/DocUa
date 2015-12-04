@@ -207,39 +207,66 @@ $finder_input_padding = 8px
         width 100% !important
 
 .finder-map
-    width 762px
+    width: 100%
+    max-width 553px
     position absolute
     left 50%
-    margin-left -381px
+    margin-left -276px
     z-index 101
-
     form
-        width 82%
-        margin-left 2%
+        padding: 19px 22px 19px 149px 
+        position: relative
+        width: 100%
+        @media screen560
+            padding-left: 21px
+        fieldset
+            position: static
 
     .finder
         &__search-title
             width 16%
+            display: none
         &__field
-            width 70%
+            width 100%
+            margin: 0
+            position: relative
         &__submit
-            width 30%
-            a
-                font-size 16px
-                line-height 28px
+            width: 114px
+            position: absolute
+            top: 19px
+            left: 21px
+            @media screen560
+                position: static
+                padding: 20px 0 0  
+            .finder__btn-map
+                background-color: #35bfae
+                border-radius: 3px
+                width: 114px
+                height: 39px
+                font-size: 16px
+                border: none
+                line-height: 39px
+                text-shadow: none
+                padding: 0 18px 0 36px 
+                position: relative 
+                &:hover
+                    background: darken(#35bfae, 10%) 
+                &:active, focus
+                    background: darken(#35bfae, 20%) 
+                &:before
+                    content: "" 
+                    position: absolute
+                    top: 13px
+                    left: 14px
+                    width: 13px
+                    height: 13px
+                    background: url("i/icons/circle-left.png") no-repeat center center 
+                    
 
     @media only screen and (max-width: 1400px)
-        width 60%
         left 7.5%
         margin-left 0
-
-        .finder__search-title
-            display none
-
-        form
-            width 96% !important
-
-        .finder__field
-            width 70%
-        .finder__submit
-            width 28.4%
+    @media only screen and (max-width: 992px)
+        left: 22px
+        right: 22px
+        width: auto

@@ -8,8 +8,232 @@
     page_name: doctor_consultation
 
 .row
-    section.col-md-9
-        +b.card.inner: +i({ card: clinics[0], landing: false, clinic_inner: true, clinicInnerFilials: affilatesIsida})
+    section.col-md-9 
+        //- +b.card.offset-bottom-0.inner: +i({ card: clinics[0], landing: true, clinic_inner: true, clinicInnerFilials: affilatesIsida})
+        +b.card.offset-bottom-0.inner: +i({ card: clinics[0], landing: true, clinic_inner: true, clinicInnerFilials: affilatesIsida})
+            article.hreview-aggregate.vcard.hcard
+                +e.left-side
+                    +e.image(class=card.gender)
+                        if landing
+                            a(href=card.filename, title=card.name)
+                                img.photo(src=card.photo.main, alt="")
+                    +b.rating.value-size_big(class=ratingColorBlack): +i({ value: card.averageRating })
+                    +e.testimonials(class=testimonialsClass)
+                        a(href="#{card.filename}#tab-reviews", title="#{card.testimonialsCount} отзывов")
+                            span.count= card.testimonialsCount
+                            |  отзывов
+                        +e("a").info(href="/modals.html#rating-clinic")
+                    +e.schedule(class=additionalClass)
+                        ul
+                            each item in card.schedule
+                                li
+                                    span.left= item.day
+                                    span.right= item.time
+                +e.right-side
+                    +e.title.fn.org
+                        h3.h3
+                            - var pageLink = card.filename
+                            if onlineConsultation
+                                - pageLink = '/doctors/consultation.html'
+                            a(href=pageLink, title=card.name)= card.name
+                    +e.label-description.card__label-descroption-mod
+                        span #{card.labelDescription}&nbsp;
+                        if clinic || clinic_inner
+                            a(href="#" data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+                    +b("ul").benefits(class=benefitsClasses)
+                        each benefit in card.benefits
+                            +e.item
+                                +e("img").icon(src="#{benefit.image}", alt="")
+                                +e("span").title
+                                    != benefit.title
+                    hr.dashed
+                    .address-info
+                        +e.address.adr
+                            a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=card.adress)= card.address
+                        +e.location.card__location_metro(class=card.metroType)
+                            = card.metro.join(", ")
+                        +e.location= card.location.join(", ")
+                    hr.dashed
+                    p= card.about_general
+                +e.bottom
+                    +b.photo-gallery._mod._owlbox.hidden-xs: +i({ items: photoGallerySample })
+                    div.card__soc
+                        +e.socitem
+                            a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
+                            script.
+                                !function (d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                    if (!d.getElementById(id)) {
+                                        js = d.createElement(s);
+                                        js.id = id;
+                                        js.src = p + '://platform.twitter.com/widgets.js';
+                                        fjs.parentNode.insertBefore(js, fjs);
+                                    }
+                                }(document, 'script', 'twitter-wjs');
+                        +e.socitem
+                            .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button_count', data-action='like', data-show-faces='true', data-share='false')
+                        +e.socitem._last
+                            div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="55")
+
+                        +e.bottom-links-mod
+                            +e.bottom-link
+                                a(href="#") Акции клиники (17)
+                                a(href="#") Пакеты услуг (2)            
+                            a.btn.btn-success.pull-right(href="#doctor-request" data-toggle="modal" title="") Записаться на прием
+            section
+                h6
+                    span Филиалы клиники
+                ul.filial-list
+                    +b.small-card
+                        article
+                            +e.left-side.hidden-xs
+                                +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+
+                                +e.testimonials(class=testimonialsClass)
+                                    a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+                                        span.count= item.testimonialsCount
+                                        |  отзывов
+                            +e.right-side
+                                +b.favorites-block.pull-right: +i
+                                +e.title.fn.org
+                                    h3.h3
+                                        a(href=pageLink, title=item.name)= item.name
+                                .right-side-rating.visible-xs
+                                    +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+                                    +e.testimonials(class=testimonialsClass)
+                                        a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+                                            span.count= item.testimonialsCount
+                                            |  отзывов
+                                    
+                                +e.label-description
+                                    span #{item.labelDescription}&nbsp;
+                                    a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+                                +b("ul").benefits(class=benefitsClasses)
+                                    each benefit in card.benefits
+                                        +e.item
+                                            +e("img").icon(src="#{benefit.image}", alt="")
+                                            +e("span").title
+                                                != benefit.title
+                                .address-info
+                                    if item.address && !clinicWorld
+                                        +e.address.adr
+                                            a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
+                                    if item.metro && !clinicWorld
+                                        +e.location.card__location_metro(class=item.metroType)
+                                            = item.metro.join(", ")
+                                    if !onlineConsultation && !doctorWorld && !clinicWorld
+                                        +e.location= item.location.join(", ")
+                                +e.footer
+                                    +e.schedule.small-card__schedule-mod
+                                        ul
+                                            each item1 in item.schedule
+                                                li
+                                                    span.left #{item1.day}:
+                                                    span.right= item1.time
+                                    +e.action
+                                        span.orange Акция
+                                        a(href="#{item.url}#tab-actions", title=item.actions[0].title)= item.actions[0].title
+                                    a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
+                    +b.small-card
+                        article
+                            +e.left-side.hidden-xs
+                                +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+
+                                +e.testimonials(class=testimonialsClass)
+                                    a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+                                        span.count= item.testimonialsCount
+                                        |  отзывов
+                            +e.right-side
+                                +b.favorites-block.pull-right: +i
+                                +e.title.fn.org
+                                    h3.h3
+                                        a(href=pageLink, title=item.name)= item.name
+                                .right-side-rating.visible-xs
+                                    +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+                                    +e.testimonials(class=testimonialsClass)
+                                        a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+                                            span.count= item.testimonialsCount
+                                            |  отзывов
+                                    
+                                +e.label-description
+                                    span #{item.labelDescription}&nbsp;
+                                    a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+                                +b("ul").benefits(class=benefitsClasses)
+                                    each benefit in card.benefits
+                                        +e.item
+                                            +e("img").icon(src="#{benefit.image}", alt="")
+                                            +e("span").title
+                                                != benefit.title
+                                .address-info
+                                    if item.address && !clinicWorld
+                                        +e.address.adr
+                                            a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
+                                    if item.metro && !clinicWorld
+                                        +e.location.card__location_metro(class=item.metroType)
+                                            = item.metro.join(", ")
+                                    if !onlineConsultation && !doctorWorld && !clinicWorld
+                                        +e.location= item.location.join(", ")
+                                +e.footer
+                                    +e.schedule.small-card__schedule-mod
+                                        ul
+                                            each item1 in item.schedule
+                                                li
+                                                    span.left #{item1.day}:
+                                                    span.right= item1.time
+                                    +e.action
+                                        span.orange Акция
+                                        a(href="#{item.url}#tab-actions", title=item.actions[0].title)= item.actions[0].title
+                                    a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
+                    +b.small-card
+                        article
+                            +e.left-side.hidden-xs
+                                +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+
+                                +e.testimonials(class=testimonialsClass)
+                                    a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+                                        span.count= item.testimonialsCount
+                                        |  отзывов
+                            +e.right-side
+                                +b.favorites-block.pull-right: +i
+                                +e.title.fn.org
+                                    h3.h3
+                                        a(href=pageLink, title=item.name)= item.name
+                                .right-side-rating.visible-xs
+                                    +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+                                    +e.testimonials(class=testimonialsClass)
+                                        a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+                                            span.count= item.testimonialsCount
+                                            |  отзывов
+                                    
+                                +e.label-description
+                                    span #{item.labelDescription}&nbsp;
+                                    a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+                                +b("ul").benefits(class=benefitsClasses)
+                                    each benefit in card.benefits
+                                        +e.item
+                                            +e("img").icon(src="#{benefit.image}", alt="")
+                                            +e("span").title
+                                                != benefit.title
+                                .address-info
+                                    if item.address && !clinicWorld
+                                        +e.address.adr
+                                            a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
+                                    if item.metro && !clinicWorld
+                                        +e.location.card__location_metro(class=item.metroType)
+                                            = item.metro.join(", ")
+                                    if !onlineConsultation && !doctorWorld && !clinicWorld
+                                        +e.location= item.location.join(", ")
+                                +e.footer
+                                    +e.schedule.small-card__schedule-mod
+                                        ul
+                                            each item1 in item.schedule
+                                                li
+                                                    span.left #{item1.day}:
+                                                    span.right= item1.time
+                                    +e.action
+                                        span.orange Акция
+                                        a(href="#{item.url}#tab-actions", title=item.actions[0].title)= item.actions[0].title
+                                    a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
         ul.nav.nav-tabs.nav-clinic
             li.active: a(href="#tab-about", data-toggle="tab") О клинике
             li
@@ -20,7 +244,7 @@
                 a(href="#tab-actions", data-toggle="tab") Акции и пакеты услуг (4)
             li
                 a(href="#tab-news", data-toggle="tab") Новости
-        .tab-content  
+        .tab-content
             #tab-about.tab-pane.active
                 +b.rating-block
                     +e.separator
@@ -48,7 +272,7 @@
                                 dislikes: doctors[0].dislikes,
                                 label: "Рекомендуют клинику"
                             })  
-                .text 
+                .text
                     each about in clinics[0].about
                         if about.paragraphs
                             each paragraph in about.paragraphs
@@ -74,8 +298,10 @@
                     each doctor, i in doctors
                         if i < limit
                             +b.small-card: +i({ item: doctor, tab_doctors: true})
-                .pagination-wrap
+                .pagination-wrapper
                     +b("ul").pagination: +i
+                    +b("a").load-items-mod(href="#")
+                        span Показать еще 10 врачей
 
             #tab-reviews.tab-pane
                 +b.rating-block
@@ -165,5 +391,5 @@
                 items: items,
                 clinic: true
             })
-            .link
-                a(href="/doctors.html") Все клиники
+            .link 
+                a(href="/doctors.html") Все клиники 

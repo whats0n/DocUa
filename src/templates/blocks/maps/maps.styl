@@ -70,6 +70,11 @@
     width 80%
     @media only screen and (max-width: 1400px)
       width 75%
+      position: relative
+    @media only screen and (max-width: 992px)
+      width: 65%
+    @media phone
+      width: 100%
   &__widget
     position absolute
     right 0
@@ -80,7 +85,10 @@
 
     @media only screen and (max-width: 1400px)
       width 25%
-
+    @media only screen and (max-width: 992px)
+      width: 35%
+    @media phone
+      display: none
     .short-list
       border-radius 0
       border 0px
@@ -114,3 +122,17 @@
         margin-bottom 0
         &:first-child
           border-top transparent
+
+.big-map__widget
+  .jspVerticalBar
+    width: 1px
+    background-color: #c0d2d6
+    left: auto
+    right: 10px
+  .jspDrag
+    background-color: #c0d2d6
+    width: 3px
+    left: -1px
+    border-radius: 3px
+  .short-list__items
+    padding-right: 19px

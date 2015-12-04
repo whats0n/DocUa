@@ -10,7 +10,11 @@
                     border-top-right-radius 0
                     border-bottom-right-radius 0
                     border-right 0
-                    border-left 1px solid #91b5bc
+                    border-left 1px solid #91b5bc                    
+                    @media screen560
+                        border-radius: 50%
+                        border: none
+                        padding: 4px 5px 3px 
             &.end
                 a
                     border-top-left-radius 0
@@ -33,24 +37,44 @@
                         color #fff
                         background-color #c0d2d6
 
-.active:not(.start)
-    a
-        border-radius 0
-        border-left 0
-.active:not(.end)
-    a
-        border-radius 0
-        border-right 0
-.active.single
-    a
-        border 1px solid #91b5bc
-        border-radius 100px
+    .active:not(.start)
+        a
+            border-radius 0
+            border-left 0
+            @media screen560
+                border-radius: 50%
+    .active:not(.end)
+        a
+            border-radius 0
+            border-right 0
+            @media screen560
+                border-radius: 50%
+    .active.single
+        a
+            border 1px solid #91b5bc
+            border-radius 100px
+            @media screen560
+                border-radius: 50%
+                border: none
 
-.pg-xs-show
-    display none !important
-    @media screen560
+    .pg-xs-show
+        display none !important
+        @media screen560
+            display inline !important
+    .pg-xs-hide
         display inline !important
-.pg-xs-hide
-    display inline !important
-    @media screen560
-        display none !important               
+        @media screen560
+            display none !important               
+    &-wrapper
+        clearfix()
+        text-align: center
+        .pagination
+            float: right
+            @media only screen and (max-width: 1200px)
+                float: none
+        .load-items-mod
+            float: left
+            margin: 23px 21px 
+            @media only screen and (max-width: 1200px)
+                float: none
+                margin: 0 0 23px 

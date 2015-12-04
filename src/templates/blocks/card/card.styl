@@ -26,13 +26,28 @@
             padding 10px 23px
             line-height 23px
     h6
-        font-size 16px
-        margin 0
-        padding 10px 0 0
+        font-size 18px
+        margin 10px 0 0
+        padding: 0
         font-weight 700
         text-align center
-        background beige_light
-        border-top 1px solid #e9eff0
+        position: relative
+        // background beige_light
+        // border-top 1px solid #e9eff0
+        &:before
+            position: absolute
+            top: 50%
+            margin-top: -1px
+            left: 0
+            right: 0
+            border-top: 1px solid #c0d2d6
+            content: "" 
+        span
+            position: relative
+            z-index: 1
+            padding: 0 9px
+            display: inline-block
+            background: #fff  
     &__bottom
         margin 0 15px 15px
         clearfix()
@@ -47,10 +62,33 @@
             a
                 font-size 15px
                 display inline-block
+                color: #4b89d3
                 &:last-child
                     margin-left 15px
                     padding-left 15px
                     border-left 1px solid blue_base
+            &-mod
+                @media phone
+                    clear: both
+        &-link
+            float: left
+            padding: 12px 0 
+            @media only screen and (max-width: 1200px)
+                float: none
+            a
+                font-size 15px
+                display inline-block
+                color: #4b89d3
+                @media phone
+                    margin-right: 15px
+                &:last-child
+                    margin-left 15px
+                    padding-left 15px
+                    border-left 1px solid blue_base
+                    @media phone
+                        padding: 0
+                        margin: 0
+                        border: none
     &__socwrap
         float left
         clearfix()
@@ -81,7 +119,7 @@
         margin-bottom 7px
         >*
             margin 0 !important
-            font-size 22px !important
+            font-size 24px 
             line-height 1.4 !important
             @media phone_tablet
                 font-size 18px !important
@@ -92,7 +130,8 @@
         a
             color: #4b89d3
             text-decoration: none
-
+            &:hover
+                text-decoration: underline
     &__job
         margin-top 10px
         padding 11px 20px 8px
@@ -120,9 +159,47 @@
     &__label, &__label-description        
         font-size: 16px
         line-height: 18px
+        a
+            display: inline-block
+            color: #4b89d3
+    .card__label-descroption-mod
+        font-size: 14px
+        margin-bottom: 10px
+    p
+        font-size: 14px
+        margin-bottom: 18px
+        margin-top: 8px
+        a
+            display: inline-block
+            color: #4b89d3
     .benefits
         margin: 0
         padding: 8px 0
+    &.card-underline
+        .card__title
+            a
+                text-decoration: underline
+                &:hover
+                    text-decoration: none
+    &__soc
+        margin: 0 6px
+        clearfix() 
+        .btn
+            font-size: 18px
+            padding: 10px 23px
+            line-height: 23px
+            @media screen560
+                width: 100%
+        .card__socitem
+            padding: 12px 0 13px
+            height: 45px 
+            @media phone
+                padding: 0
+                height: 20px
+            &_last
+                max-width: 55px
+    &__footer
+        margin-top 21px
 
 .card, .small-card
     .rating__value
@@ -133,7 +210,7 @@
 
     &__schedule
         position relative
-        margin-top 38px
+        margin-top 21px
         padding 13px 10px
         font-size 13px
         border 1px dashed text_blue
@@ -191,10 +268,10 @@
                 right 10px
                 top 20px
                 width 120px
-            .card__schedule
-                position absolute
-                right 20px
-                top 55px
+            // .card__schedule
+            //     position absolute
+            //     right 20px
+            //     top 55px
             .card__testimonials
                 position absolute
                 right 20px
@@ -212,6 +289,13 @@
         margin 3px 0 10px
         @media screen560
             width 130px
+        &-mod
+            width: 77px
+            height: 77px
+            margin: 0 auto 
+            @media screen560
+                width: 77px
+                height: 77px
         a
             display block
         img
@@ -234,7 +318,7 @@
         margin-top 9px
     
     &__label-description
-        margin-bottom 10px
+        // margin-bottom 10px
     &__address, &__location, &__metro
         float left
         position relative
@@ -272,21 +356,23 @@
                     sprite($metro_green)
     &__short-summary
         padding 0
-        p:last-child
-          margin-bottom 0
+        // p:last-child
+        //   margin-bottom 0
     &__footer
         display: block
         width 100%
-        margin-top 21px
-        clearfix()
+        // margin-top 21px
+        // clearfix()
         .link
             display inline-block
-            margin 10px 0
+            margin 13px 0 12px
             font-size 16px
+            color: #4b89d3
+            line-height: 17px
             &:not(:first-child)
                 margin-left 14px
                 padding-left 14px
-                border-left 1px solid text_blue
+                border-left 1px solid #c4e2e8
             @media screen560
                 display block
                 margin-left 0 !important
@@ -303,6 +389,8 @@
             clearfix()
             @media phone
                 float none
+            &-mod
+                float: none
             li
                 float left
                 margin-right 9px
@@ -314,7 +402,7 @@
                 top 6px
                 margin-left 0
     hr
-        margin 13px 0
+        margin 5px 0 13px
     .address-info
         display inline-block
         clearfix()

@@ -95,7 +95,7 @@ initOwlCarousel = (container, items, opts) ->
 			afterInit: (el) -> $(el).trigger "owl.afterInit", @
 	unless opts.simpleThumbs
 		$thumbs.owlCarousel
-			items: 4
+			items: 5
 			itemsTablet: [979,6]
 			itemsMobile: [767,2]
 			lazyLoad: yes
