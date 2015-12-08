@@ -18,6 +18,7 @@
         background-color #fff
         border-radius 0 0 border_radius_sm border_radius_sm
         text-decoration none
+        transition: border-color .2s ease,box-shadow .2s ease
         .more-toggle_with-icon &
             padding-right 15px
         &:hover
@@ -61,25 +62,8 @@
             sprite($square)
 .card
     .more-toggle
-        // background beige_light
-        &__show-label
-            // padding-right 11px
+        &__show-label, &__hide-label
             &:after
-                // top 6px
-                // right -11px
-                // sprite($arrows_down1)
-                display: none
-            span
-                border: none
-                text-decoration: underline
-        &__hide-label
-            // padding-right 11px
-            &:after
-                // content ''
-                // position absolute
-                // top 4px
-                // right -11px
-                // sprite($arrows_up1)
                 display: none
             span
                 border: none
@@ -87,8 +71,11 @@
         &__link
             border 1px solid #f5f6f9;
             border-top 0
-            // background beige_light
             box-shadow 0 2px 3px #e3e4ed
             padding: 0 20px
             color: #4b89d3 
-                    
+            &:hover
+                .more-toggle
+                    &__show-label, &__hide-label
+                        span
+                            text-decoration: none

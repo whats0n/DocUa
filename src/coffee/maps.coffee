@@ -24,6 +24,7 @@ docMaps =
     mapOptions =
       zoom: 10
       center: latlng
+      scrollwheel: false
 
     if @pageName == 'map'
       @mapCss.bigMap()

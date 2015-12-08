@@ -72,3 +72,37 @@
         font-size 14px
         line-height 1.4
         margin-right 5px
+
+.like-box
+    white-space: nowrap
+    font-size: 0
+    text-align: center
+    &__like
+    &__dislike
+        padding: 0 0 0 20px 
+        min-height: 19px
+        font-size: 17px
+        font-weight: 700
+        line-height: 19px
+        position: relative
+        margin: 0 5px 
+        display: inline-block
+        vertical-align: top
+        &:before
+            content: ""
+            position: absolute
+            left: 0
+            background-position: center
+            background-repeat: no-repeat
+            width: 18px
+            height: 19px
+    &__like
+        color: #35bfae
+        &:before
+            top: -2px
+            background-image: url("i/icons/like-box-like.png")
+    &__dislike
+        color: #ff5858
+        &:before
+            top: 1px
+            background-image: url("i/icons/like-box-dislike.png")

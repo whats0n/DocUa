@@ -6,7 +6,7 @@
         margin: 0 0 11px
     &__list
         clearfix()
-        padding: 0 10px
+        padding: 6px 10px 5px
         list-style: none
         position: relative
         background: #fff 
@@ -40,7 +40,7 @@
         display: block
         text-decoration: underline
         border-bottom: 1px solid #c0d2d6
-        padding: 9px 0 9px 30px
+        padding: 4px 0 10px 30px
         position: relative
         &:hover
             .directory-patient__label
@@ -91,8 +91,13 @@
         position: relative
         margin-bottom: 21px
         min-height: 142px
+        border: 1px solid #f5f6f9
+        transition: border-color .2s ease,box-shadow .2s ease
         @media screen560
             padding-left: 21px
+        &:hover
+            box-shadow: 0 10px 15px #e3e4ed
+            border-color: #35bfae
     &__img
         width: 75px
         height: 99px
@@ -121,6 +126,8 @@
             color: #4b89d3
             text-decoration: underline
             display: inline-block
+            &:hover
+                text-decoration: none
     &__text
         float: left
         width: 65%
@@ -150,6 +157,8 @@
             display: inline-block
             vertical-align: top
             margin-left: 12px
+            &:hover
+                text-decoration: none
             @media phone
                 display: block
         .rating

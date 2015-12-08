@@ -103,6 +103,7 @@ initOwlCarousel = (container, items, opts) ->
 			navigation: on # next and prev arrows
 			navigationText:	["",""]
 			slideSpeed: 394
+			scrollPerPage: true
 			afterAction: (el) -> $(el).trigger "owl.afterAction", @
 			afterInit: (el) -> $(el).trigger "owl.afterInit", @
 

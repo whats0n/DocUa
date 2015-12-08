@@ -1,0 +1,173 @@
+//---
+    layout: layouts/main
+    title: Диагностические центры Киева
+    activeMenuItem: 1
+    finder: clinics
+    modals: select-area, select-branch, clinic-location-map, clinic-request
+    page_name: diagnostic-list
+    find_text: клиник
+
+.row
+    .col-md-9.col-xs-12
+        h1= file.title
+    .col-md-9.col-xs-12
+        .catalog-controls
+          .catalog-controls__results| Найдено <strong>220 94 диагностических центров</strong>,
+          | отсортированы
+          select.select7
+            option(value="rate_desc", selected) по рейтингу
+            option(value="rate_az") по названию (А-Я)
+            option(value="rate_za") по названию (Я-А)
+.row 
+    .col-md-9.col-xs-12
+        +b.card.card-services
+            .item
+                +e.left-side
+                    +e.image
+                        img.photo(src="i/_insightmedical.png", alt="")
+                    +b.like-box
+                        +e.like
+                            +e.votes 151
+                        +e.dislike
+                            +e.votes 3
+                    +e.testimonials
+                        a(href="#", title="#")
+                            span.count 233
+                            |  отзыва
+                    +e.schedule
+                        ul
+                            li
+                                span.left Пн - Пт
+                                span.right 9:00 - 21:00
+                            li
+                                span.left Сб
+                                span.right 9:00 - 19:00
+                            li
+                                span.left Нд
+                                span.right 9:00 - 19:00
+                +e.right-side 
+                    +b.favorites-block.pull-right: +i
+                    +e.title.fn.org
+                        h3.h3
+                            a(href="#", title="") Днепролаб на м. Осокорки
+                    .address-info.address-info_mod
+                        +e.address.adr 
+                            span г. Киев, пр.Науки, 30
+                        +e.location Голосеевский, Саперная слободка
+                        +e.location.card__location_metro.blue Димеевская
+                    hr.dashed
+                    p «Днепролаб» – это диагностический центр на м. Осокорки, в котором проводится широкий спектр диагностических манипуляций, направленных на выявление заболеваний практически всех органов и систем. Каждый пациент имеет возможность выбрать подходящее время для прохождения процедуры, после чего в короткие сроки забрать результаты в клинике или получить их на электронную почту. Точность результата и качественное выполнение исследований – главный принцип работы.
+                    .small-card__action
+                        +e.action
+                            span.orange Акция
+                            a(href="#", title="") Скидки на все услуги -15%
+                    +e.share-bottom
+                        +e.socwrap
+                            +e.socitem
+                                a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
+                                script.
+                                    !function (d, s, id) {
+                                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                        if (!d.getElementById(id)) {
+                                            js = d.createElement(s);
+                                            js.id = id;
+                                            js.src = p + '://platform.twitter.com/widgets.js';
+                                            fjs.parentNode.insertBefore(js, fjs);
+                                        }
+                                    }(document, 'script', 'twitter-wjs');
+                            +e.socitem
+                                .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button_count', data-action='like', data-show-faces='true', data-share='false')
+                            +e.socitem._last
+                                div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="55")
+                        a(href="#").btn.btn-med.btn-success Записаться 
+                section
+                    h6
+                        span Услуги центра
+                    - var uid = "uid-130146"
+                    .block-services-wrapper(data-uid=uid)
+                        include ../blocks/block-services/block-services.jade 
+                        +b.more-toggle: +i({ title: "Просмотреть весь прайс-лист", className: "show-hidden", absSelector: "[data-uid='" + uid + "']" })
+        
+        +b.card.card-services
+            .item
+                +e.left-side
+                    +e.image
+                        img.photo(src="i/_insightmedical.png", alt="")
+                    +b.like-box
+                        +e.like
+                            +e.votes 151
+                        +e.dislike
+                            +e.votes 3
+                    +e.testimonials
+                        a(href="#", title="#")
+                            span.count 233
+                            |  отзыва
+                    +e.schedule
+                        ul
+                            li
+                                span.left Пн - Пт
+                                span.right 9:00 - 21:00
+                            li
+                                span.left Сб
+                                span.right 9:00 - 19:00
+                            li
+                                span.left Нд
+                                span.right 9:00 - 19:00
+                +e.right-side 
+                    +b.favorites-block.pull-right: +i
+                    +e.title.fn.org
+                        h3.h3
+                            a(href="#", title="") Днепролаб на м. Осокорки
+                    .address-info.address-info_mod
+                        +e.address.adr 
+                            span г. Киев, пр.Науки, 30
+                        +e.location Голосеевский, Саперная слободка
+                        +e.location.card__location_metro.blue Димеевская
+                    hr.dashed
+                    p «Днепролаб» – это диагностический центр на м. Осокорки, в котором проводится широкий спектр диагностических манипуляций, направленных на выявление заболеваний практически всех органов и систем. Каждый пациент имеет возможность выбрать подходящее время для прохождения процедуры, после чего в короткие сроки забрать результаты в клинике или получить их на электронную почту. Точность результата и качественное выполнение исследований – главный принцип работы.
+                    .small-card__action
+                        +e.action
+                            span.orange Акция
+                            a(href="#", title="") Скидки на все услуги -15%
+                    +e.share-bottom
+                        +e.socwrap
+                            +e.socitem
+                                a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
+                                script.
+                                    !function (d, s, id) {
+                                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                        if (!d.getElementById(id)) {
+                                            js = d.createElement(s);
+                                            js.id = id;
+                                            js.src = p + '://platform.twitter.com/widgets.js';
+                                            fjs.parentNode.insertBefore(js, fjs);
+                                        }
+                                    }(document, 'script', 'twitter-wjs');
+                            +e.socitem
+                                .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button_count', data-action='like', data-show-faces='true', data-share='false')
+                            +e.socitem._last
+                                div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="55")
+                        a(href="#").btn.btn-med.btn-success Записаться 
+                section
+                    h6
+                        span Услуги центра
+                    - var uid = "uid-130147"
+                    .block-services-wrapper(data-uid=uid)
+                        include ../blocks/block-services/block-services.jade 
+                        +b.more-toggle: +i({ title: "Просмотреть весь прайс-лист", className: "show-hidden", absSelector: "[data-uid='" + uid + "']" })
+        +b("a").load-items(href="#"): +i
+        +b("ul").pagination: +i 
+    aside.col-md-3.hidden-sm.hidden-xs
+        .widget.widget-map
+            #map-canvas-right
+            a.btn.btn-success(href="/map.html") Развернуть карту
+        .widget.widget-doctor
+            h3 Похожие врачи
+            - var items = []
+            - var limit = 4
+            each doctor, i in doctors
+                if i < limit
+                    - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
+            +b.short-list: +i({ items: items })
+            .link.link-more
+                   a(href="/doctors.html") Все врачи

@@ -22,7 +22,9 @@ body
     &.body-map
         height 100%
         overflow hidden
-
+        @media phone
+            height: auto
+            overflow: visible
 ul
     list-style: none
     margin: 0
@@ -637,10 +639,10 @@ ul
             .post
                 padding-bottom: 21px
                 &__body, &__footer, .timer-badge
-                    padding: 0 22px 
+                    padding: 0 21px 
     .widget + .widget
         margin-top 23px
-    .widget-doctor
+    .widget-doctor, .widget-clinic
         background: #fff
         border-radius: 3px
         box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
@@ -1221,6 +1223,8 @@ article.static-page
         padding: 36px 35px 
         position: relative
         margin: 0 0 13px 
+        &.is-mid
+            margin-right: 40px 
         &.is-top
             &:before
                 top: 16px
@@ -1609,3 +1613,64 @@ article.static-page
     background-color: #ccefea
     border-radius: 3px
     margin-bottom: 12px
+    position: relative
+    &:before
+        content: "" 
+        position: absolute
+        top: -6px
+        right: 44px
+        border-style: solid
+        border-color: transparent transparent #ccefea
+        border-width: 0 8px 8px 
+.btn
+    border-radius: 3px
+    &-med
+        font-size: 18px
+        font-weight: 700
+        padding: 9px 23px
+.address-info
+    &_mod
+        .card__location, .card__address
+            margin-bottom: 11px
+        .card__location_metro
+            float: none
+            clear: both
+        .card__address
+            span
+                border-bottom: 1px dotted #5e6e71 
+
+.themes-blocks
+    .article-block
+        .info-list
+            li
+                a
+                    &:hover
+                        &:before
+                            opacity: 1
+                            visibility: visible
+                    &:after
+                        display: none
+
+.tab-pane
+    .post
+        padding-bottom: 21px
+        margin-bottom: 24px
+        &__body, &__footer
+            padding: 0 21px 
+        .timer-badge
+            padding-left: 21px
+
+.clinic-tab
+    .rating-block
+        padding-right: 50px
+        @media screen560
+            padding-right: 10px
+            padding-left: 10px
+        .rating-list
+            padding-left: 50px
+            @media phone
+                padding-left: 0
+    .likebox
+        margin-left: 50px
+        @media phone
+            margin-left: 0

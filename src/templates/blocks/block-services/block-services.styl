@@ -1,0 +1,160 @@
+.block-services
+    &-wrapper
+        &.show-hidden
+            .block-services
+                &__item
+                    &.is-hidden
+                        display: block 
+            .more-toggle
+                &__hide-label
+                    display: inline-block
+                &__show-label
+                    display: none
+    &__item
+        clearfix()
+        &.first-child
+            .block-services
+                &__title-in
+                    border: none
+        &.active
+            .block-services
+                &__icon
+                    background-color: #5e6e71
+                    transform: rotate(180deg)
+        &.is-hidden
+            display: none
+    &__title
+        clearfix()
+        padding: 0 21px 
+        cursor: pointer
+        user-select: none
+        strong
+            color: #5e6e71
+            font-size: 15px
+            line-height: 1.2
+            padding: 13px 0 13px 20px
+            display: block
+            overflow: hidden 
+            position: relative
+        &-in
+            border-top: 1px solid #c0d2d6 
+    &__icon
+        position: absolute
+        top: 15px
+        left: 0
+        width: 14px
+        height: 14px
+        border-radius: 50%
+        background-color: #c0d1d8
+        &:before
+            content: "" 
+            position: absolute
+            top: 5px
+            left: 4px
+            border-style: solid
+            border-color: #fff transparent transparent
+            border-width: 5px 3px 0              
+    &__price-discount
+        float: right
+        font-size: 15px
+        color: #5e6e71
+        text-align: right
+        margin-left: 10px
+        line-height: 1.2
+        padding: 13px 0
+        span
+            color: #a9bbc2
+            text-decoration: line-through
+            padding: 0 5px 
+    &__drop
+        position: relative
+        padding-top: 1px
+        display: none
+        &:before
+            content: "" 
+            position: absolute
+            top: 0
+            left: 21px
+            right: 21px
+            border-bottom: 1px solid #c0d2d6 
+    &__left
+        float: left
+        font-size: 15px
+        line-height: 22px
+        color: #5e6e71
+        width: 65%
+        padding: 8px 0
+        span
+            color: #90b1b8
+    &__right
+        float: right
+        width: 35%
+        text-align: right
+        font-size: 0
+        span
+            color: #5e6e71
+            font-size: 16px
+            display: inline-block
+            vertical-align: top
+            line-height: 1
+            padding: 11px 0  
+    .btn
+        font-size: 16px
+        font-weight: 700
+        padding: 2px 22px 4px
+        display: inline-block
+        vertical-align: top
+    &__row
+        padding: 0 21px 0 39px
+        margin-bottom: -1px
+        position: relative
+        &:hover
+            background-color: #e5f2f5
+            z-index: 2
+            .block-services
+                &__row-in
+                    border-color: transparent 
+                    &:before
+                        background-color: #35bfae
+                    .btn
+                        display: inline-block
+        &-in
+            border-bottom: 1px solid #c0d2d6
+            position: relative
+            clearfix()
+            &:before
+                content: "" 
+                position: absolute
+                top: 16px
+                left: -17px
+                width: 8px
+                height: 8px
+                background-color: #96b8bf
+                border-radius: 50%
+                transition: background 0.2s
+            .btn
+                display: none
+                margin: 4px 0 4px 21px 
+    &__bottom
+        padding: 0 21px 0 39px
+        clearfix()
+        .small-card__action
+            float: left
+            padding: 12px 0 
+        .block-services
+            &__price-discount
+                padding: 14px 0 
+.card
+    &.card-services
+        margin-bottom: 46px        
+        &:hover
+            box-shadow: 0 10px 15px #e3e4ed
+            border-color: #35bfae
+            .more-toggle__link
+                box-shadow: 0 10px 15px #e3e4ed
+                border-color: #35bfae
+        .more-toggle
+            display: block
+    section
+        .block-services
+            margin-top: -9px

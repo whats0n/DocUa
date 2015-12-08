@@ -218,7 +218,7 @@ $finder_input_padding = 8px
         position: relative
         width: 100%
         @media screen560
-            padding-left: 21px
+            padding: 20px 18px 21px 19px
         fieldset
             position: static
 
@@ -237,7 +237,8 @@ $finder_input_padding = 8px
             left: 21px
             @media screen560
                 position: static
-                padding: 20px 0 0  
+                padding: 16px 0 0  
+                width: 100%
             .finder__btn-map
                 background-color: #35bfae
                 border-radius: 3px
@@ -247,17 +248,22 @@ $finder_input_padding = 8px
                 border: none
                 line-height: 39px
                 text-shadow: none
-                padding: 0 18px 0 36px 
+                padding: 0 18px 0 14px 
                 position: relative 
+                @media screen560
+                    width: 100%
                 &:hover
                     background: darken(#35bfae, 10%) 
                 &:active, focus
                     background: darken(#35bfae, 20%) 
                 &:before
                     content: "" 
-                    position: absolute
-                    top: 13px
-                    left: 14px
+                    // position: absolute
+                    // top: 13px
+                    // left: 14px
+                    margin: 13px 10px 0 0
+                    display: inline-block
+                    vertical-align: top 
                     width: 13px
                     height: 13px
                     background: url("i/icons/circle-left.png") no-repeat center center 
@@ -270,3 +276,8 @@ $finder_input_padding = 8px
         left: 22px
         right: 22px
         width: auto
+    @media screen560
+        max-width: 285px
+        right: auto
+        left: 50%
+        margin-left: -142px

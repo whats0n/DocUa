@@ -245,11 +245,11 @@
             li
                 a(href="#tab-news", data-toggle="tab") Новости
         .tab-content
-            #tab-about.tab-pane.active
+            #tab-about.tab-pane.clinic-tab.active
                 +b.rating-block
                     +e.separator
                     .row
-                        .col-sm-7
+                        .col-sm-6
                             .row
                                 .col-xs-5.col-xs-offset-1
                                     +b.statistics-item._simple
@@ -263,7 +263,7 @@
                                 +e("span").icon
                                 +e.text Рейтинг врача рассчитывается<br>на основе&nbsp;
                                     +e("a").more-link(href="/", title="реальных отзывов пациентов"): span реальных отзывов пациентов
-                        .col-sm-5
+                        .col-sm-6
                             +b("ul").rating-list
                                 each rating in clinics[0].ratings
                                     +b.rating: +i({label: rating.label, value: rating.value, tooltip: rating.tooltip})
@@ -391,5 +391,5 @@
                 items: items,
                 clinic: true
             })
-            .link 
+            .link.link-more 
                 a(href="/doctors.html") Все клиники 

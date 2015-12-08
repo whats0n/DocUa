@@ -7,7 +7,7 @@
    page_name: about
  
 .b-box
-   img.b-box__doc.hidden-xs(src="/i/bb-doc.png", alt="") 
+   img.b-box__doc.hidden-xs(src="/i/bb-doc.png", alt="")
    p
       strong.ocean-blue Doc.ua 
       | — бесплатный онлайн-сервис поиска врача и записи на прием. 
@@ -15,7 +15,7 @@
       strong Наша цель &mdash;
       |  помочь пациенту в любое время найти нужного врача и быстро записаться к нему нам прием!
 section.about-content
-   header.header-styled.header-styled-mod
+   header.header-styled.header-styled-mod 
       h2.h1 Как работает DOC.ua
    .row.about-row
       .col-sm-6.col-xs-12.pull-right.about-list
@@ -29,10 +29,16 @@ section.about-content
    .row.about-row
       .col-sm-6.col-xs-12.about-text
          h2.offset-top-md-30 ...или звоните к нам в call-центр
-         .about-highlight.is-top
+         .about-highlight.is-mid.is-top
             p врачи call-центра DOC.UA помогут подобрать специалиста и расскажут, как проехать в клинику;
-         +b.feedback.offset-0: +i
-         +b.phones.offset-right10: +i
+         +b.feedback.feedback-mod.offset-0: +i
+         //- +b.phones.offset-right10: +i
+         +b.phones.offset-right10
+            select.select7
+               option(value="landline", selected, data-icon="/i/icons/fb-phone.png") (044) 3370707
+               option(value="mts", data-icon="/i/mts-logo.png") (095) 3370707
+               option(value="life", data-icon="/i/life-logo.png") (063) 3370707
+               option(value="kyivstar", data-icon="/i/kyivstar-logo.png") (067) 3370707
       .col-sm-6.col-xs-12: img.content-img-9483(src="/i/about-img2.png", alt="")
    .row.about-row
       .col-sm-7.col-xs-12.pull-right.about-text
@@ -52,7 +58,7 @@ section.about-content
    header.header-styled.header-styled-mod
       h2.h1 Наша идеология
    .row.offset-bottom-0
-      .col-sm-6.col-xs-12 
+      .col-sm-6.col-xs-12
          +b.feature
             +e.header
                +e("span").icon
