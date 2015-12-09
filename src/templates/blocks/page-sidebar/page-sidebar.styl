@@ -6,6 +6,19 @@
     @media phone
         padding 15px 0
         margin: 0 0 20px 0
+    &:before
+        content: "" 
+        position: absolute
+        top: 39px
+        left: 100%
+        display: block
+        border-style: solid
+        border-width: 37px 16px 0 0
+        border-color: #e5f2f5 transparent transparent
+        transform: rotate(20deg)
+        margin-left: -35px
+        @media phone
+            display: none
     &__list
         margin 0
         padding 0
@@ -34,28 +47,12 @@
                 background-color transparent !important
             &:focus
                 background: none !important
-            &:before
-                content: "" 
-                position: absolute
-                top: 4px
-                left: 100%
-                display: block
-                border-style: solid
-                border-width: 37px 16px 0 0
-                border-color: #e5f2f5 transparent transparent
-                transform: rotate(20deg)
-                margin-left: -10px
-                display: none
             &.active
                 span
                     display: inline
                     border-bottom-color transparent
                     color: #5e6e71
                     font-weight: 700 
-                &:before
-                    display: block
-                    @media phone
-                        display: none
             span
                 border-bottom 1px dashed
                 color: #4b89d3
