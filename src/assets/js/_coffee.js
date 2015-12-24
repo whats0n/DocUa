@@ -1367,6 +1367,33 @@ $.fn.initFavoritesBlock = function() {
 
 $(".favorites-block").initFavoritesBlock();
 
+
+
+var $goTop, SHOW_GOTOP_AFTER, goTopShown;
+
+SHOW_GOTOP_AFTER = 500;
+
+$goTop = $(".go-top");
+
+$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
+
+$goTop.click(function() {
+  $('html,body').animate({
+    scrollTop: 0
+  }, 800);
+  return false;
+});
+
+$(window).scroll(function() {
+  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
+    $goTop.stop(true, true).fadeIn("fast");
+    return goTopShown = true;
+  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
+    $goTop.stop(true, true).fadeOut("fast");
+    return goTopShown = false;
+  }
+});
+
 var trim;
 
 trim = function(s) {
@@ -1589,33 +1616,6 @@ $("#select-area").on("areaSelected", function(e, arg) {
   return $("#select-area").modal("hide");
 });
 
-
-
-var $goTop, SHOW_GOTOP_AFTER, goTopShown;
-
-SHOW_GOTOP_AFTER = 500;
-
-$goTop = $(".go-top");
-
-$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
-
-$goTop.click(function() {
-  $('html,body').animate({
-    scrollTop: 0
-  }, 800);
-  return false;
-});
-
-$(window).scroll(function() {
-  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeIn("fast");
-    return goTopShown = true;
-  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeOut("fast");
-    return goTopShown = false;
-  }
-});
-
 $(function() {
   var updateGroup1, updateGroup2;
   updateGroup1 = function() {
@@ -1641,6 +1641,11 @@ $(document).ready(function() {
       $('.js-tab-block').removeClass('active');
       $('.js-tab-block[data-block="' + id + '"]').addClass('active');
       $(this).addClass('active');
+      if ($(window).width() < 768) {
+        $('html, body').animate({
+          scrollTop: $('.js-scrollto').offset().top
+        }, 1000);
+      }
       return false;
     });
   });
@@ -1685,6 +1690,23 @@ phonesAutoChange = {
 };
 
 phonesAutoChange.init();
+
+$(document).on("change", ".pill-group .pill input", function(e) {
+  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
+  $pill = $(e.target).closest(".pill");
+  checked = $(e.target).is(":checked");
+  $childrenPills = $pill.siblings("ul").find(".pill");
+  if ($childrenPills.length > 0) {
+    return $childrenPills.find("input").prop("checked", checked);
+  } else {
+    $parentPill = $pill.closest("ul").siblings(".pill");
+    if ($parentPill.length === 1) {
+      $pillsGroup = $parentPill.siblings("ul").find(".pill");
+      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
+      return $parentPill.find("input").prop("checked", allChecked);
+    }
+  }
+});
 
 var galleryCount, generateMarkupForOwlCarousel, initOwlCarousel, syncOwlCarousels;
 
@@ -1873,21 +1895,10 @@ $(function() {
   return $(".photo-gallery").makeCustomPhotoGallery();
 });
 
-$(document).on("change", ".pill-group .pill input", function(e) {
-  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
-  $pill = $(e.target).closest(".pill");
-  checked = $(e.target).is(":checked");
-  $childrenPills = $pill.siblings("ul").find(".pill");
-  if ($childrenPills.length > 0) {
-    return $childrenPills.find("input").prop("checked", checked);
-  } else {
-    $parentPill = $pill.closest("ul").siblings(".pill");
-    if ($parentPill.length === 1) {
-      $pillsGroup = $parentPill.siblings("ul").find(".pill");
-      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
-      return $parentPill.find("input").prop("checked", allChecked);
-    }
-  }
+$(function() {
+  return $(".price-block_collapse .price-block__header").on("click", function() {
+    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
+  });
 });
 
 var postLocationWidthFix;
@@ -1935,12 +1946,6 @@ $(window).resize(postLocationWidthFix);
 $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
-
-$(function() {
-  return $(".price-block_collapse .price-block__header").on("click", function() {
-    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
-  });
-});
 
 var smallCardInit;
 

@@ -8,5 +8,7 @@ $(document).ready ->
       $('.js-tab-block').removeClass 'active'
       $('.js-tab-block[data-block="' + id + '"]').addClass 'active'
       $(this).addClass 'active'
+      if $(window).width() < 768
+        $('html, body').animate { scrollTop: $('.js-scrollto').offset().top }, 1000
       return false
   return 
