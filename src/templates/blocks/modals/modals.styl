@@ -1,7 +1,9 @@
 modal_font_size = 15px
 .modal-title 
     font-size 20px
-            
+.modal-title__mod
+    font-weight 400
+               
 .modal
     form, .form-horizontal
         .control-label
@@ -15,6 +17,8 @@ modal_font_size = 15px
         @media phone
             div[class^="col-sm-"] + div[class^="col-sm-"]
                 margin-top 15px
+    .form-group__modals
+        margin-bottom 20px
     &-dialog
         width 96%
         max-width 600px
@@ -27,39 +31,71 @@ modal_font_size = 15px
             max-width 1050px
     &.bs-modal-sm
         .modal-dialog
-            max-width 340px
+            max-width 377px
     .submits
         text-align center
     &-header
         position relative
-        margin-bottom 22px
-        padding 12px 22px 12px 17px
+        margin-bottom 10px
+        padding 15px 20px 11px
         min-height 31.43px
+        color #FFF 
         background grey_base
-        box-shadow 0 2px 4px #AFB1B2
-        border-radius border_radius_sm border_radius_sm 0 0
-
+        background url("i/modals-header-bg.png") no-repeat
+        // box-shadow 0 2px 4px #AFB1B2
+        border-radius border_radius_sm border_radius_sm 0 0   
+           
         p
             margin-bottom 0
         .close
             position absolute
-            top 18px
+            bottom 18px
             right 20px
-            opacity 0.8
+            width 15px
+            height 15px 
+            opacity 1
             transition opacity .2s ease-in-out
-            sprite($modal_close)
+            background url("i/modal_close.png") no-repeat
+            outline none
             &:hover
                 text-decoration none
                 cursor pointer
-                opacity 1.0
+                opacity .5
+    
+    &-header__mod
+        background none
+        // min-height 77px
+    .modal-title__mod
+        text-align center
+        color #5e6e71
+        font-size 30px
+        font-weight 400
+        line-height 51px
+    .close__mod
+        background url("i/modal_close-mod.png") no-repeat
+        bottom 35px
+
     &-body
-        padding-bottom 20px
+        padding 0 20px 20px 20px
+        .modals-text
+            font-size: 16px
+            margin-bottom 17px
+        .form-control__modals
+            border 1px solid rgba(61, 160, 180, 0.27)
+            border-radius 3px
+            box-shadow inset 1.9px 2.3px 1px rgba(43, 151, 173, 0.15)
+            resize none
+            padding 6px 14px
+            placeholder(rgba(#5e6e71, 0.75), 14px)
+
+        .modals-btn
+            width 251px
     &-title
         margin 0
         padding-right 25px
         font-size 24px
         line-height 1.33
-        font-weight 700
+        font-weight 400
 
 
     &-footer
@@ -163,7 +199,7 @@ modal_font_size = 15px
             border-color green_base
             box-shadow none
     textarea.form-control
-        min-height 72px
+        min-height 83px
 
     .services-list
         padding 10px
@@ -279,10 +315,10 @@ modal_font_size = 15px
 
 .info-modal
     &__visual
-        height 125px
+        height 143px
         margin 0 -35px 20px
         padding 20px 35px 20px 150px
-        background-image url("i/blur-infomodal-bg.jpg")
+        background-image url("i/modals-body-bg.png")
         background-repeat no-repeat
         background-position center center
         background-color #3297a9
@@ -298,15 +334,15 @@ modal_font_size = 15px
             vertical-align middle
         &-icon
             position absolute
-            top 23px
-            left 43px
+            top 34px
+            left 52px
             @media phone
                 display none
         &-text
             position relative
             display inline-block
             vertical-align middle
-            width 95%
+            width 85%
             font-size 18px
             line-height 1.2
             color #fff
@@ -316,17 +352,18 @@ modal_font_size = 15px
                     display none
     &__text
         font-size 16px
+        padding 0 35px 0 0px
         line-height 1.28
         text-align center
     &__message
         font-size 18px
-        color #00829b
+        color #35bfae
         font-weight bold
         text-align center
-        margin-top 20px
+        margin-top 10px
     .modal
         &-dialog
-            width 540px
+            // width 540px
             @media phone
                 width 500px
             @media screen560

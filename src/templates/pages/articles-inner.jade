@@ -5,9 +5,10 @@
    activeMenuItem: 5
    
 .row 
-   article.col-md-9
+   article.col-md-12
       +b("header").article-header
          h1= file.title
+   article.col-md-9
       .article-content
          +b("ul").article-top
             +e("li").item
@@ -123,7 +124,6 @@
 
    aside.col-md-3.hidden-sm.hidden-xs  
       .widget.widget-action
-         h3 Акции клиник
          - var limit = 2
          each action, i in actionsData
             if i < limit

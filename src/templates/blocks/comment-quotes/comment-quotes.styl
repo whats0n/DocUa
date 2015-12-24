@@ -24,7 +24,8 @@
             height 100%
             padding: 10px 0 
         img
-            apply-grayscale()
+            // apply-grayscale()
+            filter: gray
             border: 1px solid rgba(198, 221, 226, 0.9)
             border-radius: 3px
             background-color: white
@@ -35,7 +36,7 @@
             @media phone
                 height 100%
                 transform scale(0.7)
-        &.active, &:hover
+        &.active
             img
                 -webkit-filter none
                 filter none
@@ -50,6 +51,11 @@
                 border-width: 0 18px 14px 0
                 border-color: transparent transparent #e5f2f5
                 z-index 1
+        &:hover
+            img
+                -webkit-filter none
+                filter none
+                opacity: 1
     &__content
         padding 38px
         background-color: #e5f2f5

@@ -12,37 +12,37 @@ mixin modal(name, classes, dialogClasses)
     .modal-body
         form.form-horizontal(action="/")
             fieldset
-                p.text-center
+                p.text-left.modals-text
                     | Если у вас есть какие-либо вопросы, задайте их нам, заполнив нижеприведенную форму, и в ближайшее время мы с вами свяжемся.
-                .form-group
+                .form-group.form-group__modals
                     .col-sm-12
-                        input.form-control(type="text", placeholder="Имя, фамилия")
-                .form-group
+                        input.form-control.form-control__modals(type="text", placeholder="Имя, фамилия*")
+                .form-group.form-group__modals
                     .col-sm-6
-                        input.form-control(type="text", placeholder="Email")
+                        input.form-control.form-control__modals(type="text", placeholder="Email")
                     .col-sm-6
-                        input.form-control.phone-input-mask(type="text", placeholder="Телефон")
-                .form-group
+                        input.form-control.phone-input-mask.form-control__modals(type="text", placeholder="Телефон")
+                .form-group.form-group__modals
                     .col-sm-12
-                        textarea.form-control(placeholder="Напишите комментарий к вашей заявке", rows="4")
-                .form-group.margin-bottom-0
+                        textarea.form-control.form-control__modals(placeholder="Напишите комментарий к вашей заявке", rows="4")
+                .form-group.margin-bottom-0.form-group__modals
                     .col-sm-12.submits
-                        button.btn.btn-primary.btn-xs-block(type="button") Отправить заявку
+                        button.btn.btn-primary.btn-xs-block.modals-btn(type="button") Отправить заявку
 +modal("callback", "callback-modal bs-modal-sm")
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Обратный звонок
-        p.ocean-blue.offset-0 Оставьте свое имя и номер телефона, и мы свяжемся с вами.
     .modal-body
+        p.ocean-blue.offset-0.modals-text Оставьте свое имя и номер телефона, и мы свяжемся с вами.
         form.form-horizontal(action="/")
             fieldset
-                .form-group
-                    .col-sm-12: input.form-control(type="text", placeholder="Имя, фамилия")
-                .form-group
-                    .col-sm-12: input.form-control(type="text", placeholder="Телефон")
-                .form-group.margin-bottom-0
+                .form-group.form-group__modals
+                    .col-sm-12: input.form-control.form-control__modals(type="text", placeholder="Имя, фамилия*")
+                .form-group.form-group__modals
+                    .col-sm-12: input.form-control.form-control__modals(type="text", placeholder="Телефон")
+                .form-group.margin-bottom-0.form-group__modals
                     .col-sm-12.submits
-                        button.btn.btn-primary.btn-xs-block(type="button") Позвоните мне
+                        button.btn.btn-primary.btn-xs-block.modals-btn(type="button") Отправить заявку
 
 +modal("doctor-request", "request")
     - clinic = clinics[0]
@@ -464,7 +464,7 @@ mixin modal(name, classes, dialogClasses)
             br
             a(href="/", aria-hidden="true", data-dismiss="modal", type="button", title="Вернуться на сайт") Вернуться на сайт
     .modal-footer
-+modal("login", "login-form-popup")
++modal("login", "login-form-popup bs-modal-sm")
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Вход на сайт
@@ -825,16 +825,18 @@ mixin modal(name, classes, dialogClasses)
             img.info-modal__visual-icon(src="/i/free-percent-icon.png", alt="")
             .info-modal__visual-text Наш сервис является <strong>бесплатным</strong><br>для Пациентов и не содержит никаких скрытых комиссий.
         .info-modal__text Мы прилагаем все усилия, чтобы предоставлять вам актуальную информацию о стоимости приема врачей в клиниках. Однако в текущей экономической ситуации происходит частое обновление цен самими клиниками. Точную стоимость консультации оператор нашего колл-центра уточняет у клиники в момент вашей записи.
+
 +modal("info-var-2", "info-modal")
-    .modal-header
-        button.close(aria-hidden="true", data-dismiss="modal", type="button")
-        .modal-title Обратите внимание!
+    .modal-header.modal-header__mod
+        button.close.close__mod(aria-hidden="true", data-dismiss="modal", type="button")
+        .modal-title.modal-title__mod Обратите вниманиеe!
     .modal-body
         .info-modal__visual
-            img.info-modal__visual-icon(src="/i/free-percent-icon.png", alt="")
+            img.info-modal__visual-icon(src="/i/attention-modals-icon.png", alt="")
             .info-modal__visual-text Наш сервис является <strong>бесплатным</strong><br>для Пациентов и не содержит никаких скрытых комиссий.
         .info-modal__text Оплата приема врачей производится непосредственно в клинике согласно официальному прайс-листу. В случае если вы заметили расхождение в ценах – сообщите нам об этом!
         .info-modal__message Мы за честные цены!
+
 +modal("info-var-3", "info-modal")
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
