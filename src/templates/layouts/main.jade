@@ -51,14 +51,18 @@ body
           +b.location: +i
 
         +b.phones.hidden-xs: +i
-        +b.mobile-phones.visible-xs
-          span (095) 3370707;
-          span (063) 3370707;
-          span (067) 3370707;
-          span (044) 3370707
-
-        +b.feedback.hidden-xs: +i
-
+        //- +b.mobile-phones.visible-xs
+        //-   span (095) 3370707;
+        //-   span (063) 3370707;
+        //-   span (067) 3370707;
+        //-   span (044) 3370707
+        hr.header__line
+        +b.feedback
+          +e("a").link._callback(href="#{linkPrefix}callback", data-toggle=modalToggle, title="Обратный звонок")
+              span.dotted Обратный звонок
+          +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку")
+              span.dotted Быстрая заявка
+        +b.phones.visible-xs: +i
         .user-panel.hidden-xs
             if file.isCabinet
               +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
@@ -114,191 +118,193 @@ body
               .col-sm-4
                 +b.counter: +i({ value: 23117, title: "отзывов пациентов"})
 
-    //- Promo banners
-    if file.indexPage
-      .container-fluid.hidden-xs
-        .row.row-white
-          .container
-            +b.promo-banner.row: +i([{ image: 'promo-banner-1.jpg', title: "Онкоскрининг - полная диагностика всего тела"}, { image: 'promo-banner-2.jpg', title: "Добробут теперь на DOC.ua"}])
 
     //- Main container
-    .container-fluid
-      .row
-        .container.main-content
-          //- Breadcrumbs/Controls row
-          if !file.indexPage
-            .row
-              .col-md-9
-                +b.breadcrumbs: +i({ breadcrumbs: [{ title: file.title, url: '#' }] })
-              if file.page_name == 'clinics' || file.page_name == 'doctors' || file.page_name == 'promo' || file.page_name == 'bundles'
+    .container-fluid_main
+      
+      //- Promo banners
+      if file.indexPage
+        .container-fluid.hidden-xs
+          .row.row-white
+            .container
+              +b.promo-banner.row: +i([{ image: 'promo-banner-1.jpg', title: "Онкоскрининг - полная диагностика всего тела"}, { image: 'promo-banner-2.jpg', title: "Добробут теперь на DOC.ua"}])
+      .container-fluid
+        .row
+          .container.main-content
+            //- Breadcrumbs/Controls row
+            if !file.indexPage
+              .row
                 .col-md-9
-                  .row
-                    if file.page_name == 'doctors'
-                      .col-sm-7
-                        h1= file.title
-                    else
-                      .col-md-12
-                        h1= file.title
-                    if file.page_name == 'doctors'
-                      .col-sm-5
-                          +b("a").info-link.under-dot(href="#" title="" data-toggle="class" data-class-name="info-link__details_active" data-abs-selector=".info-link__details")
-                              span Чем занимается Дерматолог?
-                      .col-sm-12
-                          .info-link__details
-                              .highlight
-                                  p
-                                      strong Дерматолог
-                                      | – врач узкого профиля, который занимается проведением диагностики и дальнейшей терапии заболеваний кожного покрова, ногтевых пластин и волос, являющихся результатом бактериальных, вирусных, паразитарных и иммунных поражений организма.
-              if file.page_name == 'doctors'
-                .col-md-9
-                  .catalog-quote
-                    strong Дерматолог
-                    | – врач узкого профиля, который занимается проведением диагностики и дальнейшей терапии заболеваний кожного покрова, ногтевых пластин и волос, являющихся результатом бактериальных, вирусных, паразитарных и иммунных поражений организма.
-              if file.page_name == 'doctors' || file.page_name == 'clinics'
-                .col-md-9
-                  .catalog-controls
+                  +b.breadcrumbs: +i({ breadcrumbs: [{ title: file.title, url: '#' }] })
+                if file.page_name == 'clinics' || file.page_name == 'doctors' || file.page_name == 'promo' || file.page_name == 'bundles'
+                  .col-md-9
                     .row
-                      .col-sm-6.catalog-controls__column
-                        .catalog-controls__results| Найдено <strong>220 #{file.find_text}</strong>,
-                        | отсортированы
-                        select.select7
-                          option(value="rate_desc", selected) по рейтингу
-                          option(value="rate_az") по названию (А-Я)
-                          option(value="rate_za") по названию (Я-А)
+                      if file.page_name == 'doctors'
+                        .col-sm-7
+                          h1= file.title
+                      else
+                        .col-md-12
+                          h1= file.title
+                      if file.page_name == 'doctors'
+                        .col-sm-5
+                            +b("a").info-link.under-dot(href="#" title="" data-toggle="class" data-class-name="info-link__details_active" data-abs-selector=".info-link__details")
+                                span Чем занимается Дерматолог?
+                        .col-sm-12
+                            .info-link__details
+                                .highlight
+                                    p
+                                        strong Дерматолог
+                                        | – врач узкого профиля, который занимается проведением диагностики и дальнейшей терапии заболеваний кожного покрова, ногтевых пластин и волос, являющихся результатом бактериальных, вирусных, паразитарных и иммунных поражений организма.
+                if file.page_name == 'doctors'
+                  .col-md-9
+                    .catalog-quote
+                      strong Дерматолог
+                      | – врач узкого профиля, который занимается проведением диагностики и дальнейшей терапии заболеваний кожного покрова, ногтевых пластин и волос, являющихся результатом бактериальных, вирусных, паразитарных и иммунных поражений организма.
+                if file.page_name == 'doctors' || file.page_name == 'clinics'
+                  .col-md-9
+                    .catalog-controls
+                      .row
+                        .col-sm-6.catalog-controls__column
+                          .catalog-controls__results| Найдено <strong>220 #{file.find_text}</strong>,
+                          | отсортированы
+                          select.select7
+                            option(value="rate_desc", selected) по рейтингу
+                            option(value="rate_az") по названию (А-Я)
+                            option(value="rate_za") по названию (Я-А)
+                        .col-sm-6
+                          if file.page_name == 'clinics'
+                            +b.catalog-checkboxes: +i({items: ["Работает в воскресенье", "Работает в субботу"]})
+                          if file.page_name == 'doctors'
+                            +b.catalog-checkboxes: +i({items: ["С выездом на дом", "Детский врач"]})
+                if file.page_name == 'doctors'
+                  .col-md-12
+                    .doctors-alert
+                      strong К сожалению, в выбранном Вами районе "с. Софиевская Борщаговка" врачи-фтизиатры не найдены. Найдите своего фтизиатра в ближайшем районе
+                if file.page_name == 'clinics'
+                  .col-md-12
+                    .doctors-alert
+                      strong К сожалению, в выбранном Вами районе "с. Софиевская Борщаговка" клиник по направлению пульмонология не найдено. Найдите клинику пульмонологии в ближайших районах
+            //- Content
+            block content
+
+      //- Advantages
+      if file.indexPage
+        .container-fluid.container-advantages.hidden-xs
+          .row
+            +b.advantages.container: +i
+
+      
+      //- Blog
+      if file.page_name != 'articles' && file.page_name != 'articles-inner' && file.page_name != 'doctors'
+        .container-fluid.hidden-xs
+          .row.row-articles
+            .container
+              section
+                if file.page_name != doctor_consultation && file.page_name != doctors
+                  header.header-styled.header-styled-mod
+                    .row.offset-bottom-0
                       .col-sm-6
-                        if file.page_name == 'clinics'
-                          +b.catalog-checkboxes: +i({items: ["Работает в воскресенье", "Работает в субботу"]})
-                        if file.page_name == 'doctors'
-                          +b.catalog-checkboxes: +i({items: ["С выездом на дом", "Детский врач"]})
-              if file.page_name == 'doctors'
-                .col-md-12
-                  .doctors-alert
-                    strong К сожалению, в выбранном Вами районе "с. Софиевская Борщаговка" врачи-фтизиатры не найдены. Найдите своего фтизиатра в ближайшем районе
-              if file.page_name == 'clinics'
-                .col-md-12
-                  .doctors-alert
-                    strong К сожалению, в выбранном Вами районе "с. Софиевская Борщаговка" клиник по направлению пульмонология не найдено. Найдите клинику пульмонологии в ближайших районах
-          //- Content
-          block content
-
-    //- Advantages
-    if file.indexPage
-      .container-fluid.container-advantages.hidden-xs
-        .row
-          +b.advantages.container: +i
-
-    
-    //- Blog
-    if file.page_name != 'articles' && file.page_name != 'articles-inner' && file.page_name != 'doctors'
-      .container-fluid.hidden-xs
-        .row.row-articles
-          .container
-            section
-              if file.page_name != doctor_consultation && file.page_name != doctors
-                header.header-styled.header-styled-mod
-                  .row.offset-bottom-0
-                    .col-sm-6
-                      h2.h1 В блоге здоровья
-                    .col-sm-6.text-right
-                      a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
-              else 
-                header.header-styled
-                  .row.offset-bottom-0
-                    .col-sm-6
-                      h2.h1 В блоге здоровья
-                    .col-sm-6.text-right
-                      a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
-              .row.offset-bottom-0
-                - var limit = 2
-                .col-md-3.col-sm-4
-                  .article-block
-                    .article-block__img
-                      a(href="$")
-                        img(src="http://placecage.com/350/179", alt="")
-                    .article-block__title
-                      a(href="#") Школьные болезни: к чему готовиться?
-                    .article-block__info
-                      time.main-time 27.07.2015
-                      ul.info-list
-                        li
-                          span.is-view 18
-                        li
-                          span.is-like 35
-                        li
-                          span.is-share 169
-                .col-md-3.col-sm-4
-                  .article-block
-                    .article-block__img
-                      a(href="$")
-                        img(src="http://placecage.com/350/179", alt="")
-                    .article-block__title
-                      a(href="#") Школьные болезни: к чему готовиться?
-                    .article-block__info
-                      time.main-time 27.07.2015
-                      ul.info-list 
-                        li
-                          span.is-view 18
-                        li
-                          span.is-like 35
-                        li
-                          span.is-share 169
-                .col-md-3.col-sm-4
-                  .article-block
-                    .article-block__img
-                      a(href="$")
-                        img(src="http://placecage.com/350/179", alt="")
-                    .article-block__title
-                      a(href="#") Школьные болезни: к чему готовиться?
-                    .article-block__info
-                      time.main-time 27.07.2015
-                      ul.info-list 
-                        li
-                          span.is-view 18
-                        li
-                          span.is-like 35
-                        li
-                          span.is-share 169
-                .col-md-3.col-sm-12.hidden-sm
-                  ul.blog-list
-                    li.blog-list__item
-                      time.main-time 27.07.2015
-                      a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
-                    li.blog-list__item
-                      time.main-time 27.07.2015
-                      a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
-                    li.blog-list__item
-                      time.main-time 27.07.2015
-                      a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
-    //- Promo banners
-    if file.indexPage
-      .container-fluid.container_find.hidden-xs
-        .row
-          .container
-            header.header-styled
-              .row.offset-bottom-0
-                .col-sm-12
-                  h2.h1 Также вы можете на нашем сайте найти
-            .find
-              .find-item
-                a(href="#").find-item__block
-                  i.find-item__icon.is-doc
-                  span.find-item__title Врачи
-              .find-item
-                a(href="#").find-item__block
-                  i.find-item__icon.is-clinic
-                  span.find-item__title Клиники
-              .find-item
-                a(href="#").find-item__block
-                  i.find-item__icon.is-centers
-                  span.find-item__title Диагностические центры
-              .find-item
-                a(href="#").find-item__block
-                  i.find-item__icon.is-diseases
-                  span.find-item__title Заболевания
-              .find-item
-                a(href="#").find-item__block
-                  i.find-item__icon.is-promotions
-                  span.find-item__title Акции
+                        h2.h1 В блоге здоровья
+                      .col-sm-6.text-right
+                        a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
+                else 
+                  header.header-styled
+                    .row.offset-bottom-0
+                      .col-sm-6
+                        h2.h1 В блоге здоровья
+                      .col-sm-6.text-right
+                        a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
+                .row.offset-bottom-0
+                  - var limit = 2
+                  .col-md-3.col-sm-4
+                    .article-block
+                      .article-block__img
+                        a(href="$")
+                          img(src="http://placecage.com/350/179", alt="")
+                      .article-block__title
+                        a(href="#") Школьные болезни: к чему готовиться?
+                      .article-block__info
+                        time.main-time 27.07.2015
+                        ul.info-list
+                          li
+                            span.is-view 18
+                          li
+                            span.is-like 35
+                          li
+                            span.is-share 169
+                  .col-md-3.col-sm-4
+                    .article-block
+                      .article-block__img
+                        a(href="$")
+                          img(src="http://placecage.com/350/179", alt="")
+                      .article-block__title
+                        a(href="#") Школьные болезни: к чему готовиться?
+                      .article-block__info
+                        time.main-time 27.07.2015
+                        ul.info-list 
+                          li
+                            span.is-view 18
+                          li
+                            span.is-like 35
+                          li
+                            span.is-share 169
+                  .col-md-3.col-sm-4
+                    .article-block
+                      .article-block__img
+                        a(href="$")
+                          img(src="http://placecage.com/350/179", alt="")
+                      .article-block__title
+                        a(href="#") Школьные болезни: к чему готовиться?
+                      .article-block__info
+                        time.main-time 27.07.2015
+                        ul.info-list 
+                          li
+                            span.is-view 18
+                          li
+                            span.is-like 35
+                          li
+                            span.is-share 169
+                  .col-md-3.col-sm-12.hidden-sm
+                    ul.blog-list
+                      li.blog-list__item
+                        time.main-time 27.07.2015
+                        a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
+                      li.blog-list__item
+                        time.main-time 27.07.2015
+                        a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
+                      li.blog-list__item
+                        time.main-time 27.07.2015
+                        a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
+      //- Promo banners
+      if file.indexPage
+        .container-fluid.container_find.hidden-xs
+          .row
+            .container
+              header.header-styled
+                .row.offset-bottom-0
+                  .col-sm-12
+                    h2.h1 Также вы можете на нашем сайте найти
+              .find
+                .find-item
+                  a(href="#").find-item__block
+                    i.find-item__icon.is-doc
+                    span.find-item__title Врачи
+                .find-item
+                  a(href="#").find-item__block
+                    i.find-item__icon.is-clinic
+                    span.find-item__title Клиники
+                .find-item
+                  a(href="#").find-item__block
+                    i.find-item__icon.is-centers
+                    span.find-item__title Диагностические центры
+                .find-item
+                  a(href="#").find-item__block
+                    i.find-item__icon.is-diseases
+                    span.find-item__title Заболевания
+                .find-item
+                  a(href="#").find-item__block
+                    i.find-item__icon.is-promotions
+                    span.find-item__title Акции
 
 
     //- Footer

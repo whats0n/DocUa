@@ -1,9 +1,13 @@
 .feedback
     float left
+    @media phone
+        clear: both
     &__link
         float left
         position relative
-        
+        &.mobile-none
+            @media screen560
+                display: none
         &:before
             content ''
             position absolute

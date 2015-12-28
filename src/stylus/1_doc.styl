@@ -611,10 +611,11 @@ ul
             font-size 18px
             font-weight 700
         &.themes
+            padding: 43px 0 0
             h3
-                margin-top 43px
+                // margin-top 43px
                 padding: 0 0 12px
-                margin-bottom: 0 
+                margin: 0 
         .widget
             .banner img
                 width 100%
@@ -1133,6 +1134,7 @@ a:focus, a:hover
     margin: 0 78px 0 0 
     @media phone_tablet
         margin: 0
+        padding: 25px 20px 
     p
         font-size: 16px
         line-height: 1.2
@@ -1146,6 +1148,8 @@ a:focus, a:hover
         position: absolute
         right: -78px
         top: -65px
+        @media phone_tablet
+            display: none
 article.static-page
     .about
         &-text
@@ -1177,6 +1181,8 @@ article.static-page
     &-list
         padding-top: 45px
         padding-bottom: 20px
+        @media phone
+            padding-top: 0
         h2
             font-weight: 700
         p
@@ -1204,6 +1210,8 @@ article.static-page
     &-text
         padding-top: 40px 
         padding-bottom: 20px
+        @media phone
+            padding-top: 0
         .feedback
             &__link
                 color: #96b8bf
@@ -1264,6 +1272,8 @@ article.static-page
             margin-bottom: 30px
             @media phone_tablet
                 max-width: 100%
+            @media phone
+                margin-bottom: 10px
 
 .article-top
     font-size: 0
@@ -1420,6 +1430,8 @@ article.static-page
         @media phone
             overflow: visible
             padding: 0 0 20px 
+            width: 300px
+            margin: 0 auto 
         &__item
             float: none
             display: inline-block
@@ -1498,7 +1510,7 @@ article.static-page
 .comment-links
     font-size: 0
     float: left
-    @media phone
+    @media screen560
         float: none
     li
         display: inline-block
@@ -1591,7 +1603,7 @@ article.static-page
 
 .comment-filter
     float: right
-    @media phone
+    @media screen560
         float: none
         padding: 15px 0 0 
     &__select
@@ -1678,3 +1690,8 @@ article.static-page
         margin-left: 50px
         @media phone
             margin-left: 0
+
+.container-fluid_main
+    background: #f4f8f8
+    position: relative
+    z-index: 2 
