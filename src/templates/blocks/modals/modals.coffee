@@ -10,3 +10,15 @@ $ ->
 
     updateGroup2()
     $(".x-check-group2-toggle").change updateGroup2
+
+   
+
+$('.bs-modal-md').on 'show.bs.modal', (e) ->
+  setTimeout ->
+    $('.js-list-scroll').jScrollPane({
+    	autoReinitialise: true
+    })
+    return
+  , 10
+  return
+

@@ -450,51 +450,71 @@ mixin modal(name, classes, dialogClasses)
         #modal-map
     .modal-footer
 +modal("request-thanks")
-    .modal-header
-        button.close(aria-hidden="true", data-dismiss="modal", type="button")
-        .modal-title Спасибо!
-    .modal-body
-        img.pull-left(src="/i/doc-like-big.svg", alt="", width="145")
-        p.middle(style="margin-left: 183px")
+    .modal-header.modal-header__mod.modal-attention.modal-header__thanks
+        button.close.close__mod(aria-hidden="true", data-dismiss="modal", type="button")
+        .modal-title.modal-title__mod Спасибо!
+    .modal-body.modal-body__pad
+        .info-modal__visual.info-modal__thanks 
+            img.doctor-thanks(src="/i/doctor-like-min.png", alt="")
+            p.middle
+
             br.hidden-xs
             br.hidden-xs
             br
-            | Мы получили вашу заявку и в ближайшее время свяжемся с вами для уточнения деталей
+            .info-modal__visual-text.info-modal__text-mod| Мы получили вашу заявку и в ближайшее время свяжемся с вами для уточнения деталей.
             br
             br
-            a(href="/", aria-hidden="true", data-dismiss="modal", type="button", title="Вернуться на сайт") Вернуться на сайт
+    .form-group.margin-bottom-0.form-group__modals
+        .col-sm-12.submits
+            button.btn.btn-primary.btn-xs-block.modals-btn-big(type="button") Вернуться на сайт
+            //- a(href="/", aria-hidden="true", data-dismiss="modal", type="button", title="Вернуться на сайт") Вернуться на сайт
     .modal-footer
+
++modal("info-var-2", "info-modal")
+    .modal-header.modal-header__mod.modal-attention
+        button.close.close__mod(aria-hidden="true", data-dismiss="modal", type="button")
+        .modal-title.modal-title__mod Обратите внимание!
+    .modal-body
+        .info-modal__visual
+            img.info-modal__visual-icon(src="/i/attention-modals-icon.png", alt="")
+            .info-modal__visual-text Наш сервис является <strong>бесплатным</strong><br>для Пациентов и не содержит никаких скрытых комиссий.
+        .info-modal__text Оплата приема врачей производится непосредственно в клинике согласно официальному прайс-листу. В случае если вы заметили расхождение в ценах – сообщите нам об этом!
+        .info-modal__message Мы за честные цены!
+
 +modal("login", "login-form-popup bs-modal-sm")
-    .modal-header
+    .modal-header.modal-header__btm
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Вход на сайт
     .modal-body
         form.form-horizontal(action="/")
             fieldset
-                .form-group
-                    .col-sm-3
-                        label.control-label(for="field-login-email"): span Е-mail:
-                    .col-sm-6.offset-0.has-error
-                        input#field-login-email.form-control(type="text")
+                .form-group.form-group__modals-login
+                    //- .col-sm-3
+                        //- label.control-label(for="field-login-email"): span Е-mail:
+                    .col-sm-12.offset-0
+                        input#field-login-email.form-control.form-control__modals(type="text",placeholder="Е-mail")
                         .error-message E-mail указан неверно. Правильный формат адреса электронной почты:&nbsp;
                             span.underline name@mail.com
-                .form-group
-                    .col-sm-3
-                        label.control-label(for="field-login-password"): span Пароль:
-                    .col-sm-6.offset-0
-                        .input-password
-                            input#field-login-password.form-control(type="password")
+                .form-group.form-group__modals-login
+                    //- .col-sm-3
+                    //-     label.control-label(for="field-login-password"): span Пароль:
+                    .col-sm-12.offset-0
+                        .input-password 
+                            input#field-login-password.form-control.form-control__modals(type="password", placeholder="Пароль")
                             span.password-eye
-                    a.remind-password-link(href="/", title="Напомнить пароль"): span Напомнить пароль
-                .form-group.offset-top-10
-                    .col-sm-12.text-center
+                    .col-sm-12.offset-0
+                        a.remind-password-link.modals-a-color(href="/", title="Напомнить пароль"): span Напомнить пароль
+                .form-group.offset-top-10.form-group__last-child
+                    .col-sm-6
                         button.btn.btn-success.btn-lg.btn-xs-block(type="submit") Войти
-                        span.abs-helper
-                            span.abs или&nbsp;
-                                a(href="/registration.html", title="зарегистрироваться") зарегистрироваться
+                        //- span.abs-helper
+                    .col-sm-6.modals-offset-10.modals-offset__mod
+                        span.modal-span__mod или
+                        a.modals-a-color(href="/registration.html", title="зарегистрироваться") Зарегистрироваться
+
 +modal("select-area", "bs-modal-md")
     .modal-header
-        button.close(aria-hidden="true", data-dismiss="modal", type="button")
+        button.close.close__select(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title
             | Место приема врача
         ul.nav.nav-pills.inline-block
@@ -506,7 +526,7 @@ mixin modal(name, classes, dialogClasses)
             li
                 a(href="#select-area-metro", data-toggle="tab")
                     span станции метро
-    .modal-body
+    .modal-body.js-list-scroll 
         .tab-content.clear
             - var selectAreaClasses = ''
             - var metroMapClasses = ''
@@ -516,9 +536,9 @@ mixin modal(name, classes, dialogClasses)
                 - districtsList = districtsKharkiv
                 - metroList = metroKharkiv
                 - selectAreaClasses = 'select-area_location_kharkiv'
-                - metroMapClasses = 'metro-map_kharkiv'
+                - metroMapClasses = 'metro-map_kharkiv' 
             #select-area-districts.tab-pane.active(class=selectAreaClasses)
-                ul.districts-check-list.columnize(data-columns="4", data-min-column-width="0", data-adaptive-column-count="true")
+                ul.districts-check-list.district-list__mod.columnize(data-columns="5", data-min-column-width="0", data-adaptive-column-count="true")
                     each district in districtsList
                         li.pill-group
                             label.pill.with-icon
@@ -531,14 +551,14 @@ mixin modal(name, classes, dialogClasses)
                                             label.pill.with-icon
                                                 input(type="checkbox")
                                                 span: span= subDistrict
-            #select-area-metro.tab-pane(class=selectAreaClasses)
-                .metro-map(class=metroMapClasses)
+            #select-area-metro.tab-pane.tab-pane__mod.tab-pane(class=selectAreaClasses)
+                .metro-map-min.metro-map(class=metroMapClasses)
                     each station in metroList
                         label.pill.with-icon(class=station.class, style="left: #{station.x}px; top: #{station.y}px;")
                             input(type="checkbox")
                             span: span= station.title
-    .modal-footer.footer-default
-        button.btn.btn-primary.btn-lg(data-dismiss="modal", type="button") Выбрать
+    .modal-footer.footer-default.footer-def__mod
+        button.btn.btn-primary.modal-btn-190.btn-lg(data-dismiss="modal", type="button") Выбрать
         span.abs-helper
             span.abs
                 a.dotted(data-action="reset") Сбросить выбранное
@@ -551,7 +571,7 @@ mixin modal(name, classes, dialogClasses)
             - var selectAreaClasses = ''
             - var metroMapClasses = ''
             - var districtsList = districts
-            - var metroList = metro
+            - var metroList = metro  
             #select-area-districts.tab-pane.active(class=selectAreaClasses)
                 ul.districts-check-list.columnize(data-columns="4", data-min-column-width="0", data-adaptive-column-count="true")
                     each district in districtsList
@@ -569,7 +589,7 @@ mixin modal(name, classes, dialogClasses)
             #select-area-metro.tab-pane(class=selectAreaClasses)
                 .metro-map(class=metroMapClasses)
                     each station in metroList
-                        label.pill.with-icon(class=station.class, style="left: #{station.x}px; top: #{station.y}px;")
+                        label.pill.pill-map.with-icon(class=station.class, style="left: #{station.x}px; top: #{station.y}px;")
                             input(type="checkbox")
                             span: span= station.title
     .modal-footer.footer-default
@@ -581,8 +601,8 @@ mixin modal(name, classes, dialogClasses)
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Выберите вид диагностики
-    .modal-body
-        ul.districts-check-list.columnize(data-columns="4", data-min-column-width="0", data-adaptive-column-count="true")
+    .modal-body.js-list-scroll
+        ul.districts-check-list.tab-pane__mod.columnize(data-columns="4", data-min-column-width="0", data-adaptive-column-count="true")
             each diagnostic in diagnostics
                 li
                     a(href="/diagnostic-centers.html", title="")= diagnostic.title
@@ -592,14 +612,14 @@ mixin modal(name, classes, dialogClasses)
                                 li
                                     a(href="/diagnostic-centers.html", title="")= subDiagnostic.title
     .modal-footer
-+modal("select-branch", "bs-modal-md")
++modal("select-branch", "bs-modal-md ")
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
-        .modal-title Выбрать направление
+        .modal-title Выберите специальность врача
     .modal-body
         ul.alphabet-list.columnize(data-columns="4", data-balance-method="balanceCount")
-            li.alphabet-list__item.alphabet-list__item_all
-                a(href="", title="Все клиники") Все клиники
+            //- li.alphabet-list__item.alphabet-list__item_all
+                
             each specialization in specializationsAlphabet
                 li.alphabet-list__item
                     span.alphabet-list__letter= specialization.title
@@ -608,15 +628,16 @@ mixin modal(name, classes, dialogClasses)
                             li.alphabet-list__sub-item
                                 a(href=specializationChildren.url, title=specializationChildren.title)= specializationChildren.title
     .modal-footer
+        button.btn.btn-primary.modals-btn-220(type="button") Показать всех врачей
 +modal("select-specialization", "bs-modal-md")
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Выберите специальность врача
-    .modal-body
-        ul.alphabet-list.columnize(data-columns="4", data-balance-method="balanceCount")
-            li.alphabet-list__item.alphabet-list__item_all
-                a(href="", title="Показать всех врачей")
-                    | Показать всех врачей
+    .modal-body.body-branch.js-list-scroll
+        ul.alphabet-list.columnize(data-columns="4", data-min-column-width="0", data-adaptive-column-count="true")
+            //- li.alphabet-list__item.alphabet-list__item_all
+            //-     a(href="", title="Показать всех врачей")
+            //-         | Показать всех врачей
             each specialization in specializationsAlphabet
                 li.alphabet-list__item
                     span.alphabet-list__letter= specialization.title
@@ -624,12 +645,13 @@ mixin modal(name, classes, dialogClasses)
                         each specializationChildren in specialization.children
                             li.alphabet-list__sub-item
                                 a(href=specializationChildren.url, data-value=specializationChildren.slug, title=specializationChildren.title)= specializationChildren.title
-    .modal-footer
+    .modal-footer.footer-branch
+        button.btn.btn-primary.modals-btn-220(type="button") Показать всех врачей
 +modal("select-actions", "bs-modal-md")
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Выберите тему акции
-    .modal-body
+    .modal-body 
         ul.alphabet-list.columnize(data-columns="4", data-balance-method="balanceCount")
             each specialization in specializationsAlphabet
                 li.alphabet-list__item
@@ -684,31 +706,30 @@ mixin modal(name, classes, dialogClasses)
 
 
 +modal("rating", "rating-modal")
-    .modal-header
+    .modal-header.modal-header__rating
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Федоренко Александр Евгеньевич
-    .modal-body
-        +b.rating-block
+    .modal-body.modal-body__rating 
+        +b.rating-block.rating-block__modals
             .row
                 .col-sm-6
                     .row
                         .col-xs-4
                             +b.statistics-item._simple
                                 +e.label Рекомендуют
-                                +e.value 95
+                                +e.value 100
                                     +e("span").value-label %
                         .col-xs-4
                             +b.statistics-item._simple
                                 +e.label Средний балл
-                                +e.value 5.0
+                                +e.value 4.9
                         .col-xs-4
                             +b.statistics-item._simple
-                                +e.label Кол-во отзывов
-                                +e.value 152
+                                +e.label К-во отзывов
+                                +e.value 233
                     +b.rating-info
                         +e("span").icon
                         +e.text Рейтинг врача рассчитывается
-                            br
                             | на основе&nbsp;
                             +e("a").more-link(href="/", title="реальных отзывов пациентов"): span реальных отзывов пациентов
                 .col-sm-6
@@ -717,30 +738,30 @@ mixin modal(name, classes, dialogClasses)
                             .rating__label(data-toggle='tooltip', data-original-title='Учтивость и терпение, проявленное врачом во время приема', data-placement='bottom') Внимательность врача
                             .rating__stars
                                 .rating__stars-bg
-                                .rating__stars-overlay(style='width: 62%;')
-                            .rating__value.value 3.1
+                                .rating__stars-overlay(style='width: 100%;')
+                            .rating__value.value 4.9
                         li.rating
                             .rating__label(data-toggle='tooltip', data-original-title='Педантичность и профессионализм врача во время осмотра', data-placement='bottom') Квалификация врача
                             .rating__stars
                                 .rating__stars-bg
-                                .rating__stars-overlay(style='width: 58%;')
-                            .rating__value.value 2.9
+                                .rating__stars-overlay(style='width: 100%;')
+                            .rating__value.value 4.7
                         li.rating.last-child
                             .rating__label(data-toggle='tooltip', data-original-title='Соотношения стоимости и качества приема', data-placement='bottom') Цена–качество
                             .rating__stars
                                 .rating__stars-bg
-                                .rating__stars-overlay(style='width: 92%;')
-                            .rating__value.value 4.6
+                                .rating__stars-overlay(style='width: 100%;')
+                            .rating__value.value 5.0
                     .likebox
-                        .likebox__label(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom')
+                        .likebox__label.likebox__label-mod(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom')
                             | Рекомендуют врача
                         .likebox__like
-                            .likebox__votes 16
+                            .likebox__votes 18
                         .likebox__dislike
-                            .likebox__votes 2
+                            .likebox__votes 0
 
     .modal-footer
-        h4 Как мы собираем отзывы?
+        h4.modal-footer__title Как мы собираем отзывы?
         p Все отзывы достоверны и получены в результате опроса пациентов, побывавших на приеме в клинике
         +b("ul").rating-steps
             +e(li).item
@@ -751,57 +772,63 @@ mixin modal(name, classes, dialogClasses)
                 +e.title Вы приходите <br>на прием
             +e(li).item
                 +e("img").icon(srcset="/i/icon-phone.png, /i/icon-phone@2x.png 2x", alt="")
-                +e.title Мы звоним <br>и спрашиваем ваше мнение о приеме
+                +e.title Мы звоним и спрашиваем<br> ваше мнение о приеме
             +e(li).item
                 +e("img").icon(srcset="/i/icon-like.png, /i/icon-like@2x.png 2x", alt="")
                 +e.title Публикуем ваше мнение в анкете врача
 
 +modal("rating-clinic", "rating-modal")
-    .modal-header
+    .modal-header.modal-header__rating
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Клиника Исида
-    .modal-body
-        +b.rating-block
+    .modal-body.modal-body__rating 
+        +b.rating-block.rating-block__modals
             .row
                 .col-sm-6
                     .row
-                        .col-xs-5.col-xs-offset-1
-                            +b.statistics-item._simple
-                                +e.label Средний балл
-                                +e.value 5.0
-                        .col-xs-5
+                        .col-xs-4.rating-block__element
+                            +b.statistics-item._simple.statistics-item__mod
+                                +e.label Средний балл  
+                                +e.value.value__mod 4.9
+                        .col-xs-4
                             +b.statistics-item._simple
                                 +e.label Кол-во отзывов
-                                +e.value 152
+                                +e.value 233
                     +b.rating-info
                         +e("span").icon
                         +e.text Рейтинг клиники рассчитывается
-                            br
                             | на основе&nbsp;
                             +e("a").more-link(href="/", title="реальных отзывов пациентов"): span реальных отзывов пациентов
                 .col-sm-6
                     ul.rating-list
                         li.rating.first-child
-                            .rating__label(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom') Работа рецепции
-                            .rating__stars
-                                .rating__stars-bg
-                                .rating__stars-overlay(style='width: 62%;')
-                            .rating__value.value 3.1
-                        li.rating
                             .rating__label(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom') Время ожидания
                             .rating__stars
                                 .rating__stars-bg
-                                .rating__stars-overlay(style='width: 58%;')
-                            .rating__value.value 2.9
+                                .rating__stars-overlay(style='width: 99%;')
+                            .rating__value.value 4.9
+                        li.rating
+                            .rating__label(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom') Работа рецепции
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 97%;')
+                            .rating__value.value 4.7
                         li.rating.last-child
                             .rating__label(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom') Комфорт пребывания
                             .rating__stars
                                 .rating__stars-bg
-                                .rating__stars-overlay(style='width: 92%;')
-                            .rating__value.value 4.6
+                                .rating__stars-overlay(style='width: 100%;')
+                            .rating__value.value 5.0
+                    .likebox
+                        .likebox__label.likebox__label-mod(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom')
+                            | Рекомендуют клиника
+                        .likebox__like
+                            .likebox__votes 18
+                        .likebox__dislike
+                            .likebox__votes 0
 
     .modal-footer
-        h4 Как мы собираем отзывы?
+        h4.modal-footer__title Как мы собираем отзывы?
         p Все отзывы достоверны и получены в результате опроса пациентов, побывавших на приеме в клинике
         +b("ul").rating-steps
             +e(li).item
@@ -816,6 +843,7 @@ mixin modal(name, classes, dialogClasses)
             +e(li).item
                 +e("img").icon(srcset="/i/icon-like.png, /i/icon-like@2x.png 2x", alt="")
                 +e.title Публикуем ваше мнение в анкете врача
+
 +modal("info", "info-modal")
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
@@ -826,16 +854,7 @@ mixin modal(name, classes, dialogClasses)
             .info-modal__visual-text Наш сервис является <strong>бесплатным</strong><br>для Пациентов и не содержит никаких скрытых комиссий.
         .info-modal__text Мы прилагаем все усилия, чтобы предоставлять вам актуальную информацию о стоимости приема врачей в клиниках. Однако в текущей экономической ситуации происходит частое обновление цен самими клиниками. Точную стоимость консультации оператор нашего колл-центра уточняет у клиники в момент вашей записи.
 
-+modal("info-var-2", "info-modal")
-    .modal-header.modal-header__mod
-        button.close.close__mod(aria-hidden="true", data-dismiss="modal", type="button")
-        .modal-title.modal-title__mod Обратите вниманиеe!
-    .modal-body
-        .info-modal__visual
-            img.info-modal__visual-icon(src="/i/attention-modals-icon.png", alt="")
-            .info-modal__visual-text Наш сервис является <strong>бесплатным</strong><br>для Пациентов и не содержит никаких скрытых комиссий.
-        .info-modal__text Оплата приема врачей производится непосредственно в клинике согласно официальному прайс-листу. В случае если вы заметили расхождение в ценах – сообщите нам об этом!
-        .info-modal__message Мы за честные цены!
+
 
 +modal("info-var-3", "info-modal")
     .modal-header
