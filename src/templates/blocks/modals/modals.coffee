@@ -22,3 +22,7 @@ $('.bs-modal-md').on 'show.bs.modal', (e) ->
   , 10
   return
 
+
+$("#select-area-diagnostics").on "click", "li a", ->
+  return $("#select-area-diagnostics").modal "hide"
+  

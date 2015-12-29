@@ -604,12 +604,12 @@ mixin modal(name, classes, dialogClasses)
     .modal-body.js-list-scroll
         ul.districts-check-list.tab-pane__mod.columnize(data-columns="4", data-min-column-width="0", data-adaptive-column-count="true")
             each diagnostic in diagnostics
-                li
+                li.diagnostic-in 
                     a(href="/diagnostic-centers.html", title="")= diagnostic.title
                     if diagnostic.children
                         ul
                             each subDiagnostic in diagnostic.children
-                                li
+                                li.diagnostic-item.alphabet-list__sub-item
                                     a(href="/diagnostic-centers.html", title="")= subDiagnostic.title
     .modal-footer
 +modal("select-branch", "bs-modal-md ")
