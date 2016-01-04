@@ -1369,7 +1369,7 @@ $(".favorites-block").initFavoritesBlock();
 
 var trim;
 
-trim = function(s) {
+trim = function(s) {   
   return s.replace(/^\s*/, '').replace(/\s*$/, '');
 };
 

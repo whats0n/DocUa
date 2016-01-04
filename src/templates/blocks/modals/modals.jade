@@ -469,15 +469,15 @@ mixin modal(name, classes, dialogClasses)
             button.btn.btn-primary.btn-xs-block.modals-btn-big(type="button") Вернуться на сайт
             //- a(href="/", aria-hidden="true", data-dismiss="modal", type="button", title="Вернуться на сайт") Вернуться на сайт
     .modal-footer
-
+ 
 +modal("info-var-2", "info-modal")
     .modal-header.modal-header__mod.modal-attention
-        button.close.close__mod(aria-hidden="true", data-dismiss="modal", type="button")
+        button.close.close__mod.close-attention(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title.modal-title__mod Обратите внимание!
     .modal-body
-        .info-modal__visual
+        .info-modal__visual.info-modal__visual-mod 
             img.info-modal__visual-icon(src="/i/attention-modals-icon.png", alt="")
-            .info-modal__visual-text Наш сервис является <strong>бесплатным</strong><br>для Пациентов и не содержит никаких скрытых комиссий.
+            .info-modal__visual-text Наш сервис является <strong>бесплатным </strong><br>для Пациентов и не содержит никаких скрытых комиссий.
         .info-modal__text Оплата приема врачей производится непосредственно в клинике согласно официальному прайс-листу. В случае если вы заметили расхождение в ценах – сообщите нам об этом!
         .info-modal__message Мы за честные цены!
 
@@ -503,12 +503,11 @@ mixin modal(name, classes, dialogClasses)
                             input#field-login-password.form-control.form-control__modals(type="password", placeholder="Пароль")
                             span.password-eye
                     .col-sm-12.offset-0
-                        a.remind-password-link.modals-a-color(href="/", title="Напомнить пароль"): span Напомнить пароль
+                        a.remind-password-link.modals-a-color.remind-password-link__mod(href="/", title="Напомнить пароль"): span Напомнить пароль
                 .form-group.offset-top-10.form-group__last-child
-                    .col-sm-6
+                    .col-sm-12
                         button.btn.btn-success.btn-lg.btn-xs-block(type="submit") Войти
                         //- span.abs-helper
-                    .col-sm-6.modals-offset-10.modals-offset__mod
                         span.modal-span__mod или
                         a.modals-a-color(href="/registration.html", title="зарегистрироваться") Зарегистрироваться
 
@@ -629,9 +628,9 @@ mixin modal(name, classes, dialogClasses)
                                 a(href=specializationChildren.url, title=specializationChildren.title)= specializationChildren.title
     .modal-footer
         button.btn.btn-primary.modals-btn-220(type="button") Показать всех врачей
-+modal("select-specialization", "bs-modal-md")
++modal("select-specialization", "bs-modal-md") 
     .modal-header
-        button.close(aria-hidden="true", data-dismiss="modal", type="button")
+        button.close.close-special(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Выберите специальность врача
     .modal-body.body-branch.js-list-scroll
         ul.alphabet-list.columnize(data-columns="4", data-min-column-width="0", data-adaptive-column-count="true")
@@ -786,11 +785,11 @@ mixin modal(name, classes, dialogClasses)
             .row
                 .col-sm-6
                     .row
-                        .col-xs-4.rating-block__element
+                        .col-xs-6
                             +b.statistics-item._simple.statistics-item__mod
                                 +e.label Средний балл  
                                 +e.value.value__mod 4.9
-                        .col-xs-4
+                        .col-xs-6
                             +b.statistics-item._simple
                                 +e.label Кол-во отзывов
                                 +e.value 233

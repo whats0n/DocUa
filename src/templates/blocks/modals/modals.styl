@@ -22,6 +22,8 @@ modal_font_size = 15px
     @media phone
         .select2-container .select2-choice>.select2-chosen
             max-width none
+    a:focus, a:hover
+        outline none
     .form-group
         @media phone
             div[class^="col-sm-"] + div[class^="col-sm-"]
@@ -37,7 +39,7 @@ modal_font_size = 15px
         width 96%
         max-width 600px
         &.wide
-            .modal-body
+            .modal-body.statistics-item__mod
                 padding-left 30px
                 padding-right 20px
     &.bs-modal-md
@@ -109,6 +111,7 @@ modal_font_size = 15px
             resize none
             padding 6px 14px
             placeholder(rgba(#5e6e71, 0.75), 14px)
+            color #86989b
 
         .modals-btn
             width 251px
@@ -139,20 +142,24 @@ modal_font_size = 15px
             
     .footer-def__mod
         width 89%
+        @media phone_tablet
+            width 100%
     .btn-xs-block
         min-width 158px
         font-weight 400
         font-size 18px
         padding-top 7px
         padding-bottom 7px
+        @media screen560
+            margin-right 20%
+            margin-bottom 15px 
     &-span__mod
-        padding-right 10px
+        padding 0 10px
+        @media screen560
+            padding 0
+            padding-right 10px
 
-    &#select-specialization
-        @media phone
-            .modal-title
-                margin-bottom 30px
-
+         
      .modal-footer
          .btn+.btn
              margin 0 0 10px
@@ -252,14 +259,21 @@ modal_font_size = 15px
             text-align left
             margin-right 40px
             padding-right 0 
-            @media tablet
-                width 100%
+            
+            @media phone_tablet
+                width 35%
+                &:before
+                    display none
             @media phone
-                width 100%
+                width 100% 
+            // @media phone
+            //     width 100%
             &:last-child
                 width 13%
                 margin-right 0
                 @media phone_tablet
+                    width 35%
+                @media phone
                     width 100% 
             &:before
                 width 162px
@@ -337,7 +351,8 @@ modal_font_size = 15px
                 margin-bottom 0
                 font-size 16px
                 line-height 24px
-
+                @media phone
+                    font-size 18px
                 a
                     position relative
                     top -2px
@@ -347,8 +362,10 @@ modal_font_size = 15px
                     padding 1px 4px
                     &:hover
                         text-decoration underline
-                    span
-                        border-color transparent
+                    @media phone
+                        font-size 18px
+                    // span
+                    //     border-color transparent
                 &.active
                     // &:after
                     //     border 1px solid blue_base
@@ -362,6 +379,8 @@ modal_font_size = 15px
                         color white
                         font-weight 700
                         padding 1px 4px
+                        @media phone
+                            font-size 18px
                         &:before
                             content ""
                             position absolute
@@ -373,6 +392,9 @@ modal_font_size = 15px
                             border-style solid
                             border-width 7px 10px 0 10px
                             border-color #2d535c transparent transparent transparent
+                            @media screen560
+                                border-color #153e48 transparent transparent transparent
+                                
                         // &:after
                         //     content ""
                         //     position absolute
@@ -399,6 +421,8 @@ modal_font_size = 15px
         margin-bottom 0
      .modal-title
         padding-right 0
+    .close-attention
+        bottom 47px
     &__visual
         height 143px
         margin 0 -35px 20px
@@ -409,7 +433,6 @@ modal_font_size = 15px
         background-color #3297a9
         background-size cover
         @media phone
-            
             padding 15px
         &:after
             content ""
@@ -436,6 +459,11 @@ modal_font_size = 15px
             br
                 @media phone
                     display none
+    &__visual-mod
+        @media phone
+            height 115px 
+        @media screen560
+            height 143px
     &__text
         font-size 16px
         padding 0 4px 0 0px
@@ -462,8 +490,9 @@ modal_font_size = 15px
         display inline-block
         padding-top 15px
         font-size modal_font_size
+    .remind-password-link__mod
         @media phone
-            margin-left 10px
+            margin-top -15px    
     .abs-helper
         font-size modal_font_size
         @media phone
@@ -500,11 +529,11 @@ modal_font_size = 15px
         padding 0
         .rating-block__modals
             padding 17px 30px 20px 20px 
-        .rating-block__element
-            margin-left 10px
+        
         .statistics-item__mod
-            text-align left
+            text-align center
             margin-bottom 15px !important
+            
             .value__mod
                 padding-left 12px
 .request_clinic
@@ -521,16 +550,22 @@ modal_font_size = 15px
 .info-modal__thanks
     position relative
     margin 0 
-    padding 0 35px 0 150px 
+    padding 0 35px 0 150px
+    @media phone
+        padding 30px 35px 0 150px
+    @media screen560
+        padding 15px
     .info-modal__text-mod
         width 100%
         padding-left 34px 
         margin-top -11px
+        @media screen560
+            padding-left 20px
 .doctor-thanks
     position absolute
     left 43px
     top -39px 
-    @media phone
+    @media screen560
         display none
     
          
@@ -572,13 +607,16 @@ modal_font_size = 15px
             -webkit-box-shadow inset  0 -40px 70px 0 rgba(255, 255, 255, 1)
             -moz-box-shadow    inset  0 -40px 70px 0 rgba(255, 255, 255, 1)
             box-shadow         inset  0 -40px 70px 0 rgba(255, 255, 255, 1)
+            @media phone
+                width 94%
 #select-area-districts 
     .district-list__mod
         padding 2px 30px 50px 14px
+        
         div
             margin-bottom 30px
-            width 20% !important 
-    .pill-group
+             
+    .pill-group            
         li
             position relative
             font-size 14px
@@ -631,9 +669,12 @@ modal_font_size = 15px
         padding-right 35px
         a
             color #2b97ad
+         
 .footer-branch
     padding 9px 21px 26px  
     text-align right
+    @media phone
+        text-align center
       
 .multi-column
     column-count: 5
