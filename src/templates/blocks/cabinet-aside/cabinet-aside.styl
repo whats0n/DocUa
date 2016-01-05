@@ -1,30 +1,101 @@
 .cabinet-aside
-    position relative
     border 1px solid rgba(0, 130, 155, 0.5)
     border-radius 3px
     box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
     &__item
-        color #00829b
+        position relative
         font-family 'PTSans', sans-serif
         font-size 16px
-        font-weight 700
+        font-weight 400
         line-height 12px
         text-transform uppercase
-        padding 15px 0 15px 60px
+        padding 20px 0 14px 60px
         border-bottom 1px dotted rgba(#1d89a0, 0.45)
-        a
-        	text-decoration none
-    .is-active
-    	position absolute
-        width 0
-        height 0
-        bottom -19px
-        margin-left -10px
-        border-style solid
-        border-width 7px 10px 0
-        border-color #2d535c transparent transparent 
-    
+        &:hover
+            color #00829b
+        &:last-child
+            border-bottom 0
+        &.is-active
+            color rgba(#00829b, 0.94)
+            font-weight 700
+            &:after, &:before
+                content ""
+                border 8px solid transparent
+                position absolute
+                top 15px
+                right -18px
+                margin-left -12px
+                width 0 
+            &:before 
+                border-left-color rgba(0, 130, 155, 0.8)
+                border-width 9px
+            &:after
+                border-left-color white
+                border-width 9px
+                right -17px
+
+    &__link
+        text-decoration none
+        
+        &-profile:after
+            content ''
+            position absolute
+            left 30px
+            top 14px
+            display inline-block 
+            width 17px
+            height 19px
+            background url('i/cabinet/profile-icon.png') no-repeat center left
+            transition all 0.3s
+        &-profile:hover:after
+                background url('i/cabinet/profile-icon-hover.png') no-repeat center left
+        &-profile.is-active:after
+                background url('i/cabinet/profile-icon-hover.png') no-repeat center left 
+        	     
+        &-note:after
+            content ''
+            position absolute
+            left 28px
+            top 14px
+            display inline-block
+            width 19px 
+            height 19px
+            background url('i/cabinet/pencil-icon.png') no-repeat center left
+        &-note:hover:after
+                background url('i/cabinet/pencil-icon-hover.png') no-repeat center left
+        &-note.is-active:after
+                background url('i/cabinet/pensil-icon-hover.png') no-repeat center left
+        	    
+        &-reviews:after
+            content ''
+            position absolute
+            left 28px
+            top 14px
+            display inline-block
+            width 19px
+            height 20px
+            background url('i/cabinet/star-icon.png') no-repeat
+        &-reviews:hover:after
+                background url('i/cabinet/star-icon-hover.png') no-repeat center left
+        &-reviews.is-active:after
+                background url('i/cabinet/star-icon-hover.png') no-repeat center left
+                
+                
+        &-like:after
+            content ''
+            position absolute
+            left 28px
+            top 17px
+            display inline-block
+            width 19px
+            height 16px
+            background url('i/cabinet/like-icon.png') no-repeat
+        &-like:hover:after
+                background url('i/cabinet/like-icon-hover.png') no-repeat center left
+        &-like.is-active:after
+                background url('i/cabinet/like-icon-hover.png') no-repeat center left
+        
+        
         	
-		
-			
-			
+        	
+	

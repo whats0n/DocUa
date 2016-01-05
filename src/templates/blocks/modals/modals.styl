@@ -77,6 +77,8 @@ modal_font_size = 15px
             transition opacity .2s ease-in-out
             background url("i/modal_close.png") no-repeat
             outline none
+            @media phone
+                bottom 13px
             &:hover
                 text-decoration none
                 cursor pointer
@@ -97,7 +99,9 @@ modal_font_size = 15px
             font-size 24px
     .close__mod
         background url("i/modal_close-mod.png") no-repeat
-        bottom 40px
+        bottom 25px
+        @media phone
+            bottom 27px
 
     &-body
         padding 0 20px 20px 20px
@@ -259,25 +263,33 @@ modal_font_size = 15px
             text-align left
             margin-right 40px
             padding-right 0 
-            
             @media phone_tablet
                 width 35%
+                display inline-flex
+                margin-bottom 10px
                 &:before
                     display none
             @media phone
-                width 100% 
-            // @media phone
-            //     width 100%
+                width 35% 
+            @media screen560
+                width 100%
             &:last-child
                 width 13%
                 margin-right 0
                 @media phone_tablet
                     width 35%
                 @media phone
-                    width 100% 
+                    width 35% 
+                @media screen560
+                    width 100%
             &:before
                 width 162px
                 top 18px
+        .rating-steps__title-mod
+            @media phone_tablet
+                padding-left 20px
+            @media phone
+                padding-left 0
 .modals-offset__mod
     @media phone
         margin 13px 0 0 0 
@@ -329,17 +341,20 @@ modal_font_size = 15px
     .modal-header
         padding-bottom 40px
         box-shadow none
-        @media screen767
-            padding-left 20px
+        @media phone
+            padding-left 10px
         @media screen560
             .nav-pills
-                padding-left 0
+                padding-left 8px
                 li:nth-child(1)
                     display none
         .close
             background url(i/modal_close.png) no-repeat
             right 25px
-            bottom 48px    
+            bottom 48px
+            @media phone
+                bottom 43px
+                    
         .nav-pills
             position absolute
             left 0
@@ -422,7 +437,9 @@ modal_font_size = 15px
      .modal-title
         padding-right 0
     .close-attention
-        bottom 47px
+        bottom 25px
+        @media phone
+            bottom 27px 
     &__visual
         height 143px
         margin 0 -35px 20px
@@ -648,7 +665,7 @@ modal_font_size = 15px
         font-size 11px        
 
 .tab-pane__mod
-    margin-bottom 75px
+    margin 15px 0 70px 0
     padding 0 30px 0 22px 
     
 
