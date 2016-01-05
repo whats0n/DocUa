@@ -135,7 +135,7 @@ docMaps =
         docMaps.canAnimateTop = true
         $('#map-canvas-right, .widget-map').height(mapHeight)
         $('.widget-map').css
-          position: 'static'
+          position: 'relative'
           top: 'auto'
 
     inner: -> #one clinic or one doctor side map

@@ -33,7 +33,7 @@
                                         +e.value 5.0
                                 .col-xs-4
                                     +b.statistics-item._simple
-                                        +e.label Кол-во отзывов
+                                        +e.label Кол-во отзывов 
                                         +e.value 152
                             +b.rating-info 
                                 +e("span").icon
@@ -86,7 +86,7 @@
                     p Все отзывы достоверны и получены в результате опроса пациентов, побывавших на приеме у врача
                     +b("ul").rating-steps: +i
                 if file.status != 'inactive'
-                    +b("ul").reviews-list: +i({ items: doctors[0].testimonials })
+                    +b("ul").reviews-list: +i({ items: doctors[0].testimonials }) 
                 else
                     .text-center.middle
                         | У этого врача еще нет ни одного отзыва.&nbsp;
@@ -108,6 +108,7 @@
     aside.col-md-3.hidden-sm.hidden-xs
         .widget.widget-map
             #map-canvas-right
+            a.btn.btn-success(href="/map.html") Развернуть карту
         .widget.widget-doctor
             h3 Похожие врачи
             - var items = []

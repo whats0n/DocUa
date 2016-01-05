@@ -6,7 +6,7 @@ each item in items
                 span.grey Отзыв о&nbsp;
                 a.fn(href="/", title=item.about)= item.about
         if !diagnosticCenter
-            +b("ul").rating-list
+            +b("ul").rating-list.hidden-xs
                 each rating in item.ratings
                     +b.rating.hide_value: +i({ label: rating.label, value: rating.value, tooltip: rating.tooltip })
         +e.content
@@ -21,6 +21,9 @@ each item in items
                         +e("span").name.reviewer= item.name
                         +e("span").date.dtreviewed #{item.date}
                             span.value-title.hidden(title=item.date)
+                +b("ul").rating-list.visible-xs
+                    each rating in item.ratings
+                        +b.rating.hide_value: +i({ label: rating.label, value: rating.value, tooltip: rating.tooltip })
                 +e.liked Рекомендует врача
                 +e.unliked Не рекомендует врача
                 p= item.summary

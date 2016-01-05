@@ -4,6 +4,7 @@ html {
 html,
 body {
   background: #f4f8f8;
+  min-width: 320px;
 }
 body.lock {
   height: 100%;
@@ -649,6 +650,11 @@ ul.border-dotted .first li {
 .main-content .catalog-controls__results {
   display: inline-block;
   margin-right: 3px;
+}
+@media only screen and (max-width: 991px) {
+  .main-content .catalog-controls__results {
+    display: block;
+  }
 }
 @media only screen and (max-width: 991px) {
   .main-content .catalog-controls {
@@ -2281,6 +2287,7 @@ article.static-page .header-styled.header-styled-mod {
   -webkit-border-radius: 3px;
   border-radius: 3px;
   margin-bottom: 12px;
+  margin-top: 6px;
   position: relative;
 }
 .catalog-quote:before {
@@ -2364,6 +2371,32 @@ article.static-page .header-styled.header-styled-mod {
 }
 .container__mod {
   margin-top: 20px;
+}
+.control-main {
+  text-align: right;
+  font-size: 0;
+  margin: 0 !important;
+}
+@media only screen and (max-width: 991px) {
+  .control-main {
+    text-align: left;
+  }
+}
+.control-main .control-label,
+.control-main .control-select {
+  display: inline-block;
+  vertical-align: top;
+}
+@media only screen and (max-width: 560px) {
+  .control-main .control-label,
+  .control-main .control-select {
+    width: 100%;
+    display: block;
+  }
+}
+.control-main .control-label {
+  padding-right: 10px;
+  padding-top: 5px !important;
 }
 .body-partners >.main-content {
   padding-top: 0 !important;
@@ -2865,7 +2898,6 @@ article.static-page .header-styled.header-styled-mod {
   color: #4b89d3;
 }
 .articles-list .article-list-item__content {
-  max-height: 111px;
   overflow: hidden;
   font-size: 15px;
   line-height: 20px;
@@ -2985,7 +3017,7 @@ article.static-page .header-styled.header-styled-mod {
   padding-right: 10px;
   padding-left: 220px;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 560px) {
   .articles-list.news-list .article-list-item__right-column {
     padding-left: 0;
   }
@@ -3034,9 +3066,6 @@ article.static-page .header-styled.header-styled-mod {
 }
 .articles-list.blog-page .article-list-item__title {
   font-size: 18px;
-}
-.articles-list.blog-page .article-list-item__content {
-  max-height: 80px;
 }
 @media only screen and (min-width: 768px) {
   .articles-list.blog-page .article-list-item__inner {
@@ -3156,11 +3185,6 @@ article.static-page .header-styled.header-styled-mod {
   width: 65px;
   font-size: 12px;
   line-height: 14px;
-}
-@media only screen and (max-width: 767px) {
-  .benefits__title {
-    width: 110px;
-  }
 }
 .block-services-wrapper.show-hidden .block-services__item.is-hidden {
   display: block;
@@ -3827,7 +3851,6 @@ article.static-page .header-styled.header-styled-mod {
 }
 @media only screen and (max-width: 560px) {
   .card__socitem {
-    float: none;
     margin-top: 5px;
   }
 }
@@ -3908,6 +3931,11 @@ article.static-page .header-styled.header-styled-mod {
   padding-right: 130px;
   line-height: 1.3;
 }
+@media only screen and (max-width: 767px) {
+  .card__job .card__desc {
+    padding-right: 0;
+  }
+}
 .card__job .address-info {
   margin-top: 8px;
   line-height: 20px;
@@ -3983,6 +4011,11 @@ article.static-page .header-styled.header-styled-mod {
 .card__footer {
   margin-top: 21px;
 }
+@media only screen and (max-width: 767px) {
+  .card__footer {
+    margin-top: 10px;
+  }
+}
 .card__share-bottom .btn {
   float: right;
 }
@@ -3997,6 +4030,12 @@ article.static-page .header-styled.header-styled-mod {
   position: relative;
   margin-right: 3px;
   font-size: 20px;
+}
+@media only screen and (max-width: 767px) {
+  .card .rating,
+  .small-card .rating {
+    margin-right: 10px;
+  }
 }
 .card__schedule,
 .small-card__schedule {
@@ -4195,6 +4234,13 @@ article.static-page .header-styled.header-styled-mod {
   padding-top: 1px;
   font-size: 16px;
 }
+@media only screen and (max-width: 767px) {
+  .card__testimonials,
+  .small-card__testimonials {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
 .card__testimonials a,
 .small-card__testimonials a {
   color: #4b89d3;
@@ -4220,6 +4266,12 @@ article.static-page .header-styled.header-styled-mod {
 .card .favorites-block,
 .small-card .favorites-block {
   margin-top: 4px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .card .favorites-block,
+  .small-card .favorites-block {
+    margin-top: 1px;
+  }
 }
 .card__address,
 .small-card__address,
@@ -4325,6 +4377,13 @@ article.static-page .header-styled.header-styled-mod {
   margin-left: 14px;
   padding-left: 14px;
   border-left: 1px solid #c4e2e8;
+}
+@media only screen and (max-width: 767px) {
+  .card__footer .link,
+  .small-card__footer .link {
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
 }
 @media only screen and (max-width: 560px) {
   .card__footer .link,
@@ -5044,6 +5103,12 @@ article.static-page .header-styled.header-styled-mod {
   .doctors-card__text {
     float: none;
     width: 100%;
+    padding-right: 120px;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .doctors-card__text {
+    padding-right: 0;
   }
 }
 .doctors-card__list {
@@ -5063,7 +5128,6 @@ article.static-page .header-styled.header-styled-mod {
   .doctors-card__info {
     float: none;
     width: 100%;
-    text-align: left;
   }
 }
 .doctors-card__info .doctors-card__views {
@@ -6083,6 +6147,7 @@ article.static-page .header-styled.header-styled-mod {
   position: relative;
   display: inline-block;
   outline: none;
+  text-decoration: none !important;
 }
 .job-schedule__link:hover span {
   border-color: transparent;
@@ -6499,6 +6564,7 @@ article.static-page .header-styled.header-styled-mod {
 }
 .widget-map {
   position: relative;
+  overflow: hidden;
 }
 .widget-map .btn {
   position: absolute;
@@ -7800,10 +7866,20 @@ article.static-page .header-styled.header-styled-mod {
   box-shadow: 0 2px 3px #e3e4ed;
   padding: 0 20px;
   color: #4b89d3;
+  position: relative;
 }
 .card .more-toggle__link:hover .more-toggle__show-label span,
 .card .more-toggle__link:hover .more-toggle__hide-label span {
   text-decoration: none;
+}
+.card .more-toggle__link:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
 }
 .navbar-mobile {
   position: fixed;
@@ -8126,7 +8202,9 @@ article a {
 }
 .pagination {
   zoom: 1;
-  width: 400px;
+  width: auto !important;
+  font-size: 0;
+  text-align: center;
 }
 .pagination:before,
 .pagination:after {
@@ -8135,6 +8213,11 @@ article a {
 }
 .pagination:after {
   clear: both;
+}
+.pagination li {
+  display: inline-block;
+  vertical-align: top;
+  float: none !important;
 }
 .pagination >li.active.start a {
   border-top-left-radius: 100px;
@@ -8363,6 +8446,11 @@ article a {
   border-radius: 3px;
   padding: 21px 31px;
   margin: 0 6px 21px;
+}
+@media only screen and (max-width: 991px) {
+  .photo-gallery_mod {
+    margin-bottom: 0;
+  }
 }
 .photo-gallery_mod .owl-prev {
   left: -20px;
@@ -9497,6 +9585,7 @@ __thumbs .owl-next {
 }
 .rating {
   display: inline-block;
+  white-space: nowrap;
 }
 .rating >* {
   display: inline-block;
@@ -10101,22 +10190,19 @@ __thumbs .owl-next {
 }
 @media only screen and (max-width: 767px) {
   .schedule-doctor {
-    width: 388px;
+    width: 315px;
     right: auto;
     left: 0;
   }
   .schedule-doctor .owl-carousel .owl-wrapper-outer {
-    width: 292px;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 560px) {
   .schedule-doctor {
-    width: 290px;
-    right: auto;
+    width: 100%;
+    right: 0;
     left: 0;
-  }
-  .schedule-doctor .owl-carousel .owl-wrapper-outer {
-    width: 245px;
   }
 }
 .schedule-doctor .disabled .schedule__day,
@@ -10151,6 +10237,14 @@ __thumbs .owl-next {
 }
 .schedule-doctor .owl-item.current {
   background: #fffaeb;
+}
+.schedule-doctor .owl .owl-wrapper-outer:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid #fff9e9;
 }
 .schedule-doctor__day {
   font-weight: bold;
@@ -10611,6 +10705,11 @@ select.select7 {
   margin: 5px 14px 0 0;
   overflow: hidden;
 }
+@media only screen and (min-width: 991px) and (max-width: 1200px) {
+  .short-list__image {
+    width: 50px;
+  }
+}
 .short-list__image img {
   width: 100%;
   -webkit-border-radius: 2px;
@@ -10638,6 +10737,13 @@ select.select7 {
 }
 .short-list .rating__value {
   margin: 0 5px 0 0;
+}
+@media only screen and (min-width: 991px) and (max-width: 1200px) {
+  .short-list .rating__value {
+    font-size: 16px;
+    margin: 0;
+    top: 3px;
+  }
 }
 @media only screen and (min-width: 992px) {
   .short-list__item-content {
@@ -10713,7 +10819,7 @@ select.select7 {
 }
 @media only screen and (max-width: 767px) {
   .small-card__footer .btn {
-    float: none !important;
+    margin-top: 5px;
   }
 }
 @media only screen and (max-width: 560px) {
@@ -10768,18 +10874,30 @@ select.select7 {
   -webkit-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
   font-size: 16px;
+  display: inline-block;
 }
 .small-card__action span.orange {
   background: #ffb546;
 }
-.small-card__action span:after {
+.small-card__action span:after,
+.small-card__action span:before {
   content: '';
   position: absolute;
+}
+.small-card__action span:after {
   right: -9px;
   top: 0;
   border-style: solid;
   border-width: 11px 0 11px 9px;
   border-color: transparent transparent transparent #ffb546;
+}
+.small-card__action span:before {
+  top: 0;
+  bottom: 0;
+  right: -1px;
+  border-right: 2px solid #ffb546;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 .small-card__action a {
   color: #4b89d3;
@@ -10879,6 +10997,7 @@ select.select7 {
 }
 #tab-doctors .small-card .rating .rating__value {
   float: left;
+  margin-left: 0;
 }
 #tab-doctors .small-card__title {
   margin: 0 0 11px;
@@ -10915,6 +11034,7 @@ select.select7 {
 #tab-doctors .small-card__footer {
   margin-top: 0;
   zoom: 1;
+  clear: right;
 }
 #tab-doctors .small-card__footer:before,
 #tab-doctors .small-card__footer:after {
@@ -10972,9 +11092,6 @@ select.select7 {
     margin-top: 30px;
   }
 }
-#tab-news .article-list-item__content {
-  max-height: 72px;
-}
 #tab-news .articles-list {
   margin: 0;
   -webkit-box-shadow: none;
@@ -10982,7 +11099,7 @@ select.select7 {
 }
 @media only screen and (min-width: 768px) {
   #tab-news .article-list-item__inner {
-    height: 133px;
+    min-height: 133px;
     position: relative;
   }
 }

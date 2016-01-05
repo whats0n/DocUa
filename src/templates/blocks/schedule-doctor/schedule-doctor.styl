@@ -17,19 +17,17 @@
 		right auto
 		left 0
 	@media phone
-		width 388px
+		width 315px
 		right auto
 		left 0
 
 		.owl-carousel .owl-wrapper-outer
-			width 292px
+			width 100%
 
 	@media screen560
-		width 290px
-		right auto
+		width 100%
+		right 0
 		left 0
-		.owl-carousel .owl-wrapper-outer
-			width 245px
 	.disabled
 		.schedule__day, .schedule__date
 			color #b2b2b2
@@ -55,6 +53,14 @@
 			border-right 1px dashed #C0D2D6
 			&.current
 				background #fff9e9 + 10%
+		.owl-wrapper-outer
+			&:after
+				content: ''
+				position: absolute
+				top: 0
+				bottom: 0
+				right: 0
+				border-right: 1px solid #fff9e9
 	&__day
 		font-weight bold
 		line-height: 1

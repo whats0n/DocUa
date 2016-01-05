@@ -27,7 +27,7 @@
     &__footer
         @media phone
             .btn
-                float none !important
+                margin-top: 5px
         @media screen560
             .btn
                 wide-btn()
@@ -60,16 +60,24 @@
             font-weight 700
             border-radius border_radius_sm 0 0 border_radius_sm
             font-size: 16px
+            display: inline-block
             &.orange
                 background orange_color
-            &:after
+            &:after, &:before
                 content ''
                 position absolute
+            &:after
                 right -9px
                 top 0
                 border-style: solid;
                 border-width: 11px 0 11px 9px;
                 border-color: transparent transparent transparent orange_color;
+            &:before
+                top: 0
+                bottom: 0
+                right: -1px
+                border-right: 2px solid orange_color
+                border-radius: 50%
         a
             color: #4b89d3
             font-size: 16px
@@ -145,6 +153,7 @@
             margin-bottom 10px
             .rating__value
                 float: left
+                margin-left: 0
         &__title
             margin 0 0 11px
             line-height 1
@@ -171,6 +180,8 @@
         &__footer
             margin-top 0
             clearfix()
+            clear: right
+            
             .btn
                 font-size 14px
             @media phone
@@ -206,14 +217,14 @@
 #tab-news
     .article-list-item
         &__content
-            max-height 72px
+            // max-height 72px
     .articles-list
         margin: 0
         box-shadow: none
     @media tablet_desktop
         .article-list-item
             &__inner
-                height 133px
+                min-height 133px
                 position relative
             // &__meta
             //     width 100%
