@@ -23,25 +23,39 @@ html
     body.body-map
         //- Navbar
         nav.navbar.navbar-main.navbar-fixed-top
-            .container
-                button.navbar-toggle.collapsed.visible-xs 
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-                +b.logo.visible-xs: +i({mobileLogo: true})
-                +b.navbar-header
-                    +e("span").title.hidden-xs Ваш город:
-                    +b.location: +i
-                +b.phones.hidden-xs: +i
-                +b.mobile-phones.visible-xs (095) 3370707; (063) 3370707; (067) 3370707; (044) 3370707
-                +b.feedback.hidden-xs: +i
-                .user-panel.hidden-xs
-                    if file.isCabinet
-                        +b.user-panel-menu: +i({loggedUserPopup: loggedUserPopup})
-                    else
-                        +b.user-panel-auth: +i
-                    +b("a").favorites-link(href="/", title="Избранное")
-                        span.dotted Избранное
+          .container
+            button.navbar-toggle.collapsed.visible-xs
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+
+            +b.logo.visible-xs: +i({ mobileLogo: true })
+
+            +b.navbar-header
+              +e("span").title.hidden-xs Ваш город:
+              +b.location: +i
+
+            +b.phones.hidden-xs: +i
+            //- +b.mobile-phones.visible-xs
+            //-   span (095) 3370707;
+            //-   span (063) 3370707;
+            //-   span (067) 3370707;
+            //-   span (044) 3370707
+            hr.header__line
+            +b.feedback
+              +e("a").link._callback(href="#{linkPrefix}callback", data-toggle=modalToggle, title="Обратный звонок")
+                  span.dotted Обратный звонок
+              +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку")
+                  span.dotted Быстрая заявка
+            +b.phones.visible-xs: +i
+            .user-panel.hidden-xs
+                if file.isCabinet
+                  +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
+                else
+                  +b.user-panel-auth: +i
+                +b("a").favorites-link(href="/", title="Избранное")
+                  span.dotted Избранное
+
         +b.navbar-collapse(class="navbar-mobile collapse"): +i
         //- Logo and search
         .container-fluid.hidden-xs
