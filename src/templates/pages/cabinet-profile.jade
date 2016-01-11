@@ -4,18 +4,88 @@
 
 
 .row  
-  aside.col-md-3.hidden-sm.hidden-xs
-    //- +b.cabinet-aside
-    //-    +e("ul")
-    //-      +e("li").item.is-active
-    //-        +e("a").link(href="#").cabinet-aside__link-profile.is-active Мой профиль
-    //-      +e("li").item
-    //-        +e("a").link(href="#").cabinet-aside__link-note Мои записи
-    //-      +e("li").item
-    //-        +e("a").link(href="#").cabinet-aside__link-reviews Мои отзывы
-    //-      +e("li").item 
-    //-        +e("a").link(href="#").cabinet-aside__link-like Избранное 
+  aside.col-md-3.hidden-xs
+    +b.cabinet-aside
+       +e("ul")
+         +e("li").item.is-active
+           +e("a").link(href="#").cabinet-aside__link-profile.is-active Мой профиль
+         +e("li").item
+           +e("a").link(href="#").cabinet-aside__link-note Мои записи
+         +e("li").item
+           +e("a").link(href="#").cabinet-aside__link-reviews Мои отзывы
+         +e("li").item 
+           +e("a").link(href="#").cabinet-aside__link-like Избранное  
+    
 
+section.col-md-9  
+    +b.cabinet-section
+      +e.header Ваши данные
+      +e.content
+        form(action="/")
+          fielset
+            +b.profile
+              +e.item
+                +e("span").title Прізвище:
+                +e("input").field-text(type="text")
+              +e.item
+                +e("span").title Ім'я: 
+                +e("input").field-text(type="text")
+              +e.item
+                +e("span").title По батькові: 
+                +e("input").field-text(type="text")
+              +e.item
+                +e("span").title Стать: 
+                +b.form-radio
+                  input.modal-radio(type="radio", id="radio1", name="one" checked="checked")
+                  label(for="radio1") Чоловіча
+  
+                  input.modal-radio(type="radio", id="radio", name="one" )
+                  label(for="radio") Жіноча
+              +e.item
+                +e("span").title День народження: 
+                +e("input").field-text(type="data")
+                +b.piker-calendar
+              +e.item
+                +e("span").title E-mail: 
+                +e("input").field-text(type="email")
+                +b.profile-parol
+                  +e("a").link(href="#") Сменить пароль
+              +e.item
+                +e("span").title Телефон: 
+                +e("input").field-text.phone-input-mask(type="tel")
+                +b.profile-parol.profile-tel
+                  +e("a").link.profile-tel__link(href="#") Изменить пароль 
+                +e("input").field-text.phone-input-mask.add-tel(type="tel")
+              +e.item 
+                +b.btn-add-tel.js-add-tel Додати додатковий телефон
+                  span
+              +e.item
+                +e("span").title Місто:  
+                select.profile__field-text(type="text")
+                  option(value="Kiev") Киев 
+                  option(value="kharkov") Харьков 
+                  option(value="chernovci") Черновцы
+                  option(value="nikolaev") Николаев
+                  option(value="dnepr") Днепропетровск
+              +e.item
+                +e("span").title Адреса: 
+                +e("input").field-text(type="text")
+              +e.item
+                +e("span").title Діти:  
+                select.profile__field-text(type="text")
+                  option(value="Нет") Немає
+                  option(value="2") 1 
+                  option(value="3") 2
+                  option(value="4") 3
+                  option(value="5") 4
+              +e.item
+                +e("span").title Даты рождения: 
+                +e("input").field-text.child-field(type="data")
+                +e("input").field-text.child-field(type="data")
+                +b.piker-calendar
+                +b.piker-calendar.child-calendar__mod
 
-  section.col-md-9 
-            
+        hr 
+
+        +b.profile-footer
+          +e("a").btn(href="#") Сохранить 

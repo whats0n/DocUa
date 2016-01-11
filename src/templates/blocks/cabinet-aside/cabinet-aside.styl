@@ -12,7 +12,7 @@
         padding 20px 0 14px 60px
         border-bottom 1px dotted rgba(#1d89a0, 0.45)
         &:hover
-            color #00829b
+            color #00829b    
         &:last-child
             border-bottom 0
         &.is-active
@@ -95,7 +95,336 @@
         &-like.is-active:after
                 background url('i/cabinet/like-icon-hover.png') no-repeat center left
         
+//profile
+.cabinet-section 
+    margin-bottom 40px
+    &__header
+        border-radius 3px 3px 0 0
+        min-height 40px
+        background-color #1d89a0
+        color #FFF
+        font-size 15px
+        line-height 40px
+        padding-left 30px
+    &__content
+        box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
+        border 1px solid rgba(0, 130, 155, 0.5)
+        border-radius 0 0 3px 3px 
+        padding 30px 0 25px 0   
+    .profile
+        margin 0 150px
+        &__item
+            position relative
+            margin-bottom 15px
+            &:after
+                content ''
+                display: table
+                clear: both
+            *zoom: 1
+            &:last-child
+                margin-bottom 0 
+        &__title
+            float left
+            font-size 15px
+            color rgba(#5e6e71, 0.94)
+            line-height 30px
+        &__field-text
+            float right
+            width 283px
+            height 33px
+            background-color white
+            border 1px solid rgba(22, 141, 164, 0.7)
+            border-radius 3px
+            color #91b5bc
+            font-size 15px
+            font-weight 700 
+            padding-left 15px
+            
+        .form-radio
+            width 283px
+            float right  
+        .modal-radio
+            display none
+        .modal-radio + label
+            margin-left 28px
+            padding-right 30px
+            position relative
+            cursor pointer
+            &:before
+                content ''
+                display inline-block
+                background url('i/cabinet/checkbox.png') no-repeat
+                position absolute
+                left -30px
+                top -1px
+                width 20px
+                height 20px 
+        .modal-radio:checked + label::before 
+            background url('i/cabinet/checkbox-active.png') no-repeat
+            
+        .piker-calendar
+            position absolute
+            right 7px
+            top 6px
+            display inline-block
+            width 20px
+            height 20px
+            cursor pointer 
+            background url('i/cabinet/piker-calendar.png') no-repeat
+        .profile-parol
+            position absolute
+            right -130px
+            top 5px
+            &__link
+                color #4b89d3
+                font-style italic
+                &:before
+                    content ''
+                    display inline-block
+                    width 14px
+                    height 14px
+                    margin 0 5px -3px 0
+                    background url('i/cabinet/parol.png') no-repeat 
+        .profile-tel
+            right -135px
+            &__link:before
+                content ''
+                display inline-block
+                width 10px
+                height 16px
+                margin 0 5px -3px 0
+                background url('i/cabinet/tel.png') no-repeat  
+        .add-tel
+            display none
+            margin-top 15px
+            transition all 0.5s  
+        .is-active
+            display inline-block
+                
+        .btn-add-tel
+            position relative
+            float right
+            width 283px
+            height 33px
+            background-color #1d89a0
+            border-radius 3px
+            color white
+            font-size 15px
+            font-weight 700
+            line-height 33px
+            cursor pointer
+            padding-left 65px
+            &:hover
+                background-color #1b7f94
+            span
+                position absolute
+                display inline-block
+                left 30px
+                top 5px
+                width 21px
+                height 21px
+                background url('i/cabinet/add-tel.png') no-repeat
+        .child-field
+            width 130px
+            margin-right 22px
+            &:nth-child(even)
+                margin-right 0
+        .child-calendar__mod
+            right  159px 
+            
+    .profile-footer
+        margin 0 150px
+        &:after
+            content ''
+            display: table
+            clear: both
+        *zoom: 1
         
+        &__btn
+            display inline-block
+            width 283px
+            height 45px
+            background-color #35bfae
+            border-radius 3px
+            text-decoration none
+            text-align center
+            line-height 45px
+            text-shadow 0.5px 0.9px 0 rgba(48, 49, 49, 0.23)
+            color #FFF 
+            font-size 18px
+            float right 
+            
+            &:hover 
+                background-color #33b3a4
+                
+            
+                               
+hr 
+    width 100%
+    border none
+    border-top 1px dotted rgba(#1d89a0, 0.45)
+    color #fff
+    background-color #fff
+    height 1px        
         	
-        	
-	
+// notes
+    .cabinet-notes
+        width 100%
+        margin-bottom 100px
+        box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
+        border-collapse collapse
+        &__head
+            tr
+                height 42px
+                background-color #1d89a0 
+                color #FFF
+                font-size 15px
+                border-radius 3px 3px 0 0 
+                // line-height 12px
+                td
+                    &:first-child
+                        text-align right
+                        border-radius 3px 0 0 0
+                        border-right 1px solid #1d89a0 
+                    &:nth-child(2)
+                        text-align center
+                    &:last-child
+                        border-radius 0 3px 0 0
+                          
+        &__body
+            border 1px solid rgba(0, 130, 155, 0.32)
+            border-radius 0 0 3px 3px
+            font-size 15px 
+            
+            tr
+                border-bottom 1px dotted rgba(#1d89a0, 0.45)
+                height 65px
+                &:nth-child(even)
+                    background-color rgba(#eaf5f9, 0.48)
+                &:last-child
+                    border-bottom none
+                    
+                td
+                    &:first-child
+                        text-align right
+                    &:nth-child(2)
+                        text-align center 
+                    &:nth-child(3)
+                        width 195px 
+                    &:last-child
+                        width 190px
+                    a 
+                       color #4b89d3
+                    span
+                        font-size 14px
+                        font-style italic 
+                    .btn-edit
+                        background-color #35bfae
+                        border-radius 3px 
+                        padding 10px 15px
+                        text-shadow 0.5px 0.9px 0 rgba(48, 49, 49, 0.08)
+                        color white
+                        font-weight 700
+                        text-decoration none
+                        &:hover
+                            background-color #33b3a4
+                        
+// otzivi
+    .cabinet-otzivi
+        
+        color #FFF
+        &:after
+            content: " "
+            display: table
+            clear: both
+        *zoom: 1
+        &__left-side
+            position relative
+            background-color #1d89a0 
+            float left
+            height 42px
+            width 65%
+            -webkit-border-radius 3px 0 0 0 
+            border-radius 3px 0 0 0 
+            line-height 42px
+            padding-left 55px 
+            &:before
+                content ''
+                display inline-block
+                position absolute
+                left 30px
+                top 13px
+                background url('i/cabinet/calendar-icon.png') no-repeat center
+        &__right-side
+            background-color #35bfae
+            float right
+            width 35%
+            height 42px
+            -webkit-border-radius 0 3px 0 0 
+            border-radius 0 3px 0 0 
+            .otziv-ok
+                &__item
+                    position relative
+                    display inline-block
+                    line-height 42px
+                    padding-left 50px
+                &__icon
+                    position absolute
+                    left 25px
+                    top 13px
+                    width 16px
+                    height 16px
+                    display block
+                    background url('i/cabinet/ok-icon.png') no-repeat center
+                &__link
+                    color #FFF
+                    &:before
+                        content ""
+                        position absolute
+                        left 25px
+                        top 13px 
+                        display block
+                        background url('i/cabinet/pencil-icon-white.png') no-repeat center
+                        width 16px
+                        height 16px 
+    .comment
+       border 1px solid rgba(0, 130, 155, 0.32)
+       box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
+       border-radius 0 0 3px 3px
+       
+       &__item
+            padding 20px 30px
+            border-bottom 1px dotted rgba(#1d89a0, 0.45)
+            .left-side
+                width 65%
+                &__link
+                   color #4b89d3
+                   font-weight 700 
+                   font-size 16px
+                   margin-right 13px
+                   display inline-block
+                   margin-bottom 10px
+                &__specialization
+                    display inline-block
+                &__recomend
+                    color #35bfae
+                    font-size 14px
+                    display block
+                    margin-bottom 10px
+                    &:before
+                        content ''
+                        display inline-block
+                        width 16px
+                        height 19px
+                        margin-right 7px
+                        margin-bottom -3px
+                        background url('i/icons/like-box-like.png') no-repeat center   
+            .doctor-right
+                width 35%
+        &__clinica
+            padding 20px 30px
+                   
+                    
+
+                                 	 
+        
