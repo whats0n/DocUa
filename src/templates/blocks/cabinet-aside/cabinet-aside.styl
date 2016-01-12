@@ -1,6 +1,7 @@
 .cabinet-aside
     border 1px solid rgba(0, 130, 155, 0.5)
     border-radius 3px
+    background-color white 
     box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
     &__item
         position relative
@@ -330,8 +331,11 @@ hr
                             background-color #33b3a4
                         
 // otzivi
-    .cabinet-otzivi
+    .reviews
+        margin-bottom 22px
+        float right
         
+    .cabinet-otzivi
         color #FFF
         &:after
             content: " "
@@ -354,6 +358,8 @@ hr
                 position absolute
                 left 30px
                 top 13px
+                width 18px
+                height 18px
                 background url('i/cabinet/calendar-icon.png') no-repeat center
         &__right-side
             background-color #35bfae
@@ -361,42 +367,84 @@ hr
             width 35%
             height 42px
             -webkit-border-radius 0 3px 0 0 
-            border-radius 0 3px 0 0 
+            border-radius 0 3px 0 0
+        
             .otziv-ok
+                &:after
+                    content: " "
+                    display: table
+                    clear: both
+                *zoom: 1
                 &__item
                     position relative
-                    display inline-block
                     line-height 42px
-                    padding-left 50px
-                &__icon
+                    padding-left 45px
+                    &:first-child
+                        float left
+                    &:last-child
+                        float right
+                        margin-right 18px
+                &__icon-ok
                     position absolute
-                    left 25px
+                    left 20px
                     top 13px
                     width 16px
                     height 16px
                     display block
                     background url('i/cabinet/ok-icon.png') no-repeat center
+                &__icon-mod
+                    position absolute
+                    left 20px
+                    top 13px
+                    width 16px
+                    height 16px
+                    display block
+                    background url('i/cabinet/rewiews-icon-moderation.png') no-repeat center
+                &__icon-cancel
+                    position absolute
+                    left 20px
+                    top 13px
+                    width 16px
+                    height 16px
+                    display block
+                    background url('i/cabinet/rewiews-icon-cancel.png') no-repeat center
                 &__link
                     color #FFF
+                    font-style italic
                     &:before
                         content ""
                         position absolute
-                        left 25px
-                        top 13px 
+                        left 20px
+                        top 12px 
                         display block
                         background url('i/cabinet/pencil-icon-white.png') no-repeat center
                         width 16px
                         height 16px 
+        .right-side__cancel 
+            background-color #e2e3e3
+            color #5e6e71 
+            .otziv-ok__link
+                color #5e6e71 
+                font-style italic
+                &:before
+                    background url('i/cabinet/pencil-icon-cancel.png') no-repeat center
+                    
     .comment
-       border 1px solid rgba(0, 130, 155, 0.32)
+       border-left 1px solid rgba(0, 130, 155, 0.32)
+       border-right 1px solid rgba(0, 130, 155, 0.32)
+       border-bottom 1px solid rgba(0, 130, 155, 0.32)
        box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
        border-radius 0 0 3px 3px
+       background-color #FFF 
        
        &__item
-            padding 20px 30px
+            padding 20px 12px 20px 30px
             border-bottom 1px dotted rgba(#1d89a0, 0.45)
+            &:last-child
+                border-bottom none
             .left-side
                 width 65%
+                display inline-block
                 &__link
                    color #4b89d3
                    font-weight 700 
@@ -420,6 +468,9 @@ hr
                         margin-bottom -3px
                         background url('i/icons/like-box-like.png') no-repeat center   
             .doctor-right
-                width 35%
+                width 34%
+                display inline-block
+                vertical-align top
+                padding-left 15px
         &__clinica
             padding 20px 30px

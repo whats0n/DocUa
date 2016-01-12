@@ -1306,6 +1306,10 @@ $('.js-services-btn').on('click', function() {
   return false;
 });
 
+$('.js-add-tel').click(function() {
+  $('.add-tel').addClass('is-active');
+});
+
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
 $(function() {
@@ -1366,8 +1370,6 @@ $.fn.initFavoritesBlock = function() {
 };
 
 $(".favorites-block").initFavoritesBlock();
-
-
 
 var trim;
 
@@ -1590,6 +1592,8 @@ $("#select-area").on("areaSelected", function(e, arg) {
   $(".finder [data-target='#select-area']").parent().find('.finder__field-text').val(values.length > 0 ? title : $(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
   return $("#select-area").modal("hide");
 });
+
+
 
 var $goTop, SHOW_GOTOP_AFTER, goTopShown;
 

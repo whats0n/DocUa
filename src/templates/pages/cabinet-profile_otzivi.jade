@@ -8,22 +8,22 @@
     +b.cabinet-aside
        +e("ul")
          +e("li").item
-           +e("a").link(href="#").cabinet-aside__link-profile Мой профиль
+           +e("a").link(href="cabinet-profile.html").cabinet-aside__link-profile Мой профиль
          +e("li").item
-           +e("a").link(href="#").cabinet-aside__link-note Мои записи
+           +e("a").link(href="cabinet-profile_notes.html").cabinet-aside__link-note Мои записи
          +e("li").item.is-active
-           +e("a").link(href="#").cabinet-aside__link-reviews.is-active Мои отзывы
+           +e("a").link(href="cabinet-profile_otzivi.html").cabinet-aside__link-reviews.is-active Мои отзывы
          +e("li").item 
            +e("a").link(href="#").cabinet-aside__link-like Избранное   
     
 
-  section.col-md-9  
+  section.col-md-9.reviews  
     +b.cabinet-otzivi 
       +e.left-side 21.01.2015 в 11:23 
       +e.right-side 
         +b('ul').otziv-ok
           +e('li').item Опубликован
-            +e('i').icon
+            +e('i').icon-ok
           +e('li').item
             +e("a").link(href="#") Редактировать 
     +b.comment
@@ -33,13 +33,174 @@
           +e('i').specialization (Хирург, Пластический хирург)
           +e('a').recomend(href="#") Рекомендует врача
           +e('span').info Небольшая клиника, там вполне комфортно, молодой, отзывчивый персонал.
-        +b('ul').doctor-right.rating-list
+        
+        ul.rating-list.doctor-right
+          li.rating.first-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Учтивость и терпение, проявленное врачом во время приема', data-placement='bottom') Внимательность врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating
+                            .rating__label(data-toggle='tooltip', data-original-title='Педантичность и профессионализм врача во время осмотра', data-placement='bottom') Квалификация врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating.last-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Соотношения стоимости и качества приема', data-placement='bottom') Цена–качество
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
 
       +e.item
         +b.left-side
           +e('a').link(href="#") Отзыв о клинике "Медисса-Центр"
           +e('a').recomend(href="#") Рекомендует врача
           +e('span').info Клинику легко найти, большая вывеска. Она просторная, много диванов, есть водичка, салфетки, бахилы, журналы. Забавные фото на стенах. Приятные девушки на рецепции. Но, на мой взгляд, анкета, которую нужно заполнить, слишком подробная для краткого осмотра, есть смысл ее заполнять, когда человек остается в клинике на процедуры, а когда первичный прием - нет.
-        +b('ul').doctor-right.rating-list
+        ul.rating-list.doctor-right
+          li.rating.first-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Учтивость и терпение, проявленное врачом во время приема', data-placement='bottom') Внимательность врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating
+                            .rating__label(data-toggle='tooltip', data-original-title='Педантичность и профессионализм врача во время осмотра', data-placement='bottom') Квалификация врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating.last-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Соотношения стоимости и качества приема', data-placement='bottom') Цена–качество
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+.row                                
+  aside.col-md-3.hidden-xs                               
+  section.col-md-9.reviews
+    +b.cabinet-otzivi 
+      +e.left-side 21.01.2015 в 11:23 
+      +e.right-side 
+        +b('ul').otziv-ok
+          +e('li').item На модерации
+            +e('i').icon-mod
+          +e('li').item
+            +e("a").link(href="#") Редактировать 
+    +b.comment
+      +e.item
+        +b.left-side
+          +e('a').link(href="#") Отзыв о враче Сперанко Е.И.
+          +e('i').specialization (Хирург, Пластический хирург)
+          +e('a').recomend(href="#") Рекомендует врача
+          +e('span').info Небольшая клиника, там вполне комфортно, молодой, отзывчивый персонал.
+        
+        ul.rating-list.doctor-right
+          li.rating.first-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Учтивость и терпение, проявленное врачом во время приема', data-placement='bottom') Внимательность врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating
+                            .rating__label(data-toggle='tooltip', data-original-title='Педантичность и профессионализм врача во время осмотра', data-placement='bottom') Квалификация врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating.last-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Соотношения стоимости и качества приема', data-placement='bottom') Цена–качество
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+
+      +e.item
+        +b.left-side
+          +e('a').link(href="#") Отзыв о клинике "Медисса-Центр"
+          +e('a').recomend(href="#") Рекомендует врача
+          +e('span').info Клинику легко найти, большая вывеска. Она просторная, много диванов, есть водичка, салфетки, бахилы, журналы. Забавные фото на стенах. Приятные девушки на рецепции. Но, на мой взгляд, анкета, которую нужно заполнить, слишком подробная для краткого осмотра, есть смысл ее заполнять, когда человек остается в клинике на процедуры, а когда первичный прием - нет.
+        ul.rating-list.doctor-right
+          li.rating.first-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Учтивость и терпение, проявленное врачом во время приема', data-placement='bottom') Внимательность врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating
+                            .rating__label(data-toggle='tooltip', data-original-title='Педантичность и профессионализм врача во время осмотра', data-placement='bottom') Квалификация врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating.last-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Соотношения стоимости и качества приема', data-placement='bottom') Цена–качество
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+.row                                
+  aside.col-md-3.hidden-xs                               
+  section.col-md-9.reviews
+    +b.cabinet-otzivi 
+      +e.left-side 21.01.2015 в 11:23 
+      +e.right-side.right-side__cancel 
+        +b('ul').otziv-ok
+          +e('li').item Отменен
+            +e('i').icon-cancel
+          +e('li').item
+            +e("a").link(href="#") Редактировать 
+    +b.comment
+      +e.item
+        +b.left-side
+          +e('a').link(href="#") Отзыв о враче Сперанко Е.И.
+          +e('i').specialization (Хирург, Пластический хирург)
+          +e('a').recomend(href="#") Рекомендует врача
+          +e('span').info Небольшая клиника, там вполне комфортно, молодой, отзывчивый персонал.
+        
+        ul.rating-list.doctor-right
+          li.rating.first-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Учтивость и терпение, проявленное врачом во время приема', data-placement='bottom') Внимательность врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating
+                            .rating__label(data-toggle='tooltip', data-original-title='Педантичность и профессионализм врача во время осмотра', data-placement='bottom') Квалификация врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating.last-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Соотношения стоимости и качества приема', data-placement='bottom') Цена–качество
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+
+      +e.item
+        +b.left-side
+          +e('a').link(href="#") Отзыв о клинике "Медисса-Центр"
+          +e('a').recomend(href="#") Рекомендует врача
+          +e('span').info Клинику легко найти, большая вывеска. Она просторная, много диванов, есть водичка, салфетки, бахилы, журналы. Забавные фото на стенах. Приятные девушки на рецепции. Но, на мой взгляд, анкета, которую нужно заполнить, слишком подробная для краткого осмотра, есть смысл ее заполнять, когда человек остается в клинике на процедуры, а когда первичный прием - нет.
+        ul.rating-list.doctor-right
+          li.rating.first-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Учтивость и терпение, проявленное врачом во время приема', data-placement='bottom') Внимательность врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating
+                            .rating__label(data-toggle='tooltip', data-original-title='Педантичность и профессионализм врача во время осмотра', data-placement='bottom') Квалификация врача
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
+                        li.rating.last-child
+                            .rating__label(data-toggle='tooltip', data-original-title='Соотношения стоимости и качества приема', data-placement='bottom') Цена–качество
+                            .rating__stars
+                                .rating__stars-bg
+                                .rating__stars-overlay(style='width: 100%;')
+                            
 
                    
