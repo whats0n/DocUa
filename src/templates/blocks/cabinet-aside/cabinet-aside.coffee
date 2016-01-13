@@ -1,3 +1,3 @@
-$('.cabinet-aside__link').click ->
-  $(this).addClass 'is-active'
+$('.js-add-tel').click ->
+  $('.add-tel').addClass 'is-active'
   return

@@ -4,27 +4,27 @@
 
 
 .row  
-  aside.col-md-3.hidden-xs
-    +b.cabinet-aside
+  aside.col-md-3.hidden-xs  
+    +b.cabinet-aside 
        +e("ul")
          +e("li").item.is-active
-           +e("a").link(href="#").cabinet-aside__link-profile.is-active Мой профиль
+           +e("a").link(href="cabinet-profile.html").cabinet-aside__link-profile.is-active Мой профиль
          +e("li").item
-           +e("a").link(href="#").cabinet-aside__link-note Мои записи
+           +e("a").link(href="cabinet-profile_notes.html").cabinet-aside__link-note Мои записи
          +e("li").item
-           +e("a").link(href="#").cabinet-aside__link-reviews Мои отзывы
+           +e("a").link(href="cabinet-profile_otzivi.html").cabinet-aside__link-reviews Мои отзывы
          +e("li").item 
            +e("a").link(href="#").cabinet-aside__link-like Избранное  
     
 
-section.col-md-9   
+  section.col-md-9   
     +b.cabinet-section 
       +e.header Ваши данные 
       +e.content 
         form(action="/")
           fielset
             +b.profile
-              +e.item
+              +e.item 
                 +e("span").title Прізвище:
                 +e("input").field-text(type="text")
               +e.item
