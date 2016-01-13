@@ -1349,10 +1349,6 @@ $(function() {
   });
 });
 
-$('.cabinet-aside__link').click(function() {
-  $(this).addClass('is-active');
-});
-
 $.fn.initFavoritesBlock = function() {
   return this.each(function() {
     var favored, favoritesBlockInitialized, ref;
@@ -1375,36 +1371,6 @@ $.fn.initFavoritesBlock = function() {
 
 $(".favorites-block").initFavoritesBlock();
 
-<<<<<<< HEAD
-
-
-var $goTop, SHOW_GOTOP_AFTER, goTopShown;
-
-SHOW_GOTOP_AFTER = 500;
-
-$goTop = $(".go-top");
-
-$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
-
-$goTop.click(function() {
-  $('html,body').animate({
-    scrollTop: 0
-  }, 800);
-  return false;
-});
-
-$(window).scroll(function() {
-  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeIn("fast");
-    return goTopShown = true;
-  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeOut("fast");
-    return goTopShown = false;
-  }
-});
-
-=======
->>>>>>> 9d84ebb73ffde6c2f80ea72bd9a2227dd4777cd3
 var trim;
 
 trim = function(s) {
@@ -1627,8 +1593,6 @@ $("#select-area").on("areaSelected", function(e, arg) {
   return $("#select-area").modal("hide");
 });
 
-<<<<<<< HEAD
-=======
 
 
 var $goTop, SHOW_GOTOP_AFTER, goTopShown;
@@ -1656,7 +1620,6 @@ $(window).scroll(function() {
   }
 });
 
->>>>>>> 9d84ebb73ffde6c2f80ea72bd9a2227dd4777cd3
 $(function() {
   var updateGroup1, updateGroup2;
   updateGroup1 = function() {
@@ -1703,6 +1666,46 @@ $(document).ready(function() {
     });
   });
 });
+
+var phonesAutoChange;
+
+phonesAutoChange = {
+  select: $('.navbar-main .phones .select7'),
+  options: ['mts', 'life', 'kyivstar', 'landline'],
+  checked: 0,
+  interval: 0,
+  init: function() {
+    this.listeners();
+    return this.startSwitch();
+  },
+  listeners: function() {
+    $('body').on('click', function(e) {
+      clearInterval(phonesAutoChange.interval);
+      return phonesAutoChange.startSwitch();
+    });
+    phonesAutoChange.select.find('.select7__current').click(function(e) {
+      e.stopPropagation();
+      if (!phonesAutoChange.select.hasClass('select7_open')) {
+        return startSwitch();
+      }
+    });
+    return $('body').on('select7Opened', function(e) {
+      return clearInterval(phonesAutoChange.interval);
+    });
+  },
+  startSwitch: function() {
+    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 5000);
+  },
+  switchPhone: function() {
+    phonesAutoChange.checked += 1;
+    if (phonesAutoChange.checked >= phonesAutoChange.options.length) {
+      phonesAutoChange.checked = 0;
+    }
+    return phonesAutoChange.select.val(phonesAutoChange.options[phonesAutoChange.checked]).trigger('change');
+  }
+};
+
+phonesAutoChange.init();
 
 var galleryCount, generateMarkupForOwlCarousel, initOwlCarousel, syncOwlCarousels;
 
@@ -1953,46 +1956,6 @@ $(window).resize(postLocationWidthFix);
 $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
-
-var phonesAutoChange;
-
-phonesAutoChange = {
-  select: $('.navbar-main .phones .select7'),
-  options: ['mts', 'life', 'kyivstar', 'landline'],
-  checked: 0,
-  interval: 0,
-  init: function() {
-    this.listeners();
-    return this.startSwitch();
-  },
-  listeners: function() {
-    $('body').on('click', function(e) {
-      clearInterval(phonesAutoChange.interval);
-      return phonesAutoChange.startSwitch();
-    });
-    phonesAutoChange.select.find('.select7__current').click(function(e) {
-      e.stopPropagation();
-      if (!phonesAutoChange.select.hasClass('select7_open')) {
-        return startSwitch();
-      }
-    });
-    return $('body').on('select7Opened', function(e) {
-      return clearInterval(phonesAutoChange.interval);
-    });
-  },
-  startSwitch: function() {
-    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 5000);
-  },
-  switchPhone: function() {
-    phonesAutoChange.checked += 1;
-    if (phonesAutoChange.checked >= phonesAutoChange.options.length) {
-      phonesAutoChange.checked = 0;
-    }
-    return phonesAutoChange.select.val(phonesAutoChange.options[phonesAutoChange.checked]).trigger('change');
-  }
-};
-
-phonesAutoChange.init();
 
 $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {

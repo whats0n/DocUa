@@ -11,4 +11,4 @@ $(document).ready ->
       if $(window).width() < 768
         $('html, body').animate { scrollTop: $('.js-scrollto').offset().top }, 1000
       return false
-  return 
+  return
