@@ -142,6 +142,8 @@
         @media phone_tablet
             &-top
                 padding-right 0
+        @media screen560
+            clear: both
         &-top
             position relative
             padding-right 130px
@@ -228,6 +230,8 @@
         font-size 13px
         border 1px dashed text_blue
         border-radius border_radius_sm
+        @media screen560
+            margin-right: 15px
         &:before
             content ''
             position absolute
@@ -274,8 +278,11 @@
         padding-left 20px
         text-align center
         @media screen560
-            float none
+            // float none
             min-height 150px 
+            width: 176px
+        @media only screen and (max-width: 450px)
+            float: none
             .rating
                 position absolute
                 right 10px
@@ -301,7 +308,9 @@
         width 140px
         margin 3px 0 10px
         @media screen560
-            width 130px
+            width 135px
+        @media only screen and (max-width: 450px)
+            width: 110px
         &-mod
             width: 77px
             height: 77px
@@ -325,7 +334,7 @@
     &__info
         position relative
         top 3px
-        left 5px
+        margin-left 5px
         display inline-block
         sprite($info)
         outline none
@@ -426,6 +435,8 @@
                 margin-left 0
     hr
         margin 5px 0 13px
+        @media screen560
+            clear: both
     .address-info
         display inline-block
         clearfix()

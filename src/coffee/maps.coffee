@@ -23,8 +23,12 @@ docMaps =
     latlng = new (google.maps.LatLng)(-50.446, -30.515)
     mapOptions =
       zoom: 10
+      maxZoom: 10
       center: latlng
       scrollwheel: false
+      disableDefaultUI: true
+      disableDoubleClickZoom: true
+      panControl: false
 
     if @pageName == 'map'
       @mapCss.bigMap()
@@ -114,10 +118,10 @@ docMaps =
       if docMaps.mapOffsetTop - $(window).scrollTop() < 0
         $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 40)
         $('.widget-map').css
-          width: $('.widget-map').width()
           position: 'fixed'
+          $('.widget-map').width $('.widget-map').parent('aside').width()
 
-        if $('html').height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-blog').outerHeight(true)
+        if $('html').height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)
           docMaps.canAnimateTop = true
           $('aside').height($('aside').prev().height())
           $('.widget-map').css
@@ -137,6 +141,9 @@ docMaps =
         $('.widget-map').css
           position: 'relative'
           top: 'auto'
+      $(window).resize ->
+        $('.widget-map').width $('.widget-map').parent('aside').width()
+        return
 
     inner: -> #one clinic or one doctor side map
       if docMaps.pageName == 'clinicInner'
@@ -148,7 +155,9 @@ docMaps =
       docMaps.mapHeight = $(window).height() - $('header.header').outerHeight(true) - $('.header__nav').outerHeight(true)
       docMaps.scrollInit()
       $('#map-canvas-big').height(docMaps.mapHeight)
-
+      if $(window).width() <= 767
+        docMaps.mapHeight = $(window).height() - $('.navbar').outerHeight(true) - $('.short-list__header').outerHeight(true)
+        $('#map-canvas-big').height(docMaps.mapHeight)
 
   addMarker:
     clinics: () ->
@@ -255,14 +264,18 @@ docMaps =
       zIndex: 10011
     )
     $('.marker-window').remove()
-    infoWindow.open(map, marker)
+    setTimeout (->
+      infoWindow.open(map, marker)
+    ), 300
     setTimeout (->
       gmEl = $('.map-marker-content').closest('.gm-style-iw')
       gmEl.parent().addClass('marker-window')
       $('.marker-window').clone().insertAfter($('.marker-window'))
       $('.marker-window').first().remove()
-      $('.marker-window .gm-style-iw').css('max-width': 220)
-      $('.marker-window .gm-style-iw>div').eq(0).css('max-width': 220)
+      $('.marker-window .gm-style-iw').css('width': 220)
+      $('.marker-window .gm-style-iw>div').eq(0).css('width': 220, 'max-width': 220)
+      $('.marker-window .gm-style-iw>div').eq(0).addClass 'is-active'
+      $('.marker-window .gm-style-iw>div>div').eq(0).addClass 'is-active'
 #      $('.marker-window').show()
 #      $('.marker-window').prependTo('.big-map__container')
     ), 500
@@ -284,8 +297,9 @@ docMaps =
       google.maps.event.addListener marker, 'click', ->
         if docMaps.pageName == 'map'
           docMaps.showInfoWindow map, marker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' +
-              '<span>' + address + '</span></div> <div class="rating"> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> <div class="rating__value value">' + rating + '</div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
+              '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
           docMaps.loadDoctors('affiliate', 28)
+          map.setCenter marker.getPosition()
         else if docMaps.pageName == 'doctorInner'
           $('#clinic-location-map').modal()
         else

@@ -31,7 +31,8 @@
   border-radius border_radius_sm
   box-shadow 0 5px 11px #DDDADA
   font-size 11px
-
+  width: 220px
+  padding-bottom: 8px
   .image
     text-align center
   .marker-logo
@@ -51,7 +52,9 @@
     color: #4b89d3
   .rating
     &__value
-      float left
+      // float left
+      display: inline-block
+      vertical-align: top
       top 0
       font-size: 20px
     &__stars
@@ -71,6 +74,15 @@
   #modal-map
     height 500px
 
+.marker-window 
+  overflow: visible !important
+.gm-style-iw
+  > div
+    overflow: visible !important
+    > div
+      overflow: visible !important
+  .map-marker-content
+    box-shadow: none
 .big-map
   &__container
     width 80%
@@ -150,7 +162,7 @@
           border-top transparent
   .map-canvas-big
     @media phone
-      height: 370px !important
+      // height: 370px !important
 .big-map__widget
   .jspVerticalBar
     width: 1px

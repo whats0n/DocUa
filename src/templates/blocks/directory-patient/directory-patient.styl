@@ -107,11 +107,15 @@
         left: 21px
         @media screen560
             position: relative
-            width: 130px
+            width: 120px
             height: auto
             top: 0
             left: 0
-            margin-bottom: 15px
+            margin: 0 15px 15px 0
+            float: left
+        @media only screen and (max-width: 450px)
+            float: none
+            margin: 0 0 15px 
         img
             width: 100%
             border-radius: 2px
@@ -152,6 +156,9 @@
         @media phone
             float: none
             width: 100%
+        @media screen560
+            clear: both
+            clearfix()
         .doctors-card__views
             color: #4b89d3
             font-size: 14px
@@ -164,6 +171,8 @@
                 text-decoration: none
             @media phone
                 display: block
+            @media screen560
+                margin-left: 0
         .rating
             @media phone
                 display: block
@@ -179,6 +188,14 @@
             position: absolute
             top: 21px
             right: 21px
+            text-align: right
+            margin: 0
+        @media screen560
+            position: static
+            float: left
+            text-align: left
+        @media only screen and (max-width: 450px)
+            position: absolute
             text-align: right
 
 .doctors-quote
