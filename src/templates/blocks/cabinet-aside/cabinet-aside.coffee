@@ -33,16 +33,16 @@ $('.js-child').click ->
 
 
 $('.js-remove-parent').each ->
-	elBtn = $(this)
+	elParent = $(this)
 
 	elBtn.find('.js-remove-item').click ->
 		item = $('.content-favorites__item')
-		elTotal = elBtn.find(item).length
+		elTotal = elParent.find(item).length
 		
 		$(this).closest(item).remove()
-		console.log(elBtn.find(item).length)
+		console.log(elParent.find(item).length)
 		if elTotal == 1
-			elBtn.remove()
+			elParent.remove()
 		false
 		return
 

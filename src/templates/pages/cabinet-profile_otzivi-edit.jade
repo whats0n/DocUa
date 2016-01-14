@@ -48,7 +48,7 @@
                     | Рекомендуют врача
                 .likebox__like
                     .likebox__votes
-                .likebox__dislike 
+                .likebox__dislike.likebox-dislike__mod 
                     .likebox__votes.likebox__votes-mod
             textarea.content-edit__comment
 
@@ -74,14 +74,33 @@
                         .rating__stars-bg
                         .rating__stars-overlay(style='width: 100%;')
                     
-              .likebox
+              .likebox.likebox__mod
                   .likebox__label.likebox__label-mod(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom')
                     | Рекомендуют врача
                   .likebox__like
                     .likebox__votes
-                  .likebox__dislike 
+                  .likebox__dislike.likebox-dislike__mod 
                     .likebox__votes.likebox__votes-mod
-            textarea.content-edit__comment  
+            textarea.content-edit__comment 
+        .rating-new
+          input.rating-new__item(type="radio", name="reviewStars", id="star-1")
+          label.rating-new__star(type="star-1") 
+
+          input.rating-new__item(type="radio", name="reviewStars", id="star-2")
+          label.rating-new__star(type="star-2") Плохо
+
+          input.rating-new__item(type="radio", name="reviewStars", id="star-3")
+          label.rating-new__star(type="star-3") Нормально
+
+          input.rating-new__item(type="radio",name="reviewStars", id="star-4")
+          label.rating-new__star(type="star-4") Отлично 
+
+          input.rating-new__item(type="radio",name="reviewStars", id="star-5")
+          label.rating-new__star(type="star-5") Отлично 
+
+
+         
+
         +b.content-footer
           +e.btn-edit Сохранить
           +e('a').link(href="#") Отмена
