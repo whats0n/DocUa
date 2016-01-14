@@ -63,9 +63,7 @@
           <option value="kyivstar" data-icon="i/kyivstar-logo.png">(067) 3370707</option>
         </select>
       </div>
-      <div class="user-panel hidden-xs">
-        <div class="user-panel-auth"><a href="/modals.html#login" data-toggle="" title="Вход / Регистрация" class="btn btn-default btn-xs user-panel-auth__link">Вход<span class="user-panel-auth__separator">/</span>Регистрация</a>
-        </div><a href="/" title="Избранное" class="favorites-link"><span class="dotted">Избранное</span></a>
+      <div class="user-panel hidden-xs"> <a href="/" title="Избранное" class="cabinet-enter__link">Здравствуйте, Марина!<i class="cabinet-enter__link-icon"></i></a><a href="/" title="Избранное" class="favorites-link favorites-link__mod"><span class="dotted">Избранное</span></a>
       </div>
     </div>
   </nav>
@@ -245,7 +243,7 @@
     </div>
   </div>
   <div class="container-fluid container-header hidden-xs">
-    <div class="row row-white">
+    <div class="row row-white cabinet-row__mod">
       <div class="container">
         <h1 class="sr-only">Поиск вашего врача – DOC.ua</h1>
         <header class="header"> 
@@ -429,9 +427,9 @@
     <div class="row">
       <div class="container main-content">
         <h1></h1>
-        <article class="col-sm-12">
+        <article>
           <div class="row"> 
-            <aside class="col-md-3 hidden-xs"> 
+            <aside class="l-3 hidden-xs"> 
               <div class="cabinet-aside"> 
                 <ul>
                   <li class="cabinet-aside__item is-active"><a href="cabinet-profile.html" class="cabinet-aside__link cabinet-aside__link-profile is-active">Мой профиль</a>
@@ -445,7 +443,7 @@
                 </ul>
               </div>
             </aside>
-            <section class="col-md-9">  
+            <section class="l-9">                
               <div class="cabinet-section"> 
                 <div class="cabinet-section__header">Ваши данные 
                 </div>
@@ -453,7 +451,7 @@
                   <form action="/">
                     <fielset>
                       <div class="profile">
-                        <div class="profile__item"> <span class="profile__title">Прізвище:</span>
+                        <div class="profile__item">  <span class="profile__title">Прізвище:</span>
                           <input type="text" class="profile__field-text"/>
                         </div>
                         <div class="profile__item"><span class="profile__title">Ім'я: </span>
@@ -482,7 +480,7 @@
                         </div>
                         <div class="profile__item"><span class="profile__title">Телефон: </span>
                           <input type="tel" class="phone-input-mask profile__field-text"/>
-                          <div class="profile-parol profile-tel"><a href="#" class="profile-parol__link profile-tel__link">Изменить пароль </a>
+                          <div class="profile-parol profile-tel"><a href="#" class="profile-parol__link profile-tel__link">Изменить телефон </a>
                           </div>
                           <input type="tel" class="add-tel phone-input-mask profile__field-text"/>
                         </div>
@@ -503,20 +501,68 @@
                           <input type="text" class="profile__field-text"/>
                         </div>
                         <div class="profile__item"><span class="profile__title">Діти:  </span>
-                          <select type="text" class="profile__field-text">
-                            <option value="Нет">Немає</option>
-                            <option value="2">1 </option>
-                            <option value="3">2</option>
-                            <option value="4">3</option>
-                            <option value="5">4</option>
-                          </select>
+                          <p class="field-text__child js-field-cild profile__field-text">Немає
+                            <ul class="section-choice">
+                              <li data-id="0" class="section-choice__item js-child">Немає</li>
+                              <li data-id="1" class="section-choice__item js-child">1</li>
+                              <li data-id="2" class="section-choice__item js-child">2</li>
+                              <li data-id="3" class="section-choice__item js-child">3</li>
+                              <li data-id="4" class="section-choice__item js-child">4</li>
+                            </ul>
+                          </p>
                         </div>
-                        <div class="profile__item"><span class="profile__title">Даты рождения: </span>
-                          <input type="data" class="child-field profile__field-text"/>
-                          <input type="data" class="child-field profile__field-text"/>
-                          <div class="piker-calendar">
+                        <div class="item__mod profile__item"><span class="profile__title">Даты рождения: </span>
+                          <div data-field="1" class="js-group">
+                            <div class="field-text__in">
+                              <input type="data" class="profile__field-text"/>
+                              <div class="piker-calendar"></div>
+                            </div>
                           </div>
-                          <div class="child-calendar__mod piker-calendar">
+                          <div data-field="2" class="js-group">
+                            <div class="field-text__in">
+                              <input type="data" class="child-field profile__field-text"/>
+                              <div class="piker-calendar"></div>
+                            </div>
+                            <div class="field-text__in">
+                              <input type="data" class="child-field profile__field-text"/>
+                              <div class="piker-calendar"></div>
+                            </div>
+                          </div>
+                          <div data-field="3" class="js-group">
+                            <div class="field-text__in">
+                              <input type="data" class="child-field profile__field-text"/>
+                              <div class="piker-calendar"></div>
+                            </div>
+                            <div class="field-text__in">
+                              <input type="data" class="child-field profile__field-text"/>
+                              <div class="piker-calendar"></div>
+                            </div>
+                            <div class="field-text__in field-text__mod">
+                              <input type="data" class="profile__field-text"/>
+                              <div class="piker-calendar"></div>
+                            </div>
+                          </div>
+                          <div data-field="4" class="js-group">
+                            <div class="field-text__group">
+                              <div class="field-text__in">
+                                <input type="data" class="child-field profile__field-text"/>
+                                <div class="piker-calendar"></div>
+                              </div>
+                              <div class="field-text__in">
+                                <input type="data" class="child-field profile__field-text"/>
+                                <div class="piker-calendar"></div>
+                              </div>
+                            </div>
+                            <div class="field-text__group field-text__mod">
+                              <div class="field-text__in">
+                                <input type="data" class="child-field profile__field-text"/>
+                                <div class="piker-calendar"></div>
+                              </div>
+                              <div class="field-text__in">
+                                <input type="data" class="child-field profile__field-text"/>
+                                <div class="piker-calendar"></div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>

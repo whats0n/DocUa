@@ -1,3 +1,49 @@
+//layouts cabinet
+.cabinet-row__mod
+    padding-bottom 20px
+.container__mod
+    margin-top 0
+    margin-bottom 20px
+.cabinet-enter__link
+    position relative
+    text-decoration none
+    color #a8e3ee
+    background-color transparent
+    border 1px solid #a8e3ee
+    border-radius 3px
+    padding 2px 15px 2px 30px
+    &:hover
+        color #FFF 
+    .cabinet-enter__link-icon
+        &:before
+            content ''
+            background url('i/cabinet/cabinet-user.png')
+            display inline-block
+            width 13px
+            height 15px
+            position: absolute
+            left 12px
+            top 4px
+.favorites-link__mod
+    margin-top 3px
+
+//grid cabinet
+
+.l-3
+    width 20%
+    float left
+    padding-left 10px
+    padding-right 10px
+    
+.l-9
+    width 80%
+    float left
+    padding-left 10px
+    padding-right 10px
+.col-1
+    width 100%
+
+//cabinet
 .cabinet-aside
     border 1px solid rgba(0, 130, 155, 0.5)
     border-radius 3px
@@ -65,7 +111,7 @@
         &-note:hover:after
                 background url('i/cabinet/pencil-icon-hover.png') no-repeat center left
         &-note.is-active:after
-                background url('i/cabinet/pensil-icon-hover.png') no-repeat center left
+                background url('i/cabinet/pencil-icon-hover.png') no-repeat center left
         	    
         &-reviews:after
             content ''
@@ -111,12 +157,17 @@
         box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
         border 1px solid rgba(0, 130, 155, 0.5)
         border-radius 0 0 3px 3px 
-        padding 30px 0 25px 0   
+        padding 30px 0 25px 0 
+        background-color #FFF   
     .profile
-        margin 0 150px
+        max-width 593px
+        margin 0 auto
+        padding-right 110px 
+         
+        
         &__item
             position relative
-            margin-bottom 15px
+            margin-bottom 16px
             &:after
                 content ''
                 display: table
@@ -124,12 +175,15 @@
             *zoom: 1
             &:last-child
                 margin-bottom 0 
+            &.item__mod
+                display none
         &__title
             float left
             font-size 15px
             color rgba(#5e6e71, 0.94)
             line-height 30px
         &__field-text
+            
             float right
             width 283px
             height 33px
@@ -139,7 +193,84 @@
             color #91b5bc
             font-size 15px
             font-weight 700 
-            padding-left 15px
+            padding 0 30px 0 15px
+        &__field-icon
+            position absolute
+            right 7px
+            top 6px
+            display inline-block
+            width 20px
+            height 20px
+            cursor pointer 
+            background url('i/cabinet/piker-calendar.png') no-repeat
+               
+            
+        .field-text__child 
+            position relative 
+            padding 0 0 0 20px
+            line-height 30px
+            margin 0
+            &:after
+                content ''
+                float right
+                margin 12px 6px 0 0 
+                display inline-block
+                border 3px solid transparent
+                border-top 6px solid black 
+                
+        
+        .section-choice
+            display none
+            position absolute
+            top 32px
+            z-index 2
+            background-color #FFF  
+            right 0
+            width 283px
+            border 1px solid rgba(22, 141, 164, 0.7)
+            -webkit-border-radius 0 0 3px 3px  
+            border-radius 0 0 3px 3px 
+            color #91b5bc
+            
+            .section-choice__item
+                cursor pointer
+                font-size 15px
+                margin 0 
+                padding-left 20px
+                &:hover
+                    background-color #4b89d3
+                    color #fff 
+        .js-group
+            display none
+            // float right
+            &:after
+                content ''
+                display: table
+                clear: both
+            *zoom: 1 
+        .field-text__in
+            position relative
+            // display inline-block
+            float right
+            &:after
+                content ''
+                display: table
+                clear: both
+            *zoom: 1
+        .field-text__group
+            float right
+            &:after
+                content ''
+                display: table
+                clear: both
+            *zoom: 1
+        .field-text__mod
+            margin-top 15px
+        .is-open
+            display block 
+        .field-group
+            margin-bottom 15px       
+        
             
         .form-radio
             width 283px
@@ -174,7 +305,7 @@
             background url('i/cabinet/piker-calendar.png') no-repeat
         .profile-parol
             position absolute
-            right -130px
+            right -138px
             top 5px
             &__link
                 color #4b89d3
@@ -187,20 +318,20 @@
                     margin 0 5px -3px 0
                     background url('i/cabinet/parol.png') no-repeat 
         .profile-tel
-            right -135px
+            right -158px
             &__link:before
                 content ''
                 display inline-block
                 width 10px
                 height 16px
-                margin 0 5px -3px 0
+                margin 0 6px -3px 0
                 background url('i/cabinet/tel.png') no-repeat  
         .add-tel
             display none
             margin-top 15px
             transition all 0.5s  
-        .is-active
-            display inline-block
+            &.is-active
+                display inline-block
                 
         .btn-add-tel
             position relative
@@ -220,21 +351,23 @@
             span
                 position absolute
                 display inline-block
-                left 30px
-                top 5px
+                left 34px
+                top 6px
                 width 21px
                 height 21px
                 background url('i/cabinet/add-tel.png') no-repeat
         .child-field
             width 130px
-            margin-right 22px
+            margin-left 22px
             &:nth-child(even)
-                margin-right 0
+                margin-left 0
         .child-calendar__mod
             right  159px 
             
     .profile-footer
-        margin 0 150px
+        max-width 593px
+        margin 0 auto
+        padding-right 110px 
         &:after
             content ''
             display: table
@@ -254,7 +387,6 @@
             color #FFF 
             font-size 18px
             float right 
-            
             &:hover 
                 background-color #33b3a4
                 
@@ -266,7 +398,11 @@ hr
     border-top 1px dotted rgba(#1d89a0, 0.45)
     color #fff
     background-color #fff
-    height 1px        
+    height 1px  
+    
+
+    
+              
         	
 // notes
     .cabinet-notes
@@ -438,7 +574,7 @@ hr
        background-color #FFF 
        
        &__item
-            padding 20px 12px 20px 30px
+            padding 15px 12px 17px 30px
             border-bottom 1px dotted rgba(#1d89a0, 0.45)
             &:last-child
                 border-bottom none
@@ -474,3 +610,215 @@ hr
                 padding-left 15px
         &__clinica
             padding 20px 30px
+            
+
+//otzivi-edit
+    .content-edit
+        background #FFF 
+        padding 20px 0 0 0 
+        &:after
+            content: " "
+            display: table 
+            clear: both
+        *zoom: 1
+        &__in
+            padding 0 30px 20px 
+            
+        &__title
+            font-size 17px
+            font-weight 700 
+            margin-bottom 20px
+        &__comment
+            width 96%
+            height 152px
+            opacity 0.49
+            background-color white
+            border 1px solid rgba(22, 141, 164, 0.7)
+            border-radius 3px
+            resize none
+            padding 15px 20px
+            font-style italic
+            color #91b5bc
+            font-size 15px
+        .rating-list
+            .rating__stars
+                cursor pointer
+                &:hover .edit__tooltip
+                    display block
+            .edit__tooltip
+                display none
+                position absolute
+                top -3px
+                right 110px  
+                width 68px
+                height 21px
+                background-color #35bfae
+                border-radius 10px 1px 1px 10px
+                color #FFF
+                font-size 14px
+                line-height 20px
+                padding-left 3px
+                &:after
+                    content ''
+                    border 11px solid transparent
+                    border-left 10px solid #35bfae
+                    margin-right -21px
+                    margin-top -0.5px
+                    display inline-block
+                    vertical-align top
+                    width 0
+                    height 0
+        .likebox
+            margin-left 0
+            margin-bottom 65px
+            &:after
+                content: " "
+                display: table
+                clear: both
+            *zoom: 1
+            &__dislike
+                right 25px
+                cursor pointer
+            // .likebox__votes-mod
+            //     &:before
+            //         content "" 
+            //         background url('i/icons/cabinet-dislike.png') no-repeat center 
+            //         width 24px
+            //         height 26px
+            //         &:hover
+            //              background-position -96px -152px
+                    
+            &__like   
+                cursor pointer
+    .content-footer
+        padding 20px 0
+        text-align center 
+        border-top 1px dotted rgba(#1d89a0, 0.45)
+        background #f4f8f8
+        &__btn-edit
+            display inline-block
+            width 184px
+            height 45px
+            background-color #35bfae
+            border-radius 3px
+            color #FFF
+            text-shadow 0.5px 0.9px 0 rgba(48, 49, 49, 0.23)
+            font-size 18px
+            vertical-align middle
+            line-height 43px
+            font-weight 700 
+            margin-right 25px
+            cursor pointer
+            &:hover
+                background-color #33b3a4
+             
+        &__link
+            display inline-block
+            color #4b89d3
+            font-size 16px
+        
+    .edit-border
+        border-left 1px dotted rgba(#1d89a0, 0.45)
+        padding-left 10px
+        margin-left -10px
+        
+//favorites
+    .cabinet-section__favorites
+        margin-bottom 24px
+        // &:last-child
+        //     margin-bottom 60px
+    .favorite-header__mod
+        padding-left 25px
+    .content-favorites
+        padding 0
+        &__item
+            padding 19px 20px 17px 20px
+            .favorites-left
+                &__link
+                    img
+                        vertical-align top
+                .favorite-title
+                    display inline-block
+                    padding-left 15px
+                    &__link
+                        color #4b89d3
+                        font-size 18px
+                        font-weight: 700 
+                        line-height 20px
+                    .link-direction
+                        padding-left 5px
+                    &__specialization
+                        font-weight 700 
+                        font-size 14px
+                        color #5e6e71 
+                        margin-top 5px
+                    &__category
+                        font-size 14px
+                        
+                    &__price
+                        font-size 16px
+                        padding-top 15px
+                        display inline-block
+                    &__price-num
+                        font-weight 700
+                        display inline-block
+                    .address-info__mod
+                        padding-top 7px  
+                        .small-card__address
+                            margin-right 25px 
+                    .small-card__schedule-mod
+                        margin-top 25px
+            .favorites-right
+                text-align right 
+                &__value
+                    display inline-block
+                    color #00829b
+                    font-size 18px
+                    font-weight 700
+                    .rating__stars
+                        display inline-block
+                        margin-left 3px
+                &__info
+                    margin-top 3px 
+                &__link
+                    color #4b89d3 
+                    display inline-block
+                    margin-right 15px
+                &__btn
+                    text-align center
+                    margin-top 17px
+                    float right
+                    width 205px
+                    height 38px
+                    background-color #35bfae
+                    border-radius 4px 
+                    font-size 17px
+                    line-height 38px
+                    font-weight 700 
+                    color #FFF 
+                    cursor pointer
+                    &:hover
+                        background-color #33b3a4
+                .favorites-block__mod
+                    cursor pointer
+                    margin-top 0
+                    &:after
+                        content: " "
+                        display: table
+                        clear: both
+                    *zoom: 1
+                    .favorites-block__star  
+                        background-position -158px -245px
+                        opacity 1
+                        
+                    .text__mod
+                        &:hover
+                            border-bottom 1px dotted transparent
+                            transition border-color .2s ease
+                            
+
+        .add-border
+            border-bottom 1px dotted rgba(#1d89a0, 0.45)
+            &:last-child
+                border-bottom none
+    

@@ -59,17 +59,16 @@ body
           +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку")
               span.dotted Быстрая заявка
         +b.phones.visible-xs: +i
-        .user-panel.hidden-xs
-            if file.isCabinet
-              +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
-            else
-              +b.user-panel-auth: +i
-            +b("a").favorites-link(href="/", title="Избранное")
+        .user-panel.hidden-xs 
+            
+            +b("a").cabinet-enter__link(href="/", title="Избранное") Здравствуйте, Марина!
+                +b("i").cabinet-enter__link-icon
+            +b("a").favorites-link.favorites-link__mod(href="/", title="Избранное")
               span.dotted Избранное
-    +b.navbar-collapse(class="navbar-mobile collapse"): +i
+     +b.navbar-collapse(class="navbar-mobile collapse"): +i
     //- Logo and search
     .container-fluid.container-header.hidden-xs
-        .row.row-white
+        .row.row-white.cabinet-row__mod
             .container
                 h1.sr-only Поиск вашего врача – DOC.ua
                 if file.finder
@@ -103,8 +102,8 @@ body
             .container.main-content
                
                h1= file.title
-               article.col-sm-12
-                  block content
+               article
+                  block content 
     
     
     //- Footer

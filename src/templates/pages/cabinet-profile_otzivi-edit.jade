@@ -1,0 +1,87 @@
+//---
+    layout: layouts/cabinet           
+    page_name: cabinet-profile_otzivi-edit
+ 
+
+.row  
+  aside.l-3.hidden-xs
+    +b.cabinet-aside
+       +e("ul")
+         +e("li").item
+           +e("a").link(href="cabinet-profile.html").cabinet-aside__link-profile Мой профиль
+         +e("li").item
+           +e("a").link(href="cabinet-profile_notes.html").cabinet-aside__link-note Мои записи
+         +e("li").item.is-active
+           +e("a").link(href="cabinet-profile_otzivi.html").cabinet-aside__link-reviews.is-active Мои отзывы
+         +e("li").item 
+           +e("a").link(href="#").cabinet-aside__link-like Избранное   
+    
+
+  section.l-9   
+    +b.cabinet-section 
+      +e.header Редактирование отзыва 
+      +e.content.content-edit
+        .row.content-edit__in
+          .col-md-6
+            .content-edit__title Оцените врача
+            ul.rating-list
+                li.rating.first-child
+                    .rating__label(data-toggle='tooltip', data-original-title='Учтивость и терпение, проявленное врачом во время приема', data-placement='bottom') Внимательность врача
+                    .rating__stars
+                        .edit__tooltip Отлично
+                        .rating__stars-bg
+                        .rating__stars-overlay(style='width: 100%;')
+                li.rating
+                    .rating__label(data-toggle='tooltip', data-original-title='Педантичность и профессионализм врача во время осмотра', data-placement='bottom') Квалификация врача
+                    .rating__stars
+                        .rating__stars-bg
+                        .rating__stars-overlay(style='width: 100%;')
+                    
+                li.rating.last-child
+                    .rating__label(data-toggle='tooltip', data-original-title='Соотношения стоимости и качества приема', data-placement='bottom') Цена–качество
+                    .rating__stars
+                        .rating__stars-bg
+                        .rating__stars-overlay(style='width: 100%;')
+                     
+            .likebox
+                .likebox__label.likebox__label-mod(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom')
+                    | Рекомендуют врача
+                .likebox__like
+                    .likebox__votes
+                .likebox__dislike 
+                    .likebox__votes.likebox__votes-mod
+            textarea.content-edit__comment
+
+          .col-md-6
+            .block.edit-border
+              .content-edit__title Оцените клинику
+              ul.rating-list
+                li.rating.first-child
+                    .rating__label(data-toggle='tooltip', data-original-title='Учтивость и терпение, проявленное врачом во время приема', data-placement='bottom') Внимательность врача
+                    .rating__stars
+
+                        .rating__stars-bg
+                        .rating__stars-overlay(style='width: 100%;')
+                li.rating
+                    .rating__label(data-toggle='tooltip', data-original-title='Педантичность и профессионализм врача во время осмотра', data-placement='bottom') Квалификация врача
+                    .rating__stars
+                        .rating__stars-bg
+                        .rating__stars-overlay(style='width: 100%;')
+                    
+                li.rating.last-child
+                    .rating__label(data-toggle='tooltip', data-original-title='Соотношения стоимости и качества приема', data-placement='bottom') Цена–качество
+                    .rating__stars
+                        .rating__stars-bg
+                        .rating__stars-overlay(style='width: 100%;')
+                    
+              .likebox
+                  .likebox__label.likebox__label-mod(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom')
+                    | Рекомендуют врача
+                  .likebox__like
+                    .likebox__votes
+                  .likebox__dislike 
+                    .likebox__votes.likebox__votes-mod
+            textarea.content-edit__comment  
+        +b.content-footer
+          +e.btn-edit Сохранить
+          +e('a').link(href="#") Отмена

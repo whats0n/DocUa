@@ -1,0 +1,207 @@
+//---
+    layout: layouts/cabinet         
+    page_name: cabinet-profile_favorites
+  
+       
+.row      
+  aside.l-3.hidden-xs  
+    +b.cabinet-aside 
+       +e("ul")
+         +e("li").item
+           +e("a").link(href="cabinet-profile.html").cabinet-aside__link-profile Мой профиль
+         +e("li").item
+           +e("a").link(href="cabinet-profile_notes.html").cabinet-aside__link-note Мои записи
+         +e("li").item
+           +e("a").link(href="cabinet-profile_otzivi.html").cabinet-aside__link-reviews Мои отзывы
+         +e("li").item.is-active 
+           +e("a").link(href="#").cabinet-aside__link-like.is-active Избранное  
+    
+ 
+  section.l-9
+    +b.cabinet-section.cabinet-section__favorites.js-remove-parent
+      +e.header.favorite-header__mod Избранные врачи  
+      +e.content.content-favorites
+        .content-favorites__item.add-border 
+          .row
+            .col-md-8
+              +b.favorites-left
+                +e('a').link(href="#")
+                  img.picture(src="i/cabinet/cabinet-favorites_doctors.png")
+                +b.favorite-title
+                  +e('a').link(href="#") Хобзей Кузьма Николаевич
+                  +e.specialization Дерматолог, Трихолог,  Дерматовенеролог, Косметолог
+                  +e.category Доктор медицинских наук. Врач высшей категории
+                  +e.price Стоимость приема: 
+                    +e.price-num 605 грн
+            .col-md-4
+              +b.favorites-right
+                +e.value 4.9
+                  .rating__stars
+                      .rating__stars-bg
+                      .rating__stars-overlay(style='width: 87%;')
+                +e.info 
+                  +e('a').link(href='#') 233 отзыва
+                  +b.favorites-block.favorites-block__mod.pull-right.js-remove-item  
+                    +e.link
+                    +e.star.star__mod
+                    +e.text.text__mod В Избранном 
+                +e.btn Записаться на прием
+
+        .content-favorites__item.add-border 
+          .row
+            .col-md-8
+              +b.favorites-left
+                +e('a').link(href="#")
+                  img.picture(src="i/cabinet/cabinet-favorites_doctors.png")
+                +b.favorite-title
+                  +e('a').link(href="#") Хобзей Кузьма Николаевич
+                  +e.specialization Дерматолог, Трихолог,  Дерматовенеролог, Косметолог
+                  +e.category Доктор медицинских наук. Врач высшей категории
+                  +e.price Стоимость приема: 
+                    +e.price-num 605 грн
+            .col-md-4
+              +b.favorites-right
+                +e.value 4.9
+                  .rating__stars
+                      .rating__stars-bg
+                      .rating__stars-overlay(style='width: 87%;')
+                +e.info 
+                  +e('a').link(href='#') 233 отзыва
+                  +b.favorites-block.favorites-block__mod.pull-right.js-remove-item  
+                    +e.link
+                    +e.star.star__mod
+                    +e.text.text__mod В Избранном 
+                +e.btn Записаться на прием
+    
+    
+    .col-1.js-remove-parent                 
+      +b.cabinet-section.cabinet-section__favorites
+        +e.header.favorite-header__mod Избранные клиники  
+        +e.content.content-favorites
+          .content-favorites__item.add-border 
+            .row
+              .col-md-8
+                +b.favorites-left
+                  +e('a').link(href="#")
+                    img.picture(src="i/cabinet/cabinet-favorites-clinics.png")
+                  +b.favorite-title
+                    +e('a').link(href="#") Клиника Доктора Валихновского
+                    +e.category Терапия, Урология, Эндокринология, Акушерство
+                    .address-info.address-info__mod
+                      .small-card__address
+                        a.street-adress.dotted.grey(href="") г.Киев, пр.Науки 30
+                      .blue.card__location_metro.small-card__location Димеевская 
+                      .small-card__location Голосеевский
+                    .small-card__footer
+                      .small-card__schedule.small-card__schedule-mod
+                        ul
+                          li.first-child
+                            span.left Пн - Пт
+                            span.right 9:00 - 21:00
+                          li
+                            span.left Сб:
+                            span.right 9:00 - 19:00
+                          li.last-child
+                            span.left Нд:
+                            span.right 9:00 - 19:00
+              .col-md-4
+                +b.favorites-right
+                  +e.value 4.9
+                    .rating__stars
+                        .rating__stars-bg
+                        .rating__stars-overlay(style='width: 87%;')
+                  +e.info 
+                    +e('a').link(href='#') 233 отзыва
+                    +b.favorites-block.favorites-block__mod.pull-right.js-remove-item  
+                      +e.link
+                      +e.star.star__mod
+                      +e.text.text__mod В Избранном 
+                  +e.btn Записаться в клинику 
+          .content-favorites__item.add-border 
+            .row
+              .col-md-8
+                +b.favorites-left
+                  +e('a').link(href="#")
+                    img.picture(src="i/cabinet/cabinet-favorites-clinics.png")
+                  +b.favorite-title
+                    +e('a').link(href="#") Клиника Доктора Валихновского
+                    +e.category Терапия, Урология, Эндокринология, Акушерство
+                    .address-info.address-info__mod
+                      .small-card__address
+                        a.street-adress.dotted.grey(href="") г.Киев, пр.Науки 30
+                      .blue.card__location_metro.small-card__location Димеевская 
+                      .small-card__location Голосеевский
+                    .small-card__footer
+                      .small-card__schedule.small-card__schedule-mod
+                        ul
+                          li.first-child
+                            span.left Пн - Пт
+                            span.right 9:00 - 21:00
+                          li
+                            span.left Сб:
+                            span.right 9:00 - 19:00
+                          li.last-child
+                            span.left Нд:
+                            span.right 9:00 - 19:00
+              .col-md-4
+                +b.favorites-right
+                  +e.value 4.9
+                    .rating__stars
+                        .rating__stars-bg
+                        .rating__stars-overlay(style='width: 87%;')
+                  +e.info 
+                    +e('a').link(href='#') 233 отзыва
+                    +b.favorites-block.favorites-block__mod.pull-right.js-remove-item  
+                      +e.link
+                      +e.star.star__mod
+                      +e.text.text__mod В Избранном 
+                  +e.btn Записаться в клинику 
+          
+
+    
+    .col-1.js-remove-parent                
+      +b.cabinet-section.cabinet-section__favorites
+        +e.header.favorite-header__mod Избранные диагностические центры  
+        +e.content.content-favorites
+          .content-favorites__item.add-border 
+            .row
+              .col-md-9
+                +b.favorites-left
+                  +e('a').link(href="#")
+                    img.picture(src="i/cabinet/cabinet-favorites-centers.png")
+                  +b.favorite-title
+                    +e('a').link(href="#") Medicinе group
+                    +e.category Терапия, Урология, Эндокринология, Акушерство,  
+                      a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top").link-direction +17 направлений
+                    .address-info.address-info__mod
+                      .small-card__address
+                        a.street-adress.dotted.grey(href="") г.Киев, пр.Науки 30
+                      .blue.card__location_metro.small-card__location Димеевская 
+                      .small-card__location Голосеевский, Саперная 
+                    .small-card__footer
+                      .small-card__schedule.small-card__schedule-mod
+                        ul
+                          li.first-child
+                            span.left Пн - Пт
+                            span.right 9:00 - 21:00
+                          li
+                            span.left Сб:
+                            span.right 9:00 - 19:00
+                          li.last-child
+                            span.left Нд:
+                            span.right 9:00 - 19:00
+              .col-md-3
+                +b.favorites-right
+                  +e.value 4.9
+                    .rating__stars
+                        .rating__stars-bg
+                        .rating__stars-overlay(style='width: 87%;')
+                  +e.info 
+                    +e('a').link(href='#') 233 отзыва
+                    +b.favorites-block.favorites-block__mod.pull-right.js-remove-item 
+                      +e.link
+                      +e.star.star__mod
+                      +e.text.text__mod В Избранном 
+                  +e.btn Записаться на прием  
+
+       
