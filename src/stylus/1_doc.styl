@@ -512,7 +512,7 @@ ul
                     margin-left: -8px
                     border-style: solid
                     border-width: 0 6px 6px
-                    border-color: transparent transparent blue_light  transparent
+                    border-color: transparent transparent blue_light !important
                 &:after
                     bottom -1px
                     margin-left: -8px
@@ -523,20 +523,23 @@ ul
                     color text_color
                     font-weight 700
                     background-color transparent
+            &.is-action
+                &:after
+                    border-color: transparent transparent #f4f8f8 !important 
         &.nav-clinic
             >li:nth-child(1).active, >li:nth-child(3).active
                 &:after
-                    border-color transparent transparent yellow_light transparent
+                    border-color transparent transparent yellow_light
             >li:nth-child(4).active
                 &:after
-                    border-color transparent transparent grey_base transparent
+                    border-color transparent transparent grey_base
         &.nav-doctor
             >li:nth-child(1).active, >li:nth-child(2).active
                 &:after
-                    border-color transparent transparent yellow_light transparent
+                    border-color transparent transparent yellow_light
             >li:nth-child(3).active
                 &:after
-                    border-color transparent transparent grey_base transparent
+                    border-color transparent transparent grey_base
         @media phone
             padding-left 0
             border-color transparent
@@ -1720,4 +1723,4 @@ article.static-page
             
     .control-label
         padding-right: 10px
-        padding-top: 5px !important
+        padding-top: 5px !important 
