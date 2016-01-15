@@ -669,9 +669,7 @@ hr
                     width 0
                     height 0
         
-        // .rating-new__star
-        //     background url('i/cabinet/stars-sprites.png')
-            
+        
         .rating-new
             overflow hidden 
             *zoom 1
@@ -679,29 +677,41 @@ hr
             float left
             &__item
                 opacity 0
-                width 43px
-                height 40px
+                filter progid:DXImageTransform.Microsoft.Alpha(Opacity=0)
+                width 21px
+                height 20px
                 position absolute
                 top 0
                 z-index 0 
             .rating-new__item:checked ~ label
                 background url('i/cabinet/stars-sprites.png') no-repeat
                 background-position 0 -29px
-                width 22px
-                height 21px
+                width 21px
+                height 20px
             .rating-new__star 
                 background url('i/cabinet/stars-sprites.png') no-repeat
                 background-position: 0 0
-                height: 40px
-                width: 43px
+                height: 20px
+                width: 21px
                 float: right
                 cursor: pointer
-                margin-right: 10px
-                
                 position: relative
                 z-index: 1
-            
-              
+            .rating-new__star:hover, .rating-new__star:hover ~ label 
+                background url('i/cabinet/stars-sprites.png') no-repeat
+                background-position 0 -29px
+                width 21px
+                height 20px
+            input#star-1
+                left 86px
+            input#star-2
+                left 64px
+            input#star-3
+                left 42px
+            input#star-4
+                left 21px
+            input#star-5
+                left 0
                     
             
             
