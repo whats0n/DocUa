@@ -11,8 +11,8 @@ mixin modal(name, classes, dialogClasses)
         .modal-title Обратная связь
     .modal-body
         form.form-horizontal(action="/")
-            fieldset
-                p.text-left.modals-text
+            fieldset  
+                p.text-left.modals-text 
                     | Если у вас есть какие-либо вопросы, задайте их нам, заполнив нижеприведенную форму, и в ближайшее время мы с вами свяжемся.
                 .form-group.form-group__modals
                     .col-sm-12
@@ -20,7 +20,7 @@ mixin modal(name, classes, dialogClasses)
                 .form-group.form-group__modals
                     .col-sm-6
                         input.form-control.form-control__modals(type="text", placeholder="Email")
-                    .col-sm-6
+                    .col-sm-6 
                         input.form-control.phone-input-mask.form-control__modals(type="text", placeholder="Телефон")
                 .form-group.form-group__modals
                     .col-sm-12
@@ -46,7 +46,7 @@ mixin modal(name, classes, dialogClasses)
 
 +modal("doctor-request", "request")
     - clinic = clinics[0]
-    .modal-header
+    .modal-header 
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
         h4.modal-title Запись на прием к врачу
         p.ocean-blue.offset-0 Заполните форму ниже или позвоните по телефону <span class="nobr">+380 (44) 337-07-07</span>

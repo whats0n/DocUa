@@ -641,79 +641,12 @@ hr
             color #91b5bc
             font-size 15px
         .rating-list
+            .rating
+                margin-bottom 0
             .rating__stars
                 cursor pointer
                 &:hover .edit__tooltip
                     display block
-            .edit__tooltip
-                display none
-                position absolute
-                top -3px
-                right 110px  
-                width 68px
-                height 21px
-                background-color #35bfae
-                border-radius 10px 1px 1px 10px
-                color #FFF
-                font-size 14px
-                line-height 20px
-                padding-left 3px
-                &:after
-                    content ''
-                    border 11px solid transparent
-                    border-left 10px solid #35bfae
-                    margin-right -21px
-                    margin-top -0.5px
-                    display inline-block
-                    vertical-align top
-                    width 0
-                    height 0
-        
-        
-        .rating-new
-            overflow hidden 
-            *zoom 1
-            position relative
-            float left
-            &__item
-                opacity 0
-                filter progid:DXImageTransform.Microsoft.Alpha(Opacity=0)
-                width 21px
-                height 20px
-                position absolute
-                top 0
-                z-index 0 
-            .rating-new__item:checked ~ label
-                background url('i/cabinet/stars-sprites.png') no-repeat
-                background-position 0 -29px
-                width 21px
-                height 20px
-            .rating-new__star 
-                background url('i/cabinet/stars-sprites.png') no-repeat
-                background-position: 0 0
-                height: 20px
-                width: 21px
-                float: right
-                cursor: pointer
-                position: relative
-                z-index: 1
-            .rating-new__star:hover, .rating-new__star:hover ~ label 
-                background url('i/cabinet/stars-sprites.png') no-repeat
-                background-position 0 -29px
-                width 21px
-                height 20px
-            input#star-1
-                left 86px
-            input#star-2
-                left 64px
-            input#star-3
-                left 42px
-            input#star-4
-                left 21px
-            input#star-5
-                left 0
-                    
-            
             
         .likebox
             margin-left 0
@@ -723,8 +656,13 @@ hr
                 display: table
                 clear: both
             *zoom: 1
+                    
+            &__like
+                right 86px
+                
             &__dislike
-                right 25px
+                right 58px
+                top 2px
                 cursor pointer
             .likebox__votes-mod
                 &:before
