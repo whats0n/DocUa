@@ -1,0 +1,387 @@
+//---
+    layout: layouts/main
+    title: Диагностические центры Киева 
+    activeMenuItem: 0 
+    finder: doctors
+    modals: select-area, select-branch, clinic-location-map, clinic-request
+    page_name: diagnostic-center
+    find_text: врачей
+
+
+.row 
+    .col-md-9.col-xs-12
+        +b.card.card__mod
+            .item
+                +e.left-side 
+                    +e.image
+                        img.photo(src="i/_insightmedical.png", alt="")
+                    +b.like-box
+                        +e.like
+                            +e.votes 151
+                        +e.dislike
+                            +e.votes 3
+                    +e.testimonials
+                        a(href="#", title="#")
+                            span.count 233
+                            |  отзыва
+                    +e.schedule
+                        ul
+                            li
+                                span.left Пн - Пт
+                                span.right 9:00 - 21:00
+                            li
+                                span.left Сб
+                                span.right 9:00 - 19:00
+                            li
+                                span.left Нд
+                                span.right 9:00 - 19:00
+                +e.right-side 
+                    +b.favorites-block.pull-right: +i
+                    +e.title.fn.org
+                        h3.h3
+                            a(href="#", title="") Днепролаб на м. Осокорки
+                    .address-info.address-info_mod
+                        +e.address.adr 
+                            span г. Киев, пр.Науки, 30
+                        +e.location Голосеевский, Саперная слободка
+                        +e.location.card__location_metro.blue Димеевская
+                    hr.dashed
+                    p «Днепролаб» – это диагностический центр на м. Осокорки, в котором проводится широкий спектр диагностических манипуляций, направленных на выявление заболеваний практически всех органов и систем. Каждый пациент имеет возможность выбрать подходящее время для прохождения процедуры, после чего в короткие сроки забрать результаты в клинике или получить их на электронную почту. Точность результата и качественное выполнение исследований – главный принцип работы.
+                    .small-card__action.small-card__action-mod
+                        +e.action
+                            span.orange-light Акция
+                            a(href="#", title="") Скидки на все услуги -15%
+                    +e.share-bottom
+                        +e.socwrap
+                            +e.socitem
+                                a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
+                                script.
+                                    !function (d, s, id) {
+                                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                        if (!d.getElementById(id)) {
+                                            js = d.createElement(s);
+                                            js.id = id;
+                                            js.src = p + '://platform.twitter.com/widgets.js';
+                                            fjs.parentNode.insertBefore(js, fjs);
+                                        }
+                                    }(document, 'script', 'twitter-wjs');
+                            +e.socitem
+                                .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button_count', data-action='like', data-show-faces='true', data-share='false')
+                            +e.socitem._last
+                                div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="55")
+                        a(href="#").btn.btn-med.btn-success Записаться 
+                
+
+        ul.nav.nav-tabs.nav-clinic
+                    li.active: a(href="#tab-about", data-toggle="tab") О центре
+                    li 
+                        a(href="#tab-price", data-toggle="tab") Услуги и цены
+                    li
+                        a(href="#tab-reviews", data-toggle="tab") Отзывы
+                    li
+                        a(href="#tab-actions", data-toggle="tab") Акции и пакеты услуг (4)
+                    li
+                        a(href="#tab-news", data-toggle="tab") Новости
+                .tab-content    
+                    #tab-about.tab-pane.clinic-tab.active
+                        +b.rating-block
+                            +e.separator
+                            .row
+                                .col-sm-6
+                                    .row
+                                        .col-xs-5.col-xs-offset-1
+                                            +b.statistics-item._simple
+                                                +e.label Средний балл
+                                                +e.value 5.0
+                                        .col-xs-5
+                                            +b.statistics-item._simple
+                                                +e.label Кол-во отзывов
+                                                +e.value 152
+                                    +b.rating-info
+                                        +e("span").icon
+                                        +e.text Рейтинг врача рассчитывается<br>на основе&nbsp;
+                                            +e("a").more-link(href="/", title="реальных отзывов пациентов"): span реальных отзывов пациентов
+                                .col-sm-6
+                                    +b("ul").rating-list
+                                        each rating in clinics[0].ratings
+                                            +b.rating: +i({label: rating.label, value: rating.value, tooltip: rating.tooltip})
+                                    +b.likebox: +i({
+                                        likes: doctors[0].likes,
+                                        dislikes: doctors[0].dislikes,
+                                        label: "Рекомендуют клинику"
+                                    })  
+                        .text
+                            each about in clinics[0].about
+                                if about.paragraphs
+                                    each paragraph in about.paragraphs
+                                        p= paragraph
+                                else
+                                    p
+                                        strong= about.title
+                                        ul.style-disc
+                                            each item in about.items
+                                                li= item
+                    #tab-price.tab-pane
+                    
+                        +b("ul").block-services
+                            +e("li").item.price-item__mod
+                                        .small-card__action.small-card__action-mod
+                                            +e.action
+                                                span.orange-light Пакет
+                                                a(href="#", title="") Пакет «Сосудистый» от Medicina Group
+                                        +e.price-discount 
+                                            span 1020 грн
+                                            | 820 грн 
+                                            a(href="#").btn.btn-hide.btn-success Записаться
+                                        +e("ul").list.block-sevices__list-mod
+                                            +e("li").row.row-price__mod
+                                                +e.row-in.row-in-price__mod
+                                                    +e.left УЗИ щитовидной железы
+                                                    
+                                            +e("li").row.row-price__mod
+                                                +e.row-in.row-in-price__mod
+                                                    +e.left Дуплексное сканирование вен нижних конечностей
+                            +e("li").item.price-item__mod
+                                        .diagnostic-line
+                                        .small-card__action.small-card__action-mod
+                                            +e.action
+                                                span.orange-light Пакет
+                                                a(href="#", title="") Пакет «Аритмогенный» от Medicina Group
+                                        +e.price-discount 
+                                            span 1020 грн
+                                            | 820 грн 
+                                            a(href="#").btn.btn-hide.btn-success Записаться 
+                                        +e("ul").list.block-sevices__list-mod
+                                            +e("li").row.row-price__mod
+                                                +e.row-in.row-in-price__mod
+                                                    +e.left УЗИ щитовидной железы
+                                                    
+                                            +e("li").row.row-price__mod
+                                                +e.row-in.row-in-price__mod
+                                                    +e.left Другое Эхокардиография 
+                                                        span (ЭхоКГ)
+                                            +e("li").row.row-price__mod
+                                                +e.row-in.row-in-price__mod
+                                                    +e.left Функциональная диагностика Суточное ЭКГ мониторирование 
+                                                        span (по Холтеру)
+                            +e("li").item.price-item__mod
+                                        .diagnostic-line
+                                        .small-card__action.small-card__action-mod
+                                            +e.action
+                                                span.orange-light Пакет
+                                                a(href="#", title="") «Здоровье женщины» от Medicina Group
+                                        +e.price-discount 
+                                            span 1020 грн
+                                            | 820 грн 
+                                            a(href="#").btn.btn-hide.btn-success Записаться 
+                                        +e("ul").list.block-sevices__list-mod
+                                            +e("li").row.row-price__mod
+                                                +e.row-in.row-in-price__mod
+                                                    +e.left УЗИ щитовидной железы
+                                                    
+                                            +e("li").row.row-price__mod
+                                                +e.row-in.row-in-price__mod
+                                                    +e.leftУЗИ молочных желез  
+                                                        span (с доопплерографией)
+                                            +e("li").row.row-price__mod
+                                                +e.row-in.row-in-price__mod
+                                                    +e.left УЗИ матки и придатков  
+                                                        span (трансвагинально)
+                            +e("li").item
+                                +e.title.block-services__title-mod
+                                        +e.price-discount 820 грн
+                                        strong 
+                                            | Нейросонография
+                            +e("li").item
+                                +e.title.block-services__title-mod
+                                        +e.price-discount 820 грн
+                                        strong 
+                                            | Фолликулометрия
+                            +e("li").item
+                                +e.title.block-services__title-mod
+                                        +e.price-discount 820 грн
+                                        strong 
+                                            | Дуплексное сканирование
+                                
+                                    +e("ul").list
+                                        +e("li").row
+                                            +e.row-in
+                                                +e.left артерий верхних конечностей
+
+                                                +e.right
+                                                    span  180 грн
+                                                    a(href="#").btn.btn-success Записаться 
+                                        +e("li").row
+                                            +e.row-in
+                                                +e.left артерий верхних конечностей и вен верхних конечностей
+                                                +e.right
+                                                    span  180 грн
+                                                    a(href="#").btn.btn-success Записаться 
+                                        +e("li").row
+                                            +e.row-in
+                                                +e.left артерий нижних конечностей
+                                                +e.right
+                                                    span  180 грн
+                                                    a(href="#").btn.btn-success Записаться
+                                         +e("li").row
+                                            +e.row-in
+                                                +e.left вен верхних конечностей
+                                                +e.right
+                                                    span  180 грн
+                                                    a(href="#").btn.btn-success Записаться
+                                         +e("li").row
+                                            +e.row-in
+                                                +e.left вен нижних конечностей и артерий нижних конечностей
+                                                +e.right
+                                                    span  180 грн
+                                                    a(href="#").btn.btn-success Записаться
+                                        +e("li").row
+                                            +e.row-in
+                                                +e.left магистральных сосудов головы
+                                                +e.right
+                                                    span  180 грн
+                                                    a(href="#").btn.btn-success Записаться
+                                        +e("li").row
+                                            +e.row-in
+                                                +e.left почечных артерий
+                                                +e.right
+                                                    span  180 грн
+                                                    a(href="#").btn.btn-success Записаться
+                                        +e("li").row
+                                            +e.row-in
+                                                +e.left сосудов шеи 
+                                                    span (брахиоцефальных артерий)
+                                                +e.right
+                                                    span  180 грн
+                                                    a(href="#").btn.btn-success Записаться
+                                        +e("li").row
+                                            +e.row-in
+                                                +e.left сосудов шеи 
+                                                    span (брахиоцефальных артерий)
+                                                +e.right
+                                                    span  180 грн
+                                                    a(href="#").btn.btn-success Записаться
+                                        +e("li").row
+                                            +e.row-in
+                                                +e.left сосудов шеи 
+                                                    span (брахиоцефальных артерий) 
+                                                    |  и магистральных сосудов головы
+
+                                                +e.right
+                                                    span  180 грн
+                                                    a(href="#").btn.btn-success Записаться
+                                   
+                                
+
+                                     
+
+                    #tab-reviews.tab-pane 
+                        +b.diagnostic-reviews
+                            .row
+                                .col-sm-6
+                                    +e.left-side
+                                        span Рекомендации
+                                        +b.like-box.likebox-block
+                                            +e.like
+                                                +e.votes 18
+                                            +e.dislike
+                                                +e.votes 0
+                                        +b.reviews-info
+                                            +e("i").icon
+                                            +e("a").link(href="#") Как определяем качество услуг? 
+                                .col-sm-6
+                                    +e.right-side
+                                        span К-во отзывов
+                                        +e.numder 233 
+                                        +b.reviews-info
+                                            +e("i").icon 
+                                            +e("a").link(href="#") Как мы собираем отзывы?
+
+
+                        
+                        +b.reviews-list.reviews-list__mod
+                            +e.item
+                                +e.content
+                                    .description
+                                        +e.item-header
+                                            span.reviewer.reviews-list__name Карина
+                                            span.dtreviewed.reviews-list__date 21.01.2015 в 11:23 
+                                        +e.liked Рекомендует врача
+                                        p  Небольшая клиника, там вполне комфортно, молодой, отзывчивый персонал.
+                            +e.item
+                                +e.content
+                                    .description
+                                        +e.item-header
+                                            span.reviewer.reviews-list__name Анатолий
+                                            span.dtreviewed.reviews-list__date 21.01.2015 в 11:23 
+                                        +e.unliked Не рекомендует врача
+                                        p  Было где подождать, очень комфортно, администратор провел в кабинет, не нужно было ходить, искать, все замечательно. В администратор провел в кабинет, не нужно было ходить, искать, все замечательно.
+                            +e.item
+                                +e.content
+                                    .description
+                                        +e.item-header
+                                            span.reviewer.reviews-list__name Вильгельм
+                                            span.dtreviewed.reviews-list__date 21.01.2015 в 11:23 
+                                        +e.liked Рекомендует врача
+                                        p  Небольшая клиника, там вполне комфортно, молодой, отзывчивый персонал.
+                            +e.item
+                                +e.content
+                                    .description
+                                        +e.item-header
+                                            span.reviewer.reviews-list__name Вильгельм
+                                            span.dtreviewed.reviews-list__date 21.01.2015 в 11:23 
+                                        +e.liked Рекомендует врача
+                                        p  Не совсем удобная парковка, на проезжей части машину оставлять не хочется, а возле самой клиники мест для парковки практически и нет. Не совсем удобная парковка, на проезжей части машину оставлять не хочется, а возле самой клиники мест для парковки практически и нет. Не совсем удобная парковка, на проезжей части машину оставлять не хочется, а возле самой клиники мест для парковки практически и нет. Не совсем удобная парковка а возле самой клиники мест для парковки практически и нет. 
+
+
+                        .pagination-wrap
+                            +b("ul").pagination: +i
+                        .reviews-denied
+                            strong Почему Вы не можете оставить отзыв?
+                            br
+                            | Отзывы на сайте могут оставлять только пациенты, побывавшие на приеме у врача. Это исключает публикацию заказных и неправдивых отзывов. Мы собираем отзывы путем обзвона реальных пациентов, которые посетили врача, записавшись через наш сервис.
+
+                    #tab-actions.tab-pane
+                        header.header-styled
+                            h2.h1 Акции клиники
+                        .offers-list
+                            .row
+                                - var limit = 3
+                                each action, i in actionsData
+                                    if i < limit
+                                        .col-sm-4.col-xs-6
+                                            +b("article").post: +i(action)
+
+                        header.header-styled
+                            h2.h1 Пакетные предложения
+                        .offers-list
+                            .row
+                                - var limit = 3
+                                each action, i in actionsData
+                                    if i < limit
+                                        .col-sm-4.col-xs-6
+                                            +b("article").post: +i(action)
+                    #tab-news.tab-pane  
+                        +b("ul").articles-list.news-list
+                            - var limit = 3
+                            each article, i in articlesData
+                                if i < limit
+                                    +b.article-list-item: +i({ article: article, news: true})
+                        .pagination-wrap
+                            +b("ul").pagination: +i
+
+         
+    aside.col-md-3.hidden-sm
+        .widget.widget-map
+            #map-canvas-right
+            a.btn.btn-success(href="/map.html") Развернуть карту
+        .widget.widget-doctor
+            h3 Похожие врачи
+            - var items = []
+            - var limit = 4
+            each doctor, i in doctors
+                if i < limit
+                    - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
+            +b.short-list: +i({ items: items })
+            .link.link-more
+                   a(href="/doctors.html") Все врачи
