@@ -48,6 +48,14 @@ $('.js-remove-parent').each ->
 
 
 
+$('.js-table-scroll').jScrollPane({
+   	autoReinitialise: true
+})
+   		
+ 
+
+
+
 		
 	
 		
