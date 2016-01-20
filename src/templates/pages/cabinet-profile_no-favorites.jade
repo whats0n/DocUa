@@ -1,0 +1,31 @@
+//---
+    layout: layouts/cabinet         
+    page_name: cabinet-profile_favorites
+  
+       
+.row       
+  aside.l-3.hidden-xs  
+    +b.cabinet-aside 
+       +e("ul")
+         +e("li").item
+           +e("a").link(href="cabinet-profile.html").cabinet-aside__link-profile Мой профиль
+         +e("li").item
+           +e("a").link(href="cabinet-profile_notes.html").cabinet-aside__link-note Мои записи
+           span.qt-note 12
+         +e("li").item
+           +e("a").link(href="cabinet-profile_otzivi.html").cabinet-aside__link-reviews Мои отзывы
+         +e("li").item.is-active 
+           +e("a").link(href="#").cabinet-aside__link-like.is-active Избранное  
+    
+  
+  section.l-9
+    +b.cabinet-section.cabinet-section__favorites.js-remove-parent
+      +e.header.favorite-header__mod Избранное  
+      +e.content.content-favorites
+        .content-favorites__item
+          +b.favorites_history
+            img.favorites_history__icon(src="/i/cabinet/attention.png" , alt="")
+            span.favorites_history__text Для получения истории Ваших записей и возможности оставлять отзывы нужно заполнить мобильный номер
+          +b.no-favorites У вас пока нет избранных врачей и кликник
+
+        

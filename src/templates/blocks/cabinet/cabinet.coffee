@@ -2,12 +2,23 @@ $('.js-add-tel').click ->
 	$('.add-tel').addClass 'is-active'
 	return
 
-$('.js-field-cild').click ->
-	$(this).siblings('.section-choice').toggleClass 'is-open'
-	return
 
 
-
+$('.js-section-choice').each ->
+	item = $(this).find('.section-choice')
+	$('body').click ->
+		item.removeClass 'is-open'
+	$(this).find('.js-field-child').click ->
+		if $(this).hasClass 'is-active'
+			$('.js-field-child').removeClass 'is-active'
+			$('.section-choice').removeClass 'is-open'
+		else
+			$('.js-field-child').removeClass 'is-active'
+			$('.section-choice').removeClass 'is-open'
+			$(this).siblings('.section-choice').addClass 'is-open'
+		return false
+	item.click ->
+		return false
 
 $('.js-child').click ->
 	id = $(this).data('id')
@@ -29,7 +40,7 @@ $('.js-child').click ->
 
 
 	$(this).parent('.section-choice').removeClass 'is-open'
-	$(this).parent('.section-choice').siblings('.js-field-cild').text($(this).text())
+	$(this).parent('.section-choice').siblings('.js-field-child').text($(this).text())
 
 
 $('.js-remove-parent').each ->
@@ -51,12 +62,22 @@ $('.js-remove-parent').each ->
 $('.js-table-scroll').jScrollPane({
    	autoReinitialise: true
 })
-   		
+
+
+$('.js-field-child').click ->
+  setTimeout ->
+    $('.js-choice-scroll').jScrollPane()
+    return
+  , 10 
+  return  		
  
+$('.js-selection-city').click ->   
+	text = $(this).text()
+	$('.js-selection-main').text(text)
+	$(this).closest('.section-choice').removeClass 'is-open'
 
-
-
-		
 	
 		
-	 
+	
+$('.js-date-mast').inputmask 
+	mask: "99.99.9999 " 

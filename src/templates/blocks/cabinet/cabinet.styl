@@ -1,9 +1,25 @@
 //layouts cabinet
+body, html  
+    height 100%           
+.out
+    height: 100% 
+.wrapper
+    min-height 100%
+    margin-bottom: -317px  
+    &:after
+        content "" 
+        display block
+        height 317px
+    
+.footer__mod
+    height 317px
 .cabinet-row__mod
     padding-bottom 20px
-.container__mod
+.container__mod 
     margin-top 0
     margin-bottom 20px
+    z-index: 3
+    border-bottom 2px solid #35bfae 
 .cabinet-enter__link
     position relative
     text-decoration none
@@ -27,16 +43,26 @@
 .favorites-link__mod
     margin-top 3px
     @media phone_tablet
-        padding-right 10px 
-     
-// .out
-//     height: 100% 
-// .container__mod
-//     min-height 100%
-//     margin-bottom: -317px  
-    
-// .footer__mod
-//     height 317px
+        padding-right 10px
+         
+.input-validation 
+    &__field   
+        border-color #e74a37  !important 
+        -webkit-border-radius  3px 3px 0 0 !important  
+        border-radius  3px 3px 0 0 !important      
+    &__title 
+        float right 
+        margin-top -1px 
+        width 283px
+        -webkit-border-radius 0 0 3px 3px 
+        border-radius 0 0 3px 3px 
+        text-align center 
+        background #e74a37  
+        font-size 13px 
+        color #FFF
+        line-height 20px  
+
+
 //grid cabinet 
 
 .l-3
@@ -89,7 +115,11 @@
                 border-left-color white
                 border-width 9px
                 right -17px
-
+        .qt-note
+            color #91b5bc
+            font-size 16px
+            padding-left 20px 
+            font-weight 700 
     &__link
         text-decoration none
         
@@ -150,7 +180,9 @@
                 background url('i/cabinet/like-icon-hover.png') no-repeat center left
         &-like.is-active:after
                 background url('i/cabinet/like-icon-hover.png') no-repeat center left
-        
+
+     
+    
 //profile
 .cabinet-section 
     margin-bottom 40px
@@ -175,13 +207,12 @@
          
         
         &__item
-            position relative
+            position relative 
             margin-bottom 16px
-            &:after
+            &:after 
                 content ''
-                display: table
-                clear: both
-            *zoom: 1
+                display: table    
+                clear: both 
             &:last-child
                 margin-bottom 0 
             &.item__mod
@@ -226,13 +257,35 @@
                 margin 12px 6px 0 0 
                 display inline-block
                 border 3px solid transparent
-                border-top 6px solid black 
+                border-top 6px solid #1d89a0 
                 
-        
+        .section-choice__city
+            height 177px 
+            overflow hidden
+            outline none
+            padding 10px 0  
+            .section-choice__item
+                margin-right -10px  
+            .jspContainer
+                .jspPane
+                    margin 0       
+                .jspVerticalBar  
+                    right 4px 
+                    left auto  
+                .jspDrag
+                    background-color #a9d1da
+                    border-radius 2px
+                    width 5px 
+                    right 2px  
+                    left auto
+                    margin-bottom 5px      
+                .jspTrack
+                    width 1px
+                    background-color #a9d1da  
         .section-choice
             display none
             position absolute
-            top 32px
+            top 32px 
             z-index 2
             background-color #FFF  
             right 0
@@ -244,12 +297,12 @@
             
             .section-choice__item
                 cursor pointer
-                font-size 15px
-                margin 0 
-                padding-left 20px
+                font-size 14px 
+                padding 5px 10px 5px 20px  
+                color #5e6e71
                 &:hover
-                    background-color #4b89d3
-                    color #fff 
+                    background-color #e5f2f5 
+                    color #168da4
         .js-group
             display none
             // float right
@@ -304,7 +357,7 @@
         .modal-radio:checked + label::before 
             background url('i/cabinet/checkbox-active.png') no-repeat
             
-        .piker-calendar
+        .piker-calendar 
             position absolute
             right 7px
             top 6px
@@ -317,8 +370,10 @@
             position absolute
             right -138px
             top 5px
-            @media tablet 
+            @media only screen and (max-width: 1150px) 
                 font-size 12px
+                right -114px 
+                
             &__link
                 color #4b89d3
                 font-style italic
@@ -331,8 +386,9 @@
                     background url('i/cabinet/parol.png') no-repeat 
         .profile-tel
             right -158px
-            @media phone_tablet 
+            @media only screen and (max-width: 1150px)  
                 font-size 12px
+                right -127px
             &__link:before
                 content ''
                 display inline-block
@@ -385,8 +441,8 @@
         &:after
             content ''
             display: table
-            clear: both
-        *zoom: 1
+            clear: both 
+        
         
         &__btn
             display inline-block
@@ -690,7 +746,6 @@ hr
                 vertical-align top
                 padding-right 15px
                 color #96b8bf
-                
                 @media tablet
                     padding-left 10px
                     padding-top 10px 
@@ -815,7 +870,13 @@ hr
         padding 0
         &__item
             padding 19px 20px 17px 20px
+            position relative
+            &:after
+                content '' 
+                clear both 
+            *zoom 1 
             .favorites-left
+                display inline-block
                 &__link
                     img
                         vertical-align top
@@ -829,6 +890,9 @@ hr
                         line-height 20px
                     .link-direction
                         padding-left 5px
+                        @media only screen and (max-width: 1150px)
+                            display block
+                    
                     &__specialization
                         font-weight 700 
                         font-size 14px
@@ -836,7 +900,7 @@ hr
                         margin-top 5px
                     &__category
                         font-size 14px
-                        
+                         
                     &__price
                         font-size 16px
                         padding-top 15px
@@ -848,23 +912,38 @@ hr
                         padding-top 7px  
                         .small-card__address
                             margin-right 25px
-                            
                             a.street-adress
                                 outline none
+                        .small-card__location
+                            @media only screen and (max-width: 1150px)
+                                display block 
                     .small-card__schedule-mod
                         margin-top 25px
             .favorites-right
-                text-align right 
+                text-align right
+                float right
+                @media only screen and (max-width: 1150px)   
+                    float none
+                    text-align left 
+                    padding-left 97px
                 &__value
                     display inline-block
                     color #00829b
                     font-size 18px
                     font-weight 700
+                    @media only screen and (max-width: 1150px)
+                        position absolute
+                        right 20px 
+                        top 20px  
                     .rating__stars
                         display inline-block
-                        margin-left 3px
+                        margin-left 3px 
                 &__info
                     margin-top 3px 
+                    @media only screen and (max-width: 1150px)
+                        position absolute
+                        right 5px
+                        top 42px 
                 &__link
                     color #4b89d3 
                     display inline-block
@@ -884,6 +963,9 @@ hr
                     cursor pointer
                     &:hover
                         background-color #33b3a4
+                    @media only screen and (max-width: 1150px) 
+                        float none 
+                        margin 10px auto 
                 .favorites-block__mod
                     cursor pointer
                     margin-top 0
@@ -892,6 +974,11 @@ hr
                         display: table
                         clear: both
                     *zoom: 1
+                    @media only screen and (max-width: 1150px)  
+                        position absolute
+                        right 15px
+                        top 22px
+                        
                     .favorites-block__star  
                         background-position -158px -245px
                         opacity 1
@@ -906,4 +993,38 @@ hr
             border-bottom 1px dotted rgba(#1d89a0, 0.45)
             &:last-child
                 border-bottom none
-    
+//no-favorites
+.favorites_history
+    text-align center
+    margin-bottom 23px 
+    &__icon
+        display inline-block 
+        padding 0 12px 5px 0   
+    &__text 
+        display inline-block   
+        color #5e6e71
+        font-size 15px
+.no-favorites
+    text-align center 
+    opacity 0.25
+    color #00829b
+    font-size 30px 
+    font-weight 700
+    margin-bottom 23px    
+         
+.btn-favorites
+    text-align center
+    margin 37px 0  
+    .btn-green 
+         
+        background-color #35bfae 
+        border-radius 3px 
+        padding 11px 45px
+        text-shadow 0.5px 0.9px 0 rgba(48, 49, 49, 0.08)
+        color white
+        font-weight 700
+        text-decoration none
+        font-size 18px
+        font-weight 700 
+        &:hover
+            background-color #33b3a4

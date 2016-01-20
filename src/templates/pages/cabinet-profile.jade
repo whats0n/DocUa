@@ -11,8 +11,10 @@
            +e("a").link(href="cabinet-profile.html").cabinet-aside__link-profile.is-active Мой профиль
          +e("li").item
            +e("a").link(href="cabinet-profile_notes.html").cabinet-aside__link-note Мои записи
+           span.qt-note 12
          +e("li").item
            +e("a").link(href="cabinet-profile_otzivi.html").cabinet-aside__link-reviews Мои отзывы
+
          +e("li").item 
            +e("a").link(href="#").cabinet-aside__link-like Избранное
     
@@ -60,71 +62,77 @@
                 +b.btn-add-tel.js-add-tel Додати додатковий телефон
                   span
               +e.item
-                +e("span").title Місто:  
-                select.profile__field-text.profile__field-select(type="text")
-                  option(value="Kiev") Киев 
-                  option(value="kharkov") Харьков 
-                  option(value="chernovci") Черновцы
-                  option(value="nikolaev") Николаев
-                  option(value="dnepr") Днепропетровск
+                +e("span").title Місто:
+                .js-section-choice
+                  +e('p').field-text.field-text__child.js-selection-main.js-field-child Киев 
+                    ul.section-choice.section-choice__city.js-choice-scroll
+                      li.section-choice__item.js-selection-city Киев
+                      li.section-choice__item.js-selection-city Харьков 
+                      li.section-choice__item.js-selection-city Черновцы
+                      li.section-choice__item.js-selection-city Николаев
+                      li.section-choice__item.js-selection-city Днепропетровск
+                      li.section-choice__item.js-selection-city Черновцы
+                      li.section-choice__item.js-selection-city Николаев
+                      li.section-choice__item.js-selection-city Днепропетровск
+                      li.section-choice__item.js-selection-city Николаев
+                      li.section-choice__item.js-selection-city Днепропетровск
+                      li.section-choice__item.js-selection-city Черновцы
+                      li.section-choice__item.js-selection-city Николаев
               +e.item
                 +e("span").title Адреса: 
-                +e("input").field-text(type="text")
-              +e.item
-                +e("span").title Діти:  
-                //- select.profile__field-text(type="text")
-                //-   option(value="Нет") Немає
-                //-   option(value="2") 1 
-                //-   option(value="3") 2
-                //-   option(value="4") 3
-                //-   option(value="5") 4
-                +e('p').field-text.field-text__child.js-field-cild Немає
-                  ul.section-choice
-                    li.section-choice__item.js-child(data-id="0") Немає
-                    li.section-choice__item.js-child(data-id="1" ) 1
-                    li.section-choice__item.js-child(data-id="2" ) 2
-                    li.section-choice__item.js-child(data-id="3" ) 3
-                    li.section-choice__item.js-child(data-id="4" ) 4
+                .input-validation
+                  +e("input").field-text.input-validation__field(type="text")
+                  span.input-validation__title Заполните адрес
+              +e.item 
+                +e("span").title Діти:
+                .js-section-choice
+                  +e('p').field-text.field-text__child.js-field-child Немає
+                    ul.section-choice
+                      li.section-choice__item.js-child(data-id="0") Немає
+                      li.section-choice__item.js-child(data-id="1" ) 1
+                      li.section-choice__item.js-child(data-id="2" ) 2
+                      li.section-choice__item.js-child(data-id="3" ) 3
+                      li.section-choice__item.js-child(data-id="4" ) 4
                     
               +e.item.item__mod
                 +e("span").title Даты рождения: 
                 .js-group(data-field="1")
                   .field-text__in
-                    +e("input").field-text(type="data")
+                    +e("input").field-text.js-date-mast(type="data" placeholder=" дд.мм.гг.")
                     .piker-calendar
                 .js-group(data-field="2")
                   .field-text__in
-                    +e("input").field-text.child-field(type="data")
+                    +e("input").field-text.child-field.js-date-mast(type="data" placeholder="дд.мм.гг.")
                     .piker-calendar
                   .field-text__in
-                    +e("input").field-text.child-field(type="data")
+                    +e("input").field-text.child-field.js-date-mast(type="data" placeholder="дд.мм.гг.")
                     .piker-calendar
                   
                 .js-group(data-field="3")
                   .field-text__in
-                    +e("input").field-text.child-field(type="data")
+                    +e("input").field-text.child-field.js-date-mast(type="data" placeholder="дд.мм.гг.")
                     .piker-calendar
                   .field-text__in
-                    +e("input").field-text.child-field(type="data")
+                    +e("input").field-text.child-field.js-date-mast(type="data" placeholder="дд.мм.гг.")
                     .piker-calendar
                   .field-text__in.field-text__mod
-                    +e("input").field-text(type="data")
+                    +e("input").field-text.js-date-mast(type="data" placeholder="дд.мм.гг.")
                     .piker-calendar
 
                 .js-group(data-field="4")
                   .field-text__group
                     .field-text__in
-                      +e("input").field-text.child-field(type="data")
+                      +e("input").field-text.child-field.js-date-mast(type="data" placeholder="дд.мм.гг.")
                       .piker-calendar
                     .field-text__in
-                      +e("input").field-text.child-field(type="data")
+                      +e("input").field-text.child-field.js-date-mast(type="data" placeholder="дд.мм.гг.")
                       .piker-calendar
                   .field-text__group.field-text__mod
                     .field-text__in
-                      +e("input").field-text.child-field(type="data")
+                      +e("input").field-text.child-field.js-date-mast(type="data" placeholder="дд.мм.гг.")
                       .piker-calendar
                     .field-text__in
-                      +e("input").field-text.child-field(type="data")
+                      +e("input").field-text.child-field.js-date-mast(type="data" placeholder="дд.мм.гг.")
                       .piker-calendar
 
         hr 
@@ -133,3 +141,4 @@
           +e("a").btn(href="#") Сохранить 
 
         
+ 
