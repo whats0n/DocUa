@@ -157,15 +157,14 @@ body
                 if file.page_name == 'doctors' || file.page_name == 'clinics'
                   .col-md-9
                     .catalog-controls
-                      .row
-                        .col-sm-6.catalog-controls__column
+                        .catalog-controls__column
                           .catalog-controls__results| Найдено <strong>220 #{file.find_text}</strong>,
                           | отсортированы
                           select.select7
                             option(value="rate_desc", selected) по рейтингу
                             option(value="rate_az") по названию (А-Я)
                             option(value="rate_za") по названию (Я-А)
-                        .col-sm-6
+                        .catalog-controls__right-side
                           if file.page_name == 'clinics'
                             +b.catalog-checkboxes: +i({items: ["Работает в воскресенье", "Работает в субботу"]})
                           if file.page_name == 'doctors'
@@ -248,7 +247,7 @@ body
                         a(href="$")
                           img(src="http://placecage.com/350/179", alt="")
                       .article-block__title
-                        a(href="#") Школьные болезни: к чему готовиться?
+                        a(href="#") Школьные болезни: к чему готовиться?Школьные болезни: к чему готовиться?
                       .article-block__info
                         time.main-time 27.07.2015
                         ul.info-list 

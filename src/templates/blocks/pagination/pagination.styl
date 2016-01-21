@@ -7,7 +7,7 @@
     
     li
         display: inline-block
-        vertical-align: top
+        vertical-align: middle
         float: none !important
         
     >li
@@ -19,11 +19,14 @@
                     border-top-right-radius 0
                     border-bottom-right-radius 0
                     border-right 0
-                    border-left 1px solid #91b5bc                    
+                    border-left 1px solid #91b5bc 
+                    border-top 1px solid
+                    border-bottom 1px solid                   
                     @media screen560
                         border-radius: 50%
                         border: none
                         padding: 4px 5px 3px 
+            
             &.end
                 a
                     border-top-left-radius 0
@@ -31,20 +34,26 @@
                     border-top-right-radius 100px
                     border-bottom-right-radius 100px
                     border-right 1px solid #91b5bc
-            @media screen560
+                    border-top 1px solid
+                    border-bottom 1px solid
+                    border-left 0
+            &.middle
                 a
-                    border-radius 100px
-                    margin-right 2px
-                    border-color transparent
-                    background-color #c0d2d6
-                a
-                    color #fff
-                &.start, &.end
-                    a
+                    border-top 1px solid #91b5bc
+                    border-bottom 1px solid #91b5bc 
+            
+                    @media screen560
                         border-radius 100px
                         margin-right 2px
-                        color #fff
+                        border-color transparent
                         background-color #c0d2d6
+                        color #fff
+                // &.start, &.end
+                //     a
+                //         border-radius 100px
+                //         margin-right 2px
+                //         color #fff
+                //         background-color #c0d2d6
 
     .active:not(.start)
         a

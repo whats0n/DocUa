@@ -465,12 +465,16 @@ ul
     .catalog-controls
         margin-bottom 20px
         font-size 16px
+        clearfix()
         &__results
             display inline-block
             margin-right 3px
             @media phone_tablet
                 display: block
-                
+        .catalog-controls__column
+            float left 
+        .catalog-controls__right-side
+            float right       
         @media phone_tablet
             margin-bottom 10px
             .catalog-controls__column
@@ -988,6 +992,7 @@ a:focus, a:hover
         font-size: 16px
         font-weight: 700
         line-height: 1
+        min-height 64px
         padding: 0 15px 16px
         a
             display: inline-block

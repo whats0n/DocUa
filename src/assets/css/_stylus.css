@@ -646,6 +646,15 @@ ul.border-dotted .first li {
 .main-content .catalog-controls {
   margin-bottom: 20px;
   font-size: 16px;
+  zoom: 1;
+}
+.main-content .catalog-controls:before,
+.main-content .catalog-controls:after {
+  content: "";
+  display: table;
+}
+.main-content .catalog-controls:after {
+  clear: both;
 }
 .main-content .catalog-controls__results {
   display: inline-block;
@@ -655,6 +664,12 @@ ul.border-dotted .first li {
   .main-content .catalog-controls__results {
     display: block;
   }
+}
+.main-content .catalog-controls .catalog-controls__column {
+  float: left;
+}
+.main-content .catalog-controls .catalog-controls__right-side {
+  float: right;
 }
 @media only screen and (max-width: 991px) {
   .main-content .catalog-controls {
@@ -1348,6 +1363,7 @@ a:hover {
   font-size: 16px;
   font-weight: 700;
   line-height: 1;
+  min-height: 64px;
   padding: 0 15px 16px;
 }
 .article-block__title a {
@@ -3442,7 +3458,7 @@ article.static-page .header-styled.header-styled-mod {
 }
 .blog-submenu li {
   float: left;
-  padding: 0 4% 14px;
+  padding: 0 2% 14px;
   line-height: 1.3;
 }
 @media only screen and (max-width: 1200px) {
@@ -3820,10 +3836,14 @@ html {
 .cabinet-section .profile__item {
   position: relative;
   margin-bottom: 16px;
+  zoom: 1;
+}
+.cabinet-section .profile__item:before,
+.cabinet-section .profile__item:after {
+  content: "";
+  display: table;
 }
 .cabinet-section .profile__item:after {
-  content: '';
-  display: table;
   clear: both;
 }
 .cabinet-section .profile__item:last-child {
@@ -4610,13 +4630,14 @@ hr {
 }
 .content-favorites__item .favorites-left {
   display: inline-block;
+  width: 70%;
 }
 .content-favorites__item .favorites-left__link img {
   vertical-align: top;
+  float: left;
 }
 .content-favorites__item .favorites-left .favorite-title {
-  display: inline-block;
-  padding-left: 15px;
+  padding-left: 95px;
 }
 .content-favorites__item .favorites-left .favorite-title__link {
   color: #4b89d3;
@@ -4652,6 +4673,15 @@ hr {
 }
 .content-favorites__item .favorites-left .favorite-title .address-info__mod {
   padding-top: 7px;
+  zoom: 1;
+}
+.content-favorites__item .favorites-left .favorite-title .address-info__mod:before,
+.content-favorites__item .favorites-left .favorite-title .address-info__mod:after {
+  content: "";
+  display: table;
+}
+.content-favorites__item .favorites-left .favorite-title .address-info__mod:after {
+  clear: both;
 }
 .content-favorites__item .favorites-left .favorite-title .address-info__mod .small-card__address {
   margin-right: 25px;
@@ -4663,9 +4693,6 @@ hr {
   .content-favorites__item .favorites-left .favorite-title .address-info__mod .small-card__location {
     display: block;
   }
-}
-.content-favorites__item .favorites-left .favorite-title .small-card__schedule-mod {
-  margin-top: 25px;
 }
 .content-favorites__item .favorites-right {
   text-align: right;
@@ -9330,7 +9357,7 @@ hr {
 }
 @media only screen and (max-width: 991px) {
   .navbar-main .favorites-link {
-    margin: 0;
+    margin-right: 0;
   }
 }
 .navbar-main .user-panel {
@@ -9576,7 +9603,7 @@ article a {
 }
 .pagination li {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
   float: none !important;
 }
 .pagination >li.active.start a {
@@ -9586,6 +9613,8 @@ article a {
   border-bottom-right-radius: 0;
   border-right: 0;
   border-left: 1px solid #91b5bc;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
 }
 @media only screen and (max-width: 560px) {
   .pagination >li.active.start a {
@@ -9601,25 +9630,22 @@ article a {
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
   border-right: 1px solid #91b5bc;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-left: 0;
+}
+.pagination >li.active.middle a {
+  border-top: 1px solid #91b5bc;
+  border-bottom: 1px solid #91b5bc;
 }
 @media only screen and (max-width: 560px) {
-  .pagination >li.active a {
+  .pagination >li.active.middle a {
     -webkit-border-radius: 100px;
     border-radius: 100px;
     margin-right: 2px;
     border-color: transparent;
     background-color: #c0d2d6;
-  }
-  .pagination >li.active a {
     color: #fff;
-  }
-  .pagination >li.active.start a,
-  .pagination >li.active.end a {
-    -webkit-border-radius: 100px;
-    border-radius: 100px;
-    margin-right: 2px;
-    color: #fff;
-    background-color: #c0d2d6;
   }
 }
 .pagination .active:not(.start) a {
