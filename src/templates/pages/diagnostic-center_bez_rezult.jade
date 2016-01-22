@@ -1,16 +1,16 @@
 //---
     layout: layouts/main
-    title: Венерологические клиники в Киеве
-    activeMenuItem: 1
-    finder: clinics
+    title: Диагностический центр в Киеве
+    activeMenuItem: 0
+    finder: doctors
     modals: select-area, select-branch, clinic-location-map, clinic-request
-    page_name: clinics
+    page_name: diagnostic
     find_text: клиник
 
-.row    
+.row.diagnostic-center_bez_rezult      
     section.col-md-9
         +b.doctors-region
-            h3 Клиники пульмонологии в других районах (6)
+            h3 Клиники пульмонологии в других районах (6) 
             +e("ul").list
                 +e("li").item
                     +e("a").link(href="#").is-red Осокорки
@@ -36,11 +36,11 @@
                     +b.card.card-underline(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, clinicFilials: affilatesIsida, uid: uid }) 
             +b.small-card.small-card_mod
                 +e.left-side.hidden-xs
-                    +e.image(class=card.gender).small-card__image-mod
+                    +e.image.small-card__image-mod
                         img.photo(src="i/small-card-img1.jpg", alt="")
-                    +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+                    +b.rating
 
-                    +e.testimonials(class=testimonialsClass)
+                    +e.testimonials
                         a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
                             span.count= item.testimonialsCount
                             |  отзывов
@@ -55,7 +55,7 @@
                             a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
                                 span.count= item.testimonialsCount
                                 |  отзывов
-                    +e.label-description.small-card__description-mod
+                    +e.label-description.small-card__description-mod 
                         span #{item.labelDescription}&nbsp;
                         a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
                     .address-info.small-card__address-mod
@@ -78,7 +78,7 @@
                         a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
             +b.small-card.small-card_mod
                 +e.left-side.hidden-xs
-                    +e.image(class=card.gender).small-card__image-mod
+                    +e.image.small-card__image-mod
                         img.photo(src="i/small-card-img1.jpg", alt="")
                     +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
 
@@ -119,10 +119,3 @@
                                             span.right= item1.time
                         a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
                     
-        +b("a").load-items(href="#"): +i
-
-        +b("ul").pagination: +i 
-    aside.col-md-3.hidden-sm.hidden-xs
-        .widget.widget-map
-            #map-canvas-right
-            a.btn.btn-success(href="/map.html") Развернуть карту

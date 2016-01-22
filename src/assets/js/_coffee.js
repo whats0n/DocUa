@@ -1633,21 +1633,24 @@ $(".finder").on("branchSelected", function(e, arg) {
   var title, value;
   title = arg.title, value = arg.value;
   $(".finder [data-target='#select-branch']").parent().find('.finder__field-text').val(value ? title : $(".finder [data-target='#select-branch'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
-  return $("#select-branch").modal("hide");
+  $("#select-branch").modal("hide");
+  return $(".finder [data-target='#select-branch'] input[type='hidden']").val(value);
 });
 
 $(".finder").on("actionsSelected", function(e, arg) {
   var title, value;
   title = arg.title, value = arg.value;
   $(".finder [data-target='#select-actions']").parent().find('.finder__field-text').val(value ? title : $(".finder [data-target='#select-actions'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
-  return $("#select-actions").modal("hide");
+  $("#select-actions").modal("hide");
+  return $(".finder [data-target='#select-actions'] input[type='hidden']").val(value);
 });
 
 $(".finder").on("bundlesSelected", function(e, arg) {
   var title, value;
   title = arg.title, value = arg.value;
   $(".finder [data-target='#select-bundles']").parent().find('.finder__field-text').val(value ? title : $(".finder [data-target='#select-bundles'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
-  return $("#select-bundles").modal("hide");
+  $("#select-bundles").modal("hide");
+  return $(".finder [data-target='#select-bundles'] input[type='hidden']").val(value);
 });
 
 $("#select-area").on("areaSelected", function(e, arg) {
