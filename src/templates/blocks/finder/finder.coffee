@@ -17,7 +17,7 @@ $("#select-area [data-action='reset']").click ->
     $(".finder [data-target='#select-area'] .finder__field-text")
         .text($(".finder [data-target='#select-area'] .finder__field-text").data "emptyText")
         .addClass("grey")
-    $(".finder [data-target='#select-area'] input[type='hidden']").val value
+    $(".finder [data-target='#select-area'] input[type='hidden']").val ""
     off
 
 $("#select-countries [data-action='reset']").click ->
@@ -25,7 +25,7 @@ $("#select-countries [data-action='reset']").click ->
     $(".finder [data-target='#select-countries'] .finder__field-text")
         .text($(".finder [data-target='#select-countries'] .finder__field-text").data "emptyText")
         .addClass("grey")
-    $(".finder [data-target='#select-countries'] input[type='hidden']").val value
+    $(".finder [data-target='#select-countries'] input[type='hidden']").val ""
     off
 
 # popup submits
@@ -107,6 +107,8 @@ $(".finder").on "specializationSelected", (e, {title, value, dataValue}) ->
     $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text')
         .val(if value then title else $(".finder [data-target='#select-specialization'] .finder__field-text").data "emptyText")
         .toggleClass("grey", not value)
+    $(".finder [data-target='#select-specialization'] input[type='hidden']").val value
+
     $("#select-specialization").modal "hide"
 
  $(".finder").on "branchSelected", (e, {title, value}) ->
@@ -137,6 +139,7 @@ $(".finder").on "specializationSelected", (e, {title, value, dataValue}) ->
 $("#select-area").on "areaSelected", (e, {values}) ->
     title = (value.title for value in values).join ", "
     value = (value.value for value in values).join ", "
+    $(".finder [data-target='#select-area'] input[type='hidden']").val value
     $(".finder [data-target='#select-area']").parent().find('.finder__field-text')
         .val(if values.length > 0 then title else $(".finder [data-target='#select-area'] .finder__field-text").data "emptyText")
         .toggleClass("grey", values.length is 0)
