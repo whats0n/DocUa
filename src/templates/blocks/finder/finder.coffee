@@ -17,7 +17,7 @@ $("#select-area [data-action='reset']").click ->
     $(".finder [data-target='#select-area'] .finder__field-text")
         .text($(".finder [data-target='#select-area'] .finder__field-text").data "emptyText")
         .addClass("grey")
-    $(".finder [data-target='#select-area'] input[type='hidden']").val ""
+    $(".finder [data-target='#select-area'] input[type='hidden']").val value
     off
 
 $("#select-countries [data-action='reset']").click ->
@@ -25,7 +25,7 @@ $("#select-countries [data-action='reset']").click ->
     $(".finder [data-target='#select-countries'] .finder__field-text")
         .text($(".finder [data-target='#select-countries'] .finder__field-text").data "emptyText")
         .addClass("grey")
-    $(".finder [data-target='#select-countries'] input[type='hidden']").val ""
+    $(".finder [data-target='#select-countries'] input[type='hidden']").val value
     off
 
 # popup submits
