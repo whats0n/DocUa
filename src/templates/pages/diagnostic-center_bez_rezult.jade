@@ -7,10 +7,18 @@
     page_name: diagnostic
     find_text: клиник
 
+
+.row
+    section.col-md-12
+        .diagnostic-center__request ЭКГ-проба с дозированной физической нагрузкой (велоэргометрия или тредмил-тест) в Киеве, с. Софиевская Борщаговка 
+.row
+    section.col-md-12.diagnostic-strong
+        .doctors-alert
+            span К сожалению, в выбранном Вами районе "с. Софиевская Борщаговка" диагностических центров не найдено. Найдите диагностический центр по направлению экг-проба с дозированной физической нагрузкой (велоэргометрия или тредмил-тест) в ближайших районах
 .row.diagnostic-center_bez_rezult      
     section.col-md-9
         +b.doctors-region
-            h3 Клиники пульмонологии в других районах (6) 
+            h3 Диагностические центры по направлению экг-проба с дозированной физической нагрузкой (велоэргометрия или тредмил-тест) в других районах (4)
             +e("ul").list
                 +e("li").item
                     +e("a").link(href="#").is-red Осокорки
@@ -20,102 +28,202 @@
                     +e("a").link(href="#").is-green Лукьяновка
                 +e("li").item
                     +e("a").link(href="#").is-blue Позняки
-                +e("li").item.is-last
-                    +e("a").link(href="#").is-green Шулявка
-                +e("li").item.is-last
-                    +e("a").link(href="#").is-green Оболонь
+        
         +b("ul").card-list 
-            each clinic in clinics
-                if clinic.hasFilials
-                    - classes = "card_clinic has-hidden-small-cards" 
-
-                - var uid = "uid-130146"
-                if clinic.address
-                    +b.card.card-underline(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, moreLink: true, clinicFilials: affilatesIsida, uid: uid })
-                else
-                    +b.card.card-underline(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, clinicFilials: affilatesIsida, uid: uid }) 
+             
             +b.small-card.small-card_mod
                 +e.left-side.hidden-xs
                     +e.image.small-card__image-mod
                         img.photo(src="i/small-card-img1.jpg", alt="")
                     +b.rating
-
+                        +e.value.value 4.9
+                        +e.stars 
+                            +e.stars-bg
+                            +e.stars-overlay(style="width: 80%;") 
                     +e.testimonials
-                        a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
-                            span.count= item.testimonialsCount
-                            |  отзывов
+                        a(href="", title="") 10 отзывов
+                            
                 +e.right-side
                     +b.favorites-block.pull-right: +i
                     +e.title.fn.org
                         h3.h3
-                            a(href=pageLink, title=item.name)= item.name
-                    .right-side-rating.visible-xs
-                        +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
-                        +e.testimonials(class=testimonialsClass)
-                            a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
-                                span.count= item.testimonialsCount
-                                |  отзывов
-                    +e.label-description.small-card__description-mod 
-                        span #{item.labelDescription}&nbsp;
+                            a(href="", title="") Medicinе group
+                    
+                    +e.label-description.small-card__description-mod
+                        span Терапия, Урология, Эндокринология, Акушерство 
                         a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
-                    .address-info.small-card__address-mod
-                        if item.address && !clinicWorld
-                            +e.address.adr
-                                a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
-                        if item.metro && !clinicWorld
-                            +e.location.card__location_metro(class=item.metroType)
-                                = item.metro.join(", ")
-                        if !onlineConsultation && !doctorWorld && !clinicWorld
-                            +e.location= item.location.join(", ")
-                    +e.footer
-                        if file.page_name != clinics
-                            +e.schedule
-                                ul
-                                    each item1 in item.schedule
-                                        li
-                                            span.left #{item1.day}:
-                                            span.right= item1.time
+                    .address-info.address-info__mod
+                      .small-card__address
+                        a.street-adress.dotted.grey(href="") г.Киев, пр.Науки 30
+                      .blue.card__location_metro.small-card__location Димеевская 
+                      .small-card__location Голосеевский, Саперная слободка
+                    .small-card__footer
+                      .small-card__schedule.small-card__schedule-mod
+                        ul
+                          li.first-child 
+                            span.left Пн - Пт
+                            span.right 9:00 - 21:00
+                          li
+                            span.left Сб:
+                            span.right 9:00 - 19:00
+                          li.last-child
+                            span.left Нд:
+                            span.right 9:00 - 19:00
+                        a.btn.btn-success.pull-right.diagnost-center_bez(href="/modals.html#doctor-request", title="") Записаться в клинику
+            +b.small-card.small-card_mod
+                +e.left-side.hidden-xs
+                    +e.image.small-card__image-mod
+                        img.photo(src="i/small-card-img1.jpg", alt="")
+                     +b.rating
+                        +e.value.value 4.9
+                        +e.stars 
+                            +e.stars-bg
+                            +e.stars-overlay(style="width: 80%;") 
+                    +e.testimonials
+                        a(href="", title="") 10 отзывов
+                            
+                +e.right-side
+                    +b.favorites-block.pull-right: +i
+                    +e.title.fn.org
+                        h3.h3
+                            a(href="", title="") Medicinе group
+                    
+                    +e.label-description.small-card__description-mod
+                        span Терапия, Урология, Эндокринология, Акушерство 
+                        a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+                    .address-info.address-info__mod
+                      .small-card__address
+                        a.street-adress.dotted.grey(href="") г.Киев, пр.Науки 30
+                      .blue.card__location_metro.small-card__location Димеевская 
+                      .small-card__location Голосеевский, Саперная слободка 
+                    .small-card__footer
+                      .small-card__schedule.small-card__schedule-mod
+                        ul
+                          li.first-child 
+                            span.left Пн - Пт
+                            span.right 9:00 - 21:00
+                          li
+                            span.left Сб:
+                            span.right 9:00 - 19:00
+                          li.last-child
+                            span.left Нд:
+                            span.right 9:00 - 19:00
                         a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
             +b.small-card.small-card_mod
                 +e.left-side.hidden-xs
                     +e.image.small-card__image-mod
                         img.photo(src="i/small-card-img1.jpg", alt="")
-                    +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
-
-                    +e.testimonials(class=testimonialsClass)
-                        a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
-                            span.count= item.testimonialsCount
-                            |  отзывов
+                     +b.rating
+                        +e.value.value 4.9
+                        +e.stars 
+                            +e.stars-bg
+                            +e.stars-overlay(style="width: 80%;") 
+                    +e.testimonials
+                        a(href="", title="") 10 отзывов
+                            
                 +e.right-side
                     +b.favorites-block.pull-right: +i
                     +e.title.fn.org
                         h3.h3
-                            a(href=pageLink, title=item.name)= item.name
-                    .right-side-rating.visible-xs
-                        +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
-                        +e.testimonials(class=testimonialsClass)
-                            a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
-                                span.count= item.testimonialsCount
-                                |  отзывов
-                    +e.label-description.small-card__description-mod
-                        span #{item.labelDescription}&nbsp;
-                        a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
-                    .address-info.small-card__address-mod
-                        if item.address && !clinicWorld
-                            +e.address.adr
-                                a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
-                        if item.metro && !clinicWorld
-                            +e.location.card__location_metro(class=item.metroType)
-                                = item.metro.join(", ")
-                        if !onlineConsultation && !doctorWorld && !clinicWorld
-                            +e.location= item.location.join(", ")
-                    +e.footer
-                        if file.page_name != clinics
-                            +e.schedule
-                                ul
-                                    each item1 in item.schedule
-                                        li
-                                            span.left #{item1.day}:
-                                            span.right= item1.time
-                        a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
+                            a(href="", title="") Medicinе group
                     
+                    +e.label-description.small-card__description-mod
+                        span Терапия, Урология, Эндокринология, Акушерство 
+                        a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+                    .address-info.address-info__mod
+                      .small-card__address
+                        a.street-adress.dotted.grey(href="") г.Киев, пр.Науки 30
+                      .blue.card__location_metro.small-card__location Димеевская 
+                      .small-card__location Голосеевский, Саперная слободка
+                    .small-card__footer
+                      .small-card__schedule.small-card__schedule-mod
+                        ul
+                          li.first-child 
+                            span.left Пн - Пт
+                            span.right 9:00 - 21:00
+                          li
+                            span.left Сб:
+                            span.right 9:00 - 19:00
+                          li.last-child
+                            span.left Нд:
+                            span.right 9:00 - 19:00
+                        a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
+            +b.small-card.small-card_mod
+                +e.left-side.hidden-xs
+                    +e.image.small-card__image-mod
+                        img.photo(src="i/small-card-img1.jpg", alt="")
+                     +b.rating
+                        +e.value.value 4.9
+                        +e.stars 
+                            +e.stars-bg
+                            +e.stars-overlay(style="width: 80%;") 
+                    +e.testimonials
+                        a(href="", title="") 10 отзывов
+                            
+                +e.right-side
+                    +b.favorites-block.pull-right: +i
+                    +e.title.fn.org
+                        h3.h3
+                            a(href="", title="") Medicinе group
+                    
+                    +e.label-description.small-card__description-mod
+                        span Терапия, Урология, Эндокринология, Акушерство 
+                        a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+                    .address-info.address-info__mod
+                      .small-card__address
+                        a.street-adress.dotted.grey(href="") г.Киев, пр.Науки 30
+                      .blue.card__location_metro.small-card__location Димеевская 
+                      .small-card__location Голосеевский, Саперная слободка
+                    .small-card__footer
+                      .small-card__schedule.small-card__schedule-mod
+                        ul
+                          li.first-child 
+                            span.left Пн - Пт
+                            span.right 9:00 - 21:00
+                          li
+                            span.left Сб:
+                            span.right 9:00 - 19:00
+                          li.last-child
+                            span.left Нд:
+                            span.right 9:00 - 19:00
+                        a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
+    aside.col-md-3
+        +b.post.diagonstic-post 
+            +e.add-info
+            +e.thumb
+                img(src="i/diagnostic-aside.jpg")
+            +b.badge-label.badge-label_background_blue
+                p только через
+                img(src='i/doc-logo-small-white.png')
+                +e("span").arrow
+                    span
+            +e.body
+                +e.title
+                    +e("a").link(href="#") Пакет «Скрининг гепатитов В и С» от Оптима-фарм
+                +e.desc В медицинском центре «Оптима-фарм» только сейчас действует прекрасная возможность сэкономить 30% на комплексе УЗИ для женщин! Для этого необходимо просто записаться на услугу через сервис DOC.UA!
+            +e.footer.post-footer__mod
+                +e.prime
+                    +e("span").price-old 245 грн
+                    +e("span").price-value 160 грн
+                +e.more
+                    +e("a").more-link.btn.btn-success Подробнее
+        +b.post.diagonstic-post 
+            +e.thumb
+                img(src="i/diagnostic-aside.jpg")
+            +b.badge-label.badge-label_background_blue
+                p только через
+                img(src='i/doc-logo-small-white.png')
+                +e("span").arrow
+                    span
+            +e.body
+                +e.title
+                    +e("a").link(href="#") Пакет «Скрининг гепатитов В и С» от Оптима-фарм
+                +e.desc В медицинском центре «Оптима-фарм» только сейчас действует прекрасная возможность сэкономить 30% на комплексе УЗИ для женщин! Для этого необходимо просто записаться на услугу через сервис DOC.UA!
+            +e.footer.post-footer__mod
+                +e.prime
+                    +e("span").price-old 245 грн
+                    +e("span").price-value 160 грн
+                +e.more
+                    +e("a").more-link.btn.btn-success Подробнее
+ 
+            
