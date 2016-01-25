@@ -3194,7 +3194,7 @@ article.static-page .header-styled.header-styled-mod {
 }
 .benefits__icon {
   vertical-align: middle;
-  margin-right: 3px;
+  margin-right: 5px;
   width: 30px;
   height: 30px;
 }
@@ -3855,6 +3855,7 @@ html {
 .cabinet-section .profile__item {
   position: relative;
   margin-bottom: 16px;
+  overflow: hidden;
   zoom: 1;
 }
 .cabinet-section .profile__item:before,
@@ -4432,6 +4433,7 @@ hr {
   border-bottom: 1px dotted rgba(29,137,160,0.45);
   margin-right: 0;
   margin-left: 0;
+  overflow: hidden;
 }
 .comment__item:last-child {
   border-bottom: none;
@@ -5098,6 +5100,9 @@ hr {
 .card__job-price {
   font-size: 16px;
 }
+.card__job-title {
+  color: #4b89d3;
+}
 .card__job .card__desc,
 .card__job .address-info {
   font-size: 12px;
@@ -5269,7 +5274,7 @@ hr {
 .card__schedule li .left,
 .small-card__schedule li .left {
   float: left;
-  width: 48px;
+  width: 38px;
   color: #96b8bf;
   text-align: left;
 }
@@ -5485,7 +5490,7 @@ hr {
   content: '';
   position: absolute;
   left: 0;
-  top: 0;
+  top: 2px;
 }
 .card__address,
 .small-card__address {
@@ -5676,6 +5681,23 @@ hr {
 .card.inner .filials-list,
 .small-card.inner .filials-list {
   background-color: #fff;
+}
+.doctor-profile__image {
+  width: 140px;
+  height: 187px;
+}
+.doctor-profile__image.female {
+  background-image: url("i/no-photo-female.png");
+}
+.doctor-profile__image.male {
+  background-image: url("i/no-photo-male.png");
+}
+.clinic-profile__image {
+  width: 140px;
+  height: 187px;
+}
+.clinic-profile__image.clinic {
+  background-image: url("i/no-photo-clinic.png");
 }
 @media only screen and (max-width: 767px) {
   .catalog-checkboxes {
@@ -7828,6 +7850,14 @@ hr {
   box-shadow: 0 10px 15px #e3e4ed;
   border-color: #35bfae;
 }
+.load-items.load-items__modifie {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.load-items.load-items__modifie:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 .load-items span {
   position: relative;
 }
@@ -9470,6 +9500,11 @@ hr {
     margin-right: 15px;
   }
 }
+.navbar-main .user-panel-menu__button {
+  -webkit-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
 @media only screen and (max-width: 991px) {
   .navbar-main .user-panel-menu__button {
     display: none;
@@ -9699,6 +9734,9 @@ article a {
 }
 .rich-box {
   display: none;
+}
+.rich-box p {
+  margin: 0;
 }
 .rich-box.active {
   display: block;
@@ -10628,7 +10666,6 @@ __thumbs .owl-next {
 }
 .post__price {
   float: left;
-  width: 42%;
   height: 25px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -10659,8 +10696,7 @@ __thumbs .owl-next {
   text-decoration: line-through;
 }
 .post__more {
-  float: left;
-  width: 58%;
+  float: right;
 }
 .post__more-link {
   float: right;
@@ -13129,6 +13165,9 @@ article.static-page img.ratin-doctor {
   color: #a8e3ee;
   background-color: transparent;
   border-color: #a8e3ee;
+  -webkit-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 .user-panel-auth .btn:hover {
   color: #fff;
