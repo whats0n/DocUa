@@ -1,6 +1,18 @@
 .card__mod
     margin-bottom 0
-
+.btn-media
+    @media only screen and (max-width: 1200px)
+        position absolute
+        right 20px
+        top 55px
+    @media only screen and (max-width: 992px)
+        top 90px
+    @media screen560
+        position static
+        float right
+        margin 0
+        margin-top -5px
+        padding 5px 8px !important
 .small-card__action-mod
     span.orange-light
         background-color #ffc02a
@@ -9,11 +21,12 @@
         &:after
             border-color: transparent transparent transparent #ffc02a
     
-    
+.tab-content__diagnostic-center 
+    margin-bottom 40px    
 .price-item__mod
+    position relative
     padding 20px 20px 10px 20px 
     cursor pointer
-    
     // border-top 1px solid #c0d2d6
     &:first-child
         border-top none
@@ -41,18 +54,24 @@
         &:hover
             background none
     .block-sevices__list-mod
-        
         .row-in-price__mod
             border-bottom none
             &:hover:before
                 background-color none 
+            
+                    
+    .block-services__price-discount
+        @media screen560
+            float none
+            text-align left
 .block-services__title-mod
     padding 0 
     margin 0 20px
     cursor default
     border-top 1px solid #c0d2d6
     strong
-        padding 13px 0 13px 0px 
+        padding 13px 0 13px 0pxs
+
               
 .diagnostic-reviews
     
@@ -127,4 +146,8 @@
         padding-right 0
 
 
+//hidden aside map
+.time-hidden
+    @media phone
+        display none
         

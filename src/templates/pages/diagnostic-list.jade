@@ -1,14 +1,14 @@
 //---
     layout: layouts/main
     title: Диагностические центры Киева
-    activeMenuItem: 1
-    finder: clinics
+    activeMenuItem: 0
+    finder: doctors
     modals: select-area, select-branch, clinic-location-map, clinic-request
     page_name: diagnostic-list
     find_text: клиник
 
 .row 
-    .col-md-9.col-xs-12 
+    .col-md-9.col-xs-12    
         h1= file.title 
     .col-md-9.col-xs-12
         .catalog-controls
@@ -57,7 +57,7 @@
                         +e.location.card__location_metro.blue Димеевская
                     hr.dashed
                     p «Днепролаб» – это диагностический центр на м. Осокорки, в котором проводится широкий спектр диагностических манипуляций, направленных на выявление заболеваний практически всех органов и систем. Каждый пациент имеет возможность выбрать подходящее время для прохождения процедуры, после чего в короткие сроки забрать результаты в клинике или получить их на электронную почту. Точность результата и качественное выполнение исследований – главный принцип работы.
-                    .small-card__action
+                    .small-card__action 
                         +e.action
                             span.orange Акция
                             a(href="#", title="") Скидки на все услуги -15%
@@ -81,7 +81,7 @@
                                 div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="55")
                         a(href="#").btn.btn-med.btn-success Записаться 
                 section
-                    h6
+                    h6   
                         span Услуги центра
                     - var uid = "uid-130146"
                     .block-services-wrapper(data-uid=uid)
