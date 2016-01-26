@@ -1624,7 +1624,7 @@ $(".finder").on("specializationSelected", function(e, arg) {
   if (docMaps.pageName === 'map' && value) {
     docMaps.loadDoctors('specialty', dataValue);
   }
-  $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text').val(value ? title : $(".finder [data-target='#select-specialization'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
+  $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-specialization'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
   $(".finder [data-target='#select-specialization'] input[type='hidden']").val(value);
   return $("#select-specialization").modal("hide");
 });
@@ -1632,7 +1632,7 @@ $(".finder").on("specializationSelected", function(e, arg) {
 $(".finder").on("branchSelected", function(e, arg) {
   var title, value;
   title = arg.title, value = arg.value;
-  $(".finder [data-target='#select-branch']").parent().find('.finder__field-text').val(value ? title : $(".finder [data-target='#select-branch'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
+  $(".finder [data-target='#select-branch']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-branch'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
   $("#select-branch").modal("hide");
   $(".finder [data-target='#select-branch'] input[type='hidden']").val(value);
   return false;
@@ -1641,7 +1641,7 @@ $(".finder").on("branchSelected", function(e, arg) {
 $(".finder").on("actionsSelected", function(e, arg) {
   var title, value;
   title = arg.title, value = arg.value;
-  $(".finder [data-target='#select-actions']").parent().find('.finder__field-text').val(value ? title : $(".finder [data-target='#select-actions'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
+  $(".finder [data-target='#select-actions']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-actions'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
   $("#select-actions").modal("hide");
   $(".finder [data-target='#select-actions'] input[type='hidden']").val(value);
   return false;
@@ -1650,7 +1650,7 @@ $(".finder").on("actionsSelected", function(e, arg) {
 $(".finder").on("bundlesSelected", function(e, arg) {
   var title, value;
   title = arg.title, value = arg.value;
-  $(".finder [data-target='#select-bundles']").parent().find('.finder__field-text').val(value ? title : $(".finder [data-target='#select-bundles'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
+  $(".finder [data-target='#select-bundles']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-bundles'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
   $(".finder [data-target='#select-bundles'] input[type='hidden']").val(value);
   $("#select-bundles").modal("hide");
   return false;
@@ -1678,7 +1678,7 @@ $("#select-area").on("areaSelected", function(e, arg) {
     return results;
   })()).join(", ");
   $(".finder [data-target='#select-area'] input[type='hidden']").val(value);
-  $(".finder [data-target='#select-area']").parent().find('.finder__field-text').val(values.length > 0 ? title : $(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
+  $(".finder [data-target='#select-area']").parent().find('.finder__field-text:first').val(values.length > 0 ? title : $(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
   return $("#select-area").modal("hide");
 });
 

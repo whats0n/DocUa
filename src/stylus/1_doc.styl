@@ -511,7 +511,7 @@ ul
                     width 0
                     height 0
                     left 50%
-                &:before
+                &:before 
                     bottom 0
                     margin-left: -8px
                     border-style: solid
@@ -529,7 +529,10 @@ ul
                     background-color transparent
             &.is-action
                 &:after
-                    border-color: transparent transparent #f4f8f8 !important 
+                    border-color: transparent transparent #f4f8f8 !important
+            &.is-color-triangle
+                &:after
+                    border-color: transparent transparent #fff9e9 !important 
         &.nav-clinic
             >li:nth-child(1).active, >li:nth-child(3).active
                 &:after
@@ -546,7 +549,7 @@ ul
                     border-color transparent transparent grey_base
         @media phone
             padding-left 0
-            border-color transparent
+            border-color transparent 
             li
                 float none
                 text-align center
@@ -563,7 +566,7 @@ ul
                     padding 3px 0
                     color #fff
     .tab-content
-        border 1px solid #F5F6F9
+        border 1px solid #F5F6F9 
         
         .rating
             &__value
@@ -604,6 +607,24 @@ ul
                         position: absolute
                         top: 6px
                         left: 0
+            ul
+                list-style: none
+                margin: 0
+                padding: 0
+                padding-left: 20px
+                li
+                    position: relative
+                    margin-bottom: 4px
+                    padding-left: 20px
+                    line-height: 1.75
+                    &:before
+                        content "•"
+                        position: absolute
+                        top: 0
+                        left: 0
+                        font-size: 22px
+                        line-height: 24px
+                        color: #96b8bf
         .tab-pane
             background #fff
             border-radius 0 0 border_radius_sm border_radius_sm

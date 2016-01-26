@@ -104,14 +104,14 @@ $(".finder #clinics").on "click", ".chooser__list__item-link", (e) ->
 $(".finder").on "specializationSelected", (e, {title, value, dataValue}) ->
     if docMaps.pageName == 'map' and value
         docMaps.loadDoctors('specialty', dataValue)
-    $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text')
+    $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text:first')
         .val(if value then title else $(".finder [data-target='#select-specialization'] .finder__field-text").data "emptyText")
         .toggleClass("grey", not value)
     $(".finder [data-target='#select-specialization'] input[type='hidden']").val value
     $("#select-specialization").modal "hide"
 
  $(".finder").on "branchSelected", (e, {title, value}) ->
-   $(".finder [data-target='#select-branch']").parent().find('.finder__field-text')
+   $(".finder [data-target='#select-branch']").parent().find('.finder__field-text:first')
         .val(if value then title else $(".finder [data-target='#select-branch'] .finder__field-text").data "emptyText")
         .toggleClass("grey", not value)
    $("#select-branch").modal "hide"
@@ -120,7 +120,7 @@ $(".finder").on "specializationSelected", (e, {title, value, dataValue}) ->
 
 
  $(".finder").on "actionsSelected", (e, {title, value}) ->
-   $(".finder [data-target='#select-actions']").parent().find('.finder__field-text')
+   $(".finder [data-target='#select-actions']").parent().find('.finder__field-text:first')
        .val(if value then title else $(".finder [data-target='#select-actions'] .finder__field-text").data "emptyText")
        .toggleClass("grey", not value)
    $("#select-actions").modal "hide"
@@ -128,7 +128,7 @@ $(".finder").on "specializationSelected", (e, {title, value, dataValue}) ->
    false
 
  $(".finder").on "bundlesSelected", (e, {title, value}) ->
-   $(".finder [data-target='#select-bundles']").parent().find('.finder__field-text')
+   $(".finder [data-target='#select-bundles']").parent().find('.finder__field-text:first')
        .val(if value then title else $(".finder [data-target='#select-bundles'] .finder__field-text").data "emptyText")
        .toggleClass("grey", not value)
    $(".finder [data-target='#select-bundles'] input[type='hidden']").val value
@@ -146,7 +146,7 @@ $("#select-area").on "areaSelected", (e, {values}) ->
     title = (value.title for value in values).join ", "
     value = (value.value for value in values).join ", "
     $(".finder [data-target='#select-area'] input[type='hidden']").val value
-    $(".finder [data-target='#select-area']").parent().find('.finder__field-text')
+    $(".finder [data-target='#select-area']").parent().find('.finder__field-text:first')
         .val(if values.length > 0 then title else $(".finder [data-target='#select-area'] .finder__field-text").data "emptyText")
         .toggleClass("grey", values.length is 0)
     $("#select-area").modal "hide"
