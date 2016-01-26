@@ -1678,7 +1678,7 @@ $("#select-area").on("areaSelected", function(e, arg) {
     return results;
   })()).join(", ");
   $(".finder [data-target='#select-area'] input[type='hidden']").val(value);
-  $(".finder [data-target='#select-area']").parent().find('.finder__field-text:first').val(values.length > 0 ? title : $(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
+  $(".finder [data-target='#select-area']").parent().find('.finder__field-text:last').val(values.length > 0 ? title : $(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
   return $("#select-area").modal("hide");
 });
 
