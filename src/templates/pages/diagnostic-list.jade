@@ -19,7 +19,7 @@
             option(value="rate_az") по названию (А-Я)
             option(value="rate_za") по названию (Я-А)
 .row 
-    .col-md-9.col-xs-12
+    .col-md-9.col-xs-12.promo-container
         +b.card.card-services 
             .item
                 +e.left-side
@@ -88,8 +88,12 @@
                         include ../blocks/block-services/block-services.jade 
                         +b.more-toggle: +i({ title: "Просмотреть весь прайс-лист", className: "show-hidden", absSelector: "[data-uid='" + uid + "']" })
         
-        +b.card.card-services
+        +b.card.card-services.item.item-promo
             .item
+            
+                .item-promo__block 
+                    a(href="#").item-promo__title промо 
+                    .item-promo__hidden Ресторан размещен  вверху списка на правах рекламы 
                 +e.left-side
                     +e.image
                         img.photo(src="i/_insightmedical.png", alt="")
@@ -105,7 +109,7 @@
                     +e.schedule
                         ul
                             li
-                                span.left Пн - Пт
+                                span.left Пн - Пт 
                                 span.right 9:00 - 21:00
                             li
                                 span.left Сб
@@ -113,7 +117,7 @@
                             li
                                 span.left Нд
                                 span.right 9:00 - 19:00
-                +e.right-side 
+                +e.right-side  
                     +b.favorites-block.pull-right: +i
                     +e.title.fn.org
                         h3.h3

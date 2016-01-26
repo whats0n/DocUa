@@ -2441,6 +2441,70 @@ article.static-page .header-styled.header-styled-mod {
   padding-right: 10px;
   padding-top: 5px !important;
 }
+.promo-container .item-promo {
+  position: relative;
+  border: 1px solid #35bfae !important;
+  -webkit-border-radius: 0 3px 3px 3px;
+  border-radius: 0 3px 3px 3px;
+}
+.promo-container .item-promo__block {
+  position: absolute;
+  top: -20px;
+  left: -1px;
+}
+.promo-container .item-promo__block:hover .item-promo__hidden {
+  display: block;
+}
+.promo-container .item-promo__title {
+  background-color: #35bfae;
+  text-decoration: none;
+  color: #fff;
+  font-size: 11px;
+  padding: 1px 15px;
+  -webkit-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.promo-container .item-promo__hidden {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  white-space: nowrap;
+  background-color: #35bfae;
+  color: #fff;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin: 10px 0 0 10px;
+  z-index: 5;
+}
+@media only screen and (max-width: 560px) {
+  .promo-container .item-promo__hidden {
+    white-space: normal;
+    width: 250px;
+  }
+}
+.promo-container .item-promo__hidden:before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-bottom: 6px solid #35bfae;
+}
+.promo-container .promo-block__link {
+  border: 1px solid #35bfae !important;
+}
 .body-partners >.main-content {
   padding-top: 0 !important;
   padding-bottom: 0;
@@ -2893,8 +2957,11 @@ article.static-page .header-styled.header-styled-mod {
 .articles-list .article-list-item:after {
   clear: both;
 }
-.articles-list .article-list-item.last-child {
+.articles-list .article-list-item:last-child {
   border: none;
+}
+.articles-list .article-list-item:first-child {
+  display: block;
 }
 .articles-list .article-list-item__image {
   float: left;
@@ -5719,7 +5786,7 @@ hr {
 }
 .clinic-profile__image {
   width: 140px;
-  height: 187px;
+  height: 140px;
 }
 .clinic-profile__image.clinic {
   background-image: url("i/no-photo-clinic.png");
@@ -8180,7 +8247,8 @@ hr {
   height: 500px;
 }
 .modal-body-map #modal-map {
-  height: 500px;
+  width: 100% !important;
+  height: 500px !important;
 }
 .marker-window {
   overflow: visible !important;
@@ -9174,7 +9242,7 @@ hr {
   margin: 0 0 13px 20px;
 }
 .modal-body.js-list-scroll {
-  height: 507px;
+  height: 480px;
   width: 100%;
   overflow: hidden;
   outline: none;
@@ -9614,7 +9682,6 @@ hr {
 }
 .page-menu {
   padding: 12px 21px;
-  border-bottom: 1px dashed #c0d2d6;
 }
 .page-menu__item {
   position: relative;
@@ -9663,6 +9730,7 @@ hr {
   margin-bottom: 21px;
 }
 .themes-more {
+  border-top: 1px dashed #c0d2d6;
   text-align: center;
   padding: 12px;
 }
@@ -9769,9 +9837,6 @@ article a {
 }
 .rich-box {
   display: none;
-}
-.rich-box p {
-  margin: 0;
 }
 .rich-box.active {
   display: block;

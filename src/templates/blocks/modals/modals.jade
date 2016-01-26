@@ -652,6 +652,7 @@ mixin modal(name, classes, dialogClasses)
         .modal-title Выберите тему акции
     .modal-body 
         ul.alphabet-list.columnize(data-columns="4", data-balance-method="balanceCount")
+            
             each specialization in specializationsAlphabet
                 li.alphabet-list__item
                     span.alphabet-list__letter= specialization.title
@@ -659,7 +660,13 @@ mixin modal(name, classes, dialogClasses)
                         each specializationChildren in specialization.children
                             li.alphabet-list__sub-item
                                 a(href=specializationChildren.url, title=specializationChildren.title)= specializationChildren.title
-    .modal-footer
+                            li.alphabet-list__sub-item dsfdsfsdf
+                            li.alphabet-list__sub-item dsfdsfsdf
+                            li.alphabet-list__sub-item dsfdsfsdf
+                            li.alphabet-list__sub-item dsfdsfsdf
+                            li.alphabet-list__sub-item dsfdsfsdf
+    .modal-footer.footer-branch
+        button.btn.btn-primary.modals-btn-220(type="button") Показать все акции
 +modal("select-services", "bs-modal-md")
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
