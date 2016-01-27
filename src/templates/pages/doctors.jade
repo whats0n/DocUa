@@ -8,7 +8,7 @@
     find_text: врачей
 
 .row  
-    section.col-md-9 
+    section.col-md-9  
         +b.doctors-region 
             h3 Врачи-иммунологи в других районах (4)
             //- div.directory-patient.border-dotted.columnize(data-columns="3")
@@ -27,7 +27,7 @@
         +b("ul").card-list 
             each doctor in doctors
                 +b.card(data-id= 'c' + doctor.id): +i({ card: doctor, landing: true, moreLink: true, doctors_page: true }) 
-        +b("ul").doctors-card
+        +b("ul").doctors-card.promo-container
             +e("li").item
                 +e("div").img
                     img(src="i/_alexandriyskiy-constantin.jpg", alt="")
@@ -42,12 +42,15 @@
                             li Доктор медицинских наук. Врач высшей категории
                         +e("div").price Стоимость приема: 
                             strong 605 грн
-                    +e("div").info
+                    +e("div").info 
                         +e("div").rating
                             +b.rating: +i({ value: 4.9 })
                             +e("a").views(href="#") 233 отзыва
                         +b("a").btn.btn-success(href="#doctor-request" data-toggle="modal") Записаться на прием
-            +e("li").item
+            +e("li").item.item-promo
+                .item-promo__block 
+                    a(href="#").item-promo__title промо 
+                    .item-promo__hidden Ресторан размещен  вверху списка на правах рекламы 
                 +e("div").img
                     img(src="i/_alexandriyskiy-constantin.jpg", alt="")
                 +e("div").container

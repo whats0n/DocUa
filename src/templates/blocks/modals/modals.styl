@@ -343,7 +343,7 @@ modal_font_size = 15px
                                height 5px
                                background url("i/district-point.png")
                            
-#select-area
+#select-area, #select-other-area
     .modal-header
         padding-bottom 40px
         box-shadow none
@@ -424,20 +424,19 @@ modal_font_size = 15px
                             border-color #2d535c transparent transparent transparent
                             @media screen560
                                 border-color #153e48 transparent transparent transparent
-                                
-                        // &:after
-                        //     content ""
-                        //     position absolute
-                        //     left 50%
-                        //     bottom -7px
-                        //     width 0
-                        //     height 0
-                        //     margin-left -6px
-                        //     border-style solid
-                        //     border-width 5px 6px 0 6px
-                        //     z-index 2
-                        //     border-color #2d535c transparent transparent transparent
+#select-area
+    .modal-body
+        padding 0 12px 20px 0 
+                            
 #clinic-location-map
+    .modal
+        &-header
+            margin-bottom 4px
+        &-body
+            padding 0 2px
+        &-footer
+            padding 0 0 2px 0
+#static-map
     .modal
         &-header
             margin-bottom 4px
@@ -607,15 +606,16 @@ modal_font_size = 15px
     
 
 .modal-body
+.tab-pane
     &.js-list-scroll
-        height 507px
+        height 530px
         width 100% 
         overflow hidden
         outline none 
         padding 16px
         .jspVerticalBar
             left auto
-            right 10px
+            right 13px
             width 1px 
             .jspTrack
                 background-color #d2e1e4
@@ -624,6 +624,7 @@ modal_font_size = 15px
                 left -2px
                 border-radius 5px 
                 background-color #d2e1e4
+        
         .jspHorizontalBar
             display none
         .jspContainer
@@ -641,7 +642,16 @@ modal_font_size = 15px
             box-shadow         inset  0 -40px 70px 0 rgba(255, 255, 255, 1)
             @media phone
                 width 94%
-#select-area-districts 
+.tab-pane
+    .jspContainer
+        padding 0 
+        .jspVerticalBar
+            left auto
+            right 3px
+            width 1px 
+                
+#select-area-districts
+#select-area-districts2 
     .district-list__mod
         padding 2px 30px 50px 14px
         
@@ -680,10 +690,17 @@ modal_font_size = 15px
     height 474px 
     margin-top 10px    
     .pill
+        font-size 11px
+.metro-map-min2
+    background: url(i/metro-map-min.png) top left no-repeat;
+    width 757px
+    height 474px 
+    margin-top 10px    
+    .pill
         font-size 11px        
 
 .tab-pane__mod
-    margin 15px 0 70px 0
+    margin 15px 0 60px 0
     padding 0 30px 0 22px
     @media tablet
         margin 15px 0 60px 0 
