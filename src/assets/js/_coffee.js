@@ -1504,6 +1504,22 @@ $("#select-specialization").on("click", "li a", function(e) {
   return false;
 });
 
+$("select-other-spec").on("click", "li a", function(e) {
+  var dataValue, title, value;
+  value = $(e.currentTarget).data().value;
+  title = trim($(e.currentTarget).text());
+  if (!value) {
+    value = title;
+  }
+  dataValue = trim($(e.target).data('value'));
+  $(".finder").trigger("specializationSelected2", {
+    title: title,
+    value: value,
+    dataValue: dataValue
+  });
+  return false;
+});
+
 $("#select-branch").on("click", "li a", function(e) {
   var title, value;
   value = $(e.currentTarget).data().value;
@@ -1619,6 +1635,17 @@ $(".finder #clinics").on("click", ".chooser__list__item-link", function(e) {
 });
 
 $(".finder").on("specializationSelected", function(e, arg) {
+  var dataValue, title, value;
+  title = arg.title, value = arg.value, dataValue = arg.dataValue;
+  if (docMaps.pageName === 'map' && value) {
+    docMaps.loadDoctors('specialty', dataValue);
+  }
+  $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-specialization'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
+  $(".finder [data-target='#select-specialization'] input[type='hidden']").val(value);
+  return $("#select-specialization").modal("hide");
+});
+
+$(".finder").on("specializationSelected2", function(e, arg) {
   var dataValue, title, value;
   title = arg.title, value = arg.value, dataValue = arg.dataValue;
   if (docMaps.pageName === 'map' && value) {

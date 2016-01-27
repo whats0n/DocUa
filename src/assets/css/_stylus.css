@@ -2505,6 +2505,9 @@ article.static-page .header-styled.header-styled-mod {
 .promo-container .promo-block__link {
   border: 1px solid #35bfae !important;
 }
+.list-view {
+  margin: 20px auto;
+}
 .body-partners >.main-content {
   padding-top: 0 !important;
   padding-bottom: 0;
@@ -5785,11 +5788,13 @@ hr {
   background-image: url("i/no-photo-male.png");
 }
 .clinic-profile__image {
-  width: 140px;
-  height: 140px;
+  width: 100%;
+  height: 100%;
 }
 .clinic-profile__image.clinic {
   background-image: url("i/no-photo-clinic.png");
+  width: 140px;
+  height: 140px;
 }
 @media only screen and (max-width: 767px) {
   .catalog-checkboxes {
@@ -8888,38 +8893,46 @@ hr {
   height: 5px;
   background: url("i/district-point.png");
 }
-#select-area .modal-header {
+#select-area .modal-header,
+#select-other-area .modal-header {
   padding-bottom: 40px;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 @media only screen and (max-width: 767px) {
-  #select-area .modal-header {
+  #select-area .modal-header,
+  #select-other-area .modal-header {
     padding-left: 20px;
   }
 }
 @media only screen and (max-width: 560px) {
-  #select-area .modal-header {
+  #select-area .modal-header,
+  #select-other-area .modal-header {
     padding-left: 10px;
   }
-  #select-area .modal-header .nav-pills {
+  #select-area .modal-header .nav-pills,
+  #select-other-area .modal-header .nav-pills {
     padding-left: 8px;
   }
-  #select-area .modal-header .nav-pills li:nth-child(1) {
+  #select-area .modal-header .nav-pills li:nth-child(1),
+  #select-other-area .modal-header .nav-pills li:nth-child(1) {
     display: none;
   }
 }
-#select-area .modal-header .close {
+#select-area .modal-header .close,
+#select-other-area .modal-header .close {
   background: url("i/modal_close.png") no-repeat;
   right: 25px;
   bottom: 48px;
 }
 @media only screen and (max-width: 767px) {
-  #select-area .modal-header .close {
+  #select-area .modal-header .close,
+  #select-other-area .modal-header .close {
     bottom: 43px;
   }
 }
-#select-area .modal-header .nav-pills {
+#select-area .modal-header .nav-pills,
+#select-other-area .modal-header .nav-pills {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -8927,26 +8940,31 @@ hr {
   padding: 0 0 10px 22px;
 }
 @media only screen and (max-width: 767px) {
-  #select-area .modal-header .nav-pills {
+  #select-area .modal-header .nav-pills,
+  #select-other-area .modal-header .nav-pills {
     padding: 0 0 10px 20px;
   }
 }
 @media only screen and (max-width: 560px) {
-  #select-area .modal-header .nav-pills {
+  #select-area .modal-header .nav-pills,
+  #select-other-area .modal-header .nav-pills {
     padding: 0 0 10px 10px;
   }
 }
-#select-area .modal-header .nav-pills li {
+#select-area .modal-header .nav-pills li,
+#select-other-area .modal-header .nav-pills li {
   margin-bottom: 0;
   font-size: 16px;
   line-height: 24px;
 }
 @media only screen and (max-width: 767px) {
-  #select-area .modal-header .nav-pills li {
+  #select-area .modal-header .nav-pills li,
+  #select-other-area .modal-header .nav-pills li {
     font-size: 18px;
   }
 }
-#select-area .modal-header .nav-pills li a {
+#select-area .modal-header .nav-pills li a,
+#select-other-area .modal-header .nav-pills li a {
   position: relative;
   top: -2px;
   font-size: 22px;
@@ -8954,35 +8972,42 @@ hr {
   background-color: transparent;
   padding: 1px 4px;
 }
-#select-area .modal-header .nav-pills li a:hover {
+#select-area .modal-header .nav-pills li a:hover,
+#select-other-area .modal-header .nav-pills li a:hover {
   text-decoration: underline;
 }
 @media only screen and (max-width: 767px) {
-  #select-area .modal-header .nav-pills li a {
+  #select-area .modal-header .nav-pills li a,
+  #select-other-area .modal-header .nav-pills li a {
     font-size: 18px;
   }
 }
 @media only screen and (max-width: 560px) {
-  #select-area .modal-header .nav-pills li a {
+  #select-area .modal-header .nav-pills li a,
+  #select-other-area .modal-header .nav-pills li a {
     padding: 1px 0;
   }
 }
-#select-area .modal-header .nav-pills li.active a {
+#select-area .modal-header .nav-pills li.active a,
+#select-other-area .modal-header .nav-pills li.active a {
   color: #fff;
   font-weight: 700;
   padding: 1px 4px;
 }
 @media only screen and (max-width: 767px) {
-  #select-area .modal-header .nav-pills li.active a {
+  #select-area .modal-header .nav-pills li.active a,
+  #select-other-area .modal-header .nav-pills li.active a {
     font-size: 18px;
   }
 }
 @media only screen and (max-width: 560px) {
-  #select-area .modal-header .nav-pills li.active a {
+  #select-area .modal-header .nav-pills li.active a,
+  #select-other-area .modal-header .nav-pills li.active a {
     padding: 1px 0;
   }
 }
-#select-area .modal-header .nav-pills li.active a:before {
+#select-area .modal-header .nav-pills li.active a:before,
+#select-other-area .modal-header .nav-pills li.active a:before {
   content: "";
   position: absolute;
   left: 50%;
@@ -8995,9 +9020,13 @@ hr {
   border-color: #2d535c transparent transparent transparent;
 }
 @media only screen and (max-width: 560px) {
-  #select-area .modal-header .nav-pills li.active a:before {
+  #select-area .modal-header .nav-pills li.active a:before,
+  #select-other-area .modal-header .nav-pills li.active a:before {
     border-color: #153e48 transparent transparent transparent;
   }
+}
+#select-area .modal-body {
+  padding: 0 12px 20px 0;
 }
 #clinic-location-map .modal-header {
   margin-bottom: 4px;
@@ -9241,35 +9270,42 @@ hr {
   width: 251px;
   margin: 0 0 13px 20px;
 }
-.modal-body.js-list-scroll {
-  height: 480px;
+.modal-body.js-list-scroll,
+.tab-pane.js-list-scroll {
+  height: 530px;
   width: 100%;
   overflow: hidden;
   outline: none;
   padding: 16px;
 }
-.modal-body.js-list-scroll .jspVerticalBar {
+.modal-body.js-list-scroll .jspVerticalBar,
+.tab-pane.js-list-scroll .jspVerticalBar {
   left: auto;
-  right: 10px;
+  right: 13px;
   width: 1px;
 }
-.modal-body.js-list-scroll .jspVerticalBar .jspTrack {
+.modal-body.js-list-scroll .jspVerticalBar .jspTrack,
+.tab-pane.js-list-scroll .jspVerticalBar .jspTrack {
   background-color: #d2e1e4;
 }
-.modal-body.js-list-scroll .jspVerticalBar .jspDrag {
+.modal-body.js-list-scroll .jspVerticalBar .jspDrag,
+.tab-pane.js-list-scroll .jspVerticalBar .jspDrag {
   width: 5px;
   left: -2px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   background-color: #d2e1e4;
 }
-.modal-body.js-list-scroll .jspHorizontalBar {
+.modal-body.js-list-scroll .jspHorizontalBar,
+.tab-pane.js-list-scroll .jspHorizontalBar {
   display: none;
 }
-.modal-body.js-list-scroll .jspContainer {
+.modal-body.js-list-scroll .jspContainer,
+.tab-pane.js-list-scroll .jspContainer {
   padding: 0 16px;
 }
-.modal-body.js-list-scroll .jspContainer:after {
+.modal-body.js-list-scroll .jspContainer:after,
+.tab-pane.js-list-scroll .jspContainer:after {
   content: '';
   display: inline-block;
   position: absolute;
@@ -9283,38 +9319,54 @@ hr {
   box-shadow: inset 0 -40px 70px 0 #fff;
 }
 @media only screen and (max-width: 767px) {
-  .modal-body.js-list-scroll .jspContainer:after {
+  .modal-body.js-list-scroll .jspContainer:after,
+  .tab-pane.js-list-scroll .jspContainer:after {
     width: 94%;
   }
 }
-#select-area-districts .district-list__mod {
+.tab-pane .jspContainer {
+  padding: 0;
+}
+.tab-pane .jspContainer .jspVerticalBar {
+  left: auto;
+  right: 3px;
+  width: 1px;
+}
+#select-area-districts .district-list__mod,
+#select-area-districts2 .district-list__mod {
   padding: 2px 30px 50px 14px;
 }
-#select-area-districts .district-list__mod div {
+#select-area-districts .district-list__mod div,
+#select-area-districts2 .district-list__mod div {
   margin-bottom: 30px;
 }
 @media only screen and (max-width: 767px) {
-  #select-area-districts .pill-group {
+  #select-area-districts .pill-group,
+  #select-area-districts2 .pill-group {
     width: 45%;
     display: inline-block;
     vertical-align: top;
     margin-right: 5%;
   }
-  #select-area-districts .pill-group:nth-child(even) {
+  #select-area-districts .pill-group:nth-child(even),
+  #select-area-districts2 .pill-group:nth-child(even) {
     margin-right: 0;
   }
 }
 @media only screen and (max-width: 560px) {
-  #select-area-districts .pill-group {
+  #select-area-districts .pill-group,
+  #select-area-districts2 .pill-group {
     width: 100%;
   }
 }
-#select-area-districts .pill-group li {
+#select-area-districts .pill-group li,
+#select-area-districts2 .pill-group li {
   position: relative;
   font-size: 14px;
   padding-left: 13px;
 }
-#select-area-districts .pill-group li:before {
+#select-area-districts .pill-group li:before,
+#select-area-districts2 .pill-group li:before {
   content: "";
   position: absolute;
   left: 12px;
@@ -9324,7 +9376,8 @@ hr {
   height: 5px;
   background: url("i/district-point.png");
 }
-#select-area-districts .pill-group span span {
+#select-area-districts .pill-group span span,
+#select-area-districts2 .pill-group span span {
   margin-right: 11px;
 }
 .metro-map-min {
@@ -9336,8 +9389,17 @@ hr {
 .metro-map-min .pill {
   font-size: 11px;
 }
+.metro-map-min2 {
+  background: url("i/metro-map-min.png") top left no-repeat;
+  width: 757px;
+  height: 474px;
+  margin-top: 10px;
+}
+.metro-map-min2 .pill {
+  font-size: 11px;
+}
 .tab-pane__mod {
-  margin: 15px 0 70px 0;
+  margin: 15px 0 60px 0;
   padding: 0 30px 0 22px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {

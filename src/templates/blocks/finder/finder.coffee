@@ -38,6 +38,14 @@ $("#select-specialization").on "click", "li a", (e) ->
     $(".finder").trigger "specializationSelected", title: title, value: value, dataValue: dataValue
     off
 
+$("select-other-spec").on "click", "li a", (e) ->
+    {value} = $(e.currentTarget).data()
+    title = trim $(e.currentTarget).text()
+    value = title if not value
+    dataValue = trim $(e.target).data('value')
+    $(".finder").trigger "specializationSelected2", title: title, value: value, dataValue: dataValue
+    off
+
 $("#select-branch").on "click", "li a", (e) ->
     {value} = $(e.currentTarget).data()
     title = trim $(e.currentTarget).text()
@@ -102,6 +110,15 @@ $(".finder #clinics").on "click", ".chooser__list__item-link", (e) ->
 # popup submit handlers
 
 $(".finder").on "specializationSelected", (e, {title, value, dataValue}) ->
+    if docMaps.pageName == 'map' and value
+        docMaps.loadDoctors('specialty', dataValue)
+    $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text:first')
+        .val(if value then title else $(".finder [data-target='#select-specialization'] .finder__field-text").data "emptyText")
+        .toggleClass("grey", not value)
+    $(".finder [data-target='#select-specialization'] input[type='hidden']").val value
+    $("#select-specialization").modal "hide"
+
+$(".finder").on "specializationSelected2", (e, {title, value, dataValue}) ->
     if docMaps.pageName == 'map' and value
         docMaps.loadDoctors('specialty', dataValue)
     $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text:first')

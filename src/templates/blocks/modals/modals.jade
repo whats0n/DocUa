@@ -525,7 +525,7 @@ mixin modal(name, classes, dialogClasses)
             li
                 a(href="#select-area-metro", data-toggle="tab")
                     span станции метро
-    .modal-body.js-list-scroll 
+    .modal-body 
         .tab-content.clear
             - var selectAreaClasses = ''
             - var metroMapClasses = ''
@@ -536,7 +536,7 @@ mixin modal(name, classes, dialogClasses)
                 - metroList = metroKharkiv
                 - selectAreaClasses = 'select-area_location_kharkiv'
                 - metroMapClasses = 'metro-map_kharkiv' 
-            #select-area-districts.tab-pane.active(class=selectAreaClasses)
+            #select-area-districts.tab-pane.active.js-list-scroll(class=selectAreaClasses)
                 ul.districts-check-list.district-list__mod.columnize(data-columns="5", data-min-column-width="0", data-adaptive-column-count="true")
                     each district in districtsList
                         li.pill-group
@@ -550,7 +550,7 @@ mixin modal(name, classes, dialogClasses)
                                             label.pill.with-icon
                                                 input(type="checkbox")
                                                 span: span= subDistrict
-            #select-area-metro.tab-pane.tab-pane__mod.tab-pane(class=selectAreaClasses)
+            #select-area-metro.tab-pane(class=selectAreaClasses)
                 .metro-map-min.metro-map(class=metroMapClasses)
                     each station in metroList
                         label.pill.with-icon(class=station.class, style="left: #{station.x}px; top: #{station.y}px;")
@@ -613,20 +613,21 @@ mixin modal(name, classes, dialogClasses)
     .modal-footer
 +modal("select-branch", "bs-modal-md ")
     .modal-header
-        button.close(aria-hidden="true", data-dismiss="modal", type="button")
+        button.close.close-special(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Выберите специальность врача
-    .modal-body
-        ul.alphabet-list.columnize(data-columns="4", data-balance-method="balanceCount")
+    .modal-body.body-branch
+        ul.alphabet-list.columnize(data-columns="4", data-min-column-width="0", data-adaptive-column-count="true")
             //- li.alphabet-list__item.alphabet-list__item_all
-                
+            //-     a(href="", title="Показать всех врачей")
+            //-         | Показать всех врачей
             each specialization in specializationsAlphabet
                 li.alphabet-list__item
                     span.alphabet-list__letter= specialization.title
                     ul.alphabet-list__sub
                         each specializationChildren in specialization.children
                             li.alphabet-list__sub-item
-                                a(href=specializationChildren.url, title=specializationChildren.title)= specializationChildren.title
-    .modal-footer
+                                a(href=specializationChildren.url, data-value=specializationChildren.slug, title=specializationChildren.title)= specializationChildren.title
+    .modal-footer.footer-branch
         button.btn.btn-primary.modals-btn-220(type="button") Показать всех врачей
 +modal("select-specialization", "bs-modal-md") 
     .modal-header
@@ -877,5 +878,75 @@ mixin modal(name, classes, dialogClasses)
         p.ocean-blue.text-center Наш сервис является бесплатным для Пациентов и не <br>содержит никаких скрытых комиссий.
         .info-modal__text Оплата приема врачей производится непосредственно в клинике согласно официальному прайс-листу. В случае если вы заметили расхождение в ценах – сообщите нам об этом!
         .info-modal__message Мы за честные цены!
+
++modal("select-other-spec", "bs-modal-md ")
+    .modal-header
+        button.close.close-special(aria-hidden="true", data-dismiss="modal", type="button")
+        .modal-title Выберите специальность врача
+    .modal-body.body-branch
+        ul.alphabet-list.columnize(data-columns="4", data-min-column-width="0", data-adaptive-column-count="true")
+            //- li.alphabet-list__item.alphabet-list__item_all
+            //-     a(href="", title="Показать всех врачей")
+            //-         | Показать всех врачей
+            each specialization in specializationsAlphabet
+                li.alphabet-list__item
+                    span.alphabet-list__letter= specialization.title
+                    ul.alphabet-list__sub
+                        each specializationChildren in specialization.children
+                            li.alphabet-list__sub-item
+                                a(href=specializationChildren.url, data-value=specializationChildren.slug, title=specializationChildren.title)= specializationChildren.title
+    .modal-footer.footer-branch
+        button.btn.btn-primary.modals-btn-220(type="button") Показать всех врачей
+
++modal("select-other-area", "bs-modal-md")
+    .modal-header
+        button.close.close__select(aria-hidden="true", data-dismiss="modal", type="button")
+        .modal-title
+            | Место приема врача
+        ul.nav.nav-pills.inline-block
+            li Выберите нажатием
+            li.active
+                a(href="#select-area-districts2", data-toggle="tab")
+                    span районы
+            li &nbsp;или&nbsp;
+            li
+                a(href="#select-area-metro2", data-toggle="tab")
+                    span станции метро
+    .modal-body 
+        .tab-content.clear
+            - var selectAreaClasses = ''
+            - var metroMapClasses = ''
+            - var districtsList = districts
+            - var metroList = metro
+            if location == 'kharkiv'
+                - districtsList = districtsKharkiv
+                - metroList = metroKharkiv
+                - selectAreaClasses = 'select-area_location_kharkiv'
+                - metroMapClasses = 'metro-map_kharkiv' 
+            #select-area-districts2.tab-pane.active(class=selectAreaClasses)
+                ul.districts-check-list.district-list__mod.columnize(data-columns="5", data-min-column-width="0", data-adaptive-column-count="true")
+                    each district in districtsList
+                        li.pill-group
+                            label.pill.with-icon
+                                input(type="checkbox")
+                                span: span= district.title
+                            if district.children
+                                ul
+                                    each subDistrict in district.children
+                                        li
+                                            label.pill.with-icon
+                                                input(type="checkbox")
+                                                span: span= subDistrict
+            #select-area-metro2.tab-pane.tab-pane__mod.tab-pane(class=selectAreaClasses)
+                .metro-map-min2.metro-map(class=metroMapClasses)
+                    each station in metroList
+                        label.pill.with-icon(class=station.class, style="left: #{station.x}px; top: #{station.y}px;")
+                            input(type="checkbox")
+                            span: span= station.title
+    .modal-footer.footer-default.footer-def__mod
+        button.btn.btn-primary.modal-btn-190.btn-lg(data-dismiss="modal", type="button") Выбрать
+        span.abs-helper
+            span.abs
+                a.dotted(data-action="reset") Сбросить выбранное
 
 
