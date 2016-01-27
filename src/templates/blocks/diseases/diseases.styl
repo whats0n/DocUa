@@ -1,0 +1,94 @@
+.diseases-check-list
+    margin 0
+    padding 0
+    list-style none
+.diseases-content, .all-diseases
+    .header-styled.header-styled-noborder
+        border-bottom none
+        margin-bottom 23px    
+        padding-bottom 0 
+        .h1
+           color #5e6e71 
+.diseases-content
+    .header-styled.header-styled-noborder
+        margin-top 0 
+    .diseases-item        
+        position relative 
+        padding 0 0 9px 15px
+        font-size 15px 
+        font-weight normal
+        line-height 19px
+        .diseases-link
+            color blue_link    
+            &:before
+                content ""
+                position absolute
+                left 0  
+                top 6px 
+                display inline-block
+                width 8px
+                height 8px
+                background-color #ddecef
+                -webkit-border-radius 50% 
+                border-radius 50% 
+                
+.all-diseases
+    .alphabet-index
+        min-height 40px 
+        height 100% 
+        margin-bottom 30px  
+        padding 0 10px 
+        text-align center
+        -webkit-border-radius 20px
+        border-radius 20px
+        background-color #e9f4f6
+        &__list
+            margin 0
+            padding 0
+            list-style none
+            font-size 0 
+        &__item
+            display inline-block
+            vertical-align middle
+            &.active
+                position relative
+        &__link
+            position relative
+            display inline-block
+            vertical-align baseline 
+            padding 0 11px 
+            font-size 17px 
+            line-height 40px
+            color blue_link 
+            text-decoration none 
+            font-family 'Roboto', sans-serif
+            font-weight bold  
+            z-index 3
+            &:before
+                    content ""
+                    position absolute
+                    top 0 
+                    left 50%
+                    z-index -1 
+                    width 38px 
+                    height 38px 
+                    margin-left -19px 
+                    transition all .2s ease-in-out
+                    border-radius 50%
+            &:hover
+                color #fff 
+            &:hover:before
+                background-color #00829b             
+            &.active
+                color #FFF 
+                &:before
+                    background-color #00829b 
+            &.disabled
+                color #b5c2ca 
+                cursor default
+                &:hover:before
+                    background none
+
+.header-styled__darkColor
+    .h1
+        color text_color

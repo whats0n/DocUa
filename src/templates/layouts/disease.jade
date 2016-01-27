@@ -106,14 +106,13 @@ body
                .row
                  .col-md-9
                     +b.breadcrumbs: +i({ breadcrumbs: [{ title: file.title, url: '#' }] })
-               h1= file.title
-               article.col-sm-12.static-page
-                  block content
+               .row
+                 block content
             if file.page_name == 'diseases' 
                 .container-fluid_main
                    .container-fluid.container_find.hidden-xs
                     .row
-                      .container
+                      .container 
                         header.header-styled.header-styled__darkColor
                           .row.offset-bottom-0
                             .col-sm-12
@@ -141,7 +140,7 @@ body
                               span.find-item__title Акции
 
     //- Blog
-    if file.page_name != 'about' && file.page_name != 'rating' && file.page_name != 'diseases'
+    if file.page_name != 'about' && file.page_name != 'rating' && file.page_name != 'diseases' && file.page_name != 'disease' 
         .container-fluid.hidden-xs
             .row.row-blog
                 .container

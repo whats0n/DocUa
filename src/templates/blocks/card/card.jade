@@ -73,7 +73,7 @@ article.hreview-aggregate.vcard.hcard
             +e.title.fn.org
                 if !clinicWorld
                     if landing
-                        h3.h3
+                        h3.h3 
                             if clinic
                                 - pageLink = '/clinic-inner.html'
                             else
@@ -81,10 +81,11 @@ article.hreview-aggregate.vcard.hcard
                             a(href=pageLink, title=card.name)= card.name
                     else
                         h3= card.name
-            if !clinicDiagnostic
-                //- if card.label
-                //-     +e.label.title
-                //-         strong= card.label
+            if !clinicDiagnostic 
+                if file.page_name == 'disease'
+                    if card.label
+                        +e.label.title
+                            strong= card.label
                 +e.label-description.card__label-descroption-mod
                     span #{card.labelDescription}&nbsp;
                     if clinic || clinic_inner
@@ -149,7 +150,7 @@ article.hreview-aggregate.vcard.hcard
                                 +e.location= job.location
             if !clinic_inner
                 +e.footer
-                    if doctors_page && !landing
+                    if (doctors_page && !landing) || file.page_name == 'disease'
                         +e.socwrap
                             +e.socitem
                                 a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
