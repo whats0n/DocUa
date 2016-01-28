@@ -940,8 +940,10 @@ aside .widget .post .timer-badge {
 }
 .widget-doctor,
 .widget-clinic,
+.widget-diseases-articles,
 .widget-diseases,
-.widget-similar-diseases {
+.widget-similar-diseases,
+.widget-online-diagnostic {
   background: #fff;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -950,8 +952,10 @@ aside .widget .post .timer-badge {
 }
 .widget-doctor h3,
 .widget-clinic h3,
+.widget-diseases-articles h3,
 .widget-diseases h3,
-.widget-similar-diseases h3 {
+.widget-similar-diseases h3,
+.widget-online-diagnostic h3 {
   margin: 0;
   text-align: center;
   padding: 13px 0;
@@ -3144,7 +3148,8 @@ article.static-page .header-styled.header-styled-mod {
   color: #96b8bf;
   margin: 15px 0;
 }
-.articles-list {
+.articles-list,
+.med-articles-list {
   zoom: 1;
   background: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.15);
@@ -3152,34 +3157,44 @@ article.static-page .header-styled.header-styled-mod {
   margin-bottom: 21px;
 }
 .articles-list:before,
-.articles-list:after {
+.med-articles-list:before,
+.articles-list:after,
+.med-articles-list:after {
   content: "";
   display: table;
 }
-.articles-list:after {
+.articles-list:after,
+.med-articles-list:after {
   clear: both;
 }
-.articles-list .article-list-item {
+.articles-list .article-list-item,
+.med-articles-list .article-list-item {
   position: relative;
   zoom: 1;
   padding: 21px 21px 15px;
   border-bottom: 1px dashed #c0d2d6;
 }
 .articles-list .article-list-item:before,
-.articles-list .article-list-item:after {
+.med-articles-list .article-list-item:before,
+.articles-list .article-list-item:after,
+.med-articles-list .article-list-item:after {
   content: "";
   display: table;
 }
-.articles-list .article-list-item:after {
+.articles-list .article-list-item:after,
+.med-articles-list .article-list-item:after {
   clear: both;
 }
-.articles-list .article-list-item:last-child {
+.articles-list .article-list-item:last-child,
+.med-articles-list .article-list-item:last-child {
   border: none;
 }
-.articles-list .article-list-item:first-child {
+.articles-list .article-list-item:first-child,
+.med-articles-list .article-list-item:first-child {
   display: block;
 }
-.articles-list .article-list-item__image {
+.articles-list .article-list-item__image,
+.med-articles-list .article-list-item__image {
   float: left;
   position: relative;
   -webkit-border-radius: 3px;
@@ -3188,15 +3203,18 @@ article.static-page .header-styled.header-styled-mod {
   margin-top: 3px;
 }
 @media only screen and (max-width: 560px) {
-  .articles-list .article-list-item__image {
+  .articles-list .article-list-item__image,
+  .med-articles-list .article-list-item__image {
     float: none;
     margin: 0 auto 10px;
   }
 }
-.articles-list .article-list-item__image img {
+.articles-list .article-list-item__image img,
+.med-articles-list .article-list-item__image img {
   max-width: 100%;
 }
-.articles-list .article-list-item .info-list {
+.articles-list .article-list-item .info-list,
+.med-articles-list .article-list-item .info-list {
   font-size: 0;
   text-align: center;
   position: absolute;
@@ -3206,44 +3224,53 @@ article.static-page .header-styled.header-styled-mod {
   background-color: rgba(255,255,255,0.63);
   padding: 7px 7px 6px;
 }
-.articles-list .article-list-item .info-list li a:hover:before {
+.articles-list .article-list-item .info-list li a:hover:before,
+.med-articles-list .article-list-item .info-list li a:hover:before {
   opacity: 1;
   -ms-filter: none;
   filter: none;
   visibility: visible;
 }
-.articles-list .article-list-item .info-list li a:after {
+.articles-list .article-list-item .info-list li a:after,
+.med-articles-list .article-list-item .info-list li a:after {
   display: none;
 }
-.articles-list .article-list-item__title {
+.articles-list .article-list-item__title,
+.med-articles-list .article-list-item__title {
   margin-top: 0;
   margin-bottom: 12px;
   font-weight: 700;
   font-size: 16px;
 }
-.articles-list .article-list-item__title a {
+.articles-list .article-list-item__title a,
+.med-articles-list .article-list-item__title a {
   color: #4b89d3;
 }
-.articles-list .article-list-item__content {
+.articles-list .article-list-item__content,
+.med-articles-list .article-list-item__content {
   overflow: hidden;
   font-size: 15px;
   line-height: 20px;
 }
-.articles-list .article-list-item__meta {
+.articles-list .article-list-item__meta,
+.med-articles-list .article-list-item__meta {
   font-size: 0;
   padding: 0 0 10px;
 }
-.articles-list .article-list-item__meta li {
+.articles-list .article-list-item__meta li,
+.med-articles-list .article-list-item__meta li {
   font-size: 13px;
   display: inline-block;
   vertical-align: top;
   position: relative;
   padding: 0 25px 0 0;
 }
-.articles-list .article-list-item__meta li.last-child:before {
+.articles-list .article-list-item__meta li.last-child:before,
+.med-articles-list .article-list-item__meta li.last-child:before {
   display: none;
 }
-.articles-list .article-list-item__meta li:before {
+.articles-list .article-list-item__meta li:before,
+.med-articles-list .article-list-item__meta li:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -3257,145 +3284,180 @@ article.static-page .header-styled.header-styled-mod {
   background-color: #00829b;
 }
 @media only screen and (max-width: 767px) {
-  .articles-list .article-list-item__meta li:before {
+  .articles-list .article-list-item__meta li:before,
+  .med-articles-list .article-list-item__meta li:before {
     display: none;
   }
 }
-.articles-list .article-list-item__meta li a {
+.articles-list .article-list-item__meta li a,
+.med-articles-list .article-list-item__meta li a {
   color: #4b89d3;
 }
-.articles-list .article-list-item__category span {
+.articles-list .article-list-item__category span,
+.med-articles-list .article-list-item__category span {
   color: #96b8bf;
 }
-.articles-list .article-list-item__themes span {
+.articles-list .article-list-item__themes span,
+.med-articles-list .article-list-item__themes span {
   color: #96b8bf;
 }
-.articles-list .article-list-item__date {
+.articles-list .article-list-item__date,
+.med-articles-list .article-list-item__date {
   color: #96b8bf;
 }
-.articles-list .article-list-item__date span {
+.articles-list .article-list-item__date span,
+.med-articles-list .article-list-item__date span {
   display: none;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .articles-list.blog-list {
+  .articles-list.blog-list,
+  .med-articles-list.blog-list {
     margin-: 20px;
   }
 }
-.articles-list.blog-list .article-list-item {
+.articles-list.blog-list .article-list-item,
+.med-articles-list.blog-list .article-list-item {
   float: left;
   width: 50%;
 }
-.articles-list.blog-list .article-list-item__inner {
+.articles-list.blog-list .article-list-item__inner,
+.med-articles-list.blog-list .article-list-item__inner {
   -webkit-box-shadow: 0 2px 4px #e3e4ed;
   box-shadow: 0 2px 4px #e3e4ed;
 }
-.articles-list.blog-list .article-list-item__inner:hover {
+.articles-list.blog-list .article-list-item__inner:hover,
+.med-articles-list.blog-list .article-list-item__inner:hover {
   -webkit-box-shadow: 0 4px 8px #cdcdcf;
   box-shadow: 0 4px 8px #cdcdcf;
 }
-.articles-list.blog-list .article-list-item:first-child {
+.articles-list.blog-list .article-list-item:first-child,
+.med-articles-list.blog-list .article-list-item:first-child {
   padding-right: 20px;
 }
-.articles-list.blog-list .article-list-item__title {
+.articles-list.blog-list .article-list-item__title,
+.med-articles-list.blog-list .article-list-item__title {
   max-height: 51px;
   overflow: hidden;
 }
-.articles-list.blog-list .article-list-item__image {
+.articles-list.blog-list .article-list-item__image,
+.med-articles-list.blog-list .article-list-item__image {
   width: 165px;
   height: 194px;
 }
-.articles-list.blog-list .article-list-item__image img {
+.articles-list.blog-list .article-list-item__image img,
+.med-articles-list.blog-list .article-list-item__image img {
   width: 100%;
   height: 100%;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
-.articles-list.blog-list .article-list-item__right-column {
+.articles-list.blog-list .article-list-item__right-column,
+.med-articles-list.blog-list .article-list-item__right-column {
   height: 194px;
   padding-top: 14px;
   padding-right: 10px;
   padding-left: 179px;
   background: #fff;
 }
-.articles-list.news-list .article-list-item {
+.articles-list.news-list .article-list-item,
+.med-articles-list.news-list .article-list-item {
   width: 100%;
   zoom: 1;
 }
 .articles-list.news-list .article-list-item:before,
-.articles-list.news-list .article-list-item:after {
+.med-articles-list.news-list .article-list-item:before,
+.articles-list.news-list .article-list-item:after,
+.med-articles-list.news-list .article-list-item:after {
   content: "";
   display: table;
 }
-.articles-list.news-list .article-list-item:after {
+.articles-list.news-list .article-list-item:after,
+.med-articles-list.news-list .article-list-item:after {
   clear: both;
 }
-.articles-list.news-list .article-list-item__title {
+.articles-list.news-list .article-list-item__title,
+.med-articles-list.news-list .article-list-item__title {
   font-size: 18px;
 }
-.articles-list.news-list .article-list-item__image {
+.articles-list.news-list .article-list-item__image,
+.med-articles-list.news-list .article-list-item__image {
   width: 200px;
   height: 133px;
   overflow: hidden;
 }
-.articles-list.news-list .article-list-item__image img {
+.articles-list.news-list .article-list-item__image img,
+.med-articles-list.news-list .article-list-item__image img {
   width: 100%;
 }
-.articles-list.news-list .article-list-item__right-column {
+.articles-list.news-list .article-list-item__right-column,
+.med-articles-list.news-list .article-list-item__right-column {
   padding-right: 10px;
   padding-left: 220px;
 }
 @media only screen and (max-width: 560px) {
-  .articles-list.news-list .article-list-item__right-column {
+  .articles-list.news-list .article-list-item__right-column,
+  .med-articles-list.news-list .article-list-item__right-column {
     padding-left: 0;
   }
 }
 @media only screen and (max-width: 767px) {
   .articles-list.news-list .article-list-item__category,
-  .articles-list.news-list .article-list-item__themes {
+  .med-articles-list.news-list .article-list-item__category,
+  .articles-list.news-list .article-list-item__themes,
+  .med-articles-list.news-list .article-list-item__themes {
     float: none;
     display: block;
   }
-  .articles-list.news-list .article-list-item__date {
+  .articles-list.news-list .article-list-item__date,
+  .med-articles-list.news-list .article-list-item__date {
     float: none;
     color: #5e6e71;
   }
-  .articles-list.news-list .article-list-item__date span {
+  .articles-list.news-list .article-list-item__date span,
+  .med-articles-list.news-list .article-list-item__date span {
     display: inline-block;
     color: #96b8bf;
   }
 }
 @media only screen and (max-width: 560px) {
-  .articles-list.news-list .article-list-item__image {
+  .articles-list.news-list .article-list-item__image,
+  .med-articles-list.news-list .article-list-item__image {
     float: none;
     width: 100%;
     height: auto;
     max-height: 300px;
   }
-  .articles-list.news-list .article-list-item__right-column {
+  .articles-list.news-list .article-list-item__right-column,
+  .med-articles-list.news-list .article-list-item__right-column {
     margin-top: 20px;
     padding-left: 0;
   }
 }
-.articles-list.blog-page .article-list-item__image {
+.articles-list.blog-page .article-list-item__image,
+.med-articles-list.blog-page .article-list-item__image {
   width: 200px;
   height: 133px;
   overflow: hidden;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
-.articles-list.blog-page .article-list-item__right-column {
+.articles-list.blog-page .article-list-item__right-column,
+.med-articles-list.blog-page .article-list-item__right-column {
   padding-left: 220px;
 }
 @media only screen and (max-width: 560px) {
-  .articles-list.blog-page .article-list-item__right-column {
+  .articles-list.blog-page .article-list-item__right-column,
+  .med-articles-list.blog-page .article-list-item__right-column {
     padding-left: 0;
   }
 }
-.articles-list.blog-page .article-list-item__title {
+.articles-list.blog-page .article-list-item__title,
+.med-articles-list.blog-page .article-list-item__title {
   font-size: 18px;
 }
 @media only screen and (min-width: 768px) {
-  .articles-list.blog-page .article-list-item__inner {
+  .articles-list.blog-page .article-list-item__inner,
+  .med-articles-list.blog-page .article-list-item__inner {
     position: relative;
   }
 }
@@ -4163,15 +4225,10 @@ html {
 .cabinet-section .profile__item {
   position: relative;
   margin-bottom: 16px;
-  overflow: hidden;
-  zoom: 1;
 }
-.cabinet-section .profile__item:before,
 .cabinet-section .profile__item:after {
-  content: "";
+  content: '';
   display: table;
-}
-.cabinet-section .profile__item:after {
   clear: both;
 }
 .cabinet-section .profile__item:last-child {
@@ -4741,7 +4798,6 @@ hr {
   border-bottom: 1px dotted rgba(29,137,160,0.45);
   margin-right: 0;
   margin-left: 0;
-  overflow: hidden;
 }
 .comment__item:last-child {
   border-bottom: none;
@@ -4959,14 +5015,13 @@ hr {
 }
 .content-favorites__item .favorites-left {
   display: inline-block;
-  width: 70%;
 }
 .content-favorites__item .favorites-left__link img {
   vertical-align: top;
-  float: left;
 }
 .content-favorites__item .favorites-left .favorite-title {
-  padding-left: 95px;
+  display: inline-block;
+  padding-left: 15px;
 }
 .content-favorites__item .favorites-left .favorite-title__link {
   color: #4b89d3;
@@ -5002,15 +5057,6 @@ hr {
 }
 .content-favorites__item .favorites-left .favorite-title .address-info__mod {
   padding-top: 7px;
-  zoom: 1;
-}
-.content-favorites__item .favorites-left .favorite-title .address-info__mod:before,
-.content-favorites__item .favorites-left .favorite-title .address-info__mod:after {
-  content: "";
-  display: table;
-}
-.content-favorites__item .favorites-left .favorite-title .address-info__mod:after {
-  clear: both;
 }
 .content-favorites__item .favorites-left .favorite-title .address-info__mod .small-card__address {
   margin-right: 25px;
@@ -5022,6 +5068,9 @@ hr {
   .content-favorites__item .favorites-left .favorite-title .address-info__mod .small-card__location {
     display: block;
   }
+}
+.content-favorites__item .favorites-left .favorite-title .small-card__schedule-mod {
+  margin-top: 25px;
 }
 .content-favorites__item .favorites-right {
   text-align: right;
@@ -6001,21 +6050,11 @@ hr {
   background-image: url("i/no-photo-male.png");
 }
 .clinic-profile__image {
-<<<<<<< HEAD
-  width: 100%;
-  height: 100%;
-}
-.clinic-profile__image.clinic {
-  background-image: url("i/no-photo-clinic.png");
-  width: 140px;
-  height: 140px;
-=======
   width: 140px;
   height: 140px;
 }
 .clinic-profile__image.clinic {
   background-image: url("i/no-photo-clinic.png");
->>>>>>> e91d014513a435bdfbd0d261bcd465b6ad646e9b
 }
 @media only screen and (max-width: 767px) {
   .catalog-checkboxes {
@@ -7130,10 +7169,10 @@ hr {
   font-size: 15px;
   margin-bottom: 20px;
 }
-.found-doctors {
+.after-content-title {
   margin-bottom: 10px;
 }
-.found-doctors p {
+.after-content-title p {
   margin: 0;
   padding: 0;
   font-size: 24px;
@@ -7145,7 +7184,7 @@ hr {
   padding: 13px 20px;
   line-height: 20px;
 }
-.widget-diseases .diseases-body {
+.widget-diseases-articles .diseases-body {
   padding: 12px 21px;
   border-top: 1px dashed #96b8bf;
   border-bottom: 1px dashed #96b8bf;
@@ -8919,22 +8958,133 @@ hr {
   box-shadow: 0 2px 4px rgba(0,64,76,0.15);
   -webkit-border-radius: 3px;
   border-radius: 3px;
+  zoom: 1;
+}
+.med-library:before,
+.med-library:after {
+  content: "";
+  display: table;
 }
 .med-library:after {
+  clear: both;
+}
+.med-library__list-wrap {
+  margin: 0 -15px;
+}
+.med-library__list {
+  position: relative;
+}
+.med-library__list:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+.med-library__item {
+  margin: 0 15px;
+  padding: 15px 0;
+  border-top: 1px solid #d9ecf0;
+}
+.med-library__item:after {
   content: "";
   display: table;
   clear: both;
 }
-.med-library__item {
-  margin-right: 35px;
-  padding: 15px 0;
-  border-top: 1px solid #d9ecf0;
+.med-library__link {
+  display: inline-block;
+  vertical-align: baseline;
+  float: left;
+  color: #0089d1;
+  font-size: 15px;
+}
+.med-library__number-of-articles {
+  display: inline-block;
+  vertical-align: baseline;
+  float: right;
+  font-size: 15px;
+  font-weight: bold;
+  color: #35bfae;
+}
+.med-library__number-of-articles.disabled {
+  display: none;
 }
 .header-styled.header-styled_notopmargin {
   margin-top: 0;
+  margin-bottom: 10px;
 }
-.header-styled.header-styled_notopmargin .h1 {
+.header-styled .h1 {
   color: #5e6e71;
+}
+.med-articles-list {
+  margin-bottom: 45px;
+  padding: 0 40px;
+  zoom: 1;
+}
+.med-articles-list.med-library-page .article-list-item {
+  padding: 30px 0px;
+  border-bottom: 1px solid #c0d2d6;
+}
+.med-articles-list.med-library-page .article-list-item:last-child {
+  border: none;
+}
+.med-articles-list.med-library-page .article-list-item:first-child {
+  display: block;
+}
+.med-articles-list.med-library-page .article-list-item__image {
+  width: 200px;
+  height: 133px;
+  overflow: hidden;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.med-articles-list.med-library-page .article-list-item__right-column {
+  padding-left: 220px;
+}
+@media only screen and (max-width: 560px) {
+  .med-articles-list.med-library-page .article-list-item__right-column {
+    padding-left: 0;
+  }
+}
+.med-articles-list.med-library-page .article-list-item__title {
+  font-size: 18px;
+}
+@media only screen and (min-width: 768px) {
+  .med-articles-list.med-library-page .article-list-item__inner {
+    position: relative;
+  }
+}
+.widget-diseases .diseases-body {
+  padding: 12px 21px;
+  border-top: 1px dashed #96b8bf;
+  border-bottom: 1px dashed #96b8bf;
+}
+.widget-online-diagnostic {
+  -webkit-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -moz-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -o-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -ms-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.widget-online-diagnostic:hover {
+  -webkit-box-shadow: 0 10px 15px #e3e4ed;
+  box-shadow: 0 10px 15px #e3e4ed;
+  border-color: #35bfae;
+}
+.widget-online-diagnostic .online-diagnostic {
+  border-top: 1px dashed #96b8bf;
+}
+.widget-online-diagnostic .online-diagnostic__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.widget-online-diagnostic .online-diagnostic__img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
 }
 .mobile-phones {
   float: left;
