@@ -1,0 +1,37 @@
+-article = data.article
+-news = data.news
++e.inner
+    if article.thumb
+        +e.image
+            a(href="#")
+                img(src=article.thumb, alt=article.title)
+            ul.info-list
+                li
+                    a.is-view 18
+                li
+                    a.is-like 35
+                li
+                    a.is-share 169
+    +e.right-column
+        +e("h2").title
+            a(href=article.link, title=article.title)= article.title
+        if news
+            +e("ul").meta
+                if article.date
+                    +e("span").date
+                        |  <span>Дата: </span>
+                        =article.date
+                if article.category
+                    +e("span").category
+                        | <span>Категория: </span>&nbsp;
+                        a(href="#", title="")= article.category
+                if article.themes
+                    +e("span").themes
+                        |  <span>Темы: </span>&nbsp;
+                        each theme, i in article.themes
+                            a(href="#", title="")= theme
+                                if i < article.themes.length -1
+                                    | ,&nbsp 
+        +e.content
+            p
+                != article.shortDesc
