@@ -1,0 +1,20 @@
+//---
+   layout: layouts/disease
+   activeMenuItem: 0
+   title: Медицинская библиотека
+   finder: doctors
+   modals: select-area, select-actions
+   page_name: med-library
+
+section.col-md-9
+   +b.med-library 
+      header.header-styled.header-styled_notopmargin
+         h2.h1 Медицинская библиотека
+      +e.body
+         +e("ul").list.columnize(data-columns="3", data-min-column-width="10", data-adaptive-column-count="true")
+            each branch in branches
+               +e("li").item
+                  +e("a").link(href="#" title="")= branch.title 
+
+
+aside.col-md-3.hidden-sm.hidden-xs  
