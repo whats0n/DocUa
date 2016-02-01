@@ -940,7 +940,7 @@ aside .widget .post .timer-badge {
 }
 .widget-doctor,
 .widget-clinic,
-.widget-diseases-articles,
+.widget-articles,
 .widget-diseases,
 .widget-similar-diseases,
 .widget-online-diagnostic {
@@ -952,7 +952,7 @@ aside .widget .post .timer-badge {
 }
 .widget-doctor h3,
 .widget-clinic h3,
-.widget-diseases-articles h3,
+.widget-articles h3,
 .widget-diseases h3,
 .widget-similar-diseases h3,
 .widget-online-diagnostic h3 {
@@ -7125,13 +7125,13 @@ hr {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-.disease-short-description {
+.short-description {
   background-color: #e5f2f5;
   padding: 30px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-.disease-short-description p {
+.short-description p {
   font-size: 14px;
 }
 .disease-chart .header-styled.header-chart .h1 {
@@ -7178,20 +7178,6 @@ hr {
   font-size: 24px;
   font-weight: 700;
   color: #5e6e71;
-}
-.widget.widget-doctor h3,
-.widget .widget-diseases h3 {
-  padding: 13px 20px;
-  line-height: 20px;
-}
-.widget-diseases-articles .diseases-body {
-  padding: 12px 21px;
-  border-top: 1px dashed #96b8bf;
-  border-bottom: 1px dashed #96b8bf;
-}
-.widget-similar-diseases .diseases-body {
-  padding: 12px 21px;
-  border-top: 1px dashed #96b8bf;
 }
 .diseases-check-list {
   margin: 0;
@@ -7411,26 +7397,29 @@ hr {
   vertical-align: middle;
   margin-bottom: 10px;
 }
-.feature__icon,
-.feature__title {
-  display: inline-block;
-  vertical-align: middle;
-  font-weight: 700;
-  font-size: 20px;
-}
-@media only screen and (max-width: 767px) {
-  .feature__icon,
-  .feature__title {
-    display: block;
-    text-align: center;
-  }
-}
 .feature__icon {
   margin-right: 15px;
 }
 @media only screen and (max-width: 767px) {
   .feature__icon {
     margin-bottom: 10px;
+  }
+}
+.feature__icon img {
+  max-width: 54px;
+  width: 100%;
+}
+.feature__title {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+@media only screen and (max-width: 767px) {
+  .feature__title {
+    display: block;
+    text-align: center;
   }
 }
 .feedback {
@@ -9085,6 +9074,144 @@ hr {
   display: block;
   margin: 0 auto;
   max-width: 100%;
+}
+.med-lib-article {
+  background: #fff;
+  margin-bottom: 20px;
+  padding: 38px 38px 5px 38px;
+  -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.15);
+  box-shadow: 0 2px 4px rgba(0,64,76,0.15);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  zoom: 1;
+}
+.med-lib-article__content {
+  margin-bottom: 30px;
+}
+.med-lib-article__para {
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+.med-lib-article .header-styled_notopmargin {
+  margin-bottom: 20px;
+}
+.load-med-articles {
+  display: block;
+  padding: 25px 110px 30px 60px;
+  border: 1px dashed #c0d2d6;
+  font-size: 26px;
+  color: #86a8af;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+.load-med-articles:active,
+.load-med-articles:focus,
+.load-med-articles:hover {
+  color: #86a8af;
+  text-decoration: none;
+}
+.load-med-articles:hover {
+  color: #86a8af;
+  -webkit-box-shadow: 0 10px 15px #e3e4ed;
+  box-shadow: 0 10px 15px #e3e4ed;
+  border-color: #35bfae;
+}
+.load-med-articles span {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+}
+.load-med-articles span:after {
+  content: '';
+  position: absolute;
+  right: -54px;
+  top: 50%;
+  margin-top: -8px;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  background-image: url("/i/sprites-general.png");
+  background-position: -179px -152px;
+  width: 24px;
+  height: 21px;
+}
+@media only screen and (max-width: 767px) {
+  .load-med-articles span:after {
+    display: none;
+  }
+}
+.med-lib-description {
+  padding-right: 80px;
+}
+.med-short-description {
+  position: relative;
+}
+.med-short-description:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -77px;
+  width: 97px;
+  height: 100%;
+  background-image: url("i/bb-doc.png");
+  background-repeat: no-repeat;
+}
+.short-description__list {
+  margin-bottom: 0;
+}
+.short-description__item {
+  margin-bottom: 20px;
+}
+.short-description__item:last-child {
+  margin-bottom: 0;
+}
+.short-description__title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4b89d3;
+}
+.short-description p {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+.med-lib-disease {
+  overflow: hidden;
+}
+.med-lib-disease__list-wrap {
+  margin: 0 -15px;
+}
+.med-lib-disease__list {
+  position: relative;
+  margin-right: -10px;
+  border-top: 1px solid #c0d2d6;
+}
+.med-lib-disease__list:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  bottom: 0;
+  border-bottom: 1px solid #fff;
+}
+.med-lib-disease__list:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.med-lib-disease__item {
+  margin: 0 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #c0d2d6;
+}
+.med-lib-disease__link {
+  color: #4b89d3;
+  font-size: 15px;
 }
 .mobile-phones {
   float: left;
@@ -10759,6 +10886,12 @@ article a {
   .partner-registration__image {
     display: none;
   }
+}
+.partner-registration .partners-reg-bg {
+  background: #e5f2f5;
+}
+.partner-registration .is-align-right {
+  text-align: right;
 }
 .partners {
   margin-top: 15px;
@@ -14057,4 +14190,40 @@ article.static-page img.ratin-doctor {
 }
 .user-panel-menu .dropdown-menu>li>a {
   color: #000;
+}
+.widget-articles__body {
+  padding: 12px 21px;
+  border-top: 1px dashed #96b8bf;
+  border-bottom: 1px dashed #96b8bf;
+}
+.widget-articles__body.without-border-bottom {
+  border-bottom: 0;
+}
+.widget-articles__item {
+  position: relative;
+  padding-left: 15px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 19px;
+}
+.widget-articles__link {
+  color: #4b89d3;
+}
+.widget-articles__link:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ddecef;
+  -webkit-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.widget.widget-doctor h3 {
+  padding: 13px 20px;
+  line-height: 20px;
 }

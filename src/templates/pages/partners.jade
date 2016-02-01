@@ -1,11 +1,11 @@
 //---
    layout: layouts/static  
-   title: Партнерам
-   activeMenuItem: 4
-   finder: actions       
+   title: Партнерам 
+   activeMenuItem: 0
+   finder: doctors       
    modals: select-area, select-actions
    page_name: partners   
-   
+    
 +b.comment-quotes: +i({ quotes: commentQuotes })
 
 section  
@@ -30,7 +30,7 @@ section
          +b.feature
             +e.header
                +e("span").icon
-                  img(src="/i/icon-star.png", alt="")
+                  img(src="/i/icon-like.png", alt="")
                +e.title.h3 Позитивный имидж клиники 
             +e.content
                p  Огромное количество пользователей рекомендует DOC.uaсвоим близким и знакомым! Присоединяетесь к нам и получайте обратную связь от ваших пациентов через отзывы на нашем сайте.
@@ -40,28 +40,28 @@ section
                +e.image
                   img(src="/i/doc-like.svg", alt="", style="width:84px")
                +e.title «Станьте нашим партнером прямо сейчас!»
-            .border-box.margin-bottom-0
+            .border-box.margin-bottom-0.partners-reg-bg
                +e("form").form.form-horizontal(action="/")
                   fieldset
                      .form-group
-                        .col-sm-3
+                        .col-sm-3.is-align-right
                            label.control-label(for="field-registration-email"): span Е-mail:
                         .col-sm-7
-                           input#field-registration-email.form-control(type="text")
+                           input#field-registration-email.form-control(type="text" placeholder="введите свой емейл")
                      .form-group
-                        .col-sm-3
+                        .col-sm-3.is-align-right
                            label.control-label(for="field-registration-password"): span Пароль:
                         .col-sm-7
                            .input-password
-                              input#field-registration-password.form-control(type="password")
+                              input#field-registration-password.form-control(type="password" placeholder="введите свой пароль")
                               span.password-eye
                      .form-group
-                        .col-sm-3
+                        .col-sm-3.is-align-right
                            label.control-label.phone-input-mask(for="field-registration-phone"): span Телефон:
                         .col-sm-7
-                           input#field-registration-phone.form-control(type="text")
+                           input#field-registration-phone.form-control(type="text" placeholder="введите свой телефон")
                      .form-group
-                        .col-sm-3.col-xs-2
+                        .col-sm-3.col-xs-2.is-align-right
                            label.control-label Я &mdash;
                         .col-sm-9.col-xs-10
                            .radio.radio-inline

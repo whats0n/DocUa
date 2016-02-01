@@ -1,9 +1,9 @@
 block params
-    - var isCabinet = false
+    - var isCabinet = false 
 //- include ../../../node_modules/bemto.jade/bemto
-doctype html
+doctype html 
 html
-    head
+    head  
         meta(charset="UTF-8")
         meta(content="user-scalable=no, width=device-width", name="viewport")
         title
@@ -106,14 +106,13 @@ body
                .row
                  .col-md-9
                     +b.breadcrumbs: +i({ breadcrumbs: [{ title: file.title, url: '#' }] })
-               h1= file.title
-               article.col-sm-12.static-page
-                  block content
+               .row
+                 block content
             if file.page_name == 'diseases' 
                 .container-fluid_main
                    .container-fluid.container_find.hidden-xs
                     .row
-                      .container
+                      .container 
                         header.header-styled.header-styled__darkColor
                           .row.offset-bottom-0
                             .col-sm-12
@@ -140,33 +139,6 @@ body
                               i.find-item__icon.is-promotions
                               span.find-item__title Акции
 
-    //- Blog
-    if file.page_name != 'about' && file.page_name != 'rating' && file.page_name != 'diseases' && file.page_name != 'partners'
-        .container-fluid.hidden-xs
-            .row.row-blog
-                .container
-                    section
-                        header.header-styled
-                            .row.offset-bottom-0
-                                .col-sm-6
-                                    h2.h1 В блоге здоровья
-                                .col-sm-6.text-right
-                                    a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
-                        .row.offset-bottom-0
-                            - var limit = 2
-                            .col-md-9
-                                +b.articles-list.blog-list
-                                    each article, i in articlesData
-                                        if i < limit
-                                            +b.article-list-item: +i({article: article})
-                            .col-md-3
-                                - var start = 3
-                                - var limit = 4
-                                +b("ul").blog-links
-                                    each article, i in articlesData
-                                        if i > start || i < from + limit
-                                            +e("li").item
-                                                a(href= article.link)= article.title
     //- Footer
     .container-fluid
         .row.footer

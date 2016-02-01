@@ -1,15 +1,15 @@
 //---
-   layout: layouts/disease
+   layout: layouts/searchbar 
    activeMenuItem: 0
    finder: doctors
-   modals: select-area, select-actions
+   modals: select-area, select-actions  
    page_name: disease
 
 section.col-md-9
    .disease-content  
       header.header-styled.header-styled-noMargins
          h2.h1 Апластическая анемия
-      .disease-row 
+      .disease-row  
          .disease-subTitle.js-nav 
             ul.disease-subTitle__list
                li.disease-subTitle__item
@@ -20,7 +20,7 @@ section.col-md-9
                   a.disease-subTitle__link(href="#diagnostic", title="") Диагностика
                li.disease-subTitle__item
                   a.disease-subTitle__link(href="#treatment", title="") Лечение
-         .disease-short-description
+         .short-description.disease-description
              p 
               strong Апластические анемии 
               | входят в особую группу заболеваний, которым подвергается система крови. Они характерны тем, что снижают количество всех кровяных клеток, не обнаруживая процесса образования опухоли.    
@@ -165,95 +165,96 @@ aside.col-md-3.hidden-sm.hidden-xs
          .link.link-more
                 a(href="/doctors.html") Все врачи 
      
-
-     .widget.widget-diseases-articles 
-         h3 Статьи о заболевании
-         .diseases-body
-            ul.diseases-check-list
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Аллергия
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Ангина
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гастрит: как не заболеть
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Лечение гастрита
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Симптомы гастрита
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гастрит с пониженной кислотностью
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гастрит с повышенной кислотностью
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гастрит гиперацидный
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Лечение гастрита народными средствами
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Лен при гастрите
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Лечение гастрита медом
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Сок картофеля при гастрите
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Диета при гастрите
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Питание при гастрите
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Меню при гастрите
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Атрофический гастрит
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Рефлюкс гастрит
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Лекарства от гастрита
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гиперпластический гастрит
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гастрит у детей
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Острый гастрит
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Эрозивный гастрит
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Антральный гастрит
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гипертрофический гастрит
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Хронический гастрит
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Поверхностный гастрит
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гастрит при беременности 
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Анацидный гастрит 
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Диффузный гастрит 
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Обострение гастрита 
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Что делать при приступе гастрита 
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Антрум гастрит 
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гипоацидный гастрит  
-         .link.link-more
-            a(href="#") Все статьи
+      .widget
+         +b.widget-articles 
+            h3 Статьи о заболевании 
+            +e.body
+               +e("ul").list
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Аллергия
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Ангина
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит: как не заболеть
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Лечение гастрита
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Симптомы гастрита
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит с пониженной кислотностью
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит с повышенной кислотностью
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит гиперацидный
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Лечение гастрита народными средствами
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Лен при гастрите
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Лечение гастрита медом
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Сок картофеля при гастрите
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Диета при гастрите
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Питание при гастрите
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Меню при гастрите
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Атрофический гастрит
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Рефлюкс гастрит
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Лекарства от гастрита
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гиперпластический гастрит
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит у детей
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Острый гастрит
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Эрозивный гастрит
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Антральный гастрит
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гипертрофический гастрит
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Хронический гастрит
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Поверхностный гастрит
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит при беременности 
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Анацидный гастрит 
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Диффузный гастрит 
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Обострение гастрита 
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Что делать при приступе гастрита 
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Антрум гастрит 
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гипоацидный гастрит  
+            .link.link-more
+               a(href="#") Все статьи
          
-      .widget.widget-similar-diseases
-         h3 Похожие заболевания 
-         .diseases-body
-            ul.diseases-check-list
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Аллергия
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Ангина
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гастрит: как не заболеть
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Лечение гастрита
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Симптомы гастрита
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гастрит с пониженной кислотностью
-               li.diseases-item.alphabet-list__sub-item
-                  a.diseases-link(href="/disease.html", title="") Гастрит с повышенной кислотностью
+      .widget
+         +b.widget-articles
+            h3 Похожие заболевания 
+            +e.body.without-border-bottom
+               +e("ul").list
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Аллергия
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Ангина
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит: как не заболеть
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Лечение гастрита
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Симптомы гастрита
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит с пониженной кислотностью
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит с повышенной кислотностью

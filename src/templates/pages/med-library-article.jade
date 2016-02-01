@@ -1,0 +1,109 @@
+//---
+   layout: layouts/searchbar
+   activeMenuItem: 0
+   title: Дерматовенерология
+   finder: doctors
+   modals: select-area, select-actions
+   page_name: med-library-article
+
+section.col-md-9 
+   +b.med-lib-article 
+      header.header-styled.header-styled_notopmargin
+         h2.h1 Дерматовенерология
+      +e("div").content
+         +e("p").para <strong>Дерматовенерология</strong> - сфера медицины, которая занимается изучением кожных покровов в нормальном их состоянии и при патологиях развития; диагностикой и лечением инфекций передающихся половым путем (ИППП).
+         
+         +e("p").para <strong>Симптомы</strong> - сыпь, язвы на коже, разного рода воспаления кожи; зуд и жжение половых органов и области паха, обильные выделения из уретры или влагалища, дискомфорт при мочеиспускании и занятии сексом, кондиломы или другие новообразования на коже и слизистых оболочках гениталий.
+         
+         +e("p").para <strong>Диагностика и лечение</strong> - в дерматовенерологии осмотр врача имеет большое значение, так как по внешним признакам можно сделать определенные предположения о диагнозе. Обязательно назначаются анализы крови, мазок или соскоб. Лечение зависит от многих факторов, но в любом случае это медикаментозная терапия и соблюдение гигиенических норм. Кроме того, могут быть назначены физиотерапевтические процедуры: лазерная, электротерапия, ультразвуковая терапия, озонотерапия.
+         
+         +e("p").para <strong>Заболевания </strong> - акне, угревая сыпь, розацеа, экземы, фурункулы, фолликулиты, карбункулы, герпес, дерматиты, нейродерматозы, псориаз; генитальный герпес, ВПЧ, микоплазмоз, кандидоз, уреаплазмоз, бактериальный уретрит, мягкий шанкр, гонорея, гарднереллез, трихомониаз, хламидиоз, сифилис, ВИЧ-инфекция.
+      
+      +b("a").load-med-articles <span>Просмотреть все дерматовенерологические клиники</span>
+      
+      .header-styled
+         h2.h1 Медицинская библиотека
+      
+      .med-lib-description
+         +b.short-description.med-short-description
+            +e("dl").list
+               +e("dt").title
+                  +e("a").link(href="#", title="") Что лечит дерматовенеролог
+                  +e("dd").item
+                     p Дерматовенерология – раздел медицины, изучающий заболевания кожи; инфекции передающиеся половым путем (ИППП), их диагностику и лечение.
+
+               +e("dt").title
+                  +e("a").link(href="#", title="") Когда идти на прием к дерматовенерологу
+                  +e("dd").item
+                     p Дерматовенеролог – это специалист, который проводит диагностику и лечение кожных заболеваний и инфекций передающихся половым путем (ИППП).
+      +b.med-lib-disease
+         .header-styled
+            h2.h1 Заболевания в дерматовенерологии
+         +e("div").list-wrap
+            +e("ul").list.columnize(data-columns="3", data-min-column-width="10", data-adaptive-column-count="true")
+               +e("li").item.alphabet-list__sub-item
+                  +e("a").link(href="#", title="") Гонорея (триппер)
+               +e("li").item.alphabet-list__sub-item
+                  +e("a").link(href="#", title="") Дерматит
+               +e("li").item.alphabet-list__sub-item
+                  +e("a").link(href="#", title="") Импетиго
+               +e("li").item.alphabet-list__sub-item
+                  +e("a").link(href="#", title="") Лихен 
+               +e("li").item.alphabet-list__sub-item
+                  +e("a").link(href="#", title="") Невус (родинка, родимое пятно)
+               +e("li").item.alphabet-list__sub-item
+                  +e("a").link(href="#", title="") Папилломавирусная инфекция
+               +e("li").item.alphabet-list__sub-item
+                  +e("a").link(href="#", title="") Почесуха
+               +e("li").item.alphabet-list__sub-item
+                  +e("a").link(href="#", title="") Эритема
+   .after-content-title 
+      p Статьи по теме Дерматовенерология   
+
+   +b("ul").med-articles-list.med-library-page  
+         each article in articlesData
+            if article.datePublic
+               +b.article-list-item.new-article: +i({article: article, news: true})
+
+
+aside.col-md-3.hidden-sm.hidden-xs                 
+     .widget.widget-doctor
+         h3 Врачи, лечащие дерматовенерологию
+         - var items = []
+         - var limit = 4
+         each doctor, i in doctors
+            if i < limit
+               - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
+         +b.short-list: +i({ items: items })
+         .link.link-more
+            a(href="/doctors.html") Все врачи 
+
+     .widget
+         +b.widget-articles
+            h3 Основные направления
+            +e.body
+               +e("ul").list
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Аллергия
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Ангина
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит: как не заболеть
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Лечение гастрита
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Симптомы гастрита
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит с пониженной кислотностью
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит с повышенной кислотностью
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Гастрит гиперацидный
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Лечение гастрита народными средствами
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Лен при гастрите
+                  +e("li").item.alphabet-list__sub-item
+                     +e("a").link(href="/disease.html", title="") Лечение гастрита медом
+            .link.link-more
+               a(href="#") Больше направлений
