@@ -9,6 +9,8 @@
 	clearfix()
 	@media phone
 		padding 0 10px
+	a
+		outline none
 	&__left
 		float left
 		@media phone
@@ -29,6 +31,7 @@
 		padding 5px 15px
 		color #77969c
 		text-decoration none
+		outline none
 		&:focus
 			text-decoration none
 			color #77969c
@@ -64,20 +67,25 @@
 			float left
 
 .section-action
+	a
+		outline none
 	&__item
 		background-color white
 		border-radius 2px
 		box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
 		margin-bottom 20px 
 		clearfix()
+		// @media phone
+		// 	display flex
 	&__left
 		float left
 		width 18%
 		margin 0 2% 
 		@media phone
-			width 100%
-			float none
-			margin 0
+		// 	// order 2
+			width 40%
+		// 	float none
+		// 	margin 0
 		.card__left-side
 			float none
 			width auto
@@ -102,6 +110,9 @@
 		.card__testimonials
 			@media only screen and (max-width: 450px)
 				position static
+		.card__image
+			@media only screen and (max-width: 1100px)
+				width 120px 
 	&__middle
 		float left
 		width 48%
@@ -109,6 +120,7 @@
 		border-right 1px dashed #c0d2d6 
 		border-left 1px dashed #c0d2d6 
 		@media phone
+			// order 1
 			border-right none
 			border-left none
 			width 100%
@@ -143,10 +155,11 @@
 		float left
 		width 30%
 		@media phone
-			float none
+		// 	// order 3
+		// 	float none
 			width 100%
-			text-align center
-			padding 10px 10px 25px 10px
+		// 	text-align center
+		// 	padding 10px 10px 25px 10px
 			
 		.right-info
 			clearfix()
@@ -166,19 +179,31 @@
 					width 16px
 					height 16px
 					margin 0 10px -3px 0
+				@media only screen and (max-width: 1100px)
+					padding 5px 5px 5px 29px
+				@media phone
+					display inline-block
+					width 45%
+					margin-right 5%
+					
+						
+					 
+					
 				&.benefit__mod
 					font-size 13px
 					font-weight 400 
 					color #86a8af
 					border: 1px dashed #86a8af
-					line-height 22px
+					line-height 23px
 					&:before
 						background url('i/action-time.png')  no-repeat
 						position absolute
 						left -8px
 						top 8px 
 						height 18px
-			&__price
+					@media phone
+						margin-right 0 
+			&__price	
 				padding 8px 0
 				&__old
 					display inline-block
