@@ -8,29 +8,29 @@
     
 +b.comment-quotes: +i({ quotes: commentQuotes })
 
-section  
-   header.header-styled
+section.partners-main  
+   header.header-styled.header-partners
       h2.h1 Преимущество для партнеров
    .row
       .col-sm-6
          +b.feature
-            +e.header 
+            +e.header  
                +e("span").icon
-                  img(src="/i/icon-mouthpiece.png", alt="")
+                  img(src="/i/icon-mouthpiece_partners.png", alt="")
                +e.title.h3 Дополнительный канал рекламы
             +e.content
                p  Сотрудничая с DOC.UA вы получаете дополнительный и эффективный канал рекламы, преимуществом которого является то, что вы платите только за «реального пациента», который пришел на прием.
          +b.feature
             +e.header
                +e("span").icon
-                  img(src="/i/icon-note.png", alt="")
-               +e.title.h3 Больше новых пациентов  
+                  img(src="/i/icon-note_partners.png", alt="")
+               +e.title.h3 Больше новых пациентов 
             +e.content
                p  Мы размещаем на сайте DOC.UA информацию о вашей клинике и врачах, ваши акции и специальные предложения, новости и события клиники, а также включаем вас в наши маркетинговые активности.
          +b.feature
             +e.header
                +e("span").icon
-                  img(src="/i/icon-like.png", alt="")
+                  img(src="/i/icon-like_partners.png", alt="")
                +e.title.h3 Позитивный имидж клиники 
             +e.content
                p  Огромное количество пользователей рекомендует DOC.uaсвоим близким и знакомым! Присоединяетесь к нам и получайте обратную связь от ваших пациентов через отзывы на нашем сайте.
@@ -40,51 +40,52 @@ section
                +e.image
                   img(src="/i/doc-like.svg", alt="", style="width:84px")
                +e.title «Станьте нашим партнером прямо сейчас!»
-            .border-box.margin-bottom-0.partners-reg-bg
+            .border-box.margin-bottom-0.partners-reg-mod
                +e("form").form.form-horizontal(action="/")
                   fieldset
                      .form-group
                         .col-sm-3.is-align-right
-                           label.control-label(for="field-registration-email"): span Е-mail:
-                        .col-sm-7
+                           label.control-label(for="field-registration-email"): span Емейл
+                        .col-sm-8
                            input#field-registration-email.form-control(type="text" placeholder="введите свой емейл")
                      .form-group
                         .col-sm-3.is-align-right
-                           label.control-label(for="field-registration-password"): span Пароль:
-                        .col-sm-7
+                           label.control-label(for="field-registration-password"): span Пароль
+                        .col-sm-8
                            .input-password
                               input#field-registration-password.form-control(type="password" placeholder="введите свой пароль")
                               span.password-eye
                      .form-group
                         .col-sm-3.is-align-right
-                           label.control-label.phone-input-mask(for="field-registration-phone"): span Телефон:
-                        .col-sm-7
+                           label.control-label.phone-input-mask(for="field-registration-phone"): span Телефон
+                        .col-sm-8
                            input#field-registration-phone.form-control(type="text" placeholder="введите свой телефон")
                      .form-group
-                        .col-sm-3.col-xs-2.is-align-right
-                           label.control-label Я &mdash;
-                        .col-sm-9.col-xs-10
+                        .col-sm-3.col-xs-3.is-align-right
+                           label.control-label Я &mdash; 
+                        .col-sm-9.col-xs-9.col-xs__mod
                            .radio.radio-inline
                               label.radio__label
-                                 input(type="radio", name="whois", value="doctor", checked="checked")
+                                 input(class="radio-btn" type="radio", name="whois", value="doctor")
                                  span Доктор
                            .radio.radio-inline
-                              label.radio__label
-                                 input(type="radio", name="whois", value="clinic")
-                                 span Представитель клиники <br>или диагностич. центра
+                              label.radio__label 
+                                 input(class="radio-btn" type="radio", name="whois", value="clinic")
+                                 span Представитель клиники 
                      .form-group
                         .col-sm-9.col-sm-offset-3
                            .checkbox
                               label.checkbox__label
-                                 input(type="checkbox", checked="checked")
+                                 input(class="checkbox-btn" type="checkbox")
                                  span Я согласен с&nbsp;
                                     a(href="/", title="Правилами использования сайта") Правилами использования сайта
                      .form-group
                         .col-sm-12.text-center
                            button.btn.btn-primary(type="submit") Зарегистрироваться
-                     .form-group.text-center.offset-0 Уже зарегистрированы?&nbsp;
+                     .form-group.text-center.offset-0.form-group__registration
+                        p Уже зарегистрированы?&nbsp;
                         a(href="/modals.html#login", title="Войдите на сайт") Войдите на сайт
-section
+section.partner-how-it-work
    header.header-styled
       h2.h1 Как мы работаем?
    - var content = [{ description: "Клиника или врач предоставляют нам свои данные. Мы проверяем их и заносим в базу сайта." }, { description: "Вы выбираете нужного вам врача и записываетесь на прием, заполнив онлайн-заявку или воспользовавшись помощью специалистов call-центра." }, { description: "Мы согласовываем время с клиникой и записываем вас на прием  к выбранному специалисту." }]

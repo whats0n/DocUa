@@ -6,13 +6,13 @@
 .breadcrumb {
   padding: 0;
   list-style: none;
-  font-size: 14px;
+  font-size: 13px;
   > li {
     display: inline-block;
     + li:before {
-      content: ">"; // Unicode space added since inline-block means non-collapsing white-space
+      content: "@{breadcrumb-separator}\00a0"; // Unicode space added since inline-block means non-collapsing white-space
       padding: 0 0 0 3px;
-      color: #b6c1c3;
+      color: @breadcrumb-color;
     }
     &:last-child{
         color: @breadcrumb-active-color;

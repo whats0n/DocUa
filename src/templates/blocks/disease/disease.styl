@@ -19,7 +19,8 @@
         font-weight normal
         line-height 19px
         .diseases-link
-            color blue_link    
+            color blue_link 
+            outline none    
             &:before
                 content ""
                 position absolute
@@ -57,6 +58,9 @@
 		text-decoration none 
 		border-bottom 1px solid blue_link 
 		box-sizing border-box
+		outline none 
+		@media phone
+			font-size 16px
 		&:hover, &:focus, &:active
 			border-bottom 0
 			text-decoration none 
@@ -117,3 +121,17 @@
 		font-size 24px
 		font-weight 700
 		color #5e6e71	
+		@media phone
+			font-size 18px 
+.disease-card
+	.job
+		&-schedule
+			@media only screen and (max-width: 960px)
+				position absolute
+			@media phone
+				position static
+				
+	.schedule-doctor
+		@media only screen and (max-width: 960px)
+			left auto
+			right -1px 

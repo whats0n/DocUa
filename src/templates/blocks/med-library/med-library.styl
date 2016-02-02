@@ -24,6 +24,7 @@
 			height 2px 
 			background #FFF 
 	&__item
+		position relative
 		margin 0 15px 
 		padding 15px 0
 		border-top 1px solid #d9ecf0
@@ -32,15 +33,20 @@
 			display table
 			clear both 
 	&__link
+		float left
 		display inline-block
 		vertical-align baseline
-		float left
+		padding-right 20px 
 		color link_color 
 		font-size 15px 
+		@media only screen and (max-width: 1024px)
+			-ms-word-wrap break-word 
+			word-wrap break-word 
 	&__number-of-articles
-		display inline-block
-		vertical-align baseline
-		float right
+		position absolute
+		top 50%
+		right 0
+		margin-top -10px   
 		font-size 15px
 		font-weight bold
 		color green_base  
@@ -56,7 +62,9 @@
 	margin-bottom 45px
 	padding 0 40px 
 	zoom 1
-
+	@media phone
+		padding 0 30px
+		margin-bottom 25px
 .med-articles-list
     &.med-library-page  
         .article-list-item
@@ -67,10 +75,13 @@
             &:first-child 
                 display block
             &__image
-                width 200px
+                width 210px
                 height 133px
                 overflow hidden
                 border-radius border_radius_sm
+                @media screen560
+                	margin 0
+                	margin-bottom 10px 
             &__right-column
                 padding-left 220px
                 @media screen560
@@ -91,7 +102,7 @@
     transition: border-color .2s ease,box-shadow .2s ease
     &:hover
         box-shadow 0 10px 15px #e3e4ed
-        border-color green_base
+        border-color #35bfae
     .online-diagnostic
         border-top 1px dashed text_blue
         &__link

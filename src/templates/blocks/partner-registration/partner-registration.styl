@@ -1,26 +1,61 @@
 .partner-registration
     &__title
-        color #000
+        color text_color
         font-style italic
         display inline-block
         font-size 22px
         font-weight bold
-        max-width 300px
+        max-width 290px
         vertical-align middle
         @media tablet
-            max-width 270px
+            max-width 230px
+            text-align center
         @media phone 
-            display nlok
+            display block
             text-align center
             max-width 100%
+            font-size 20px
+            margin -10px 0 20px 0
     &__image 
-        margin 0 10px 0 40px
-        display inline-block
+        margin 0 20px 0 20px
+        display inline-block      
         @media tablet
+            margin 0
+        @media phone_tablet
             margin 0
         @media phone 
             display none
-    .partners-reg-bg
+    .partners-reg-mod
         background #e5f2f5 
+        border 0
     .is-align-right
         text-align right
+        @media phone
+            text-align left
+    .form-control
+        placeholder(text_color, 15px)
+        &::-webkit-input-placeholder 
+            font-style italic
+        &:-moz-placeholder  /* Firefox 18- */
+            font-style italic
+        &::-moz-placeholder  /* Firefox 19+ */
+            font-style italic
+        &:-ms-input-placeholder  
+            font-style italic
+           
+    .control-label
+        span
+            font-size 15px
+    .radio-inline
+        padding-left 0 
+        @media phone
+            padding-top 0 
+    .radio-inline + .radio-inline
+        @media tablet
+            margin-left 0      
+    .btn-primary
+        margin-left 5% 
+        padding 2% 10%
+        font-size 18px 
+        font-weight bold 
+        
