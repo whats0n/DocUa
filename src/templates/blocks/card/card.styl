@@ -13,13 +13,15 @@
         .card__footer 
             margin-bottom 10px
             .link 
-                margin-top 0
+                margin-top 0 
     &:after
         content " "
         display table
         clear both
     .rating__value
         top 2px
+    a
+        outline none 
     &__footer
         .btn
             font-size 18px
@@ -97,7 +99,7 @@
         .card__socitem
             margin-top 13px
         @media phone
-            float none
+            // float none
             margin-bottom 10px
     &__socitem
         float left
@@ -216,10 +218,10 @@
     &__share-bottom
         .btn
             float: right
-            @media phone
-                float: none
-            @media screen560
-                float right
+            // @media phone
+            //     float: none
+            // @media screen560
+            //     float right
 
 .card, .small-card
     .rating__value
@@ -288,7 +290,6 @@
             // float none
             min-height 150px 
             width: 176px
-        @media only screen and (max-width: 450px)
             float: none
             .rating
                 position absolute
@@ -303,10 +304,14 @@
                 position absolute
                 right 20px
                 top 50px
-        &.diagnostic-left__mod
-            @media only screen and (max-width: 450px)
-                .card__testimonials
-                    position static
+            .like-box
+                position absolute
+                right 15px
+                top 85px
+        // &.diagnostic-left__mod
+        //     @media only screen and (max-width: 450px)
+        //         .card__testimonials
+        //             position static
                     
     &__right-side
         margin-left 180px

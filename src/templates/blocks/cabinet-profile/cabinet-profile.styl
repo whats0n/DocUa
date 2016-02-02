@@ -87,7 +87,7 @@ body, html
     box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
     &__item
         position relative
-        font-family 'PTSans', sans-serif
+        font-family 'PT Sans', sans-serif
         font-size 16px
         font-weight 400
         line-height 12px
@@ -379,26 +379,24 @@ body, html
             top 5px
             font-size 14px
             @media only screen and (max-width: 1150px) 
-                font-size 12px
-                right -114px 
+                font-size 11px
+                right -105px 
                 
             &__link
                 color #4b89d3
                 font-style italic
-                &:before
-                    content ''
-                    display inline-block
-                    width 14px
-                    height 14px
-                    margin 0 5px -3px 0
-                    background url('i/cabinet/parol.png') no-repeat 
+            &__icon
+                display inline-block
+                width 14px
+                height 14px
+                margin 0 5px -3px 0
+                background url('i/cabinet/parol.png') no-repeat 
         .profile-tel
             right -158px
             @media only screen and (max-width: 1150px)  
-                font-size 12px
-                right -127px
-            &__link:before
-                content ''
+                font-size 11px
+                right -118px
+            .profile-tel__icon
                 display inline-block
                 width 10px
                 height 16px
@@ -547,7 +545,7 @@ hr
             tr
                 height 65px 
                 &:nth-child(even)
-                    background-color #eaf5f9
+                    background-color rgba(#eaf5f9, 0.48)
                 &:last-child
                     td    
                         &:first-child
@@ -894,7 +892,7 @@ hr
             *zoom 1 
             .favorites-left
                 display inline-block
-                width 70%
+                width 64%
                 &__link
                     
                     img
@@ -943,28 +941,29 @@ hr
                 text-align right
                 float right
                 clearfix()
-                @media only screen and (max-width: 1150px)   
-                    float none
-                    text-align left 
-                    padding-left 97px
+                // @media only screen and (max-width: 1150px)
+                //     margin-top 50px    
+                //     float none
+                //     text-align left 
+                //     padding-left 97px
                 &__value
                     display inline-block 
                     color #00829b
                     font-size 18px
                     font-weight 700
-                    @media only screen and (max-width: 1150px)
-                        position absolute
-                        right 20px 
-                        top 20px  
+                    // @media only screen and (max-width: 1150px)
+                    //     position absolute
+                    //     right 20px 
+                    //     top 20px  
                     .rating__stars
                         display inline-block
                         margin-left 3px 
                 &__info
                     margin-top 3px 
-                    @media only screen and (max-width: 1150px)
-                        position absolute
-                        right 5px
-                        top 42px 
+                    // @media only screen and (max-width: 1150px)
+                    //     position absolute
+                    //     right 122px
+                    //     top 45px 
                 &__link
                     color #4b89d3 
                     display inline-block
@@ -984,9 +983,9 @@ hr
                     cursor pointer
                     &:hover
                         background-color #33b3a4
-                    @media only screen and (max-width: 1150px) 
-                        float none 
-                        margin 10px auto 
+                    // @media only screen and (max-width: 1150px) 
+                    //     float none 
+                    //     margin 10px auto 
                 .favorites-block__mod
                     cursor pointer
                     margin-top 0
@@ -995,10 +994,10 @@ hr
                         display: table
                         clear: both
                     *zoom: 1
-                    @media only screen and (max-width: 1150px)  
-                        position absolute
-                        right 15px
-                        top 22px
+                    // @media only screen and (max-width: 1150px)  
+                    //     position absolute
+                    //     right -102px
+                    //     top 0px
                         
                     .favorites-block__star  
                         background-position -158px -245px
@@ -1025,6 +1024,13 @@ hr
         display inline-block   
         color #5e6e71
         font-size 15px
+        &:before
+            content ''
+            display inline-block
+            margin 0 12px -2px 0 
+            background url('i/cabinet/attention.png') no-repeat center 
+            width 17px
+            height 17px
 .no-favorites
     text-align center 
     opacity 0.25

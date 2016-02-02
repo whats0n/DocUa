@@ -4438,7 +4438,7 @@ html {
 }
 .cabinet-aside__item {
   position: relative;
-  font-family: 'PTSans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 12px;
@@ -4773,16 +4773,15 @@ html {
 }
 @media only screen and (max-width: 1150px) {
   .cabinet-section .profile .profile-parol {
-    font-size: 12px;
-    right: -114px;
+    font-size: 11px;
+    right: -105px;
   }
 }
 .cabinet-section .profile .profile-parol__link {
   color: #4b89d3;
   font-style: italic;
 }
-.cabinet-section .profile .profile-parol__link:before {
-  content: '';
+.cabinet-section .profile .profile-parol__icon {
   display: inline-block;
   width: 14px;
   height: 14px;
@@ -4794,12 +4793,11 @@ html {
 }
 @media only screen and (max-width: 1150px) {
   .cabinet-section .profile .profile-tel {
-    font-size: 12px;
-    right: -127px;
+    font-size: 11px;
+    right: -118px;
   }
 }
-.cabinet-section .profile .profile-tel__link:before {
-  content: '';
+.cabinet-section .profile .profile-tel .profile-tel__icon {
   display: inline-block;
   width: 10px;
   height: 16px;
@@ -4969,7 +4967,7 @@ hr {
   height: 65px;
 }
 .cabinet-notes__inner .cabinet-notes__body tr:nth-child(even) {
-  background-color: #eaf5f9;
+  background-color: rgba(234,245,249,0.48);
 }
 .cabinet-notes__inner .cabinet-notes__body tr:last-child td:first-child {
   border-bottom: 1px solid rgba(0,130,155,0.32);
@@ -5383,7 +5381,7 @@ hr {
 }
 .content-favorites__item .favorites-left {
   display: inline-block;
-  width: 70%;
+  width: 64%;
 }
 .content-favorites__item .favorites-left__link img {
   vertical-align: top;
@@ -5460,25 +5458,11 @@ hr {
 .content-favorites__item .favorites-right:after {
   clear: both;
 }
-@media only screen and (max-width: 1150px) {
-  .content-favorites__item .favorites-right {
-    float: none;
-    text-align: left;
-    padding-left: 97px;
-  }
-}
 .content-favorites__item .favorites-right__value {
   display: inline-block;
   color: #00829b;
   font-size: 18px;
   font-weight: 700;
-}
-@media only screen and (max-width: 1150px) {
-  .content-favorites__item .favorites-right__value {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-  }
 }
 .content-favorites__item .favorites-right__value .rating__stars {
   display: inline-block;
@@ -5486,13 +5470,6 @@ hr {
 }
 .content-favorites__item .favorites-right__info {
   margin-top: 3px;
-}
-@media only screen and (max-width: 1150px) {
-  .content-favorites__item .favorites-right__info {
-    position: absolute;
-    right: 5px;
-    top: 42px;
-  }
 }
 .content-favorites__item .favorites-right__link {
   color: #4b89d3;
@@ -5517,12 +5494,6 @@ hr {
 .content-favorites__item .favorites-right__btn:hover {
   background-color: #33b3a4;
 }
-@media only screen and (max-width: 1150px) {
-  .content-favorites__item .favorites-right__btn {
-    float: none;
-    margin: 10px auto;
-  }
-}
 .content-favorites__item .favorites-right .favorites-block__mod {
   cursor: pointer;
   margin-top: 0;
@@ -5532,13 +5503,6 @@ hr {
   content: " ";
   display: table;
   clear: both;
-}
-@media only screen and (max-width: 1150px) {
-  .content-favorites__item .favorites-right .favorites-block__mod {
-    position: absolute;
-    right: 15px;
-    top: 22px;
-  }
 }
 .content-favorites__item .favorites-right .favorites-block__mod .favorites-block__star {
   background-position: -158px -245px;
@@ -5572,6 +5536,14 @@ hr {
   display: inline-block;
   color: #5e6e71;
   font-size: 15px;
+}
+.favorites_history__text:before {
+  content: '';
+  display: inline-block;
+  margin: 0 12px -2px 0;
+  background: url("i/cabinet/attention.png") no-repeat center;
+  width: 17px;
+  height: 17px;
 }
 .no-favorites {
   text-align: center;
@@ -5634,6 +5606,9 @@ hr {
 }
 .card .rating__value {
   top: 2px;
+}
+.card a {
+  outline: none;
 }
 .card__footer .btn {
   font-size: 18px;
@@ -5754,7 +5729,6 @@ hr {
 }
 @media only screen and (max-width: 767px) {
   .card__socwrap {
-    float: none;
     margin-bottom: 10px;
   }
 }
@@ -5942,16 +5916,6 @@ hr {
 .card__share-bottom .btn {
   float: right;
 }
-@media only screen and (max-width: 767px) {
-  .card__share-bottom .btn {
-    float: none;
-  }
-}
-@media only screen and (max-width: 560px) {
-  .card__share-bottom .btn {
-    float: right;
-  }
-}
 .card .rating__value,
 .small-card .rating__value {
   float: left;
@@ -6087,11 +6051,6 @@ hr {
   .small-card__left-side {
     min-height: 150px;
     width: 176px;
-  }
-}
-@media only screen and (max-width: 450px) {
-  .card__left-side,
-  .small-card__left-side {
     float: none;
   }
   .card__left-side .rating,
@@ -6107,11 +6066,11 @@ hr {
     right: 20px;
     top: 50px;
   }
-}
-@media only screen and (max-width: 450px) {
-  .card__left-side.diagnostic-left__mod .card__testimonials,
-  .small-card__left-side.diagnostic-left__mod .card__testimonials {
-    position: static;
+  .card__left-side .like-box,
+  .small-card__left-side .like-box {
+    position: absolute;
+    right: 15px;
+    top: 85px;
   }
 }
 .card__right-side,
@@ -7095,6 +7054,7 @@ hr {
 }
 .diagnostic-reviews .reviews-info {
   display: inline-block;
+  padding: 0 10px;
 }
 .diagnostic-reviews .reviews-info__icon {
   display: inline-block;
@@ -11998,7 +11958,7 @@ __thumbs .owl-next {
   width: 16px;
   height: 16px;
 }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (max-width: 1024px) {
   .post__add-info {
     padding: 10px;
   }
@@ -12083,7 +12043,7 @@ __thumbs .owl-next {
 .post__footer:after {
   clear: both;
 }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (max-width: 1024px) {
   .post__footer {
     height: 80px;
   }
@@ -12092,7 +12052,7 @@ __thumbs .owl-next {
   float: left;
   height: 25px;
 }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (max-width: 1024px) {
   .post__price {
     width: 100%;
   }
@@ -12119,9 +12079,6 @@ __thumbs .owl-next {
   line-height: 1.1;
   text-decoration: line-through;
 }
-.post__more {
-  float: right;
-}
 .post__more-link {
   float: right;
   padding: 9px 18%;
@@ -12140,7 +12097,7 @@ __thumbs .owl-next {
     padding: 9px 8%;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (max-width: 1024px) {
   .post__more {
     width: 100%;
     margin-top: 10px;
@@ -14017,7 +13974,7 @@ select.select7 {
   top: 0;
   bottom: 0;
   right: -1px;
-  border-right: 2px solid #ffb546;
+  border-right: 1px solid #ffb546;
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
