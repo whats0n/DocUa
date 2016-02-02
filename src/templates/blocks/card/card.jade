@@ -172,9 +172,9 @@ article.hreview-aggregate.vcard.hcard
             
                     if clinic
                         a.link(href="#") Акции клиники (17)
-                        a.link.link-border(href="#") Пакеты услуг (2)
+                        a.link(href="#") Пакеты услуг (2)
                     if !card.hasFilials && (clinicDiagnosticSingle != "big") && (clinicDiagnosticSingle != "small")
-                        if card.status == 'inactive' && !onlineConsultation && !clinicDiagnostic 
+                        if card.status == 'inactive' && !onlineConsultation && !clinicDiagnostic
                             .pull-right(data-toggle="tooltip", data-original-title="Извините, но этот врач временно недоступен", data-placement="bottom")
                                 button.btn.btn-primary(disabled="disabled") Записаться на прием
                         else if clinicDiagnostic && landing || doctorWorld

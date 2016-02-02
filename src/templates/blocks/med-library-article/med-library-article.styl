@@ -5,6 +5,8 @@
 	box-shadow 0 2px 4px rgba(0,64,76,.15)
 	border-radius: 3px
 	zoom 1
+	@media phone
+		padding 15px 15px 5px 15px
 	&__content
 		margin-bottom 30px 
 	&__para
@@ -21,6 +23,11 @@
 	text-decoration none
 	text-align center
 	cursor pointer
+	-ms-word-break break-word
+	word-break break-word
+	@media phone
+		padding 10px 5px
+		font-size 20px 
 	&:active, &:focus, &:hover
 		color #86a8af 
 		text-decoration none
@@ -44,9 +51,12 @@
 				display none
 .med-lib-description
 	padding-right 80px 
-
+	@media phone
+		padding-right 0 
 .med-short-description
 	position relative
+	@media phone
+		padding 20px 
 	&:after
 		content ""
 		position absolute
@@ -56,7 +66,8 @@
 		height 100% 
 		background-image url(i/bb-doc.png) 
 		background-repeat no-repeat 
-	
+		@media phone
+			display none 
 .short-description
 	&__list
 		margin-bottom 0 
@@ -70,10 +81,13 @@
 		font-size 18px 
 		font-weight bold
 		color blue_link  
-	
+		@media phone
+			font-size 16px
 	p
 		font-size 15px
 		margin-bottom 0
+		@media phone
+			font-size 14px
 
 .med-lib-disease
 	overflow hidden

@@ -25,8 +25,6 @@
             font-size 18px
             padding 10px 23px
             line-height 23px
-            // background-color green_base  
-            // border-color green_base 
     h6
         font-size 18px
         margin 10px 0 0
@@ -96,14 +94,14 @@
         clearfix()
         .card__socitem
             margin-top 13px
-        @media phone
+        @media only screen and (max-width: 1200px)
             float none
             margin-bottom 10px
     &__socitem
         float left
         margin-right 9px
         height 20px
-        @media screen560 
+        @media screen560
             margin-top 5px
         &_last
             max-width: 55px
@@ -114,10 +112,10 @@
         .card
             &:hover
                 box-shadow 0 10px 15px #e3e4ed
-                border-color green_base
+                border-color #35bfae
                 .more-toggle__link
                     box-shadow 0 10px 15px #e3e4ed
-                    border-color green_base
+                    border-color #35bfae
     &__title
         margin-bottom 7px
         margin-top: -5px
@@ -134,13 +132,12 @@
         a
             color: #4b89d3
             text-decoration: none
-            outline none
             &:hover
                 text-decoration: underline
     &__job
         margin-top 10px
         padding 9px 14px 10px 15px
-        border 1px dashed #bbcfd3
+        border 1px dashed blue_light
         border-radius border_radius_sm
         @media phone_tablet
             &-top
@@ -155,7 +152,7 @@
             font-size 16px
         &-title   
             color #4b89d3
-
+            outline none !important
         .card__desc, .address-info
             font-size 12px
         .card__desc
@@ -216,10 +213,8 @@
     &__share-bottom
         .btn
             float: right
-            @media phone
+            @media only screen and (max-width: 1200px)
                 float: none
-            @media screen560
-                float right
 
 .card, .small-card
     .rating__value
@@ -303,11 +298,6 @@
                 position absolute
                 right 20px
                 top 50px
-        &.diagnostic-left__mod
-            @media only screen and (max-width: 450px)
-                .card__testimonials
-                    position static
-                    
     &__right-side
         margin-left 180px
         padding-right 20px
@@ -410,7 +400,7 @@
             font-size 16px
             color: #4b89d3
             line-height: 17px
-            &.link-border
+            &:not(:first-child)
                 margin-left 14px
                 padding-left 14px
                 border-left 1px solid #c4e2e8
@@ -446,7 +436,7 @@
                 top 6px
                 margin-left 0
     hr
-        margin 5px -4px 5px
+        margin 5px 0 13px
         @media screen560
             clear: both
     .address-info
