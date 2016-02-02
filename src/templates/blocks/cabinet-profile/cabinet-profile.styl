@@ -5,13 +5,13 @@ body, html
     height: 100%    
 .wrapper
     min-height 100%  
-    margin-bottom: -317px  
+    margin-bottom: -317px   
     &:after
         content "" 
         display block
         height 317px
     
-.footer__mod 
+.footer__mod
     height 317px
 .cabinet-row__mod
     padding-bottom 20px
@@ -19,7 +19,7 @@ body, html
     margin-top 0
     margin-bottom 20px
     z-index: 3
-    border-bottom 2px solid green_base 
+    border-bottom 2px solid #35bfae 
 .cabinet-enter__link
     position relative
     text-decoration none
@@ -28,6 +28,7 @@ body, html
     border 1px solid #a8e3ee
     border-radius 3px
     padding 2px 15px 2px 30px
+    margin-left 15px
     &:hover
         color #FFF 
     .cabinet-enter__link-icon  
@@ -204,25 +205,31 @@ body, html
         max-width 593px
         margin 0 auto
         padding-right 110px 
+        font-size 0
          
         
         &__item
             position relative 
             margin-bottom 16px
             // overflow hidden
-            clearfix() 
+            // clearfix() 
             &:last-child
                 margin-bottom 0 
             
             &.item__mod
                 display none
+            
         &__title
-            float left
+            // float left
+            display inline-block
+            width 200px
+            
             font-size 15px
             color rgba(#5e6e71, 0.94)
             line-height 30px
         &__field-text
-            float right
+            // float right
+            display inline-block
             width 283px
             height 33px
             background-color white
@@ -336,7 +343,8 @@ body, html
             
         .form-radio
             width 283px
-            float right  
+            float right 
+            font-size 14px 
         .modal-radio
             display none
         .modal-radio + label
@@ -369,6 +377,7 @@ body, html
             position absolute
             right -138px
             top 5px
+            font-size 14px
             @media only screen and (max-width: 1150px) 
                 font-size 12px
                 right -114px 
@@ -401,7 +410,8 @@ body, html
             transition all 0.5s  
             &.is-active
                 display inline-block
-                
+        .add-tel__mod
+            margin-left 200px   
         .btn-add-tel
             position relative
             float right
@@ -425,6 +435,13 @@ body, html
                 width 21px
                 height 21px
                 background url('i/cabinet/add-tel.png') no-repeat
+        
+        .item-in__right
+            float right
+            // margin-left 200px
+        .item-in__left
+            float left
+            width auto
         .child-field
             width 130px
             margin-left 22px
@@ -447,7 +464,7 @@ body, html
             display inline-block
             width 283px
             height 45px
-            background-color green_base
+            background-color #35bfae
             border-radius 3px
             text-decoration none
             text-align center
@@ -573,7 +590,7 @@ hr
                         font-size 14px
                         font-style italic 
                     .btn-edit
-                        background-color green_base
+                        background-color #35bfae
                         border-radius 3px 
                         padding 10px 15px
                         text-shadow 0.5px 0.9px 0 rgba(48, 49, 49, 0.08)
@@ -612,7 +629,7 @@ hr
                 height 18px
                 background url('i/cabinet/calendar-icon.png') no-repeat center
         &__right-side
-            background-color green_base
+            background-color #35bfae
             display inline-block
             position absolute
             right 0
@@ -716,7 +733,7 @@ hr
                 &__specialization
                     display inline-block
                 &__recomend
-                    color green_base
+                    color #35bfae
                     font-size 14px
                     display block
                     margin-bottom 10px
@@ -834,7 +851,7 @@ hr
             display inline-block
             width 184px
             height 45px
-            background-color green_base
+            background-color #35bfae
             border-radius 3px
             color #FFF
             text-shadow 0.5px 0.9px 0 rgba(48, 49, 49, 0.23)
@@ -925,6 +942,7 @@ hr
             .favorites-right
                 text-align right
                 float right
+                clearfix()
                 @media only screen and (max-width: 1150px)   
                     float none
                     text-align left 
@@ -957,7 +975,7 @@ hr
                     float right
                     width 205px
                     height 38px
-                    background-color green_base
+                    background-color #35bfae
                     border-radius 4px 
                     font-size 17px
                     line-height 38px
@@ -992,10 +1010,10 @@ hr
                             transition border-color .2s ease
                             
 
-.add-border
-    border-bottom 1px dotted rgba(#1d89a0, 0.45)
-    &:last-child
-        border-bottom none
+        .add-border
+            border-bottom 1px dotted rgba(#1d89a0, 0.45)
+            &:last-child
+                border-bottom none
 //no-favorites
 .favorites_history
     text-align center
@@ -1020,7 +1038,7 @@ hr
     margin 37px 0  
     .btn-green 
          
-        background-color green_base 
+        background-color #35bfae 
         border-radius 3px 
         padding 11px 45px
         text-shadow 0.5px 0.9px 0 rgba(48, 49, 49, 0.08)
