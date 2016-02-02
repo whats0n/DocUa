@@ -3,7 +3,7 @@
     page_name: cabinet-profile
 
 
-.row   
+.row    
   aside.l-3.hidden-xs  
     +b.cabinet-aside 
        +e("ul")
@@ -21,7 +21,7 @@
 
   section.l-9                 
     +b.cabinet-section 
-      +e.header Ваши данные 
+      +e.header Ваши данные  
       +e.content 
         form(action="/")
           fielset
@@ -51,19 +51,21 @@
                 +e("span").title E-mail: 
                 +e("input").field-text(type="email")
                 +b.profile-parol
+                  +e("i").icon
                   +e("a").link(href="#") Сменить пароль
-              +e.item
+              +e.item.clearfix
                 +e("span").title Телефон: 
                 +e("input").field-text.phone-input-mask(type="tel")
                 +b.profile-parol.profile-tel
+                  i.profile-tel__icon
                   +e("a").link.profile-tel__link(href="#") Изменить телефон 
-                +e("input").field-text.phone-input-mask.add-tel(type="tel")
-              +e.item 
+                +e("input").field-text.phone-input-mask.add-tel.add-tel__mod(type="tel")
+              +e.item.clearfix
                 +b.btn-add-tel.js-add-tel Додати додатковий телефон
                   span
-              +e.item
-                +e("span").title Місто:
-                .js-section-choice
+              +e.item.clearfix
+                +e("span").title.item-in__left Місто:
+                .js-section-choice.item-in__right
                   +e('p').field-text.field-text__child.js-selection-main.js-field-child Киев 
                     ul.section-choice.section-choice__city.js-choice-scroll
                       li.section-choice__item.js-selection-city Киев
@@ -78,14 +80,14 @@
                       li.section-choice__item.js-selection-city Днепропетровск
                       li.section-choice__item.js-selection-city Черновцы
                       li.section-choice__item.js-selection-city Николаев
-              +e.item
-                +e("span").title Адреса: 
+              +e.item.clearfix
+                +e("span").title.item-in__left Адреса: 
                 .input-validation
-                  +e("input").field-text.input-validation__field(type="text")
+                  +e("input").field-text.input-validation__field.item-in__right(type="text")
                   span.input-validation__title Заполните адрес
-              +e.item 
-                +e("span").title Діти:
-                .js-section-choice
+              +e.item.clearfix
+                +e("span").title.item-in__left Діти:
+                .js-section-choice.item-in__right
                   +e('p').field-text.field-text__child.js-field-child Немає
                     ul.section-choice
                       li.section-choice__item.js-child(data-id="0") Немає
@@ -94,9 +96,9 @@
                       li.section-choice__item.js-child(data-id="3" ) 3
                       li.section-choice__item.js-child(data-id="4" ) 4
                     
-              +e.item.item__mod
-                +e("span").title Даты рождения: 
-                .js-group(data-field="1")
+              +e.item.item__mod.clearfix
+                +e("span").title.item-in__left Даты рождения: 
+                .js-group.item-in__right(data-field="1")
                   .field-text__in
                     +e("input").field-text.js-date-mast(type="data" placeholder=" дд.мм.гг.")
                     .piker-calendar

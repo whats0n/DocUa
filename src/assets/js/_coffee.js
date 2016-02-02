@@ -355,7 +355,7 @@ plugin = function($) {
           }
           return results;
         })();
-        $popup = $("<div aria-hidden=\"true\" role=\"dialog\" class=\"gallery-popup modal fade\" data-keyboard=\"true\" tabindex=\"-1\">\n	<div class=\"modal-dialog\">\n		<div class=\"modal-content\">\n			<div class=\"modal-header\">\n				<button aria-hidden=\"true\" data-dismiss=\"modal\" type=\"button\" class=\"close\"></button>\n			</div>\n			<div class=\"modal-body\">\n				<div class=\"photo-gallery\"></div>\n			</div>\n		</div>\n	</div>\n</div>");
+        $popup = $("<div aria-hidden=\"true\" role=\"dialog\" class=\"gallery-popup sdfgdsf modal fade\" data-keyboard=\"true\" tabindex=\"-1\">\n \n	\n <div class=\"modal-dialog\">\n\n		 \n <div class=\"modal-content\">\n \n		 	\n <div class=\"modal-header\">\n \n		 		\n <button aria-hidden=\"true\" data-dismiss=\"modal\" type=\"button\" class=\"close close-special\"></button>\n \n <div class=\"modal-title\">Галерея</div></div>\n <div class=\"modal-body\">\n <div class=\"photo-gallery\"></div>\n\n		 	\n </div>\n\n		 \n </div>\n \n	\n </div>\n\n\n</div>");
         keysHandler = function(e) {
           switch (e.which) {
             case 37:

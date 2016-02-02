@@ -27,19 +27,19 @@ plugin = ($) ->
 					title: $(item).attr("title")
 				)
 				$popup = $ """
-					<div aria-hidden="true" role="dialog" class="gallery-popup modal fade" data-keyboard="true" tabindex="-1">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button aria-hidden="true" data-dismiss="modal" type="button" class="close"></button>
-								</div>
-								<div class="modal-body">
-									<div class="photo-gallery"></div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<div aria-hidden=\"true\" role=\"dialog\" class=\"gallery-popup sdfgdsf modal fade\" data-keyboard=\"true\" tabindex=\"-1\">\n 
+						\n <div class=\"modal-dialog\">\n
+							 \n <div class=\"modal-content\">\n 
+							 	\n <div class=\"modal-header\">\n 
+							 		\n <button aria-hidden=\"true\" data-dismiss=\"modal\" type=\"button\" class=\"close close-special\"></button>\n \n <div class=\"modal-title\">Галерея</div></div>\n <div class=\"modal-body\">\n <div class=\"photo-gallery\"></div>\n
+							 	\n </div>\n
+							 \n </div>\n 
+						\n </div>\n
+					\n</div>
 				"""
+					
+
+					
 
 				keysHandler = (e) ->
 					switch e.which
