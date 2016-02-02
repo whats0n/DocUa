@@ -28,16 +28,16 @@ plugin = ($) ->
 				)
 				$popup = $ """
 					<div aria-hidden=\"true\" role=\"dialog\" class=\"gallery-popup sdfgdsf modal fade\" data-keyboard=\"true\" tabindex=\"-1\">\n 
-						<div class=\"modal-dialog\">\n 
-							<div class=\"modal-content\">\n 
-								<div class=\"modal-header\">\n 
-									<button aria-hidden=\"true\" data-dismiss=\"modal\" type=\"button\" class=\"close close-special\"></button>\n" +
-									"<div class=\"modal-title\">Галерея</div></div>\n <div class=\"modal-body\">\n <div class=\"photo-gallery\"></div>\n 
-								</div>\n
-							</div>\n 
-						</div>\n
-					</div>
+						\n <div class=\"modal-dialog\">\n
+							 \n <div class=\"modal-content\">\n 
+							 	\n <div class=\"modal-header\">\n 
+							 		\n <button aria-hidden=\"true\" data-dismiss=\"modal\" type=\"button\" class=\"close close-special\"></button>\n \n <div class=\"modal-title\">Галерея</div></div>\n <div class=\"modal-body\">\n <div class=\"photo-gallery\"></div>\n
+							 	\n </div>\n
+							 \n </div>\n 
+						\n </div>\n
+					\n</div>
 				"""
+					
 
 					
 

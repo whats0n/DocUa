@@ -628,13 +628,13 @@ hr
                 background url('i/cabinet/calendar-icon.png') no-repeat center
         &__right-side
             background-color #35bfae
-            display inline-block
             position absolute
             right 0
-            top 0 
+            top 0
+            
             font-size 14px 
             vertical-align bottom 
-            width 316px 
+            width 316px
             height 42px
             -webkit-border-radius 0 3px 0 0 
             border-radius 0 3px 0 0
@@ -708,7 +708,7 @@ hr
        background-color #FFF 
        
        &__item
-            padding 15px 0px 17px 20px 
+            // padding 15px 0px 17px 20px 
             border-bottom 1px dotted rgba(#1d89a0, 0.45)
             margin-right 0
             margin-left 0 
@@ -717,8 +717,15 @@ hr
                 border-bottom none
             
             .left-side
+                padding 15px 5px 15px 20px
                 display inline-block
-                padding-right 15px
+                width 65%
+                float left 
+                // padding-right 15px
+                @media only screen and (max-width: 1050px)
+                    width 60%
+                @media only screen and (max-width: 992px)
+                    width 100%
                 @media phone
                     padding-right 10px  
                 &__link
@@ -757,10 +764,18 @@ hr
                         background url('i/icons/like-box-dislike.png') no-repeat center
                           
             .doctor-right 
+                padding 15px 0 15px 15px 
                 display inline-block
                 vertical-align top
                 padding-right 15px
                 color #96b8bf
+                background-color #fcfdfd
+                width 35%
+                float left 
+                @media only screen and (max-width: 1050px)
+                    width 40%
+                @media only screen and (max-width: 992px)
+                    width 100%
                 @media tablet
                     padding-left 10px
                     padding-top 10px 
@@ -771,21 +786,38 @@ hr
 //otzivi-edit
     .content-edit
         background #FFF 
-        padding 20px 0 0 0 
-        &:after
-            content: " " 
-            display: table 
-            clear: both
-        *zoom: 1
+        padding 0
+        clearfix()
+        
         &__in
             padding 0 30px 20px 
-            
+        &__row
+            clearfix()
+        &__wrap
+            padding 20px 30px 30px 
+            background-color #fcfdfd
+                
+        &__left
+            width 50%
+            float left
+            @media only screen and (max-width: 1024px)
+                width 100%
+                float none
+        &__right
+            width 50%
+            float left
+            @media only screen and (max-width: 1024px)
+                width 100%
+                float none 
         &__title
             font-size 17px
             font-weight 700 
             margin-bottom 20px
+        &__comment-in
+            text-align center
+            margin 30px 0 
         &__comment
-            width 100%
+            width 87%
             height 152px
             opacity 0.49
             background-color white
@@ -796,6 +828,8 @@ hr
             font-style italic
             color #91b5bc
             font-size 15px
+            @media only screen and (max-width: 1024px)
+                width 91%
         .rating-list
             .rating
                 margin-bottom 0
@@ -806,7 +840,6 @@ hr
             
         .likebox
             margin-left 0
-            margin-bottom 65px
             &:after
                 content: " "
                 display: table
@@ -840,6 +873,7 @@ hr
             transition all 0.1s
             &:hover
                 background url('i/cabinet/cabinet-dislike_hover.png') no-repeat center 
+    
     .content-footer
         padding 20px 0
         text-align center 
@@ -869,8 +903,7 @@ hr
         
     .edit-border
         border-left 1px dotted rgba(#1d89a0, 0.45)
-        padding-left 10px
-        margin-left -10px
+        
         @media phone_tablet 
             border-left none  
         
@@ -892,7 +925,7 @@ hr
             *zoom 1 
             .favorites-left
                 display inline-block
-                width 64%
+                width 60%
                 &__link
                     
                     img
