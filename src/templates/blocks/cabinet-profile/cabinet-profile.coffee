@@ -11,7 +11,7 @@ $('.js-section-choice').each ->
 	$(this).find('.js-field-child').click ->
 		if $(this).hasClass 'is-active'
 			$('.js-field-child').removeClass 'is-active'
-			$('.section-choice').removeClass 'is-open'
+			$('.section-choice').removeClass 'is-open' 
 		else
 			$('.js-field-child').removeClass 'is-active'
 			$('.section-choice').removeClass 'is-open'

@@ -1712,19 +1712,19 @@ $("#select-area").on("areaSelected", function(e, arg) {
   var title, value, values;
   values = arg.values;
   title = ((function() {
-    var i, len, results;
+    var j, len, results;
     results = [];
-    for (i = 0, len = values.length; i < len; i++) {
-      value = values[i];
+    for (j = 0, len = values.length; j < len; j++) {
+      value = values[j];
       results.push(value.title);
     }
     return results;
   })()).join(", ");
   value = ((function() {
-    var i, len, results;
+    var j, len, results;
     results = [];
-    for (i = 0, len = values.length; i < len; i++) {
-      value = values[i];
+    for (j = 0, len = values.length; j < len; j++) {
+      value = values[j];
       results.push(value.value);
     }
     return results;
@@ -1732,6 +1732,17 @@ $("#select-area").on("areaSelected", function(e, arg) {
   $(".finder [data-target='#select-area'] input[type='hidden']").val(value);
   $(".finder [data-target='#select-area']").parent().find('.finder__field-text:last').val(values.length > 0 ? title : $(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
   return $("#select-area").modal("hide");
+});
+
+$('.finder').on('diagnosticSelected', function(t, e) {
+  var i, n;
+  n = void 0;
+  i = void 0;
+  n = e.title;
+  i = e.value;
+  $('.finder [data-target=\'#select-area-diagnostics\'] .finder__field-text').text(i ? n : $('.finder [data-target=\'#select-area-diagnostics\'] .finder__field-text').data('emptyText')).toggleClass('grey', !i);
+  $('.finder [data-target=\'#select-area-diagnostics\'] input[type=\'hidden\']').val(i);
+  return $('#select-area-diagnostics').modal('hide');
 });
 
 
