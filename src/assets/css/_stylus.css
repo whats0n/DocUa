@@ -2896,11 +2896,13 @@ article.static-page .header-styled.header-styled-mod {
     width: 100%;
     float: none;
     padding: 0 10px;
+    padding-left: 44%;
   }
 }
 @media only screen and (max-width: 560px) {
   .section-action__middle {
     width: 100%;
+    padding: 0;
   }
 }
 .section-action__middle .main-title__link {
@@ -3008,26 +3010,33 @@ article.static-page .header-styled.header-styled-mod {
     margin-right: 0;
   }
 }
-.section-action__right .right-info__price {
+.section-action__right .right-info .price {
   padding: 8px 0;
+  position: absolute;
+  bottom: 20px;
+  width: 24%;
 }
-.section-action__right .right-info__price__old {
+@media only screen and (max-width: 767px) {
+  .section-action__right .right-info .price {
+    position: static;
+    width: 100%;
+  }
+}
+.section-action__right .right-info .price__old {
   display: inline-block;
   text-decoration: line-through;
   color: #91b5bc;
   font-size: 13px;
 }
-.section-action__right .right-info__price__new {
+.section-action__right .right-info .price__new {
   display: inline-block;
   font-size: 23px;
   font-weight: 700;
   color: #5e6e71;
   padding-left: 5px;
 }
-.section-action__right .right-info__btn {
-  position: absolute;
-  bottom: 20px;
-  width: 24%;
+.section-action__right .right-info .price__btn {
+  width: 100%;
   background-color: #3ebfac;
   display: inline-block;
   text-decoration: none;
@@ -3045,14 +3054,8 @@ article.static-page .header-styled.header-styled-mod {
   -ms-transition: all 0.5s;
   transition: all 0.5s;
 }
-.section-action__right .right-info__btn:hover {
+.section-action__right .right-info .price__btn:hover {
   background-color: #32b3a3;
-}
-@media only screen and (max-width: 767px) {
-  .section-action__right .right-info__btn {
-    position: static;
-    width: 100%;
-  }
 }
 .action-about__title {
   position: relative;

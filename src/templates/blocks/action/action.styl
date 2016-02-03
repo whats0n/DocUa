@@ -129,6 +129,7 @@
 		padding 25px
 		border-right 1px dashed #c0d2d6 
 		border-left 1px dashed #c0d2d6 
+		
 		@media phone
 			// order 1
 			border-right none
@@ -136,8 +137,10 @@
 			width 100%
 			float none
 			padding 0 10px
+			padding-left 44%
 		@media screen560
 			width 100%
+			padding 0
 		.main-title
 			&__link
 				font-size 18px
@@ -217,8 +220,14 @@
 						height 18px
 					@media phone
 						margin-right 0 
-			&__price	
+			.price	
 				padding 8px 0
+				position absolute
+				bottom 20px 
+				width 24%
+				@media phone
+					position static
+					width 100% 
 				&__old
 					display inline-block
 					text-decoration: line-through
@@ -230,26 +239,22 @@
 					font-weight 700
 					color text_color
 					padding-left 5px
-			&__btn
-				position absolute
-				bottom 20px 
-				width 24% 
-				background-color green_base
-				display inline-block
-				text-decoration none
-				border-radius 3px
-				font-size 18px
-				font-weight 700
-				color white
-				padding 5px 0 
-				text-align center
-				cursor pointer
-				transition all .5s
-				&:hover
-					background-color #32b3a3 
-				@media phone
-					position static
-					width 100% 
+				&__btn
+					width 100%
+					background-color green_base
+					display inline-block
+					text-decoration none
+					border-radius 3px
+					font-size 18px
+					font-weight 700
+					color white
+					padding 5px 0 
+					text-align center
+					cursor pointer
+					transition all .5s
+					&:hover
+						background-color #32b3a3 
+					 
 
 //ACTION-ABOUT
 .action-about 
