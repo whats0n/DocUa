@@ -1,0 +1,66 @@
+.rules-content
+	ol
+		padding-left 0 
+	li
+		list-style-type none 
+			
+	&__title
+		font-weight bold 
+
+	&__list
+		counter-reset list1 
+		
+	&__item
+		&.item-style
+			background #fff
+			padding 35px 30px 30px 35px
+			margin-bottom 35px
+			box-shadow 0 2px 4px rgba(0,64,76,.15)
+			border-radius 3px
+			font-size 24px 
+			font-weight bold 
+			@media phone
+				font-size 18px
+		&:before
+			counter-increment list1
+			content counter(list1) ". "
+			
+	&__second-list, &__third-list, &__fourth-list
+		margin-top 25px 
+		margin-left -25px
+		li
+			margin-bottom 20px 
+			padding 0 25px
+			font-size 15px 
+			font-weight normal 
+			line-height 22px
+			@media phone
+				font-size 14px
+			&:last-child
+				margin-bottom 0 
+			&:before
+				font-weight bold
+			
+	&__second-list
+		counter-reset list2
+		 
+	&__second-item
+		&:before
+			counter-increment list2
+			content counter(list1) "." counter(list2) ". "
+
+	&__third-list
+		counter-reset list3
+
+	&__third-item
+		&:before
+			counter-increment list3
+			content counter(list1) "." counter(list2) "." counter(list3) ". "
+	
+	&__fourth-list
+		counter-reset list4
+
+	&__fourth-item
+		&:before
+			counter-increment list4
+			content counter(list1) "." counter(list2) "." counter(list3) "." counter(list4) ". "
