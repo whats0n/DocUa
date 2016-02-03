@@ -167,5 +167,14 @@ $("#select-area").on "areaSelected", (e, {values}) ->
         .val(if values.length > 0 then title else $(".finder [data-target='#select-area'] .finder__field-text").data "emptyText")
         .toggleClass("grey", values.length is 0)
     $("#select-area").modal "hide"
+    
+$('.finder').on 'diagnosticSelected', (t, e) ->
+  n = undefined
+  i = undefined
+  n = e.title
+  i = e.value
+  $('.finder [data-target=\'#select-area-diagnostics\'] .finder__field-text').text(if i then n else $('.finder [data-target=\'#select-area-diagnostics\'] .finder__field-text').data('emptyText')).toggleClass('grey', !i)
+  $('.finder [data-target=\'#select-area-diagnostics\'] input[type=\'hidden\']').val(i)
+  $('#select-area-diagnostics').modal('hide')
 
 
