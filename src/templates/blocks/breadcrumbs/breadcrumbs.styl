@@ -1,10 +1,15 @@
 .breadcrumbs
-    margin 14px 0 28px
-    ol, ul
-    	margin: 0
-    a 
-        color text_color
-    li
-        >span
-            color #b6c1c3
-            
+	margin 14px 0 28px
+	.breadcrumb
+		font-size 14px
+		ol, ul
+			margin: 0
+		a 
+			color text_color
+		li + li
+			&:before
+				content ">" 
+				padding-right 5px 
+		li
+			>span
+				color #b6c1c3

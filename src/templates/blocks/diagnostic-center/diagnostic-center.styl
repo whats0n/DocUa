@@ -37,7 +37,7 @@
         display inline-block
         margin-left 20px
     &:hover .row-in-price__mod:before
-        background-color #35bfae
+        background-color green_base
     &:hover .diagnostic-line
         background-color transparent 
     .diagnostic-line
@@ -74,7 +74,7 @@
 
               
 .diagnostic-reviews
-    
+    clearfix()
     background-color #fff9e9
     padding 20px 0 
     &__numder
@@ -89,6 +89,8 @@
         position relative
         text-align center
         border-right 1px dotted #c0d2d6 
+        width 50%
+        float left
         .likebox-diagnostic
             &:after
                 content ''
@@ -104,20 +106,14 @@
             &:before
                 content ''
                 display inline-block
-                width 21px
-                height 24px
-                background-image url('i/sprites-general.png')
-                background-position -138px -152px
+                sprite($like)
                 margin-right 5px
         .like-box__dislike
             vertical-align middle
             &:before
                 content ''
                 display inline-block
-                width 21px
-                height 24px
-                background-image url('i/sprites-general.png')
-                background-position -96px -152px
+                sprite($not_like)
                 margin-right 5px
         .like-box__votes
             font-size 22px
@@ -126,6 +122,8 @@
         
     &__right-side
         text-align center
+        width 50%
+        float left 
     
     .reviews-info
         display inline-block
