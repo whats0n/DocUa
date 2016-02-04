@@ -1,0 +1,26 @@
+//---
+   layout: layouts/searchbar
+   title: Ошибка 
+   activeMenuItem: 0
+   finder: doctors
+   modals: select-area, select-actions
+   page_name: 404
+ 
+section 
+   .col-sm-12.col-xs-12           
+      header.header-styled.notopmargin
+         h2.h1 Страница была удалена или вы ввели неверный адрес
+         +b.page-error
+            +e.inner
+               .row
+                  +e.left-block.col-sm-9.col-xs-12   
+                     +e.number 
+                        p 404
+                     +e.content 
+                        +e("p").text К сожалению, мы не нашли то, что вы искали.
+                        +e("p").text Для того чтобы найти нужного врача, отправьте нам заявку или обратитесь в наш call-центр по телефону <br><strong>(044) 337-07-07.</strong>
+                        +e("p").text Если у вас есть к нам вопросы, вы можете воспользоваться обратной связью , и наша служба техподдержки свяжется с вами 
+                        +e("p").text или
+                     +e("a").btn.btn-primary Вернуться на главную страницу
+                  +e.right-block.col-sm-3.hidden-xs 
+                     +e("img").picture(src="i/doctor-error.png", alt="")
