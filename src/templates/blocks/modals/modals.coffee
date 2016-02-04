@@ -8,7 +8,7 @@ $ ->
     updateGroup2 = ->
         $(".x-check-group2").toggle $(".x-check-group2-toggle").prop "checked"
 
-    updateGroup2()
+    updateGroup2() 
     $(".x-check-group2-toggle").change updateGroup2
 
    
