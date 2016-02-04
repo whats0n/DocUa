@@ -1,0 +1,83 @@
+//---
+    layout: layouts/main
+    title: Поиск
+    activeMenuItem: 0
+    finder: doctors
+    modals: select-area, select-specialization, clinic-location-map, clinic-request
+    page_name: search_no_rezult
+
+ 
+.row     
+    section.col-md-12.search-top
+        p.search-title Результаты поиска слова «валіх»
+ 
+.row                  
+    section.col-md-9 
+        .rez-search
+            
+            ul.nav.nav-tabs.nav-search
+                        li.active: a(href="#tab-doctors", data-toggle="tab").search-first Врачи (0)
+                        li 
+                            a(href="#tab-clinics", data-toggle="tab") Клиники (0)
+                        li
+                            a(href="#tab-dcenters", data-toggle="tab") Диагностические центры (0)
+                        li
+                            a(href="#tab-articles", data-toggle="tab") Статьи (0)
+                        li
+                            a(href="#tab-diseases", data-toggle="tab") Заболевания (0)
+                    .tab-content.tab-content__search 
+
+                        #tab-doctors.tab-pane.clinic-tab.active
+                             
+                        #tab-clinics.tab-pane
+                        
+                        #tab-dcenters.tab-pane 
+                            
+                        #tab-articles.tab-pane 
+
+                        #tab-diseases.tab-pane  
+            +b.no-rezult 
+                span По вашему запросу ничего не найдено.
+
+                            
+    aside.col-md-3
+        .gag
+        +b.post.diagonstic-post 
+            +e.add-info 
+            +e.thumb
+                img(src="i/diagnostic-aside.jpg")
+            +b.badge-label.badge-label_background_blue
+                p только через
+                img(src='i/doc-logo-small-white.png')
+                +e("span").arrow
+                    span
+            +e.body
+                +e.title
+                    +e("a").link(href="#") Пакет «Скрининг гепатитов В и С» от Оптима-фарм
+                +e.desc В медицинском центре «Оптима-фарм» только сейчас действует прекрасная возможность сэкономить 30% на комплексе УЗИ для женщин! Для этого необходимо просто записаться на услугу через сервис DOC.UA!
+            +e.footer.post-footer__mod
+                +e.prime
+                    +e("span").price-old 245 грн
+                    +e("span").price-value 160 грн
+                +e.more
+                    +e("a").more-link.btn.btn-success Подробнее
+        +b.post.diagonstic-post 
+            +e.thumb
+                img(src="i/diagnostic-aside.jpg")
+            +b.badge-label.badge-label_background_blue
+                p только через
+                img(src='i/doc-logo-small-white.png')
+                +e("span").arrow
+                    span
+            +e.body
+                +e.title
+                    +e("a").link(href="#") Пакет «Скрининг гепатитов В и С» от Оптима-фарм
+                +e.desc В медицинском центре «Оптима-фарм» только сейчас действует прекрасная возможность сэкономить 30% на комплексе УЗИ для женщин! Для этого необходимо просто записаться на услугу через сервис DOC.UA!
+            +e.footer.post-footer__mod
+                +e.prime
+                    +e("span").price-old 245 грн
+                    +e("span").price-value 160 грн
+                +e.more
+                    +e("a").more-link.btn.btn-success Подробнее
+ 
+            

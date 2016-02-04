@@ -133,10 +133,11 @@ body
         .row
           .container.main-content
             //- Breadcrumbs/Controls row
-            if !file.indexPage
+            if !file.indexPage 
               .row
                 .col-md-9
-                  +b.breadcrumbs: +i({ breadcrumbs: [{ title: file.title, url: '#' }] })
+                  if file.page_name != 'search' && file.page_name != 'search_no_rezult'
+                    +b.breadcrumbs: +i({ breadcrumbs: [{ title: file.title, url: '#' }] })
                 if file.page_name == 'clinics' || file.page_name == 'doctors' || file.page_name == 'promo' || file.page_name == 'bundles'
                   .col-md-9
                     .row
@@ -189,7 +190,7 @@ body
 
       
       //- Blog
-      if file.page_name != 'articles' && file.page_name != 'articles-inner' && file.page_name != 'doctors' && file.page_name != 'diagnostic-center' && file.page_name != 'diagnostic-center_bez' && file.page_name != 'action'
+      if file.page_name != 'articles' && file.page_name != 'articles-inner' && file.page_name != 'doctors' && file.page_name != 'diagnostic-center' && file.page_name != 'diagnostic-center_bez' && file.page_name != 'action' && file.page_name != 'search'  && file.page_name != 'search_no_rezult'
         .container-fluid.hidden-xs.diagnostic-center_bez
           .row.row-articles
             .container
