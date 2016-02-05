@@ -1,0 +1,68 @@
+.clinic-nav
+	width 100%
+	height 48px
+	margin 0
+	padding 0
+	list-style none
+	font-size 0
+	border-top 1px solid #f2f9fa
+	
+	&__item
+		display inline-block
+		height 100%
+		position relative
+		&.active
+			&:after
+				border 1px solid blue_base
+				content ''
+				width 100%
+				height 0
+				position absolute
+				left 0
+				bottom -2px
+					
+			a
+				color blue_base
+				font-weight 700
+				&:before
+					content ""
+					position absolute
+					left 50%
+					width 0
+					height 0
+					bottom -17px
+					margin-left -10px
+					border 8px solid transparent
+					border-top 7px solid blue_base
+				&:after
+					content ""
+					position absolute
+					left 50%
+					bottom -14px
+					width 0
+					height 0
+					margin-left -10px
+					border 8px solid transparent
+					border-top 7px solid #FFF  
+					z-index 2 
+
+	&__link
+		position relative
+		display block
+		height 100%
+		padding 0 20px
+		font-size 16px
+		line-height 3
+		white-space nowrap
+		color #5e6e71
+		text-transform uppercase
+		text-decoration none
+		
+		@media tablet
+			padding 0 8px
+			font-size 15px
+			
+		&:hover
+			text-decoration underline
+			color blue_base
+		

@@ -62,7 +62,7 @@ body.out
             +b.phones.visible-xs: +i
             .user-panel.hidden-xs 
                 
-                +b("a").cabinet-enter__link(href="/", title="Избранное") Здравствуйте, Марина!
+                +b("a").cabinet-enter__link(href="/", title="Избранное") Личный кабинет
                     +b("i").cabinet-enter__link-icon
                 +b("a").favorites-link.favorites-link__mod(href="/", title="Избранное")
                   span.dotted Избранное
@@ -78,11 +78,18 @@ body.out
                         .wrap
                             .row
                                 .col-sm-8
-                                    +b.logo: +i
+                                    +b.logo.logo__mod: +i
                                 .col-sm-4
                                     +b.search: +i
         //- Menu
-        .container-fluid.container-menu.hidden-xs.container__mod 
+        .container-fluid.container-menu__mod.hidden-xs
+          .row.row-white
+            .container
+                +b("ul").clinic-nav
+                    +e("li").item
+                        +e("a").link(href="clinic-profile.html") Мой профиль
+                    +e("li").item.active
+                        +e("a").link(href="clinic-profile_current.html") Заявки  
             
                     
         //- Finder
@@ -102,7 +109,7 @@ body.out
             .row
                 .container.main-content
                    
-                   h1= file.title
+                   
                    article
                       block content 
     
