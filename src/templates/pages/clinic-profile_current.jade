@@ -5,8 +5,8 @@
 
 .containet-fluid
     .row          
-      section                   
-        ul.nav-tabs.clinic-profile__tabs 
+      section                    
+        ul.nav-tabs.clinic-profile__tabs  
             li.active: a(href="#tab-current", data-toggle="tab") Текущие заявки
             li
                 a(href="#tab-alternative", data-toggle="tab") Альтернативные      
@@ -17,10 +17,37 @@
             #tab-current.tab-pane.clinic-tab.active
                 +b("ul").application
                     +e("li").item-big
-                        +b.left-side
-                            +e.title
-                                .title-number 856789
-                                    span.title-icon
+                        .left-side
+                            .left-side__wrap
+                                +b.title
+                                    +e.number 856789
+                                    +e.info на согласовании
+                                    +e.time 04:10
+                                    +e.picture
+                                        img(src='i/icons/on-agreement.png')
+                                .table-info
+                                    table
+                                        tr
+                                            td Филиал:
+                                            td Здравица (Zdravica), медицинский центр медицинский центр
+                                        tr
+                                            td Врач:
+                                            td Гречка Татьяна Григорьевна
+                                        tr
+                                            td Специальность:
+                                            td Акушер-гинеколог
+                                        tr
+                                            td Цена: 
+                                            td 500 грн.
+                                        tr
+                                            td Дата и время:
+                                            td 22.09.2015 утро (10:00, 11:00, 12:00)
+                                        tr
+                                            td Для кого врач:
+                                            td для взрослого
+
+
+
                         +b.right-side
 
                 
