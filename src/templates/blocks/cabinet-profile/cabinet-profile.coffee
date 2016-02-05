@@ -3,7 +3,7 @@ $('.js-add-tel').click ->
 	return
   
 
- 
+
 $('.js-section-choice').each ->
 	item = $(this).find('.section-choice')
 	$('body').click ->
