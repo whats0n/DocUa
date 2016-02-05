@@ -1,0 +1,65 @@
+//---
+   layout: layouts/searchbar
+   title: Регистрация 
+   activeMenuItem: 0
+   finder: doctors
+   modals: select-area, select-actions
+   page_name: registration
+  
+section 
+   .col-sm-12.col-xs-12           
+      header.header-styled.notopmargin
+         h2.h1 Регистрация нового пользователя
+      +b.page-registration.block-bg
+         .row
+            .col-sm-6.col-xs-12    
+               .border-box.margin-bottom-0.form-registration.user_reg
+                  form.form.form-horizontal(action="/")
+                     fieldset
+                        .form-group 
+                           .col-md-2.col-sm-3.is-align-right
+                              label.control-label(for="field-registration-email"): span Емейл
+                           .col-md-10.col-sm-9.col-xs-12
+                              input#field-registration-email.form-control(type="text" placeholder="введите свой емейл")
+                        .form-group
+                           .col-md-2.col-sm-3.is-align-right
+                              label.control-label(for="field-registration-password"): span Пароль
+                           .col-md-10.col-sm-9.col-xs-12 
+                              .input-password
+                                 input#field-registration-password.form-control(type="password" placeholder="введите свой пароль")
+                                 span.password-eye
+                        .form-group
+                           .col-md-2.col-sm-3.col-xs-3.is-align-right
+                              label.control-label Я &mdash; 
+                           .col-md-10.col-sm-9.col-xs-9.col-xs__mod
+                              .radio.radio-inline.radio-inline_mod
+                                 label.radio__label
+                                    input(class="radio-btn" type="radio", name="whois", value="patient")
+                                    span Пациент
+                              .radio.radio-inline.radio-inline_mod
+                                 label.radio__label
+                                    input(class="radio-btn" type="radio", name="whois", value="doctor")
+                                    span Доктор
+                              .radio.radio-inline.radio-inline_mod
+                                 label.radio__label 
+                                    input(class="radio-btn" type="radio", name="whois", value="clinic")
+                                    span Представитель клиники 
+                        .form-group 
+                           .col-sm-2
+                           .col-sm-10
+                              .checkbox
+                                 label.checkbox__label
+                                    input(class="checkbox-btn" type="checkbox")
+                                    span Я согласен с&nbsp;
+                                       a(href="/", title="Правилами использования сайта") Правилами использования сайта
+                        .form-group
+                           .col-sm-2
+                           .col-sm-10
+                              button.btn.btn-primary.user_reg-btn(type="submit") Зарегистрироваться
+                        .form-group
+                           .col-sm-2
+                           .col-sm-10.form-group__registration
+                              p.user_reg-text Уже зарегистрированы?&nbsp;
+                              a(href="/modals.html#login", title="Войдите на сайт") Войдите на сайт
+
+            +e.col-sm-6.hidden-xs
