@@ -5,14 +5,15 @@
     finder: doctors
     modals: select-area, select-specialization, clinic-location-map, clinic-request
     page_name: search
-
  
-
+     
+.row       
+    section.col-md-12.search-top
+        p.search-title Результаты поиска слова «валіх»
  
-.row                
+.row                   
     section.col-md-9 
         .rez-search
-            p.search-title Результаты поиска слова «валіх»
             ul.nav.nav-tabs.nav-search
                         li.active: a(href="#tab-doctors", data-toggle="tab").search-first Врачи (2)
                         li 
@@ -52,25 +53,6 @@
                                         +b.favorites-block.pull-right: +i
                                         +e("h3").title
                                             a(href="#") Хобзей Кузьма Николаевич
-                                        +e("div").text 
-                                            +e("ul").list
-                                                li
-                                                    strong Дерматолог, Трихолог,  Дерматовенеролог, Косметолог
-                                                li Доктор медицинских наук. Врач высшей категории
-                                            +e("div").price Стоимость приема: 
-                                                strong 605 грн
-                                        +e("div").info
-                                            +e("div").rating
-                                                +b.rating: +i({ value: 4.9 })
-                                                +e("a").views(href="#") 233 отзыва
-                                            +b("a").btn.btn-success(href="#doctor-request" data-toggle="modal") Записаться на прием
-                                +e("li").item
-                                    +e("div").img
-                                        img(src="i/_alexandriyskiy-constantin.jpg", alt="")
-                                    +e("div").container
-                                        +b.favorites-block.pull-right: +i
-                                        +e("h3").title
-                                            a(href="#") Хобзей Кузьма Николаевич
                                         +e("div").text
                                             +e("ul").list
                                                 li
@@ -96,6 +78,25 @@
                                                     strong Дерматолог, Трихолог,  Дерматовенеролог, Косметолог
                                                 li Доктор медицинских наук. Врач высшей категории
                                             +e("div").price Стоимость приема: 
+                                                strong 605 грн
+                                        +e("div").info
+                                            +e("div").rating
+                                                +b.rating: +i({ value: 4.9 })
+                                                +e("a").views(href="#") 233 отзыва
+                                            +b("a").btn.btn-success(href="#doctor-request" data-toggle="modal") Записаться на прием
+                                +e("li").item
+                                    +e("div").img
+                                        img(src="i/_alexandriyskiy-constantin.jpg", alt="")
+                                    +e("div").container
+                                        +b.favorites-block.pull-right: +i
+                                        +e("h3").title
+                                            a(href="#") Хобзей Кузьма Николаевич
+                                        +e("div").text
+                                            +e("ul").list
+                                                li
+                                                    strong Дерматолог, Трихолог,  Дерматовенеролог, Косметолог
+                                                li Доктор медицинских наук. Врач высшей категории
+                                            +e("div").price Стоимость приема:  
                                                 strong 605 грн
                                         +e("div").info
                                             +e("div").rating
@@ -107,7 +108,7 @@
                             +b("ul").pagination: +i
                         #tab-clinics.tab-pane
                         
-                            +b("ul").card-list.card-list__mod 
+                            +b("ul").card-list
                                  
                                 +b.small-card.small-card_mod
                                     +e.left-side.hidden-xs
@@ -189,7 +190,7 @@
                                             a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
                                 
                         #tab-dcenters.tab-pane 
-                            +b("ul").card-list.card-list__mod 
+                            +b("ul").card-list
                                  
                                 +b.small-card.small-card_mod
                                     +e.left-side.hidden-xs
@@ -271,7 +272,7 @@
                                             a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться на прием
 
 
-                        #tab-articles.tab-pane
+                        #tab-articles.tab-pane 
                             +b("ul").med-articles-list.med-library-page.search-page  
                                      each article in articlesData
                                         if article.datePublic
@@ -279,16 +280,17 @@
 
 
                         #tab-diseases.tab-pane  
-                            +b("ul").articles-list.news-list
-                                - var limit = 3
-                                each article, i in articlesData
-                                    if i < limit
-                                        +b.article-list-item: +i({ article: article, news: true})
-                            .pagination-wrap.pagination__modifie
-                                +b("ul").pagination: +i
+                            +b("ul").list-diseases
+                                +e("li").item
+                                    +e("a").link(href="#") Аортальная недостаточность
+                                    +e("span").text заболевание кардиологического характера, которое характеризуется как неполное смыкание клапанных створок при сердцебиении, из-за чего происходит обратный кровоток из аорты в левый желудочек. В результате перед получением очередной порции крови, он не опустошается, а сердечная мышца вынуждена работать интенсивнее, чтобы откачать кровь. Это провоцирует повышение уровня кровяного давления в сердце. 
+                                +e("li").item
+                                    +e("a").link(href="#") Актиномикоз (болезнь лучистогрибковая)
+                                    +e("span").text заболевание кардиологического характера, которое характеризуется как неполное смыкание клапанных створок при сердцебиении, из-за чего происходит обратный кровоток из аорты в левый желудочек. В результате перед получением очередной порции крови, он не опустошается, а сердечная мышца вынуждена работать интенсивнее, чтобы откачать кровь. Это провоцирует повышение уровня кровяного давления в сердце. 
             
         
     aside.col-md-3
+        .gag
         +b.post.diagonstic-post 
             +e.add-info 
             +e.thumb
