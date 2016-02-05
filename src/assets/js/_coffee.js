@@ -2063,6 +2063,12 @@ $(document).on("change", ".pill-group .pill input", function(e) {
   }
 });
 
+$(function() {
+  return $(".price-block_collapse .price-block__header").on("click", function() {
+    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
+  });
+});
+
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2108,12 +2114,6 @@ $(window).resize(postLocationWidthFix);
 $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
-
-$(function() {
-  return $(".price-block_collapse .price-block__header").on("click", function() {
-    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
-  });
-});
 
 var smallCardInit;
 
