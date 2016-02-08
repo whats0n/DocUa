@@ -90,8 +90,20 @@ body.out
                     +e("li").item
                         +e("a").link(href="clinic-profile.html") Мой профиль
                     +e("li").item.active
-                        +e("a").link(href="clinic-profile_current.html") Заявки  
-            
+                        +e("a").link(href="clinic-profile_current.html") Заявки 
+
+        //- nav-menu
+        .container-fluid.clinic-profile__tabs
+          .row
+            .container 
+                if file.page_name == 'clinic-profile_current'
+                    ul.nav-tabs.clinics-profile__tabs 
+                        li.active: a(href="#tab-current", data-toggle="tab") Текущие заявки
+                        li
+                            a(href="#tab-alternative", data-toggle="tab") Альтернативные      
+                        li
+                            a(href="#tab-finished", data-toggle="tab") Завершенные
+   
                     
         //- Finder
         .container-fluid.container-finder

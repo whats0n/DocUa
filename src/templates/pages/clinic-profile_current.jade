@@ -1,23 +1,18 @@
 //---
     layout: layouts/clinic_profile 
     title: Мой профиль         
-    page_name: clinic-profile_current 
+    page_name: clinic-profile_current  
 
-.containet-fluid
-    .row          
-      section                    
-        ul.nav-tabs.clinic-profile__tabs  
-            li.active: a(href="#tab-current", data-toggle="tab") Текущие заявки
-            li
-                a(href="#tab-alternative", data-toggle="tab") Альтернативные      
-            li
-                a(href="#tab-finished", data-toggle="tab") Завершенные
+.containet-fluid   
+    .row             
+      .container                    
+       
 
-        .tab-main
+        .tab-content.tab-content__mod
             #tab-current.tab-pane.clinic-tab.active
                 +b("ul").application
                     +e("li").item-big
-                        .left-side
+                        .left-side 
                             .left-side__wrap
                                 +b.title
                                     +e.number 856789
@@ -26,9 +21,9 @@
                                     +e.picture
                                         img(src='i/icons/on-agreement.png')
                                 .table-info
-                                    table
-                                        tr
-                                            td Филиал:
+                                     table 
+                                        tr 
+                                            td Филиал: 
                                             td Здравица (Zdravica), медицинский центр медицинский центр
                                         tr
                                             td Врач:
@@ -45,14 +40,224 @@
                                         tr
                                             td Для кого врач:
                                             td для взрослого
+                        .right-side
+                            .right-side__wrap
+                                +b.comment-block
+                                    +e.item
+                                        strong Комментарий пациента:
+                                        span Гастроскопия + узи + узи органов малого таза для первой пац., для второй пациентки органов малого таза для первой пац. для второй.
+                                    +e.item
+                                        strong Комментарий оператора:
+                                        span Интересует узи и осмотр, на завтра утро либо на пятницу
+                                +b.alternative-block
+                                    strong Aльтернатива
+                                    +e("textarea").enter-text
+                                    +e("a").button.btn(href="#") Подтвердить
+                                    +e("a").button.btn.bg-blue(href="#") Aльтернатива
+                    +e("li").item-big
+                        .left-side
+                            .left-side__wrap
+                                +b.title
+                                    +e.number 856789
+                                    +e.info Согласован
+                                    +e.time 02:00
+                                    +e.picture
+                                        img(src='i/icons/agreed.png')
+                                .table-info
+                                    table
+                                        tr
+                                            td Филиал:
+                                            td Здравица (Zdravica), медицинский центр...
+                                        tr
+                                            td Врач:
+                                            td Гречка Татьяна Григорьевна
+                                        tr
+                                            td Специальность:
+                                            td Акушер-гинеколог
+                                        tr
+                                            td Цена: 
+                                            td 500 грн.
+                                        tr
+                                            td Дата и время:
+                                            td 22.09.2015 утро (10:00, 11:00, 12:00)
+                                        tr
+                                            td Для кого врач:
+                                            td.no-info -----------------------------------
+                        .right-side
+                            .right-side__wrap
+                                +b.comment-block
+                                    +e.item
+                                        strong Комментарий пациента:
+                                        span.no-comment нет комментария 
+                                    +e.item
+                                        strong Комментарий оператора:
+                                        span.no-comment нет комментария
+                                +b.alternative-block
+                                    strong Aльтернатива
+                                    +e("textarea").enter-text
+                                    +e("a").button.btn(href="#") Подтвердить
+                                    +e("a").button.btn.bg-blue(href="#") Aльтернатива
+                    +e("li").item-big
+                        .left-side
+                            .left-side__wrap
+                                +b.title
+                                    +e.number 856789
+                                    +e.info Новый
+                                    +e.time 00:00
+                                    +e.picture
+                                        img(src='i/icons/new-agreed.png')
+                                .table-info
+                                    table
+                                        tr
+                                            td Филиал:
+                                            td Здравица (Zdravica), медицинский центр...
+                                        tr
+                                            td Врач:
+                                            td Гречка Татьяна Григорьевна
+                                        tr
+                                            td Специальность:
+                                            td Акушер-гинеколог
+                                        tr
+                                            td Цена: 
+                                            td 500 грн.
+                                        tr
+                                            td Дата и время:
+                                            td 22.09.2015 утро (10:00, 11:00, 12:00)
+                                        tr
+                                            td Для кого врач:
+                                            td для взрослого
+                        .right-side
+                            .right-side__wrap
+                                +b.comment-block
+                                    +e.item
+                                        strong Комментарий пациента:
+                                        span Гастроскопия + узи + узи органов малого таза для первой пац., для второй пациентки органов малого таза для первой пац. для второй.
+                                    +e.item
+                                        strong Комментарий оператора:
+                                        span Интересует узи и осмотр, на завтра утро либо на пятницу
+                                +b.alternative-block
+                                    strong Aльтернатива
+                                    +e("textarea").enter-text
+                                    +e("a").button.btn(href="#") Подтвердить
+                                    +e("a").button.btn.bg-blue(href="#") Aльтернатива
+                    +e("li").item-big.item-small
+                        .left-side
+                            .left-side__wrap
+                                +b.title
+                                    +e.number 856789
+                                    +e.info Принят
+                                    +e.picture
+                                        img(src='i/icons/ok-agreed.png')
+                                .table-info
+                                    table
+                                        tr
+                                            td Филиал:
+                                            td Здравица (Zdravica), медицинский центр...
+                                        tr
+                                            td Врач:
+                                            td Гречка Татьяна Григорьевна
+                                        tr
+                                            td Специальность:
+                                            td Акушер-гинеколог
+                                        tr
+                                            td Цена: 
+                                            td 500 грн.
+                                        tr
+                                            td Дата и время:
+                                            td 22.09.2015 утро (10:00, 11:00, 12:00)
+                                        tr
+                                            td Для кого врач:
+                                            td для взрослого
+                        .right-side
+                            .right-side__wrap
+                                +b.comment-block
+                                    +e.item
+                                        strong Комментарий пациента:
+                                        span Гастроскопия + узи + узи органов малого таза для первой пац., для второй пациентки органов малого таза для первой пац. для второй.
+                                    +e.item
+                                        strong Комментарий оператора:
+                                        span Интересует узи и осмотр, на завтра утро либо на пятницу
+                    +e("li").item-big.item-small
+                        .left-side
+                            .left-side__wrap
+                                +b.title.item-small__title-canceled
+                                    +e.number.item-small__number 856789
+                                    +e.info.item-small__info отменен
+                                    +e.picture
+                                        img(src='i/icons/canceled-agreed.png')
+                                .table-info
+                                    table
+                                        tr
+                                            td Филиал:
+                                            td Здравица (Zdravica), медицинский центр...
+                                        tr
+                                            td Врач:
+                                            td Гречка Татьяна Григорьевна
+                                        tr
+                                            td Специальность:
+                                            td Акушер-гинеколог
+                                        tr
+                                            td Цена: 
+                                            td 500 грн.
+                                        tr
+                                            td Дата и время:
+                                            td 22.09.2015 утро (10:00, 11:00, 12:00)
+                                        tr
+                                            td Для кого врач:
+                                            td для взрослого
+                        .right-side.right-side__cancel
+                            .right-side__wrap
+                                +b.comment-block
+                                    +e.item
+                                        strong Комментарий пациента:
+                                        span Гастроскопия + узи + узи органов малого таза для первой пац., для второй пациентки органов малого таза для первой пац. для второй.
+                                    +e.item
+                                        strong Комментарий оператора:
+                                        span Интересует узи и осмотр, на завтра утро либо на пятницу
+                    +e("li").item-big.item-small
+                        .left-side
+                            .left-side__wrap
+                                +b.title.item-small__title-time
+                                    +e.number.item-small__number 856789
+                                    +e.info.item-small__info Просрочен
+                                    +e.picture
+                                        img(src='i/icons/time-agreed.png')
+                                .table-info
+                                    table
+                                        tr
+                                            td Филиал:
+                                            td Здравица (Zdravica), медицинский центр...
+                                        tr
+                                            td Врач:
+                                            td Гречка Татьяна Григорьевна
+                                        tr
+                                            td Специальность:
+                                            td Акушер-гинеколог
+                                        tr
+                                            td Цена: 
+                                            td 500 грн.
+                                        tr
+                                            td Дата и время:
+                                            td 22.09.2015 утро (10:00, 11:00, 12:00)
+                                        tr
+                                            td Для кого врач:
+                                            td для взрослого
+                        .right-side.right-side__time
+                            .right-side__wrap
+                                +b.comment-block
+                                    +e.item
+                                        strong Комментарий пациента:
+                                        span Гастроскопия + узи + узи органов малого таза для первой пац., для второй пациентки органов малого таза для первой пац. для второй.
+                                    +e.item
+                                        strong Комментарий оператора:
+                                        span Интересует узи и осмотр, на завтра утро либо на пятницу
+                                
 
 
-
-                        +b.right-side
 
                 
             #tab-alternative.tab-pane
-                
+                p 1111
             #tab-finished.tab-pane
                 
 
