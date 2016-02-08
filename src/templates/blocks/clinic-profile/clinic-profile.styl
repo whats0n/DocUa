@@ -6,6 +6,44 @@
     border-bottom 2px solid green_base
 .cabinet-section__mod 
     margin-top 25px 
+.clinics-profile__tabs 
+    li
+        
+        a
+            padding 9px 21px
+            font-size 15px
+            text-decoration none
+            outline 0
+            border-radius 0 
+            color blue_link
+            &:hover
+                color blue_link
+                border-color grey_base
+        &.active
+            a
+                position relative
+                font-weight 700
+                color text_color
+                background-color grey_base
+                box-shadow inset 5px 0px 10px -5px rgba(0, 64, 76, 0.15)
+                &:after
+                    content ""
+                    width 98%
+                    height 4px
+                    position absolute
+                    right 0
+                    bottom -5px 
+                    background-color grey_base
+                
+                &:hover
+                    color text_color
+                    background-color grey_base
+                    border-bottom 5px solid grey_base
+                &:focus
+                    color text_color
+                    background-color grey_base
+                    border-bottom 5px solid grey_base
+        
 
 // CLINIC-PROFILE_CURRENT
 .clinic-profile__tabs
@@ -14,24 +52,30 @@
     clearfix() 
 .application
     margin-bottom 80px
+    background grey_base
     &__item-big
+        position relative
         margin-top 20px
         border-radius 3px
         box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
+        background-color white
         clearfix()
         .left-side
             background-color white
             float left
             width 50%
             border-radius 3px 0 0 3px
+            
             .left-side__wrap
                 clearfix()
                 .title
+                    position absolute
+                    z-index 2
                     width 161px
                     float left
                     padding 20px
                     text-align center
-                    background-color green_base
+                    
                     &__number
                         font-size 22px
                         font-weight 700
@@ -62,16 +106,20 @@
                         letter-spacing -1px
                 .table-info
                     padding 20px
-                    margin-left 161px
+                    margin-left 161px 
                     table
                         width 100%
-                        tr
-                            line-height 31px
+                        table-layout fixed
+                        tr 
+                            line-height 28px
                             td
+                                &.no-info
+                                    color #b5b9ba
                                 &:first-child
                                     font-size 14px
                                     font-weight 400
                                     color text_color
+                                    width 110px
                                 &:last-child
                                     font-size 14px
                                     font-weight 700
@@ -80,13 +128,129 @@
                                     overflow hidden
                                     -ms-text-overflow ellipsis
                                     text-overflow ellipsis
-                                    
-                 
-            
-        .rigth-side
-            float right
+        .right-side
+            float left
+            background #fff
             width 50%
-            border-left 1px dotted #168da4 
+            -webkit-border-radius 0 3px 3px 0  
+            border-radius 0 3px 3px 0
+            
+                 
+            &:after
+                content ''
+                position absolute
+                top 0
+                left 0
+                bottom 0
+                height 100%  
+                width 161px
+                background green_base
+                -webkit-border-radius 3px 0 0 3px  
+                border-radius 3px 0 0 3px
+                z-index 1     
+            .right-side__wrap
+                position relative
+                strong
+                    display block
+                .comment-block
+                    width 55%
+                    float left
+                    padding 20px
+                    padding-right 20px
+                    @media only screen and (max-width: 1200px)
+                        float none
+                        width 100%
+                    &__item
+                        font-size 14px
+                        color text_color
+                        &:first-child
+                            min-height 115px
+                            padding-top 4px  
+                        span
+                            font-style italic
+                            line-height 17px
+                            &.no-comment
+                               color rgba(#5e6e71, 0.6)
+                .alternative-block
+                    margin-left 55%
+                    width 45%
+                    border-left 1px dashed rgba(29,137,160,.45)
+                    padding 20px
+                    -webkit-border-radius 0 3px 3px 0  
+                    border-radius 0 3px 3px 0
+                    @media only screen and (max-width: 1200px)
+                        float none
+                        width 100%
+                        margin-left 0 
+                        border-left none
+                    &:after
+                        content ''
+                        position absolute
+                        top 0
+                        left 0
+                        bottom 0
+                        height 100%  
+                        width 50%
+                        z-index 1 
+                        border-left 1px dashed rgba(29,137,160,.45)    
+                    &__enter-text
+                        width 100%
+                        height 66px
+                        background #FFF
+                        border 1px solid rgba(61, 160, 180, 0.27)
+                        border-radius 3px
+                        box-shadow inset 2px 2.3px 1px rgba(43, 151, 173, 0.12) 
+                        resize none
+                        outline none 
+                        text-align left
+                        font-style italic
+                        padding 10px
+                        margin 10px 0
+                    &__button
+                        width 100%
+                        font-size 16px
+                        font-weight 700
+                        color #FFF 
+                        background-color green_base 
+                        margin-bottom 10px
+                        &:hover
+                            background-color #3ab3a2
+                            border-color #3ab3a2
+                        &:last-child
+                            margin-bottom 0
+                        &.bg-blue   
+                            background-color #168da4 
+                            &:hover
+                                background-color #1b7f94
+                                border-color #1b7f94
+    .item-small
+        .left-side
+            .left-side__wrap
+                .title
+                    .item-small__number
+                        color text_color
+                        &:before
+                            background url('i/icons/item-number_black.png') center center
+                    .item-small__info
+                        color text_color
+                        border 1px solid rgba(#5e6e71,0.59)
+                    &__picture
+                        line-height 7
+                    
+        .right-side
+            border-left 1px dashed rgba(29,137,160,.45)
+            .right-side__wrap  
+                .comment-block
+                    width 100%
+                    &__item
+                        &:last-child
+                            width 50%
+            &.right-side__time
+                &:after
+                    background-color #fbf4e1
+            &.right-side__cancel
+                &:after
+                    background-color rgba(#909191, 0.26)             
             
             
-           
+            
