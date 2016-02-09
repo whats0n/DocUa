@@ -6,7 +6,12 @@
     border-bottom 2px solid green_base
 .cabinet-section__mod 
     margin-top 25px 
-.clinics-profile__tabs 
+.tabs-shadow
+    line-height 40px
+    box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
+    clearfix() 
+.clinics-profile__tabs
+    margin-left 151px 
     li
         
         a
@@ -16,6 +21,8 @@
             outline 0
             border-radius 0 
             color blue_link
+            @media tablet
+                padding 9px 11px
             &:hover
                 color blue_link
                 border-color grey_base
@@ -46,10 +53,11 @@
         
 
 // CLINIC-PROFILE_CURRENT
-.clinic-profile__tabs
-    line-height 40px
-    box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
-    clearfix() 
+.clinic-current__content
+    .tab-content
+        .tab-pane
+            box-shadow none
+            background grey_base 
 .application
     margin-bottom 80px
     background grey_base
@@ -65,7 +73,9 @@
             float left
             width 50%
             border-radius 3px 0 0 3px
-            
+            @media only screen and (max-width: 1200px)
+                float none
+                width 100%
             .left-side__wrap
                 clearfix()
                 .title
@@ -75,7 +85,11 @@
                     float left
                     padding 20px
                     text-align center
-                    
+                    @media only screen and (max-width: 1200px)
+                        float left
+                        position static
+                        background-color green_base
+                        border-radius 3px 0 0 0
                     &__number
                         font-size 22px
                         font-weight 700
@@ -106,7 +120,9 @@
                         letter-spacing -1px
                 .table-info
                     padding 20px
-                    margin-left 161px 
+                    margin-left 161px
+                    // @media only screen and (max-width: 1200px)
+                    //     margin-left 0 
                     table
                         width 100%
                         table-layout fixed
@@ -134,8 +150,11 @@
             width 50%
             -webkit-border-radius 0 3px 3px 0  
             border-radius 0 3px 3px 0
-            
-                 
+            @media only screen and (max-width: 1200px)
+                float none
+                width 100%
+                &:after
+                    position static 
             &:after
                 content ''
                 position absolute
@@ -157,18 +176,20 @@
                     float left
                     padding 20px
                     padding-right 20px
-                    @media only screen and (max-width: 1200px)
-                        float none
-                        width 100%
+                    
                     &__item
                         font-size 14px
                         color text_color
                         &:first-child
                             min-height 115px
-                            padding-top 4px  
+                            padding-top 4px 
+                            @media only screen and (max-width: 1200px)
+                                min-height auto
+                              
                         span
                             font-style italic
                             line-height 17px
+                            
                             &.no-comment
                                color rgba(#5e6e71, 0.6)
                 .alternative-block
@@ -179,10 +200,13 @@
                     -webkit-border-radius 0 3px 3px 0  
                     border-radius 0 3px 3px 0
                     @media only screen and (max-width: 1200px)
-                        float none
-                        width 100%
-                        margin-left 0 
-                        border-left none
+                    //     float none
+                    //     width 100%
+                    //     margin-left 0 
+                    //     border-left none
+                        &:after
+                            position static
+                            border-left none 
                     &:after
                         content ''
                         position absolute
@@ -195,7 +219,7 @@
                         border-left 1px dashed rgba(29,137,160,.45)    
                     &__enter-text
                         width 100%
-                        height 66px
+                        height 69px
                         background #FFF
                         border 1px solid rgba(61, 160, 180, 0.27)
                         border-radius 3px
@@ -236,7 +260,12 @@
                         border 1px solid rgba(#5e6e71,0.59)
                     &__picture
                         line-height 7
-                    
+                    &.item-small__title-time
+                        @media only screen and (max-width: 1200px)
+                            background-color #fbf4e1
+                    &.item-small__title-canceled
+                        @media only screen and (max-width: 1200px)
+                            background-color rgba(#909191, 0.26)
         .right-side
             border-left 1px dashed rgba(29,137,160,.45)
             .right-side__wrap  
@@ -248,9 +277,103 @@
             &.right-side__time
                 &:after
                     background-color #fbf4e1
+            
+                    
             &.right-side__cancel
                 &:after
-                    background-color rgba(#909191, 0.26)             
+                    background-color rgba(#909191, 0.26) 
+                                
+// tab-alternative
+#tab-alternative.tab-pane  
+    box-shadow none 
+    background grey_base
+    .alternative-btn
+        margin 20px 0
+        &__button
+            color #168da4
+            font-size 14px
+            font-weight 400
+            background-color rgba(254, 254, 254, 0.81)
+            border 1px dashed #00829b
+            border-radius: 3px
+            box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)      
+            margin-right 15px
+            padding 6px 20px
+            &:last-child
+                margin-right 0
+            // &:hover
+            //     color #1b7f94
+            //     border-color #1b7f94
+    .title__alternative 
+        top 50%
+        margin-top -55px
+        @media only screen and (max-width: 1200px)
+            float left
+            position static
+            background-color #168da4 
+            border-radius 3px 0 0 0
+            margin-top 0
+    .title__alternative-pic
+        margin-top -43px
+        top 50% 
+        @media only screen and (max-width: 1200px)
+            line-height 80px
+            margin-top 0
+            position static
             
+           
+           
+    .right-side__alternative
+        &:after
+            background-color #168da4     
+        .right-side__wrap
+            .alternative-block 
+                &__enter-text
+                    margin 12px 0
+
+//tab-finished
+.completed-header
+    margin 20px 0
+    &__item
+        position relative
+        .everyone-header
             
-            
+            display inline-block
+            background-color white
+            border 1px solid rgba(22, 141, 164, 0.7)
+            border-radius 3px
+            box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
+            padding 5px 10px 5px 15px
+            width 184px
+            color #168da4
+            &:after
+                content ''
+                float right
+                margin 8px 6px 0 0 
+                display inline-block
+                border 4px solid transparent
+                border-top 6px solid #1d89a0
+        .everyone-lists 
+            // display none
+            position absolute
+            top 31px 
+            z-index 10
+            width 184px
+            color #91b5bc
+            font-size 14px
+            border 1px solid rgba(22, 141, 164, 0.7)
+            border-radius 0 0 3px 3px
+            box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
+            background #fff
+            &__list
+                padding 5px 5px 5px 15px
+                color text_color
+                cursor pointer
+                &:first-child
+                    margin-top 6px
+                &:last-child
+                    margin-bottom 6px
+                &:hover
+                    background-color #e5f2f5 
+                    color #168da4 
+                 
