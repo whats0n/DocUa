@@ -5,36 +5,36 @@
    finder: doctors
    modals: select-area, select-actions
    page_name: registration
-  
+   
 section 
    .col-sm-12.col-xs-12           
       header.header-styled.notopmargin
          h2.h1 Регистрация нового пользователя
       +b.page-registration.block-bg
          .row
-            .col-sm-6.col-xs-12    
-               .border-box.margin-bottom-0.form-registration.user_reg
+            .col-md-6.col-sm-12.col-xs-12    
+               .border-box.margin-bottom-0.form-registration
                   form.form.form-horizontal(action="/")
                      fieldset
                         .form-group 
-                           .col-md-2.col-sm-3.is-align-right
+                           .col-md-2.col-sm-2.is-align-right
                               label.control-label(for="field-registration-email"): span Емейл
-                           .col-md-10.col-sm-9.col-xs-12
+                           .col-md-10.col-sm-10
                               input#field-registration-email.form-control(type="text" placeholder="введите свой емейл")
                         .form-group
-                           .col-md-2.col-sm-3.is-align-right
+                           .col-md-2.col-sm-2.is-align-right
                               label.control-label(for="field-registration-password"): span Пароль
-                           .col-md-10.col-sm-9.col-xs-12 
+                           .col-md-10.col-sm-10
                               .input-password
                                  input#field-registration-password.form-control(type="password" placeholder="введите свой пароль")
                                  span.password-eye
-                        .form-group  
-                           .col-md-2.col-sm-3.col-xs-3.is-align-right
+                        .form-group.form-labels 
+                           .col-md-2.col-sm-2.col-xs-3.is-align-right
                               label.control-label Я &mdash; 
-                           .col-md-10.col-sm-9.col-xs-9.col-xs__mod
+                           .col-md-10.col-sm-10.col-xs-9.col-xs__mod
                               .radio.radio-inline.radio-inline_mod
                                  label.radio__label
-                                    input(class="radio-btn" type="radio", name="whois", value="patient")
+                                    input(class="radio-btn" type="radio", name="whois", value="patient" checked="checked")
                                     span Пациент
                               .radio.radio-inline.radio-inline_mod
                                  label.radio__label
@@ -44,22 +44,39 @@ section
                                  label.radio__label 
                                     input(class="radio-btn" type="radio", name="whois", value="clinic")
                                     span Представитель клиники 
-                        .form-group 
-                           .col-md-2.col-sm-3
-                           .col-md-10.col-sm-9.col-xs-12 
+                        .form-group.form-labels
+                           .col-md-10.col-sm-10.col-md-offset-2.col-sm-offset-2
                               .checkbox
                                  label.checkbox__label
                                     input(class="checkbox-btn" type="checkbox")
                                     span Я согласен с&nbsp;
                                        a(href="/", title="Правилами использования сайта") Правилами использования сайта
                         .form-group
-                           .col-md-2.col-sm-3
-                           .col-md-10.col-sm-9.col-xs-12 
-                              button.btn.btn-primary.user_reg-btn(type="submit") Зарегистрироваться
-                        .form-group
-                           .col-md-2.col-sm-3
-                           .col-md-10.col-sm-9.col-xs-12.form-group__registration
-                              p.user_reg-text Уже зарегистрированы?&nbsp;
+                           .col-md-10.col-sm-12.col-md-offset-2.text-center-sm
+                              button.btn.btn-primary(type="submit") Зарегистрироваться 
+                        .form-group.form-labels
+                           .col-md-10.col-sm-12.col-md-offset-2.form-group__registration
+                              p Уже зарегистрированы?&nbsp;
                               a(href="/modals.html#login", title="Войдите на сайт") Войдите на сайт
 
-            +e.col-sm-6.hidden-xs
+            .col-md-6.col-sm-12.col-xs-12    
+               +b.form-descr
+                  +e.main-side
+                     +e("h3").title После регистрации вы сможете:
+                     +e.items
+                        +e.item
+                           +e("span").icon
+                              img(src="/i/icon-note_refistr.png", alt="")
+                           +e.content
+                              p Записываться к врачу в удобное для вас время абсолютно бесплатно;
+                        +e.item
+                           +e("span").icon
+                              img(src="/i/icon-star_registr.png", alt="")
+                           +e.content
+                              p Участвовать в оценивании докторов и клиник;
+                        +e.item
+                           +e("span").icon
+                              img(src="/i/icon-heart_registr.png", alt="")
+                           +e.content
+                              p Составлять свои списки избранных докторов и клиник.
+                  
