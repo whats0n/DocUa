@@ -7244,9 +7244,24 @@ hr {
 }
 .completed-header {
   margin: 20px 0;
+  zoom: 1;
+}
+.completed-header:before,
+.completed-header:after {
+  content: "";
+  display: table;
+}
+.completed-header:after {
+  clear: both;
 }
 .completed-header__item {
   position: relative;
+  float: left;
+  margin-right: 15px;
+}
+.completed-header__item:last-child {
+  float: right;
+  margin-right: 0;
 }
 .completed-header__item .everyone-header {
   display: inline-block;
@@ -7269,6 +7284,7 @@ hr {
   border-top: 6px solid #1d89a0;
 }
 .completed-header__item .everyone-lists {
+  display: none;
   position: absolute;
   top: 31px;
   z-index: 10;
@@ -7281,6 +7297,9 @@ hr {
   -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.15);
   box-shadow: 0 2px 4px rgba(0,64,76,0.15);
   background: #fff;
+}
+.completed-header__item .everyone-lists.is-open {
+  display: block;
 }
 .completed-header__item .everyone-lists__list {
   padding: 5px 5px 5px 15px;
@@ -7296,6 +7315,26 @@ hr {
 .completed-header__item .everyone-lists__list:hover {
   background-color: #e5f2f5;
   color: #168da4;
+}
+.completed-header__search {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgba(61,160,180,0.27);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 2px 2.3px 1px rgba(43,151,173,0.12);
+  box-shadow: inset 2px 2.3px 1px rgba(43,151,173,0.12);
+  width: 256px;
+  padding: 5px 10px 5px 15px;
+  color: #bed3d8;
+  font-size: 14px;
+}
+.completed-header__search:after {
+  content: '';
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  background: url("i/icons/clinic-profile-search.png") no-repeat;
 }
 .clinic-nav {
   width: 100%;
@@ -7392,6 +7431,8 @@ hr {
 }
 .comment-quotes__item {
   position: relative;
+  min-height: 140px;
+  height: 100%;
   display: inline-block;
   text-align: center;
   cursor: pointer;
@@ -7403,6 +7444,7 @@ hr {
 @media only screen and (max-width: 767px) {
   .comment-quotes__item {
     min-width: 100px;
+    min-height: 0;
     height: 100%;
     padding: 10px 0;
   }
@@ -7418,7 +7460,6 @@ hr {
   background-color: #fff;
   filter: alpha(opacity = 100);
   zoom: 1;
-  border: 1px solid rgba(198,221,226,0.9);
   -webkit-border-radius: 3px;
   border-radius: 3px;
   background-color: #fff;
@@ -7426,6 +7467,7 @@ hr {
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
+  filter: grayscale(100%);
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .comment-quotes__item img {
@@ -8691,6 +8733,11 @@ hr {
 .feature {
   margin-bottom: 45px;
 }
+@media only screen and (max-width: 767px) {
+  .feature {
+    margin-bottom: 20px;
+  }
+}
 .feature__header {
   vertical-align: middle;
   margin-bottom: 10px;
@@ -9317,20 +9364,18 @@ hr {
   background: #e5f2f5;
   border: 0;
 }
-.form-registration.user_reg {
-  padding: 45px 40px 20px 20px;
+.form-registration.border-box {
+  padding: 40px 40px;
 }
-@media only screen and (max-width: 767px) {
-  .form-registration.user_reg {
-    padding: 20px;
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .form-registration.border-box {
+    padding: 25px;
   }
 }
-.form-registration.user_reg .user_reg-btn {
-  margin-left: 0;
-  padding: 2% 12%;
-}
-.form-registration.user_reg .user_reg-text {
-  margin-left: 0;
+@media only screen and (max-width: 767px) {
+  .form-registration.border-box {
+    padding: 20px;
+  }
 }
 .form-registration .is-align-right {
   text-align: right;
@@ -9340,7 +9385,20 @@ hr {
     text-align: left;
   }
 }
+.form-registration .form-group {
+  margin-bottom: 25px;
+  line-height: 39px;
+}
+.form-registration .form-group:last-child {
+  margin-bottom: 0;
+}
+.form-registration .form-group.form-labels {
+  line-height: normal;
+}
 @media only screen and (max-width: 767px) {
+  .form-registration .form-group {
+    margin-bottom: 20px;
+  }
   .form-registration .form-group .col-xs__mod {
     margin-left: -110px;
   }
@@ -9365,57 +9423,118 @@ hr {
     margin-left: -10px;
   }
 }
+@media only screen and (max-width: 768px) {
+  .form-registration .form-group .text-center-sm {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .form-registration .form-group .text-center-sm {
+    text-align: center;
+  }
+}
+.form-registration .form-group .control-label {
+  line-height: normal;
+  padding-top: 0;
+}
+.form-registration .form-group .control-label span {
+  font-size: 15px;
+}
 .form-registration .form-group .radio-inline + .radio-inline {
   margin-left: 0;
 }
 .form-registration .form-group .radio-inline {
   margin-right: 10px;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 767px) {
+  .form-registration .form-group .radio-inline {
+    margin-bottom: 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .form-registration .form-group .radio__label {
+    margin-bottom: 10px;
+  }
+}
+.form-registration .form-group .radio-inline,
+.form-registration .form-group .checkbox {
+  padding-top: 0;
+  min-height: 0;
 }
 .form-registration .form-group .radio-inline_mod {
-  margin-right: 30px;
+  margin-right: 20px;
 }
 .form-registration .form-group .radio-inline_mod:last-child {
   margin-right: 0;
 }
+@media only screen and (max-width: 768px) {
+  .form-registration .form-group__registration {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .form-registration .form-group__registration {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .form-registration .form-group__registration {
+    text-align: center;
+  }
+}
 .form-registration .form-group__registration p {
   display: inline-block;
-  margin-left: 15px;
+  margin: 0;
 }
 @media only screen and (max-width: 767px) {
   .form-registration .form-group__registration a {
     display: block;
   }
 }
-.form-registration .form-control::-webkit-input-placeholder {
-  color: #5e6e71 !important;
-  font_size: 15px;
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .form-registration .form-group__registration a {
+    display: block;
+  }
 }
-.form-registration .form-control:-moz-placeholder {
-  color: #5e6e71 !important;
-  font_size: 15px;
+.form-registration .form-group .checkbox {
+  margin-top: -10px;
 }
-.form-registration .form-control::-moz-placeholder {
-  color: #5e6e71 !important;
-  font_size: 15px;
-}
-.form-registration .form-control:-ms-input-placeholder {
-  color: #5e6e71 !important;
-  font_size: 15px;
-}
-.form-registration .form-control::-webkit-input-placeholder {
-  font-style: italic;
-}
-.form-registration .form-control:-moz-placeholder {
-  font-style: italic;
-}
-.form-registration .form-control::-moz-placeholder {
-  font-style: italic;
-}
-.form-registration .form-control:-ms-input-placeholder {
-  font-style: italic;
-}
-.form-registration .control-label span {
+.form-registration .form-control {
+  opacity: 0.67;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=67)";
+  filter: alpha(opacity=67);
+  height: 39px;
+  border: 0;
   font-size: 15px;
+}
+.form-registration .form-control::-webkit-input-placeholder {
+  color: #5e6e71 !important;
+  font_size: 15px;
+}
+.form-registration .form-control:-moz-placeholder {
+  color: #5e6e71 !important;
+  font_size: 15px;
+}
+.form-registration .form-control::-moz-placeholder {
+  color: #5e6e71 !important;
+  font_size: 15px;
+}
+.form-registration .form-control:-ms-input-placeholder {
+  color: #5e6e71 !important;
+  font_size: 15px;
+}
+.form-registration .form-control::-webkit-input-placeholder {
+  font-style: italic;
+}
+.form-registration .form-control:-moz-placeholder {
+  font-style: italic;
+}
+.form-registration .form-control::-moz-placeholder {
+  font-style: italic;
+}
+.form-registration .form-control:-ms-input-placeholder {
+  font-style: italic;
 }
 .form-registration .radio-inline {
   padding-left: 0;
@@ -9449,7 +9568,7 @@ hr {
   margin-right: 10px;
   position: absolute;
   left: -20px;
-  top: 2px;
+  top: 0px;
 }
 .form-registration .checkbox__label .radio-btn + span::before,
 .form-registration .radio__label .radio-btn + span::before {
@@ -9480,10 +9599,14 @@ hr {
   height: 17px;
 }
 .form-registration .btn-primary {
-  margin-left: 5%;
   padding: 2% 10%;
   font-size: 18px;
   font-weight: bold;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .form-registration .btn-primary {
+    padding: 10px 50px;
+  }
 }
 .go-top {
   position: fixed;
@@ -12382,55 +12505,6 @@ article a {
 .pagination__modifie .pagination {
   padding-top: 20px;
 }
-.partner-registration .checkbox-btn,
-.partner-registration .radio-btn {
-  display: none;
-}
-.partner-registration .checkbox__label span,
-.partner-registration .radio__label span {
-  position: relative;
-  display: inline-block;
-  padding-left: 5px;
-}
-.partner-registration .checkbox__label span:before,
-.partner-registration .radio__label span:before {
-  content: "";
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  margin-right: 10px;
-  position: absolute;
-  left: -20px;
-  top: 2px;
-}
-.partner-registration .checkbox__label .radio-btn + span::before,
-.partner-registration .radio__label .radio-btn + span::before {
-  background-image: url("/i/sprites-general.png");
-  background-position: -256px -221px;
-  width: 18px;
-  height: 18px;
-}
-.partner-registration .checkbox__label .radio-btn:checked + span::before,
-.partner-registration .radio__label .radio-btn:checked + span::before {
-  background-image: url("/i/sprites-general.png");
-  background-position: -102px -268px;
-  width: 18px;
-  height: 18px;
-}
-.partner-registration .checkbox__label .checkbox-btn + span::before,
-.partner-registration .radio__label .checkbox-btn + span::before {
-  background-image: url("/i/sprites-general.png");
-  background-position: -140px -268px;
-  width: 17px;
-  height: 17px;
-}
-.partner-registration .checkbox__label .checkbox-btn:checked + span::before,
-.partner-registration .radio__label .checkbox-btn:checked + span::before {
-  background-image: url("/i/sprites-general.png");
-  background-position: -214px -268px;
-  width: 17px;
-  height: 17px;
-}
 .partner-registration__title {
   color: #5e6e71;
   font-style: italic;
@@ -12438,6 +12512,7 @@ article a {
   font-size: 22px;
   font-weight: bold;
   max-width: 290px;
+  line-height: 1.2;
   vertical-align: middle;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -12478,64 +12553,6 @@ article a {
   background: #e5f2f5;
   border: 0;
 }
-.partner-registration .is-align-right {
-  text-align: right;
-}
-@media only screen and (max-width: 767px) {
-  .partner-registration .is-align-right {
-    text-align: left;
-  }
-}
-.partner-registration .form-control::-webkit-input-placeholder {
-  color: #5e6e71 !important;
-  font_size: 15px;
-}
-.partner-registration .form-control:-moz-placeholder {
-  color: #5e6e71 !important;
-  font_size: 15px;
-}
-.partner-registration .form-control::-moz-placeholder {
-  color: #5e6e71 !important;
-  font_size: 15px;
-}
-.partner-registration .form-control:-ms-input-placeholder {
-  color: #5e6e71 !important;
-  font_size: 15px;
-}
-.partner-registration .form-control::-webkit-input-placeholder {
-  font-style: italic;
-}
-.partner-registration .form-control:-moz-placeholder {
-  font-style: italic;
-}
-.partner-registration .form-control::-moz-placeholder {
-  font-style: italic;
-}
-.partner-registration .form-control:-ms-input-placeholder {
-  font-style: italic;
-}
-.partner-registration .control-label span {
-  font-size: 15px;
-}
-.partner-registration .radio-inline {
-  padding-left: 0;
-}
-@media only screen and (max-width: 767px) {
-  .partner-registration .radio-inline {
-    padding-top: 0;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .partner-registration .radio-inline + .radio-inline {
-    margin-left: 0;
-  }
-}
-.partner-registration .btn-primary {
-  margin-left: 5%;
-  padding: 2% 10%;
-  font-size: 18px;
-  font-weight: bold;
-}
 .partners {
   margin-top: 15px;
 }
@@ -12566,6 +12583,11 @@ article a {
 .partners-main .header-styled.header-partners {
   margin-bottom: 40px;
   padding-bottom: 10px;
+}
+@media only screen and (max-width: 767px) {
+  .partners-main .header-styled.header-partners {
+    margin-bottom: 25px;
+  }
 }
 .partner-registration__title {
   color: #5e6e71;
@@ -14338,6 +14360,120 @@ __thumbs .owl-next {
   box-shadow: 0 2px 4px rgba(0,64,76,0.15);
   -webkit-border-radius: 3px;
   border-radius: 3px;
+}
+@media only screen and (max-width: 767px) {
+  .block-bg {
+    padding: 15px;
+  }
+}
+.form-descr {
+  margin: 15px 0 40px -22px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .form-descr {
+    margin: 15px 0 40px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .form-descr {
+    margin: 30px 0 15px;
+  }
+}
+.form-descr__main-side {
+  position: relative;
+  margin-right: 78px;
+}
+@media only screen and (max-width: 767px) {
+  .form-descr__main-side {
+    margin-right: 0;
+  }
+}
+.form-descr__main-side:after {
+  content: "";
+  position: absolute;
+  top: 41px;
+  right: -77px;
+  width: 97px;
+  height: 100%;
+  background-image: url("i/bb-doc.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (max-width: 767px) {
+  .form-descr__main-side:after {
+    display: none;
+  }
+}
+.form-descr__title {
+  margin-bottom: 15px;
+  color: #5e6e71;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+@media only screen and (max-width: 767px) {
+  .form-descr__title {
+    font-size: 20px;
+  }
+}
+.form-descr__items {
+  padding: 40px;
+  border: 1px solid #e5f2f5;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+@media only screen and (max-width: 767px) {
+  .form-descr__items {
+    padding: 15px;
+    border: 0;
+  }
+}
+.form-descr__item {
+  position: relative;
+  margin-bottom: 35px;
+  height: 45px;
+}
+.form-descr__item:last-child {
+  margin-bottom: 0;
+}
+@media only screen and (max-width: 767px) {
+  .form-descr__item {
+    margin-bottom: 20px;
+    height: auto;
+  }
+}
+.form-descr__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@media only screen and (max-width: 767px) {
+  .form-descr__icon {
+    position: relative;
+    display: block;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+}
+.form-descr__content {
+  line-height: 45px;
+  padding-left: 60px;
+}
+@media only screen and (max-width: 767px) {
+  .form-descr__content {
+    padding-left: 0;
+    text-align: center;
+  }
+}
+.form-descr__content p {
+  display: inline-block;
+  line-height: normal;
+  font-size: 15px;
+}
+@media only screen and (max-width: 767px) {
+  .form-descr__content p {
+    display: block;
+    font-size: 14px;
+  }
 }
 .reviews-list {
   margin: 0;

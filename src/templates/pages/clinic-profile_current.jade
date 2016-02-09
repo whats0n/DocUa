@@ -355,17 +355,31 @@
 
 
             #tab-finished.tab-pane
-                +b.completed-header
-                    +e("form").item(metod="post")
-                        +e('p').field-text.js-selection-main.everyone-header Все филиалы 
-                            +b('ul').everyone-lists
-                                +e("li").list.js-selection-city Все филиалы
-                                +e("li").list.js-selection-city Viva на м. Шулявская
-                                +e("li").list.js-selection-city Viva на м. Лыбедская
-                                +e("li").list.js-selection-city Viva на Виноградаре
-                                +e("li").list.js-selection-city Viva на Подоле
+                +b("form").completed-header(metod="post")
+                    +e.item
+                        .js-section-choice
+                            +e('p').field-text.js-selection-main.everyone-header.js-field-child Все филиалы 
+                                +b('ul').everyone-lists.section-choice
+                                    +e("li").list.js-selection-city Все филиалы
+                                    +e("li").list.js-selection-city Viva на м. Шулявская
+                                    +e("li").list.js-selection-city Viva на м. Лыбедская
+                                    +e("li").list.js-selection-city Viva на Виноградаре
+                                    +e("li").list.js-selection-city Viva на Подоле
+                    +e.item
+                        .js-section-choice
+                            +e('p').field-text.everyone-header.js-field-child Все статусы
+                                +b('ul').everyone-lists.section-choice
+                                    +e("li").list.js-child Все статусы
+                                    +e("li").list.js-child Viva на м. Шулявская
+                                    +e("li").list.js-child Viva на м. Лыбедская
+                                    +e("li").list.js-child Viva на Виноградаре
+                                    +e("li").list.js-child Viva на Подоле
+                    +e.item
+                        +e("input").search(type="text" placeholder="введите номер заявки") 
+
+
                 +b("ul").application
-                    +e("li").item-big.item-small
+                    +e("li").item-big.item-small 
                         .left-side
                             .left-side__wrap
                                 +b.title

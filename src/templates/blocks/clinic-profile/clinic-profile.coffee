@@ -71,10 +71,6 @@
 #   , 10 
 #   return  		
  
-# $('.js-selection-city').click ->   
-# 	text = $(this).text()
-# 	$('.js-selection-main').text(text)
-# 	$(this).closest('.section-choice').removeClass 'is-open'
 
 	
 		
@@ -83,4 +79,9 @@
 # 	mask: "99.99.9999 " 
 
 
+# $('.js-selection-city').click ->   
+# 	text = $(this).text()
+	
+# 	$('.js-selection-main').text(text)
+# 	$(this).closest('.everyone-lists').removeClass 'is-open'
  
