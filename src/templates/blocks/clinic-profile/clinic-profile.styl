@@ -383,19 +383,48 @@
                 &:hover
                     background-color #e5f2f5 
                     color #168da4 
-    &__search
+        .date-picker
+            position relative
+            width 226px
+            height 31px
+            color #bed3d8
+            padding-left 7px
+            cursor pointer 
+            &:before
+                content ''
+                float left
+                margin-top 0 
+                border none
+                background url('i/cabinet/piker-calendar.png') no-repeat center center
+                margin-right 10px
+                width 20px
+                height 20px
+                
+    .block-wrap 
         position relative
-        background-color white
-        border 1px solid rgba(61, 160, 180, 0.27)
-        border-radius 3px
-        box-shadow inset 2px 2.3px 1px rgba(43, 151, 173, 0.12)
-        width 256px
-        padding 5px 10px 5px 15px
-        color #bed3d8
-        font-size 14px
-        &:after
-            content ''
-            display inline-block
+        &__search
+            background-color white
+            border 1px solid rgba(61, 160, 180, 0.27)
+            border-radius 3px
+            box-shadow inset 2px 2.3px 1px rgba(43, 151, 173, 0.12)
+            width 256px
+            padding 5px 10px 5px 15px
+            font-size 14px
+            color #bed3d8
+            outline none
+            &:focus::-webkit-input-placeholder 
+                color #bed3d8
+            &:focus::-moz-placeholder
+                color #bed3d8          
+            &:focus:-moz-placeholder 
+                color #bed3d8          
+            &:focus:-ms-input-placeholder
+                color #bed3d8     
+        &__icons
+            position absolute
+            right 15px
+            top 50%
+            margin-top -8px  
             width 17px
             height 17px
             background url('i/icons/clinic-profile-search.png') no-repeat 

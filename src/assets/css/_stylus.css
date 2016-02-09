@@ -2865,7 +2865,8 @@ article.static-page .header-styled.header-styled-mod {
   color: #77969c;
 }
 .direction__btn:hover {
-  color: #77969c;
+  border-color: #3ebfac;
+  color: #3ebfac;
 }
 .direction__btn:after {
   content: '';
@@ -2908,8 +2909,14 @@ article.static-page .header-styled.header-styled-mod {
   border-radius: 2px;
   -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.15);
   box-shadow: 0 2px 4px rgba(0,64,76,0.15);
-  margin-bottom: 20px;
   zoom: 1;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  -webkit-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -moz-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -o-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -ms-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .section-action__item:before,
 .section-action__item:after {
@@ -2918,6 +2925,11 @@ article.static-page .header-styled.header-styled-mod {
 }
 .section-action__item:after {
   clear: both;
+}
+.section-action__item:hover {
+  -webkit-box-shadow: 0 10px 15px #e3e4ed;
+  box-shadow: 0 10px 15px #e3e4ed;
+  border-color: #3ebfac;
 }
 .section-action__left {
   float: left;
@@ -2960,6 +2972,16 @@ article.static-page .header-styled.header-styled-mod {
   padding-top: 5px;
 }
 @media only screen and (max-width: 560px) {
+  .section-action .item-left__mod .card__left-side {
+    width: 176px;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .section-action .item-left__mod .card__left-side .card__testimonials {
+    position: static;
+  }
+}
+@media only screen and (max-width: 560px) {
   .section-action .item-left__mod .rating {
     right: 25px;
   }
@@ -2982,12 +3004,12 @@ article.static-page .header-styled.header-styled-mod {
     border-left: none;
     width: 100%;
     float: none;
-    padding: 0 25px;
   }
 }
 @media only screen and (max-width: 560px) {
   .section-action__middle {
     width: 100%;
+    padding: 0 25px;
   }
 }
 .section-action__middle .main-title__link {
@@ -3045,6 +3067,20 @@ article.static-page .header-styled.header-styled-mod {
 .section-action__right .right-info:after {
   clear: both;
 }
+@media only screen and (max-width: 767px) {
+  .section-action__right .right-info .benefit__wrap {
+    float: left;
+    width: 45%;
+    margin-bottom: 5%;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .section-action__right .right-info .benefit__wrap {
+    float: none;
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
 .section-action__right .right-info__benefit {
   position: relative;
   padding: 5px 20px 5px 39px;
@@ -3067,13 +3103,6 @@ article.static-page .header-styled.header-styled-mod {
 @media only screen and (max-width: 1100px) {
   .section-action__right .right-info__benefit {
     padding: 5px 5px 5px 29px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .section-action__right .right-info__benefit {
-    display: inline-block;
-    width: 45%;
-    margin-right: 5%;
   }
 }
 .section-action__right .right-info__benefit.benefit__mod {
@@ -3104,7 +3133,15 @@ article.static-page .header-styled.header-styled-mod {
 @media only screen and (max-width: 767px) {
   .section-action__right .right-info .price {
     position: static;
+    width: 50%;
+    margin-left: 50%;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .section-action__right .right-info .price {
+    float: none;
     width: 100%;
+    margin-left: 0;
   }
 }
 .section-action__right .right-info .price__old {
@@ -3141,6 +3178,12 @@ article.static-page .header-styled.header-styled-mod {
 }
 .section-action__right .right-info .price__btn:hover {
   background-color: #32b3a3;
+}
+@media only screen and (max-width: 767px) {
+  .section-action__right .right-info .price__btn {
+    display: block;
+    margin-top: 5px;
+  }
 }
 .action-about__title {
   position: relative;
@@ -3406,6 +3449,9 @@ article.static-page .header-styled.header-styled-mod {
   font-weight: 700;
   line-height: 20px;
   color: #4b89d3;
+}
+.action-about .action-clinics .doctors-card .doctors-card__item .clinics-container .favorite-title .favorite-title__category a {
+  white-space: nowrap;
 }
 .action-about .action-clinics .doctors-card .doctors-card__item .clinics-container .favorite-title .small-card__footer .small-card__schedule {
   zoom: 1;
@@ -6314,10 +6360,6 @@ hr {
     float: left;
     position: relative;
   }
-  .card__right-side,
-  .small-card__right-side {
-    margin-left: 20px;
-  }
 }
 .card__left-side,
 .small-card__left-side {
@@ -6330,16 +6372,9 @@ hr {
 @media only screen and (max-width: 560px) {
   .card__left-side,
   .small-card__left-side {
+    float: none;
     min-height: 150px;
     width: 176px;
-    float: none;
-  }
-  .card__left-side .rating,
-  .small-card__left-side .rating {
-    position: absolute;
-    right: 10px;
-    top: 20px;
-    width: 120px;
   }
   .card__left-side .card__testimonials,
   .small-card__left-side .card__testimonials {
@@ -6375,6 +6410,7 @@ hr {
   .card__right-side,
   .small-card__right-side {
     margin-left: 20px;
+    padding-left: 0;
   }
 }
 .card__title,
@@ -6390,12 +6426,6 @@ hr {
   .card__image,
   .small-card__image {
     width: 135px;
-  }
-}
-@media only screen and (max-width: 450px) {
-  .card__image,
-  .small-card__image {
-    width: 110px;
   }
 }
 .card__image-mod,
@@ -6602,7 +6632,7 @@ hr {
 .small-card__footer .small-card__schedule {
   float: left;
   margin-top: 0;
-  padding: 8px 5px 8px 23px;
+  padding: 8px 0px 8px 23px;
   border-color: transparent;
   zoom: 1;
 }
@@ -7316,8 +7346,28 @@ hr {
   background-color: #e5f2f5;
   color: #168da4;
 }
-.completed-header__search {
+.completed-header__item .date-picker {
   position: relative;
+  width: 226px;
+  height: 31px;
+  color: #bed3d8;
+  padding-left: 7px;
+  cursor: pointer;
+}
+.completed-header__item .date-picker:before {
+  content: '';
+  float: left;
+  margin-top: 0;
+  border: none;
+  background: url("i/cabinet/piker-calendar.png") no-repeat center center;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+.completed-header .block-wrap {
+  position: relative;
+}
+.completed-header .block-wrap__search {
   background-color: #fff;
   border: 1px solid rgba(61,160,180,0.27);
   -webkit-border-radius: 3px;
@@ -7326,12 +7376,27 @@ hr {
   box-shadow: inset 2px 2.3px 1px rgba(43,151,173,0.12);
   width: 256px;
   padding: 5px 10px 5px 15px;
-  color: #bed3d8;
   font-size: 14px;
+  color: #bed3d8;
+  outline: none;
 }
-.completed-header__search:after {
-  content: '';
-  display: inline-block;
+.completed-header .block-wrap__search:focus::-webkit-input-placeholder {
+  color: #bed3d8;
+}
+.completed-header .block-wrap__search:focus::-moz-placeholder {
+  color: #bed3d8;
+}
+.completed-header .block-wrap__search:focus:-moz-placeholder {
+  color: #bed3d8;
+}
+.completed-header .block-wrap__search:focus:-ms-input-placeholder {
+  color: #bed3d8;
+}
+.completed-header .block-wrap__icons {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -8px;
   width: 17px;
   height: 17px;
   background: url("i/icons/clinic-profile-search.png") no-repeat;
@@ -7407,6 +7472,85 @@ hr {
 .clinic-nav__link:hover {
   text-decoration: underline;
   color: #00829b;
+}
+.contacts {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #fff;
+}
+.contacts a {
+  color: #fff;
+}
+.contacts p {
+  margin: 0;
+  line-height: 27px;
+}
+.contacts__title {
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1pt;
+}
+@media only screen and (max-width: 767px) {
+  .contacts__title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+    padding-right: 15px;
+  }
+  .contacts__title:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 9px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #fff transparent transparent;
+  }
+}
+.contacts__copyright a {
+  text-decoration: none;
+}
+.contacts__rights {
+  font-size: 12px;
+  line-height: 1.166;
+}
+.contacts__rights_international {
+  display: none;
+}
+.contacts__phone {
+  margin-bottom: 10px;
+}
+.contacts__phone-number {
+  margin: 0;
+}
+.contacts__phone span {
+  display: inline-block;
+  width: 46%;
+  margin-right: 2%;
+}
+@media only screen and (max-width: 991px) {
+  .contacts__phone span {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .contacts__phone {
+    display: none;
+  }
+}
+.contacts__callback {
+  display: inline-block;
+  width: 46%;
+  margin-right: 2%;
+}
+@media only screen and (max-width: 1100px) {
+  .contacts__callback {
+    width: 100%;
+  }
 }
 .comment-quotes {
   position: relative;
@@ -7567,85 +7711,6 @@ hr {
 }
 .comment-quotes .owl-next {
   right: 0;
-}
-.contacts {
-  font-size: 14px;
-  line-height: 1.4;
-  color: #fff;
-}
-.contacts a {
-  color: #fff;
-}
-.contacts p {
-  margin: 0;
-  line-height: 27px;
-}
-.contacts__title {
-  margin: 0 0 18px;
-  font-size: 16px;
-  line-height: 1.25;
-  font-weight: bold;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1pt;
-}
-@media only screen and (max-width: 767px) {
-  .contacts__title {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 0;
-    padding-right: 15px;
-  }
-  .contacts__title:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 9px;
-    border-width: 4px;
-    border-style: solid;
-    border-color: #fff transparent transparent;
-  }
-}
-.contacts__copyright a {
-  text-decoration: none;
-}
-.contacts__rights {
-  font-size: 12px;
-  line-height: 1.166;
-}
-.contacts__rights_international {
-  display: none;
-}
-.contacts__phone {
-  margin-bottom: 10px;
-}
-.contacts__phone-number {
-  margin: 0;
-}
-.contacts__phone span {
-  display: inline-block;
-  width: 46%;
-  margin-right: 2%;
-}
-@media only screen and (max-width: 991px) {
-  .contacts__phone span {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .contacts__phone {
-    display: none;
-  }
-}
-.contacts__callback {
-  display: inline-block;
-  width: 46%;
-  margin-right: 2%;
-}
-@media only screen and (max-width: 1100px) {
-  .contacts__callback {
-    width: 100%;
-  }
 }
 .row-counters {
   margin: 39px 0 40px;
@@ -7886,7 +7951,7 @@ hr {
 .diagnostic-reviews__left-side {
   position: relative;
   text-align: center;
-  border-right: 1px dotted #c0d2d6;
+  border-right: 1px dashed #c0d2d6;
   width: 50%;
   float: left;
 }
@@ -7984,6 +8049,33 @@ hr {
     line-height: 26px;
   }
 }
+.diagonstic-post {
+  zoom: 1;
+}
+.diagonstic-post:before,
+.diagonstic-post:after {
+  content: "";
+  display: table;
+}
+.diagonstic-post:after {
+  clear: both;
+}
+@media only screen and (max-width: 991px) {
+  .diagonstic-post {
+    width: 48%;
+    float: left;
+    margin-right: 4%;
+  }
+  .diagonstic-post:last-child {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .diagonstic-post {
+    width: 100%;
+    float: none;
+  }
+}
 @media only screen and (max-width: 991px) {
   .diagonstic-post .post__thumb img {
     width: 100%;
@@ -8019,6 +8111,179 @@ hr {
 }
 .card-list__mod li:last-child {
   margin-bottom: 40px;
+}
+.disease-content {
+  background: #fff;
+  padding: 38px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.15);
+  box-shadow: 0 2px 4px rgba(0,64,76,0.15);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.header-styled.header-styled-noMargins {
+  margin: 0;
+  padding-bottom: 10px;
+  border: 0;
+}
+.header-styled.header-styled-noMargins .h1 {
+  color: #5e6e71;
+}
+.diseases-body .diseases-item {
+  position: relative;
+  padding-left: 15px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 19px;
+}
+.diseases-body .diseases-item .diseases-link {
+  color: #4b89d3;
+  outline: none;
+}
+.diseases-body .diseases-item .diseases-link:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ddecef;
+  -webkit-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.disease-subTitle__list {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+  list-style: none;
+  font-size: 0;
+}
+.disease-subTitle__item {
+  height: 50px;
+  padding: 15px 0;
+  padding-left: 20px;
+  border-bottom: 1px solid #c0d2d6;
+}
+.disease-subTitle__item:last-child {
+  border-bottom: 0;
+}
+.disease-subTitle__link {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  height: 100%;
+  line-height: 17px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4b89d3;
+  text-decoration: none;
+  border-bottom: 1px solid #4b89d3;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+}
+@media only screen and (max-width: 767px) {
+  .disease-subTitle__link {
+    font-size: 16px;
+  }
+}
+.disease-subTitle__link:hover,
+.disease-subTitle__link:focus,
+.disease-subTitle__link:active {
+  border-bottom: 0;
+  text-decoration: none;
+}
+.disease-subTitle__link:before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 4px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ddecef;
+  -webkit-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.short-description {
+  background-color: #e5f2f5;
+  padding: 30px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.short-description p {
+  font-size: 14px;
+}
+.disease-chart .header-styled.header-chart .h1 {
+  padding-bottom: 15px;
+  color: #5e6e71;
+  border-bottom: 1px solid #c0d2d6;
+}
+.disease-chart__list-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+.disease-chart__list {
+  margin-bottom: 20px;
+}
+.disease-chart__list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  font-size: 15px;
+}
+.disease-chart__list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #96b8bf;
+  -webkit-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.disease-chart__description {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.after-content-title {
+  margin-bottom: 10px;
+}
+.after-content-title p {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #5e6e71;
+}
+@media only screen and (max-width: 767px) {
+  .after-content-title p {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .disease-card .job-schedule {
+    position: absolute;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .disease-card .job-schedule {
+    position: static;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .disease-card .schedule-doctor {
+    left: auto;
+    right: -1px;
+  }
 }
 .doctors-region h3 {
   color: #5e6e71;
@@ -8305,7 +8570,7 @@ hr {
 @media only screen and (max-width: 767px) {
   .doctors-card__rating {
     position: absolute;
-    top: 21px;
+    top: 45px;
     right: 21px;
     text-align: right;
     margin: 0;
@@ -8335,179 +8600,6 @@ hr {
 }
 .doctors-quote strong {
   display: block;
-}
-.disease-content {
-  background: #fff;
-  padding: 38px;
-  margin-bottom: 20px;
-  -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.15);
-  box-shadow: 0 2px 4px rgba(0,64,76,0.15);
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
-.header-styled.header-styled-noMargins {
-  margin: 0;
-  padding-bottom: 10px;
-  border: 0;
-}
-.header-styled.header-styled-noMargins .h1 {
-  color: #5e6e71;
-}
-.diseases-body .diseases-item {
-  position: relative;
-  padding-left: 15px;
-  padding-bottom: 5px;
-  font-size: 15px;
-  font-weight: normal;
-  line-height: 19px;
-}
-.diseases-body .diseases-item .diseases-link {
-  color: #4b89d3;
-  outline: none;
-}
-.diseases-body .diseases-item .diseases-link:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 6px;
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background-color: #ddecef;
-  -webkit-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-}
-.disease-subTitle__list {
-  margin: 0;
-  margin-bottom: 5px;
-  padding: 0;
-  list-style: none;
-  font-size: 0;
-}
-.disease-subTitle__item {
-  height: 50px;
-  padding: 15px 0;
-  padding-left: 20px;
-  border-bottom: 1px solid #c0d2d6;
-}
-.disease-subTitle__item:last-child {
-  border-bottom: 0;
-}
-.disease-subTitle__link {
-  position: relative;
-  display: inline-block;
-  vertical-align: baseline;
-  height: 100%;
-  line-height: 17px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #4b89d3;
-  text-decoration: none;
-  border-bottom: 1px solid #4b89d3;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: none;
-}
-@media only screen and (max-width: 767px) {
-  .disease-subTitle__link {
-    font-size: 16px;
-  }
-}
-.disease-subTitle__link:hover,
-.disease-subTitle__link:focus,
-.disease-subTitle__link:active {
-  border-bottom: 0;
-  text-decoration: none;
-}
-.disease-subTitle__link:before {
-  content: "";
-  position: absolute;
-  left: -20px;
-  top: 4px;
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background-color: #ddecef;
-  -webkit-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-}
-.short-description {
-  background-color: #e5f2f5;
-  padding: 30px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
-.short-description p {
-  font-size: 14px;
-}
-.disease-chart .header-styled.header-chart .h1 {
-  padding-bottom: 15px;
-  color: #5e6e71;
-  border-bottom: 1px solid #c0d2d6;
-}
-.disease-chart__list-title {
-  font-weight: bold;
-  font-size: 15px;
-}
-.disease-chart__list {
-  margin-bottom: 20px;
-}
-.disease-chart__list li {
-  position: relative;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  font-size: 15px;
-}
-.disease-chart__list li:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 7px;
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background-color: #96b8bf;
-  -webkit-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-}
-.disease-chart__description {
-  font-size: 15px;
-  margin-bottom: 20px;
-}
-.after-content-title {
-  margin-bottom: 10px;
-}
-.after-content-title p {
-  margin: 0;
-  padding: 0;
-  font-size: 24px;
-  font-weight: 700;
-  color: #5e6e71;
-}
-@media only screen and (max-width: 767px) {
-  .after-content-title p {
-    font-size: 18px;
-  }
-}
-@media only screen and (max-width: 960px) {
-  .disease-card .job-schedule {
-    position: absolute;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .disease-card .job-schedule {
-    position: static;
-  }
-}
-@media only screen and (max-width: 960px) {
-  .disease-card .schedule-doctor {
-    left: auto;
-    right: -1px;
-  }
 }
 .diseases-check-list {
   margin: 0;
@@ -8684,11 +8776,6 @@ hr {
   -o-transition: border-color 0.2s ease;
   -ms-transition: border-color 0.2s ease;
   transition: border-color 0.2s ease;
-}
-@media only screen and (max-width: 767px) {
-  .favorites-block__text {
-    display: none;
-  }
 }
 .favorites-block__text-favored {
   display: none;
@@ -13358,6 +13445,7 @@ __thumbs .owl-next {
 @media only screen and (max-width: 1024px) {
   .post__footer {
     height: 80px;
+    margin-top: 0;
   }
 }
 .post__price {
@@ -14712,8 +14800,46 @@ __thumbs .owl-next {
   margin-top: 24px;
   background: #dfe7e9;
 }
+@media only screen and (max-width: 767px) {
+  .rez-search .tab-content__search .tab-pane .small-card__right-side {
+    padding-left: 140px;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .rez-search .tab-content__search .tab-pane .small-card__right-side {
+    padding-left: 0;
+  }
+}
 .rez-search .tab-content__search .tab-pane .rating .rating__value {
   float: none;
+}
+.rez-search .tab-content__search .tab-pane .doctors-card__list li a {
+  color: #4b89d3;
+}
+@media only screen and (max-width: 767px) {
+  .rez-search .tab-content__search .tab-pane .favorites-block {
+    display: block;
+    width: auto;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .rez-search .tab-content__search .tab-pane .favorites-block {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .rez-search .tab-content__search .tab-pane .load-items span:before,
+  .rez-search .tab-content__search .tab-pane .load-items span:after {
+    display: block;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .rez-search .tab-content__search .tab-pane .load-items span:before,
+  .rez-search .tab-content__search .tab-pane .load-items span:after {
+    display: none;
+  }
 }
 .rez-search .search-page {
   padding: 0;
@@ -15574,9 +15700,6 @@ select.select7 {
 }
 .small-card__left-side .rating {
   margin-top: 3px;
-}
-.small-card__right-side {
-  position: relative;
 }
 @media only screen and (max-width: 767px) {
   .small-card__right-side {
