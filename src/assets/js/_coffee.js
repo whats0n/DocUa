@@ -1407,7 +1407,23 @@ $('.js-date-mast').inputmask({
   mask: "99.99.9999 "
 });
 
+$("#select-area").on("change", "input", function() {
+  if ($(this).prop('checked')) {
+    return $(this).parents('label').addClass('is-active');
+  } else {
+    return $(this).parents('label').removeClass('is-active');
+  }
+});
 
+$("#select-area").on("click", ".js-btn-clone", function() {
+  var item, itemParent;
+  item = $('.is-active').children('span');
+  itemParent = item.parent('.is-active');
+  $(".alternative-btn__district").empty();
+  if (item.siblings("input:checkbox:checked")) {
+    return item.clone().appendTo(".alternative-btn__district");
+  }
+});
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
