@@ -23,7 +23,13 @@
 			
 	.tab-content__search
 		border none 
-		
+		#tab-doctors
+			.favorites-block
+				@media only screen and (max-width: 560px)
+					position static
+				@media only screen and (max-width: 450px)
+					position absolute
+				
 		.tab-pane
 			-webkit-box-shadow none 
 			box-shadow none 
@@ -31,11 +37,39 @@
 			// background #f4f8f8 
 			background grey_base
 			
-			// .small-card
-			// 	padding: 9px 0 0px
+			.small-card
+				&__right-side
+					@media phone
+            			padding-left 140px
+            		@media screen560
+            			padding-left 0
+				
 			.rating
 				.rating__value
 					float none
+			
+			.doctors-card__list
+				li
+					a
+						color #4b89d3
+			.favorites-block
+				@media phone
+					display block
+					width auto 
+				@media only screen and (max-width: 560px)
+					position absolute
+					top 20px
+					right 20px
+			.load-items
+				span
+					&:before, &:after
+						@media phone
+							display block
+						@media only screen and (max-width: 450px)
+							display none
+						
+				
+							
 	.search-page
 		padding 0
 		margin-bottom 0
