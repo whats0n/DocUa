@@ -555,7 +555,7 @@ ul.border-dotted .first li {
   font-size: 15px;
 }
 .main-content .rich-content em {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 18px;
 }
 .main-content .rich-content h1 {
@@ -601,11 +601,44 @@ ul.border-dotted .first li {
 .main-content .rich-content .div-color.bg-pink {
   background-color: #fddfdf;
 }
-.main-content .rich-content .blockquote {
-  margin: 20px 0;
-  -webkit-border-radius: 3px;
+.main-content .rich-content blockquote {
+  padding: 0 0 0 50px;
+  position: relative;
+  font-style: italic;
+  border-left: none;
   -webkit-border-radius: 3px;
   border-radius: 3px;
+}
+@media only screen and (max-width: 767px) {
+  .main-content .rich-content blockquote {
+    padding: 0 0 0 20px;
+  }
+}
+.main-content .rich-content blockquote:before {
+  content: "“";
+  color: #a3c1c7;
+  font-size: 120px;
+  line-height: 0.8;
+  position: absolute;
+  top: 0;
+  left: -12px;
+}
+@media only screen and (max-width: 767px) {
+  .main-content .rich-content blockquote:before {
+    font-size: 70px;
+  }
+}
+.main-content .rich-content blockquote div {
+  background-color: #e5f2f5;
+  border-left: 1px solid #c0d7dc;
+  padding: 29px;
+  font-size: 15px;
+  line-height: 24px;
+}
+@media only screen and (max-width: 767px) {
+  .main-content .rich-content blockquote div {
+    padding: 10px;
+  }
 }
 .main-content .rich-content table {
   width: 100%;
@@ -619,7 +652,7 @@ ul.border-dotted .first li {
   margin-bottom: 30px;
   border: 1px solid rgba(0,130,155,0.16);
 }
-.main-content .rich-content table thead tr {
+.main-content .rich-content table th {
   height: 49px;
   background-color: #00829b;
   border: 1px solid #00829b;
@@ -627,7 +660,7 @@ ul.border-dotted .first li {
   font-size: 17px;
   font-weight: 700;
 }
-.main-content .rich-content table thead tr td:first-child {
+.main-content .rich-content table th:first-child {
   background-color: #00829b;
   padding-left: 29px;
   text-align: left;
@@ -635,7 +668,7 @@ ul.border-dotted .first li {
   moz-border-top-left-radius: 3px;
   -webkit-border-top-left-radius: 3px;
 }
-.main-content .rich-content table thead tr td:last-child {
+.main-content .rich-content table th:last-child {
   text-align: center;
   background-color: #00829b;
   border-top-right-radius: 3px;
@@ -644,29 +677,32 @@ ul.border-dotted .first li {
   border-left: 1px solid rgba(255,255,255,0.2);
   padding: 0 10px;
 }
-.main-content .rich-content table tbody tr {
+.main-content .rich-content table tr {
   height: 47px;
-  background-color: #fff;
-  color: taxt_color;
+  background-color: rgba(229,242,245,0.48);
+  color: #5e6e71;
   font-size: 15px;
   font-weight: 400;
 }
-.main-content .rich-content table tbody tr td {
+.main-content .rich-content table tr:nth-child(even) {
+  background-color: #fff;
+}
+.main-content .rich-content table tr td {
   padding-left: 29px;
 }
-.main-content .rich-content table tbody tr td:first-child {
+.main-content .rich-content table tr td:first-child {
   border-right: 1px solid rgba(0,130,155,0.14);
 }
-.main-content .rich-content table tbody tr td:last-child {
+.main-content .rich-content table tr td:last-child {
   padding: 0;
   text-align: center;
 }
-.main-content .rich-content table tbody tr:last-child td:first-child {
+.main-content .rich-content table tr:last-child td:first-child {
   border-bottom-left-radius: 3px;
   moz-border-bottom-left-radius: 3px;
   -webkit-border-bottom-left-radius: 3px;
 }
-.main-content .rich-content table tbody tr:last-child td:last-child {
+.main-content .rich-content table tr:last-child td:last-child {
   border-bottom-right-radius: 3px;
   moz-border-bottom-right-radius: 3px;
   -webkit-border-bottom-right-radius: 3px;
@@ -706,18 +742,18 @@ ul.border-dotted .first li {
   height: 7px;
   top: 9px;
 }
-.main-content .rich-content .number-lists {
+.main-content .rich-content .style-numeric {
   counter-reset: li;
   list-style: none;
   padding-left: 20px;
   margin: 10px 0;
 }
-.main-content .rich-content .number-lists li {
+.main-content .rich-content .style-numeric li {
   position: relative;
   padding-left: 20px;
   line-height: 2;
 }
-.main-content .rich-content .number-lists li:before {
+.main-content .rich-content .style-numeric li:before {
   content: counter(li) '. ';
   counter-increment: li;
   font-weight: bold;
@@ -1984,11 +2020,11 @@ article.static-page .header-styled.header-styled-mod {
 }
 .article-top {
   font-size: 0;
-  padding: 0 38px 20px;
+  padding: 0 38px 0;
 }
 @media only screen and (max-width: 767px) {
   .article-top {
-    padding: 0 15px 20px;
+    padding: 0 15px 0;
   }
 }
 .article-top__item {
@@ -2123,17 +2159,6 @@ article.static-page .header-styled.header-styled-mod {
 .content-block li {
   padding: 0 0 10px 18px;
   position: relative;
-}
-.content-block li:before {
-  content: "";
-  position: absolute;
-  top: 11px;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  background-color: #96b8bf;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
 }
 .content-block h2 {
   font-weight: 700;
