@@ -1,0 +1,47 @@
+//---
+   layout: layouts/searchbar
+   title: Регистрация 
+   activeMenuItem: 0
+   finder: doctors
+   modals: select-area, select-actions
+   page_name: registration-thank
+   
+section 
+   .col-sm-12.col-xs-12           
+      header.header-styled.notopmargin
+         h2.h1 Спасибо за регистрацию у нас на сайте!
+      +b.page-registration.block-bg
+         .row
+            .col-md-6.col-sm-12.col-xs-12    
+               .border-box.margin-bottom-0.form-registration.form_thank
+                  .handling-to-user
+                     p Для завершения регистрации Вам необходимо указать номер телефона. Введите пожалуйста Ваш контактный мобильный телефон.
+
+                  form.form.form-horizontal(action="/")
+                     fieldset
+                        .form-group.form-group_thank
+                           .col-md-2.col-sm-4.col-xs-12.is-align-right
+                              label.control-label(for="field-registration-phone"): span Телефон 
+                           .col-md-10.col-sm-8.col-xs-12
+                              input#field-registration-phone.form-control.phone-input-mask.form-control_thank(type="text" placeholder="введите свой телефон")
+                        
+                        .form-group
+                           .col-md-10.col-sm-8.col-md-offset-2.col-sm-offset-4
+                              button.btn.btn-primary.btn_thank(type="submit") Сохранить  
+                              a(href="", title="Войдите на сайт") Позднее
+
+            .col-md-6.col-sm-12.col-xs-12    
+               +b.form-descr.form-descr_thank
+                  +e.main-side.main-side_thank
+                     +e("h3").title.title_thank Для чего нужно указывать мобильный телефон:
+                     +e.items.items_thank
+                        +e.item.item_thank
+                           +e("span").icon
+                              img(src="/i/icon-phone2.png", alt="")
+                           +e.content.content_thank
+                              p Если Вы новый пользователь, укажите мобильный номер для того,чтобы наши специалисты с легкостью могли связаться с Вами для консультации по поводу записи.
+                        +e.item.item_thank
+                           +e("span").icon
+                              img(src="/i/icon-list.png", alt="")
+                           +e.content.content_thank
+                              p Если Вы уже записывались, укажите мобильный номер, Вы увидите историю Ваших записей в Вашем личном кабинете, а также сможете оставить отзыв для врача и клинике
