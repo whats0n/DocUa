@@ -95,6 +95,7 @@ module.exports = {
         "./src/assets/vendor/jscrollpane/jquery.jscrollpane.js",
         "./src/assets/vendor/jquery.inputmask/inputmask/jquery.inputmask.js",
         "./src/assets/vendor/dotdotdot/jquery.dotdotdot.js",
+        "./src/assets/vendor/jquery.datepicker/jquery-ui.min.js",
         "./src/assets/js/_coffee.js"
     ],
     checkerList: [

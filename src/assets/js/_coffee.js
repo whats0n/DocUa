@@ -1421,8 +1421,36 @@ $("#select-area").on("click", ".js-btn-clone", function() {
   itemParent = item.parent('.is-active');
   $(".alternative-btn__district").empty();
   if (item.siblings("input:checkbox:checked")) {
-    return item.clone().appendTo(".alternative-btn__district");
+    item.clone().appendTo(".alternative-btn__district");
+    return $(".alternative-btn__district").find("span").append('<i class="icon-close js-remove"></i>');
   }
+});
+
+$("#select-area [data-action='reset']").on("click", function() {
+  return $("#select-area").find('.pill').removeClass('is-active');
+});
+
+$(".alternative-btn__district").on("click", ".js-remove", function() {
+  var inputAlternative, inputArea;
+  inputAlternative = $(this).parents('span');
+  inputArea = $("#select-area").find('.is-active').children('span');
+  return inputAlternative.remove();
+});
+
+$(".js-btn-picker").on("click", function() {
+  var picker;
+  picker = $(this).siblings(".date-wrap");
+  return picker.toggleClass('is-active');
+});
+
+$(".js-datepicker").datepicker({
+  altField: ".date-footer__text",
+  selectOtherMonths: true,
+  dateFormat: true,
+  numberOfMonths: [1, 2],
+  monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+  dayNamesMin: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
+  firstDay: 1
 });
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };

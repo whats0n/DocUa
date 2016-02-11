@@ -20,7 +20,7 @@
   </head>
 </html>
 <body class="out"> 
-  <div id="fb-root"></div>
+  <div id="fb-root"> </div>
   <script>
     (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -424,8 +424,6 @@
           <ul class="clinic-nav">
             <li class="clinic-nav__item"><a href="clinic-profile.html" class="clinic-nav__link">Мой профиль</a>
             </li>
-            <li class="active clinic-nav__item"><a href="clinic-profile_current.html" class="clinic-nav__link">Заявки </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -451,7 +449,7 @@
       <div class="row">
         <div class="container main-content">
           <article>
-            <div class="containet-fluid">   
+            <div class="containet-fluid">     
               <div class="row">            
                 <div class="container clinic-current__content">                   
                   <div class="tab-content tab-content__mod"> 
@@ -790,7 +788,9 @@
                       </ul>
                     </div>
                     <div id="tab-alternative" class="tab-pane"> 
-                      <div class="alternative-btn"><a href="#select-area" data-toggle="modal" class="alternative-btn__button btn">Выберите район</a><span class="alternative-btn__district"> </span><a href="#select-specialization" data-toggle="modal" class="alternative-btn__button btn">Выберите специальность</a>
+                      <div class="alternative-btn"><a href="#select-area" data-toggle="modal" class="alternative-btn__button btn">Выберите район</a>
+                        <div class="alternative-btn__district"> 
+                        </div><a href="#select-specialization" data-toggle="modal" class="alternative-btn__button btn">Выберите специальность</a>
                       </div>
                       <ul class="application">
                         <li class="application__item-big">
@@ -858,10 +858,10 @@
                               </div>
                             </div>
                           </div>
-                          <div class="right-side right-side__alternative">
-                            <div class="right-side__wrap">
-                              <div class="comment-block">
-                                <div class="comment-block__item"><strong>Комментарий пациента:</strong><span>Гастроскопия + узи + узи органов малого таза для первой пац., для второй пациентки органов малого таза для первой пац. для второй.</span>
+                          <div class="right-side right-side__alternative"> 
+                            <div class="right-side__wrap"> 
+                              <div class="comment-block">  
+                                <div class="comment-block__item"><strong>Комментарий пациента:</strong><span>Гастроскопия + узи + узи органов малого таза для первой пац., для второй пациентки органов малого таза для первой пац. для второй. </span>
                                 </div>
                                 <div class="comment-block__item"><strong>Комментарий оператора:</strong><span>Интересует узи и осмотр, на завтра </span>
                                 </div>
@@ -954,17 +954,37 @@
                           </div>
                         </div>
                         <div class="completed-header__item">
-                          <div class="block-wrap">
+                          <div class="block-wrap"> 
                             <input type="text" placeholder="введите номер заявки" class="block-wrap__search"/><i class="block-wrap__icons"></i>
                           </div>
                         </div>
                         <div class="completed-header__item">
-                          <div class="date-picker everyone-header">31 Октября -  30 Ноября</div>
+                          <div class="date-picker everyone-header js-btn-picker">31 Октября -  30 Ноября</div>
+                          <div class="date-wrap">
+                            <ul class="date-header">
+                              <li class="date-header__item">Последние:   
+                              </li>
+                              <li class="active date-header__item"><a href="#" class="date-header__link">7 дней</a>
+                              </li>
+                              <li class="date-header__item"><a href="#" class="date-header__link">14 дней </a>
+                              </li>
+                              <li class="date-header__item"><a href="#" class="date-header__link">30 дней  </a>
+                              </li>
+                            </ul>
+                            <div class="date-content js-datepicker"> 
+                            </div>
+                            <div class="date-footer"> 
+                              <div class="date-footer__left"><span class="date-footer__text">31 Октября -  30 Ноября</span>
+                              </div>
+                              <div class="date-footer__right"><a href="#" class="btn btn-grey date-footer__button">Отменить</a><a href="#" class="btn btn-green date-footer__button">Подтвердить   </a>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </form>
                       <ul class="application">
                         <li class="application__item-big item-small"> 
-                          <div class="left-side">
+                          <div class="left-side"> 
                             <div class="left-side__wrap">
                               <div class="title">
                                 <div class="title__number">856789
@@ -2089,7 +2109,7 @@
                 </div>
               </div>
               <div class="modal-footer footer-default footer-def__mod">
-                <button data-dismiss="modal" type="button" class="btn btn-primary modal-btn-190 btn-lg js-btn-clone">Выбрать</button><span class="abs-helper"><span class="abs"><a data-action="reset" class="dotted">Сбросить выбранное</a></span></span>
+                <button data-dismiss="modal" type="button" class="btn btn-primary modal-btn-190 btn-lg js-btn-clone">Выбрать</button><span class="abs-helper"><span class="abs"> <a data-action="reset" class="dotted js-btn-clear">Сбросить выбранное</a></span></span>
               </div>
             </div>
           </div>

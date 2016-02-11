@@ -557,34 +557,41 @@ ul.border-dotted .first li {
 .main-content .rich-content em {
   font-weight: 400;
   font-size: 18px;
+  margin: 20px 0;
 }
 .main-content .rich-content h1 {
   font-weight: 700;
   font-size: 28px;
+  margin: 20px 0;
 }
 .main-content .rich-content h2 {
   font-weight: 700;
   font-size: 24px;
   line-height: 18px;
+  margin: 20px 0;
 }
 .main-content .rich-content h3 {
   font-weight: 700;
   font-size: 18px;
   line-height: 18px;
+  margin: 20px 0;
 }
 .main-content .rich-content h4 {
   font-weight: 700;
   font-size: 15px;
   line-height: 18px;
+  margin: 20px 0;
 }
 .main-content .rich-content h5 {
   font-weight: 700;
   font-size: 13px;
+  margin: 20px 0;
 }
 .main-content .rich-content h6 {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+  margin: 20px 0;
 }
 .main-content .rich-content .div-color {
   padding: 35px 40px;
@@ -3073,6 +3080,11 @@ article.static-page .header-styled.header-styled-mod {
     float: left;
   }
 }
+.section-action.section-action__about .section-action__item:hover {
+  -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.15);
+  box-shadow: 0 2px 4px rgba(0,64,76,0.15);
+  border-color: transparent;
+}
 .section-action a {
   outline: none;
 }
@@ -3109,6 +3121,7 @@ article.static-page .header-styled.header-styled-mod {
   float: left;
   width: 18%;
   margin: 0 2%;
+  margin-top: 25px;
 }
 @media only screen and (max-width: 767px) {
   .section-action__left {
@@ -3168,6 +3181,7 @@ article.static-page .header-styled.header-styled-mod {
 .section-action__middle {
   float: left;
   width: 48%;
+  min-height: 240px;
   padding: 25px;
   border-right: 1px dashed #c0d2d6;
   border-left: 1px dashed #c0d2d6;
@@ -7209,6 +7223,13 @@ hr {
 .clinics-profile__tabs {
   margin-left: 151px;
 }
+.clinics-profile__tabs li {
+  position: relative;
+}
+.clinics-profile__tabs li:hover {
+  color: #4b89d3;
+  border-color: #dfe7e9;
+}
 .clinics-profile__tabs li a {
   padding: 9px 21px;
   font-size: 15px;
@@ -7226,6 +7247,31 @@ hr {
 .clinics-profile__tabs li a:hover {
   color: #4b89d3;
   border-color: #dfe7e9;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.clinics-profile__tabs li.active:after {
+  border: 1px solid #00829b;
+  content: '';
+  width: 98%;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: -2px;
+  z-index: 1;
+}
+.clinics-profile__tabs li.active:before {
+  content: 'Заявки';
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  top: -44px;
+  z-index: 5;
+  color: #00829b;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 .clinics-profile__tabs li.active a {
   position: relative;
@@ -7234,15 +7280,28 @@ hr {
   background-color: #dfe7e9;
   -webkit-box-shadow: inset 5px 0px 10px -5px rgba(0,64,76,0.15);
   box-shadow: inset 5px 0px 10px -5px rgba(0,64,76,0.15);
+  border-bottom: 5px solid #dfe7e9;
+}
+.clinics-profile__tabs li.active a:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-top: 7px solid #00829b;
 }
 .clinics-profile__tabs li.active a:after {
   content: "";
-  width: 98%;
-  height: 4px;
   position: absolute;
-  right: 0;
-  bottom: -5px;
-  background-color: #dfe7e9;
+  left: 50%;
+  top: -5px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-top: 7px solid #fff;
+  z-index: 2;
 }
 .clinics-profile__tabs li.active a:hover {
   color: #5e6e71;
@@ -7574,6 +7633,36 @@ hr {
 #tab-alternative.tab-pane .alternative-btn__button:last-child {
   margin-right: 0;
 }
+#tab-alternative.tab-pane .alternative-btn__district {
+  max-height: 37px;
+  display: inline-block;
+  margin-right: 15px;
+  zoom: 1;
+}
+#tab-alternative.tab-pane .alternative-btn__district:before,
+#tab-alternative.tab-pane .alternative-btn__district:after {
+  content: "";
+  display: table;
+}
+#tab-alternative.tab-pane .alternative-btn__district:after {
+  clear: both;
+}
+#tab-alternative.tab-pane .alternative-btn__district >span {
+  position: relative;
+  float: left;
+  padding-right: 20px;
+  margin-right: 10px;
+}
+#tab-alternative.tab-pane .alternative-btn__district >span >.icon-close {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -6.5px;
+  background: url("i/icons/clinic-profile-close.png") no-repeat;
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}
 #tab-alternative.tab-pane .title__alternative {
   top: 50%;
   margin-top: -55px;
@@ -7606,7 +7695,7 @@ hr {
   margin: 12px 0;
 }
 .completed-header {
-  margin: 20px 0;
+  margin-top: 20px;
   zoom: 1;
 }
 .completed-header:before,
@@ -7697,6 +7786,169 @@ hr {
   width: 20px;
   height: 20px;
 }
+.completed-header__item .date-wrap {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 50px;
+  right: 0;
+  width: 596px;
+  background-color: #fff;
+  border: 1px solid #00829b;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.19);
+  box-shadow: 0 2px 4px rgba(0,64,76,0.19);
+}
+.completed-header__item .date-wrap.is-active {
+  display: block;
+}
+.completed-header__item .date-wrap .date-header {
+  background-color: #00829b;
+  -webkit-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+.completed-header__item .date-wrap .date-header:after {
+  content: '';
+  position: absolute;
+  top: -21px;
+  right: 193px;
+  width: 0;
+  height: 0;
+  border: 11px solid transparent;
+  border-bottom: 10px solid #00829b;
+}
+.completed-header__item .date-wrap .date-header__item {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 40px;
+  padding: 0 12px;
+}
+.completed-header__item .date-wrap .date-header__item:first-child {
+  padding: 0;
+}
+.completed-header__item .date-wrap .date-header__item.active a {
+  font-weight: 700;
+  border-color: #00829b;
+}
+.completed-header__item .date-wrap .date-header__link {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px dashed #fff;
+}
+.completed-header__item .date-wrap .date-header__link:hover {
+  border-color: #00829b;
+}
+.completed-header__item .date-wrap .date-content {
+  zoom: 1;
+}
+.completed-header__item .date-wrap .date-content:before,
+.completed-header__item .date-wrap .date-content:after {
+  content: "";
+  display: table;
+}
+.completed-header__item .date-wrap .date-content:after {
+  clear: both;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group {
+  width: 290px;
+  float: left;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group .ui-datepicker-header {
+  border-bottom: 1px solid #148ca3;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group .ui-datepicker-header .ui-datepicker-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #5e6e71;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group table.ui-datepicker-calendar {
+  width: 100%;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group table.ui-datepicker-calendar thead tr th {
+  color: #148ca3;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: center;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group table.ui-datepicker-calendar tbody tr td {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 35px;
+  text-align: center;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group table.ui-datepicker-calendar tbody tr td a {
+  color: #1d1e29;
+  text-decoration: none;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group table.ui-datepicker-calendar tbody tr td.ui-datepicker-today {
+  position: relative;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group table.ui-datepicker-calendar tbody tr td.ui-datepicker-today a {
+  color: #f07804;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group table.ui-datepicker-calendar tbody tr td.ui-datepicker-today a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 5px;
+  height: 5px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  color: #f07804;
+}
+.completed-header__item .date-wrap .date-content .ui-datepicker-group table.ui-datepicker-calendar tbody tr td.ui-datepicker-other-month {
+  color: #a6b8bc;
+}
+.completed-header__item .date-wrap .date-footer {
+  border-top: 1px solid #148ca3;
+  line-height: 50px;
+  zoom: 1;
+}
+.completed-header__item .date-wrap .date-footer:before,
+.completed-header__item .date-wrap .date-footer:after {
+  content: "";
+  display: table;
+}
+.completed-header__item .date-wrap .date-footer:after {
+  clear: both;
+}
+.completed-header__item .date-wrap .date-footer__left {
+  float: left;
+  color: #91b5bc;
+  font-size: 16px;
+  padding-left: 25px;
+}
+.completed-header__item .date-wrap .date-footer__right {
+  float: right;
+}
+.completed-header__item .date-wrap .date-footer__button {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  width: 115px;
+  padding: 5px 0;
+  margin-right: 10px;
+}
+.completed-header__item .date-wrap .date-footer__button.btn-green {
+  background-color: #3ebfac;
+}
+.completed-header__item .date-wrap .date-footer__button.btn-green:hover {
+  background-color: #3ab3a2;
+}
+.completed-header__item .date-wrap .date-footer__button.btn-grey {
+  background-color: #a9bdc4;
+}
+.completed-header__item .date-wrap .date-footer__button.btn-grey:hover {
+  background-color: #a4b4bb;
+}
 .completed-header .block-wrap {
   position: relative;
 }
@@ -7772,6 +8024,7 @@ hr {
   margin-left: -10px;
   border: 8px solid transparent;
   border-top: 7px solid #00829b;
+  z-index: 2;
 }
 .clinic-nav__item.active a:after {
   content: "";
