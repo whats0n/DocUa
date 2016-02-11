@@ -9,12 +9,18 @@
 .tabs-shadow
     line-height 40px
     box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
-    clearfix() 
+    clearfix()
+
+     
 .clinics-profile__tabs
     margin-left 151px 
     li
-        
+        position relative
+        &:hover
+            color blue_link
+            border-color grey_base
         a
+            
             padding 9px 21px
             font-size 15px
             text-decoration none
@@ -26,22 +32,68 @@
             &:hover
                 color blue_link
                 border-color grey_base
+                box-sizing border-box
         &.active
+            &:after
+                border 1px solid blue_base
+                content ''
+                width 98%
+                height 0
+                position absolute
+                left 0
+                top -2px
+                z-index 1
+                
+            &:before
+                content 'Заявки'
+                position absolute
+                left 50%
+                margin-left -20px
+                top -44px
+                z-index 5  
+                color #00829b
+                font-size 16px
+                font-weight 700
+                text-transform uppercase 
             a
                 position relative
                 font-weight 700
                 color text_color
                 background-color grey_base
                 box-shadow inset 5px 0px 10px -5px rgba(0, 64, 76, 0.15)
+                border-bottom 5px solid grey_base 
+                &:before
+                    
+                    content ""
+                    position absolute
+                    left 50%
+                    top -2px
+                    width 0
+                    height 0
+                    border 8px solid transparent
+                    border-top 7px solid blue_base
+                    
                 &:after
                     content ""
-                    width 98%
-                    height 4px
                     position absolute
-                    right 0
-                    bottom -5px 
-                    background-color grey_base
+                    left 50%
+                    top -5px
+                    width 0
+                    height 0
+                    border 8px solid transparent
+                    border-top 7px solid #FFF
+                    z-index 2
+                    
+                // &:after
+                //     content ""
+                //     width 98%
+                //     height 4px
+                //     position absolute
+                //     right 0
+                //     bottom -5px 
+                //     background-color grey_base
                 
+                    
                 &:hover
                     color text_color
                     background-color grey_base
@@ -304,6 +356,28 @@
             // &:hover
             //     color #1b7f94
             //     border-color #1b7f94
+        &__district
+            max-height 37px
+            display inline-block
+            margin-right 15px
+            clearfix()
+            >span
+                position relative
+                float left
+                padding-right 20px
+                margin-right 10px
+                >.icon-close
+                    position absolute
+                    right 0
+                    top 50%
+                    margin-top -6.5px 
+                    background url('i/icons/clinic-profile-close.png') no-repeat
+                    width 13px
+                    height 13px
+                    cursor pointer
+                
+                     
+            
     .title__alternative 
         top 50%
         margin-top -55px

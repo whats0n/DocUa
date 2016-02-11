@@ -86,11 +86,18 @@ body.out
         .container-fluid.container-menu__mod.hidden-xs
           .row.row-white
             .container
-                +b("ul").clinic-nav
-                    +e("li").item
-                        +e("a").link(href="clinic-profile.html") Мой профиль
-                    +e("li").item.active
-                        +e("a").link(href="clinic-profile_current.html") Заявки 
+                if file.page_name == 'clinic-profile'
+                    +b("ul").clinic-nav
+                        +e("li").item.active
+                            +e("a").link(href="clinic-profile.html") Мой профиль
+                        +e("li").item
+                            +e("a").link(href="clinic-profile_current.html") Заявки
+                if file.page_name == 'clinic-profile_current'
+                    +b("ul").clinic-nav
+                        +e("li").item
+                            +e("a").link(href="clinic-profile.html") Мой профиль
+                        //- +e("li").item
+                        //-     +e("a").link(href="clinic-profile_current.html") Заявки  
 
         //- nav-menu
         .container-fluid.tabs-shadow

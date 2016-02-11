@@ -13,11 +13,23 @@ $("#select-area").on "click", ".js-btn-clone", ->
 
  if item.siblings("input:checkbox:checked")
  	item.clone().appendTo(".alternative-btn__district")
+ 	$(".alternative-btn__district").find("span").append('<i class="icon-close js-remove"></i>')
 
- 	# $("#select-area li label").removeClass 'is-active'
+$("#select-area [data-action='reset']").on "click", ->
+	$("#select-area").find('.pill').removeClass 'is-active'
+
+
+$(".alternative-btn__district").on "click", ".js-remove", ->
+	inputAlternative = $(this).parents('span')
+	inputArea = $("#select-area").find('.is-active').children('span')
+
+	inputAlternative.remove()
+
+	# if inputAlternative.text() == inputArea.text()
+	# inputAlternative.text(inputArea.text().find(".is-active :checked").prop("checked", false))	
+	
 
 
 
 
 
-  # console.log(item)
