@@ -407,7 +407,7 @@
 
 //tab-finished
 .completed-header
-    margin 20px 0
+    margin-top 20px
     clearfix()
     &__item
         position relative
@@ -473,6 +473,147 @@
                 margin-right 10px
                 width 20px
                 height 20px
+            
+        .date-wrap
+            display none
+            position absolute 
+            z-index 100 
+            top 50px
+            right 0
+            width 596px
+            background-color #FFF 
+            border 1px solid blue_base
+            border-radius 3px
+            box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
+            &.is-active
+                display block   
+            .date-header
+                background-color blue_base 
+                border-radius 2px 2px 0 0 
+                width 100%
+                color white
+                text-align center
+                &:after
+                    content ''
+                    position absolute
+                    top -21px
+                    right 193px 
+                    width 0
+                    height 0
+                    border 11px solid transparent
+                    border-bottom 10px solid blue_base
+                &__item
+                    display inline-block
+                    font-size 14px
+                    line-height 40px
+                    padding 0 12px
+                    &:first-child
+                        padding 0
+                    &.active
+                        a
+                            font-weight 700 
+                            border-color blue_base 
+                &__link
+                    color #FFF
+                    text-decoration none
+                    border-bottom 1px dashed #fff 
+                    &:hover
+                        border-color blue_base
+            .date-content
+                clearfix()
+                .ui-datepicker-group
+                    width 290px
+                    float left
+                    
+                    .ui-datepicker-header
+                        border-bottom 1px solid rgba(#148ca3, 033) 
+                        .ui-datepicker-title
+                            text-align center
+                            font-size 16px
+                            font-weight 400
+                            line-height 32px
+                            color text_color 
+                    table.ui-datepicker-calendar
+                        width 100%
+                        
+                        thead
+                            tr
+                                
+                                th
+                                   color: #148ca3
+                                   font-size 15px
+                                   font-weight 400
+                                   line-height 32px
+                                   text-align center
+                                   
+                        tbody
+                            
+                            tr
+                                td
+                                    font-size: 16px
+                                    font-weight: 400
+                                    line-height: 35px
+                                    text-align center
+                                    a
+                                        color #1d1e29
+                                        text-decoration none
+                                    &.ui-datepicker-today
+                                        position relative
+                                        a
+                                            color #f07804
+                                            &:after
+                                                content ""
+                                                position absolute
+                                                bottom 0
+                                                display block
+                                                width 5px
+                                                height 5px
+                                                border-radius 50%
+                                                color #f07804
+                                            
+                                             
+                                    &.ui-datepicker-other-month
+                                        color #a6b8bc
+                                        
+                    
+
+
+
+
+
+
+            .date-footer
+                border-top 1px solid rgba(#148ca3, 033)
+                // min-height 50px
+                line-height 50px
+                clearfix()
+                &__left
+                    float left
+                    color #91b5bc
+                    font-size 16px
+                    padding-left 25px
+                &__right
+                    float right
+                &__button
+                    color #fff
+                    font-size 14px
+                    font-weight: 700
+                    width 115px
+                    padding 5px 0
+                    margin-right 10px
+                    &.btn-green
+                        background-color green_base
+                        &:hover
+                            background-color #3ab3a2
+                            
+                    &.btn-grey
+                        background-color #a9bdc4
+                        &:hover
+                            background-color #A4B4BB
+                         
+                    
+            
+                    
                 
     .block-wrap 
         position relative

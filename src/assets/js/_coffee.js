@@ -1437,6 +1437,22 @@ $(".alternative-btn__district").on("click", ".js-remove", function() {
   return inputAlternative.remove();
 });
 
+$(".js-btn-picker").on("click", function() {
+  var picker;
+  picker = $(this).siblings(".date-wrap");
+  return picker.toggleClass('is-active');
+});
+
+$(".js-datepicker").datepicker({
+  altField: ".date-footer__text",
+  selectOtherMonths: true,
+  dateFormat: true,
+  numberOfMonths: [1, 2],
+  monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+  dayNamesMin: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
+  firstDay: 1
+});
+
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
 $(function() {
