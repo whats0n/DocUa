@@ -1,7 +1,10 @@
 $("#select-area").on "change", "input", ->
-	
+	spanText = $(this).siblings('span').text()
+
 	if $(this).prop('checked')
 		$(this).parents('label').addClass 'is-active'
+		$(this).siblings('span').attr 'data-place', spanText
+		
 	else
 		$(this).parents('label').removeClass 'is-active'
 
@@ -9,7 +12,7 @@ $("#select-area").on "click", ".js-btn-clone", ->
 	item = $('.is-active').children('span')
 	itemParent = item.parent('.is-active')
 
-	$(".alternative-btn__district").empty()
+	$(".alternative-btn__district").empty() 
 
  if item.siblings("input:checkbox:checked")
  	item.clone().appendTo(".alternative-btn__district")
@@ -21,12 +24,24 @@ $("#select-area [data-action='reset']").on "click", ->
 
 $(".alternative-btn__district").on "click", ".js-remove", ->
 	inputAlternative = $(this).parents('span')
-	inputArea = $("#select-area").find('.is-active').children('span')
+	inputAreaText = $("#select-area").find('.is-active').children('span')
+	data1 = inputAlternative.data("place")
+	$item = $("#select-area").find('.is-active').children('span[data-place=\'' + data1 + '\']')
+		# inputAreaText.data('place', data1)
+	# $(+'[data-=\'' +  + '\']')
 
+	# inputArea = $("#select-area").find('.is-active').children('span')
+	# 
 	inputAlternative.remove()
 
+	$item.siblings('input').prop("checked", false).parents('.pill').removeClass('is-active')
+
+	# console.log(data1)
+
+
+
 	# if inputAlternative.text() == inputArea.text()
-	# inputAlternative.text(inputArea.text().find(".is-active :checked").prop("checked", false))
+		# $("#select-area").find(".is-active :checked").prop("checked", false)
 
 
 
@@ -39,8 +54,7 @@ $(".js-btn-picker").on "click",  ->
 	
 $(".js-datepicker").datepicker
 	altField: ".date-footer__text"
-	selectOtherMonths: true
-	# showCurrentAtPos: 2
+	selectOtherMonths: true 
 	dateFormat: true
 	numberOfMonths: [ 
 		1 

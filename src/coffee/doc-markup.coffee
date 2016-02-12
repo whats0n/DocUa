@@ -53,19 +53,22 @@ $ ->
 
     #Article: h2, h3 user menu
     if $('.blog-diseases h2, .blog-diseases h3').length > 0
-      $('<ul class="blog-submenu submenu-wide" style="margin-top: 20px;"></ul>').insertAfter($('h1:not(.sr-only)').first())
-      $.each $('.blog-diseases h2, .blog-diseases h3'), (index, val) ->
-          if $(@).text()
-              $('.blog-submenu').append '<li><a href="#">' + $(@).text() + '</a></li>'
-      if('.list-view.tomenu').length > 0
-          findTitle =  $('.list-view.tomenu').prev().text().replace(/^\S+/, "").replace(/^\s/, "")
-          $('.blog-submenu').append '<li><a href="#">' + findTitle + '</a></li>'
-
-      $(".main-content").on "click", ".blog-submenu a", (e) ->
-          offsetY = $("h2:contains('" + $(@).text() + "'), h3:contains('" + $(@).text() + "')").offset().top
-          if $(window).width() < 768
-              offsetY -= 40
-          $('html,body').animate {scrollTop: offsetY}, 300
+      $('<div class="disease-subTitle js-nav"></div><ul class="disease-subTitle__list"></ul></div>').insertAfter $('.disease-content header:not(.sr-only)').first()
+      $.each $('.blog-diseases h2, .blog-diseases h3, .after-content-title p'), (index, val) ->
+        if $(this).text()
+          return $('.disease-subTitle__list').append('<li class="disease-subTitle__item first-child"><a class="disease-subTitle__link" href="#">' + $(this).text() + '</a></li>')
+        return
+      if '.list-view.tomenu'.length > 0
+        findTitle = $('.list-view.tomenu').prev().text().replace(/^\S+/, '').replace(/^\s/, '')
+        $('.disease-subTitle__list').append '<li><a href="#">' + findTitle + '</a></li>'
+      $('.main-content').on 'click', '.disease-subTitle__list a', (e) ->
+        offsetY = undefined
+        offsetY = $('h2:contains(\'' + $(this).text() + '\'), h3:contains(\'' + $(this).text() + '\'), p:contains(\'' + $(this).text() + '\')').offset().top
+        if $(window).width() < 768
+          offsetY -= 40
+        else
+          offsetY -= 50
+        $('html,body').animate { scrollTop: offsetY }, 300
 
 
     $("body").on "click", "[data-toggle='class']", (e) ->
