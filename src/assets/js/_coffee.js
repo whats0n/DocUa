@@ -1408,8 +1408,11 @@ $('.js-date-mast').inputmask({
 });
 
 $("#select-area").on("change", "input", function() {
+  var spanText;
+  spanText = $(this).siblings('span').text();
   if ($(this).prop('checked')) {
-    return $(this).parents('label').addClass('is-active');
+    $(this).parents('label').addClass('is-active');
+    return $(this).siblings('span').attr('data-place', spanText);
   } else {
     return $(this).parents('label').removeClass('is-active');
   }
@@ -1431,10 +1434,13 @@ $("#select-area [data-action='reset']").on("click", function() {
 });
 
 $(".alternative-btn__district").on("click", ".js-remove", function() {
-  var inputAlternative, inputArea;
+  var $item, data1, inputAlternative, inputAreaText;
   inputAlternative = $(this).parents('span');
-  inputArea = $("#select-area").find('.is-active').children('span');
-  return inputAlternative.remove();
+  inputAreaText = $("#select-area").find('.is-active').children('span');
+  data1 = inputAlternative.data("place");
+  $item = $("#select-area").find('.is-active').children('span[data-place=\'' + data1 + '\']');
+  inputAlternative.remove();
+  return $item.siblings('input').prop("checked", false).parents('.pill').removeClass('is-active');
 });
 
 $(".js-btn-picker").on("click", function() {
@@ -2241,21 +2247,24 @@ $(function() {
   scrollbarWidth = $scrollDiv.get(0).offsetWidth - $scrollDiv.get(0).clientWidth;
   $scrollDiv.remove();
   if ($('.blog-diseases h2, .blog-diseases h3').length > 0) {
-    $('<ul class="blog-submenu submenu-wide" style="margin-top: 20px;"></ul>').insertAfter($('h1:not(.sr-only)').first());
-    $.each($('.blog-diseases h2, .blog-diseases h3'), function(index, val) {
+    $('<div class="disease-subTitle js-nav"></div><ul class="disease-subTitle__list"></ul></div>').insertAfter($('.disease-content header:not(.sr-only)').first());
+    $.each($('.blog-diseases h2, .blog-diseases h3, .after-content-title p'), function(index, val) {
       if ($(this).text()) {
-        return $('.blog-submenu').append('<li><a href="#">' + $(this).text() + '</a></li>');
+        return $('.disease-subTitle__list').append('<li class="disease-subTitle__item first-child"><a class="disease-subTitle__link" href="#">' + $(this).text() + '</a></li>');
       }
     });
     if ('.list-view.tomenu'.length > 0) {
-      findTitle = $('.list-view.tomenu').prev().text().replace(/^\S+/, "").replace(/^\s/, "");
-      $('.blog-submenu').append('<li><a href="#">' + findTitle + '</a></li>');
+      findTitle = $('.list-view.tomenu').prev().text().replace(/^\S+/, '').replace(/^\s/, '');
+      $('.disease-subTitle__list').append('<li><a href="#">' + findTitle + '</a></li>');
     }
-    $(".main-content").on("click", ".blog-submenu a", function(e) {
+    $('.main-content').on('click', '.disease-subTitle__list a', function(e) {
       var offsetY;
-      offsetY = $("h2:contains('" + $(this).text() + "'), h3:contains('" + $(this).text() + "')").offset().top;
+      offsetY = void 0;
+      offsetY = $('h2:contains(\'' + $(this).text() + '\'), h3:contains(\'' + $(this).text() + '\'), p:contains(\'' + $(this).text() + '\')').offset().top;
       if ($(window).width() < 768) {
         offsetY -= 40;
+      } else {
+        offsetY -= 50;
       }
       return $('html,body').animate({
         scrollTop: offsetY
