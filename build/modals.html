@@ -774,7 +774,7 @@
             </div>
           </div>
           <div class="wrap">                               
-            <div class="breadcrumbs">      
+            <div class="breadcrumbs">       
               <ol class="breadcrumb"> 
                 <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/" title="Главная" itemprop="url"><span itemprop="title">Главная</span></a></li>
                 <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="modals.html" title="Модальные окна" itemprop="url"><span itemprop="title">Модальные окна</span></a></li>
@@ -782,10 +782,10 @@
             </div>
             <div class="row"> 
               <article class="col-sm-12">        
-                <h1>Модальные окна             </h1>
-                <h3>New         </h3>
+                <h1>Модальные окна              </h1>
+                <h3>New          </h3>
                 <ol>      
-                  <li>   
+                  <li>    
                     <p><a href="#feedback" data-toggle="modal" class="btn btn-default btn-sm">feedback</a></p>
                     <p class="small"><a href="#feedback" data-toggle="modal">Show feedback</a> </p>
                   </li>
@@ -801,7 +801,7 @@
                     <p> <a href="#login" data-toggle="modal" class="btn btn-default btn-sm">login</a></p>
                     <p class="small"><a href="#login" data-toggle="modal">Show login</a></p>
                   </li>
-                  <li>
+                  <li>         
                     <p><a href="#rating" data-toggle="modal" class="btn btn-default btn-sm">rating</a></p>
                     <p class="small"><a href="#rating" data-toggle="modal">Show rating</a></p>
                   </li>
@@ -835,6 +835,18 @@
                   <li> 
                     <p> <a href="#select-other-area" data-toggle="modal" class="btn btn-default btn-sm">select-other-area</a></p>
                     <p class="small"><a href="#select-other-area" class="js-popup-bt" data-toggle="modal">Show select-other-area</a>   </p>
+                  </li>
+                  <li>
+                    <p><a href="#password" data-toggle="modal" class="btn btn-default btn-sm">password </a></p>
+                    <p class="small"><a href="#password" data-toggle="modal">password</a></p>
+                  </li>
+                  <li>
+                    <p><a href="#confirm-number" data-toggle="modal" class="btn btn-default btn-sm">confirm-number </a></p>
+                    <p class="small"><a href="#confirm-number" data-toggle="modal">confirm-number</a></p>
+                  </li>
+                  <li>
+                    <p><a href="#finishing-registration" data-toggle="modal" class="btn btn-default btn-sm">finishing-registration</a></p>
+                    <p class="small"><a href="#finishing-registration" data-toggle="modal">finishing-registration</a></p>
                   </li>
                 </ol>
                 <h3>Old          </h3>
@@ -4658,6 +4670,104 @@
               </div>
               <div class="modal-footer footer-default footer-def__mod">
                 <button data-dismiss="modal" type="button" class="btn btn-primary modal-btn-190 btn-lg">Выбрать</button><span class="abs-helper"><span class="abs"><a data-action="reset" class="dotted">Сбросить выбранное</a></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="password" aria-hidden="true" role="dialog" tabindex="-1" class="modal fade bs-modal-sm">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" type="button" class="close"></button>
+                <div class="modal-title">Напоминание пароля</div>
+              </div>
+              <div class="modal-body">
+                <p class="ocean-blue offset-0 modals-text">Для восстановления пароля, пожалуйста введите E-mail, указанный при регистрации</p>
+                <form action="/" class="form-horizontal">
+                  <fieldset>
+                    <div class="form-group form-group__modals">
+                      <div class="col-sm-12">
+                        <input type="text" placeholder="Email" class="form-control form-control__modals">
+                      </div>
+                    </div>
+                    <div class="form-group margin-bottom-0 form-group__modals">
+                      <div class="col-sm-12 submits">
+                        <button type="button" class="btn btn-primary btn-xs-block modals-btn">Напомнить пароль</button>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="confirm-number" aria-hidden="true" role="dialog" tabindex="-1" class="modal fade bs-modal-sm">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header modal-header__btm">
+                <button aria-hidden="true" data-dismiss="modal" type="button" class="close"></button>
+                <div class="modal-title">Подтверждение номера</div>
+              </div>
+              <div class="modal-body">
+                <p class="ocean-blue offset-0 modals-text">На Ваш мобильный  телефон отправлен код. Для подтверждения номера введите его.</p>
+                <form action="/" class="form-horizontal">
+                  <fieldset>
+                    <div class="form-group form-group__modals">
+                      <div class="col-sm-12 offset-0">
+                        <div class="input-validation_modals">
+                          <input id="field-confirmation-code" type="text" placeholder="введите код" class="form-control form-control__modals input-validation__border">
+                          <div class="input-validation_message">Вам уже было отправлено смс, подождите 30 секунд</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group offset-top-10 form-group__last-child">
+                      <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success btn-block btn-xs-block">Подтвердить</button>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="ocean-blue offset-0 modals-text modals-text_confirm">Не пришла смс?&nbsp;&nbsp;    <a href="/" title="Отправить повторно код" class="modals-a-color btn-registration">Отправить повторно</a></p>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="finishing-registration" aria-hidden="true" role="dialog" tabindex="-1" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" type="button" class="close"></button>
+                <div class="modal-title">Уточнение данных регистрации</div>
+              </div>
+              <div class="modal-body">
+                <p class="ocean-blue offset-0 modals-text">Для вашего аккаунта уже найдено несколько почтовых ящиков.Выберите основной e-mail:</p>
+                <form action="/" class="form-horizontal form-registration form-registration_modals">
+                  <fieldset>
+                    <div class="form-group form-group__modals form-group_radio">
+                      <div class="col-sm-12">
+                        <div class="radio radio-inline radio-inline_mod radio-inline_modals">
+                          <label class="radio__label">
+                            <input type="radio" name="email" value="email1" class="radio-btn"><span>pacient_docua@gmail.com</span>
+                          </label>
+                        </div>
+                        <div class="radio radio-inline radio-inline_mod radio-inline_modals">
+                          <label class="radio__label">
+                            <input type="radio" name="email" value="email2" checked="checked" class="radio-btn"><span>client_docua553hy@gmail.com</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group margin-bottom-0 form-group__modals">
+                      <div class="col-sm-12 submits">
+                        <button type="button" class="btn btn-primary btn-block btn-xs-block">Завершить регистрацию</button>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+                <h3>Для чего нужно выбирать E-mail?</h3>
+                <p class="ocean-blue offset-0 modals-text">Основной e-mail даст Вам возможность получать регулярные оповещения о данных приема, напоминание о приеме и возможность оставлять отзывы о врачах, клиниках.</p>
               </div>
             </div>
           </div>
