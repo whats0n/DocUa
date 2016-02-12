@@ -950,3 +950,60 @@ mixin modal(name, classes, dialogClasses)
                 a.dotted(data-action="reset") Сбросить выбранное
 
 
++modal("password", "bs-modal-sm")
+    .modal-header
+        button.close(aria-hidden="true", data-dismiss="modal", type="button")
+        .modal-title Напоминание пароля
+    .modal-body
+        p.ocean-blue.offset-0.modals-text Для восстановления пароля, пожалуйста введите E-mail, указанный при регистрации
+        form.form-horizontal(action="/")
+            fieldset
+                .form-group.form-group__modals
+                    .col-sm-12: input.form-control.form-control__modals(type="text", placeholder="Email")
+                .form-group.margin-bottom-0.form-group__modals
+                    .col-sm-12.submits
+                        button.btn.btn-primary.btn-xs-block.modals-btn(type="button") Напомнить пароль
+
++modal("confirm-number", "bs-modal-sm")
+    .modal-header.modal-header__btm
+        button.close(aria-hidden="true", data-dismiss="modal", type="button")
+        .modal-title Подтверждение номера
+    .modal-body
+        p.ocean-blue.offset-0.modals-text На Ваш мобильный  телефон отправлен код. Для подтверждения номера введите его.
+        form.form-horizontal(action="/")
+            fieldset
+                .form-group.form-group__modals
+                    .col-sm-12.offset-0
+                        .input-validation_modals
+                            input#field-confirmation-code.form-control.form-control__modals.input-validation__border(type="text",placeholder="введите код")
+                            .input-validation_message Вам уже было отправлено смс, подождите 30 секунд
+                .form-group.offset-top-10.form-group__last-child
+                    .col-sm-12
+                        button.btn.btn-success.btn-block.btn-xs-block(type="submit") Подтвердить
+                    .col-sm-12
+                        p.ocean-blue.offset-0.modals-text.modals-text_confirm Не пришла смс?&nbsp;&nbsp;    
+                            a.modals-a-color.btn-registration(href="/", title="Отправить повторно код") Отправить повторно
+
++modal("finishing-registration")
+    .modal-header
+        button.close(aria-hidden="true", data-dismiss="modal", type="button")
+        .modal-title Уточнение данных регистрации
+    .modal-body
+        p.ocean-blue.offset-0.modals-text Для вашего аккаунта уже найдено несколько почтовых ящиков.Выберите основной e-mail:
+        form.form-horizontal.form-registration.form-registration_modals(action="/")
+            fieldset
+                .form-group.form-group__modals.form-group_radio
+                    .col-sm-12
+                        .radio.radio-inline.radio-inline_mod.radio-inline_modals
+                                 label.radio__label
+                                    input(class="radio-btn" type="radio", name="email", value="email1")
+                                    span pacient_docua@gmail.com
+                        .radio.radio-inline.radio-inline_mod.radio-inline_modals
+                                 label.radio__label
+                                    input(class="radio-btn" type="radio", name="email", value="email2" checked="checked")
+                                    span client_docua553hy@gmail.com
+                .form-group.margin-bottom-0.form-group__modals
+                    .col-sm-12.submits
+                        button.btn.btn-primary.btn-block.btn-xs-block(type="button") Завершить регистрацию
+        h3 Для чего нужно выбирать E-mail?
+        p.ocean-blue.offset-0.modals-text Основной e-mail даст Вам возможность получать регулярные оповещения о данных приема, напоминание о приеме и возможность оставлять отзывы о врачах, клиниках.
