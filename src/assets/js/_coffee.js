@@ -1408,13 +1408,19 @@ $('.js-date-mast').inputmask({
 });
 
 $("#select-area").on("change", "input", function() {
-  var spanText;
+  var spanMain, spanText;
   spanText = $(this).siblings('span').text();
+  spanMain = $(this).parents('label').siblings();
+  if (spanMain.is('ul')) {
+    spanMain.parent().addClass('is-main-disrtict');
+  }
   if ($(this).prop('checked')) {
     $(this).parents('label').addClass('is-active');
-    return $(this).siblings('span').attr('data-place', spanText);
+    $(this).siblings('span').attr('data-place', spanText);
+    return $('.js-btn-text').text('Добавьте район');
   } else {
-    return $(this).parents('label').removeClass('is-active');
+    $(this).parents('label').removeClass('is-active');
+    return $('.js-btn-text').text('Выберете район');
   }
 });
 
@@ -1430,17 +1436,24 @@ $("#select-area").on("click", ".js-btn-clone", function() {
 });
 
 $("#select-area [data-action='reset']").on("click", function() {
-  return $("#select-area").find('.pill').removeClass('is-active');
+  $("#select-area").find('.pill').removeClass('is-active');
+  return $('.js-btn-text').text('Выберете район');
 });
 
 $(".alternative-btn__district").on("click", ".js-remove", function() {
-  var $item, data1, inputAlternative, inputAreaText;
+  var $item, $itemParent, data1, inputAlternative;
   inputAlternative = $(this).parents('span');
-  inputAreaText = $("#select-area").find('.is-active').children('span');
   data1 = inputAlternative.data("place");
   $item = $("#select-area").find('.is-active').children('span[data-place=\'' + data1 + '\']');
+  $itemParent = $item.closest('.pill-group');
   inputAlternative.remove();
-  return $item.siblings('input').prop("checked", false).parents('.pill').removeClass('is-active');
+  $item.siblings('input').prop("checked", false).parents('.pill').removeClass('is-active');
+  if ($itemParent.hasClass('is-main-disrtict')) {
+    $itemParent.find(".pill :checked").prop("checked", false);
+  }
+  if (!$("#select-area").find('.is-active').hasClass('is-active')) {
+    return $('.js-btn-text').text('Выберете район');
+  }
 });
 
 $(".js-btn-picker").on("click", function() {
