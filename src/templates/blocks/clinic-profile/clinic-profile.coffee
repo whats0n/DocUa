@@ -1,13 +1,21 @@
 $("#select-area").on "change", "input", ->
 	spanText = $(this).siblings('span').text()
+	spanMain = $(this).parents('label').siblings()
+
+	if 	spanMain.is('ul')
+		spanMain.parent().addClass 'is-main-disrtict'
 
 	if $(this).prop('checked')
 		$(this).parents('label').addClass 'is-active'
 		$(this).siblings('span').attr 'data-place', spanText
-		
+		$('.js-btn-text').text('Добавьте район')
+
+	
 	else
 		$(this).parents('label').removeClass 'is-active'
+		$('.js-btn-text').text('Выберете район')
 
+# clone
 $("#select-area").on "click", ".js-btn-clone", ->
 	item = $('.is-active').children('span')
 	itemParent = item.parent('.is-active')
@@ -17,31 +25,31 @@ $("#select-area").on "click", ".js-btn-clone", ->
  if item.siblings("input:checkbox:checked")
  	item.clone().appendTo(".alternative-btn__district")
  	$(".alternative-btn__district").find("span").append('<i class="icon-close js-remove"></i>')
-
+ 	
+# reset
 $("#select-area [data-action='reset']").on "click", ->
 	$("#select-area").find('.pill').removeClass 'is-active'
+	$('.js-btn-text').text('Выберете район')
 
-
+# remove item
 $(".alternative-btn__district").on "click", ".js-remove", ->
 	inputAlternative = $(this).parents('span')
-	inputAreaText = $("#select-area").find('.is-active').children('span')
 	data1 = inputAlternative.data("place")
 	$item = $("#select-area").find('.is-active').children('span[data-place=\'' + data1 + '\']')
-		# inputAreaText.data('place', data1)
-	# $(+'[data-=\'' +  + '\']')
+	$itemParent = $item.closest('.pill-group')
+	
 
-	# inputArea = $("#select-area").find('.is-active').children('span')
-	# 
 	inputAlternative.remove()
 
 	$item.siblings('input').prop("checked", false).parents('.pill').removeClass('is-active')
 
-	# console.log(data1)
+	if $itemParent.hasClass 'is-main-disrtict'
+		$itemParent.find(".pill :checked").prop("checked", false)
 
+	if !$("#select-area").find('.is-active').hasClass 'is-active'
+		$('.js-btn-text').text('Выберете район')
 
-
-	# if inputAlternative.text() == inputArea.text()
-		# $("#select-area").find(".is-active :checked").prop("checked", false)
+	
 
 
 

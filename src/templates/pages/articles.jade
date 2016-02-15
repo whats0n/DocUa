@@ -57,6 +57,7 @@
                      a.is-share(href="#") 169
    section.col-md-9
       .rich-content
+        
          h1 Заголовок H1
          h2 Заголовок H2
          h3 Заголовок H3
@@ -140,6 +141,128 @@
             li острая (неожиданное возникновение, быстрое развитие);
             li подострая (более плавное развитие болезни, продолжительность от 1 до 6 мес.);
             li хроническая (постепенное развитие заболевания, длительность 6 мес. и острая неожиданное возникновение, быстрое развитие);
+
+         +b.doctor-prifile
+            +e.image
+              a(href='#')
+                img(src='i/_alexandriyskiy-constantin.jpg')
+            +e.row 
+              +e.label Стаж:
+              +e.value 23 года
+            +e.row
+              +e.label Специальность:
+              +e.value Маммолог, Онколог
+            +e.row
+              +e.label Ученое звание:
+              +e.value Кандидат медицинских наук
+            +e.row
+              +e.label Категория:
+              +e.value Врач высшей категории
+
+         +b("ul").doctors-card
+             +e("li").item
+                 +e("div").img
+                     img(src="i/_alexandriyskiy-constantin.jpg", alt="")
+                 +e("div").container
+                     +b.favorites-block.pull-right: +i
+                     +e.title
+                         a(href="#") Хобзей Кузьма Николаевич
+                     +e("div").text
+                         +e("ul").list
+                             li
+                                 strong Дерматолог, Трихолог,  Дерматовенеролог, Косметолог
+                             li Доктор медицинских наук. Врач высшей категории
+                         +e("div").price Стоимость приема: 
+                             strong 605 грн
+                     +e("div").info 
+                         +e("div").rating
+                             +b.rating: +i({ value: 4.9 })
+                             +e("a").views(href="#") 233 отзыва
+                         +b("a").btn.btn-success(href="#doctor-request" data-toggle="modal") Записаться на прием
+         +b("ul").card-list
+             +b.small-card.small-card_mod
+                 +e.left-side
+                     +e.image.small-card__image-mod
+                         img.photo(src="i/small-card-img1.jpg", alt="")
+                     +b.rating
+                         +e.value.value 4.9
+                         +e.stars 
+                             +e.stars-bg
+                             +e.stars-overlay(style="width: 80%;") 
+                     +e.testimonials
+                         a(href="", title="") 10 отзывов
+                             
+                 +e.right-side
+                     +b.favorites-block.pull-right: +i
+                     +e.title.fn.org
+                         h3.h3
+                             a(href="", title="") Клиника Доктора Валихновского
+                     
+                     +e.label-description.small-card__description-mod
+                         span Терапия, Урология, Эндокринология, Акушерство 
+                         a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+                     .address-info.address-info__mod
+                       .small-card__address
+                         a.street-adress.dotted.grey(href="") г.Киев, пр.Науки 30
+                       .blue.card__location_metro.small-card__location Димеевская 
+                       .small-card__location Голосеевский, Саперная слободка
+                     .small-card__footer
+                       .small-card__schedule.small-card__schedule-mod
+                         ul
+                           li.first-child 
+                             span.left Пн - Пт
+                             span.right 9:00 - 21:00
+                           li
+                             span.left Сб:
+                             span.right 9:00 - 19:00
+                           li.last-child
+                             span.left Нд:
+                             span.right 9:00 - 19:00
+                         a.btn.btn-success.pull-right.diagnost-center_bez(href="/modals.html#doctor-request", title="") Записаться в клинику
+         +b("ul").card-list
+              
+             +b.small-card.small-card_mod
+                 +e.left-side
+                     +e.image.small-card__image-mod
+                         img.photo(src="i/cabinet/cabinet-favorites-centers.png", alt="")
+                     +b.rating
+                         +e.value.value 4.9
+                         +e.stars 
+                             +e.stars-bg
+                             +e.stars-overlay(style="width: 80%;") 
+                     +e.testimonials
+                         a(href="", title="") 10 отзывов
+                             
+                 +e.right-side
+                     +b.favorites-block.pull-right: +i
+                     +e.title.fn.org
+                         h3.h3
+                             a(href="", title="") Medicinе group
+                     
+                     +e.label-description.small-card__description-mod
+                         span Терапия, Урология, Эндокринология, Акушерство 
+                         a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+                     .address-info.address-info__mod
+                       .small-card__address
+                         a.street-adress.dotted.grey(href="") г.Киев, пр.Науки 30
+                       .blue.card__location_metro.small-card__location Димеевская 
+                       .small-card__location Голосеевский, Саперная слободка
+                     .small-card__footer
+                       .small-card__schedule.small-card__schedule-mod
+                         ul
+                           li.first-child 
+                             span.left Пн - Пт
+                             span.right 9:00 - 21:00
+                           li
+                             span.left Сб:
+                             span.right 9:00 - 19:00
+                           li.last-child
+                             span.left Нд:
+                             span.right 9:00 - 19:00
+                         a.btn.btn-success.pull-right.diagnost-center_bez(href="/modals.html#doctor-request", title="") Записаться на прием
+
+
+
 
 
 
