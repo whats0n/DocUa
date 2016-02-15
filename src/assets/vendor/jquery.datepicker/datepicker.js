@@ -207,10 +207,10 @@
 							data.weeks[indic].days[indic2].classname.push('datepickerSaturday');
 						}
 
-						if (today + 1) {
-							data.weeks[indic].days[indic2].classname.push('datepicker7');
-							// alert(date.getDay()+1)
-						}
+						// if (today + 1) {
+						// 	data.weeks[indic].days[indic2].classname.push('datepicker7');
+						// 	// alert(date.getDay()+1)
+						// }
 
 
 						var fromUser = options.onRender(date);

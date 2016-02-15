@@ -81,7 +81,7 @@ $(".js-btn-picker").on "click",  ->
 		# now3.getDate()
 	$(".js-datepicker").DatePicker
 		flat: true
-		mode: 'range'
+		mode: 'range' 
 		date: [
 		    new Date 
 		    new Date 
