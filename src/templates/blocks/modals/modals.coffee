@@ -25,4 +25,4 @@ $('.bs-modal-md').on 'show.bs.modal', (e) ->
 
 $("#select-area-diagnostics").on "click", "li a", ->
   return $("#select-area-diagnostics").modal "hide"
-  
+   
