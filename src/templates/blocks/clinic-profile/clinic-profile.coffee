@@ -55,26 +55,79 @@ $(".alternative-btn__district").on "click", ".js-remove", ->
 
 
 # data-picker
+# $(".js-btn-picker").on "click",  ->
+# 	picker = $(this).siblings(".date-wrap")
+
+# 	picker.toggleClass 'is-active'	
+
+# data-picker
 $(".js-btn-picker").on "click",  ->
 	picker = $(this).siblings(".date-wrap")
 
+
 	picker.toggleClass 'is-active'	
+
 	
-$(".js-datepicker").datepicker
-	altField: ".date-footer__text"
-	selectOtherMonths: true 
-	dateFormat: true
-	numberOfMonths: [ 
-		1 
-		2
-	]
-	monthNames: [
-		'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь',
-	'Октябрь', 'Ноябрь', 'Декабрь'
-	]
-	dayNamesMin: [ 
-		'ВС','ПН','ВТ','СР','ЧТ','ПТ','СБ'
-	]
-	firstDay: 1
+	# now4.setDate(now3.getDate()+30)
+	# Date(now3).addClass 'is-today'
+	# if picker.hasClass 'is-active'
+	# $(".js-datepicker").each ->
+	# 	now3 = new Date
+	# 	now4 = now3.getMonth()+1
+	# 	today = now3.getDate()
+
+		# alert(now4)
+		# .parent().addClass ('is-today')
+		# now3.getDate()
+	$(".js-datepicker").DatePicker
+		flat: true
+		mode: 'range'
+		date: [
+		    new Date 
+		    new Date 
+		]
+		starts: 1
+		calendars: 2
+		format: 'd B'
+		onChange: (formated)  ->
+			$('.date-footer__text').get(0).innerHTML = formated.join(' - ')
+		# else
+		# 	$(".js-datepicker").DatePicker
+
+
+$(".js-date-close").on "click",  ->	
+	value = $('.date-footer__text').text()
+	$(".date-wrap").removeClass "is-active"
+	$('.js-clone-date').text(value)
+
+$(".date-header__item").on "click",  ->	
+	today = $(".datepicker").find('.datepickerToday')
+	$(@).addClass 'active'
+
+	# if $(@).hasClass 'active'
+		
+		# alert(today.setDate today.getDate() + 7 )
+		# (today.getDate())+ 7
+
+
+
+
+
+# $(".js-datepicker").datepicker
+# 	altField: ".date-footer__text"
+# 	selectOtherMonths: true 
+# 	dateFormat: true
+# 	numberOfMonths: [ 
+# 		1 
+# 		2
+# 	]
+# 	monthNames: [
+# 		'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь',
+# 	'Октябрь', 'Ноябрь', 'Декабрь'
+# 	]
+# 	dayNamesMin: [ 
+# 		'ВС','ПН','ВТ','СР','ЧТ','ПТ','СБ'
+# 	]
+# 	firstDay: 1
 
 

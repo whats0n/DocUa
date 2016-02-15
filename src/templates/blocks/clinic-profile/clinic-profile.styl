@@ -354,7 +354,7 @@
             // &:last-child
             //     margin-right 0
                 
-            // &:hover
+            // &:hover 
             //     color #1b7f94
             //     border-color #1b7f94
         &__district
@@ -365,11 +365,11 @@
             clearfix()
             >span
                 position relative
-                float left
+                display inline-block
                 padding-right 20px
                 margin-right 10px
-                &:nth-child(odd)
-                    float none
+                // &:nth-child(even)
+                //     display block
                 >.icon-close
                     position absolute
                     right 0
@@ -523,82 +523,100 @@
                     border-bottom 1px dashed #fff 
                     &:hover
                         border-color blue_base
-            .date-content
-                clearfix()
-                .ui-datepicker
-                    width 100% !important
-                .ui-datepicker-group
-                    width 297px
-                    float left
-                    &:first-child
-                        border-right 1px solid rgba(#148ca3, 033)
-                    .ui-datepicker-header
-                        border-bottom 1px solid rgba(#148ca3, 033) 
-                        .ui-datepicker-title
-                            text-align center
-                            font-size 16px
-                            font-weight 400
-                            line-height 32px
-                            color text_color 
-                    table.ui-datepicker-calendar
-                        width 100%
-                        
-                        thead
-                            tr
-                                
-                                th
-                                   color: #148ca3
-                                   font-size 15px
-                                   font-weight 400
-                                   line-height 32px
-                                   text-align center
-                                   
-                        tbody
+            .datepicker
+                width 594px
+                a
+                    text-decoration none
+            .datepickerSpace
+                div
+                    height 275px
+                    width 1px
+                    background-color rgba(#148ca3, 0.33)
+            .datepickerViewDays
+                width 297px 
+                text-align center
+                box-sizing border-box
+                thead
+                    tr
+                        &:first-child
+                            border-bottom 1px solid rgba(#148ca3, 0.33)
+                        &:last-child
+                            span
+                                font-size 15px
+                                line-height 32px
+                                text-transform uppercase
+                                color #148ca3 
                             
-                            tr
-                                td 
-                                    font-size: 16px
-                                    font-weight: 400
-                                    line-height: 35px
-                                    text-align center
-                                    a
-                                        color #1d1e29
-                                        text-decoration none
-                                    &.ui-datepicker-today
-                                        position relative
-                                        a
-                                            color #f07804
-                                        &:after
-                                            content ""
-                                            position absolute
-                                            bottom 0
-                                            display block
-                                            width 5px
-                                            height 5px
-                                            border-radius 50%
-                                            color #f07804
-                                    &.ui-datepicker-current-day
-                                        a
-                                            padding 5px
-                                            -webkit-border-radius 2px 
-                                            border-radius 2px 
-                                            background-color green_base 
-                                            color #FFF
-                                            font-weight 700 
-                                            
-                                             
-                                    &.ui-datepicker-other-month
-                                        color #a6b8bc 
-                                        
+                        .datepickerGoNext
+                            a
+                                font-size 20px
+                        .datepickerGoPrev
+                            a
+                                font-size 20px
+                        th
+                           text-align center
+                           a
+                               font-size 16px
+                               line-height 32px 
+                               color text_color 
+                .datepickerDays
+                    tr
+                        line-height 35px
+                        a
+                            color #1d1e29
+                    .datepickerNotInMonth
+                        a
+                            color #a6b8bc
+                        
+                           
+            .datepickerMonths
+                display none
+            .datepickerYears
+                display none
+            .datepickerToday
+                position relative
+                a
+                    color #f07804 !important
+                &:after
+                    content ''
+                    position absolute
+                    bottom 0
+                    left 0 
+                    // float left
+                    margin-left 17px
+                    z-index 10
+                    display block
+                    background-color #f07804
+                    width 5px
+                    height 5px
+                    border-radius 50%
                     
-
-
-
-
-
-
+            .datepickerSelected
+                // padding 2px
+                border-radius 3px
+                box-sizing border-box 
+                span
+                    position relative
+                    background-color green_base 
+                    &:before
+                        content ''
+                        position absolute
+                        top 0
+                        margin-top -3px
+                        left 0
+                        margin-left -5px     
+                        
+                        padding 13px
+                        border-radius 3px 
+                        
+            .datepickerSelected2
+                background-color grey_base
+                
+                   
+            
+        
             .date-footer
-                border-top 1px solid rgba(#148ca3, 033)
+                border-top 1px solid rgba(#148ca3, 0.33)
                 // min-height 50px
                 line-height 50px
                 clearfix()

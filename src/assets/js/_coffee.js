@@ -1459,17 +1459,31 @@ $(".alternative-btn__district").on("click", ".js-remove", function() {
 $(".js-btn-picker").on("click", function() {
   var picker;
   picker = $(this).siblings(".date-wrap");
-  return picker.toggleClass('is-active');
+  picker.toggleClass('is-active');
+  return $(".js-datepicker").DatePicker({
+    flat: true,
+    mode: 'range',
+    date: [new Date, new Date],
+    starts: 1,
+    calendars: 2,
+    format: 'd B',
+    onChange: function(formated) {
+      return $('.date-footer__text').get(0).innerHTML = formated.join(' - ');
+    }
+  });
 });
 
-$(".js-datepicker").datepicker({
-  altField: ".date-footer__text",
-  selectOtherMonths: true,
-  dateFormat: true,
-  numberOfMonths: [1, 2],
-  monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-  dayNamesMin: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
-  firstDay: 1
+$(".js-date-close").on("click", function() {
+  var value;
+  value = $('.date-footer__text').text();
+  $(".date-wrap").removeClass("is-active");
+  return $('.js-clone-date').text(value);
+});
+
+$(".date-header__item").on("click", function() {
+  var today;
+  today = $(".datepicker").find('.datepickerToday');
+  return $(this).addClass('active');
 });
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
