@@ -1460,16 +1460,17 @@ $(".js-btn-picker").on("click", function() {
   var picker;
   picker = $(this).siblings(".date-wrap");
   picker.toggleClass('is-active');
-  return $(".js-datepicker").DatePicker({
-    flat: true,
-    mode: 'range',
-    date: [new Date, new Date],
-    starts: 1,
-    calendars: 2,
-    format: 'd B',
-    onChange: function(formated) {
-      return $('.date-footer__text').get(0).innerHTML = formated.join(' - ');
-    }
+  return $('.js-datepicker').datepick({
+    dateFormat: 'yyyy-mm-dd',
+    rangeSelect: true,
+    monthsToShow: [1, 2],
+    showTrigger: '#calImg',
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    changeMonth: false,
+    altField: '.date-footer__text',
+    altFormat: 'd MM',
+    selectDate: +7
   });
 });
 
@@ -1480,9 +1481,12 @@ $(".js-date-close").on("click", function() {
   return $('.js-clone-date').text(value);
 });
 
+$(".js-date-clear").on("click", function() {
+  $('.js-datepicker').DatePickerClear();
+  return $('.date-footer__text').empty();
+});
+
 $(".date-header__item").on("click", function() {
-  var today;
-  today = $(".datepicker").find('.datepickerToday');
   return $(this).addClass('active');
 });
 
@@ -2569,41 +2573,6 @@ $(function() {
         });
     }
   };
-  $('.datepicker').each(function() {
-    var displayFormat, setLang, submitFormat, val;
-    val = $(this).val();
-    if (val) {
-      $(this).data('value', val);
-    }
-    submitFormat = $(this).data('dateFormatSubmit') || 'yyyy-mm-dd';
-    displayFormat = $(this).data('dateFormatDisplay') || 'dd.mm.yyyy';
-    setLang = $(this).data('lang');
-    $setDatePickerLang(setLang);
-    return $(this).pickadate({
-      format: displayFormat,
-      formatSubmit: submitFormat,
-      hiddenName: true,
-      firstDay: 1,
-      min: true,
-      max: +62,
-      clear: '',
-      labelMonthNext: '',
-      labelMonthPrev: '',
-      labelMonthSelect: '',
-      labelYearSelect: '',
-      onRender: function() {
-        var highlight, highlightedData, isOpen, value;
-        $(this.$root).find("select").trigger("reinitSelect7");
-        isOpen = this.get('open');
-        highlight = this.get('highlight', submitFormat);
-        value = this.get('select', submitFormat);
-        highlightedData = this.get('highlight');
-        if ((highlight !== value) && isOpen) {
-          return this.set("select", highlightedData);
-        }
-      }
-    });
-  });
   $('.birthdaypicker').each(function() {
     var displayFormat, setLang, submitFormat, val;
     val = $(this).val();

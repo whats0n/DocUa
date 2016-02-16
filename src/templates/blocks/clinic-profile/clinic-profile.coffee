@@ -67,32 +67,32 @@ $(".js-btn-picker").on "click",  ->
 
 	picker.toggleClass 'is-active'	
 
-	
-	# now4.setDate(now3.getDate()+30)
-	# Date(now3).addClass 'is-today'
-	# if picker.hasClass 'is-active'
-	# $(".js-datepicker").each ->
-	# 	now3 = new Date
-	# 	now4 = now3.getMonth()+1
-	# 	today = now3.getDate()
 
-		# alert(now4)
-		# .parent().addClass ('is-today')
-		# now3.getDate()
-	$(".js-datepicker").DatePicker
-		flat: true
-		mode: 'range' 
-		date: [
-		    new Date 
-		    new Date 
+	$('.js-datepicker').datepick 
+		dateFormat: 'yyyy-mm-dd'
+		rangeSelect: true
+		monthsToShow: [
+			1
+			2
 		]
-		starts: 1
-		calendars: 2
-		format: 'd B'
-		onChange: (formated)  ->
-			$('.date-footer__text').get(0).innerHTML = formated.join(' - ')
-		# else
-		# 	$(".js-datepicker").DatePicker
+		showTrigger: '#calImg'
+		showOtherMonths: true
+		selectOtherMonths: true
+		changeMonth: false
+		altField: '.date-footer__text'
+		altFormat: 'd MM'
+		# defaultDate: +7
+		selectDate: +7 
+		# onSelect: ->
+		# 	$(@).find('.datepick-month').children('td').addClass 'sss'
+
+		# onDate: (date, current) ->
+
+
+			
+
+		# defaultDate: +7
+
 
 
 $(".js-date-close").on "click",  ->	
@@ -100,34 +100,17 @@ $(".js-date-close").on "click",  ->
 	$(".date-wrap").removeClass "is-active"
 	$('.js-clone-date').text(value)
 
+
+$(".js-date-clear").on "click",  ->	
+	$('.js-datepicker').DatePickerClear()
+	$('.date-footer__text').empty()
+
 $(".date-header__item").on "click",  ->	
-	today = $(".datepicker").find('.datepickerToday')
+	# enddate = $('.js-datepicker').datepick({defaultDate: +7})
+
 	$(@).addClass 'active'
 
-	# if $(@).hasClass 'active'
-		
-		# alert(today.setDate today.getDate() + 7 )
-		# (today.getDate())+ 7
+	# console.log(enddate)
 
-
-
-
-
-# $(".js-datepicker").datepicker
-# 	altField: ".date-footer__text"
-# 	selectOtherMonths: true 
-# 	dateFormat: true
-# 	numberOfMonths: [ 
-# 		1 
-# 		2
-# 	]
-# 	monthNames: [
-# 		'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь',
-# 	'Октябрь', 'Ноябрь', 'Декабрь'
-# 	]
-# 	dayNamesMin: [ 
-# 		'ВС','ПН','ВТ','СР','ЧТ','ПТ','СБ'
-# 	]
-# 	firstDay: 1
 
 

@@ -523,23 +523,27 @@
                     border-bottom 1px dashed #fff 
                     &:hover
                         border-color blue_base
-            .datepicker
-                width 594px
+            .datepick
+                width 595px !important
+                clearfix()
                 a
                     text-decoration none
-            .datepickerSpace
-                div
-                    height 275px
-                    width 1px
-                    background-color rgba(#148ca3, 0.33)
-            .datepickerViewDays
-                width 297px 
+            .datepick-month
+                width 50%
+                float left
                 text-align center
-                box-sizing border-box
+                .datepick-month-header
+                    line-height 35px
+                &.last
+                    border-left 1px solid  rgba(#148ca3, 0.33)
+                    margin-left -1px
+                    
+                table
+                    width 100%
                 thead
                     tr
                         &:first-child
-                            border-bottom 1px solid rgba(#148ca3, 0.33)
+                            border-top 1px solid rgba(#148ca3, 0.33)
                         &:last-child
                             span
                                 font-size 15px
@@ -558,62 +562,45 @@
                            a
                                font-size 16px
                                line-height 32px 
-                               color text_color 
-                .datepickerDays
+                               color text_color
+                tbody
                     tr
                         line-height 35px
+                        td
+                            .datepick-other-month
+                                color #a6b8bc 
+                            .datepick-today
+                                color #f07804
+                                position relative
+                                &:after
+                                    content ''
+                                    position absolute
+                                    bottom -6px
+                                    left 50% 
+                                    margin-left -3px
+                                    z-index 10
+                                    display block
+                                    background-color #f07804
+                                    width 5px
+                                    height 5px
+                                    border-radius 50%
+                            .datepick-selected, .datepick-highlight
+                                position relative
+                                &:before
+                                    content ''
+                                    position absolute
+                                    top 50%
+                                    margin-top -18px
+                                    left 50%
+                                    margin-left -22px
+                                    width 46px
+                                    height 35px
+                                    border-radius 3px 
+                                    background-color grey_base 
+                                    z-index -5 
                         a
-                            color #1d1e29
-                    .datepickerNotInMonth
-                        a
-                            color #a6b8bc
-                        
-                           
-            .datepickerMonths
-                display none
-            .datepickerYears
-                display none
-            .datepickerToday
-                position relative
-                a
-                    color #f07804 !important
-                &:after
-                    content ''
-                    position absolute
-                    bottom 0
-                    left 0 
-                    // float left
-                    margin-left 17px
-                    z-index 10
-                    display block
-                    background-color #f07804
-                    width 5px
-                    height 5px
-                    border-radius 50%
-                    
-            .datepickerSelected
-                // padding 2px
-                border-radius 3px 
-                box-sizing border-box 
-                span
-                    position relative
-                    background-color green_base 
-                    &:before
-                        content ''
-                        position absolute
-                        top 0
-                        margin-top -3px
-                        left 0
-                        margin-left -5px     
-                        
-                        padding 13px
-                        border-radius 3px 
-                        
-            .datepickerSelected2
-                background-color grey_base
-                
-                   
-            
+                            color #1d1e29  
+    
         
             .date-footer
                 border-top 1px solid rgba(#148ca3, 0.33)
