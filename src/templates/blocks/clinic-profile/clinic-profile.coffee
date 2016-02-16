@@ -55,26 +55,62 @@ $(".alternative-btn__district").on "click", ".js-remove", ->
 
 
 # data-picker
+# $(".js-btn-picker").on "click",  ->
+# 	picker = $(this).siblings(".date-wrap")
+
+# 	picker.toggleClass 'is-active'	
+
+# data-picker
 $(".js-btn-picker").on "click",  ->
 	picker = $(this).siblings(".date-wrap")
 
+
 	picker.toggleClass 'is-active'	
-	
-$(".js-datepicker").datepicker
-	altField: ".date-footer__text"
-	selectOtherMonths: true 
-	dateFormat: true
-	numberOfMonths: [ 
-		1 
-		2
-	]
-	monthNames: [
-		'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь',
-	'Октябрь', 'Ноябрь', 'Декабрь'
-	]
-	dayNamesMin: [ 
-		'ВС','ПН','ВТ','СР','ЧТ','ПТ','СБ'
-	]
-	firstDay: 1
+
+
+	$('.js-datepicker').datepick 
+		dateFormat: 'yyyy-mm-dd'
+		rangeSelect: true
+		monthsToShow: [
+			1
+			2
+		]
+		showTrigger: '#calImg'
+		showOtherMonths: true
+		selectOtherMonths: true
+		changeMonth: false
+		altField: '.date-footer__text'
+		altFormat: 'd MM'
+		# defaultDate: +7
+		selectDate: +7 
+		# onSelect: ->
+		# 	$(@).find('.datepick-month').children('td').addClass 'sss'
+
+		# onDate: (date, current) ->
+
+
+			
+
+		# defaultDate: +7
+
+
+
+$(".js-date-close").on "click",  ->	
+	value = $('.date-footer__text').text()
+	$(".date-wrap").removeClass "is-active"
+	$('.js-clone-date').text(value)
+
+
+$(".js-date-clear").on "click",  ->	
+	$('.js-datepicker').DatePickerClear()
+	$('.date-footer__text').empty()
+
+$(".date-header__item").on "click",  ->	
+	# enddate = $('.js-datepicker').datepick({defaultDate: +7})
+
+	$(@).addClass 'active'
+
+	# console.log(enddate)
+
 
 

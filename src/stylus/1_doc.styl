@@ -596,7 +596,7 @@ ul
             &__label
                 font-weight bold
                 color #000002
-        .doctors-card
+        .doctors-card, .card-list
             padding 0
             margin 20px 0
             .doctors-card__item
@@ -623,6 +623,36 @@ ul
                             position absolute
                             top 20px
                             right 20px
+        .card-list
+            .small-card
+                line-height normal
+                padding-left 0
+                font-size 14px
+                &:before
+                    content ''
+                .small-card__right-side
+                    @media phone_tablet
+                        margin-left 180px
+                    @media screen560
+                        margin-left 0
+                        padding-left 20px
+                    .favorites-block
+                        @media phone
+                            width auto
+                            display block
+                        @media only screen and (max-width: 560px)   
+                            position absolute
+                            top 20px
+                            right 20px
+                .small-card__schedule
+                    ul
+                        padding 0
+                        margin 0
+                        li
+                            padding-left 0
+                            line-height normal 
+                            &:before
+                                content ''
             
                             
                             

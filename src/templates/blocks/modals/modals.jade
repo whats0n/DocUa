@@ -5,7 +5,7 @@ mixin modal(name, classes, dialogClasses)
                 .modal-content
                     block
 
-+modal("feedback")
++modal("feedback") 
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Обратная связь
@@ -521,10 +521,11 @@ mixin modal(name, classes, dialogClasses)
             li.active
                 a(href="#select-area-districts", data-toggle="tab")
                     span районы
-            li &nbsp;или&nbsp;
-            li
-                a(href="#select-area-metro", data-toggle="tab")
-                    span станции метро
+            if file.page_name != 'clinic-profile_current'     
+                li &nbsp;или&nbsp;
+                li
+                    a(href="#select-area-metro", data-toggle="tab")
+                        span станции метро
     .modal-body 
         .tab-content.clear
             - var selectAreaClasses = ''
@@ -851,10 +852,10 @@ mixin modal(name, classes, dialogClasses)
                 +e("img").icon(srcset="/i/icon-like.png, /i/icon-like@2x.png 2x", alt="")
                 +e.title Публикуем ваше мнение в анкете врача
 
-+modal("info", "info-modal")
++modal("info", "info-modal") 
     .modal-header
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
-        .modal-title Уважаемый посетитель!
+        .modal-title Уважаемый посетитель! 
     .modal-body
         .info-modal__visual
             img.info-modal__visual-icon(src="/i/free-percent-icon.png", alt="")

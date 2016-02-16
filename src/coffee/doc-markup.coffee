@@ -300,33 +300,33 @@ $ ->
                     today: 'сегодня',
                     clear: 'удалить'
 
-    $('.datepicker').each ->
-        val = $(@).val()
-        $(@).data('value', val) if val
-        submitFormat = $(@).data('dateFormatSubmit') or 'yyyy-mm-dd'
-        displayFormat = $(@).data('dateFormatDisplay') or 'dd.mm.yyyy'
-        setLang = $(@).data 'lang'
-        $setDatePickerLang setLang
+    # $('.datepicker').each ->
+    #     val = $(@).val()
+    #     $(@).data('value', val) if val
+    #     submitFormat = $(@).data('dateFormatSubmit') or 'yyyy-mm-dd'
+    #     displayFormat = $(@).data('dateFormatDisplay') or 'dd.mm.yyyy'
+    #     setLang = $(@).data 'lang'
+    #     $setDatePickerLang setLang
 
-        $(@).pickadate
-            format: displayFormat
-            formatSubmit: submitFormat
-            hiddenName: yes
-            firstDay: 1
-            min: true
-            max: +62
-            clear: ''
-            labelMonthNext: ''
-            labelMonthPrev: ''
-            labelMonthSelect: ''
-            labelYearSelect: ''
-            onRender: ->
-                $(@$root).find("select").trigger "reinitSelect7"
-                isOpen = @get 'open'
-                highlight = @get 'highlight', submitFormat
-                value = @get 'select', submitFormat
-                highlightedData = @get 'highlight'
-                @set "select", highlightedData if (highlight != value) and isOpen
+    #     $(@).pickadate
+    #         format: displayFormat
+    #         formatSubmit: submitFormat
+    #         hiddenName: yes
+    #         firstDay: 1
+    #         min: true
+    #         max: +62
+    #         clear: ''
+    #         labelMonthNext: ''
+    #         labelMonthPrev: ''
+    #         labelMonthSelect: ''
+    #         labelYearSelect: ''
+    #         onRender: ->
+    #             $(@$root).find("select").trigger "reinitSelect7"
+    #             isOpen = @get 'open'
+    #             highlight = @get 'highlight', submitFormat
+    #             value = @get 'select', submitFormat
+    #             highlightedData = @get 'highlight'
+    #             @set "select", highlightedData if (highlight != value) and isOpen
 
     $('.birthdaypicker').each ->
         val = $(@).val()

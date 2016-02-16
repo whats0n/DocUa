@@ -1459,17 +1459,35 @@ $(".alternative-btn__district").on("click", ".js-remove", function() {
 $(".js-btn-picker").on("click", function() {
   var picker;
   picker = $(this).siblings(".date-wrap");
-  return picker.toggleClass('is-active');
+  picker.toggleClass('is-active');
+  return $('.js-datepicker').datepick({
+    dateFormat: 'yyyy-mm-dd',
+    rangeSelect: true,
+    monthsToShow: [1, 2],
+    showTrigger: '#calImg',
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    changeMonth: false,
+    altField: '.date-footer__text',
+    altFormat: 'd MM',
+    selectDate: +7
+  });
 });
 
-$(".js-datepicker").datepicker({
-  altField: ".date-footer__text",
-  selectOtherMonths: true,
-  dateFormat: true,
-  numberOfMonths: [1, 2],
-  monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-  dayNamesMin: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
-  firstDay: 1
+$(".js-date-close").on("click", function() {
+  var value;
+  value = $('.date-footer__text').text();
+  $(".date-wrap").removeClass("is-active");
+  return $('.js-clone-date').text(value);
+});
+
+$(".js-date-clear").on("click", function() {
+  $('.js-datepicker').DatePickerClear();
+  return $('.date-footer__text').empty();
+});
+
+$(".date-header__item").on("click", function() {
+  return $(this).addClass('active');
 });
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -2555,41 +2573,6 @@ $(function() {
         });
     }
   };
-  $('.datepicker').each(function() {
-    var displayFormat, setLang, submitFormat, val;
-    val = $(this).val();
-    if (val) {
-      $(this).data('value', val);
-    }
-    submitFormat = $(this).data('dateFormatSubmit') || 'yyyy-mm-dd';
-    displayFormat = $(this).data('dateFormatDisplay') || 'dd.mm.yyyy';
-    setLang = $(this).data('lang');
-    $setDatePickerLang(setLang);
-    return $(this).pickadate({
-      format: displayFormat,
-      formatSubmit: submitFormat,
-      hiddenName: true,
-      firstDay: 1,
-      min: true,
-      max: +62,
-      clear: '',
-      labelMonthNext: '',
-      labelMonthPrev: '',
-      labelMonthSelect: '',
-      labelYearSelect: '',
-      onRender: function() {
-        var highlight, highlightedData, isOpen, value;
-        $(this.$root).find("select").trigger("reinitSelect7");
-        isOpen = this.get('open');
-        highlight = this.get('highlight', submitFormat);
-        value = this.get('select', submitFormat);
-        highlightedData = this.get('highlight');
-        if ((highlight !== value) && isOpen) {
-          return this.set("select", highlightedData);
-        }
-      }
-    });
-  });
   $('.birthdaypicker').each(function() {
     var displayFormat, setLang, submitFormat, val;
     val = $(this).val();
