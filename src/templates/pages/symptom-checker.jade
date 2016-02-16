@@ -7,17 +7,17 @@
     page_name: online-diagnostic
 
 
-section 
-    .col-sm-12.col-xs-12            
+section.symptom-checker
+    .col-sm-12.col-xs-12
       header.header-styled.notopmargin
         h2.h1 Онлайн-диагностика
       .block-bg
          .row
-            .col-sm-4               
+            .col-sm-4
                 .body-map
-                  .body-map_bg
-                     .body-map__select.text-center
-                     span.body-map__select-title Вы — 
+                  .body-map_image-bg
+                    .body-map__select.text-center
+                        span.body-map__select-title Вы — 
                         .radio-inline
                           label.pill
                             input(type='radio', checked='checked', value='male', name='gender')
@@ -28,8 +28,8 @@ section
                             input(type='radio', value='female', name='gender')
                             span
                               span Женщина
-                     .body-map__container
-                        .body-map__main.body-map__main_man_front.body-map__main_detailed(style='top: -10%; left: -15%; display: block;')
+                    .body-map__container
+                        .body-map__main.body-map__main_man_front
                           .body-map__bg
                             img(src='i/man-front.jpg')
                           .body-map__zones
@@ -57,22 +57,22 @@ section
                          span
                             span Кожа
 
-             .body-map__controls
-                span.body-map__rotate
-                span.body-map__current Передняя часть шеи
-                span.body-map__zoom.body-map__zoom_out
+                  .body-map__controls
+                     span.body-map__rotate
+                     span.body-map__current Передняя часть шеи
+                     span.body-map__zoom.body-map__zoom_out
             .col-sm-4.first-step.hide
               .h3 Выберите симптомы:
-              p
+              p 
                 | Воспользовавшись онлайн-диагностикой и указав симптомы, которые вас беспокоят, вы можете определить возможные заболевания и узнать, к какому врачу обращаться. Для старта выберите пол, наведите курсор на интересующую вас область на карте тела и выберите из списка ваши симптомы.
               p
                 | Данный инструмент представлен в информационных целях и не заменяет врачебную консультацию.
                   
-            #symContainer.col-sm-4
+            #symContainer.col-sm-4.choose-symptom 
                 .h3 Выберите симптомы:
-                .symptoms.scroll-pane.scroll-pane_autoreinitialize_off.jspScrollable(style='overflow: hidden; padding: 0px; width: 293px;', tabindex='0')
-                 .jspContainer(style='width: 291px; height: 531px;')
-                    .jspPane(style='padding: 0px; top: -1263px; left: 0px; width: 282px;')
+                .symptoms.scroll-pane.scroll-pane_autoreinitialize_off.jspScrollable(style='overflow: hidden;', tabindex='0')
+                 .jspContainer(style='height: 591px;')
+                    .jspPane(style='top: -1263px; left: 0px;')
                      ul#symptoms-list-selector.symptoms__list
                         li.symptoms__list-item(data-value='267') Боль
                         li.symptoms__list-item(data-value='479') Боль в горле
@@ -113,11 +113,11 @@ section
                         li.symptoms__list-item(data-value='1502') Чешуйчатость кожи
                         li.symptoms__list-item(data-value='923') Чувство "кома" в горле
                         li.symptoms__list-item(data-value='224') Экспираторная одышка (утруднен выдох)
-                        li.symptoms__list-item(data-value='267') Боль
-                        li.symptoms__list-item(data-value='479') Боль в горле
+                        li.symptoms__list-item.symptoms__list-item_selected.symptoms__list-item_selected(data-value='267') Боль
+                        li.symptoms__list-item.symptoms__list-item_selected.symptoms__list-item_selected(data-value='479') Боль в горле
                         li.symptoms__list-item(data-value='53') Боль в лимфоузлах
                         li.symptoms__list-item(data-value='482') Боль при глотании
-                        li.symptoms__list-item(data-value='1534') Бугристость кожи
+                        li.symptoms__list-item.symptoms__list-item_selected.symptoms__list-item_selected(data-value='1534') Бугристость кожи
                         li.symptoms__list-item(data-value='1057') Волдыри (-ь)
                         li.symptoms__list-item(data-value='1144') Гнойник (-и)
                         li.symptoms__list-item(data-value='1088') Жжение
@@ -154,7 +154,7 @@ section
                         li.symptoms__list-item(data-value='224') Экспираторная одышка (утруднен выдох)
                     .jspVerticalBar
                      .jspCap.jspCapTop
-                     .jspTrack(style='height: 531px;')
+                     .jspTrack(style='height: 582px;')
                         .jspDrag(style='height: 93px; top: 220.133px;')
                          .jspDragTop
                          .jspDragBottom
@@ -182,18 +182,9 @@ section
                     li.select2-search-choice
                       div "Кукольная походка" (мелкими шагами)
                       a.select2-search-choice-close(href='https://doc.ua/diagnostic#', tabindex='-1')
-                    li.select2-search-choice
-                      div Безволие
-                      a.select2-search-choice-close(href='https://doc.ua/diagnostic#', tabindex='-1')
-                    li.select2-search-choice
-                      div Зябкость
-                      a.select2-search-choice-close(href='https://doc.ua/diagnostic#', tabindex='-1')
-                    li.select2-search-choice
-                      div Отвращение к пищи
-                      a.select2-search-choice-close(href='https://doc.ua/diagnostic#', tabindex='-1')
                     li.select2-search-field
                       label.select2-offscreen(for='s2id_autogen19')
-                      input#s2id_autogen19.select2-input(type='text', autocomplete='off', autocorrect='off', autocapitalize='off', spellcheck='false', placeholder='', style='width: 20px;')
+                      input#s2id_autogen19.select2-input(type='text', autocomplete='off', autocorrect='off', autocapitalize='off', spellcheck='false', placeholder='Выберите симптомы')
                   .select2-drop.select2-drop-multi.select2-display-none
                     ul.select2-results
                       li.select2-no-results Нічого не знайдено
@@ -208,47 +199,46 @@ section
                   option(value='1077') Жжение
                   option(value='364') Зуд
                   option(value='1101') Красно-багровые образования (-е)
-              #deseaseCont
+              #deseaseCont.diseaseCont-wrap
                 .h3 Возможные заболевания:
-                ul.style-clear-box
-                  li#661
-                    a(href='https://doc.ua/bolezn/anevrizma', title='Аневризма ')
-                      strong Аневризма 
-                    p.actions-list__meta совпало 1 из 8 симтомов: 
-                  li#77
-                    a(href='https://doc.ua/bolezn/bolezn-parkinsona', title='Болезнь Паркинсона')
-                      strong Болезнь Паркинсона
-                    p.actions-list__meta совпало 1 из 8 симтомов: 
-                  li#34
-                    a(href='https://doc.ua/bolezn/gastrit', title='Гастрит')
-                      strong Гастрит
-                    p.actions-list__meta совпало 1 из 8 симтомов: 
-                  li#775
-                    a(href='https://doc.ua/bolezn/gastroduodenit', title='Гастродуоденит')
-                      strong Гастродуоденит
-                    p.actions-list__meta совпало 1 из 8 симтомов: 
-                  li#228
-                    a(href='https://doc.ua/bolezn/gepatit-v', title='Гепатит В')
-                      strong Гепатит В
-                    p.actions-list__meta совпало 2 из 8 симтомов: , 
-                  li#163.hide
-                    a(href='https://doc.ua/bolezn/gipotireoz', title='Гипотиреоз')
-                      strong Гипотиреоз
-                    p.actions-list__meta совпало 1 из 8 симтомов: 
-                  li#785.hide
-                    a(href='https://doc.ua/bolezn/diafragmalnaya-gryzha', title='Диафрагмальная грыжа')
-                      strong Диафрагмальная грыжа
-                    p.actions-list__meta совпало 1 из 8 симтомов: 
-                  li#39.hide
-                    a(href='https://doc.ua/bolezn/disbakterioz', title='Дисбактериоз')
-                      strong Дисбактериоз
-                    p.actions-list__meta совпало 1 из 8 симтомов: 
-                  li#42.hide
-                  li#52.hide
-                    a(href='https://doc.ua/bolezn/yazvennaya-bolezn', title='Язвенная болезнь')
-                      strong Язвенная болезнь
-                    p.actions-list__meta совпало 1 из 8 симтомов: 
-                a.dotted.black.showme-desease(title='Показать все') Показать все
-                p.reload
-                  br
-                  button.btn.btn-primary.btn-xs-block.btn-xs.btn-xs-block(onclick='location.reload();') Начать заново
+                .scroll-pane.scroll-pane_autoreinitialize_off.jspScrollable(style='overflow: hidden;', tabindex='0')
+                  .jspContainer(style='height: 280px;')
+                    .jspPane(style='top: 10px; left: 0px;')
+                         ul.style-clear-box.list-style
+                          li.list-style__item#661
+                            a.list-style__link(href='https://doc.ua/bolezn/anevrizma', title='Аневризма ') Аневризма 
+                            p.actions-list__meta совпало 1 из 8 симтомов: 
+                          li.list-style__item#77
+                            a.list-style__link(href='https://doc.ua/bolezn/bolezn-parkinsona', title='Болезнь Паркинсона') Болезнь Паркинсона
+                            p.actions-list__meta совпало 1 из 8 симтомов: 
+                          li.list-style__item#34
+                            a.list-style__link(href='https://doc.ua/bolezn/gastrit', title='Гастрит') Гастрит
+                            p.actions-list__meta совпало 1 из 8 симтомов: 
+                          li.list-style__item#775
+                            a.list-style__link(href='https://doc.ua/bolezn/gastroduodenit', title='Гастродуоденит') Гастродуоденит
+                            p.actions-list__meta совпало 1 из 8 симтомов: 
+                          li.list-style__item#228
+                            a.list-style__link(href='https://doc.ua/bolezn/gepatit-v', title='Гепатит В') Гепатит В
+                            p.actions-list__meta совпало 2 из 8 симтомов: , 
+                          li.list-style__item#163.hide
+                            a.list-style__link(href='https://doc.ua/bolezn/gipotireoz', title='Гипотиреоз') Гипотиреоз
+                            p.actions-list__meta совпало 1 из 8 симтомов: 
+                          li.list-style__item#785.hide
+                            a.list-style__link(href='https://doc.ua/bolezn/diafragmalnaya-gryzha', title='Диафрагмальная грыжа') Диафрагмальная грыжа
+                            p.actions-list__meta совпало 1 из 8 симтомов: 
+                          li.list-style__item#39.hide
+                            a.list-style__link(href='https://doc.ua/bolezn/disbakterioz', title='Дисбактериоз') Дисбактериоз
+                            p.actions-list__meta совпало 1 из 8 симтомов: 
+                          li.list-style__item#42.hide
+                          li.list-style__item#52.hide
+                            a.list-style__link(href='https://doc.ua/bolezn/yazvennaya-bolezn', title='Язвенная болезнь') Язвенная болезнь
+                            p.actions-list__meta совпало 1 из 8 симтомов: 
+                     .jspVerticalBar
+                         .jspCap.jspCapTop
+                         .jspTrack(style='height: 282px;')
+                            .jspDrag(style='height: 23px; top: 220.133px;')
+                             .jspDragTop
+                             .jspDragBottom
+                         .jspCap.jspCapBottom
+                br
+                button.btn.btn-primary.btn-xs-block.btn-xs.btn-xs-block(onclick='location.reload();') Начать заново

@@ -1,10 +1,201 @@
+.diseaseCont-wrap
+    min-height 200px 
+    overflow hidden 
+    clearfix()
+    .btn-xs
+        float right
+        padding 10px 25px
+        font-size 17px 
+        font-weight bold
+        @media phone
+            float none 
+            display block
+            margin 0 auto 
+            padding 6px 15px
+            font-size 15px 
+.symptom-checker
+    .row
+        margin 0 -20px
+    .col-sm-4
+        padding 0 20px 
+    .h3
+        font-size 22px
+        font-weight 700 
+        margin-top 0
+        margin-bottom 20px 
+        @media phone
+            font-size 18px 
+        
+    .pill
+        &.with-icon
+          &.icon-left
+            & > span
+              & > span
+                margin-right 15px
+                margin-left 0
+              &:after
+                right 5px
+                left auto
+        &.color-red
+          & > span
+            color #e11f2a
+        &.color-green
+          & > span
+            color #07a540
+        &.color-blue
+          & > span
+            color #0068b5
+            
+    .select2-container-multi 
+        .select2-choices
+            border 0
+            background none
+            
+    .select2-container-multi
+      .select2-choices
+        height auto!important
+        height 1%
+        margin 0
+        padding 0 5px 0 0
+        position relative
+        cursor text
+        overflow hidden
+        background-color #fff
+        min-height 26px
+        padding-top 1px
+        min-height 32px!important
+        background #fff
+        .select2-search-field
+          width 100% 
+          height 40px
+          input
+            width 100% 
+            height 100% 
+            padding-left 10px 
+            background-color #eff9fb !important
+            border 1px solid rgba(61, 160, 180, 0.27)
+            border-radius 3px
+            box-shadow inset 1.1px -0.1px 1px rgba(43, 151, 173, 0.12)
+            placeholder(#899699, 14px)
+            &.select2-active
+              background #fff url('i/select2-spinner.gif') no-repeat 100%!important
+            &.select2-default
+              margin-left 10px
+              margin-top 5px
+              padding 1px 10px 2px!important
+              line-height 14px
+              width auto!important
+          &:first-child
+            input
+              &.select2-default
+                -webkit-border-radius 100px!important
+                border-radius 100px!important
+                border 1px dashed #b5b5b5!important
+        .select2-search-choice
+          margin 0px 17px 18px 0
+          position relative
+          line-height 13px
+          border-radius 3px
+          background-clip padding-box
+          user-select none
+          background-color #168da4
+          border-radius 3px
+          padding 11px 35px 11px 18px
+          .select2-search-choice-close
+            background url(i/icons/action-close-white.png) no-repeat 0 0!important
+            width 13px
+            height 13px
+            opacity .5
+            -ms-filter "alpha(opacity=30)"
+            filter "alpha(opacity=30)"
+            right 13px
+            left auto
+            top 50%
+            margin-top -7px
+            transition opacity .2s ease-in-out
+            &:hover
+              background-position right -11px
+              background-position 0 0
+              opacity 1
+              -ms-filter "alpha(opacity=75)"
+              filter "alpha(opacity=75)"
+    .symptoms-selected 
+        .select2-container-multi 
+            .select2-choices 
+                .select2-search-field 
+                    input.select2-default
+                        border-color transparent!important
+                        padding-left 0!important
+                        padding-right 0!important
+    .select2-container-multi 
+        .select2-choices 
+            .select2-search-field:first-child 
+                input.select2-default
+                    -webkit-border-radius 100px!important
+                    border-radius 100px!important
+                    border 1px dashed #b5b5b5!important
+    .select2-container-multi 
+        .select2-choices 
+            .select2-search-field 
+                input.select2-default
+                    margin-left 10px
+                    margin-top 5px
+                    padding 1px 10px 2px!important
+                    line-height 14px
+                    width auto!important
+    .select2-default
+        color #c8c8c8!important
+        font-size 13px!important
+        
+.list-style
+    margin 0
+    padding 0  
+    font-size 0
+    list-style none
+    &__item
+        position relative
+        margin-bottom 20px 
+        padding-left 15px
+        font-size 15px
+        font-weight 400
+        line-height 19px
+    &__link
+        color #4b89d3
+        outline 0
+        font-weight normal 
+        &:before
+            content ""
+            position absolute
+            left 0
+            top 6px
+            height 8px
+            display inline-block
+            width 8px
+            background-color #ddecef
+            border-radius 50%
+    .actions-list__meta
+        margin-top 3px
+        margin-bottom 0  
+        font-size 12px
+        font-weight 400
+        line-height 12px
+        color #5e6e71
 .body-map
-	margin-bottom 15px
-	
-.body-map_bg
-	height 100% 
-	background-color #e5f2f5
-	border-radius 3px
+    margin-bottom 15px
+    .pill
+        >span
+            padding 4px 20px  
+            border-radius 20px
+            span
+                font-size 17px
+    .radio-inline
+        padding-left 0 
+.body-map_image-bg 
+    height 100% 
+    background-color #e5f2f5
+    border-radius 3px
+    margin-bottom 25px 
+    padding 25px 0
 .body-map__container
   position relative
   height 430px
@@ -19,25 +210,7 @@
   display inline-block
   vertical-align middle
   margin-top -5px
-.pill
-    &.with-icon
-      &.icon-left
-        & > span
-          & > span
-            margin-right 15px
-            margin-left 0
-          &:after
-            right 5px
-            left auto
-    &.color-red
-      & > span
-        color #e11f2a
-    &.color-green
-      & > span
-        color #07a540
-    &.color-blue
-      & > span
-        color #0068b5
+  font-size 18px
 .body-map_ie
   .body-map__bg
     img
@@ -108,19 +281,19 @@
     vertical-align middle
 
 .body-map__symptoms
-  margin-bottom 5px
+  margin-bottom 0
   text-align center
 
 .body-map__controls
   position relative
   text-align center
   padding 10px 80px 0
-  min-height 80px
+  min-height 40px
 
 .body-map__current
   display inline-block
   max-width 100%
-  font-size 14px
+  font-size 15px
   line-height 16px
   color #000
   text-decoration none
@@ -152,20 +325,14 @@
   &:active
     opacity 0.7
 
-.body-map__zoom_out
-  // background-position 0 -80px
-  // &:hover
-  //   background-position -40px -80px
-  // &:active
-  //   background-position -80px -80px
-  	
 .symptoms
-  border 1px solid #ccc
+  border 1px solid #d9ecf0
   -webkit-border-radius 2px
   border-radius 2px
-  height 533px
+  height 593px
   overflow-y auto
   outline 0
+  padding 20px 0
   .jspHorizontalBar
     display none
 
@@ -174,18 +341,21 @@
   padding 0 10px 0 15px
   list-style none
   font-size 15px
-  line-height 20px
+  line-height 20px 0 
 
 .symptoms__list-item
+  margin-right 13px 
   padding 8px 30px 9px 0
-  border-bottom 1px dotted #ccc
+  border-bottom 1px solid #d9ecf0
   cursor pointer
+  color #7c888a
   &.last-child
     border-bottom 0 none
 
 .symptoms__list-item_selected
   background url("i/check.png") no-repeat right 8px
   font-weight bold
+  color #168da4
 
 .symptoms-selected
   margin-bottom 15px
@@ -198,13 +368,20 @@
             padding-left 0!important
             padding-right 0!important
             
+
+.choose-symptom
+    margin-bottom 20px  
+
 .jspContainer
   overflow hidden
   position relative
 
 .jspPane
   position absolute
-
+  .symptom-checker &
+      @media phone
+        width 100% 
+    
 .jspVerticalBar
   position absolute
   top 0
@@ -238,22 +415,20 @@
   display none
 
 .jspTrack
-  background #dde
-  position relative
-  background 0
+  width 1px 
+  position relative 
+  background-color lighten(#00829b, 90%) 
 
 .jspDrag
   background #bbd
   position relative
   top 0
-  left 0
+  left -2px
+  width 5px 
   cursor pointer
-  background #00829b
-  -webkit-border-radius 3px
-  border-radius 3px
-  opacity .2
-  -ms-filter "alpha(opacity=20)" 
-  filter "alpha(opacity=20)"
+  background-color #a5ccd3  
+  -webkit-border-radius 5px
+  border-radius 5px
   -webkit-transition opacity .2s ease-in-out
   -moz-transition opacity .2s ease-in-out
   -o-transition opacity .2s ease-in-out

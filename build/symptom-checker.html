@@ -771,17 +771,17 @@
           </div>
         </div>
         <div class="row">
-          <section> 
-            <div class="col-sm-12 col-xs-12">           
+          <section class="symptom-checker">
+            <div class="col-sm-12 col-xs-12">
               <header class="header-styled notopmargin">
                 <h2 class="h1">Онлайн-диагностика</h2>
               </header>
               <div class="block-bg">
                 <div class="row">
-                  <div class="col-sm-4">              
+                  <div class="col-sm-4">
                     <div class="body-map">
-                      <div class="body-map_bg">
-                        <div class="body-map__select text-center"></div><span class="body-map__select-title">Вы — 
+                      <div class="body-map_image-bg">
+                        <div class="body-map__select text-center"><span class="body-map__select-title">Вы — </span>
                           <div class="radio-inline">
                             <label class="pill">
                               <input type="radio" checked="checked" value="male" name="gender"/><span><span>Мужчина</span></span>
@@ -791,9 +791,10 @@
                             <label class="pill">
                               <input type="radio" value="female" name="gender"/><span><span>Женщина</span></span>
                             </label>
-                          </div></span>
+                          </div>
+                        </div>
                         <div class="body-map__container">
-                          <div style="top: -10%; left: -15%; display: block;" class="body-map__main body-map__main_man_front body-map__main_detailed">
+                          <div class="body-map__main body-map__main_man_front">
                             <div class="body-map__bg"><img src="i/man-front.jpg"/></div>
                             <div class="body-map__zones">
                               <div style="top: -10%; left: -15%; display: none;" class="body-map__main body-map__main_man_back">
@@ -811,32 +812,35 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="body-map__symptoms">
-                        <div class="radio-inline">
-                          <label class="pill">
-                            <input type="checkbox" data-zone-id="common"/><span><span>Общие симптомы</span></span>
-                          </label>
+                        <div class="body-map__symptoms">
+                          <div class="radio-inline">
+                            <label class="pill">
+                              <input type="checkbox" data-zone-id="common"/><span><span>Общие симптомы</span></span>
+                            </label>
+                          </div>
+                          <div class="radio-inline">
+                            <label class="pill">
+                              <input type="checkbox" data-zone-id="skin"/><span><span>Кожа</span></span>
+                            </label>
+                          </div>
                         </div>
-                        <div class="radio-inline">
-                          <label class="pill">
-                            <input type="checkbox" data-zone-id="skin"/><span><span>Кожа</span></span>
-                          </label>
-                        </div>
                       </div>
+                      <div class="body-map__controls"><span class="body-map__rotate"></span><span class="body-map__current">Передняя часть шеи</span><span class="body-map__zoom body-map__zoom_out"></span></div>
                     </div>
                   </div>
-                  <div class="body-map__controls"><span class="body-map__rotate"></span><span class="body-map__current">Передняя часть шеи</span><span class="body-map__zoom body-map__zoom_out"></span></div>
                   <div class="col-sm-4 first-step hide">
                     <div class="h3">Выберите симптомы:</div>
-                    <p>Воспользовавшись онлайн-диагностикой и указав симптомы, которые вас беспокоят, вы можете определить возможные заболевания и узнать, к какому врачу обращаться. Для старта выберите пол, наведите курсор на интересующую вас область на карте тела и выберите из списка ваши симптомы.</p>
+                    <p>
+                       
+                      Воспользовавшись онлайн-диагностикой и указав симптомы, которые вас беспокоят, вы можете определить возможные заболевания и узнать, к какому врачу обращаться. Для старта выберите пол, наведите курсор на интересующую вас область на карте тела и выберите из списка ваши симптомы.
+                    </p>
                     <p>Данный инструмент представлен в информационных целях и не заменяет врачебную консультацию.</p>
                   </div>
-                  <div id="symContainer" class="col-sm-4">
+                  <div id="symContainer" class="col-sm-4 choose-symptom"> 
                     <div class="h3">Выберите симптомы:</div>
-                    <div style="overflow: hidden; padding: 0px; width: 293px;" tabindex="0" class="symptoms scroll-pane scroll-pane_autoreinitialize_off jspScrollable">
-                      <div style="width: 291px; height: 531px;" class="jspContainer">
-                        <div style="padding: 0px; top: -1263px; left: 0px; width: 282px;" class="jspPane">
+                    <div style="overflow: hidden;" tabindex="0" class="symptoms scroll-pane scroll-pane_autoreinitialize_off jspScrollable">
+                      <div style="height: 591px;" class="jspContainer">
+                        <div style="top: -1263px; left: 0px;" class="jspPane">
                           <ul id="symptoms-list-selector" class="symptoms__list">
                             <li data-value="267" class="symptoms__list-item">Боль</li>
                             <li data-value="479" class="symptoms__list-item">Боль в горле</li>
@@ -877,11 +881,11 @@
                             <li data-value="1502" class="symptoms__list-item">Чешуйчатость кожи</li>
                             <li data-value="923" class="symptoms__list-item">Чувство "кома" в горле</li>
                             <li data-value="224" class="symptoms__list-item">Экспираторная одышка (утруднен выдох)</li>
-                            <li data-value="267" class="symptoms__list-item">Боль</li>
-                            <li data-value="479" class="symptoms__list-item">Боль в горле</li>
+                            <li data-value="267" class="symptoms__list-item symptoms__list-item_selected symptoms__list-item_selected">Боль</li>
+                            <li data-value="479" class="symptoms__list-item symptoms__list-item_selected symptoms__list-item_selected">Боль в горле</li>
                             <li data-value="53" class="symptoms__list-item">Боль в лимфоузлах</li>
                             <li data-value="482" class="symptoms__list-item">Боль при глотании</li>
-                            <li data-value="1534" class="symptoms__list-item">Бугристость кожи</li>
+                            <li data-value="1534" class="symptoms__list-item symptoms__list-item_selected symptoms__list-item_selected">Бугристость кожи</li>
                             <li data-value="1057" class="symptoms__list-item">Волдыри (-ь)</li>
                             <li data-value="1144" class="symptoms__list-item">Гнойник (-и)</li>
                             <li data-value="1088" class="symptoms__list-item">Жжение</li>
@@ -920,7 +924,7 @@
                         </div>
                         <div class="jspVerticalBar">
                           <div class="jspCap jspCapTop"></div>
-                          <div style="height: 531px;" class="jspTrack">
+                          <div style="height: 582px;" class="jspTrack">
                             <div style="height: 93px; top: 220.133px;" class="jspDrag">
                               <div class="jspDragTop"></div>
                               <div class="jspDragBottom"></div>
@@ -951,18 +955,9 @@
                           <li class="select2-search-choice">
                             <div>"Кукольная походка" (мелкими шагами)</div><a href="https://doc.ua/diagnostic#" tabindex="-1" class="select2-search-choice-close"></a>
                           </li>
-                          <li class="select2-search-choice">
-                            <div>Безволие</div><a href="https://doc.ua/diagnostic#" tabindex="-1" class="select2-search-choice-close"></a>
-                          </li>
-                          <li class="select2-search-choice">
-                            <div>Зябкость</div><a href="https://doc.ua/diagnostic#" tabindex="-1" class="select2-search-choice-close"></a>
-                          </li>
-                          <li class="select2-search-choice">
-                            <div>Отвращение к пищи</div><a href="https://doc.ua/diagnostic#" tabindex="-1" class="select2-search-choice-close"></a>
-                          </li>
                           <li class="select2-search-field">
                             <label for="s2id_autogen19" class="select2-offscreen"></label>
-                            <input id="s2id_autogen19" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="" style="width: 20px;" class="select2-input"/>
+                            <input id="s2id_autogen19" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Выберите симптомы" class="select2-input"/>
                           </li>
                         </ul>
                         <div class="select2-drop select2-drop-multi select2-display-none">
@@ -984,41 +979,55 @@
                         <option value="1101">Красно-багровые образования (-е)</option>
                       </select>
                     </div>
-                    <div id="deseaseCont">
+                    <div id="deseaseCont" class="diseaseCont-wrap">
                       <div class="h3">Возможные заболевания:</div>
-                      <ul class="style-clear-box">
-                        <li id="661"><a href="https://doc.ua/bolezn/anevrizma" title="Аневризма "><strong>Аневризма </strong></a>
-                          <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
-                        </li>
-                        <li id="77"><a href="https://doc.ua/bolezn/bolezn-parkinsona" title="Болезнь Паркинсона"><strong>Болезнь Паркинсона</strong></a>
-                          <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
-                        </li>
-                        <li id="34"><a href="https://doc.ua/bolezn/gastrit" title="Гастрит"><strong>Гастрит</strong></a>
-                          <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
-                        </li>
-                        <li id="775"><a href="https://doc.ua/bolezn/gastroduodenit" title="Гастродуоденит"><strong>Гастродуоденит</strong></a>
-                          <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
-                        </li>
-                        <li id="228"><a href="https://doc.ua/bolezn/gepatit-v" title="Гепатит В"><strong>Гепатит В</strong></a>
-                          <p class="actions-list__meta">совпало 2 из 8 симтомов: , </p>
-                        </li>
-                        <li id="163" class="hide"><a href="https://doc.ua/bolezn/gipotireoz" title="Гипотиреоз"><strong>Гипотиреоз</strong></a>
-                          <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
-                        </li>
-                        <li id="785" class="hide"><a href="https://doc.ua/bolezn/diafragmalnaya-gryzha" title="Диафрагмальная грыжа"><strong>Диафрагмальная грыжа</strong></a>
-                          <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
-                        </li>
-                        <li id="39" class="hide"><a href="https://doc.ua/bolezn/disbakterioz" title="Дисбактериоз"><strong>Дисбактериоз</strong></a>
-                          <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
-                        </li>
-                        <li id="42" class="hide"></li>
-                        <li id="52" class="hide"><a href="https://doc.ua/bolezn/yazvennaya-bolezn" title="Язвенная болезнь"><strong>Язвенная болезнь</strong></a>
-                          <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
-                        </li>
-                      </ul><a title="Показать все" class="dotted black showme-desease">Показать все</a>
-                      <p class="reload"><br/>
-                        <button onclick="location.reload();" class="btn btn-primary btn-xs-block btn-xs btn-xs-block">Начать заново</button>
-                      </p>
+                      <div style="overflow: hidden;" tabindex="0" class="scroll-pane scroll-pane_autoreinitialize_off jspScrollable">
+                        <div style="height: 280px;" class="jspContainer">
+                          <div style="top: 10px; left: 0px;" class="jspPane">
+                            <ul class="style-clear-box list-style">
+                              <li id="661" class="list-style__item"><a href="https://doc.ua/bolezn/anevrizma" title="Аневризма " class="list-style__link">Аневризма </a>
+                                <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
+                              </li>
+                              <li id="77" class="list-style__item"><a href="https://doc.ua/bolezn/bolezn-parkinsona" title="Болезнь Паркинсона" class="list-style__link">Болезнь Паркинсона</a>
+                                <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
+                              </li>
+                              <li id="34" class="list-style__item"><a href="https://doc.ua/bolezn/gastrit" title="Гастрит" class="list-style__link">Гастрит</a>
+                                <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
+                              </li>
+                              <li id="775" class="list-style__item"><a href="https://doc.ua/bolezn/gastroduodenit" title="Гастродуоденит" class="list-style__link">Гастродуоденит</a>
+                                <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
+                              </li>
+                              <li id="228" class="list-style__item"><a href="https://doc.ua/bolezn/gepatit-v" title="Гепатит В" class="list-style__link">Гепатит В</a>
+                                <p class="actions-list__meta">совпало 2 из 8 симтомов: , </p>
+                              </li>
+                              <li id="163" class="list-style__item hide"><a href="https://doc.ua/bolezn/gipotireoz" title="Гипотиреоз" class="list-style__link">Гипотиреоз</a>
+                                <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
+                              </li>
+                              <li id="785" class="list-style__item hide"><a href="https://doc.ua/bolezn/diafragmalnaya-gryzha" title="Диафрагмальная грыжа" class="list-style__link">Диафрагмальная грыжа</a>
+                                <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
+                              </li>
+                              <li id="39" class="list-style__item hide"><a href="https://doc.ua/bolezn/disbakterioz" title="Дисбактериоз" class="list-style__link">Дисбактериоз</a>
+                                <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
+                              </li>
+                              <li id="42" class="list-style__item hide"></li>
+                              <li id="52" class="list-style__item hide"><a href="https://doc.ua/bolezn/yazvennaya-bolezn" title="Язвенная болезнь" class="list-style__link">Язвенная болезнь</a>
+                                <p class="actions-list__meta">совпало 1 из 8 симтомов: </p>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="jspVerticalBar">
+                            <div class="jspCap jspCapTop"></div>
+                            <div style="height: 282px;" class="jspTrack">
+                              <div style="height: 23px; top: 220.133px;" class="jspDrag">
+                                <div class="jspDragTop"></div>
+                                <div class="jspDragBottom"></div>
+                              </div>
+                            </div>
+                            <div class="jspCap jspCapBottom"></div>
+                          </div>
+                        </div>
+                      </div><br/>
+                      <button onclick="location.reload();" class="btn btn-primary btn-xs-block btn-xs btn-xs-block">Начать заново</button>
                     </div>
                   </div>
                 </div>
