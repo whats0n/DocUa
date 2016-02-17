@@ -158,8 +158,9 @@ body.out
                                             a(href="http://#{site.title}", title=site.title)= site.title
                                             | , 2015
                                         +e.rights Использование материалов разрешено только при наличии активной ссылки <br> на источник
-                        if file.aboutThisSite
-                            +b.about-this-site._seo: +i
+        .row.about-this
+            .container
+                +b.about-this-site._seo: +i
         +b("a").go-top(href="", title="Наверх"): +i
     block modals
     script(src="/doc.min.js")

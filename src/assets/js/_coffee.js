@@ -1469,14 +1469,13 @@ $(".js-btn-picker").on("click", function() {
     selectOtherMonths: true,
     changeMonth: false,
     altField: '.date-footer__text',
-    altFormat: 'd MM',
-    selectDate: +7
+    altFormat: 'yyyy-mm-dd'
   });
 });
 
 $(".js-date-close").on("click", function() {
   var value;
-  value = $('.date-footer__text').text();
+  value = $('.date-footer__text').val();
   $(".date-wrap").removeClass("is-active");
   return $('.js-clone-date').text(value);
 });
@@ -1487,7 +1486,12 @@ $(".js-date-clear").on("click", function() {
 });
 
 $(".date-header__item").on("click", function() {
-  return $(this).addClass('active');
+  var enddate;
+  enddate = $('.js-datepicker').datepick('getDate', '+7d');
+  enddate.setDate(enddate.getDate() + 7);
+  $('.date-footer__text').datepicker('setDate', enddate);
+  $(this).addClass('active');
+  return alert(enddate);
 });
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -2146,6 +2150,12 @@ $(document).on("change", ".pill-group .pill input", function(e) {
   }
 });
 
+$(function() {
+  return $(".price-block_collapse .price-block__header").on("click", function() {
+    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
+  });
+});
+
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2191,12 +2201,6 @@ $(window).resize(postLocationWidthFix);
 $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
-
-$(function() {
-  return $(".price-block_collapse .price-block__header").on("click", function() {
-    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
-  });
-});
 
 var smallCardInit;
 
@@ -2292,6 +2296,7 @@ $(function() {
     }
     $('.main-content').on('click', '.disease-subTitle__list a', function(e) {
       var offsetY;
+      offsetY = void 0;
       offsetY = void 0;
       offsetY = $('h2:contains(\'' + $(this).text() + '\'), h3:contains(\'' + $(this).text() + '\'), p:contains(\'' + $(this).text() + '\')').offset().top;
       if ($(window).width() < 768) {

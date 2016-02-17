@@ -80,9 +80,11 @@ $(".js-btn-picker").on "click",  ->
 		selectOtherMonths: true
 		changeMonth: false
 		altField: '.date-footer__text'
-		altFormat: 'd MM'
-		# defaultDate: +7
-		selectDate: +7 
+		altFormat: 'yyyy-mm-dd'
+		# defaultDate: +7	
+		# selectDate: +7 
+		# onSelect: -> 
+			# $('.js-datepicker').datepick 'setDate', +7
 		# onSelect: ->
 		# 	$(@).find('.datepick-month').children('td').addClass 'sss'
 
@@ -96,9 +98,10 @@ $(".js-btn-picker").on "click",  ->
 
 
 $(".js-date-close").on "click",  ->	
-	value = $('.date-footer__text').text()
+	value = $('.date-footer__text').val()
 	$(".date-wrap").removeClass "is-active"
 	$('.js-clone-date').text(value)
+	
 
 
 $(".js-date-clear").on "click",  ->	
@@ -106,11 +109,15 @@ $(".js-date-clear").on "click",  ->
 	$('.date-footer__text').empty()
 
 $(".date-header__item").on "click",  ->	
-	# enddate = $('.js-datepicker').datepick({defaultDate: +7})
+	enddate = $('.js-datepicker').datepick('getDate', '+7d')
+
+	enddate.setDate(enddate.getDate()+7) 
+
+	$('.date-footer__text').datepicker('setDate', enddate)
 
 	$(@).addClass 'active'
 
-	# console.log(enddate)
+	alert(enddate)
 
 
 

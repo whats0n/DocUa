@@ -63,6 +63,7 @@ $ ->
         $('.disease-subTitle__list').append '<li><a href="#">' + findTitle + '</a></li>'
       $('.main-content').on 'click', '.disease-subTitle__list a', (e) ->
         offsetY = undefined
+        offsetY = undefined
         offsetY = $('h2:contains(\'' + $(this).text() + '\'), h3:contains(\'' + $(this).text() + '\'), p:contains(\'' + $(this).text() + '\')').offset().top
         if $(window).width() < 768
           offsetY -= 40

@@ -3,9 +3,19 @@
     page_name: cabinet-profile_otzivi 
 
 
-.row  
+.row   
   aside.l-3.hidden-xs 
-    include ../blocks/cabinet/cabinet.jade    
+    +b.cabinet-aside
+       +e("ul")
+         +e("li").item
+           +e("a").link(href="cabinet-profile.html").cabinet-aside__link-profile Мой профиль
+         +e("li").item.is-active
+           +e("a").link(href="cabinet-profile_notes.html").cabinet-aside__link-note Мои записи
+           span.qt-note 12
+         +e("li").item
+           +e("a").link(href="cabinet-profile_otzivi.html").cabinet-aside__link-reviews.is-active Мои отзывы
+         +e("li").item 
+           +e("a").link(href="#").cabinet-aside__link-like Избранное   
   
   section.l-9  
     .cabinet-notes__inner.js-table-scroll  
