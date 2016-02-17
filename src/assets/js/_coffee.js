@@ -1459,9 +1459,9 @@ $(".alternative-btn__district").on("click", ".js-remove", function() {
 $(".js-btn-picker").on("click", function() {
   var picker;
   picker = $(this).siblings(".date-wrap");
-  picker.toggleClass('is-active');
+  picker.toggleClass('is-open');
   return $('.js-datepicker').datepick({
-    dateFormat: 'yyyy-mm-dd',
+    dateFormat: 'd MM',
     rangeSelect: true,
     monthsToShow: [1, 2],
     showTrigger: '#calImg',
@@ -1469,29 +1469,31 @@ $(".js-btn-picker").on("click", function() {
     selectOtherMonths: true,
     changeMonth: false,
     altField: '.date-footer__text',
-    altFormat: 'yyyy-mm-dd'
+    altFormat: 'd MM',
+    onShow: function() {
+      return setTimeout((function() {
+        return $(document).find('.js-datepicker .datepick-today').addClass('today-active');
+      }), 1000);
+    }
   });
 });
 
 $(".js-date-close").on("click", function() {
   var value;
   value = $('.date-footer__text').val();
-  $(".date-wrap").removeClass("is-active");
+  $(".date-wrap").removeClass("is-open");
   return $('.js-clone-date').text(value);
 });
 
-$(".js-date-clear").on("click", function() {
-  $('.js-datepicker').DatePickerClear();
-  return $('.date-footer__text').empty();
-});
-
 $(".date-header__item").on("click", function() {
-  var enddate;
-  enddate = $('.js-datepicker').datepick('getDate', '+7d');
-  enddate.setDate(enddate.getDate() + 7);
-  $('.date-footer__text').datepicker('setDate', enddate);
+  var Picker, day, today, today7;
+  Picker = $('.js-datepicker').datepick();
+  today = Picker.find('.datepick-today').text();
+  day = 7;
+  today7 = parseInt(today) + day;
+  console.log(today7);
   $(this).addClass('active');
-  return alert(enddate);
+  return alert(today7);
 });
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -2150,12 +2152,6 @@ $(document).on("change", ".pill-group .pill input", function(e) {
   }
 });
 
-$(function() {
-  return $(".price-block_collapse .price-block__header").on("click", function() {
-    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
-  });
-});
-
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2201,6 +2197,12 @@ $(window).resize(postLocationWidthFix);
 $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
+
+$(function() {
+  return $(".price-block_collapse .price-block__header").on("click", function() {
+    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
+  });
+});
 
 var smallCardInit;
 
