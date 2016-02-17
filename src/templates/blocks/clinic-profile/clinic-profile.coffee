@@ -89,7 +89,7 @@ $(".js-btn-picker").on "click",  ->
 		# onDate: (date, current) ->
 
 
-			
+			 
 
 		# defaultDate: +7
 
