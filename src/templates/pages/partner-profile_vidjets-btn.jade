@@ -1,0 +1,84 @@
+//---
+    layout: layouts/partner_profile 
+    title: Партнеры-виджеты       
+    page_name: partner-profile_vidjets-preview 
+    activeMenuItem: 1
+
+.row
+  section.col-md-12 
+    +b.come-back
+      +e('i').icon
+      +e('a').link(href='#') Назад к списку виджетов    
+.row                  
+  section.col-md-6                    
+    +b.partner-block
+      +e.header Генерация виджета 
+        strong “Кнопка”
+      +e.content
+        +b.setting-element
+            +e.content
+                table.installation
+                    tr 
+                        td Тип кнопки
+                        td 
+                            .profile
+                                +b.form-radio
+                                  input.modal-radio(type="radio", id="radio1", name="one" checked="checked")
+                                  label(for="radio1") Запись к врачу
+                                
+                                  input.modal-radio(type="radio", id="radio", name="one" )
+                                  label(for="radio") Запись в клинику
+                    tr
+                        td Города
+                        td 
+                            .js-section-choice
+                                +e.field-text.everyone-header.js-field-child.enter-info выберите город
+                                +b('ul').everyone-lists.section-choice
+                                    +e("li").list.js-child выберите город
+                                    +e("li").list.js-child Киев
+                                    +e("li").list.js-child Харьков
+                                    +e("li").list.js-child Харьков
+                                    +e("li").list.js-child Харьков
+                    tr 
+                        td Врачи
+                        td 
+                            .dddd
+                                input.enter-info(placeholder='введите фамилию, имя, отчество врача')
+                    tr
+                        td Клиники
+                        td
+                           input.enter-info(placeholder='введите название клиники')
+                    tr 
+                        td Текст кнопки 
+                        td 
+                            input.enter-info(placeholder='введите текст')
+                    tr
+                        td Цвет виджета
+                        td 
+                            +b.color-block #35bfae
+                                +e('i').color(style="background-color: #35bfae")
+                            .next-color Цвет шрифта
+                                +b.color-block #ffffff
+                                    +e('i').color(style="background-color: #FFF")
+            +e.footer
+                +e('a').button.btn(href="#") Сгенерировать код
+
+  section.col-md-6.partner-block__vidjets             
+    +b.partner-block
+      +e.header Код виджета
+      +e.content
+        +b.code-block
+            code &lt;div id="..."&gt;&lt;/div&gt;
+                &lt;script src="https://docdoc.ru/widget/js "type="text/javascript"&gt; &lt;/script&gt;&lt;script type="text/javascript"&gt;...&lt;/script&gt; &lt;/script&gt;&lt;script type="text/javascript"&gt;...&lt;/script&gt; &lt;/script&gt; &lt;script type="text/javascript"&gt;...&lt;/script&gt; &lt;div id="..."&gt;&lt;/div&gt;
+                &lt;script src="https://docdoc.ru/widget/js "type="text/javascript"&gt;
+                &lt;/script&gt;&lt;script type="text/javascript"&gt;...&lt;/script&gt; &lt;/script&gt;&lt;script type="text/javascript"&gt;...&lt;/script&gt; &lt;/script&gt; &lt;script type="text/javascript"&gt;...&lt;/script&gt; 
+                &lt;div id="..."&gt;&lt;/div&gt;
+                &lt;script src="https://docdoc.ru/widget/js "type="text/javascript"&gt;
+                &lt;/script&gt;&lt;script type="text/javascript"&gt;...&lt;/script&gt; 
+.row
+    section.col-md-12
+        +b.vidjets-rezult
+            +e('a').button.btn(href='#') Записаться к врачу
+        
+        
+ 
