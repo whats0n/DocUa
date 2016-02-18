@@ -68,7 +68,7 @@ body.out
                     +b("i").cabinet-enter__link-icon
                 +b("a").favorites-link.favorites-link__mod(href="/", title="Избранное")
                   span.dotted Избранное
-         +b.navbar-collapse(class="navbar-mobile collapse"): +i 
+         +b.navbar-collapse(class="navbar-mobile collapse"): +i
         //- Logo and search
         .container-fluid.container-header.hidden-xs
             .row.row-white.cabinet-row__mod
@@ -84,21 +84,11 @@ body.out
                                 .col-sm-4
                                     +b.search: +i
         //- Menu
-        .container-fluid.container-menu__mod.hidden-xs
-          .row.row-white
-            .container
-                if file.page_name == 'clinic-profile'
-                    +b("ul").clinic-nav
-                        +e("li").item.active
-                            +e("a").link(href="clinic-profile.html") Мой профиль
-                        +e("li").item
-                            +e("a").link(href="clinic-profile_current.html") Заявки
-                if file.page_name == 'clinic-profile_current'
-                    +b("ul").clinic-nav
-                        +e("li").item
-                            +e("a").link(href="clinic-profile.html") Мой профиль
-                        //- +e("li").item
-                        //-     +e("a").link(href="clinic-profile_current.html") Заявки  
+        .container-fluid.container-menu.container-menu__mod
+              .row.row-white
+                .container
+                  nav.header__nav
+                    +b.menu: +i({ prefix: "main", items: profileMenu, activeIndex: file.activeMenuItem })
 
         //- nav-menu
         .container-fluid.tabs-shadow
