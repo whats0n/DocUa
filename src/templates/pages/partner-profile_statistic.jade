@@ -5,9 +5,131 @@
     activeMenuItem: 0
 
      
-.row                  
-  section                        
-    
+.row
+    section.col-sm-7
+      .change-time
+        +b('ul').nav-days.template-block
+          +e('li').item.active
+              +e('a').link(href="#") Сегодня
+          +e('li').item
+              +e('a').link(href="#") Вчера
+          +e('li').item
+              +e('a').link(href="#") Неделя
+          +e('li').item
+              +e('a').link(href="#") Месяц
+        +b.nav-calendar.template-block 
+          +e('span').date 12 декабря 2015
 
-        
- 
+
+    article.col-sm-5
+      +b('ul').deduce
+        +e.item Детализация 
+            +e.number.template-block по дням
+
+//- here chart 
+
+
+//- .row
+//-   section.col-sm-12
+//-     .template-block
+      
+
+
+.row 
+  section.col-sm-12
+    +b('ul').deduce.deduce__left
+        +e.item Информация за 
+            +e.number.template-block 2015 год 
+
+.row
+    section.col-sm-12
+        table.partner-table.partner-table__statistic
+            thead.partner-table__head 
+                tr
+                    td Месяц
+                    td Посетителей
+                    td Кликов
+                    td Заказов
+                    td Конверсия
+                    td Отмененные
+                    td Принятые
+                    td Комиссия
+            tbody.partner-table__body
+                tr
+                    td Ноябрь 2015 
+                    td 132 856
+                    td 34 560
+                    td 25
+                    td 3,25 
+                        | %
+                    td 2
+                    td 456
+                    td 34 892
+                        | &#8372;
+                tr
+                    td Октябрь 2015
+                    td 128 566
+                    td 875
+                    td 854
+                    td 5,25
+                        | %
+                    td 20
+                    td 50
+                    td 88 892 
+                        | &#8372;
+                    
+                tr
+                    td Сентябрь 2015 
+                    td 12 856
+                    td 34 560
+                    td 65
+                    td 3,25
+                        | %
+                    td 2 
+                    td 6
+                    td 34 892 
+                        | &#8372;
+                tr
+                    td Август 2015 
+                    td 128 566
+                    td 875
+                    td 854
+                    td 5,25
+                        | %
+                    td 5 
+                    td 850
+                    td 88 892  
+                        | &#8372;
+                tr
+                    td Июль 2015 
+                    td 132 856
+                    td 34 560
+                    td 56
+                    td 3,25
+                        | %
+                    td 130 
+                    td 456
+                    td 34 892   
+                        | &#8372;
+                tr
+                    td Сентябрь 2015 
+                    td 12 856
+                    td 34 560
+                    td 65
+                    td 3,25
+                        | %
+                    td 2 
+                    td 6
+                    td 34 892 
+                        | &#8372;
+                tr
+                    td Октябрь 2015
+                    td 128 566
+                    td 875
+                    td 854
+                    td 5,25
+                        | %
+                    td 20
+                    td 50
+                    td 88 892 
+                        | &#8372;

@@ -384,6 +384,9 @@
     margin-left 15px
     cursor pointer
     // white-space no-wrap
+    @media only screen and (max-width: 1200px)
+        display block
+        margin-left 0
     &:before
         content ''
         display inline-block
@@ -393,34 +396,37 @@
         background url(i/cabinet/parol.png) no-repeat 
 
 
+
+
 // partner-profile_invoices
 
 .partner-table__invoices
     margin-bottom 40px
-    .partner-table__head
+    .partner-table__head 
         tr
             td
                 
                 &:first-child
                     border-radius 3px 0 0 0
                     text-align right
-                    width 10%
+                    width 11%
+                    padding-left 0
                 &:nth-child(2)
                     text-align left
                     padding-left 70px
-                    width 37%
+                    // width 37%
                 &:nth-child(3)
                     text-align center
-                    width 13%
+                    // width 13%
                 &:nth-child(4)
                     text-align center
-                    width 13%
+                    // width 12%
                 &:nth-child(5)
                     text-align left
                     padding-left 50px
                 &:last-child
                     border-radius 0 3px  0 0 
-                    width 10%
+                    // width 10%
                     text-align center
     .partner-table__body
         tr
@@ -462,3 +468,154 @@
                         &__item
                             display inline-block 
                             margin-left 25px
+                            
+
+// partner-profile_orders
+
+
+.template-block
+    background-color white
+    border 1px solid rgba(22, 141, 164, 0.7)
+    border-radius 3px
+    box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
+
+.change-time
+    .nav-days
+        margin 20px 15px 0 0
+        display inline-block
+        font-size 0
+        &__item
+            padding 5px 20px
+            display inline-block
+            border-right 1px dashed rgba(0, 130, 155, 0.32)
+            @media phone_tablet
+                padding 5px 15px
+            &.active
+                background-color #1d89a0
+                a
+                    font-weight 700
+                    color #FFF
+            &:last-child
+                border-right none
+            &:hover
+                background-color #1d89a0
+                a
+                    color white
+        &__link
+            color #1d89a0
+            font-size 14px
+            text-decoration none
+            &:focus
+                outline none 
+    .nav-calendar
+        position relative
+        display inline-block
+        &__date
+            display inline-block
+            padding 5px 15px 5px 40px 
+            color #91b5bc
+        &:before
+            content ''
+            position absolute
+            left 10px
+            top 50%
+            margin-top -10px
+            display inline-block
+            background url('i/cabinet/piker-calendar.png')  no-repeat
+            width 20px
+            height 20px
+.deduce__left
+    float left
+    .deduce__item
+        &:last-child
+            padding 0
+
+
+.deduce
+    margin  20px 0 0 0
+    clearfix()
+    &__item
+        float right
+        margin-left 30px
+        &:last-child
+            padding 5px 10px
+            margin-left 0
+        // line-height 30px 
+    &__number
+        position relative
+        cursor pointer
+        display inline-block
+        margin-left 15px
+        padding 5px 40px 5px 10px
+        color #91b5bc
+        &:after
+            content ''
+            position absolute
+            right 10px
+            top 50% 
+            margin-top -2px
+            width 0
+            height 0
+            border 4px solid transparent
+            border-top 5px solid #1d89a0
+
+.partner-table__invoices-mod
+    .partner-table__invoices
+        margin 20px 0
+        tr
+            td
+                
+                &:first-child
+                    width 5%
+                &:nth-child(2)
+                    width 20%
+                &:nth-child(3)
+                    text-align left
+                    width 20%
+                &:nth-child(4)
+                    text-align center
+                    width 13%
+                &:nth-child(5)
+                    text-align left
+                    padding-left 50px
+                &:last-child
+                    width 10%
+                    text-align right
+                    padding-right 50px
+                    border-left none
+.pagination-orders
+    .pagination
+        text-align left
+        margin-bottom 20px
+        .previous
+            display none  
+
+
+// partner-profile_statistic
+.partner-table__statistic
+    tr
+        td
+            
+            &:first-child
+                padding-left 29px
+                text-align left
+                border-radius 3px 0 0 0 
+                width 15%
+            &:nth-child(2)
+                text-align right
+            &:nth-child(3)
+                text-align right
+            &:nth-child(4)
+                text-align right
+            &:nth-child(5)
+                text-align right
+            &:nth-child(6)
+                text-align right
+            &:nth-child(7)
+                text-align right
+            &:last-child
+                text-align right
+                padding-right 30px 
+                border-radius 0 3px 0 0 
+                
+    
