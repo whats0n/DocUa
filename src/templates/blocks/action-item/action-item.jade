@@ -1,0 +1,82 @@
++e.left.item-left__mod
+    .card__left-side
+        .card__image 
+            if data.thumb
+                a(href="#")
+                    img(src= data.thumb).photo
+        +b.rating.value-size_big
+            +e.value.value 4.9
+            +e.stars 
+                +e.stars-bg
+                +e.stars-overlay(style="width: 80%;") 
+        +b.card__testimonials 
+            a(href="", title="") 10 отзывов
+            a(href='#').card__info
+
+if data.badge
+    +b.badge-label(class="badge-label_background_#{data.badge.background}")
+        if data.badge.html
+            != data.badge.html
+        //- else if data.badge.title
+        //-     = data.badge.title
+        +e("span").arrow: span
+
++e.middle 
+    +b.main-title 
+        +e("a").link(href="#", alt=data.title)=data.title
+        if data.clinic
+            +e("span").clinic= data.clinic.name
+        if data.meta
+            +e("span").special= data.meta.value
+        +b("ul").about
+            +e("li").item= data.about
+
++e.right
+    +b.right-info
+        .benefit__wrap
+            if data.benefit
+                +e("p").benefit= data.benefit
+            if data.timerBadge
+                +e("p").benefit.benefit__mod= data.timerBadge.html
+
+        if data.price
+            +b.price
+                if data.price.old
+                    +e.old= data.price.old + data.price.currency
+                if data.price.value
+                    +e.new= data.price.value
+                    | &nbsp; #{data.price.currency}
+                +e("a").btn(href="#") Записаться на прием
+
+    //- +e.left.item-left__mod
+    //-     .card__left-side
+    //-         .card__image 
+    //-             a(href="#")
+    //-                 img(src='i/_isida.jpg').photo
+    //-         +b.rating.value-size_big
+    //-             +e.value.value 4.9
+    //-             +e.stars 
+    //-                 +e.stars-bg
+    //-                 +e.stars-overlay(style="width: 80%;") 
+    //-         +b.card__testimonials 
+    //-             a(href="", title="") 10 отзывов
+    //-             a(href='#').card__info
+    //- +e.middle
+    //-     +b.main-title
+    //-         +e("a").link(href="#") 16% скидки на комплексное ультразвуковое обследование организма (расширенное)!
+    //-         +e("span").clinic 
+    //-             b Сити Клиника 
+    //-         +e("span").special Гастроэнтерология, гинекология
+    //-         +b("ul").about
+    //-             +e("li").item Консультацию проводит врач высшей категории;
+    //-             +e("li").item В прием за 1 грн входит осмотр и консультация;
+    //-             +e("li").item Экономия на приеме 300 грн;
+    //- +e.right
+    //-     +b.right-info
+    //-         .benefit__wrap
+    //-             +e("p").benefit выгода 90%
+    //-             +e("p").benefit.benefit__mod дейстувует до  27.12.2016 
+    //-         +b.price
+    //-             +e.old 1245грн
+    //-             +e.new 1050грн 
+    //-             +e("a").btn(href="#") Записаться на прием
