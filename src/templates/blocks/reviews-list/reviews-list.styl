@@ -101,7 +101,7 @@
                     top 0
                     zoom 0.7
                     sprite($like)
-    &__liked, &__unliked
+    &__liked, &__unliked, &__results-of-treatment
         font-size: 14px
         line-height: 18px
         padding: 4px 0 0 24px 
@@ -124,6 +124,53 @@
         color: #ef3d5e
         &:before
             background-image: url("i/icons/review-unliked.png")
+            
+    .results-of-treatment
+        margin-top 10px 
+        &__content
+            overflow hidden
+            padding-right 44px
+            font-size 14px
+            @media phone
+                padding-top 15px
+                padding-right 0
+        &__item-header
+            margin-bottom 6px
+        &__title
+            padding: 4px 0 0 24px 
+            position: relative
+            margin-bottom: 10px
+            font-size 16px
+            font-weight bold
+            line-height: 18px
+            color text_blue
+            @media phone
+                display block
+                width 100%
+            &:before
+                content: "" 
+                position: absolute
+                top: 0
+                bottom: 0 
+                left: 0
+                width: 24px
+                background-position: center left
+                background-repeat: no-repeat 
+                background-image: url("i/icons/res-treatment.png")
+            
+        &__date 
+            position relative
+            top 3px
+            float right
+            margin-left 5px
+            font-size 13px
+            color text_blue
+            @media phone
+                position static
+                float none
+                margin-left 0
+ 
+ 
 .tab-content
     #tab-reviews
         .reviews-list
@@ -144,3 +191,57 @@
         padding 15px 30px
         text-align center
         font-size 16px
+
+.reviews-tabs
+    text-align center
+    li
+        display inline-block
+        float none 
+        @media phone
+            display block
+.feedback-reviews
+    position relative
+    margin 25px 0 15px 25px 
+    padding 20px 
+    background #eef7f9
+    border-radius 3px
+    clearfix()
+    @media phone
+        margin 20px 0 15px 0 
+    &:before
+        content ""
+        position absolute 
+        top -5px
+        left 30px 
+        width 10px
+        height 10px
+        background #eef7f9
+        // background red
+        transform rotate(45deg)
+    h3, p
+        margin 0
+        padding 0  
+    h3
+        float left 
+        display inline-block
+        padding-bottom 7px 
+        color #96b8bf
+        font-size 16px
+        font-weight 700
+        @media phone
+            float none 
+            display block
+    .feedback-date-time_wrap
+        float right
+        color #96b8bf 
+        font-size 13px
+        font-weight normal 
+        @media phone
+            float none 
+            display block
+            padding-bottom 7px 
+    p
+        color #5e6e71
+        font-size 14px
+        font-weight normal
+        clear both 
