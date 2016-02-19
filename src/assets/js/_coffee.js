@@ -1296,6 +1296,22 @@ $(".js-clear").on("click", function() {
   return false;
 });
 
+$("#select-specialization").on("click", "li a", function() {
+  var item;
+  item = $(this);
+  $('.js-clone span').text(item.text());
+  $('.js-clear').addClass('is-active');
+  $('.direction__title').text('Выбрано направление');
+  return $("#select-specialization").modal("hide");
+});
+
+$(".js-clear").on("click", function() {
+  $(this).siblings("span").text("Выберите направление");
+  $(this).removeClass('is-active');
+  $('.direction__title').text('Направление');
+  return false;
+});
+
 $(function() {
   var updateBadgeLabels;
   updateBadgeLabels = function() {
@@ -2197,6 +2213,22 @@ $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {
     return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
   });
+});
+
+$("#select-specialization").on("click", "li a", function() {
+  var item;
+  item = $(this);
+  $('.js-clone span').text(item.text());
+  $('.js-clear').addClass('is-active');
+  $('.direction__title').text('Выбрано направление');
+  return $("#select-specialization").modal("hide");
+});
+
+$(".js-clear").on("click", function() {
+  $(this).siblings("span").text("Выберите направление");
+  $(this).removeClass('is-active');
+  $('.direction__title').text('Направление');
+  return false;
 });
 
 var smallCardInit;

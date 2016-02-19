@@ -86,6 +86,11 @@
                     p Все отзывы достоверны и получены в результате опроса пациентов, побывавших на приеме у врача
                     +b("ul").rating-steps: +i
                 if file.status != 'inactive'
+                    ul.nav.nav-tabs
+                        li.active: a(href="#tab-with-text", data-toggle="tab") Только с текстом
+                        li
+                            a(href="#tab-all-reviews", data-toggle="tab") Все отзывы
+
                     +b("ul").reviews-list: +i({ items: doctors[0].testimonials }) 
                 else
                     .text-center.middle
