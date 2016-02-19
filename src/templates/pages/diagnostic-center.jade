@@ -305,8 +305,12 @@
                                             +e("i").icon 
                                             +e("a").link(href="#") Как мы собираем отзывы?
 
+                        ul.nav.nav-tabs.nav-doctor.reviews-tabs
+                            li.active: a(href="#tab-with-text", data-toggle="tab") Только с текстом
+                            li
+                                a(href="#tab-all-reviews", data-toggle="tab") Все отзывы
+                        +b("ul").reviews-list: +i({ items: doctors[0].testimonials }) 
 
-                        
                         +b.reviews-list.reviews-list__mod
                             +e.item
                                 +e.content

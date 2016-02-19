@@ -17,7 +17,7 @@
             li.is-action
                 a(href="#tab-actions", data-toggle="tab") Акции к врачу (4)
         .tab-content
-            #tab-about.tab-pane.active 
+            #tab-about.tab-pane.active  
                 +b.rating-block 
                     .row
                         .col-sm-7
@@ -73,7 +73,7 @@
                             +b.rating-info
                                 +e("span").icon
                                 +e.text Рейтинг врача рассчитывается на основе отзывов пациентов относительно квалификации, внимания к пациенту и соотношения цены и качества приема.
-                        .col-sm-5
+                        .col-sm-5          
                             +b("ul").rating-list
                                 each rating in doctors[0].ratings
                                     +b.rating: +i({label: rating.label, value: rating.value, tooltip: rating.tooltip})
@@ -86,7 +86,7 @@
                     p Все отзывы достоверны и получены в результате опроса пациентов, побывавших на приеме у врача
                     +b("ul").rating-steps: +i
                 if file.status != 'inactive'
-                    ul.nav.nav-tabs
+                    ul.nav.nav-tabs.nav-doctor.reviews-tabs
                         li.active: a(href="#tab-with-text", data-toggle="tab") Только с текстом
                         li
                             a(href="#tab-all-reviews", data-toggle="tab") Все отзывы
@@ -101,16 +101,16 @@
                     +b("ul").pagination: +i 
                 .doctors-quote
                     strong Почему Вы не можете оставить отзыв?
-                    | Отзывы на сайте могут оставлять только пациенты, побывавшие на приеме у врача. Это исключает публикацию заказных и неправдивых отзывов. Мы собираем отзывы путем обзвона реальных пациентов, которые посетили врача, записавшись через наш сервис. 
+                    | Отзывы на сайте могут оставлять только пациенты, побывавшие на приеме у врача. Это исключает публикацию заказных и неправдивых отзывов. Мы собираем отзывы путем обзвона реальных пациентов, которые посетили врача, записавшись через наш сервис.  
             #tab-actions.tab-pane
                 .offers-list
                     .row
                         - var limit = 4
                         each action, i in actionsData
                             if i < limit
-                                .col-sm-4.col-xs-6
+                                .col-sm-4.col-xs-6 
                                     +b("article").post: +i(action)
-    aside.col-md-3.hidden-sm.hidden-xs
+    aside.col-md-3.hidden-sm.hidden-xs 
         .widget.widget-map
             #map-canvas-right
             a.btn.btn-success(href="/map.html") Развернуть карту
@@ -124,4 +124,4 @@
             +b.short-list: +i({ items: items })
             .link.link-more
                    a(href="/doctors.html") Все врачи
-                
+                                     
