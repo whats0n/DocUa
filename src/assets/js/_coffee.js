@@ -1485,12 +1485,7 @@ $(".js-btn-picker").on("click", function() {
     selectOtherMonths: true,
     changeMonth: false,
     altField: '.date-footer__text',
-    altFormat: 'd MM',
-    onShow: function() {
-      return setTimeout((function() {
-        return $(document).find('.js-datepicker .datepick-today').addClass('today-active');
-      }), 1000);
-    }
+    altFormat: 'd MM'
   });
 });
 
@@ -1507,9 +1502,7 @@ $(".date-header__item").on("click", function() {
   today = Picker.find('.datepick-today').text();
   day = 7;
   today7 = parseInt(today) + day;
-  console.log(today7);
-  $(this).addClass('active');
-  return alert(today7);
+  return $(this).addClass('active');
 });
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -1923,6 +1916,8 @@ $(document).ready(function() {
     });
   });
 });
+
+
 
 var phonesAutoChange;
 

@@ -54,11 +54,7 @@ $(".alternative-btn__district").on "click", ".js-remove", ->
 
 
 
-# data-picker
-# $(".js-btn-picker").on "click",  ->
-# 	picker = $(this).siblings(".date-wrap")
-
-# 	picker.toggleClass 'is-active'	
+	
 
 # data-picker
 $(".js-btn-picker").on "click",  ->
@@ -81,62 +77,36 @@ $(".js-btn-picker").on "click",  ->
 		changeMonth: false
 		altField: '.date-footer__text'
 		altFormat: 'd MM'
-		# clearText: '.js-date-clear'
-		# defaultClass: '.is-active'
-		# defaultDate: +7	
-		# defaultDate: +14	
-		# selectDate: +7 
-		# onSelect: -> 
-			# $('.js-datepicker').datepick 'setDate', +7
-		onShow: ->
-			setTimeout (-> 
-				$(document).find('.js-datepicker .datepick-today').addClass 'today-active'
-			), 1000
-		# 	$('.js-clone-date').datepick 'setDate', date
-
-			# $(@).find('.datepick-month').children('td').addClass 'sss'
-
-		# onDate: (date, current) ->
-	# $('.js-datepicker').datepick 
+		# onShow: ->
+		# 	setTimeout (-> 
+		# 		$(document).find('.js-datepicker .datepick-today').addClass 'today-active'
+		# 	), 1000
+		
 
 
-			 
-
-		# defaultDate: +7
-
-
-
+# close window
 $(".js-date-close").on "click",  ->	
 	value = $('.date-footer__text').val()
 	$(".date-wrap").removeClass "is-open"
 	$('.js-clone-date').text(value)
 	
 
-
+# clear 
 # $(".js-date-clear").on "click",  ->	
 # 	$('.js-datepicker').DatePickerClear()
 # 	$('.date-footer__text').empty()
 
+#change days
 $(".date-header__item").on "click",  ->	
 	Picker =  $('.js-datepicker').datepick()
 	today = Picker.find('.datepick-today').text()
 	day = 7
 	today7 = parseInt(today) + day
-	
-	
-	console.log(today7)
-
-
-
-
-	# today.addClass ('is-active')
-	# today
-
 
 
 	$(@).addClass 'active'
 
-	alert(today7)
+	# alert(today7)
 
 
 

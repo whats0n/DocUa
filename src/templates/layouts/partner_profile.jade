@@ -1,0 +1,158 @@
+block params
+    - var isCabinet = false
+//- include ../../../node_modules/bemto.jade/bemto
+doctype html
+html 
+    head
+        meta(charset="UTF-8")
+        meta(content="user-scalable=no, width=device-width", name="viewport")
+        title
+            if file.title
+                | #{file.title} | DOC.ua
+            else
+                | DOC.ua
+        link(href="/i/favicon.ico", rel="shortcut icon")
+        link(href='https://fonts.googleapis.com/css?family=Roboto:400,100,700&subset=latin,cyrillic' rel='stylesheet' type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic', rel='stylesheet', type='text/css')
+        link(rel="stylesheet", href="/doc.min.css")
+        script(type="text/javascript", src="//yandex.st/share/share.js", charset="utf-8")
+        script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true", charset="utf-8")
+        //if lt IE 9
+          script(src="/ie-js/html5.js")
+          script(src="/ie-js/respond.min.js")
+          script(src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js")
+        script(src='https://apis.google.com/js/platform.js', async='', defer='')
+        
+body.out 
+    #fb-root 
+    script.
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=224008797710815";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    .wrapper
+        //- Navbar
+        nav.navbar.navbar-main.navbar-fixed-top
+          .container
+            button.navbar-toggle.collapsed.visible-xs
+              span.icon-bar
+              span.icon-bar 
+              span.icon-bar
+
+            +b.logo.visible-xs: +i({ mobileLogo: true })
+
+            +b.navbar-header
+              +e("span").title.hidden-xs Ваш город:
+              +b.location: +i
+
+            +b.phones.hidden-xs: +i
+            //- +b.mobile-phones.visible-xs
+            //-   span (095) 3370707;
+            //-   span (063) 3370707;
+            //-   span (067) 3370707;
+            //-   span (044) 3370707
+            hr.header__line
+            +b.feedback
+              +e("a").link._callback(href="#{linkPrefix}callback", data-toggle=modalToggle, title="Обратный звонок")
+                  span.dotted Обратный звонок
+              +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку")
+                  span.dotted Быстрая заявка
+            +b.phones.visible-xs: +i
+            .user-panel.hidden-xs 
+                
+                +b("a").cabinet-enter__link(href="/", title="Избранное") Личный кабинет
+                    +b("i").cabinet-enter__link-icon
+                +b("a").favorites-link.favorites-link__mod(href="/", title="Избранное")
+                  span.dotted Избранное
+         +b.navbar-collapse(class="navbar-mobile collapse"): +i
+        //- Logo and search
+        .container-fluid.container-header.hidden-xs
+            .row.row-white.cabinet-row__mod
+                .container
+                    h1.sr-only Поиск вашего врача – DOC.ua
+                    if file.finder
+                        - var headerClass = "header_with-finder" 
+                    header.header(class=headerClass) 
+                        .wrap
+                            .row
+                                .col-sm-8
+                                    +b.logo.logo__mod: +i
+                                .col-sm-4
+                                    +b.search: +i
+        //- Menu
+        .container-fluid.container-menu.container-menu__mod
+              .row.row-white
+                .container
+                  nav.header__nav
+                    +b.menu: +i({ prefix: "main", items: profileMenu, activeIndex: file.activeMenuItem })
+
+        //- nav-menu
+        .container-fluid.tabs-shadow
+          .row
+            .container 
+                if file.page_name == 'clinic-profile_current'
+                    ul.nav-tabs.clinics-profile__tabs 
+                        li.active: a(href="#tab-current", data-toggle="tab") Текущие заявки
+                        li
+                            a(href="#tab-alternative", data-toggle="tab") Альтернативные      
+                        li
+                            a(href="#tab-finished", data-toggle="tab") Завершенные
+   
+                    
+        //- Finder
+        .container-fluid.container-finder
+            .row.row-finder
+                .container
+                    if file.finder || file.chooser
+                        .wrap
+                            if file.finder
+                                if file.indexPage
+                                    +b.finder-title.hidden-xs: +i({page: file.finder})
+                                +b.finder: +i({page: file.finder})
+                            if file.chooser
+                                +b.chooser.hidden-xs: +i({page: file.chooser, specializations: specializations})
+        //- Main container
+        .container-fluid
+            .row
+                .container.main-content
+                   
+                   
+                   article
+                      block content 
+    
+    
+    //- Footer
+    .container-fluid
+        .row.footer 
+            .container
+                footer.footer__mod
+                    .footer-inner
+                        .wrap
+                            .row
+                                +b.menu
+                                    +b.footer-menu: +i
+                                +b.contacts.col-sm-3.col-xs-6: +i({site: site, socialLinks: true, workingTime: true})
+                                +b.contacts.col-xs-12.visible-xs
+                                    +e('span').callback
+                                        a.dotted(href="#callback", data-toggle="modal", title="Обратный звонок") Обратный звонок
+                                    +e('span').callback
+                                        a.dotted(href="#doc-request-schedule", data-toggle="modal", title="Отправить заявку") Отправить заявку
+                                    +b.social-links: +i
+                                    +e.footer
+                                        +e.copyright
+                                            | &copy;&nbsp;
+                                            a(href="http://#{site.title}", title=site.title)= site.title
+                                            | , 2015
+                                        +e.rights Использование материалов разрешено только при наличии активной ссылки <br> на источник
+        .row.about-this
+            .container
+                +b.about-this-site._seo: +i
+        +b("a").go-top(href="", title="Наверх"): +i
+    block modals
+    script(src="/doc.min.js")
+    script(src="/jquery.mockjax.js")
+    script(src="/demo.js")

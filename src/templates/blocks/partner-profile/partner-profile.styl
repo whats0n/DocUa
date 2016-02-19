@@ -1,0 +1,464 @@
+.partner-block
+    margin 20px 0  40px  0
+    background-color: white
+    border-radius 3px
+    box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
+    &__header
+        background-color #1d89a0
+        border-bottom 1px solid #1d89a0
+        border-radius 3px 3px 0 0  
+        line-height 40px
+        color #fff
+        padding-left 20px
+        font-size 15px
+    &__content
+        // padding 20px
+        border-bottom 1px solid rgba(0, 130, 155, 0.32)
+        border-left 1px solid rgba(0, 130, 155, 0.32)
+        border-right 1px solid rgba(0, 130, 155, 0.32)
+ 
+
+// partner-profile_vidjets
+.vidjets-block
+    display inline-flex
+    flex-flow: row wrap;
+    width 100% 
+    &__item
+        position relative
+        width 33.333%
+        height 186px  
+        border-right 1px dashed rgba(29,137,160,.45)  
+        box-sizing border-box
+        text-align center
+        transition all 0.3s
+        outline none
+          
+        &:nth-child(3n)
+            border-right none
+        &:nth-child(-n+3)
+            border-bottom 1px dashed rgba(29,137,160,.45)
+        &:hover
+            background green_base
+        &:hover .vidjets-block__text
+            color #FFF 
+        &:hover .vidjet-doctor
+            &:before
+                background url('i/icons/vidjet-doctor_hover.png')  no-repeat
+        &:hover .vidjet-btn
+            &:before
+                background url('i/icons/vidjet-btn_hover.png')  no-repeat
+        &:hover .vidjet-clinic
+            &:before
+                background url('i/icons/vidjet-clinic_hover.png')  no-repeat
+        // &:hover .vidjets-doctors
+        //     &:before 
+        //         background url('i/icons/vidjets-doctors_hover.png')  no-repeat
+        // &:hover .vidjets-clinics
+        //     &:before
+        //         background url('i/icons/vidjets-clinics_hover.png')  no-repeat
+        &:hover .vidjet-search
+            &:before
+                background url('i/icons/vidjet-search_hover.png')  no-repeat
+                
+     
+    &__link
+        display block
+        width 100%
+        height 100%
+        text-decoration none
+        vertical-align middle
+        &:focus
+            text-decoration none
+            outline none 
+    &__text
+        display block
+        color #1d89a0
+        font-size 22px
+        font-weight 700
+        margin-top 20px
+        
+        
+    &__picture
+        display block
+        &:before
+            content ''
+            display block
+            margin 0 auto
+            padding-top 20px 
+        &.vidjet-btn
+            padding-top 53px
+            &:before
+                background url('i/icons/vidjet-btn.png')  no-repeat
+                width 153px
+                height 53px
+        &.vidjet-doctor
+            padding-top 40px
+            &:before
+                background url('i/icons/vidjet-doctor.png')  no-repeat
+                width 146px
+                height 66px
+        &.vidjet-clinic
+            padding-top 40px
+            &:before
+                background url('i/icons/vidjet-clinic.png')  no-repeat
+                width 146px
+                height 66px
+        &.vidjets-doctors
+            padding-top 40px
+            &:before
+                background url('i/icons/vidjets-doctors.png')  no-repeat
+                width 153px
+                height 74px
+        &.vidjets-clinics
+            padding-top 40px
+            &:before
+                background url('i/icons/vidjets-clinics.png')  no-repeat
+                width 149px
+                height 70px
+        &.vidjet-search
+            padding-top 64px
+            &:before
+                background url('i/icons/vidjet-search.png')  no-repeat
+                width 215px
+                height 46px
+    
+.come-back
+    margin-top 20px
+    &__link
+        color #1d89a0
+        font-size 16px
+        font-weight 400
+        text-decoration none
+        border-bottom 1px dotted #1d89a0
+        margin-left 8px 
+        &:hover
+            border-color transparent
+        &:focus
+            outline none
+            text-decoration none
+    &__icon
+        display inline-block
+        margin-top -4px
+        vertical-align middle
+        background url('i/icons/profile-back-arrow.png')  no-repeat
+        width 13px
+        height 13px
+
+
+// partner-profile_vidjets-preview
+.setting-element
+    &__content
+        padding  10px 20px 10px 20px
+        .installation
+            width 100%
+            height 300px
+            border-collapse collapse
+            tr
+                // line-height 40px
+                td
+                    
+                    &:first-child
+                        width 25%
+                        font-size 15px
+                        color text_color
+                    &:last-child
+                        width 75%
+                    .profile
+                        .form-radio
+                            float none
+                            width auto
+                            label
+                                margin-bottom 0
+                            //     &:before
+                            //         top 4px
+                    .js-section-choice
+                        position relative
+                        .setting-element__field-text
+                            padding-top 4px
+                            &:after
+                                content ''
+                                float right
+                                margin 8px 6px 0 0
+                                display inline-block
+                                border 3px solid transparent
+                                border-top 6px solid #1d89a0
+                        .section-choice
+                            display none
+                            position absolute
+                            top 31px 
+                            z-index 2
+                            background-color #FFF  
+                            right 0
+                            border 1px solid rgba(22, 141, 164, 0.7)
+                            &.is-open
+                                display block
+                                width 100% 
+                            .everyone-lists__list
+                                cursor pointer
+                                font-size 14px
+                                padding 5px 10px 5px 20px
+                                &:hover
+                                    background-color #e5f2f5
+                                    color #168da4
+                            
+                    .enter-info
+                        background-color: white
+                        border 1px solid rgba(22, 141, 164, 0.7)
+                        border-radius 3px
+                        padding-left 18px
+                        color #91b5bc
+                        width 100%
+                        height 31px
+                        margin 0
+                        placeholder(#91b5bc, 14)
+    &__footer
+        text-align center
+        background-color rgba(#eaf5f9, 0.48)
+        border-top 1px dashed rgba(29,137,160,.45)
+        padding 24px 0
+    &__button
+        width 218px
+        background-color #e74a37 
+        text-shadow 0.5px 0.9px 0 rgba(48, 49, 49, 0.23)
+        color white
+        font-size 18px
+        font-weight 700
+        padding 8px 0 
+        &:hover
+            background-color #D84C3B  
+            color white 
+        &:focus
+            outline none
+            color white 
+        &:active
+            outline none      
+.partner-block__vidjets 
+   .partner-block__content
+       padding 20px 
+       .code-block
+           border 1px dashed #c8dde3
+           border-radius 3px
+           box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
+           padding 20px
+           background-color #f0f8fb
+           min-height 372px 
+           overflow-x auto
+           
+.vidjets-rezult
+    border 1px dashed #c8dde3
+    border-radius 3px
+    text-align center
+    margin-bottom 100px
+    line-height 69px
+    &__text
+        font-size 83px
+        font-weight 700
+        // line-height 69px
+        color #b7dae1
+        padding 60px 0
+    &__button
+        background-color green_base
+        padding 8px 30px
+        border-radius 3px
+        color white
+        font-size 18px
+        font-weight 700
+        margin 60px 0
+        &:hover
+            color #FFF 
+            background-color #3ab3a2 
+        &:focus
+            outline none
+            color white
+
+.color-block
+    position relative
+    display inline-block
+    width 130px
+    height 31px
+    background-color white
+    border 1px dashed #1d89a0
+    border-radius 3px
+    box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
+    padding 5px 5px 5px 40px
+    color #91b5bc
+    font-size 18px 
+    line-height 20px
+    &__color
+        position absolute
+        left 5px
+        top 50%
+        margin-top -10px
+        width 20px
+        height 20px
+        border-radius 3px
+        border  1px solid rgba(22, 141, 164, 0.7)
+        cursor pointer
+.next-color
+    display inline
+    float right
+    font-size 15px
+    
+    .color-block
+        margin-left 15px 
+
+// partner-profile_table
+
+.partner-table
+    width 100% 
+    outline none 
+    border-radius 3px 
+    margin-top 20px
+    border-collapse separate 
+    margin-bottom 30px
+    background-color: white
+    box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
+    &__head
+        border 1px solid #1d89a0
+        tr
+            height 40px
+            background-color #1d89a0
+            border 1px solid #1d89a0 
+            color #FFF
+            font-size 15px
+            font-weight 400
+            td
+                &:first-child
+                    background-color #1d89a0
+                    padding-left 29px  
+                    text-align left
+                    border-radius 3px 3px 0 0 
+    &__body
+        border 1px solid rgba(0,130,155,.16)
+        tr
+            height 47px
+            background-color #fff
+            color text_color
+            font-size 15px
+            font-weight 400
+            &:nth-child(even)
+                background-color: rgba(#eaf5f9, 0.48)
+            &:last-child
+                td
+                    border-bottom none
+                    &:first-child
+                        border-bottom-left-radius 3px
+                    &:last-child
+                        border-bottom-right-radius 3px
+            td
+                padding-left 29px
+                border-bottom 1px dashed rgba(0, 130, 155, 0.32)
+                &:first-child
+                    width 250px
+                    @media phone_tablet
+                        width 400px
+                &:last-child
+                    padding 0
+                    text-align left 
+                    // border-right 1px solid rgba(0, 130, 155, 0.16) 
+    
+
+
+
+ 
+// partner-profile_account
+.block-account
+    clearfix()
+    &__left
+        float left
+        width 49%
+        @media phone_tablet
+            float none
+            width 100%
+    &__right
+        float right
+        width 49%
+        @media phone_tablet
+            float none
+            width 100%
+         
+.change-parol
+    color #4b89d3
+    font-style italic 
+    font-size 14px
+    margin-left 15px
+    cursor pointer
+    // white-space no-wrap
+    &:before
+        content ''
+        display inline-block
+        width 14px
+        height 14px
+        margin 0 5px -3px 0
+        background url(i/cabinet/parol.png) no-repeat 
+
+
+// partner-profile_invoices
+
+.partner-table__invoices
+    margin-bottom 40px
+    .partner-table__head
+        tr
+            td
+                
+                &:first-child
+                    border-radius 3px 0 0 0
+                    text-align right
+                    width 10%
+                &:nth-child(2)
+                    text-align left
+                    padding-left 70px
+                    width 37%
+                &:nth-child(3)
+                    text-align center
+                    width 13%
+                &:nth-child(4)
+                    text-align center
+                    width 13%
+                &:nth-child(5)
+                    text-align left
+                    padding-left 50px
+                &:last-child
+                    border-radius 0 3px  0 0 
+                    width 10%
+                    text-align center
+    .partner-table__body
+        tr
+            td
+                padding 0 
+                &:first-child
+                    border-radius 3px 0 0 0
+                    text-align right
+                    width 10%
+                &:nth-child(2)
+                    text-align left
+                    padding-left 70px
+                &:nth-child(3)
+                    text-align center
+                    width 10%
+                &:nth-child(4)
+                    text-align center
+                    width 10%
+                &:nth-child(5)
+                    text-align left
+                    padding-left 50px
+                &:last-child
+                    border-radius 0 3px  0 0 
+                    width 10%
+                    text-align center
+                    border-left  1px dashed rgba(0, 130, 155, 0.32)
+                .about
+                    font-size 14px
+                    font-style italic
+                    color #4b89d3
+            &:last-child
+                background-color #fff9e9
+                td
+                    text-align right
+                    border-left none   
+                    padding-right 20px
+                    border-radius 0 0 3px 3px 
+                    .payoff
+                        &__item
+                            display inline-block 
+                            margin-left 25px
