@@ -5,7 +5,10 @@
 .container-menu__mod
     border-bottom 2px solid green_base
 .cabinet-section__mod 
-    margin-top 25px 
+    margin-top 25px
+    .cabinet-section__content
+        padding 30px 0 0 0 
+    
 .tabs-shadow
     line-height 40px
     box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
@@ -103,6 +106,11 @@
                     background-color grey_base
                     border-bottom 5px solid grey_base
         
+// clinic-profile 
+.profile-footer__wrap 
+    border-top 1px dotted rgba(29,137,160,.45) 
+    background-color rgba(#eaf5f9, 0.48)
+    padding 25px 0
 
 // CLINIC-PROFILE_CURRENT
 .clinic-current__content
@@ -198,7 +206,7 @@
                                     text-overflow ellipsis
         .right-side
             float left
-            background #fff
+            background #fcfdfd
             width 50%
             -webkit-border-radius 0 3px 3px 0  
             border-radius 0 3px 3px 0
@@ -228,7 +236,6 @@
                     float left
                     padding 20px
                     padding-right 20px
-                    
                     &__item
                         font-size 14px
                         color text_color
@@ -237,11 +244,9 @@
                             padding-top 4px 
                             @media only screen and (max-width: 1200px)
                                 min-height auto
-                              
                         span
                             font-style italic
                             line-height 17px
-                            
                             &.no-comment
                                color rgba(#5e6e71, 0.6)
                 .alternative-block
@@ -251,11 +256,6 @@
                     padding 20px
                     -webkit-border-radius 0 3px 3px 0  
                     border-radius 0 3px 3px 0
-                    @media only screen and (max-width: 1200px)
-                    //     float none
-                    //     width 100%
-                    //     margin-left 0 
-                    //     border-left none
                         &:after
                             position static
                             border-left none 
@@ -276,7 +276,6 @@
                         border 1px solid rgba(61, 160, 180, 0.27)
                         border-radius 3px
                         box-shadow inset 2px 2.3px 1px rgba(43, 151, 173, 0.12) 
-                        resize none
                         outline none 
                         text-align left
                         font-style italic
@@ -348,15 +347,10 @@
             background-color rgba(254, 254, 254, 0.81)
             border 1px dashed #00829b
             border-radius: 3px
-            box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)      
-            // margin-right 15px
+            box-shadow 0 2px 4px rgba(0, 64, 76, 0.15) 
             padding 6px 20px
-            // &:last-child
-            //     margin-right 0
-                
-            // &:hover 
-            //     color #1b7f94
-            //     border-color #1b7f94
+            &:hover 
+                opacity 0.8
         &__district
             // max-height 40px
             max-width 746px
@@ -413,6 +407,8 @@
 .completed-header
     margin-top 20px
     clearfix()
+    p
+        margin 0
     &__item
         position relative
         float left
@@ -420,6 +416,8 @@
         &:last-child
             float right
             margin-right 0
+        @media only screen and (max-width: 1024px) 
+            margin-right 10px
         .everyone-header
             display inline-block
             background-color white
@@ -439,7 +437,7 @@
         .everyone-lists 
             display none
             position absolute
-            top 31px 
+            top 30.3px 
             z-index 10 
             width 184px
             color #91b5bc
@@ -642,13 +640,13 @@
         position relative
         &__search
             background-color white
-            border 1px solid rgba(61, 160, 180, 0.27)
+            border 1px solid rgba(61, 160, 180, 0.37)
             border-radius 3px
-            box-shadow inset 2px 2.3px 1px rgba(43, 151, 173, 0.12)
+            box-shadow inset 2px 3.3px 1px rgba(43, 151, 173, 0.12)
             width 256px
             padding 5px 10px 5px 15px
             font-size 14px
-            color #bed3d8
+            color text_color
             outline none
             &::-webkit-input-placeholder 
                 color #bed3d8
@@ -657,7 +655,9 @@
             &:-moz-placeholder 
                 color #bed3d8          
             &:-ms-input-placeholder
-                color #bed3d8     
+                color #bed3d8  
+            @media only screen and (max-width: 1024px) 
+                width 200px  
         &__icons
             position absolute
             cursor pointer
