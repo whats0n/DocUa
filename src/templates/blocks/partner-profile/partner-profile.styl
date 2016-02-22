@@ -22,17 +22,16 @@
 .vidjets-block
     display inline-flex
     flex-flow: row wrap;
-    width 100% 
+    width 100.01% 
     &__item
         position relative
-        width 33.333%
+        width 33.333333333%
         height 186px  
         border-right 1px dashed rgba(29,137,160,.45)  
         box-sizing border-box
         text-align center
         transition all 0.3s
         outline none
-          
         &:nth-child(3n)
             border-right none
         &:nth-child(-n+3)
@@ -75,7 +74,7 @@
         color #1d89a0
         font-size 22px
         font-weight 700
-        margin-top 20px
+        margin-top 15px
         
         
     &__picture
@@ -154,7 +153,6 @@
             height 300px
             border-collapse collapse
             tr
-                // line-height 40px
                 td
                     
                     &:first-child
@@ -169,38 +167,6 @@
                             width auto
                             label
                                 margin-bottom 0
-                            //     &:before
-                            //         top 4px
-                    .js-section-choice
-                        position relative
-                        .setting-element__field-text
-                            padding-top 4px
-                            &:after
-                                content ''
-                                float right
-                                margin 8px 6px 0 0
-                                display inline-block
-                                border 3px solid transparent
-                                border-top 6px solid #1d89a0
-                        .section-choice
-                            display none
-                            position absolute
-                            top 31px 
-                            z-index 2
-                            background-color #FFF  
-                            right 0
-                            border 1px solid rgba(22, 141, 164, 0.7)
-                            &.is-open
-                                display block
-                                width 100% 
-                            .everyone-lists__list
-                                cursor pointer
-                                font-size 14px
-                                padding 5px 10px 5px 20px
-                                &:hover
-                                    background-color #e5f2f5
-                                    color #168da4
-                            
                     .enter-info
                         background-color: white
                         border 1px solid rgba(22, 141, 164, 0.7)
@@ -231,7 +197,37 @@
             outline none
             color white 
         &:active
-            outline none      
+            outline none
+
+.js-section-choice
+    position relative
+    .setting-element__field-text
+        padding-top 4px
+        &:after
+            content ''
+            float right
+            margin 8px 6px 0 0
+            display inline-block
+            border 3px solid transparent
+            border-top 6px solid #1d89a0
+    .section-choice
+        display none
+        position absolute
+        top 31px 
+        z-index 2
+        background-color #FFF  
+        right 0
+        border 1px solid rgba(22, 141, 164, 0.7)
+        &.is-open
+            display block
+            width 100% 
+        .everyone-lists__list
+            cursor pointer
+            font-size 14px
+            padding 5px 10px 5px 20px
+            &:hover
+                background-color #e5f2f5
+                color #168da4      
 .partner-block__vidjets 
    .partner-block__content
        padding 20px 
@@ -242,7 +238,7 @@
            padding 20px
            background-color #f0f8fb
            min-height 372px 
-           overflow-x auto
+           // overflow-x auto
            
 .vidjets-rezult
     border 1px dashed #c8dde3
@@ -284,6 +280,8 @@
     color #91b5bc
     font-size 18px 
     line-height 20px
+    @media only screen and (max-width: 1200px)
+        width 110px
     &__color
         position absolute
         left 5px
@@ -298,7 +296,12 @@
     display inline
     float right
     font-size 15px
-    
+    @media only screen and (max-width: 991px)
+        float none
+        margin-left 28px
+    span
+        @media only screen and (max-width: 1070px) 
+            display none
     .color-block
         margin-left 15px 
 
@@ -311,19 +314,21 @@
     margin-top 20px
     border-collapse separate 
     margin-bottom 30px
-    background-color: white
+    
     box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
     
     &__head
+        background-color #1d89a0
         border 1px solid #1d89a0
         tr
             height 40px
             background-color #1d89a0
-            border 1px solid #1d89a0 
+            border 1px solid transparent
             color #FFF
             font-size 15px
             font-weight 400
             td
+                border-right none !important
                 &:first-child
                     background-color #1d89a0
                     padding-left 29px  
@@ -331,6 +336,7 @@
                     border-radius 3px 3px 0 0 
     &__body
         border 1px solid rgba(0,130,155,.16)
+        background-color: white
         tr
             height 47px
             background-color #fff
@@ -559,12 +565,22 @@
         &:last-child
             padding 5px 10px
             margin-left 0
-        // line-height 30px 
+        .js-section-choice
+            display inline-block 
+            margin-left 15px
+            .section-choice
+                .section-choice__item
+                    cursor pointer
+                    font-size 14px
+                    padding 5px 10px 5px 10px
+                    &:hover
+                        background-color #e5f2f5
+                        color #168da4      
+
     &__number
         position relative
         cursor pointer
         display inline-block
-        margin-left 15px
         padding 5px 40px 5px 10px
         color #91b5bc
         &:after
@@ -611,10 +627,12 @@
 
 
 // partner-profile_statistic
-.partner-table__statistic
+.partner-table__statistic 
+
+               
     tr
         td
-            
+            // border-right none !important
             &:first-child
                 padding-left 29px
                 text-align left
@@ -635,6 +653,7 @@
             &:last-child
                 text-align right
                 padding-right 30px 
-                border-radius 0 3px 0 0 
+                border-radius 0 3px 0 0
+    
                 
     
