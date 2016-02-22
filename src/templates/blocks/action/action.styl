@@ -129,12 +129,18 @@
 		.card__left-side
 			@media screen560
 				width 176px
-			.card__testimonials
-				@media screen560
-					position static
+				min-height auto 
 		.rating
 			@media screen560
-				right 25px
+				position absolute
+				right 20px
+				top 25px
+			.rating__value
+				@media screen560
+					font-size 18px
+					margin-top 0
+					margin-right 0
+					top 2px 
 		
 		
 		.card__image
@@ -148,15 +154,12 @@
 		padding 25px
 		border-right 1px dashed #c0d2d6 
 		border-left 1px dashed #c0d2d6 
-		
 		@media phone
-			// order 1
 			border-right none
 			border-left none
 			width 100%
 			float none
-			// padding 0 25px
-			// padding-left 44%
+			padding-left 51%
 		@media screen560
 			width 100%
 			padding 0 25px
@@ -203,11 +206,9 @@
 				@media phone
 					float left
 					width 45%
-					margin-bottom 5%
 				@media screen560
 					float none
 					width 100%
-					margin-bottom 0
 			&__benefit
 				position relative
 				padding 5px 20px 5px 39px
@@ -216,7 +217,7 @@
 				border-radius 3px
 				color green_base
 				font-size 16px
-				font-weight 700 
+				font-weight 700
 				&:before
 					content ''
 					display inline-block
@@ -224,14 +225,11 @@
 					width 16px
 					height 16px
 					margin 0 10px -3px 0
+				&:last-child
+					margin-bottom 0 
 				@media only screen and (max-width: 1100px)
 					padding 5px 5px 5px 29px
 				
-					
-					
-						
-					 
-					
 				&.benefit__mod
 					font-size 13px
 					font-weight 400 
@@ -255,6 +253,7 @@
 					position static
 					width 50%
 					margin-left 50%
+					padding 0
 				@media screen560
 					float none
 					width 100%
@@ -270,6 +269,8 @@
 					font-weight 700
 					color text_color
 					padding-left 5px
+					@media screen560
+						margin-top 10px
 				&__btn
 					width 100%
 					background-color green_base
@@ -287,15 +288,20 @@
 						background-color #32b3a3 
 					@media phone
 						display block
-						margin-top 5px
+						margin-top 12px
 					 
 ///////ACTION_BADGE/////////
 
 .section-action
 	.is-badge-label
-		padding-top 50px 
+		padding-top 50px
+		@media phone_tablet
+			padding-top 25px
+		@media screen560
+			padding-top 0
+			 
 	.badge-label
-		right auto
+		right auto 
 		left 25px 
 	.right-info
 		&__benefit
