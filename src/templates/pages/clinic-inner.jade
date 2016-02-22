@@ -235,16 +235,16 @@
                                         a(href="#{item.url}#tab-actions", title=item.actions[0].title)= item.actions[0].title
                                     a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
         ul.nav.nav-tabs.nav-clinic 
-            li.active: a(href="#tab-about", data-toggle="tab") О клинике
-            li
+            li.triangle-yellow.active: a(href="#tab-about", data-toggle="tab") О клинике
+            li.triangle-white
                 a(href="#tab-doctors", data-toggle="tab") Врачи
-            li
+            li.triangle-yellow
                 a(href="#tab-price", data-toggle="tab") Цены
-            li
+            li.triangle-yellow
                 a(href="#tab-reviews", data-toggle="tab") Отзывы
-            li
+            li.triangle-transparent
                 a(href="#tab-actions", data-toggle="tab") Акции и пакеты услуг (4)
-            li
+            li.triangle-white
                 a(href="#tab-news", data-toggle="tab") Новости
         .tab-content.tab-content__mod
             #tab-about.tab-pane.clinic-tab.active
@@ -432,7 +432,7 @@
                     p Все отзывы достоверны и получены в результате опроса пациентов, побывавших на приеме у врача
                     +b("ul").rating-steps: +i
                 if file.status != 'inactive'
-                    ul.nav.nav-tabs.nav-doctor.reviews-tabs
+                    ul.nav.nav-tabs.reviews-tabs
                         li.active: a(href="#tab-with-text", data-toggle="tab") Только с текстом
                         li
                             a(href="#tab-all-reviews", data-toggle="tab") Все отзывы

@@ -1,0 +1,356 @@
+block params
+  - var isCabinet = false
+
+//- include ../../../node_modules/bemto.jade/bemto
+
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(content="user-scalable=no, width=device-width", name="viewport")
+    title
+      if file.title
+        | #{file.title} | DOC.ua
+      else
+        | DOC.ua 
+    link(href="/i/favicon.ico", rel="shortcut icon")
+    link(href='https://fonts.googleapis.com/css?family=Roboto:700&subset=latin,cyrillic' rel='stylesheet' type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic', rel='stylesheet', type='text/css')
+    link(rel="stylesheet", href="/doc.min.css")
+    script(type="text/javascript", src="//yandex.st/share/share.js", charset="utf-8")
+    script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true", charset="utf-8")
+    //if lt IE 9
+      script(src="/ie-js/html5.js")
+      script(src="/ie-js/respond.min.js")
+      script(src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js")
+    script(src='https://apis.google.com/js/platform.js', async='', defer='')
+
+body
+    #fb-root
+    script.
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=224008797710815";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+    //- Navbar
+    nav.navbar.navbar-main.navbar-fixed-top
+      .container
+        button.navbar-toggle.collapsed.visible-xs
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+
+        +b.logo.visible-xs: +i({ mobileLogo: true })
+
+        +b.navbar-header
+          +e("span").title.hidden-xs Ваш город:
+          +b.location: +i
+
+        +b.phones.hidden-xs: +i
+        //- +b.mobile-phones.visible-xs
+        //-   span (095) 3370707;
+        //-   span (063) 3370707;
+        //-   span (067) 3370707;
+        //-   span (044) 3370707
+        hr.header__line
+        +b.feedback
+          +e("a").link._callback(href="#{linkPrefix}callback", data-toggle=modalToggle, title="Обратный звонок")
+              span.dotted Обратный звонок
+          +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку")
+              span.dotted Быстрая заявка
+        +b.phones.visible-xs: +i
+        .user-panel.hidden-xs
+            if file.isCabinet
+              +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
+            else
+              +b.user-panel-auth: +i
+            +b("a").favorites-link(href="/", title="Избранное")
+              span.dotted Избранное
+
+    +b.navbar-collapse(class="navbar-mobile collapse"): +i
+
+    //- Logo and search
+    .container-fluid.container-header.hidden-xs
+      .row.row-white
+        .container
+          h1.sr-only Поиск вашего врача – DOC.ua
+          if file.finder
+            - var headerClass = "header_with-finder"
+          header.header(class=headerClass)
+            .wrap
+              .row
+                .col-sm-5
+                  +b.logo: +i
+
+                .col-sm-7.navbar-main.navbar-main_new
+                  .container
+                    +b.navbar-header
+                      +e("span").title.hidden-xs Ваш:
+                      +b.location: +i
+                    +b.phones.hidden-xs: +i
+                    +b.phones.visible-xs: +i
+                    +b("a").favorites-link(href="/", title="Избранное")
+                      span.dotted Избранное
+                    .user-panel.hidden-xs
+                      if file.isCabinet
+                        +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
+                      else
+                        +b.user-panel-auth: +i
+    //- Menu
+    .container-fluid.container-menu.hidden-xs
+      .row.row-white
+        .container
+          nav.header__nav
+            +b.menu: +i({ prefix: "main", items: mainMenu, activeIndex: file.activeMenuItem })
+            +b.search: +i
+
+    if file.indexPage
+      .prarallax-wrap.hidden-xs
+    //- Finder
+    .container-fluid.container-finder
+      .row.row-finder
+        .container
+          if file.finder || file.chooser
+            .wrap
+              if file.finder
+                if file.indexPage
+                  +b.finder-title.hidden-xs: +i({ page: file.finder })
+                +b.finder: +i({ page: file.finder })
+              if file.chooser
+                +b.chooser.hidden-xs: +i({ page: file.chooser, specializations: specializations })
+          if file.indexPage
+            .row.row-counters.hidden-xs
+              .col-sm-4
+                +b.counter: +i({ value: 841, title: "записей за сутки"})
+              .col-sm-4
+                +b.counter: +i({ value: 2712, title: "врачей на сайте"})
+              .col-sm-4
+                +b.counter: +i({ value: 23117, title: "отзывов пациентов"})
+
+
+    //- Main container
+    .container-fluid_main
+      
+      //- Promo banners
+      if file.indexPage
+        .container-fluid 
+          .row.row-white
+            .container
+              +b.promo-banner.row: +i([{ image: 'promo-banner-1.jpg', title: "Онкоскрининг - полная диагностика всего тела"}, { image: 'promo-banner-2.jpg', title: "Добробут теперь на DOC.ua"}])
+      .container-fluid
+        .row
+          .container.main-content
+            //- Breadcrumbs/Controls row
+            if !file.indexPage 
+              .row
+                .col-md-9
+                  if file.page_name != 'search' && file.page_name != 'search_no_rezult'
+                    +b.breadcrumbs: +i({ breadcrumbs: [{ title: file.title, url: '#' }] })
+                if file.page_name == 'clinics' || file.page_name == 'doctors' || file.page_name == 'promo' || file.page_name == 'bundles'
+                  .col-md-9
+                    .row
+                      if file.page_name == 'doctors'
+                        .col-sm-7
+                          h1= file.title
+                      else
+                        .col-md-12
+                          h1= file.title
+                      if file.page_name == 'doctors'
+                        .col-sm-5
+                            +b("a").info-link.under-dot(href="#" title="" data-toggle="class" data-class-name="info-link__details_active" data-abs-selector=".info-link__details")
+                                span Чем занимается Дерматолог?
+                        .col-sm-12
+                            .info-link__details
+                                .catalog-quote
+                                  strong Дерматолог
+                                  | – врач узкого профиля, который занимается проведением диагностики и дальнейшей терапии заболеваний кожного покрова, ногтевых пластин и волос, являющихся результатом бактериальных, вирусных, паразитарных и иммунных поражений организма.
+                if file.page_name == 'doctors' || file.page_name == 'clinics'
+                  .col-md-9
+                    .catalog-controls
+                        .catalog-controls__column
+                          .catalog-controls__results| Найдено <strong>220 #{file.find_text}</strong>,
+                          | отсортированы
+                          select.select7
+                            option(value="rate_desc", selected) по рейтингу
+                            option(value="rate_az") по названию (А-Я)
+                            option(value="rate_za") по названию (Я-А)
+                        .catalog-controls__right-side
+                          if file.page_name == 'clinics'
+                            +b.catalog-checkboxes: +i({items: ["Работает в воскресенье", "Работает в субботу"]})
+                          if file.page_name == 'doctors'
+                            +b.catalog-checkboxes: +i({items: ["С выездом на дом", "Детский врач"]})
+                if file.page_name == 'doctors'
+                  .col-md-12
+                    .doctors-alert
+                      strong К сожалению, в выбранном Вами районе "с. Софиевская Борщаговка" врачи-фтизиатры не найдены. Найдите своего фтизиатра в ближайшем районе
+                if file.page_name == 'clinics'
+                  .col-md-12
+                    .doctors-alert
+                      strong К сожалению, в выбранном Вами районе "с. Софиевская Борщаговка" клиник по направлению пульмонология не найдено. Найдите клинику пульмонологии в ближайших районах
+            //- Content
+            block content
+
+      //- Advantages
+      if file.indexPage
+        .container-fluid.container-advantages.hidden-xs
+          .row
+            +b.advantages.container: +i
+
+      
+      //- Blog
+      if file.page_name != 'articles' && file.page_name != 'articles-inner' && file.page_name != 'doctors' && file.page_name != 'diagnostic-center' && file.page_name != 'diagnostic-center_bez' && file.page_name != 'action' && file.page_name != 'search'  && file.page_name != 'search_no_rezult'
+        .container-fluid.hidden-xs.diagnostic-center_bez
+          .row.row-articles
+            .container
+              section
+                if file.page_name != doctor_consultation && file.page_name != doctors
+                  header.header-styled.header-styled-mod
+                    .row.offset-bottom-0
+                      .col-sm-6
+                        h2.h1 В блоге здоровья
+                      .col-sm-6.text-right
+                        a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
+                else 
+                  header.header-styled
+                    .row.offset-bottom-0
+                      .col-sm-6
+                        h2.h1 В блоге здоровья
+                      .col-sm-6.text-right
+                        a.main-more-link(href="/", title="Все 143 акции") Читать блог здоровья
+                .row.offset-bottom-0
+                  - var limit = 2
+                  .col-md-3.col-sm-4
+                    .article-block
+                      .article-block__img
+                        a(href="$")
+                          img(src="http://placecage.com/350/179", alt="")
+                      .article-block__title
+                        a(href="#") Школьные болезни: к чему готовиться?
+                      .article-block__info
+                        time.main-time 27.07.2015
+                        ul.info-list
+                          li
+                            span.is-view 18
+                          li
+                            span.is-like 35
+                          li
+                            span.is-share 169
+                  .col-md-3.col-sm-4
+                    .article-block
+                      .article-block__img
+                        a(href="$")
+                          img(src="http://placecage.com/350/179", alt="")
+                      .article-block__title
+                        a(href="#") Школьные болезни: к чему готовиться?
+                      .article-block__info
+                        time.main-time 27.07.2015
+                        ul.info-list 
+                          li
+                            span.is-view 18
+                          li
+                            span.is-like 35
+                          li
+                            span.is-share 169
+                  .col-md-3.col-sm-4
+                    .article-block
+                      .article-block__img
+                        a(href="$")
+                          img(src="http://placecage.com/350/179", alt="")
+                      .article-block__title
+                        a(href="#") Школьные болезни: к чему готовиться?Школьные болезни: к чему готовиться?
+                      .article-block__info
+                        time.main-time 27.07.2015
+                        ul.info-list 
+                          li
+                            span.is-view 18
+                          li
+                            span.is-like 35
+                          li
+                            span.is-share 169
+                  .col-md-3.col-sm-12.hidden-sm
+                    ul.blog-list
+                      li.blog-list__item
+                        time.main-time 27.07.2015
+                        a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
+                      li.blog-list__item
+                        time.main-time 27.07.2015
+                        a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
+                      li.blog-list__item
+                        time.main-time 27.07.2015
+                        a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
+      //- Promo banners
+      if file.indexPage
+        .container-fluid.container_find.hidden-xs
+          .row
+            .container
+              header.header-styled
+                .row.offset-bottom-0
+                  .col-sm-12
+                    h2.h1 Также вы можете на нашем сайте найти
+              .find
+                .find-item
+                  a(href="#").find-item__block
+                    i.find-item__icon.is-doc
+                    span.find-item__title Врачи
+                .find-item
+                  a(href="#").find-item__block
+                    i.find-item__icon.is-clinic
+                    span.find-item__title Клиники
+                .find-item
+                  a(href="#").find-item__block
+                    i.find-item__icon.is-centers
+                    span.find-item__title Диагностические центры
+                .find-item
+                  a(href="#").find-item__block
+                    i.find-item__icon.is-diseases
+                    span.find-item__title Заболевания
+                .find-item
+                  a(href="#").find-item__block
+                    i.find-item__icon.is-promotions
+                    span.find-item__title Акции
+
+
+    //- Footer
+    .container-fluid
+      .row.footer
+        .container
+          footer
+            .footer-inner
+              .wrap
+                .row
+                  +b.menu
+                    +b.footer-menu: +i
+                  +b.contacts.col-sm-3.col-xs-6: +i({ site: site, socialLinks: true, workingTime: true })
+
+                  +b.contacts.col-xs-12.visible-xs
+                    +e('span').callback
+                        a.dotted(href="#callback", data-toggle="modal", title="Обратный звонок") Обратный звонок
+                    +e('span').callback
+                      a.dotted(href="#doc-request-schedule", data-toggle="modal", title="Отправить заявку") Отправить заявку
+
+                    +b.social-links: +i
+                    +e.footer
+                        +e.copyright
+                            | &copy;&nbsp;
+                            a(href="http://#{site.title}", title=site.title)= site.title
+                            | , 2015
+                        +e.rights Использование материалов разрешено только при наличии активной ссылки <br> на источник
+      
+      .row.about-this
+        .container
+          +b.about-this-site._seo: +i
+
+
+
+      +b("a").go-top(href="", title="Наверх"): +i
+
+    block modals
+
+    script(src="/doc.min.js")
+    script(src="/jquery.mockjax.js")
+    script(src="/demo.js")
