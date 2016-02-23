@@ -52,6 +52,21 @@ $(".alternative-btn__district").on "click", ".js-remove", ->
 	if !$("#select-area").find('.is-active').hasClass 'is-active'
 		$('.js-btn-text').text('Выберете район')
 
+# Clone specialization
+$("#select-specialization").on "click", "li a", ->
+	item = $(@)
+
+	$('.alternative-btn__specialization span').empty()
+	$('.alternative-btn__specialization span').text(item.text())
+	$('.js-remove' ).addClass 'is-active'
+	$('.js-btn-special').text('Выбрана специальность')
+	# return $("#select-specialization").modal "hide"
+
+$(".js-remove").on "click", ->
+	$(this).siblings("span").empty()
+	$(this).removeClass 'is-active'
+	$('.js-btn-special').text('Выберите специальность')
+	return false
 	
 
 

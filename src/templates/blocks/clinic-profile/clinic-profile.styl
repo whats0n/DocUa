@@ -19,9 +19,11 @@
     margin-left 151px 
     li
         position relative
+        border 1px solid #E6E6E6
+        // box-sizing border-box
         &:hover
             color blue_link
-            border-color grey_base
+            border-color #E6E6E6
         a
             
             padding 9px 21px
@@ -34,7 +36,7 @@
                 padding 9px 11px
             &:hover
                 color blue_link
-                border-color grey_base
+                border-color #E6E6E6 
                 box-sizing border-box
         &.active
             &:after
@@ -44,7 +46,7 @@
                 height 0
                 position absolute
                 left 0
-                top -2px
+                top -3px
                 z-index 1
                 
             &:before
@@ -62,11 +64,10 @@
                 position relative
                 font-weight 700
                 color text_color
-                background-color grey_base
+                background-image url('i/grey_texture.png')
                 box-shadow inset 5px 0px 10px -5px rgba(0, 64, 76, 0.15)
-                border-bottom 5px solid grey_base 
+                padding-bottom 14px  
                 &:before
-                    
                     content ""
                     position absolute
                     left 50%
@@ -99,12 +100,12 @@
                     
                 &:hover
                     color text_color
-                    background-color grey_base
-                    border-bottom 5px solid grey_base
+                    // background-color grey_base
+                    // border-bottom 5px solid grey_base
                 &:focus
                     color text_color
-                    background-color grey_base
-                    border-bottom 5px solid grey_base
+                    // background-color grey_base
+                    // border-bottom 5px solid grey_base
         
 // clinic-profile 
 .profile-footer__wrap 
@@ -117,10 +118,10 @@
     .tab-content
         .tab-pane
             box-shadow none
-            background grey_base 
+            background grey_texture 
 .application
     margin-bottom 80px
-    background grey_base
+    background grey_texture
     &__item-big
         position relative
         margin-top 20px
@@ -337,7 +338,7 @@
 // tab-alternative
 #tab-alternative.tab-pane  
     box-shadow none 
-    background grey_base
+    background grey_texture
     .alternative-btn
         margin 20px 0
         &__button
@@ -353,8 +354,9 @@
                 opacity 0.8
         &__district
             // max-height 40px
-            max-width 746px
+            max-width 400px
             display inline-block
+            vertical-align middle
             padding 0 15px
             clearfix()
             >span
@@ -373,6 +375,19 @@
                     width 13px
                     height 13px
                     cursor pointer
+        &__specialization
+            display inline-block
+            margin-left 15px
+        &__icon-close
+            display none
+            vertical-align middle
+            margin-left 15px 
+            background url('i/icons/clinic-profile-close.png') no-repeat
+            width 13px
+            height 13px
+            cursor pointer
+            &.is-active
+              display inline-block
                 
                      
             

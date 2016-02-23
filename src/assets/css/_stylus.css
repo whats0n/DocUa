@@ -7535,10 +7535,11 @@ hr {
 }
 .clinics-profile__tabs li {
   position: relative;
+  border: 1px solid #e6e6e6;
 }
 .clinics-profile__tabs li:hover {
   color: #4b89d3;
-  border-color: #dfe7e9;
+  border-color: #e6e6e6;
 }
 .clinics-profile__tabs li a {
   padding: 9px 21px;
@@ -7556,7 +7557,7 @@ hr {
 }
 .clinics-profile__tabs li a:hover {
   color: #4b89d3;
-  border-color: #dfe7e9;
+  border-color: #e6e6e6;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -7568,7 +7569,7 @@ hr {
   height: 0;
   position: absolute;
   left: 0;
-  top: -2px;
+  top: -3px;
   z-index: 1;
 }
 .clinics-profile__tabs li.active:before {
@@ -7587,10 +7588,10 @@ hr {
   position: relative;
   font-weight: 700;
   color: #5e6e71;
-  background-color: #dfe7e9;
+  background-image: url("i/grey_texture.png");
   -webkit-box-shadow: inset 5px 0px 10px -5px rgba(0,64,76,0.15);
   box-shadow: inset 5px 0px 10px -5px rgba(0,64,76,0.15);
-  border-bottom: 5px solid #dfe7e9;
+  padding-bottom: 14px;
 }
 .clinics-profile__tabs li.active a:before {
   content: "";
@@ -7615,13 +7616,9 @@ hr {
 }
 .clinics-profile__tabs li.active a:hover {
   color: #5e6e71;
-  background-color: #dfe7e9;
-  border-bottom: 5px solid #dfe7e9;
 }
 .clinics-profile__tabs li.active a:focus {
   color: #5e6e71;
-  background-color: #dfe7e9;
-  border-bottom: 5px solid #dfe7e9;
 }
 .profile-footer__wrap {
   border-top: 1px dotted rgba(29,137,160,0.45);
@@ -7631,11 +7628,11 @@ hr {
 .clinic-current__content .tab-content .tab-pane {
   -webkit-box-shadow: none;
   box-shadow: none;
-  background: #dfe7e9;
+  background: background-image url("i/grey_texture.png");
 }
 .application {
   margin-bottom: 80px;
-  background: #dfe7e9;
+  background: background-image url("i/grey_texture.png");
 }
 .application__item-big {
   position: relative;
@@ -7922,7 +7919,7 @@ hr {
 #tab-alternative.tab-pane {
   -webkit-box-shadow: none;
   box-shadow: none;
-  background: #dfe7e9;
+  background: background-image url("i/grey_texture.png");
 }
 #tab-alternative.tab-pane .alternative-btn {
   margin: 20px 0;
@@ -7945,8 +7942,9 @@ hr {
   filter: alpha(opacity=80);
 }
 #tab-alternative.tab-pane .alternative-btn__district {
-  max-width: 746px;
+  max-width: 400px;
   display: inline-block;
+  vertical-align: middle;
   padding: 0 15px;
   zoom: 1;
 }
@@ -7973,6 +7971,22 @@ hr {
   width: 13px;
   height: 13px;
   cursor: pointer;
+}
+#tab-alternative.tab-pane .alternative-btn__specialization {
+  display: inline-block;
+  margin-left: 15px;
+}
+#tab-alternative.tab-pane .alternative-btn__icon-close {
+  display: none;
+  vertical-align: middle;
+  margin-left: 15px;
+  background: url("i/icons/clinic-profile-close.png") no-repeat;
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}
+#tab-alternative.tab-pane .alternative-btn__icon-close.is-active {
+  display: inline-block;
 }
 #tab-alternative.tab-pane .title__alternative {
   top: 50%;
@@ -15036,7 +15050,7 @@ article a {
   display: none;
   position: absolute;
   top: 31px;
-  z-index: 2;
+  z-index: 10;
   background-color: #fff;
   right: 0;
   border: 1px solid rgba(22,141,164,0.7);
