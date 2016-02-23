@@ -1,0 +1,771 @@
+.doc-widgets
+    min-width: 668px 
+    &__row
+        padding: 11px
+        clearfix()
+    &__left, &__right
+        padding: 22px 
+        // float: left
+        width: 100%
+        margin 0 auto
+    &__left
+        max-width: 892px
+    &__right
+        max-width: 646px
+    &__title
+        opacity: 0.45
+        color: #00829b
+        font-size: 20px
+        font-style: italic
+        margin-bottom: 10px
+    &__compact
+        padding: 0 0 35px 
+    &__compacts
+        width: 270px
+        float: left
+    &__small
+        padding: 0 0 35px
+    &__smalls
+        width: 325px
+        float: left
+.doc-small-list
+    border: 1px solid #35bfae
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15) 
+    border-radius: 3px
+    overflow: hidden
+    .doc-widget
+        border: none
+        box-shadow: none
+        border-radius: 0
+        border-top: 1px dashed #c3d4d8 
+        &:first-child
+            border: none
+.doc-widget
+    position: relative
+    padding: 21px
+    border: 1px solid #35bfae
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15) 
+    width: 100%
+    border-radius: 3px
+    overflow: hidden
+    background: #fff 
+    clearfix()
+    max-width: 848px
+    min-width: 602px
+    *
+        margin: 0
+        padding: 0
+    &.doc-widget_normal
+        .doc-widget
+            &__img
+                margin-bottom: 9px
+            &__review
+                margin-bottom: 18px
+            &__schedule
+                padding: 9px 12px 8px 
+    &.doc-widget_small
+        .doc-widget
+            &__left
+                width: 120px
+                text-align: center
+                padding: 0
+            &__right
+                padding-left: 145px
+            &__img
+                width: 59px
+                height: 59px
+                border: none
+                margin: 0 auto 10px
+                img
+                    max-width: 100%
+                    max-height: 100% 
+                    display: inline-block
+                    vertical-align: middle
+            &__rating
+                margin-bottom: 3px
+            &__stars, &__value
+                vertical-align: bottom
+            &__value
+                font-size: 18px
+            &__stars
+                margin-left: 4px
+            &__review
+                margin: 0
+            &__title
+                &-link
+                    font-size: 18px
+            &__tags
+                height: auto
+                margin-bottom: 15px
+            &__address
+                &-mod
+                    padding: 0
+            &__bottom
+                clearfix()
+                text-align: left
+            &__button
+                font-size: 17px
+                border-radius: 4px
+                padding: 10px 22px 11px
+        .doc-schedule
+            font-size: 0
+            padding: 3px 0 0 24px
+            position: relative
+            float: left
+            &:before
+                content: "" 
+                position: absolute
+                top: 2px
+                left: 0
+                sprite($calendar)
+            &__box
+                padding-right: 25px
+                display: inline-block
+                vertical-align: top
+                font-size: 13px
+                line-height: 18px
+                padding-bottom: 10px
+                &-day, &-time
+                    display: inline-block
+                    vertical-align: top
+                &-day
+                    color: #96b8bf
+                &-time
+                    color: #5e6e71
+    .doc-widget
+        &__logo
+            position: absolute
+            top: 0
+            right: 0
+            background: green_base
+            padding: 13px 7px 10px 1px
+            font-size: 0
+            img
+                display: block
+            &:before
+                content: ""
+                position: absolute
+                top: 0
+                right 100%
+                width: 0px
+                height: 0px
+                border-style: solid
+                border-width: 0px 38px 48px 0px
+                border-color: transparent green_base transparent transparent
+                
+        &__left
+            width: 162px
+            padding: 0 23px 0 0 
+            float: left
+        &__right
+            padding: 0 0 0 162px 
+        &__img
+            width: 139px
+            height: 108px
+            background-color: white
+            border: 1px solid #c0d2d6
+            border-radius: 3px
+            display: block
+            margin-bottom: 20px
+            text-align: center
+            font-size: 0
+            &:before
+                content: ""
+                display: inline-block
+                vertical-align: middle
+                width: 0
+                height: 100%
+            img
+                display: inline-block
+                vertical-align: middle
+                max-width: 100%
+                max-height: 100% 
+        &__rating
+            text-align: center
+            font-size: 0
+        &__value, &__stars
+            display: inline-block
+            vertical-align: middle
+        &__value
+            color: #00829b
+            font-size: 24px
+            font-weight: 700
+            line-height: 1
+        &__stars
+            width: 84px
+            height: 19px
+            margin-left: 8px
+            &-active
+                div 
+                    background url('i/icons/stars-active.png') no-repeat
+                    width 84px
+                    height 19px
+                    
+        &__review
+            text-align: center
+            font-size: 0
+            margin-bottom: 25px
+            &-link, &-icon
+                display: inline-block
+                vertical-align: middle
+            &-link
+                color: #4b89d3
+                font-size: 16px
+                line-height: 1
+                text-decoration: none
+                &:hover
+                    text-decoration: underline
+            &-icon
+                width: 15px
+                height: 15px
+                border: 1px solid #91b5bc
+                color: #91b5bc
+                font-family: Georgia
+                font-size: 10px
+                font-weight: 700
+                font-style: italic
+                line-height: 13px
+                text-align: center
+                border-radius: 50%
+                padding-right: 1px
+                margin: 2px 0 0 7px
+        &__schedule
+            position: relative
+            background-color: white
+            border: 1px dashed #c0d2d6
+            border-radius: 3px
+            padding: 13px 12px 10px
+            clearfix()
+            font-size: 13px
+            line-height: 18px
+            &-item
+                clearfix()
+            &-icon
+                sprite($calendar)
+                background-color: #fff
+                margin: 0 0 0 -13px
+                position: absolute
+                top: -13px
+                left: 50%
+            &-day
+                color: #96b8bf
+                width: 46px
+                float: left
+            &-time
+                color: #5e6e71
+                overflow: hidden
+        &__title
+            padding: 0 128px 11px 0 
+            margin-top: -3px
+            &-link
+                color: #4b89d3
+                font-size: 24px
+                font-weight: 700
+                line-height: 1
+                display: inline-block
+                vertical-align: top
+                text-decoration: none
+                &:hover
+                    text-decoration: underline
+        &__tags
+            color: #5e6e71
+            font-size: 14px
+            line-height: 1.2
+            padding: 0 60px 0 0 
+            height: 48px 
+            overflow: hidden
+            margin-bottom: 18px  
+        &__info
+            font-size: 0
+            padding: 0 0 5px 
+            &-box
+                width: 98px
+                padding: 0 0 0 36px
+                position: relative
+                display: inline-block
+                vertical-align: top
+                min-height: 30px
+                margin-bottom: 10px
+            &-icon
+                position: absolute
+                top: 0
+                left: 0
+                &-years
+                    background url('i/benefits/benefit-icon-1.png') no-repeat
+                    width 30px
+                    height 30px
+                &-ppls
+                    background url('i/benefits/benefit-icon-11.png') no-repeat
+                    width 30px
+                    height 30px
+                &-home
+                    background url('i/benefits/benefit-icon-4.png') no-repeat
+                    width 30px
+                    height 30px
+                &-wifi
+                    background url('i/benefits/benefit-icon-9.png') no-repeat
+                    width 30px
+                    height 30px 
+            &-text
+                color: #5e6e71
+                font-size: 12px
+                line-height: 1
+                padding: 3px 0 
+        &__address
+            font-size: 0
+            padding: 7px 0 
+            &-dashed
+                border-top: 1px dashed #c0d2d6
+                border-bottom: 1px dashed #c0d2d6
+                margin-bottom: 12px
+            &-box
+                display: inline-block
+                vertical-align: top
+                padding: 5px 40px 5px 20px
+                position: relative
+                &-place
+                    padding-left: 20px
+                &-metro
+                    padding-left: 25px
+                &-marker
+                    padding-left: 23px
+            &-icon
+                position: absolute
+                top: 50%
+                left: 0
+                &-place
+                    sprite($location)
+                    margin-top: -11px
+                &-metro
+                    margin-top: -6px
+                    &-blue
+                        sprite($metro_blue)
+                    &-green
+                        sprite($metro_green)
+                    &-red
+                        sprite($metro_red)
+                &-marker
+                    sprite($district)
+                    margin-top: -8px
+            &-text
+                color: #5e6e71
+                font-size: 12px
+                line-height: 1
+                &-dotted
+                    div
+                        border-bottom: 1px dotted #5e6e71 
+        &__text
+            color: #5e6e71
+            font-size: 14px
+            line-height: 20px
+            margin-bottom: 8px
+            height: 80px
+            overflow: hidden
+        &__bottom
+            text-align: right
+            font-size: 0
+            padding: 8px 0 0 
+        &__button
+            text-shadow: 0.5px 0.9px 0 rgba(48, 49, 49, 0.23)
+            color: white
+            font-size: 18px
+            font-weight: 700
+            line-height: 1
+            background: green_base
+            border-radius: 3px
+            padding: 13px 22px 14px 25px 
+            display: inline-block
+            vertical-align: top
+            cursor: pointer
+            outline: none
+            transition: background 0.2s
+            text-align: center
+            text-decoration: none
+            &:hover
+                background: darken(green_base, 10%) 
+            &:active
+                background: darken(green_base, 20%) 
+
+.doc-compact-list
+    position: relative
+    border: 1px solid green_base
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15) 
+    border-radius: 3px
+    overflow: hidden
+    background: #fff 
+    width: 242px
+    .doc-compact
+        border: none
+        box-shadow: none
+        border-radius: 0
+        border-bottom: 1px dashed #c0d2d6
+        &:last-child
+            border: none
+.doc-compact
+    position: relative
+    border: 1px solid green_base
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15) 
+    width: 100%
+    border-radius: 3px
+    overflow: hidden
+    background: #fff 
+    clearfix()
+    width: 242px
+    &.doc-compact_large
+        width: 325px
+        .doc-compact
+            &__img
+                margin-bottom: 2px
+            &__review
+                float: right
+            &__title
+                margin-bottom: 9px
+            &__comment
+                background-color: #fff9e9
+                &-name
+                    color: #5e6e71
+                &-date
+                    opacity: 0.68
+                    color: #5e6e71
+    .doc-compact
+        &__logo 
+            position: absolute
+            top: 0
+            left: 0
+            font-size: 0
+            padding: 8px 0 6px 8px 
+            width: 57px
+            background-color: green_base
+            height: 30px
+            &:before
+                content: "" 
+                position: absolute
+                top: 0
+                left: 100%
+                width: 0px
+                height: 0px
+                border-style: solid
+                border-width: 30px 23px 0px 0px
+                border-color: green_base transparent transparent
+            img
+                width: 51px
+        &__main
+            padding: 18px
+            clearfix()
+        &__left
+            width: 87px
+            float: left
+            padding-right: 14px
+        &__img
+            width: 73px
+            height: 74px
+            background-color: white
+            border: 1px solid #c0d2d6
+            border-radius: 3px
+            display: block
+            margin-bottom: 8px
+            text-align: center
+            font-size: 0
+            &:before
+                content: ""
+                display: inline-block
+                vertical-align: middle
+                width: 0
+                height: 100%
+            img
+                max-width: 100%
+                max-height: 100%
+                display: inline-block
+                vertical-align: middle
+        &__review
+            text-align: center
+            font-size: 0
+            &-link
+                display: inline-block
+                vertical-align: top
+                color: #4b89d3
+                font-size: 14px
+                text-decoration: none
+                &:hover
+                    text-decoration: underline
+        &__right
+            padding: 0 0 0 87px 
+            clearfix()
+        &__title
+            font-size: 0
+            margin: -5px -5px 3px 0 
+            &-link
+                color: #4b89d3
+                font-size: 15px
+                font-weight: 700
+                display: inline-block
+                vertical-align: top
+                text-decoration: none
+                line-height: 1.2
+                &:hover
+                    text-decoration: underline
+        &__text
+            color: #5e6e71
+            font-size: 12px
+            line-height: 1.2
+            margin-bottom: 5px
+        &__link
+            color: #4b89d3
+            display: block
+            text-decoration: none
+            &:hover
+                text-decoration: underline
+        &__rating
+            font-size: 0
+            float: left
+        &__value, &__stars
+            display: inline-block
+            vertical-align: middle
+        &__value
+            color: #00829b
+            font-size: 17px
+            font-weight: 700
+            line-height: 1
+        &__stars
+            width: 79px
+            height: 18px
+            margin-left: 4px
+            &-active
+                div 
+                    background url('i/icons/compact-star-active.png') no-repeat
+                    width 79px
+                    height 18px
+        &__bottom
+            clear: both
+            padding: 17px 0 0 
+        &__button
+            text-shadow: 0.5px 0.9px 0 rgba(48, 49, 49, 0.23)
+            color: white
+            font-size: 15px
+            font-weight: 700
+            line-height: 1
+            background: green_base
+            border-radius: 3px
+            padding: 13px 20px 13px 20px
+            display: inline-block
+            vertical-align: top
+            cursor: pointer
+            outline: none
+            transition: background 0.2s
+            text-align: center
+            text-decoration: none
+            width: 100%
+            &:hover
+                background: darken(green_base, 10%) 
+            &:active
+                background: darken(green_base, 20%) 
+        &__comment
+            border-top: 1px dashed #c0d2d6
+            clearfix()
+            padding: 13px 18px 18px
+            &-name
+                color: #96b8bf
+                font-size: 14px
+                font-weight: 700
+                line-height: 1
+                float: left
+                margin-bottom: 8px
+            &-date
+                color: #96b8bf
+                font-size: 13px
+                line-height: 1
+                float: right
+                margin-bottom: 8px
+            &-text
+                clear: both
+                color: #5e6e71
+                font-size: 14px
+                line-height: 1.2
+                margin-bottom: 11px
+        &__likebox
+            position: relative
+            padding: 0 0 0 21px 
+            &-like
+                .doc-compact__likebox
+                    &-icon
+                        top: -2px
+                        background url('i/icons/doc-like.png') no-repeat
+                        width 14px
+                        height 16px
+                    &-text
+                        color: green_base
+            &-dislike
+                .doc-compact__likebox
+                    &-icon
+                        top: 3px
+                        background url('i/icons/doc-dislike.png') no-repeat
+                        width 14px
+                        height 16px
+                    &-text
+                        color: #ff5858
+            &-icon
+                position: absolute
+                left: 0
+            &-text
+                font-size: 14px
+                line-height: 1.2
+
+.doc-teaser
+    position: relative
+    border: 1px solid green_base
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15) 
+    border-radius: 3px
+    overflow: hidden
+    background: #fff 
+    clearfix()
+    padding: 15px 
+    width: 602px
+    &.doc-teaser_small
+        width: 302px
+        .doc-teaser
+            &__main
+                padding-right: 0
+            &__right
+                width: 100px
+                text-align: right
+                padding: 11px 0 0 
+            &__button
+                font-size: 14px
+                padding: 6px 12px 6px
+                width: auto 
+            &__rating
+                margin: 0
+    .doc-teaser
+        &__logo 
+            position: absolute
+            top: 0
+            left: 0
+            font-size: 0
+            padding: 6px 0 6px 8px 
+            width: 45px
+            background-color: green_base
+            height: 24px
+            &:before
+                content: "" 
+                position: absolute
+                top: 0
+                left: 100%
+                width: 0px
+                height: 0px
+                border-style: solid
+                border-width: 24px 19px 0px 0px
+                border-color: green_base transparent transparent
+            img
+                width: 41px
+                height: 12px
+        &__img
+            width: 56px
+            height: 53px
+            background-color: white
+            border: 1px solid #c0d2d6
+            border-radius: 3px
+            display: block
+            float: left
+            text-align: center
+            font-size: 0
+            &:before
+                content: ""
+                display: inline-block
+                vertical-align: middle
+                width: 0
+                height: 100%
+            img
+                max-width: 100%
+                max-height: 100%
+                display: inline-block
+                vertical-align: middle
+        &__main
+            padding-left: 68px
+            padding-right: 271px
+        &__title
+            font-size: 0
+            margin: -1px 0 3px
+            &-link
+                color: #4b89d3
+                font-size: 14px
+                font-weight: 700
+                text-decoration: none
+                line-height: 1
+                display: block
+                overflow: hidden
+                white-space: nowrap
+                -ms-text-overflow: ellipsis
+                text-overflow: ellipsis
+                &:hover
+                    text-decoration: underline
+        &__tags
+            color: #5e6e71
+            font-size: 12px
+            overflow: hidden
+            -ms-text-overflow: ellipsis
+            text-overflow: ellipsis
+            white-space: nowrap
+            margin-bottom: 6px
+        &__info
+            font-size: 0
+            margin-bottom: -1px
+            overflow: hidden
+        &__rating
+            font-size: 0
+            display: inline-block
+            vertical-align: top
+            margin-right: 13px
+        &__value, &__stars
+            display: inline-block
+            vertical-align: middle
+        &__value
+            color: #00829b
+            font-size: 14px
+            font-weight: 700
+            line-height: 15px
+        &__stars
+            width: 64px
+            height: 15px
+            margin-left: 6px
+            &-active
+                overflow: hidden
+                div  
+                    background url('i/icons/teaser-stars.png') no-repeat
+                    width 64px
+                    height 15px
+        &__review
+            display: inline-block
+            vertical-align: top
+            &-link
+                display: inline-block
+                vertical-align: top
+                color: #4b89d3
+                font-size: 13px
+                line-height: 15px
+                text-decoration: none
+                &:hover
+                    text-decoration: underline
+        &__right
+            width: 251px
+            float: right
+        &__button
+            text-shadow: 0.5px 0.9px 0 rgba(48, 49, 49, 0.23)
+            color: white
+            font-size: 17px
+            font-weight: 700
+            line-height: 1
+            border-radius: 2px
+            background: green_base
+            padding: 18px 20px 
+            display: inline-block
+            vertical-align: top
+            cursor: pointer
+            outline: none
+            transition: background 0.2s
+            text-align: center
+            text-decoration: none
+            width: 100%
+            &:hover
+                background: darken(green_base, 10%) 
+            &:active
+                background: darken(green_base, 20%) 

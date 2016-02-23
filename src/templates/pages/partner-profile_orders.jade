@@ -17,7 +17,23 @@
           +e('li').item
               +e('a').link(href="#") Месяц
         +b.nav-calendar.template-block
-          +e('span').date 12 декабря 2015
+          +e('div').date.js-btn-picker.js-clone-date 12 декабря 2015
+          .date-wrap
+              +b('ul').date-header 
+                  +e('li').item Последние:   
+                  +e('li').item
+                      +e('a').link(href="#") 7 дней
+                  +e('li').item
+                      +e('a').link(href="#") 14 дней 
+                  +e('li').item
+                      +e('a').link(href="#") 30 дней  
+              +b.date-content.js-datepicker  
+              +b.date-footer   
+                  +e.left
+                      +e('input').text 
+                  +e.right
+                      +e('a').button.btn.btn-grey.js-date-clear(href="#") Отменить
+                      +e('a').button.btn.btn-green.js-date-close(href="#") Подтвердить
 
 
     article.col-sm-5
