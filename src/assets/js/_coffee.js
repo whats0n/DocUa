@@ -1905,7 +1905,21 @@ $(document).ready(function() {
   });
 });
 
+$(".js-autocomplete-doc").each(function() {
+  var availableTags;
+  availableTags = ['Аллерголог', 'Андролог', 'Анестезиолог', 'Венеролог', 'Вертебролог', 'Гастроэнтеролог', 'Гематолог', 'Генетик', 'Дерматолог', 'Диетолог', 'Иммунолог', 'Кардиолог', 'Кинезитерапевт', 'Логопед', 'Маммолог', 'Нарколог', 'Невролог', 'Ортопед', 'Педиатр', 'Подолог', 'Ревматолог', 'Терапевт'];
+  return $('.js-autocomplete-doc').autocomplete({
+    source: availableTags
+  });
+});
 
+$(".js-autocomplete-clinic").each(function() {
+  var availableTags;
+  availableTags = ['Инсайт Медикал', 'Саперная слободка', 'Исида', 'Феврония Клинская', 'Валерия Ильинишна Колмагорова', 'Феврония Клинская', 'Добробут'];
+  return $('.js-autocomplete-clinic').autocomplete({
+    source: availableTags
+  });
+});
 
 var phonesAutoChange;
 

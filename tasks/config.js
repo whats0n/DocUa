@@ -97,6 +97,7 @@ module.exports = {
         "./src/assets/vendor/dotdotdot/jquery.dotdotdot.js",
         "./src/assets/vendor/jquery.datepicker/jquery.plugin.min.js",
         "./src/assets/vendor/jquery.datepicker/jquery.datepick.js",
+        "./src/assets/vendor/jquery.autocompleate/jquery-ui.min.js",
         "./src/assets/js/_coffee.js"
     ],
     checkerList: [
