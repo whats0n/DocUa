@@ -77,54 +77,112 @@ $(".js-remove").on "click", ->
 # data-picker
 $(".js-btn-picker").on "click",  ->
 	picker = $(this).siblings(".date-wrap")
+	
 
 
 	picker.toggleClass 'is-open'	
 
 
-	$('.js-datepicker').datepick 
-		dateFormat: 'd MM'
-		rangeSelect: true
-		monthsToShow: [
-			1
-			2
-		]
-		showTrigger: '#calImg'
-		showOtherMonths: true
-		selectOtherMonths: true
-		changeMonth: false
-		altField: '.date-footer__text'
-		altFormat: 'd MM'
-		# onShow: ->
-		# 	setTimeout (-> 
-		# 		$(document).find('.js-datepicker .datepick-today').addClass 'today-active'
-		# 	), 1000
-		
 
 
-# close window
-$(".js-date-close").on "click",  ->	
-	value = $('.date-footer__text').val()
-	$(".date-wrap").removeClass "is-open"
-	$('.js-clone-date').text(value)
+$ ->
 	
 
-# clear 
-# $(".js-date-clear").on "click",  ->	
-# 	$('.js-datepicker').DatePickerClear()
-# 	$('.date-footer__text').empty()
-
-#change days
-$(".date-header__item").on "click",  ->	
-	Picker =  $('.js-datepicker').datepick()
-	today = Picker.find('.datepick-today').text()
-	day = 7
-	today7 = parseInt(today) + day
 
 
-	$(@).addClass 'active'
+	$('.js-datepicker').daterangepicker
+		initialText: 'Select period...',
+		verticalOffset: 20,
+		applyOnMenuSelect: false,
+		clearButtonText: 'Отменить',
+		applyButtonText: 'Подтвердить',
+		dateFormat: "d MM",
+		altFormat: 
+			start: ".js-input",
+			# end: ".js-input",
+		datepickerOptions:
+			numberOfMonths : 2,
+			maxDate: null,
+			showOtherMonths: true,
+			selectOtherMonths: true,
+			firstDay: 1
 
-	# alert(today7)
+		presetRanges: [
+			{
+				text: 'Последние: '
+				
+			}
+			{
+				text: '7 дней'
+				dateStart: ->
+					moment()
+				dateEnd: ->
+					moment().add 'days', 6
+			}
+			{
+				text: '14 дней'
+				dateStart: ->
+					moment()
+				dateEnd: ->
+					moment().add 'days', 13
+			}
+			{
+				text: '30 дней'
+				dateStart: ->
+					moment()
+				dateEnd: ->
+					moment().add 'days', 29
+			}
+		]
+	return 
+	
+
+
+
+
+
+	# dateFormat: 'd MM'
+	# rangeSelect: true
+	# monthsToShow: [
+	# 	1
+	# 	2
+	# ]
+	# showTrigger: '#calImg'
+	# showOtherMonths: true
+	# selectOtherMonths: true
+	# changeMonth: false
+	# altField: '.date-footer__text'
+	# altFormat: 'd MM'
+	# onShow: ->
+	# 	setTimeout (-> 
+	# 		$(document).find('.js-datepicker .datepick-today').addClass 'today-active'
+	# 	), 1000
+	
+
+
+# # close window
+# $(".js-date-close").on "click",  ->	
+# 	value = $('.date-footer__text').val()
+# 	$(".date-wrap").removeClass "is-open"
+# 	$('.js-clone-date').text(value)
+	
+
+# # clear 
+# # $(".js-date-clear").on "click",  ->	
+# # 	$('.js-datepicker').DatePickerClear()
+# # 	$('.date-footer__text').empty()
+
+# #change days
+# $(".date-header__item").on "click",  ->	
+# 	Picker =  $('.js-datepicker').datepick()
+# 	today = Picker.find('.datepick-today').text()
+# 	day = 7
+# 	today7 = parseInt(today) + day
+
+
+# 	$(@).addClass 'active'
+
+# 	# alert(today7)
 
 
 

@@ -7535,7 +7535,7 @@ hr {
 }
 .clinics-profile__tabs li {
   position: relative;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #e6e6e6 !important;
 }
 .clinics-profile__tabs li:hover {
   color: #4b89d3;
@@ -8144,15 +8144,22 @@ hr {
   background-color: #e5f2f5;
   color: #168da4;
 }
-.completed-header__item .date-picker {
+.comiseo-daterangepicker-triggerbutton {
   position: relative;
   width: 226px;
   height: 31px;
   color: #bed3d8;
   padding-left: 7px;
   cursor: pointer;
+  background-color: #fff;
+  border: 1px solid rgba(22,141,164,0.7);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.15);
+  box-shadow: 0 2px 4px rgba(0,64,76,0.15);
+  text-align: left;
 }
-.completed-header__item .date-picker:before {
+.comiseo-daterangepicker-triggerbutton:before {
   content: '';
   float: left;
   margin-top: 0;
@@ -8162,32 +8169,111 @@ hr {
   width: 20px;
   height: 20px;
 }
-.date-wrap {
-  display: none;
+.comiseo-daterangepicker-triggerbutton:after {
+  content: '';
   position: absolute;
-  z-index: 100;
-  top: 50px;
-  right: 0;
+  top: 50%;
+  margin-top: -3px;
+  right: 15px;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-top: 5px solid #00829b;
+}
+.comiseo-daterangepicker {
   width: 596px;
-  background-color: #fff;
-  border: 1px solid #00829b;
   -webkit-border-radius: 3px;
   border-radius: 3px;
+  background-color: #fff;
+  border: 1px solid #00829b;
   -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.19);
   box-shadow: 0 2px 4px rgba(0,64,76,0.19);
 }
-.date-wrap.is-open {
-  display: block;
+.comiseo-daterangepicker a {
+  text-decoration: none;
+  font-size: 14px;
 }
-.date-wrap .date-header {
+.comiseo-daterangepicker .comiseo-daterangepicker-main {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-box;
+  display: inline-flex;
+  -webkit-box-direction: reverse;
+  -moz-box-direction: reverse;
+  -o-box-direction: reverse;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  width: 100%;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline {
+  width: auto !important;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group {
+  float: left;
+  width: 50%;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group.ui-datepicker-group-first {
+  border-right: 1px solid rgba(20,140,163,0.33);
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group .ui-datepicker-header {
+  position: relative;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group .ui-datepicker-header .ui-datepicker-prev,
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group .ui-datepicker-header .ui-datepicker-next {
+  position: absolute;
+  font-size: 22px;
+  color: #5e6e71;
+  cursor: pointer;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group .ui-datepicker-header .ui-datepicker-prev {
+  left: 35px;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group .ui-datepicker-header .ui-datepicker-next {
+  right: 35px;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group .ui-datepicker-header .ui-datepicker-title {
+  border-bottom: 1px solid rgba(20,140,163,0.33);
+  text-align: center;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group .ui-datepicker-header .ui-datepicker-title span {
+  color: #5e6e71;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group table.ui-datepicker-calendar {
+  width: 100%;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group table.ui-datepicker-calendar thead tr th {
+  text-align: center;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group table.ui-datepicker-calendar thead tr th span {
+  font-size: 15px;
+  line-height: 32px;
+  text-transform: uppercase;
+  color: #148ca3;
+  font-weight: normal;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .ui-datepicker-inline .ui-datepicker-group table.ui-datepicker-calendar tbody tr {
+  line-height: 35px;
+  text-align: center;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .comiseo-daterangepicker-presets {
+  text-align: center;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-main .comiseo-daterangepicker-presets .ui-widget-content {
   background-color: #00829b;
   -webkit-border-radius: 2px 2px 0 0;
   border-radius: 2px 2px 0 0;
   width: 100%;
-  color: #fff;
-  text-align: center;
 }
-.date-wrap .date-header:after {
+.comiseo-daterangepicker .comiseo-daterangepicker-main .comiseo-daterangepicker-presets .ui-widget-content:after {
   content: '';
   position: absolute;
   top: -21px;
@@ -8197,91 +8283,99 @@ hr {
   border: 11px solid transparent;
   border-bottom: 10px solid #00829b;
 }
-.date-wrap .date-header__item {
+.comiseo-daterangepicker .comiseo-daterangepicker-main .comiseo-daterangepicker-presets .ui-widget-content .ui-menu-item {
   display: inline-block;
-  font-size: 14px;
   line-height: 40px;
   padding: 0 12px;
 }
-.date-wrap .date-header__item:first-child {
-  padding: 0;
-}
-.date-wrap .date-header__item.active a {
-  font-weight: 700;
-  border-color: #00829b;
-}
-.date-wrap .date-header__link {
-  color: #fff;
+.comiseo-daterangepicker .comiseo-daterangepicker-main .comiseo-daterangepicker-presets .ui-widget-content .ui-menu-item a {
+  font-size: 14px;
+  color: #f5fafc;
   text-decoration: none;
   border-bottom: 1px dashed #fff;
 }
-.date-wrap .date-header__link:hover {
+.comiseo-daterangepicker .comiseo-daterangepicker-main .comiseo-daterangepicker-presets .ui-widget-content .ui-menu-item a:hover {
   border-color: #00829b;
 }
-.date-wrap .datepick {
-  width: 595px !important;
+.comiseo-daterangepicker .comiseo-daterangepicker-main .comiseo-daterangepicker-presets .ui-widget-content .ui-menu-item:first-child a {
+  border-bottom: none;
+  cursor: default;
+}
+.comiseo-daterangepicker .comiseo-daterangepicker-buttonpanel {
+  margin-top: -5px;
+  text-align: right;
+  vertical-align: middle;
+  padding: 10px;
+  border-top: 1px solid rgba(20,140,163,0.33);
   zoom: 1;
 }
-.date-wrap .datepick:before,
-.date-wrap .datepick:after {
+.comiseo-daterangepicker .comiseo-daterangepicker-buttonpanel:before,
+.comiseo-daterangepicker .comiseo-daterangepicker-buttonpanel:after {
   content: "";
   display: table;
 }
-.date-wrap .datepick:after {
+.comiseo-daterangepicker .comiseo-daterangepicker-buttonpanel:after {
   clear: both;
 }
-.date-wrap .datepick a {
-  text-decoration: none;
+.comiseo-daterangepicker .comiseo-daterangepicker-buttonpanel .ui-button {
+  float: right;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  width: 115px;
+  padding: 5px 0;
+  margin-left: 10px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
-.date-wrap .datepick-month {
-  width: 50%;
-  float: left;
-  text-align: center;
+.comiseo-daterangepicker .comiseo-daterangepicker-buttonpanel .ui-button.ui-priority-primary {
+  background-color: #3ebfac;
+  border: 1px solid #3ebfac;
 }
-.date-wrap .datepick-month .datepick-month-header {
-  line-height: 35px;
+.comiseo-daterangepicker .comiseo-daterangepicker-buttonpanel .ui-button.ui-priority-primary:hover {
+  background-color: #3ab3a2;
+  border-color: #3ab3a2;
 }
-.date-wrap .datepick-month.last {
-  border-left: 1px solid rgba(20,140,163,0.33);
-  margin-left: -1px;
+.comiseo-daterangepicker .comiseo-daterangepicker-buttonpanel .ui-button.ui-priority-secondary {
+  background-color: #a9bdc4;
+  border: 1px solid #a9bdc4;
 }
-.date-wrap .datepick-month table {
-  width: 100%;
+.comiseo-daterangepicker .comiseo-daterangepicker-buttonpanel .ui-button.ui-priority-secondary:hover {
+  background-color: #a4b4bb;
+  border-color: #a4b4bb;
 }
-.date-wrap .datepick-month thead tr:first-child {
-  border-top: 1px solid rgba(20,140,163,0.33);
+.comiseo-daterangepicker .ui-state-default {
+  color: #1d1e29;
 }
-.date-wrap .datepick-month thead tr:last-child span {
-  font-size: 15px;
-  line-height: 32px;
-  text-transform: uppercase;
-  color: #148ca3;
+.comiseo-daterangepicker .ui-state-active {
+  position: relative;
+  z-index: 0;
+  color: #fff;
+  font-weight: 700;
 }
-.date-wrap .datepick-month thead tr .datepickerGoNext a {
-  font-size: 20px;
+.comiseo-daterangepicker .ui-state-active:before {
+  content: '';
+  background-color: #3ebfac;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  margin-left: -14px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
-.date-wrap .datepick-month thead tr .datepickerGoPrev a {
-  font-size: 20px;
-}
-.date-wrap .datepick-month thead tr th {
-  text-align: center;
-}
-.date-wrap .datepick-month thead tr th a {
-  font-size: 16px;
-  line-height: 32px;
-  color: #5e6e71;
-}
-.date-wrap .datepick-month tbody tr {
-  line-height: 35px;
-}
-.date-wrap .datepick-month tbody tr td .datepick-other-month {
+.comiseo-daterangepicker .ui-datepicker-other-month a {
   color: #a6b8bc;
 }
-.date-wrap .datepick-month tbody tr td .datepick-today {
+.comiseo-daterangepicker .ui-datepicker-today a {
   color: #f07804;
+  font-weight: normal !important;
   position: relative;
 }
-.date-wrap .datepick-month tbody tr td .datepick-today:after {
+.comiseo-daterangepicker .ui-datepicker-today a:after {
   content: '';
   position: absolute;
   bottom: -6px;
@@ -8295,73 +8389,16 @@ hr {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-.date-wrap .datepick-month tbody tr td .datepick-selected,
-.date-wrap .datepick-month tbody tr td .datepick-highlight {
-  position: relative;
+.comiseo-daterangepicker td.ui-state-highlight {
+  background-color: #eaf5f9;
 }
-.date-wrap .datepick-month tbody tr td .datepick-selected:before,
-.date-wrap .datepick-month tbody tr td .datepick-highlight:before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  margin-top: -18px;
-  left: 50%;
-  margin-left: -22px;
-  width: 46px;
-  height: 35px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #dfe7e9;
-  z-index: -5;
+.comiseo-daterangepicker td.ui-state-highlight:first-child {
+  -webkit-border-radius: 3px 0 0 0;
+  border-radius: 3px 0 0 0;
 }
-.date-wrap .datepick-month tbody tr a {
-  color: #1d1e29;
-}
-.date-wrap .date-footer {
-  border-top: 1px solid rgba(20,140,163,0.33);
-  line-height: 50px;
-  zoom: 1;
-}
-.date-wrap .date-footer:before,
-.date-wrap .date-footer:after {
-  content: "";
-  display: table;
-}
-.date-wrap .date-footer:after {
-  clear: both;
-}
-.date-wrap .date-footer__left {
-  float: left;
-  color: #91b5bc;
-  font-size: 16px;
-  padding-left: 25px;
-}
-.date-wrap .date-footer__left input {
-  border: none;
-  width: 180px;
-}
-.date-wrap .date-footer__right {
-  float: right;
-}
-.date-wrap .date-footer__button {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  width: 115px;
-  padding: 5px 0;
-  margin-right: 10px;
-}
-.date-wrap .date-footer__button.btn-green {
-  background-color: #3ebfac;
-}
-.date-wrap .date-footer__button.btn-green:hover {
-  background-color: #3ab3a2;
-}
-.date-wrap .date-footer__button.btn-grey {
-  background-color: #a9bdc4;
-}
-.date-wrap .date-footer__button.btn-grey:hover {
-  background-color: #a4b4bb;
+.comiseo-daterangepicker td.ui-state-highlight:last-child {
+  -webkit-border-radius: 0 3px 0 0;
+  border-radius: 0 3px 0 0;
 }
 .clinic-nav {
   width: 100%;

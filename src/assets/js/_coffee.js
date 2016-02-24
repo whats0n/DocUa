@@ -1479,34 +1479,57 @@ $(".js-remove").on("click", function() {
 $(".js-btn-picker").on("click", function() {
   var picker;
   picker = $(this).siblings(".date-wrap");
-  picker.toggleClass('is-open');
-  return $('.js-datepicker').datepick({
-    dateFormat: 'd MM',
-    rangeSelect: true,
-    monthsToShow: [1, 2],
-    showTrigger: '#calImg',
-    showOtherMonths: true,
-    selectOtherMonths: true,
-    changeMonth: false,
-    altField: '.date-footer__text',
-    altFormat: 'd MM'
+  return picker.toggleClass('is-open');
+});
+
+$(function() {
+  $('.js-datepicker').daterangepicker({
+    initialText: 'Select period...',
+    verticalOffset: 20,
+    applyOnMenuSelect: false,
+    clearButtonText: 'Отменить',
+    applyButtonText: 'Подтвердить',
+    dateFormat: "d MM",
+    altFormat: {
+      start: ".js-input"
+    },
+    datepickerOptions: {
+      numberOfMonths: 2,
+      maxDate: null,
+      showOtherMonths: true,
+      selectOtherMonths: true,
+      firstDay: 1
+    },
+    presetRanges: [
+      {
+        text: 'Последние: '
+      }, {
+        text: '7 дней',
+        dateStart: function() {
+          return moment();
+        },
+        dateEnd: function() {
+          return moment().add('days', 6);
+        }
+      }, {
+        text: '14 дней',
+        dateStart: function() {
+          return moment();
+        },
+        dateEnd: function() {
+          return moment().add('days', 13);
+        }
+      }, {
+        text: '30 дней',
+        dateStart: function() {
+          return moment();
+        },
+        dateEnd: function() {
+          return moment().add('days', 29);
+        }
+      }
+    ]
   });
-});
-
-$(".js-date-close").on("click", function() {
-  var value;
-  value = $('.date-footer__text').val();
-  $(".date-wrap").removeClass("is-open");
-  return $('.js-clone-date').text(value);
-});
-
-$(".date-header__item").on("click", function() {
-  var Picker, day, today, today7;
-  Picker = $('.js-datepicker').datepick();
-  today = Picker.find('.datepick-today').text();
-  day = 7;
-  today7 = parseInt(today) + day;
-  return $(this).addClass('active');
 });
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };

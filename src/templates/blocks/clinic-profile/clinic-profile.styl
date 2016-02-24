@@ -19,7 +19,7 @@
     margin-left 151px 
     li
         position relative
-        border 1px solid #E6E6E6
+        border 1px solid #E6E6E6 !important
         // box-sizing border-box
         &:hover
             color blue_link
@@ -507,180 +507,206 @@
                 &:hover
                     background-color #e5f2f5 
                     color #168da4 
-        .date-picker
-            position relative
-            width 226px
-            height 31px
-            color #bed3d8
-            padding-left 7px
-            cursor pointer 
-            &:before
-                content ''
-                float left
-                margin-top 0 
-                border none
-                background url('i/cabinet/piker-calendar.png') no-repeat center center
-                margin-right 10px
-                width 20px
-                height 20px
-            
-.date-wrap
-    display none
-    position absolute 
-    z-index 100 
-    top 50px
-    right 0
-    width 596px
-    background-color #FFF 
-    border 1px solid blue_base
-    border-radius 3px
-    box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
-    &.is-open
-        display block   
-    .date-header
-        background-color blue_base 
-        border-radius 2px 2px 0 0 
-        width 100%
-        color white
-        text-align center
-        &:after
-            content ''
-            position absolute
-            top -21px
-            right 193px 
-            width 0
-            height 0
-            border 11px solid transparent
-            border-bottom 10px solid blue_base
-        &__item
-            display inline-block
-            font-size 14px
-            line-height 40px
-            padding 0 12px
-            &:first-child
-                padding 0
-            &.active
-                a
-                    font-weight 700 
-                    border-color blue_base 
-        &__link
-            color #FFF
-            text-decoration none
-            border-bottom 1px dashed #fff 
-            &:hover
-                border-color blue_base
-    .datepick
-        width 595px !important
-        clearfix()
-        a 
-            text-decoration none
-    .datepick-month
-        width 50%
+.comiseo-daterangepicker-triggerbutton
+    position relative
+    width 226px
+    height 31px
+    color #bed3d8
+    padding-left 7px
+    cursor pointer
+    background-color: white
+    border: 1px solid rgba(22, 141, 164, 0.7)
+    border-radius: 3px
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15) 
+    text-align left
+    &:before
+        content ''
         float left
-        text-align center
-        .datepick-month-header
-            line-height 35px
-        &.last
-            border-left 1px solid  rgba(#148ca3, 0.33)
-            margin-left -1px
-            
-        table
-            width 100%
-        thead
-            tr
-                &:first-child
-                    border-top 1px solid rgba(#148ca3, 0.33)
-                &:last-child
-                    span
-                        font-size 15px
-                        line-height 32px
-                        text-transform uppercase
-                        color #148ca3 
-                    
-                .datepickerGoNext
+        margin-top 0 
+        border none
+        background url('i/cabinet/piker-calendar.png') no-repeat center center
+        margin-right 10px
+        width 20px
+        height 20px
+    &:after
+        content ''
+        position absolute
+        top 50%
+        margin-top -3px
+        right 15px 
+        width 0
+        height 0
+        border 4px solid transparent
+        border-top 5px solid blue_base
+.comiseo-daterangepicker
+    width 596px
+    border-radius 3px
+    background-color: white
+    border: 1px solid #00829b
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.19)
+    a
+        text-decoration none
+        font-size 14px
+    .comiseo-daterangepicker-main
+        display inline-flex
+        flex-direction column-reverse
+        width 100%
+        .ui-datepicker-inline
+            width auto !important
+            .ui-datepicker-group
+                float left
+                width 50%
+                &.ui-datepicker-group-first
+                    border-right 1px solid rgba(#148ca3, 0.33)
+                .ui-datepicker-header
+                    position relative
+                    .ui-datepicker-prev, .ui-datepicker-next
+                        position: absolute
+                        font-size 22px
+                        color text_color
+                        cursor pointer
+                    .ui-datepicker-prev
+                        left: 35px
+                    .ui-datepicker-next
+                        right: 35px
+                    .ui-datepicker-title
+                        border-bottom 1px solid rgba(#148ca3, 0.33)
+                        text-align center
+                        span
+                            color: text_color
+                            font-size: 16px
+                            font-weight: 400
+                            line-height: 32px
+                        
+                table.ui-datepicker-calendar
+                    width 100%
+                    thead
+                        tr
+                            th
+                                text-align center
+                                span
+                                    font-size 15px
+                                    line-height 32px
+                                    text-transform uppercase
+                                    color #148ca3 
+                                    font-weight normal
+                    tbody
+                        tr
+                            line-height 35px
+                            text-align center
+        .comiseo-daterangepicker-presets
+            text-align center
+            .ui-widget-content
+                background-color blue_base 
+                border-radius 2px 2px 0 0 
+                width 100%
+                &:after
+                    content ''
+                    position absolute
+                    top -21px
+                    right 193px 
+                    width 0
+                    height 0
+                    border 11px solid transparent
+                    border-bottom 10px solid blue_base
+                
+                .ui-menu-item 
+                    display inline-block
+                    line-height 40px
+                    padding 0 12px
                     a
-                        font-size 20px
-                .datepickerGoPrev
-                    a
-                        font-size 20px
-                th
-                   text-align center
-                   a
-                       font-size 16px
-                       line-height 32px 
-                       color text_color
-        tbody
-            tr
-                line-height 35px
-                td
-                    .datepick-other-month
-                        color #a6b8bc 
-                    .datepick-today
-                        color #f07804
-                        position relative
-                        &:after
-                            content ''
-                            position absolute
-                            bottom -6px
-                            left 50% 
-                            margin-left -3px
-                            z-index 10
-                            display block
-                            background-color #f07804
-                            width 5px
-                            height 5px
-                            border-radius 50%
-                    .datepick-selected, .datepick-highlight
-                        position relative
-                        &:before
-                            content ''
-                            position absolute
-                            top 50%
-                            margin-top -18px
-                            left 50%
-                            margin-left -22px
-                            width 46px
-                            height 35px
-                            border-radius 3px 
-                            background-color grey_base 
-                            z-index -5 
-                a
-                    color #1d1e29  
-
-    .date-footer
+                        font-size 14px
+                        color #f5fafc
+                        text-decoration none
+                        border-bottom 1px dashed #fff 
+                        &:hover
+                            border-color blue_base
+                    &:first-child
+                        a
+                            border-bottom none
+                            cursor default
+    .comiseo-daterangepicker-buttonpanel
+        margin-top -5px
+        text-align right
+        vertical-align middle
+        padding 10px
         border-top 1px solid rgba(#148ca3, 0.33)
-        // min-height 50px
-        line-height 50px
-        clearfix()
-        &__left
-            float left
-            color #91b5bc
-            font-size 16px
-            padding-left 25px
-            input
-                border none
-                width 180px
-        &__right
+        clearfix() 
+        .ui-button
             float right
-        &__button
             color #fff
             font-size 14px
             font-weight: 700
             width 115px
             padding 5px 0
-            margin-right 10px
-            &.btn-green
+            margin-left 10px
+            border-radius: 3px
+            &.ui-priority-primary
                 background-color green_base
+                border 1px solid  green_base
                 &:hover
                     background-color #3ab3a2
-                    
-            &.btn-grey
+                    border-color #3ab3a2
+            &.ui-priority-secondary
                 background-color #a9bdc4
+                border 1px solid #a9bdc4
                 &:hover
                     background-color #A4B4BB
-                         
-                    
-            
-                    
-                
+                    border-color #A4B4BB
+
+                   
+    .ui-state-default
+        color #1d1e29
+        // &:hover
+        //     opacity .7
+    .ui-state-active
+        position relative
+        z-index 0 
+        color #FFF
+        font-weight 700 
+        &:before
+            content ''
+            background-color green_base
+            position absolute
+            top 50% 
+            left 50% 
+            z-index -1  
+            width 28px
+            height 28px
+            margin-top -14px        
+            margin-left -14px 
+            border-radius 3px
+        // &:hover
+        //     &:before
+        //         background-color #3ab3a2 
+                   
+    .ui-datepicker-other-month
+        a
+            color #a6b8bc 
+    .ui-datepicker-today
+        a
+            color #f07804
+            font-weight normal !important
+            position relative
+            &:after
+                content ''
+                position absolute
+                bottom -6px
+                left 50% 
+                margin-left -3px
+                z-index 10
+                display block
+                background-color #f07804
+                width 5px
+                height 5px
+                border-radius 50% 
+    td.ui-state-highlight
+        background-color #eaf5f9
+        &:first-child
+            border-radius 3px 0 0 0 
+        &:last-child
+            border-radius 0 3px 0 0 
      
+
+                            
+                    
