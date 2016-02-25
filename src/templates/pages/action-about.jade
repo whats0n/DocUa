@@ -6,7 +6,7 @@
     modals: select-area, select-specialization, doctor-request, clinic-location-map
     page_name: action-about 
 
-.row       
+.row         
             
     section.col-md-9     
         +b.section-action.section-action__about
@@ -43,6 +43,57 @@
                         +e.old 1245грн
                         +e.new 1050грн 
                         +e("a").btn(href="#") Записаться на прием 
+        +b.action-about.action-about__mod
+            +e.in
+                +e.title-wrap
+                    +e.title Об aкции
+                    +e('p').text Каждый четверг с 9:00 до 10:00. в Клинике доктора Дяченко действует скидка 10% на консультацию терапевта и гастроэнтеролога.
+                +e.caption Услуги, который входят в акцию:
+                +b("ul").block-services 
+                    +e("li").item
+                        +e.title
+                            +e("ul").list
+                                +e("li").row
+                                    +e.row-in.row-item__mod
+                                        +e.left Консультация терапевта 
+                                        +e.right
+                                            span.old_price  1020 грн
+                                            span.new_price  820 грн
+                                            a(href="#").btn.btn-success Записаться 
+                                +e("li").row
+                                    +e.row-in.row-item__mod
+                                        +e.left Консультация  гастроэнтеролога 
+                                        +e.right
+                                            span.old_price  1020 грн
+                                            span.new_price  640 грн
+                                            a(href="#").btn.btn-success Записаться 
+                                +e("li").row
+                                    +e.row-in.row-item__mod
+                                        +e.left Сбор анамнеза
+                                        +e.right
+                                            span.old_price  1020 грн
+                                            span.new_price  820 грн
+                                            a(href="#").btn.btn-success Записаться 
+                                +e("li").row
+                                    +e.row-in.row-item__mod
+                                        +e.left Осмотр пациента
+                                        +e.right
+                                            span.old_price  1020 грн
+                                            span.new_price  640 грн 
+                                            a(href="#").btn.btn-success Записаться
+                                 +e("li").row
+                                    +e.row-in.row-item__mod
+                                        +e.left Рекомендации по лечебной диете
+                                        +e.right
+                                            span.old_price  1020 грн
+                                            span.new_price  820 грн 
+                                            a(href="#").btn.btn-success Записаться
+                                 
+
+
+
+
+
 
         +b.action-about
             +e.title Об aкции
@@ -102,9 +153,9 @@
                     tr.table__disc-style
                         td Тироксин свободный (Т4 свободн.)   
                         td 1 
-                    
+                +e.text.text-info Консультация по поводу папиллом – бесплатно. Дополнительно оплачивается анестезия. Консультация по поводу папиллом – бесплатно. Дополнительно оплачивается анестезия.  
 
-                +e.text.text-info Консультация по поводу папиллом – бесплатно. Дополнительно оплачивается анестезия. Консультация по поводу папиллом – бесплатно. Дополнительно оплачивается анестезия.                     
+
 
             +e.title.title__clinics Клиники в акции
             +b.action-clinics

@@ -1490,15 +1490,15 @@ $(function() {
     clearButtonText: 'Отменить',
     applyButtonText: 'Подтвердить',
     dateFormat: "d MM",
-    altFormat: {
-      start: ".js-input"
-    },
     datepickerOptions: {
       numberOfMonths: 2,
       maxDate: null,
       showOtherMonths: true,
       selectOtherMonths: true,
-      firstDay: 1
+      firstDay: 1,
+      navigationAsDateFormat: true,
+      altField: ".js-date-range",
+      altFormat: "d MM"
     },
     presetRanges: [
       {
@@ -1529,6 +1529,47 @@ $(function() {
         }
       }
     ]
+  });
+});
+
+$(function() {
+  var next, prev;
+  prev = $('.ui-datepicker-prev').clone();
+  next = $('.ui-datepicker-next').clone();
+  prev.appendTo('.ui-corner-right');
+  prev.addClass('btn-prev');
+  next.appendTo('.ui-corner-left');
+  next.addClass('btn-next');
+  return $('<input class="js-date-range ui-button-text"></input>').appendTo('.comiseo-daterangepicker-buttonpanel');
+});
+
+$(function() {
+  return $('.btn-prev').click(function() {
+    return $('.ui-datepicker-prev').trigger('click');
+  });
+});
+
+$(function() {
+  return $('.btn-next').click(function() {
+    return $('.ui-datepicker-next').trigger('click');
+  });
+});
+
+$(function() {
+  return $('.ui-menu-item').on('click', function() {
+    $('.ui-menu-item').removeClass('is-active');
+    if (!$('.ui-menu-item').hasClass('is-active')) {
+      $(this).addClass("is-active");
+    } else {
+      $('.ui-menu-item').removeClass('is-active');
+    }
+    return false;
+  });
+});
+
+$(function() {
+  return $('.ui-priority-secondary').on('click', function() {
+    return $('.ui-menu-item').removeClass('is-active');
   });
 });
 

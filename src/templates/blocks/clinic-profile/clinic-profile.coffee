@@ -87,9 +87,6 @@ $(".js-btn-picker").on "click",  ->
 
 $ ->
 	
-
-
-
 	$('.js-datepicker').daterangepicker
 		initialText: 'Select period...',
 		verticalOffset: 20,
@@ -97,15 +94,26 @@ $ ->
 		clearButtonText: 'Отменить',
 		applyButtonText: 'Подтвердить',
 		dateFormat: "d MM",
-		altFormat: 
-			start: ".js-input",
+		# altField:  ".js-date-range",
+			
 			# end: ".js-input",
 		datepickerOptions:
 			numberOfMonths : 2,
 			maxDate: null,
 			showOtherMonths: true,
 			selectOtherMonths: true,
-			firstDay: 1
+			firstDay: 1,
+			navigationAsDateFormat: true,
+			altField: ".js-date-range",
+			altFormat: "d MM"
+			# onSelect: (dateText, inst) ->
+				# date = $('.js-datepicker').daterangepicker('getRange')
+				# day = date.getDate()
+				# month = date.getMonth() + 1
+				# year = date.getFullYear()
+				# alert day + '-' + month + '-' + year
+				# alert(date)
+				# return
 
 		presetRanges: [
 			{
@@ -115,7 +123,7 @@ $ ->
 			{
 				text: '7 дней'
 				dateStart: ->
-					moment()
+					moment()	
 				dateEnd: ->
 					moment().add 'days', 6
 			}
@@ -134,12 +142,61 @@ $ ->
 					moment().add 'days', 29
 			}
 		]
-	return 
+		# onChange: ->
+		# 	date = JSON.stringify($('.js-datepicker').daterangepicker('getRange'))
+		# 	alert(date)
+
+		# getRange: ->
+
+	return
+
+# add prev-btn and input
+$ ->
+	prev = $('.ui-datepicker-prev').clone()
+	next = $('.ui-datepicker-next').clone()
+
+	prev.appendTo '.ui-corner-right'
+	prev.addClass 'btn-prev'
+
+	next.appendTo '.ui-corner-left'
+	next.addClass 'btn-next'
 	
+	$('<input class="js-date-range ui-button-text"></input>').appendTo '.comiseo-daterangepicker-buttonpanel'
+
+# trigger btn-prev
+$ ->
+	$('.btn-prev').click ->
+		$('.ui-datepicker-prev').trigger 'click'
+
+# trigger btn-next
+$ ->
+	$('.btn-next').click ->
+		$('.ui-datepicker-next').trigger 'click'
 
 
+# selected button
+$ ->
+	$('.ui-menu-item').on 'click', ->
+		$('.ui-menu-item').removeClass 'is-active'
 
+		if !$('.ui-menu-item').hasClass 'is-active'
+			$(@).addClass "is-active"
+		else
+			$('.ui-menu-item').removeClass 'is-active'
+		return false
+$ ->
+	$('.ui-priority-secondary').on 'click', ->
+		$('.ui-menu-item').removeClass 'is-active'
+# $ ->
+# 	$(document).on 'click', (e)->
 
+# 		if $('.comiseo-daterangepicker-triggerbutton').hasClass('.comiseo-daterangepicker-active')
+# 			return false 
+# 			alert()
+# 		else
+# 			$('.js-datepicker').daterangepicker 'close'
+# 		e.stopPropagation()
+		
 
 	# dateFormat: 'd MM'
 	# rangeSelect: true

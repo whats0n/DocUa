@@ -222,6 +222,7 @@
 			else if (selectedDate < range.start) { // start set, but selected date is earlier
 				range.end = range.start;
 				range.start = selectedDate;
+				
 			} else {
 				range.end = selectedDate;
 			}
