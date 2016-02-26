@@ -135,7 +135,6 @@
                             
                         '</div>' +
                     '</div>' +
-
             '</div>';
 
         this.parentEl = (options.parentEl && $(options.parentEl).length) ? $(options.parentEl) : $(this.parentEl);

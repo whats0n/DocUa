@@ -1483,7 +1483,7 @@ $(function() {
     startDate: moment(),
     opens: "left",
     ranges: {
-      'Последние': [],
+      'Последние :': [],
       '7 дней': [moment(), moment().add(6, 'days')],
       '14 дней': [moment(), moment().add(13, 'days')],
       '30 дней': [moment(), moment().add(29, 'days')]
@@ -1838,8 +1838,6 @@ $('.finder').on('diagnosticSelected', function(t, e) {
   return $('#select-area-diagnostics').modal('hide');
 });
 
-
-
 var $goTop, SHOW_GOTOP_AFTER, goTopShown;
 
 SHOW_GOTOP_AFTER = 500;
@@ -1864,6 +1862,8 @@ $(window).scroll(function() {
     return goTopShown = false;
   }
 });
+
+
 
 $(function() {
   var updateGroup1, updateGroup2;

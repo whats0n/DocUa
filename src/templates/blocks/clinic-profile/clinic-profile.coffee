@@ -80,7 +80,7 @@ $ ->
 		startDate: moment(),
 		opens: "left",
 		ranges:
-			'Последние': [
+			'Последние :': [
 			]
 			'7 дней': [
 				moment()
