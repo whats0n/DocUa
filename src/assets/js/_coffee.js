@@ -1476,100 +1476,27 @@ $(".js-remove").on("click", function() {
   return false;
 });
 
-$(".js-btn-picker").on("click", function() {
-  var picker;
-  picker = $(this).siblings(".date-wrap");
-  return picker.toggleClass('is-open');
-});
-
 $(function() {
-  $('.js-datepicker').daterangepicker({
-    initialText: 'Select period...',
-    verticalOffset: 20,
-    applyOnMenuSelect: false,
-    clearButtonText: 'Отменить',
-    applyButtonText: 'Подтвердить',
-    dateFormat: "d MM",
-    datepickerOptions: {
-      numberOfMonths: 2,
-      maxDate: null,
-      showOtherMonths: true,
-      selectOtherMonths: true,
-      firstDay: 1,
-      navigationAsDateFormat: true,
-      altField: ".js-date-range",
-      altFormat: "d MM"
+  return $('.js-datepicker').daterangepicker({
+    autoUpdateInput: true,
+    alwaysShowCalendars: true,
+    startDate: moment(),
+    opens: "left",
+    ranges: {
+      'Последние': [],
+      '7 дней': [moment(), moment().add(6, 'days')],
+      '14 дней': [moment(), moment().add(13, 'days')],
+      '30 дней': [moment(), moment().add(29, 'days')]
     },
-    presetRanges: [
-      {
-        text: 'Последние: '
-      }, {
-        text: '7 дней',
-        dateStart: function() {
-          return moment();
-        },
-        dateEnd: function() {
-          return moment().add('days', 6);
-        }
-      }, {
-        text: '14 дней',
-        dateStart: function() {
-          return moment();
-        },
-        dateEnd: function() {
-          return moment().add('days', 13);
-        }
-      }, {
-        text: '30 дней',
-        dateStart: function() {
-          return moment();
-        },
-        dateEnd: function() {
-          return moment().add('days', 29);
-        }
-      }
-    ]
-  });
-});
-
-$(function() {
-  var next, prev;
-  prev = $('.ui-datepicker-prev').clone();
-  next = $('.ui-datepicker-next').clone();
-  prev.appendTo('.ui-corner-right');
-  prev.addClass('btn-prev');
-  next.appendTo('.ui-corner-left');
-  next.addClass('btn-next');
-  return $('<input class="js-date-range ui-button-text"></input>').appendTo('.comiseo-daterangepicker-buttonpanel');
-});
-
-$(function() {
-  return $('.btn-prev').click(function() {
-    return $('.ui-datepicker-prev').trigger('click');
-  });
-});
-
-$(function() {
-  return $('.btn-next').click(function() {
-    return $('.ui-datepicker-next').trigger('click');
-  });
-});
-
-$(function() {
-  return $('.ui-menu-item').on('click', function() {
-    $('.ui-menu-item').removeClass('is-active');
-    if (!$('.ui-menu-item').hasClass('is-active')) {
-      $(this).addClass("is-active");
-    } else {
-      $('.ui-menu-item').removeClass('is-active');
+    locale: {
+      format: 'YYYY-MM-DD',
+      separator: ' - ',
+      applyLabel: 'Подтвердить',
+      cancelLabel: 'Отменить',
+      daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
+      monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+      firstDay: 1
     }
-    return false;
-  });
-});
-
-$(function() {
-  return $('.ui-priority-secondary').on('click', function() {
-    return $('.ui-menu-item').removeClass('is-active');
   });
 });
 

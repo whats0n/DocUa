@@ -96,7 +96,7 @@ module.exports = {
         "./src/assets/vendor/jscrollpane/jquery.jscrollpane.js",
         "./src/assets/vendor/jquery.inputmask/inputmask/jquery.inputmask.js",
         "./src/assets/vendor/moment/moment.js",
-        "./src/assets/vendor/jquery.comiseo.daterangepicker/jquery.comiseo.daterangepicker.js",
+        "./src/assets/vendor/daterangepicker/daterangepicker.js",
         "./src/assets/vendor/dotdotdot/jquery.dotdotdot.js",
         "./src/assets/js/_coffee.js"
     ],
