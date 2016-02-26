@@ -1226,9 +1226,9 @@
             var date = cal.hasClass('left') ? this.leftCalendar.calendar[row][col] : this.rightCalendar.calendar[row][col];
 
             if (this.endDate) {
-                this.container.find('input[name=daterangepicker_start]').val(date.format(this.locale.format));
+                this.container.find('input[name=daterangepicker_start]').val();
             } else {
-                this.container.find('input[name=daterangepicker_end]').val(date.format(this.locale.format));
+                this.container.find('input[name=daterangepicker_end]').val();
             }
 
             //highlight the dates between the start date and the date being hovered as a potential end date
