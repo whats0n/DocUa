@@ -12,34 +12,35 @@
 .tabs-shadow
     line-height 40px
     box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
-    background-color grey_base
+    background-color #FFF
     clearfix()
 
      
 .clinics-profile__tabs
     margin-left 151px 
+    border-bottom none 
     li
         position relative
-        // border 1px solid grey_base 
-        // background-color grey_base
         box-sizing border-box
-        
+        // margin-bottom 0
+        border none
         &:hover
             color blue_link
-            // border-color grey_base 
+            border none
         a
-            
-            padding 9px 21px
+            padding 10px 21px
+            margin-right 3px
             font-size 15px
             text-decoration none
             outline 0
             border-radius 0 
             color blue_link
+            border none
             @media tablet
                 padding 9px 11px
             &:hover
                 color blue_link
-                border-color transparent !important 
+                border-color none !important 
                 box-sizing border-box
         &.active
             &:after
@@ -51,7 +52,6 @@
                 left 0
                 top -2px
                 z-index 1
-                
             &:before
                 content 'Заявки'
                 position absolute
@@ -69,7 +69,9 @@
                 color text_color
                 background-color grey_base
                 box-shadow inset 5px 0px 10px -5px rgba(0, 64, 76, 0.15)
-                // padding-bottom 14px  
+                border none
+                // border-top-color transparent 
+                // border-image url('i/grey_texture.png')
                 &:before
                     content ""
                     position absolute
@@ -79,7 +81,6 @@
                     height 0
                     border 8px solid transparent
                     border-top 7px solid blue_base
-                    
                 &:after
                     content ""
                     position absolute
@@ -90,31 +91,21 @@
                     border 8px solid transparent
                     border-top 7px solid #FFF
                     z-index 2
-                    
-                // &:after
-                //     content ""
-                //     width 98%
-                //     height 4px
-                //     position absolute
-                //     right 0
-                //     bottom -5px 
-                //     background-color grey_base
-                
-                    
                 &:hover
                     color text_color
                     background-color grey_base
-                    // border-color transparent !important
+                    border none
                 &:focus
                     color text_color
                     background-color grey_base
-                    // border-bottom 5px solid grey_base
+                    border none
         
 // clinic-profile 
 .profile-footer__wrap 
     border-top 1px dotted rgba(29,137,160,.45) 
     background-color rgba(#eaf5f9, 0.48)
     padding 25px 0
+    
 
 // CLINIC-PROFILE_CURRENT
 .clinic-current__content
