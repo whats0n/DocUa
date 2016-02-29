@@ -1477,11 +1477,13 @@ $(".js-remove").on("click", function() {
 });
 
 $(function() {
-  return $('.js-datepicker').daterangepicker({
+  $('.js-datepicker').daterangepicker({
     autoUpdateInput: true,
     alwaysShowCalendars: true,
     startDate: moment(),
     opens: "left",
+    applyClass: "apply-btn",
+    cancelClass: "cancel-btn",
     ranges: {
       'Последние :': [],
       '7 дней': [moment(), moment().add(6, 'days')],
@@ -1489,13 +1491,26 @@ $(function() {
       '30 дней': [moment(), moment().add(29, 'days')]
     },
     locale: {
-      format: 'YYYY-MM-DD',
+      format: 'DD MMMM',
       separator: ' - ',
       applyLabel: 'Подтвердить',
       cancelLabel: 'Отменить',
       daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
       monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
       firstDay: 1
+    }
+  });
+  return $('.ranges li').on('click', function() {
+    var parent;
+    parent = $('.ranges li').parents('.daterangepicker');
+    setTimeout(function() {
+      return parent.addClass('open', 1000);
+    });
+    $('.ranges li').removeClass('active');
+    if (!$('.ranges li').hasClass('active')) {
+      return $(this).addClass("active");
+    } else {
+      return $('.ranges li').removeClass('active');
     }
   });
 });
@@ -1838,6 +1853,8 @@ $('.finder').on('diagnosticSelected', function(t, e) {
   return $('#select-area-diagnostics').modal('hide');
 });
 
+
+
 var $goTop, SHOW_GOTOP_AFTER, goTopShown;
 
 SHOW_GOTOP_AFTER = 500;
@@ -1862,8 +1879,6 @@ $(window).scroll(function() {
     return goTopShown = false;
   }
 });
-
-
 
 $(function() {
   var updateGroup1, updateGroup2;

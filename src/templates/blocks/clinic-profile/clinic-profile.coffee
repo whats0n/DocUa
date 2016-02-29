@@ -79,6 +79,8 @@ $ ->
 		# autoUpdateInput: true,
 		startDate: moment(),
 		opens: "left",
+		applyClass: "apply-btn"
+		cancelClass: "cancel-btn"
 		ranges:
 			'Последние :': [
 			]
@@ -92,16 +94,13 @@ $ ->
 			]
 			'30 дней': [
 				moment()
-				moment().add(29, 'days')
+				moment().add(29, 'days') 
 			]
 		locale:
-			format: 'YYYY-MM-DD',
+			format: 'DD MMMM',
 			separator: ' - ',
 			applyLabel: 'Подтвердить',
 			cancelLabel: 'Отменить',
-			# fromLabel: 'From',
-			# toLabel: 'To',
-			# customRangeLabel: 'Custom',
 			daysOfWeek: [
 				'ВC'
 				'ПН'
@@ -126,6 +125,30 @@ $ ->
 				'Декабрь'
 			]
 			firstDay: 1
+
+
+		# $('.js-datepicker').on 'showCalendar.daterangepicker', (ev, picker) ->
+
+	$('.ranges li').on 'click', ->
+		parent = $('.ranges li').parents('.daterangepicker')
+		# alert()
+		setTimeout ->
+			parent.addClass 'open'
+			, 1000
+		$('.ranges li').removeClass 'active'
+	
+		if !$('.ranges li').hasClass 'active'
+			$(@).addClass "active"
+		else
+			$('.ranges li').removeClass 'active'
+
+		
+
+
+
+
+
+
 
 
 # 	$('.js-datepicker').daterangepicker

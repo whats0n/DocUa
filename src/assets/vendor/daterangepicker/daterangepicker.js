@@ -359,6 +359,8 @@
             this.container.find('.calendar-time').hide();
         }
 
+       
+
         //can't be used together for now
         if (this.timePicker && this.autoApply)
             this.autoApply = false;
@@ -686,11 +688,15 @@
             if (this.showWeekNumbers || this.showISOWeekNumbers)
                 html += '<th></th>';
 
-            if ((!minDate || minDate.isBefore(calendar.firstDay)) && (!this.linkedCalendars || side == 'left')) {
-                html += '<th class="prev available"><i class="fa fa-chevron-left glyphicon glyphicon-chevron-left"></i></th>';
-            } else {
-                html += '<th></th>';
-            }
+            // if ((!minDate || minDate.isBefore(calendar.firstDay)) && (!this.linkedCalendars || side == 'left')) {
+            //     html += '<th class="prev available"><i class="fa fa-chevron-left "></i></th>';
+            // }
+
+            
+
+
+
+
 
             var dateHtml = this.locale.monthNames[calendar[1][1].month()] + calendar[1][1].format(" YYYY");
 
@@ -727,12 +733,15 @@
                 dateHtml = monthHtml + yearHtml;
             }
 
-            html += '<th colspan="5" class="month">' + dateHtml + '</th>';
-            if ((!maxDate || maxDate.isAfter(calendar.lastDay)) && (!this.linkedCalendars || side == 'right' || this.singleDatePicker)) {
-                html += '<th class="next available"><i class="fa fa-chevron-right glyphicon glyphicon-chevron-right"></i></th>';
-            } else {
-                html += '<th></th>';
+            
+            if ((!maxDate || maxDate.isAfter(calendar.lastDay)) && (!this.linkedCalendars || side == 'right' || side == 'left')) {
+                html += '<th class="prev available"><i class="fa fa-chevron-right"></i></th>';
             }
+
+            html += '<th colspan="5" class="month">' + dateHtml + '</th>'; 
+            if ((!maxDate || maxDate.isAfter(calendar.lastDay)) && (!this.linkedCalendars || side == 'right' || side == 'left')) {
+                html += '<th class="next available"><i class="fa fa-chevron-right"></i></th>';
+            } 
 
             html += '</tr>';
             html += '<tr>';
@@ -1187,8 +1196,13 @@
 
         clickPrev: function(e) {
             var cal = $(e.target).parents('.calendar');
+
+            if (cal.hasClass('right')) {
+                this.leftCalendar.month.subtract(1, 'month');
+            }
             if (cal.hasClass('left')) {
                 this.leftCalendar.month.subtract(1, 'month');
+                
                 if (this.linkedCalendars)
                     this.rightCalendar.month.subtract(1, 'month');
             } else {
@@ -1201,6 +1215,7 @@
             var cal = $(e.target).parents('.calendar');
             if (cal.hasClass('left')) {
                 this.leftCalendar.month.add(1, 'month');
+                this.rightCalendar.month.add(1, 'month');
             } else {
                 this.rightCalendar.month.add(1, 'month');
                 if (this.linkedCalendars)
