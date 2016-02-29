@@ -1477,7 +1477,7 @@ $(".js-remove").on("click", function() {
 });
 
 $(function() {
-  $('.js-datepicker').daterangepicker({
+  return $('.js-datepicker').daterangepicker({
     autoUpdateInput: true,
     alwaysShowCalendars: true,
     startDate: moment(),
@@ -1491,26 +1491,13 @@ $(function() {
       '30 дней': [moment(), moment().add(29, 'days')]
     },
     locale: {
-      format: 'DD MMMM',
+      format: 'D MMMM',
       separator: ' - ',
       applyLabel: 'Подтвердить',
       cancelLabel: 'Отменить',
       daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
       monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
       firstDay: 1
-    }
-  });
-  return $('.ranges li').on('click', function() {
-    var parent;
-    parent = $('.ranges li').parents('.daterangepicker');
-    setTimeout(function() {
-      return parent.addClass('open', 1000);
-    });
-    $('.ranges li').removeClass('active');
-    if (!$('.ranges li').hasClass('active')) {
-      return $(this).addClass("active");
-    } else {
-      return $('.ranges li').removeClass('active');
     }
   });
 });

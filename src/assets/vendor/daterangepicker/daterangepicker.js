@@ -89,6 +89,7 @@
         this.leftCalendar = {};
         this.rightCalendar = {};
 
+        // 
         //custom options from user
         if (typeof options !== 'object' || options === null)
             options = {};
@@ -139,7 +140,7 @@
 
         this.parentEl = (options.parentEl && $(options.parentEl).length) ? $(options.parentEl) : $(this.parentEl);
         this.container = $(options.template).appendTo(this.parentEl);
-
+        
         //
         // handle all the possible options overriding defaults
         //
@@ -1013,7 +1014,7 @@
         },
 
         move: function() {
-            var parentOffset = { top: 0, left: 0 },
+            var parentOffset = { top: -19, left: 0 },
                 containerTop;
             var parentRightEdge = $(window).width();
             if (!this.parentEl.is('body')) {

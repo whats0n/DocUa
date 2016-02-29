@@ -566,10 +566,15 @@
     .nav-calendar
         position relative
         display inline-block
-        &__date
+        background #fff
+        &__date-picker
+            border 1px solid #00829b
+            box-shadow: 0 2px 4px rgba(0, 64, 76, 0.19)
+            border-radius 3px 
             display inline-block
-            padding 5px 15px 5px 40px 
+            padding 5px 5px 5px 40px 
             color #91b5bc
+            width 210px
         &:before
             content ''
             position absolute
@@ -580,10 +585,7 @@
             background url('i/cabinet/piker-calendar.png')  no-repeat
             width 20px
             height 20px
-        .comiseo-daterangepicker
-            .comiseo-daterangepicker-main
-                display inline-flex
-                flex-direction column
+        
 .deduce__left
     float left
     .deduce__item
@@ -597,11 +599,18 @@
     &__item
         float right
         margin-left 30px
-        @media only screen and (max-width: 1050px)
-            margin-left 20px
+        @media only screen and (max-width: 1200px)
+            margin-left 15px
+        @media only screen and (max-width: 1150px)
+            margin-left 0
+        @media only screen and (max-width: 1096px)
+            margin-left 30px
         &:last-child
             padding 5px 10px
             margin-left 0
+            @media only screen and (max-width: 1096px)
+                // float right
+                padding 10px 0 0 0 
         .js-section-choice
             display inline-block 
             margin-left 15px

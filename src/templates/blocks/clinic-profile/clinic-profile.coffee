@@ -73,6 +73,7 @@ $(".js-remove").on "click", ->
 
 $ ->
 	
+		
 	$('.js-datepicker').daterangepicker
 		autoUpdateInput: true,
 		alwaysShowCalendars: true,
@@ -97,7 +98,7 @@ $ ->
 				moment().add(29, 'days') 
 			]
 		locale:
-			format: 'DD MMMM',
+			format: 'D MMMM',
 			separator: ' - ',
 			applyLabel: 'Подтвердить',
 			cancelLabel: 'Отменить',
@@ -127,20 +128,23 @@ $ ->
 			firstDay: 1
 
 
-		# $('.js-datepicker').on 'showCalendar.daterangepicker', (ev, picker) ->
+	# $('.js-datepicker').on 'hideCalendar.daterangepicker', (ev, picker) ->
+	# 	alert()
 
-	$('.ranges li').on 'click', ->
-		parent = $('.ranges li').parents('.daterangepicker')
-		# alert()
-		setTimeout ->
-			parent.addClass 'open'
-			, 1000
-		$('.ranges li').removeClass 'active'
 	
-		if !$('.ranges li').hasClass 'active'
-			$(@).addClass "active"
-		else
-			$('.ranges li').removeClass 'active'
+
+	# $('.ranges li').on 'click', ->
+	# 	parent = $('.ranges li').parents('.daterangepicker')
+	# 	# alert()
+	# 	# setTimeout ->
+	# 	# 	parent.addClass 'open'
+	# 	# 	, 1000
+	# 	$('.ranges li').removeClass 'active'
+	
+	# 	if !$('.ranges li').hasClass 'active'
+	# 		$(@).addClass "active"
+	# 	else
+	# 		$('.ranges li').removeClass 'active'
 
 		
 
