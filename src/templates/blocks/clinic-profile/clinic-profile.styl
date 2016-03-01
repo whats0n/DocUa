@@ -127,7 +127,7 @@
         .left-side
             background-color white
             float left
-            width 50%
+            width 51%
             border-radius 3px 0 0 3px
             @media only screen and (max-width: 1200px)
                 float none
@@ -178,6 +178,7 @@
                 .table-info
                     padding 20px
                     margin-left 161px
+                    min-height 180px
                     // @media only screen and (max-width: 1200px)
                     //     margin-left 0 
                     table
@@ -197,14 +198,14 @@
                                     font-size 14px
                                     font-weight 700
                                     padding-left 10px
-                                    white-space nowrap
-                                    overflow hidden
-                                    -ms-text-overflow ellipsis
-                                    text-overflow ellipsis
+                                    // white-space nowrap
+                                    // overflow hidden
+                                    // -ms-text-overflow ellipsis
+                                    // text-overflow ellipsis
         .right-side
             float left
             background #fcfdfd
-            width 50%
+            width 49%
             -webkit-border-radius 0 3px 3px 0  
             border-radius 0 3px 3px 0
             @media only screen and (max-width: 1200px)
@@ -265,7 +266,9 @@
                         height 100%  
                         width 50%
                         z-index 1 
-                        border-left 1px dashed rgba(29,137,160,.45)    
+                        border-left 1px dashed rgba(29,137,160,.45) 
+                        @media  only screen and (max-width: 1200px)
+                            border-left none
                     &__enter-text
                         width 100%
                         height 69px
@@ -315,9 +318,9 @@
                         @media only screen and (max-width: 1200px)
                             background-color rgba(#909191, 0.26)
         .right-side
-            border-left 1px dashed rgba(29,137,160,.45)
             .right-side__wrap  
                 .comment-block
+                    border-left 1px dashed rgba(29,137,160,.45)
                     width 100%
                     &__item
                         &:last-child
@@ -332,8 +335,12 @@
                     background-color rgba(#909191, 0.26) 
             &.right-side__small
                 border-left none
-                .right-side__wrap  
+                .right-side__wrap 
+                    // .alternative-block
+                    //     &:after
+                    //         display none 
                     .comment-block
+                        border-left none 
                         width 55%
                         &__item
                             &:last-child
@@ -556,190 +563,3 @@
         &:focus
             outline none
             border none
-// .comiseo-daterangepicker
-//     width 596px
-//     border-radius 3px
-//     background-color: white
-//     border: 1px solid #00829b
-//     box-shadow: 0 2px 4px rgba(0, 64, 76, 0.19)
-//     a
-//         text-decoration none
-//         font-size 14px
-//     .comiseo-daterangepicker-main
-//         display inline-flex
-//         flex-direction column-reverse
-//         width 100%
-//     .ui-datepicker-inline
-//         width auto !important
-//     .ui-datepicker-group
-//         float left
-//         width 50%
-//         &.ui-datepicker-group-first
-//             border-right 1px solid rgba(#148ca3, 0.33)
-//     .ui-datepicker-header
-//         position relative
-//         .ui-datepicker-prev, .ui-datepicker-next
-//             position: absolute
-//             font-size 22px
-//             color text_color
-//             cursor pointer
-//     .ui-datepicker-prev
-//         left: 35px
-//         bottom 0
-//         // span
-//         //     &:before
-//         //         content "‹"
-//         //         display inline-block
-//         //         position absolute
-//         //         right -300px
-//     .ui-datepicker-next
-//         right: 35px
-//         bottom 0
-//         z-index 9999
-//     .ui-datepicker-title
-//         border-bottom 1px solid rgba(#148ca3, 0.33)
-//         text-align center
-//         span
-//             color: text_color
-//             font-size: 16px
-//             font-weight: 400
-//             line-height: 32px
-                
-//     table.ui-datepicker-calendar
-//                 width 100%
-//                 min-height 243px
-//                 thead
-//                     tr
-//                         th
-//                             text-align center
-//                             span
-//                                 font-size 15px
-//                                 line-height 32px
-//                                 text-transform uppercase
-//                                 color #148ca3 
-//                                 font-weight normal
-//                 tbody
-//                     tr
-//                         line-height 35px
-//                         text-align center
-//     .comiseo-daterangepicker-presets
-//         text-align center
-//         .ui-widget-content
-//             background-color blue_base 
-//             border-radius 2px 2px 0 0 
-//             width 100%
-//             &:after
-//                 content ''
-//                 position absolute
-//                 top -21px
-//                 right 193px 
-//                 width 0
-//                 height 0
-//                 border 11px solid transparent
-//                 border-bottom 10px solid blue_base
-            
-//             .ui-menu-item 
-//                 display inline-block
-//                 line-height 40px
-//                 padding 0 12px
-//                 &.is-active
-//                     a
-//                         border-bottom none
-//                         font-weight 700
-                         
-//                 a
-//                     font-size 14px
-//                     color #f5fafc
-//                     text-decoration none
-//                     border-bottom 1px dashed #fff 
-//                     &:hover
-//                         border-color blue_base
-//                 &:first-child
-//                     a
-//                         border-bottom none
-//                         cursor default
-//     .comiseo-daterangepicker-buttonpanel
-//         margin-top -5px
-//         // text-align right
-//         vertical-align middle
-//         padding 10px
-//         border-top 1px solid rgba(#148ca3, 0.33)
-//         clearfix() 
-//         .ui-button
-//             float right
-//             color #fff
-//             font-size 14px
-//             font-weight: 700
-//             width 115px
-//             padding 5px 0
-//             margin-left 10px
-//             border-radius: 3px
-//             &.ui-priority-primary
-//                 background-color green_base
-//                 border 1px solid  green_base
-//                 &:hover
-//                     background-color #3ab3a2
-//                     border-color #3ab3a2
-//             &.ui-priority-secondary
-//                 background-color #a9bdc4
-//                 border 1px solid #a9bdc4
-//                 &:hover
-//                     background-color #A4B4BB
-//                     border-color #A4B4BB
-
-                   
-//     .ui-state-default
-//         color #1d1e29
-//         // &:hover
-//         //     opacity .7
-//     .ui-state-active
-//         position relative
-//         z-index 0 
-//         color #FFF
-//         font-weight 700 
-//         &:before
-//             content ''
-//             background-color green_base
-//             position absolute
-//             top 50% 
-//             left 50% 
-//             z-index -1  
-//             width 28px
-//             height 28px
-//             margin-top -14px        
-//             margin-left -14px 
-//             border-radius 3px
-//         // &:hover
-//         //     &:before
-//         //         background-color #3ab3a2 
-                   
-//     .ui-datepicker-other-month
-//         a
-//             color #a6b8bc 
-//     .ui-datepicker-today
-//         a
-//             color #f07804
-//             font-weight normal !important
-//             position relative
-//             &:after
-//                 content ''
-//                 position absolute
-//                 bottom -6px
-//                 left 50% 
-//                 margin-left -3px
-//                 z-index 10
-//                 display block
-//                 background-color #f07804
-//                 width 5px
-//                 height 5px
-//                 border-radius 50% 
-//     td.ui-state-highlight
-//         background-color #eaf5f9
-//         &:first-child
-//             border-radius 3px 0 0 0 
-//         &:last-child
-//             border-radius 0 3px 0 0 
-     
-
-                            
-                    

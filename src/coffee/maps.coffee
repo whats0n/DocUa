@@ -27,7 +27,7 @@ docMaps =
       center: latlng
       scrollwheel: false
       disableDefaultUI: true
-      disableDoubleClickZoom: true
+      disableDoubleClickZoom: true 
       panControl: false
 
     if @pageName == 'map'
@@ -38,13 +38,13 @@ docMaps =
     else
       docMaps.mapOffsetTop = $('.widget-map').offset().top
       @map = new (google.maps.Map)(document.getElementById('map-canvas-right'), mapOptions)
-      if @pageName == 'doctorInner' or @pageName == 'clinicInner'
+      if @pageName == 'doctorInner' || @pageName == 'clinicInner'
         @mapCss.inner()
       else
         @mapCss.index()
         $(window).scroll ->
           docMaps.mapCss.index()
-        @listeners.common @map
+        @listeners.common @map 
       @newScope()
       @mapModal()
 
@@ -116,17 +116,17 @@ docMaps =
       navbarHeight = $('.navbar-main').outerHeight()
 
       if docMaps.mapOffsetTop - $(window).scrollTop() < 0
-        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 40)
+        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 20)
         $('.widget-map').css
           position: 'fixed'
           $('.widget-map').width $('.widget-map').parent('aside').width()
 
-        if $('html').height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)
+        if $(document).height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) 
           docMaps.canAnimateTop = true
           $('aside').height($('aside').prev().height())
           $('.widget-map').css
             position: 'absolute'
-            bottom: 10
+            bottom: 20
             top: 'auto'
         else
           if docMaps.canAnimateTop
@@ -146,7 +146,7 @@ docMaps =
         return
 
     inner: -> #one clinic or one doctor side map
-      if docMaps.pageName == 'clinicInner'
+      if docMaps.pageName == 'clinicInner' && docMaps.pageName == 'diagnostic-center'
         $('#map-canvas-right, .widget-map').height(600)
       else
         $('#map-canvas-right, .widget-map').height($('.card').outerHeight())

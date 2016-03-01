@@ -1296,6 +1296,14 @@ $(".js-clear").on("click", function() {
   return false;
 });
 
+var initMap;
+
+initMap = function() {
+  docMaps.mapOffsetTop = $('.widget-map').offset().top;
+  this.map = new google.maps.Map(document.getElementById('map-canvas-right'), mapOptions);
+  return this.mapCss.inner();
+};
+
 $(function() {
   var updateBadgeLabels;
   updateBadgeLabels = function() {
@@ -3071,16 +3079,16 @@ docMaps = {
       var mapHeight, navbarHeight;
       navbarHeight = $('.navbar-main').outerHeight();
       if (docMaps.mapOffsetTop - $(window).scrollTop() < 0) {
-        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 40);
+        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 20);
         $('.widget-map').css({
           position: 'fixed'
         }, $('.widget-map').width($('.widget-map').parent('aside').width()));
-        if ($('html').height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)) {
+        if ($(document).height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)) {
           docMaps.canAnimateTop = true;
           $('aside').height($('aside').prev().height());
           $('.widget-map').css({
             position: 'absolute',
-            bottom: 10,
+            bottom: 20,
             top: 'auto'
           });
         } else {
@@ -3106,7 +3114,7 @@ docMaps = {
       });
     },
     inner: function() {
-      if (docMaps.pageName === 'clinicInner') {
+      if (docMaps.pageName === 'clinicInner' && docMaps.pageName === 'diagnostic-center') {
         return $('#map-canvas-right, .widget-map').height(600);
       } else {
         return $('#map-canvas-right, .widget-map').height($('.card').outerHeight());
