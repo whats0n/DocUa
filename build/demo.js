@@ -155,6 +155,72 @@ doctors = [
     }
 ]
 
+diagnost = [
+    {
+        id: "d1",
+        name: "Днепролаб на м. Осокорки",
+        rating: 4.2,
+        specialty: "Дерматолог, Трихолог",
+        image: "/i/_alexandriyskiy-constantin.jpg",
+        affilates: [
+            {
+                id: "f1",
+                name: "Здоровая семья",
+                address: "проспект Науки 30"
+            }
+        ]
+    },
+    {
+        id: "d2",
+        name: "Днепролаб на м. Осокорки2",
+        rating: 3.8,
+        specialty: "Косметолог",
+        image: "/i/_alexandriyskiy-constantin.jpg",
+        affilates: [
+            {
+                id: "f3",
+                name: "Здоровая семья",
+                address: "Артема 12"
+            }
+        ]
+    }
+]
+
+// actions = [
+//     {
+//         id: "a1",
+//         name: "Александрийский Константин Константинович",
+//         rating: 4.2,
+//         specialty: "Дерматолог, Трихолог",
+//         image: "/i/_alexandriyskiy-constantin.jpg",
+//         affilates: [
+//             {
+//                 id: "f1",
+//                 name: "Здоровая семья",
+//                 address: "проспект Науки 35"
+//             },
+//             {
+//                 id: "f2",
+//                 name: "Инсайт Медикал",
+//                 address: "пр. Петра Григоренка, 44"
+//             }
+//         ]
+//     },
+//     {
+//         name: "Доктор Константин Сергеевич",
+//         rating: 3.8,
+//         specialty: "Косметолог",
+//         image: "/i/_alexandriyskiy-constantin.jpg",
+//         affilates: [
+//             {
+//                 id: "f3",
+//                 name: "Здоровая семья",
+//                 address: "Артема 12"
+//             }
+//         ]
+//     }
+// ]
+
 var subUrl = location.pathname.split('/')[1];
 
 if (subUrl === 'clinics.html')
@@ -173,6 +239,21 @@ if (subUrl === 'map.html') {
 
 if (subUrl === 'doctors.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(doctors, 'doctors', 'Киев', 'vrachi.dev.doc.ua'));
+
+
+if (subUrl === 'diagnostic-list.html')
+    google.maps.event.addDomListener(window, 'load', docMaps.initialize(diagnost, 'diagnostList', 'Киев', 'vrachi.dev.doc.ua'));
+
+if (subUrl === 'diagnostic-center.html')
+    google.maps.event.addDomListener(window, 'load', docMaps.initialize(diagnost[0].affilates, 'diagnostCenter', 'Киев', 'vrachi.dev.doc.ua'));
+
+// if (subUrl === 'action.html')
+//     google.maps.event.addDomListener(window, 'load', docMaps.initialize(actions, 'action', 'Киев', 'vrachi.dev.doc.ua'));
+
+// if (subUrl === 'action-about.html')
+//     google.maps.event.addDomListener(window, 'load', docMaps.initialize(actions, 'actionAbout', 'Киев', 'vrachi.dev.doc.ua'));
+
+
 
 if (subUrl === 'doctor-consultation.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(doctors[0].affilates, 'doctorInner', 'Киев', 'vrachi.dev.doc.ua'));

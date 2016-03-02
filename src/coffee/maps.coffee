@@ -13,7 +13,7 @@ docMaps =
   map: {}
   geocoder: {}
   cardId: 0
-  domain: ''
+  domain: '' 
   initialize: (allItemsList, pageName, city, domain) ->
     @allItemsList = allItemsList
     @city = city
@@ -30,19 +30,23 @@ docMaps =
       disableDoubleClickZoom: true 
       panControl: false
 
+
+    # if @pageName == 'action' || @pageName == 'actionAbout'
+    #   @mapCss.inner()
+
     if @pageName == 'map'
       @mapCss.bigMap()
-      @map = new (google.maps.Map)(document.getElementById('map-canvas-big'), mapOptions)
+      @map = new (google.maps.Map)(document.getElementById('map-canvas-big'), mapOptions) 
       @listeners.common @map
       @newScope()
     else
       docMaps.mapOffsetTop = $('.widget-map').offset().top
       @map = new (google.maps.Map)(document.getElementById('map-canvas-right'), mapOptions)
-      if @pageName == 'doctorInner' || @pageName == 'clinicInner'
+      if @pageName == 'doctorInner' || @pageName == 'clinicInner' || @pageName == 'diagnostList' || @pageName == 'diagnostCenter' 
         @mapCss.inner()
       else
         @mapCss.index()
-        $(window).scroll ->
+        $(window).scroll -> 
           docMaps.mapCss.index()
         @listeners.common @map 
       @newScope()
@@ -52,6 +56,9 @@ docMaps =
     if list
       @allItemsList = list
     if @pageName == 'doctorInner'
+      @addNewMarker = @addMarker.inner()
+      @addNewMarker()
+    if @pageName == 'diagnostCenter'
       @addNewMarker = @addMarker.inner()
       @addNewMarker()
     else
@@ -116,12 +123,12 @@ docMaps =
       navbarHeight = $('.navbar-main').outerHeight()
 
       if docMaps.mapOffsetTop - $(window).scrollTop() < 0
-        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 20)
+        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 30)
         $('.widget-map').css
           position: 'fixed'
           $('.widget-map').width $('.widget-map').parent('aside').width()
 
-        if $(document).height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) 
+        if $(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)  
           docMaps.canAnimateTop = true
           $('aside').height($('aside').prev().height())
           $('.widget-map').css
