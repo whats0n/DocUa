@@ -10059,6 +10059,28 @@ hr {
 .header-styled__darkColor .h1 {
   color: #5e6e71;
 }
+.favorites-link {
+  position: relative;
+  padding-left: 22px;
+  font-weight: normal;
+  color: #fff;
+}
+.favorites-link:hover {
+  color: #fff;
+}
+.favorites-link:hover span {
+  border-bottom: transparent;
+}
+.favorites-link:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  background-image: url("/i/sprites-general.png");
+  background-position: 0px -346px;
+  width: 17px;
+  height: 15px;
+}
 .favorites-block {
   white-space: nowrap;
   margin-top: 3px;
@@ -10125,28 +10147,6 @@ hr {
   background-position: -153px -346px;
   width: 16px;
   height: 13px;
-}
-.favorites-link {
-  position: relative;
-  padding-left: 22px;
-  font-weight: normal;
-  color: #fff;
-}
-.favorites-link:hover {
-  color: #fff;
-}
-.favorites-link:hover span {
-  border-bottom: transparent;
-}
-.favorites-link:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 3px;
-  background-image: url("/i/sprites-general.png");
-  background-position: 0px -346px;
-  width: 17px;
-  height: 15px;
 }
 .feature {
   margin-bottom: 45px;
@@ -15267,6 +15267,18 @@ article a {
   transition: all 0.3s;
   outline: none;
 }
+.vidjets-block__item.is-disabled {
+  background: #e5f2f5;
+}
+.vidjets-block__item.is-disabled .vidjets-block__link {
+  cursor: default;
+}
+.vidjets-block__item.is-disabled:hover {
+  background: #e5f2f5;
+}
+.vidjets-block__item.is-disabled:hover .vidjets-block__text {
+  color: #1d89a0;
+}
 .vidjets-block__item:nth-child(3n) {
   border-right: none;
 }
@@ -15287,9 +15299,6 @@ article a {
 }
 .vidjets-block__item:hover .vidjet-clinic:before {
   background: url("i/icons/vidjet-clinic_hover.png") no-repeat;
-}
-.vidjets-block__item:hover .vidjet-search:before {
-  background: url("i/icons/vidjet-search_hover.png") no-repeat;
 }
 .vidjets-block__link {
   display: block;
