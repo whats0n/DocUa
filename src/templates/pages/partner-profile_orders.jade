@@ -5,7 +5,7 @@
     activeMenuItem: 2  
  
 .row
-    section.col-sm-7
+    section.col-sm-8
       .change-time
         +b('ul').nav-days.template-block
           +e('li').item.active
@@ -21,15 +21,13 @@
           
 
 
-    article.col-sm-5
+    article.col-sm-4
       +b('ul').deduce
         +e.item Выводить на страницу: 
-            .js-section-choice
-                +e.number.template-block.js-field-child 10
-                ul.section-choice
-                    li.section-choice__item.js-child 10
-                    li.section-choice__item.js-child 20
-                    li.section-choice__item.js-child 50
+            +b('select').drop-down(name='by_num')
+                +e('option').item(value='1') 10
+                +e('option').item(value='2') 20
+                +e('option').item(value='3') 50
 
         +e.item Заказов: 
             strong 200
@@ -39,14 +37,14 @@
 .row
   section.col-sm-12.partner-table__invoices-mod
     table.partner-table.partner-table__invoices
-        thead.partner-table__head 
+        thead 
             tr
-                td ID
-                td Дата создания
-                td Источник
-                td Статус
-                td Комиссия
-        tbody.partner-table__body
+                th ID
+                th Дата создания
+                th Источник
+                th Статус
+                th Комиссия
+        tbody
             tr
                 td 345289 
                 td 2015-12-15, 18:01:34

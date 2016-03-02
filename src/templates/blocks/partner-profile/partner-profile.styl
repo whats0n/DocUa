@@ -346,7 +346,7 @@
     margin-bottom 30px
     box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
     
-    &__head
+    thead
         background-color #1d89a0
         border 1px solid #1d89a0 
         tr
@@ -356,7 +356,8 @@
             color #FFF
             font-size 15px
             font-weight 400
-            td
+            th
+                font-weight normal
                 &:first-child
                     background-color #1d89a0
                     padding-left 29px  
@@ -364,7 +365,7 @@
                     border-radius 3px 3px 0 0 
                 &:last-child
                     border-top 1px solid #1d89a0
-    &__body
+    tbody
         border 1px solid rgba(0,130,155,.16)
         background-color: white
         tr
@@ -446,7 +447,7 @@
         background url(i/cabinet/parol.png) no-repeat 
 
 .partner-table__admin
-    .partner-table__body
+    tbody
         tr
             td
                 &:first-child
@@ -468,9 +469,9 @@
 
 .partner-table__invoices
     margin-bottom 40px
-    .partner-table__head 
+    thead 
         tr
-            td
+            th
                 &:first-child
                     border-radius 3px 0 0 0
                     text-align right
@@ -491,7 +492,7 @@
                     border-radius 0 3px  0 0 
                     text-align center
                     border-left 1px solid #1d89a0
-    .partner-table__body
+    tbody
         tr
             &:nth-child(odd)
                 td
@@ -602,7 +603,17 @@
     .deduce__item
         &:last-child
             padding 0
-
+.drop-down
+    cursor pointer
+    font-size 14px
+    padding 5px 10px 5px 10px
+    background-color: white
+    border: 1px solid rgba(22, 141, 164, 0.7)
+    border-radius: 3px
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
+    height 31px
+    color: #91b5bc
+    margin-left 15px
 
 .deduce
     margin  20px 0 0 0
@@ -616,23 +627,12 @@
             margin-left 0
         @media only screen and (max-width: 1096px)
             margin-left 30px
+        
         &:last-child
             padding 5px 10px
             margin-left 0
             @media only screen and (max-width: 1096px)
-                // float right
                 padding 10px 0 0 0 
-        .js-section-choice
-            display inline-block 
-            margin-left 15px
-            .section-choice
-                .section-choice__item
-                    cursor pointer
-                    font-size 14px
-                    padding 5px 10px 5px 10px
-                    &:hover
-                        background-color #e5f2f5
-                        color #168da4      
 
     &__number
         position relative
@@ -656,7 +656,7 @@
         margin 20px 0
         thead
             tr
-                td
+                th
                     
                     &:first-child    
                         border-right 1px solid #1d89a0 
@@ -720,7 +720,7 @@
 .partner-table__statistic 
     thead
         tr
-            td
+            th
                 text-align right
                 &:first-child    
                     border-right 1px solid #1d89a0 

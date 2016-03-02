@@ -25,12 +25,9 @@
     article.col-sm-4
       +b('ul').deduce
         +e.item Детализация 
-            .js-section-choice
-                +e.number.template-block.js-field-child по дням
-                ul.section-choice
-                    li.section-choice__item.js-child по дням
-                    li.section-choice__item.js-child по неделям
-                    li.section-choice__item.js-child по месяцам
+            +b('select').drop-down(name='by_period')
+                +e('option').item(value='day') По дням
+                +e('option').item(value='month') По месяцам
 
 //- here chart 
 
@@ -45,27 +42,24 @@
   section.col-sm-12
     +b('ul').deduce.deduce__left
         +e.item Информация за 
-            .js-section-choice
-                +e.number.template-block.js-field-child 2015 год
-                ul.section-choice
-                    li.section-choice__item.js-child 2015 год
-                    li.section-choice__item.js-child 2016 год
-                    li.section-choice__item.js-child 2017 год 
+            +b('select').drop-down(name='year')
+                +e('option').item(value='2015') 2015 год
+                +e('option').item(value='2016') 2016 год
 
 .row
     section.col-sm-12
         table(cellpadding='0', cellspacing='0').partner-table.partner-table__statistic
-            thead.partner-table__head 
+            thead 
                 tr
-                    td Месяц
-                    td Посетителей
-                    td Кликов
-                    td Заказов
-                    td Конверсия
-                    td Отмененные
-                    td Принятые
-                    td Комиссия
-            tbody.partner-table__body
+                    th Месяц
+                    th Посетителей
+                    th Кликов
+                    th Заказов
+                    th Конверсия
+                    th Отмененные
+                    th Принятые
+                    th Комиссия
+            tbody
                 tr
                     td Ноябрь 2015 
                     td 132 856
