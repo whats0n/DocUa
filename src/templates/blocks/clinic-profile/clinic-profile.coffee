@@ -98,7 +98,7 @@ $ ->
 				moment().add(29, 'days') 
 			]
 		locale:
-			format: 'D MMMM',
+			format: 'DD.MM.YYYY',
 			separator: ' - ',
 			applyLabel: 'Подтвердить',
 			cancelLabel: 'Отменить',

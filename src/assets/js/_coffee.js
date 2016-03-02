@@ -1296,14 +1296,6 @@ $(".js-clear").on("click", function() {
   return false;
 });
 
-var initMap;
-
-initMap = function() {
-  docMaps.mapOffsetTop = $('.widget-map').offset().top;
-  this.map = new google.maps.Map(document.getElementById('map-canvas-right'), mapOptions);
-  return this.mapCss.inner();
-};
-
 $(function() {
   var updateBadgeLabels;
   updateBadgeLabels = function() {
@@ -1499,7 +1491,7 @@ $(function() {
       '30 дней': [moment(), moment().add(29, 'days')]
     },
     locale: {
-      format: 'D MMMM',
+      format: 'DD.MM.YYYY',
       separator: ' - ',
       applyLabel: 'Подтвердить',
       cancelLabel: 'Отменить',
