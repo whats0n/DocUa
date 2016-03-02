@@ -30,8 +30,22 @@
         &.item-null
             .block-services__title 
                 background-color #FFF
+                border-top-color #e6edef
+                border-bottom 1px solid #e6edef
+                
                 &:hover
                     background-color #f3f8fb 
+                .block-services__title-in
+                    clearfix()
+                    .block-services__price-discount
+                        @media screen560
+                            width 100%
+                            display inline-block
+                            text-align left
+                            margin -10px 0 10px 0
+                            padding-left 20px
+                            // margin  -10px 20px 10px 20px
+                            
     &__title
         clearfix()
         padding: 0 21px 
@@ -46,7 +60,7 @@
             font-size: 15px
             line-height: 1.2
             padding: 13px 0 13px 20px
-            display: block
+            display: inline-block
             overflow: hidden 
             position: relative
             span
@@ -81,6 +95,8 @@
             padding: 0 5px
         a.btn-hide
             display none
+            @media screen560
+                float right
     &__drop
         position: relative
         padding-top: 1px
@@ -194,9 +210,11 @@
             width 100%
     .block-services__right
         @media screen560
-            float none
-            width 100%
+            float left
+            width 100% 
             text-align left
+            a
+                float right
 .price-discount__mod
     @media screen560
         float none
