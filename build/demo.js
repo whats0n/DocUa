@@ -159,30 +159,19 @@ diagnost = [
     {
         id: "d1",
         name: "Днепролаб на м. Осокорки",
+        address: "пр.Науки, 30",
         rating: 4.2,
         specialty: "Дерматолог, Трихолог",
         image: "/i/_alexandriyskiy-constantin.jpg",
-        affilates: [
-            {
-                id: "f1",
-                name: "Здоровая семья",
-                address: "проспект Науки 30"
-            }
-        ]
     },
     {
         id: "d2",
         name: "Днепролаб на м. Осокорки2",
+        address: "Артема 12",
         rating: 3.8,
         specialty: "Косметолог",
         image: "/i/_alexandriyskiy-constantin.jpg",
-        affilates: [
-            {
-                id: "f3",
-                name: "Здоровая семья",
-                address: "Артема 12"
-            }
-        ]
+        
     }
 ]
 
@@ -245,7 +234,7 @@ if (subUrl === 'diagnostic-list.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(diagnost, 'diagnostList', 'Киев', 'vrachi.dev.doc.ua'));
 
 if (subUrl === 'diagnostic-center.html')
-    google.maps.event.addDomListener(window, 'load', docMaps.initialize(diagnost[0].affilates, 'diagnostCenter', 'Киев', 'vrachi.dev.doc.ua'));
+    google.maps.event.addDomListener(window, 'load', docMaps.initialize(diagnost, 'diagnostCenter', 'Киев', 'vrachi.dev.doc.ua'));
 
 // if (subUrl === 'action.html')
 //     google.maps.event.addDomListener(window, 'load', docMaps.initialize(actions, 'action', 'Киев', 'vrachi.dev.doc.ua'));
