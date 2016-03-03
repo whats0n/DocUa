@@ -1280,6 +1280,593 @@ if (typeof define === 'function' && define.amd) {
   window.waitForWebFonts = waitForWebFonts;
 }
 
+$("#select-specialization").on("click", "li a", function() {
+  var item;
+  item = $(this);
+  $('.js-clone span').text(item.text());
+  $('.js-clear').addClass('is-active');
+  $('.direction__title').text('Выбрано направление');
+  return $("#select-specialization").modal("hide");
+});
+
+$(".js-clear").on("click", function() {
+  $(this).siblings("span").text("Выберите направление");
+  $(this).removeClass('is-active');
+  $('.direction__title').text('Направление');
+  return false;
+});
+
+$(function() {
+  var updateBadgeLabels;
+  updateBadgeLabels = function() {
+    return $(".badge-label").each(function() {
+      var w;
+      w = $(this).outerWidth() / 2;
+      return $(this).find(".badge-label__arrow").css({
+        borderLeftWidth: w + "px",
+        borderRightWidth: w + "px"
+      });
+    });
+  };
+  $(window).resize(updateBadgeLabels);
+  $(document).on("shown.bs.tab", updateBadgeLabels);
+  $(document).on("shown.bs.modal", updateBadgeLabels);
+  return updateBadgeLabels();
+});
+
+$('.js-services-btn').on('click', function() {
+  var drop;
+  drop = $(this).siblings('.js-services-block');
+  drop.slideToggle('fast');
+  $(this).parents('.js-services').toggleClass('active');
+  return false;
+});
+
+$('.js-add-tel').click(function() {
+  $('.add-tel').addClass('is-active');
+});
+
+$('.js-section-choice').each(function() {
+  var item;
+  item = $(this).find('.section-choice');
+  $('body').click(function() {
+    return item.removeClass('is-open');
+  });
+  $(this).find('.js-field-child').click(function() {
+    if ($(this).hasClass('is-active')) {
+      $('.js-field-child').removeClass('is-active');
+      $('.section-choice').removeClass('is-open');
+    } else {
+      $('.js-field-child').removeClass('is-active');
+      $('.section-choice').removeClass('is-open');
+      $(this).siblings('.section-choice').addClass('is-open');
+    }
+    return false;
+  });
+  return item.click(function() {
+    return false;
+  });
+});
+
+$('.js-child').click(function() {
+  var elChild, elChildren, elField, elFields, id, item;
+  id = $(this).data('id');
+  item = $('.item__mod');
+  elFields = $('.js-group');
+  elField = $('.js-group[data-field="' + id + '"]');
+  elChild = $(this);
+  elChildren = $('.js-child');
+  if (!$(this).hasClass('is-active')) {
+    elFields.removeClass('is-open');
+    elChildren.removeClass('is-active');
+    item.addClass('is-open');
+    elChild.addClass('is-active');
+    elField.addClass('is-open');
+    if ($(this).data('id') === 0) {
+      item.removeClass('is-open');
+    }
+  }
+  $(this).parent('.section-choice').removeClass('is-open');
+  return $(this).parent('.section-choice').siblings('.js-field-child').text($(this).text());
+});
+
+$('.js-remove-parent').each(function() {
+  var elParent;
+  elParent = $(this);
+  return elParent.find('.js-remove-item').click(function() {
+    var elTotal, item;
+    item = $('.content-favorites__item');
+    elTotal = elParent.find(item).length;
+    $(this).closest(item).remove();
+    console.log(elParent.find(item).length);
+    if (elTotal === 1) {
+      elParent.remove();
+    }
+    false;
+  });
+});
+
+$('.js-table-scroll').jScrollPane({
+  autoReinitialise: true
+});
+
+$('.js-field-child').click(function() {
+  setTimeout(function() {
+    $('.js-choice-scroll').jScrollPane();
+  }, 10);
+});
+
+$('.js-selection-city').click(function() {
+  var text;
+  text = $(this).text();
+  $('.js-selection-main').text(text);
+  return $(this).closest('.section-choice').removeClass('is-open');
+});
+
+$('.js-date-mast').inputmask({
+  mask: "99.99.9999 "
+});
+
+$("#select-area").on("change", "input", function() {
+  var spanMain, spanText;
+  spanText = $(this).siblings('span').text();
+  spanMain = $(this).parents('label').siblings();
+  if (spanMain.is('ul')) {
+    spanMain.parent().addClass('is-main-disrtict');
+  }
+  if ($(this).prop('checked')) {
+    $(this).parents('label').addClass('is-active');
+    $(this).siblings('span').attr('data-place', spanText);
+    return $('.js-btn-text').text('Добавьте район');
+  } else {
+    $(this).parents('label').removeClass('is-active');
+    return $('.js-btn-text').text('Выберете район');
+  }
+});
+
+$(".alternative-block__enter-text").each(function() {
+  return $(this).val('');
+});
+
+$("#select-area").on("click", ".js-btn-clone", function() {
+  var item, itemParent;
+  item = $('.is-active').children('span');
+  itemParent = item.parent('.is-active');
+  $(".alternative-btn__district").empty();
+  if (item.siblings("input:checkbox:checked")) {
+    item.clone().appendTo(".alternative-btn__district");
+    return $(".alternative-btn__district").find("span").append('<i class="icon-close js-remove"></i>');
+  }
+});
+
+$("#select-area [data-action='reset']").on("click", function() {
+  $("#select-area").find('.pill').removeClass('is-active');
+  return $('.js-btn-text').text('Выберете район');
+});
+
+$(".alternative-btn__district").on("click", ".js-remove", function() {
+  var $item, $itemParent, data1, inputAlternative;
+  inputAlternative = $(this).parents('span');
+  data1 = inputAlternative.data("place");
+  $item = $("#select-area").find('.is-active').children('span[data-place=\'' + data1 + '\']');
+  $itemParent = $item.closest('.pill-group');
+  inputAlternative.remove();
+  $item.siblings('input').prop("checked", false).parents('.pill').removeClass('is-active');
+  if ($itemParent.hasClass('is-main-disrtict')) {
+    $itemParent.find(".pill :checked").prop("checked", false);
+  }
+  if (!$("#select-area").find('.is-active').hasClass('is-active')) {
+    return $('.js-btn-text').text('Выберете район');
+  }
+});
+
+$("#select-specialization").on("click", "li a", function() {
+  var item;
+  item = $(this);
+  $('.alternative-btn__specialization span').empty();
+  $('.alternative-btn__specialization span').text(item.text());
+  $('.js-remove').addClass('is-active');
+  return $('.js-btn-special').text('Выбрана специальность');
+});
+
+$(".js-remove").on("click", function() {
+  $(this).siblings("span").empty();
+  $(this).removeClass('is-active');
+  $('.js-btn-special').text('Выберите специальность');
+  return false;
+});
+
+var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
+$(function() {
+  var $block, activeItemIndex, setActiveElement;
+  $block = $(".comment-quotes");
+  activeItemIndex = 0;
+  setActiveElement = function(el) {
+    $block.find(".comment-quotes__item.active").removeClass("active");
+    $block.find(".comment-quotes__pane.active").removeClass("active");
+    $(el).addClass("active");
+    activeItemIndex = $(el).parent().index();
+    return $block.find(".comment-quotes__pane").eq(activeItemIndex).addClass("active");
+  };
+  $(".comment-quotes__item").on("click", function() {
+    return setActiveElement(this);
+  });
+  return $(".comment-quotes__header").owlCarousel({
+    navigation: true,
+    pagination: false,
+    navigationText: ["", ""],
+    rewindNav: false,
+    lazyLoad: false,
+    items: 5,
+    itemsDesktop: [1215, 5],
+    itemsTablet: [979, 5],
+    itemsMobile: [767, 2],
+    afterAction: function(el) {
+      var activateIndex, owl;
+      owl = $(el).data("owlCarousel");
+      if (owl) {
+        if (indexOf.call(owl.owl.visibleItems, activeItemIndex) < 0) {
+          activateIndex = activeItemIndex < owl.owl.visibleItems[0] ? owl.owl.visibleItems[0] : owl.owl.visibleItems[owl.owl.visibleItems.length - 1];
+          return setActiveElement($block.find(".comment-quotes__item").eq(activateIndex).get());
+        }
+      }
+    }
+  });
+});
+
+$(function() {
+  return $('.js-datepicker').daterangepicker({
+    autoUpdateInput: true,
+    alwaysShowCalendars: true,
+    startDate: moment(),
+    opens: "left",
+    applyClass: "apply-btn",
+    cancelClass: "cancel-btn",
+    ranges: {
+      'Последние :': [],
+      '7 дней': [moment(), moment().add(6, 'days')],
+      '14 дней': [moment(), moment().add(13, 'days')],
+      '30 дней': [moment(), moment().add(29, 'days')]
+    },
+    locale: {
+      format: 'YYYY.MM.DD',
+      separator: ' - ',
+      applyLabel: 'Подтвердить',
+      cancelLabel: 'Отменить',
+      daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
+      monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+      firstDay: 1
+    }
+  });
+});
+
+$('.js-nav a').on('click', function() {
+  var section;
+  section = $(this).attr('href');
+  $('html, body').animate({
+    scrollTop: $(section).offset().top - 35
+  }, 500);
+  return false;
+});
+
+$.fn.initFavoritesBlock = function() {
+  return this.each(function() {
+    var favored, favoritesBlockInitialized, ref;
+    ref = $(this).data(), favored = ref.favored, favoritesBlockInitialized = ref.favoritesBlockInitialized;
+    if (favoritesBlockInitialized) {
+      return;
+    }
+    $(this).toggleClass("favorites-block_favored", !!favored);
+    $(this).data("favoritesBlockInitialized", true);
+    return $(this).on('click', function(e) {
+      favored = $(this).data().favored;
+      favored = !favored;
+      $(this).toggleClass("favorites-block_favored", !!favored);
+      $(this).data('favored', !!favored);
+      $(this).trigger(!!favored ? 'favored' : 'unfavored');
+      return e.preventDefault();
+    });
+  });
+};
+
+$(".favorites-block").initFavoritesBlock();
+
+var trim;
+
+trim = function(s) {
+  return s.replace(/^\s*/, '').replace(/\s*$/, '');
+};
+
+$(".finder").on("columnagram.columnized", function() {
+  return setTimeout((function(_this) {
+    return function() {
+      return $(_this).addClass("finder_loaded");
+    };
+  })(this), 50);
+});
+
+$(".finder .finder__field-text").each(function() {
+  return $(this).data("emptyText", $(this).text());
+});
+
+$("a[data-toggle='tab'][href='#select-area-metro'], a[data-toggle='tab'][href='#select-area-districts']").on("shown.bs.tab", function(e) {
+  return $("#select-area").find(".pill :checked").prop("checked", false);
+});
+
+$("#select-area [data-action='reset']").click(function() {
+  $("#select-area").find(".pill :checked").prop("checked", false);
+  $(".finder [data-target='#select-area'] .finder__field-text").text($(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).addClass("grey");
+  $(".finder [data-target='#select-area'] input[type='hidden']").val("");
+  return false;
+});
+
+$("#select-countries [data-action='reset']").click(function() {
+  $("#select-countries").find(".pill :checked").prop("checked", false);
+  $(".finder [data-target='#select-countries'] .finder__field-text").text($(".finder [data-target='#select-countries'] .finder__field-text").data("emptyText")).addClass("grey");
+  $(".finder [data-target='#select-countries'] input[type='hidden']").val("");
+  return false;
+});
+
+$("#select-specialization").on("click", "li a", function(e) {
+  var dataValue, title, value;
+  value = $(e.currentTarget).data().value;
+  title = trim($(e.currentTarget).text());
+  if (!value) {
+    value = title;
+  }
+  dataValue = trim($(e.target).data('value'));
+  $(".finder").trigger("specializationSelected", {
+    title: title,
+    value: value,
+    dataValue: dataValue
+  });
+  return false;
+});
+
+$("select-other-spec").on("click", "li a", function(e) {
+  var dataValue, title, value;
+  value = $(e.currentTarget).data().value;
+  title = trim($(e.currentTarget).text());
+  if (!value) {
+    value = title;
+  }
+  dataValue = trim($(e.target).data('value'));
+  $(".finder").trigger("specializationSelected2", {
+    title: title,
+    value: value,
+    dataValue: dataValue
+  });
+  return false;
+});
+
+$("#select-branch").on("click", "li a", function(e) {
+  var title, value;
+  value = $(e.currentTarget).data().value;
+  title = trim($(e.currentTarget).text());
+  if (!value) {
+    value = title;
+  }
+  $(".finder").trigger("branchSelected", {
+    title: title,
+    value: value
+  });
+  return false;
+});
+
+$("#select-actions").on("click", "li a", function(e) {
+  var title, value;
+  value = $(e.currentTarget).data().value;
+  title = trim($(e.currentTarget).text());
+  if (!value) {
+    value = title;
+  }
+  $(".finder").trigger("actionsSelected", {
+    title: title,
+    value: value
+  });
+  return false;
+});
+
+$("#select-bundles").on("click", "li a", function(e) {
+  var title, value;
+  value = $(e.currentTarget).data().value;
+  title = trim($(e.currentTarget).text());
+  if (!value) {
+    value = title;
+  }
+  $(".finder").trigger("bundlesSelected", {
+    title: title,
+    value: value
+  });
+  return false;
+});
+
+$("#select-area-diagnostics").on("click", "li a", function(e) {
+  var defaultTitle, ref, title, value;
+  ref = $(e.currentTarget).data(), title = ref.title, value = ref.value;
+  defaultTitle = $(e.currentTarget).siblings("ul").length ? trim($(e.currentTarget).text()) : (trim($(e.currentTarget).parent().parent().parent().find(">a:first").text())) + " " + (trim($(e.currentTarget).text()));
+  if (!title) {
+    title = defaultTitle;
+  }
+  if (!value) {
+    value = title;
+  }
+  $(".finder").trigger("diagnosticSelected", {
+    title: title,
+    value: value
+  });
+  return false;
+});
+
+$("#select-area").on("click", ".modal-footer .btn", function() {
+  var values;
+  values = [];
+  $("#select-area .pill :checked").each(function() {
+    var $parentPill, $pill, title, value;
+    $pill = $(this).closest(".pill");
+    $parentPill = $pill.closest("ul").siblings(".pill");
+    if ($parentPill.length === 1) {
+      if ($parentPill.find(":checked").length) {
+        return;
+      }
+    }
+    value = $pill.data().value;
+    title = trim($pill.text());
+    if (!value) {
+      value = title;
+    }
+    return values.push({
+      title: title,
+      value: value
+    });
+  });
+  return $("#select-area").trigger("areaSelected", {
+    values: values
+  });
+});
+
+$(".finder #doctors").on("click", ".chooser__list__item-link", function(e) {
+  var title, value;
+  value = $(e.target).data().value;
+  title = trim($(e.target).text());
+  if (!value) {
+    value = title;
+  }
+  $(".finder").trigger("specializationSelected", {
+    title: title,
+    value: value
+  });
+  return false;
+});
+
+$(".finder #clinics").on("click", ".chooser__list__item-link", function(e) {
+  var title, value;
+  value = $(e.target).data().value;
+  title = trim($(e.target).text());
+  if (!value) {
+    value = title;
+  }
+  $(".finder").trigger("branchSelected", {
+    title: title,
+    value: value
+  });
+  return false;
+});
+
+$(".finder").on("specializationSelected", function(e, arg) {
+  var dataValue, title, value;
+  title = arg.title, value = arg.value, dataValue = arg.dataValue;
+  if (docMaps.pageName === 'map' && value) {
+    docMaps.loadDoctors('specialty', dataValue);
+  }
+  $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-specialization'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
+  $(".finder [data-target='#select-specialization'] input[type='hidden']").val(value);
+  return $("#select-specialization").modal("hide");
+});
+
+$(".finder").on("specializationSelected2", function(e, arg) {
+  var dataValue, title, value;
+  title = arg.title, value = arg.value, dataValue = arg.dataValue;
+  if (docMaps.pageName === 'map' && value) {
+    docMaps.loadDoctors('specialty', dataValue);
+  }
+  $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-specialization'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
+  $(".finder [data-target='#select-specialization'] input[type='hidden']").val(value);
+  return $("#select-specialization").modal("hide");
+});
+
+$(".finder").on("branchSelected", function(e, arg) {
+  var title, value;
+  title = arg.title, value = arg.value;
+  $(".finder [data-target='#select-branch']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-branch'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
+  $("#select-branch").modal("hide");
+  $(".finder [data-target='#select-branch'] input[type='hidden']").val(value);
+  return false;
+});
+
+$(".finder").on("actionsSelected", function(e, arg) {
+  var title, value;
+  title = arg.title, value = arg.value;
+  $(".finder [data-target='#select-actions']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-actions'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
+  $("#select-actions").modal("hide");
+  $(".finder [data-target='#select-actions'] input[type='hidden']").val(value);
+  return false;
+});
+
+$(".finder").on("bundlesSelected", function(e, arg) {
+  var title, value;
+  title = arg.title, value = arg.value;
+  $(".finder [data-target='#select-bundles']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-bundles'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
+  $(".finder [data-target='#select-bundles'] input[type='hidden']").val(value);
+  $("#select-bundles").modal("hide");
+  return false;
+});
+
+$("#select-area").on("areaSelected", function(e, arg) {
+  var title, value, values;
+  values = arg.values;
+  title = ((function() {
+    var j, len, results;
+    results = [];
+    for (j = 0, len = values.length; j < len; j++) {
+      value = values[j];
+      results.push(value.title);
+    }
+    return results;
+  })()).join(", ");
+  value = ((function() {
+    var j, len, results;
+    results = [];
+    for (j = 0, len = values.length; j < len; j++) {
+      value = values[j];
+      results.push(value.value);
+    }
+    return results;
+  })()).join(", ");
+  $(".finder [data-target='#select-area'] input[type='hidden']").val(value);
+  $(".finder [data-target='#select-area']").parent().find('.finder__field-text:last').val(values.length > 0 ? title : $(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
+  return $("#select-area").modal("hide");
+});
+
+$('.finder').on('diagnosticSelected', function(t, e) {
+  var i, n;
+  n = void 0;
+  i = void 0;
+  n = e.title;
+  i = e.value;
+  $('.finder [data-target=\'#select-area-diagnostics\'] .finder__field-text').text(i ? n : $('.finder [data-target=\'#select-area-diagnostics\'] .finder__field-text').data('emptyText')).toggleClass('grey', !i);
+  $('.finder [data-target=\'#select-area-diagnostics\'] input[type=\'hidden\']').val(i);
+  return $('#select-area-diagnostics').modal('hide');
+});
+
+
+
+var $goTop, SHOW_GOTOP_AFTER, goTopShown;
+
+SHOW_GOTOP_AFTER = 500;
+
+$goTop = $(".go-top");
+
+$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
+
+$goTop.click(function() {
+  $('html,body').animate({
+    scrollTop: 0
+  }, 800);
+  return false;
+});
+
+$(window).scroll(function() {
+  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
+    $goTop.stop(true, true).fadeIn("fast");
+    return goTopShown = true;
+  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
+    $goTop.stop(true, true).fadeOut("fast");
+    return goTopShown = false;
+  }
+});
+
 $(function() {
   var updateGroup1, updateGroup2;
   updateGroup1 = function() {
@@ -1662,593 +2249,6 @@ smallCardInit();
 $("body").on("smallCardInit", smallCardInit);
 
 
-
-$(function() {
-  var updateBadgeLabels;
-  updateBadgeLabels = function() {
-    return $(".badge-label").each(function() {
-      var w;
-      w = $(this).outerWidth() / 2;
-      return $(this).find(".badge-label__arrow").css({
-        borderLeftWidth: w + "px",
-        borderRightWidth: w + "px"
-      });
-    });
-  };
-  $(window).resize(updateBadgeLabels);
-  $(document).on("shown.bs.tab", updateBadgeLabels);
-  $(document).on("shown.bs.modal", updateBadgeLabels);
-  return updateBadgeLabels();
-});
-
-$("#select-specialization").on("click", "li a", function() {
-  var item;
-  item = $(this);
-  $('.js-clone span').text(item.text());
-  $('.js-clear').addClass('is-active');
-  $('.direction__title').text('Выбрано направление');
-  return $("#select-specialization").modal("hide");
-});
-
-$(".js-clear").on("click", function() {
-  $(this).siblings("span").text("Выберите направление");
-  $(this).removeClass('is-active');
-  $('.direction__title').text('Направление');
-  return false;
-});
-
-$('.js-services-btn').on('click', function() {
-  var drop;
-  drop = $(this).siblings('.js-services-block');
-  drop.slideToggle('fast');
-  $(this).parents('.js-services').toggleClass('active');
-  return false;
-});
-
-$('.js-add-tel').click(function() {
-  $('.add-tel').addClass('is-active');
-});
-
-$('.js-section-choice').each(function() {
-  var item;
-  item = $(this).find('.section-choice');
-  $('body').click(function() {
-    return item.removeClass('is-open');
-  });
-  $(this).find('.js-field-child').click(function() {
-    if ($(this).hasClass('is-active')) {
-      $('.js-field-child').removeClass('is-active');
-      $('.section-choice').removeClass('is-open');
-    } else {
-      $('.js-field-child').removeClass('is-active');
-      $('.section-choice').removeClass('is-open');
-      $(this).siblings('.section-choice').addClass('is-open');
-    }
-    return false;
-  });
-  return item.click(function() {
-    return false;
-  });
-});
-
-$('.js-child').click(function() {
-  var elChild, elChildren, elField, elFields, id, item;
-  id = $(this).data('id');
-  item = $('.item__mod');
-  elFields = $('.js-group');
-  elField = $('.js-group[data-field="' + id + '"]');
-  elChild = $(this);
-  elChildren = $('.js-child');
-  if (!$(this).hasClass('is-active')) {
-    elFields.removeClass('is-open');
-    elChildren.removeClass('is-active');
-    item.addClass('is-open');
-    elChild.addClass('is-active');
-    elField.addClass('is-open');
-    if ($(this).data('id') === 0) {
-      item.removeClass('is-open');
-    }
-  }
-  $(this).parent('.section-choice').removeClass('is-open');
-  return $(this).parent('.section-choice').siblings('.js-field-child').text($(this).text());
-});
-
-$('.js-remove-parent').each(function() {
-  var elParent;
-  elParent = $(this);
-  return elParent.find('.js-remove-item').click(function() {
-    var elTotal, item;
-    item = $('.content-favorites__item');
-    elTotal = elParent.find(item).length;
-    $(this).closest(item).remove();
-    console.log(elParent.find(item).length);
-    if (elTotal === 1) {
-      elParent.remove();
-    }
-    false;
-  });
-});
-
-$('.js-table-scroll').jScrollPane({
-  autoReinitialise: true
-});
-
-$('.js-field-child').click(function() {
-  setTimeout(function() {
-    $('.js-choice-scroll').jScrollPane();
-  }, 10);
-});
-
-$('.js-selection-city').click(function() {
-  var text;
-  text = $(this).text();
-  $('.js-selection-main').text(text);
-  return $(this).closest('.section-choice').removeClass('is-open');
-});
-
-$('.js-date-mast').inputmask({
-  mask: "99.99.9999 "
-});
-
-$("#select-area").on("change", "input", function() {
-  var spanMain, spanText;
-  spanText = $(this).siblings('span').text();
-  spanMain = $(this).parents('label').siblings();
-  if (spanMain.is('ul')) {
-    spanMain.parent().addClass('is-main-disrtict');
-  }
-  if ($(this).prop('checked')) {
-    $(this).parents('label').addClass('is-active');
-    $(this).siblings('span').attr('data-place', spanText);
-    return $('.js-btn-text').text('Добавьте район');
-  } else {
-    $(this).parents('label').removeClass('is-active');
-    return $('.js-btn-text').text('Выберете район');
-  }
-});
-
-$(".alternative-block__enter-text").each(function() {
-  return $(this).val('');
-});
-
-$("#select-area").on("click", ".js-btn-clone", function() {
-  var item, itemParent;
-  item = $('.is-active').children('span');
-  itemParent = item.parent('.is-active');
-  $(".alternative-btn__district").empty();
-  if (item.siblings("input:checkbox:checked")) {
-    item.clone().appendTo(".alternative-btn__district");
-    return $(".alternative-btn__district").find("span").append('<i class="icon-close js-remove"></i>');
-  }
-});
-
-$("#select-area [data-action='reset']").on("click", function() {
-  $("#select-area").find('.pill').removeClass('is-active');
-  return $('.js-btn-text').text('Выберете район');
-});
-
-$(".alternative-btn__district").on("click", ".js-remove", function() {
-  var $item, $itemParent, data1, inputAlternative;
-  inputAlternative = $(this).parents('span');
-  data1 = inputAlternative.data("place");
-  $item = $("#select-area").find('.is-active').children('span[data-place=\'' + data1 + '\']');
-  $itemParent = $item.closest('.pill-group');
-  inputAlternative.remove();
-  $item.siblings('input').prop("checked", false).parents('.pill').removeClass('is-active');
-  if ($itemParent.hasClass('is-main-disrtict')) {
-    $itemParent.find(".pill :checked").prop("checked", false);
-  }
-  if (!$("#select-area").find('.is-active').hasClass('is-active')) {
-    return $('.js-btn-text').text('Выберете район');
-  }
-});
-
-$("#select-specialization").on("click", "li a", function() {
-  var item;
-  item = $(this);
-  $('.alternative-btn__specialization span').empty();
-  $('.alternative-btn__specialization span').text(item.text());
-  $('.js-remove').addClass('is-active');
-  return $('.js-btn-special').text('Выбрана специальность');
-});
-
-$(".js-remove").on("click", function() {
-  $(this).siblings("span").empty();
-  $(this).removeClass('is-active');
-  $('.js-btn-special').text('Выберите специальность');
-  return false;
-});
-
-$(function() {
-  return $('.js-datepicker').daterangepicker({
-    autoUpdateInput: true,
-    alwaysShowCalendars: true,
-    startDate: moment(),
-    opens: "left",
-    applyClass: "apply-btn",
-    cancelClass: "cancel-btn",
-    ranges: {
-      'Последние :': [],
-      '7 дней': [moment(), moment().add(6, 'days')],
-      '14 дней': [moment(), moment().add(13, 'days')],
-      '30 дней': [moment(), moment().add(29, 'days')]
-    },
-    locale: {
-      format: 'DD.MM.YYYY',
-      separator: ' - ',
-      applyLabel: 'Подтвердить',
-      cancelLabel: 'Отменить',
-      daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
-      monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-      firstDay: 1
-    }
-  });
-});
-
-var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-
-$(function() {
-  var $block, activeItemIndex, setActiveElement;
-  $block = $(".comment-quotes");
-  activeItemIndex = 0;
-  setActiveElement = function(el) {
-    $block.find(".comment-quotes__item.active").removeClass("active");
-    $block.find(".comment-quotes__pane.active").removeClass("active");
-    $(el).addClass("active");
-    activeItemIndex = $(el).parent().index();
-    return $block.find(".comment-quotes__pane").eq(activeItemIndex).addClass("active");
-  };
-  $(".comment-quotes__item").on("click", function() {
-    return setActiveElement(this);
-  });
-  return $(".comment-quotes__header").owlCarousel({
-    navigation: true,
-    pagination: false,
-    navigationText: ["", ""],
-    rewindNav: false,
-    lazyLoad: false,
-    items: 5,
-    itemsDesktop: [1215, 5],
-    itemsTablet: [979, 5],
-    itemsMobile: [767, 2],
-    afterAction: function(el) {
-      var activateIndex, owl;
-      owl = $(el).data("owlCarousel");
-      if (owl) {
-        if (indexOf.call(owl.owl.visibleItems, activeItemIndex) < 0) {
-          activateIndex = activeItemIndex < owl.owl.visibleItems[0] ? owl.owl.visibleItems[0] : owl.owl.visibleItems[owl.owl.visibleItems.length - 1];
-          return setActiveElement($block.find(".comment-quotes__item").eq(activateIndex).get());
-        }
-      }
-    }
-  });
-});
-
-$('.js-nav a').on('click', function() {
-  var section;
-  section = $(this).attr('href');
-  $('html, body').animate({
-    scrollTop: $(section).offset().top - 35
-  }, 500);
-  return false;
-});
-
-$.fn.initFavoritesBlock = function() {
-  return this.each(function() {
-    var favored, favoritesBlockInitialized, ref;
-    ref = $(this).data(), favored = ref.favored, favoritesBlockInitialized = ref.favoritesBlockInitialized;
-    if (favoritesBlockInitialized) {
-      return;
-    }
-    $(this).toggleClass("favorites-block_favored", !!favored);
-    $(this).data("favoritesBlockInitialized", true);
-    return $(this).on('click', function(e) {
-      favored = $(this).data().favored;
-      favored = !favored;
-      $(this).toggleClass("favorites-block_favored", !!favored);
-      $(this).data('favored', !!favored);
-      $(this).trigger(!!favored ? 'favored' : 'unfavored');
-      return e.preventDefault();
-    });
-  });
-};
-
-$(".favorites-block").initFavoritesBlock();
-
-var trim;
-
-trim = function(s) {
-  return s.replace(/^\s*/, '').replace(/\s*$/, '');
-};
-
-$(".finder").on("columnagram.columnized", function() {
-  return setTimeout((function(_this) {
-    return function() {
-      return $(_this).addClass("finder_loaded");
-    };
-  })(this), 50);
-});
-
-$(".finder .finder__field-text").each(function() {
-  return $(this).data("emptyText", $(this).text());
-});
-
-$("a[data-toggle='tab'][href='#select-area-metro'], a[data-toggle='tab'][href='#select-area-districts']").on("shown.bs.tab", function(e) {
-  return $("#select-area").find(".pill :checked").prop("checked", false);
-});
-
-$("#select-area [data-action='reset']").click(function() {
-  $("#select-area").find(".pill :checked").prop("checked", false);
-  $(".finder [data-target='#select-area'] .finder__field-text").text($(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).addClass("grey");
-  $(".finder [data-target='#select-area'] input[type='hidden']").val("");
-  return false;
-});
-
-$("#select-countries [data-action='reset']").click(function() {
-  $("#select-countries").find(".pill :checked").prop("checked", false);
-  $(".finder [data-target='#select-countries'] .finder__field-text").text($(".finder [data-target='#select-countries'] .finder__field-text").data("emptyText")).addClass("grey");
-  $(".finder [data-target='#select-countries'] input[type='hidden']").val("");
-  return false;
-});
-
-$("#select-specialization").on("click", "li a", function(e) {
-  var dataValue, title, value;
-  value = $(e.currentTarget).data().value;
-  title = trim($(e.currentTarget).text());
-  if (!value) {
-    value = title;
-  }
-  dataValue = trim($(e.target).data('value'));
-  $(".finder").trigger("specializationSelected", {
-    title: title,
-    value: value,
-    dataValue: dataValue
-  });
-  return false;
-});
-
-$("select-other-spec").on("click", "li a", function(e) {
-  var dataValue, title, value;
-  value = $(e.currentTarget).data().value;
-  title = trim($(e.currentTarget).text());
-  if (!value) {
-    value = title;
-  }
-  dataValue = trim($(e.target).data('value'));
-  $(".finder").trigger("specializationSelected2", {
-    title: title,
-    value: value,
-    dataValue: dataValue
-  });
-  return false;
-});
-
-$("#select-branch").on("click", "li a", function(e) {
-  var title, value;
-  value = $(e.currentTarget).data().value;
-  title = trim($(e.currentTarget).text());
-  if (!value) {
-    value = title;
-  }
-  $(".finder").trigger("branchSelected", {
-    title: title,
-    value: value
-  });
-  return false;
-});
-
-$("#select-actions").on("click", "li a", function(e) {
-  var title, value;
-  value = $(e.currentTarget).data().value;
-  title = trim($(e.currentTarget).text());
-  if (!value) {
-    value = title;
-  }
-  $(".finder").trigger("actionsSelected", {
-    title: title,
-    value: value
-  });
-  return false;
-});
-
-$("#select-bundles").on("click", "li a", function(e) {
-  var title, value;
-  value = $(e.currentTarget).data().value;
-  title = trim($(e.currentTarget).text());
-  if (!value) {
-    value = title;
-  }
-  $(".finder").trigger("bundlesSelected", {
-    title: title,
-    value: value
-  });
-  return false;
-});
-
-$("#select-area-diagnostics").on("click", "li a", function(e) {
-  var defaultTitle, ref, title, value;
-  ref = $(e.currentTarget).data(), title = ref.title, value = ref.value;
-  defaultTitle = $(e.currentTarget).siblings("ul").length ? trim($(e.currentTarget).text()) : (trim($(e.currentTarget).parent().parent().parent().find(">a:first").text())) + " " + (trim($(e.currentTarget).text()));
-  if (!title) {
-    title = defaultTitle;
-  }
-  if (!value) {
-    value = title;
-  }
-  $(".finder").trigger("diagnosticSelected", {
-    title: title,
-    value: value
-  });
-  return false;
-});
-
-$("#select-area").on("click", ".modal-footer .btn", function() {
-  var values;
-  values = [];
-  $("#select-area .pill :checked").each(function() {
-    var $parentPill, $pill, title, value;
-    $pill = $(this).closest(".pill");
-    $parentPill = $pill.closest("ul").siblings(".pill");
-    if ($parentPill.length === 1) {
-      if ($parentPill.find(":checked").length) {
-        return;
-      }
-    }
-    value = $pill.data().value;
-    title = trim($pill.text());
-    if (!value) {
-      value = title;
-    }
-    return values.push({
-      title: title,
-      value: value
-    });
-  });
-  return $("#select-area").trigger("areaSelected", {
-    values: values
-  });
-});
-
-$(".finder #doctors").on("click", ".chooser__list__item-link", function(e) {
-  var title, value;
-  value = $(e.target).data().value;
-  title = trim($(e.target).text());
-  if (!value) {
-    value = title;
-  }
-  $(".finder").trigger("specializationSelected", {
-    title: title,
-    value: value
-  });
-  return false;
-});
-
-$(".finder #clinics").on("click", ".chooser__list__item-link", function(e) {
-  var title, value;
-  value = $(e.target).data().value;
-  title = trim($(e.target).text());
-  if (!value) {
-    value = title;
-  }
-  $(".finder").trigger("branchSelected", {
-    title: title,
-    value: value
-  });
-  return false;
-});
-
-$(".finder").on("specializationSelected", function(e, arg) {
-  var dataValue, title, value;
-  title = arg.title, value = arg.value, dataValue = arg.dataValue;
-  if (docMaps.pageName === 'map' && value) {
-    docMaps.loadDoctors('specialty', dataValue);
-  }
-  $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-specialization'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
-  $(".finder [data-target='#select-specialization'] input[type='hidden']").val(value);
-  return $("#select-specialization").modal("hide");
-});
-
-$(".finder").on("specializationSelected2", function(e, arg) {
-  var dataValue, title, value;
-  title = arg.title, value = arg.value, dataValue = arg.dataValue;
-  if (docMaps.pageName === 'map' && value) {
-    docMaps.loadDoctors('specialty', dataValue);
-  }
-  $(".finder [data-target='#select-specialization']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-specialization'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
-  $(".finder [data-target='#select-specialization'] input[type='hidden']").val(value);
-  return $("#select-specialization").modal("hide");
-});
-
-$(".finder").on("branchSelected", function(e, arg) {
-  var title, value;
-  title = arg.title, value = arg.value;
-  $(".finder [data-target='#select-branch']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-branch'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
-  $("#select-branch").modal("hide");
-  $(".finder [data-target='#select-branch'] input[type='hidden']").val(value);
-  return false;
-});
-
-$(".finder").on("actionsSelected", function(e, arg) {
-  var title, value;
-  title = arg.title, value = arg.value;
-  $(".finder [data-target='#select-actions']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-actions'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
-  $("#select-actions").modal("hide");
-  $(".finder [data-target='#select-actions'] input[type='hidden']").val(value);
-  return false;
-});
-
-$(".finder").on("bundlesSelected", function(e, arg) {
-  var title, value;
-  title = arg.title, value = arg.value;
-  $(".finder [data-target='#select-bundles']").parent().find('.finder__field-text:first').val(value ? title : $(".finder [data-target='#select-bundles'] .finder__field-text").data("emptyText")).toggleClass("grey", !value);
-  $(".finder [data-target='#select-bundles'] input[type='hidden']").val(value);
-  $("#select-bundles").modal("hide");
-  return false;
-});
-
-$("#select-area").on("areaSelected", function(e, arg) {
-  var title, value, values;
-  values = arg.values;
-  title = ((function() {
-    var j, len, results;
-    results = [];
-    for (j = 0, len = values.length; j < len; j++) {
-      value = values[j];
-      results.push(value.title);
-    }
-    return results;
-  })()).join(", ");
-  value = ((function() {
-    var j, len, results;
-    results = [];
-    for (j = 0, len = values.length; j < len; j++) {
-      value = values[j];
-      results.push(value.value);
-    }
-    return results;
-  })()).join(", ");
-  $(".finder [data-target='#select-area'] input[type='hidden']").val(value);
-  $(".finder [data-target='#select-area']").parent().find('.finder__field-text:last').val(values.length > 0 ? title : $(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
-  return $("#select-area").modal("hide");
-});
-
-$('.finder').on('diagnosticSelected', function(t, e) {
-  var i, n;
-  n = void 0;
-  i = void 0;
-  n = e.title;
-  i = e.value;
-  $('.finder [data-target=\'#select-area-diagnostics\'] .finder__field-text').text(i ? n : $('.finder [data-target=\'#select-area-diagnostics\'] .finder__field-text').data('emptyText')).toggleClass('grey', !i);
-  $('.finder [data-target=\'#select-area-diagnostics\'] input[type=\'hidden\']').val(i);
-  return $('#select-area-diagnostics').modal('hide');
-});
-
-
-
-var $goTop, SHOW_GOTOP_AFTER, goTopShown;
-
-SHOW_GOTOP_AFTER = 500;
-
-$goTop = $(".go-top");
-
-$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
-
-$goTop.click(function() {
-  $('html,body').animate({
-    scrollTop: 0
-  }, 800);
-  return false;
-});
-
-$(window).scroll(function() {
-  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeIn("fast");
-    return goTopShown = true;
-  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeOut("fast");
-    return goTopShown = false;
-  }
-});
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
