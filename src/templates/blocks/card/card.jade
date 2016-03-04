@@ -1,5 +1,6 @@
 - card = data.card
 - clinic= data.clinic
+- diagnost= data.diagnosList
 - clinicFilials= data.clinicFilials
 - clinicInnerFilials= data.clinicInnerFilials
 - doctorWorld = data.doctorWorld
@@ -101,9 +102,9 @@ article.hreview-aggregate.vcard.hcard
                                 != benefit.title
             if clinic || clinic_inner
                 hr.dashed
-            if clinic || clinic_inner
+            if clinic || clinic_inner || diagnost 
                 .address-info
-                    if card.address && !clinicWorld
+                    if card.address 
                         +e.address.adr
                             a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=card.adress)= card.address
                         .geo.hidden

@@ -111,7 +111,7 @@
                         if item.metro && !clinicWorld
                             +e.location.card__location_metro(class=item.metroType)
                                 = item.metro.join(", ")
-                        if !onlineConsultation && !doctorWorld && !clinicWorld
+                        if !onlineConsultation && !doctorWorld && !clinicWorld 
                             +e.location= item.location.join(", ")
                     +e.footer
                         if file.page_name != clinics
@@ -126,17 +126,17 @@
         +b("a").load-items(href="#"): +i
 
         +b("ul").pagination: +i 
-    //- aside.col-md-3.hidden-sm.hidden-xs
-    //-     .widget.widget-map
-    //-         #map-canvas-right
-    //-         a.btn.btn-success(href="/map.html") Развернуть карту
-        //- .widget.widget-doctor
-        //-     h3 Похожие врачи
-        //-     - var items = []
-        //-     - var limit = 4
-        //-     each doctor, i in doctors
-        //-         if i < limit
-        //-             - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
-        //-     +b.short-list: +i({ items: items })
-        //-     .link.link-more
-        //-            a(href="/doctors.html") Все врачи
+    aside.col-md-3.hidden-sm.hidden-xs
+        .widget.widget-map
+            #map-canvas-right
+            a.btn.btn-success(href="/map.html") Развернуть карту
+        .widget.widget-doctor
+            h3 Похожие врачи
+            - var items = []
+            - var limit = 4
+            each doctor, i in doctors
+                if i < limit
+                    - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
+            +b.short-list: +i({ items: items })
+            .link.link-more
+                   a(href="/doctors.html") Все врачи
