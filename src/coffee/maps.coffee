@@ -42,7 +42,7 @@ docMaps =
     else
       docMaps.mapOffsetTop = $('.widget-map').offset().top
       @map = new (google.maps.Map)(document.getElementById('map-canvas-right'), mapOptions)
-      if @pageName == 'doctorInner' || @pageName == 'clinicInner' || @pageName == 'diagnostList' || @pageName == 'diagnostCenter' 
+      if @pageName == 'doctorInner' || @pageName == 'clinicInner' || @pageName == 'clinics'  || @pageName == 'diagnostCenter' || @pageName == 'action' || @pageName == 'actionAbout'  
         @mapCss.inner()
       else
         @mapCss.index()
@@ -249,8 +249,8 @@ docMaps =
     docMaps.fitMap [marker], map
 
     if marker.addInfo.affilate
-      if docMaps.pageName == 'clinics'
-        offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").offset().top
+      if docMaps.pageName == 'diagnostList'
+        offsetTop = $("[data-id='" + marker.addInfo.id + "']").offset().top
       else
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").closest('.card').offset().top
     else
