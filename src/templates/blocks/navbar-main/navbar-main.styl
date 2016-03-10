@@ -1,23 +1,54 @@
-.navbar-main, .navbar-main.navbar-main_new
-    .container
-        position relative
+.navbar-main
+    padding-top 8px 
+    text-align right
+    background-color white
+    border none 
+    transition all .2s ease-in-out
+    clearfix()
     @media phone
         border-bottom 2px solid #e5f2f5
+    .container
+        &__left-side
+            float left
+            width 60% 
+        &__right-side
+            float right
+            width 40% 
+        @media phone
+            &__left-side, &__right-side
+                display block
+                width 100% 
     .navbar-header
-        float left
+        float left 
+        position relative
+        display inline-block
+        vertical-align baseline 
+        max-width 185px 
+        width 100% 
+        margin-right 10px !important
+        text-align left
+        @media phone 
+            max-width 145px
         &__title
             padding-top 5px
             color #a8e3ee
             font-size 14px
+            
         &__loc-icon
-            sprite($location-icon) 
+            position absolute
+            vertical-align baseline 
+            sprite($locat)
+            bottom 3px
     .select7
         &__caret
-            border-color header_icons_color transparent transparent
+            margin-left 8px
+            border-color blue_base transparent transparent
         &__current
-            padding-right 10px
+            color #0099a8
+        &__option
+            color blue_base
             
-    .navbar-header, .phones, .feedback a:first-child
+    .navbar-header
         margin-right 45px
         @media phone_tablet
             margin-right: 15px
@@ -29,6 +60,8 @@
     .favorites-link
         @media phone_tablet
             padding-right: 0
+        @media only screen and (max-width: 768px)
+            display none
     .user-panel
         float right
         
@@ -42,13 +75,38 @@
     .navbar-toggle
         .icon-bar + .icon-bar
             margin-top: 4px
+            
+.navbar-main_none
+    display none
 
-.navbar-main.navbar-main_new
+.navbar-main.navbar-main_inner
+    padding-top 8px 
+    text-align right
     background-color white
-    border 2px solid transparent
-    // box-shadow 1.5px 2.6px 27px rgba(0, 0, 0, 0.03)
+    border none
     .container
+        position relative
         width auto 
-    .navbar-header__title, .phones
-        color #00829b
+        padding-right 0 
+    .navbar-header
+        float none
         
+.navbar-mobile
+    .menu
+        width 100% 
+    .search
+        &:hover
+            background none
+    .search__field
+        display block
+        margin-top 10px
+        line-height 2 
+        padding 0 40px 0 15px 
+    .search__button
+        margin 10px 0px 0 0
+        height 37px 
+        padding 0px 15px
+    @media phone 
+        .search-result .livesearch.top-list
+            max-width 706px 
+            width 100%

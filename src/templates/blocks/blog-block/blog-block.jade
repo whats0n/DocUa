@@ -1,0 +1,90 @@
+if file.page_name != doctor_consultation && file.page_name != doctors
+  header.header-styled.header-styled-mod
+    .row.offset-bottom-0
+      .col-sm-6
+        h2.h1.hidden-xs В блоге здоровья
+        h2.h1.visible-xs Блог
+      .col-sm-6.text-right.hidden-xs
+        a.main-more-link(href="/", title="Все 143 акции") Читать весь блог
+else 
+  header.header-styled
+    .row.offset-bottom-0
+      .col-sm-6
+        h2.h1.hidden-xs В блоге здоровья
+        h2.h1.visible-xs Блог
+
+.row.offset-bottom-0
+  .col-md-12.col-sm-12
+    .article-block
+      .article-block__img(style="background-image: url(i/blog-bg.jpg)") 
+      .article-block__title
+        a(href="#") Новая эффективная процедура по уходу за телом!
+      time.main-time.visible-xs
+        span.main-time_day 30
+        span.main-time_month янв
+      .article-block__info.big-article
+        ul.info-list.big-article
+          li
+            span.is-view 18 
+          li
+            span.is-like 35
+          li
+            span.is-share 169
+
+    //small articles
+    ul.blog-list
+      li.blog-list__item
+        time.main-time
+          span.main-time_day 30
+          span.main-time_month янв
+        .blog-list__img(style="background-image: url(i/blog_list_1.jpg)") 
+        .right-side-xs
+          a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
+          .article-block__info
+            ul.info-list 
+              li
+                span.is-view 18
+              li
+                span.is-like 35
+              li
+                span.is-share 169
+
+      li.blog-list__item
+        time.main-time
+          span.main-time_day 29
+          span.main-time_month янв
+        .blog-list__img(style="background-image: url(i/blog_list_2.jpg)") 
+        .right-side-xs
+          a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
+          .article-block__info
+            ul.info-list 
+              li
+                span.is-view 18
+              li
+                span.is-like 35
+              li
+                span.is-share 169
+
+      li.blog-list__item.hidden-xs
+        time.main-time
+          span.main-time_day 28
+          span.main-time_month янв
+        .blog-list__img(style="background-image: url(i/blog_list_1.jpg)") 
+        .right-side-xs
+          a.blog-list__link(href="#") Международная медицинская выставка Здравоохранение
+          .article-block__info
+            ul.info-list 
+              li
+                span.is-view 18
+              li
+                span.is-like 35
+              li
+                span.is-share 169
+    a.main-more-link.hidden-xs(href="/", title="Все 143 акции") Читать весь блог
+    
+
++b.more-toggle.visible-xs
+  .link-wrap
+    +e("a").link(href="#select-area-diagnostics", data-toggle="modal", title="Все предложения")
+        +e("span").show-label
+            span Все предложения           

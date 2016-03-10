@@ -1460,20 +1460,37 @@ $(".alternative-btn__district").on("click", ".js-remove", function() {
   }
 });
 
-$("#select-specialization").on("click", "li a", function() {
-  var item;
-  item = $(this);
-  $('.alternative-btn__specialization span').empty();
-  $('.alternative-btn__specialization span').text(item.text());
-  $('.js-remove').addClass('is-active');
-  return $('.js-btn-special').text('Выбрана специальность');
+$(".js-btn-picker").on("click", function() {
+  var picker;
+  picker = $(this).siblings(".date-wrap");
+  picker.toggleClass('is-open');
+  return $('.js-datepicker').datepick({
+    dateFormat: 'd MM',
+    rangeSelect: true,
+    monthsToShow: [1, 2],
+    showTrigger: '#calImg',
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    changeMonth: false,
+    altField: '.date-footer__text',
+    altFormat: 'd MM'
+  });
 });
 
-$(".js-remove").on("click", function() {
-  $(this).siblings("span").empty();
-  $(this).removeClass('is-active');
-  $('.js-btn-special').text('Выберите специальность');
-  return false;
+$(".js-date-close").on("click", function() {
+  var value;
+  value = $('.date-footer__text').val();
+  $(".date-wrap").removeClass("is-open");
+  return $('.js-clone-date').text(value);
+});
+
+$(".date-header__item").on("click", function() {
+  var Picker, day, today, today7;
+  Picker = $('.js-datepicker').datepick();
+  today = Picker.find('.datepick-today').text();
+  day = 7;
+  today7 = parseInt(today) + day;
+  return $(this).addClass('active');
 });
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -1515,30 +1532,24 @@ $(function() {
   });
 });
 
-$(function() {
-  return $('.js-datepicker').daterangepicker({
-    autoUpdateInput: true,
-    alwaysShowCalendars: true,
-    startDate: moment(),
-    opens: "left",
-    applyClass: "apply-btn",
-    cancelClass: "cancel-btn",
-    ranges: {
-      'Последние :': [],
-      '7 дней': [moment(), moment().add(6, 'days')],
-      '14 дней': [moment(), moment().add(13, 'days')],
-      '30 дней': [moment(), moment().add(29, 'days')]
-    },
-    locale: {
-      format: 'YYYY.MM.DD',
-      separator: ' - ',
-      applyLabel: 'Подтвердить',
-      cancelLabel: 'Отменить',
-      daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
-      monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-      firstDay: 1
-    }
-  });
+$('.js-tab__header-c').click(function() {
+  var item;
+  $(this).children('span').toggleClass('tab__header_open');
+  item = $(this).children('.js-content-hide');
+  item.slideToggle('fast');
+  item.toggleClass('tab-active_info');
+  $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
+  return false;
+});
+
+$('.js-tab__header-d').click(function() {
+  var item;
+  item = $(this).children('.js-content-hide');
+  item.slideToggle('fast');
+  item.toggleClass('tab-active_info');
+  $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
+  $(this).find('.diagnostics-record__item-title').toggleClass('tab__header_open');
+  return false;
 });
 
 $('.js-nav a').on('click', function() {
@@ -1842,6 +1853,16 @@ $('.finder').on('diagnosticSelected', function(t, e) {
 
 
 
+$('.js-tab__header-f').click(function() {
+  var item;
+  item = $(this).children('.js-content-hide');
+  item.slideToggle('fast');
+  item.toggleClass('tab-active_info');
+  $(this).toggleClass('tab__header_open');
+  $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
+  return false;
+});
+
 var $goTop, SHOW_GOTOP_AFTER, goTopShown;
 
 SHOW_GOTOP_AFTER = 500;
@@ -1893,6 +1914,18 @@ $("#select-area-diagnostics").on("click", "li a", function() {
   return $("#select-area-diagnostics").modal("hide");
 });
 
+if ($(window).width() < 768) {
+  $('.navbar-fixed-top').removeClass('navbar-main_none');
+} else {
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 150) {
+      $('.navbar-fixed-top').removeClass('navbar-main_none');
+    } else {
+      $('.navbar-fixed-top').addClass('navbar-main_none');
+    }
+  });
+}
+
 $(document).ready(function() {
   $('.js-tab-container').each(function() {
     $(this).find('.js-tab-link').first().addClass('active');
@@ -1914,21 +1947,47 @@ $(document).ready(function() {
   });
 });
 
-$(".js-autocomplete-doc").each(function() {
-  var availableTags;
-  availableTags = ['Аллерголог', 'Андролог', 'Анестезиолог', 'Венеролог', 'Вертебролог', 'Гастроэнтеролог', 'Гематолог', 'Генетик', 'Дерматолог', 'Диетолог', 'Иммунолог', 'Кардиолог', 'Кинезитерапевт', 'Логопед', 'Маммолог', 'Нарколог', 'Невролог', 'Ортопед', 'Педиатр', 'Подолог', 'Ревматолог', 'Терапевт'];
-  return $('.js-autocomplete-doc').autocomplete({
-    source: availableTags
-  });
-});
 
-$(".js-autocomplete-clinic").each(function() {
-  var availableTags;
-  availableTags = ['Инсайт Медикал', 'Саперная слободка', 'Исида', 'Феврония Клинская', 'Валерия Ильинишна Колмагорова', 'Феврония Клинская', 'Добробут'];
-  return $('.js-autocomplete-clinic').autocomplete({
-    source: availableTags
-  });
-});
+
+var phonesAutoChange;
+
+phonesAutoChange = {
+  select: $('.navbar-main .phones .select7'),
+  options: ['mts', 'life', 'kyivstar', 'landline'],
+  checked: 0,
+  interval: 0,
+  init: function() {
+    this.listeners();
+    return this.startSwitch();
+  },
+  listeners: function() {
+    $('body').on('click', function(e) {
+      clearInterval(phonesAutoChange.interval);
+      return phonesAutoChange.startSwitch();
+    });
+    phonesAutoChange.select.find('.select7__current').click(function(e) {
+      e.stopPropagation();
+      if (!phonesAutoChange.select.hasClass('select7_open')) {
+        return startSwitch();
+      }
+    });
+    return $('body').on('select7Opened', function(e) {
+      return clearInterval(phonesAutoChange.interval);
+    });
+  },
+  startSwitch: function() {
+    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 5000);
+  },
+  switchPhone: function() {
+    phonesAutoChange.checked += 1;
+    if (phonesAutoChange.checked >= phonesAutoChange.options.length) {
+      phonesAutoChange.checked = 0;
+    }
+    return phonesAutoChange.select.val(phonesAutoChange.options[phonesAutoChange.checked]).trigger('change');
+  }
+};
+
+phonesAutoChange.init();
 
 var galleryCount, generateMarkupForOwlCarousel, initOwlCarousel, syncOwlCarousels;
 
@@ -2117,46 +2176,6 @@ $(function() {
   return $(".photo-gallery").makeCustomPhotoGallery();
 });
 
-var phonesAutoChange;
-
-phonesAutoChange = {
-  select: $('.navbar-main .phones .select7'),
-  options: ['mts', 'life', 'kyivstar', 'landline'],
-  checked: 0,
-  interval: 0,
-  init: function() {
-    this.listeners();
-    return this.startSwitch();
-  },
-  listeners: function() {
-    $('body').on('click', function(e) {
-      clearInterval(phonesAutoChange.interval);
-      return phonesAutoChange.startSwitch();
-    });
-    phonesAutoChange.select.find('.select7__current').click(function(e) {
-      e.stopPropagation();
-      if (!phonesAutoChange.select.hasClass('select7_open')) {
-        return startSwitch();
-      }
-    });
-    return $('body').on('select7Opened', function(e) {
-      return clearInterval(phonesAutoChange.interval);
-    });
-  },
-  startSwitch: function() {
-    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 5000);
-  },
-  switchPhone: function() {
-    phonesAutoChange.checked += 1;
-    if (phonesAutoChange.checked >= phonesAutoChange.options.length) {
-      phonesAutoChange.checked = 0;
-    }
-    return phonesAutoChange.select.val(phonesAutoChange.options[phonesAutoChange.checked]).trigger('change');
-  }
-};
-
-phonesAutoChange.init();
-
 $(document).on("change", ".pill-group .pill input", function(e) {
   var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
   $pill = $(e.target).closest(".pill");
@@ -2220,9 +2239,118 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
+var postLocationWidthFix;
+
+postLocationWidthFix = function() {
+  return $(".post").each(function() {
+    var locationValueWidth, locationWidth, px;
+    if ($(this).hasClass("post_single")) {
+      if ($(window).width() > 767) {
+        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() - $(this).find(".post__submits").width() - 10;
+        locationValueWidth = locationWidth - 35;
+        px = "px";
+      } else {
+        locationWidth = 'auto';
+        locationValueWidth = 245;
+        px = '';
+      }
+    } else {
+      if (($(window).width() > 979) || ($(window).width() < 768)) {
+        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() + 10;
+        locationValueWidth = locationWidth - 35;
+        px = "px";
+      } else {
+        locationWidth = 'auto';
+        if ($(this).closest(".widget").length) {
+          locationValueWidth = 130;
+        } else {
+          locationValueWidth = 180;
+        }
+        px = '';
+      }
+    }
+    $(this).find(".post__location").attr('style', "width: " + locationWidth + px + " !important");
+    $(this).find(".post__location-title").css({
+      maxWidth: locationValueWidth + "px"
+    });
+    return $(this).find(".select7__current-value").css({
+      maxWidth: locationValueWidth + "px"
+    });
+  });
+};
+
+$(window).resize(postLocationWidthFix);
+
+$(document).on("shown.bs.tab", postLocationWidthFix);
+
+postLocationWidthFix();
+
+var postLocationWidthFix;
+
+postLocationWidthFix = function() {
+  return $(".post").each(function() {
+    var locationValueWidth, locationWidth, px;
+    if ($(this).hasClass("post_single")) {
+      if ($(window).width() > 767) {
+        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() - $(this).find(".post__submits").width() - 10;
+        locationValueWidth = locationWidth - 35;
+        px = "px";
+      } else {
+        locationWidth = 'auto';
+        locationValueWidth = 245;
+        px = '';
+      }
+    } else {
+      if (($(window).width() > 979) || ($(window).width() < 768)) {
+        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() + 10;
+        locationValueWidth = locationWidth - 35;
+        px = "px";
+      } else {
+        locationWidth = 'auto';
+        if ($(this).closest(".widget").length) {
+          locationValueWidth = 130;
+        } else {
+          locationValueWidth = 180;
+        }
+        px = '';
+      }
+    }
+    $(this).find(".post__location").attr('style', "width: " + locationWidth + px + " !important");
+    $(this).find(".post__location-title").css({
+      maxWidth: locationValueWidth + "px"
+    });
+    return $(this).find(".select7__current-value").css({
+      maxWidth: locationValueWidth + "px"
+    });
+  });
+};
+
+$(window).resize(postLocationWidthFix);
+
+$(document).on("shown.bs.tab", postLocationWidthFix);
+
+postLocationWidthFix();
+
 $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {
     return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
+  });
+});
+
+$(function() {
+  $('.js-search-btn').click(function() {
+    if ($('.js-form').hasClass('is-search-open')) {
+      return true;
+    } else {
+      $('.js-form').addClass('is-search-open');
+      return false;
+    }
+  });
+  $(document).on("click", function() {
+    return $(".js-form").removeClass("is-search-open");
+  });
+  return $('.js-form').on("click", function(e) {
+    return e.stopPropagation();
   });
 });
 
@@ -2248,346 +2376,7 @@ smallCardInit();
 
 $("body").on("smallCardInit", smallCardInit);
 
-(function() {
-  var $bodyMap, $commonPill, $skinPill, IE, detailed, gender, map, otherZoneClickHandler, refreshView, selectZone, selected, setGender, side, toggleDetailed, toggleSide, unselectZones, zones;
-  $bodyMap = void 0;
-  $commonPill = void 0;
-  $skinPill = void 0;
-  IE = void 0;
-  detailed = void 0;
-  gender = void 0;
-  map = void 0;
-  otherZoneClickHandler = void 0;
-  refreshView = void 0;
-  selectZone = void 0;
-  selected = void 0;
-  setGender = void 0;
-  side = void 0;
-  toggleDetailed = void 0;
-  toggleSide = void 0;
-  unselectZones = void 0;
-  zones = void 0;
-  $bodyMap = $('.body-map');
-  IE = !!top.execScript;
-  $bodyMap.toggleClass('body-map_ie', IE);
-  if ($bodyMap.length > 0 && $('.body-map__container').length > 0) {
-    $commonPill = $bodyMap.find('[data-zone-id=\'common\']');
-    $skinPill = $bodyMap.find('[data-zone-id=\'skin\']');
-    gender = 'man';
-    side = 'front';
-    detailed = false;
-    map = null;
-    selected = null;
-    zones = {};
-    refreshView = function() {
-      var $el, _i, _len, _ref, createZone, resetCss, svgFile, svgFileKey, zone;
-      $el = void 0;
-      createZone = void 0;
-      resetCss = void 0;
-      svgFile = void 0;
-      svgFileKey = void 0;
-      zone = void 0;
-      _i = void 0;
-      _len = void 0;
-      _ref = void 0;
-      if (map) {
-        map.remove();
-        map = null;
-      }
-      if (detailed) {
-        resetCss = {
-          top: '-10%',
-          left: '-15%'
-        };
-      } else {
-        resetCss = {
-          top: 0,
-          left: '50%'
-        };
-      }
-      $el = $bodyMap.find('.body-map__main').panElement('destroy').css(resetCss).removeClass('body-map__main_detailed').hide().filter('.body-map__main_' + gender + '_' + side).show().toggleClass('body-map__main_detailed', detailed);
-      svgFileKey = '' + gender + '-' + side + (detailed ? '-detailed' : '');
-      svgFile = SVG_FILES[svgFileKey];
-      map = Raphael($el.find('.body-map__zones')[0]);
-      map.setViewBox(svgFile.viewbox[0], svgFile.viewbox[1], svgFile.viewbox[2], svgFile.viewbox[3], true);
-      map.setSize('100%', '100%');
-      unselectZones();
-      zones = {};
-      createZone = function(zone) {
-        var _len;
-        var _i;
-        var clicking, path, pathList, pathString;
-        clicking = void 0;
-        path = void 0;
-        pathList = void 0;
-        pathString = void 0;
-        _i = void 0;
-        _len = void 0;
-        pathList = (function() {
-          var _ref;
-          var _len;
-          var _i;
-          var _results;
-          _i = void 0;
-          _len = void 0;
-          _ref = void 0;
-          _results = void 0;
-          if (zone.path) {
-            return [map.path(zone.path)];
-          } else if (zone.pathList) {
-            _ref = zone.pathList;
-            _results = [];
-            _i = 0;
-            _len = _ref.length;
-            while (_i < _len) {
-              pathString = _ref[_i];
-              _results.push(map.path(pathString));
-              _i++;
-            }
-            return _results;
-          } else {
-            throw new Error('invalid zone ' + JSON.stringify(zone));
-          }
-        })();
-        while (_i < _len) {
-          path = pathList[_i];
-          path.attr({
-            zoneId: zone.id,
-            'stroke-width': 0,
-            fill: '#ff4c4c',
-            cursor: 'pointer',
-            opacity: 0
-          });
-          path.mouseover(function() {
-            var _j, _len1, p;
-            p = void 0;
-            _j = void 0;
-            _len1 = void 0;
-            if (zone.id !== selected) {
-              _j = 0;
-              _len1 = pathList.length;
-              while (_j < _len1) {
-                p = pathList[_j];
-                p.attr({
-                  opacity: 0.5
-                });
-                _j++;
-              }
-            }
-            return $bodyMap.trigger('mouseoverZone', {
-              gender: gender,
-              side: side,
-              detailed: detailed,
-              zoneId: zone.id
-            });
-          });
-          path.mouseout(function() {
-            var _j, _len1, p;
-            p = void 0;
-            _j = void 0;
-            _len1 = void 0;
-            if (zone.id !== selected) {
-              _j = 0;
-              _len1 = pathList.length;
-              while (_j < _len1) {
-                p = pathList[_j];
-                p.attr({
-                  opacity: 0
-                });
-                _j++;
-              }
-            }
-            return $bodyMap.trigger('mouseoutZone', {
-              gender: gender,
-              side: side,
-              detailed: detailed,
-              zoneId: zone.id
-            });
-          });
-          clicking = false;
-          path.mousedown(function() {
-            return clicking = true;
-          });
-          path.mousemove(function() {
-            return clicking = false;
-          });
-          path.mouseup(function(e) {
-            var $m, offset, offsetX, offsetY;
-            $m = void 0;
-            offset = void 0;
-            offsetX = void 0;
-            offsetY = void 0;
-            if (!clicking) {
-              return;
-            }
-            $m = $bodyMap.find('.body-map__main:visible');
-            offset = $m.offset();
-            offsetX = e.offsetX || e.pageX - offset.left;
-            offsetY = e.offsetY || e.pageY - offset.top;
-            return $bodyMap.trigger('clickZone', {
-              gender: gender,
-              side: side,
-              detailed: detailed,
-              zoneId: zone.id,
-              offset: {
-                left: offsetX,
-                top: offsetY
-              },
-              size: {
-                width: $m.width(),
-                height: $m.height()
-              }
-            });
-          });
-          _i++;
-        }
-        return zones[zone.id] = pathList;
-      };
-      _ref = svgFile.zones;
-      _i = 0;
-      _len = _ref.length;
-      while (_i < _len) {
-        zone = _ref[_i];
-        createZone(zone);
-        _i++;
-      }
-      if (detailed) {
-        return $el.panElement();
-      }
-    };
-    unselectZones = function() {
-      var _i, _len, id, p, pathList;
-      id = void 0;
-      p = void 0;
-      pathList = void 0;
-      _i = void 0;
-      _len = void 0;
-      $skinPill.prop('checked', false);
-      $commonPill.prop('checked', false);
-      for (id in zones) {
-        id = id;
-        pathList = zones[id];
-        _i = 0;
-        _len = pathList.length;
-        while (_i < _len) {
-          p = pathList[_i];
-          p.attr({
-            opacity: 0
-          });
-          _i++;
-        }
-      }
-      return selected = null;
-    };
-    selectZone = function(id) {
-      unselectZones();
-      setTimeout((function() {
-        var _i, _len, _ref, _results, p;
-        p = void 0;
-        _i = void 0;
-        _len = void 0;
-        _ref = void 0;
-        _results = void 0;
-        switch (id) {
-          case 'common':
-            return $commonPill.prop('checked', true);
-          case 'skin':
-            return $skinPill.prop('checked', true);
-          default:
-            _ref = zones[id];
-            _results = [];
-            _i = 0;
-            _len = _ref.length;
-            while (_i < _len) {
-              p = _ref[_i];
-              _results.push(p.attr({
-                opacity: 0.5
-              }));
-              _i++;
-            }
-            return _results;
-        }
-      }), 1);
-      return selected = id;
-    };
-    setGender = function() {
-      gender = (function() {
-        switch ($bodyMap.find('.body-map__select [name=\'gender\']:checked').val()) {
-          case 'male':
-            return 'man';
-          case 'female':
-            return 'woman';
-          default:
-            throw new Error('invalid gender');
-        }
-      })();
-      return refreshView();
-    };
-    toggleSide = function() {
-      side = side === 'front' ? 'back' : 'front';
-      return refreshView();
-    };
-    toggleDetailed = function() {
-      detailed = !detailed;
-      $bodyMap.find('.body-map__zoom').toggleClass('body-map__zoom_out', detailed);
-      return refreshView();
-    };
-    $bodyMap.find('.body-map__select [name=\'gender\']').change(function() {
-      setGender();
-      return $bodyMap.trigger('selectGender', {
-        gender: gender
-      });
-    });
-    $bodyMap.find('.body-map__rotate').click(function() {
-      toggleSide();
-      return $bodyMap.trigger('selectSide', {
-        side: side
-      });
-    });
-    $bodyMap.find('.body-map__zoom').click(function() {
-      toggleDetailed();
-      return $bodyMap.trigger('selectDetailed', {
-        detailed: detailed
-      });
-    });
-    $bodyMap.on('selectZone', function(e, o) {
-      return selectZone(o.zoneId);
-    });
-    otherZoneClickHandler = function(e) {
-      $bodyMap.trigger('clickZone', {
-        zoneId: $(this).data('zoneId'),
-        gender: gender,
-        detailed: detailed,
-        side: side
-      });
-      e.stopPropagation();
-      e.preventDefault();
-      return false;
-    };
-    $commonPill.click(otherZoneClickHandler);
-    $skinPill.click(otherZoneClickHandler);
-    $bodyMap.on('clickZone', function(event, o) {
-      var $c, $d, _ref;
-      $c = void 0;
-      $d = void 0;
-      _ref = void 0;
-      if ((_ref = o.zoneId) === 'common' || _ref === 'skin' || o.detailed) {
-        return $bodyMap.trigger('selectZone', {
-          zoneId: o.zoneId
-        });
-      } else {
-        toggleDetailed();
-        $d = $bodyMap.find('.body-map__main_detailed');
-        $c = $d.parent();
-        return $bodyMap.find('.body-map__main').css({
-          top: '' + Math.min(0, Math.max($c.height() - $d.height(), -($d.height() - $c.height()) / 2 + (0.5 - (o.offset.top / o.size.height)) * $d.height())) + 'px',
-          left: '' + Math.min(0, Math.max($c.width() - $d.width(), -($d.width() - $c.width()) / 2 + (0.5 - (o.offset.left / o.size.width)) * $d.width())) + 'px'
-        });
-      }
-    });
-    setGender();
-  }
-}).call(this);
+
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
@@ -3320,7 +3109,7 @@ docMaps = {
     } else {
       docMaps.mapOffsetTop = $('.widget-map').offset().top;
       this.map = new google.maps.Map(document.getElementById('map-canvas-right'), mapOptions);
-      if (this.pageName === 'doctorInner' || this.pageName === 'clinicInner' || this.pageName === 'clinics' || this.pageName === 'diagnostCenter' || this.pageName === 'action' || this.pageName === 'actionAbout') {
+      if (this.pageName === 'doctorInner' || this.pageName === 'clinicInner') {
         this.mapCss.inner();
       } else {
         this.mapCss.index();
@@ -3338,10 +3127,6 @@ docMaps = {
       this.allItemsList = list;
     }
     if (this.pageName === 'doctorInner') {
-      this.addNewMarker = this.addMarker.inner();
-      this.addNewMarker();
-    }
-    if (this.pageName === 'diagnostCenter') {
       this.addNewMarker = this.addMarker.inner();
       return this.addNewMarker();
     } else {
@@ -3414,16 +3199,16 @@ docMaps = {
       var mapHeight, navbarHeight;
       navbarHeight = $('.navbar-main').outerHeight();
       if (docMaps.mapOffsetTop - $(window).scrollTop() < 0) {
-        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 30);
+        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 40);
         $('.widget-map').css({
           position: 'fixed'
         }, $('.widget-map').width($('.widget-map').parent('aside').width()));
-        if ($(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)) {
+        if ($('html').height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)) {
           docMaps.canAnimateTop = true;
           $('aside').height($('aside').prev().height());
           $('.widget-map').css({
             position: 'absolute',
-            bottom: 20,
+            bottom: 10,
             top: 'auto'
           });
         } else {
@@ -3449,7 +3234,7 @@ docMaps = {
       });
     },
     inner: function() {
-      if (docMaps.pageName === 'clinicInner' && docMaps.pageName === 'diagnostic-center') {
+      if (docMaps.pageName === 'clinicInner') {
         return $('#map-canvas-right, .widget-map').height(600);
       } else {
         return $('#map-canvas-right, .widget-map').height($('.card').outerHeight());
@@ -3570,8 +3355,8 @@ docMaps = {
     marker.setIcon(docMaps.icon2);
     docMaps.fitMap([marker], map);
     if (marker.addInfo.affilate) {
-      if (docMaps.pageName === 'diagnostList') {
-        offsetTop = $("[data-id='" + marker.addInfo.id + "']").offset().top;
+      if (docMaps.pageName === 'clinics') {
+        offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").offset().top;
       } else {
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").closest('.card').offset().top;
       }

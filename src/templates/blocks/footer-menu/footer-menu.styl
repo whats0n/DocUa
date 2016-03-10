@@ -1,16 +1,81 @@
+.footer-inner
+    font-size 0 
+    padding-bottom 0 
+    @media phone
+        padding-top 0 
+        margin 0 -10px 
+.footer
+    .menu
+        display inline-block
+        vertical-align top 
+        width 68% 
+        @media only screen and (max-width: 1024px)
+            width 63%         
+        @media only screen and (max-width: 768px)
+            width 67% 
+        @media phone
+            width 100% 
+ul.footer-menu
+    font-size 0 
 .footer-menu
     margin 0
     padding 0
     list-style none
     a:hover, a:focus
         color #fff
+    &__item
+        position relative
+        display inline-block
+        vertical-align top
+        margin-right 7%
+        overflow hidden 
+        @media only screen and (max-width: 1024px)
+            margin-right 6%
+        @media only screen and (max-width: 768px)
+            margin-right 0
+            padding-right 6%  
+        @media phone
+            margin-right 0
+            padding-right 0 
+            margin-bottom 0 !important
+        &:first-child
+            width 27% 
+            @media only screen and (max-width: 1024px)
+                width 25%             
+            @media only screen and (max-width: 768px)            
+                width 50%
+            @media phone
+                width 100% 
+        &:last-child 
+            width 57% 
+            @media only screen and (max-width: 1024px)
+                width 61% 
+            @media only screen and (max-width: 768px)
+                width 50% 
+            @media phone
+                width 100% 
     &__item-link
+        // position relative
         font-weight bold
-        font-size 16px
+        font-size 18px
         line-height 20px
+        padding-right 10px 
         color #fff
         text-transform uppercase
         letter-spacing 1pt
+        background green_texture 
+        &:after  
+            content ""
+            position absolute
+            top 9px
+            left 0  
+            width 100% 
+            height 1px 
+            background-color rgba(255, 255, 255, .3) 
+            z-index -1 
+            @media only screen and (max-width: 768px)
+                left auto
+                right 30px  
     @media phone
         &__item
             float none
@@ -21,8 +86,6 @@
             &-link
                 position relative
                 padding-right 15px
-                &:hover
-                    cursor pointer
                 &:after
                     content ''
                     position absolute
@@ -31,14 +94,79 @@
                     border-width 4px
                     border-style solid
                     border-color #fff transparent transparent
+                &:hover
+                    cursor pointer
 .footer-sub-menu
     margin 18px 0 0
     padding 0
     list-style none
     font-size 14px
     line-height 27px
+    @media phone
+        padding 0 10px 20px 20px
     &__item-link
         color #fff
+        font-size 16px
+        font-weight normal
+        line-height 30px
+        text-decoration none
+        transition all .2s ease-in-out
+        @media phone
+            font-size 15px
+            line-height 32px
+        &:hover
+            text-decoration underline
     @media phone
         display none
         margin-top 3px
+
+.footer
+    .menu
+        float none
+        
+
+.footer-menu__item-link
+    @media phone
+        position relative
+        display block
+        width 100% 
+        // height 44px 
+        padding 0 20px 
+        border-top 1px solid rgba(255, 225, 255, .18)
+        margin-bottom 0  
+        cursor pointer
+        min-height auto 
+        overflow hidden
+        background #fff green_texture
+        &:last-child
+            border-bottom 1px solid rgba(255, 225, 255, .18)
+        &.footer-tab_header
+            position relative
+            display block
+            padding 14px 20px 
+            min-height auto 
+            overflow hidden
+            font-size 16px
+            font-weight normal
+            color #FFF 
+            text-transform uppercase
+            &:after
+                content none
+        &.tab__header_open
+            background rgba(0,87,109,.55)
+
+            color #FFF 
+            font-weight bold
+        .btn__mobile
+            position absolute 
+            top 25px
+            right 21px
+            width 16px 
+            height 8px  
+            margin-top -4px
+            background url("i/icons/arrow_tab_down_f.png") no-repeat  
+        .btn__mobile_open
+            background url("i/icons/arrow_tab_up_f.png") no-repeat  
+
+.tab-active_info
+    display block

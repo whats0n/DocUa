@@ -1,25 +1,53 @@
 .contacts
+    display inline-block
+    vertical-align top 
+    width 31%
     font-size 14px
     line-height 1.4
     color #fff
+    overflow hidden 
+    @media only screen and (max-width: 1024px)
+        width 37%     
+    @media only screen and (max-width: 768px)
+        width 33% 
     a
         color #fff
     p
-        margin 0
-        line-height: 27px
-    &__title
-        margin 0 0 18px
+        margin 18px 0 0 
         font-size 16px
-        line-height 1.25
-        font-weight bold
-        color #fff
         text-transform uppercase
-        letter-spacing 1pt
+        line-height 28px
+        margin-bottom 15px
+    &__title
+        position relative
+        margin 0 0 18px
+        >span
+            padding-right 10px
+            font-size 18px
+            line-height 1.25
+            font-weight bold
+            color #fff
+            text-transform uppercase
+            letter-spacing 1pt
+            background green_texture 
+            &:after  
+                content ""
+                position absolute
+                top 9px
+                left 0  
+                width 100% 
+                height 1px 
+                background-color rgba(255, 255, 255, .3) 
+                z-index -1 
+                @media only screen and (max-width: 768px)
+                    left auto
+                    right 10px 
         @media phone
             position relative
+            width 100% 
             display inline-block
-            margin-bottom 0
-            padding-right 15px
+            padding 0 
+            margin 0 
             &:after
                 content ''
                 position absolute
@@ -28,6 +56,8 @@
                 border-width 4px
                 border-style solid
                 border-color #fff transparent transparent
+                @media phone
+                    display none
     &__copyright
         a
             text-decoration none
@@ -37,22 +67,150 @@
         &_international
             display none
     &__phone
-        margin-bottom: 10px
-        &-number
-            margin 0
+        margin-bottom: 15px
         span
             display inline-block
-            width 46%
-            margin-right 2%
+            position relative
+            width 40%
+            margin-right 6%
+            margin-bottom 3.5% 
+            padding-left 8%  
+            padding-bottom 2% 
+            font-size 17px
+            font-weight normal
+            @media only screen and (max-width: 768px)
+                padding-left 12% 
+            &:after
+                content ""
+                position absolute
+                top 2px
+                left 0  
+            
             @media phone_tablet
                 width 100%
+            &.phone_general
+                &:after
+                    sprite($footer_phone)
+            &.phone_mts
+                &:after
+                    sprite($footer_mts)
+            &.phone_life
+                &:after
+                    sprite($footer_life)
+            &.phone_kyivstar
+                &:after
+                    sprite($footer_kyivstar)
+        &-number
+            margin 0
         @media phone
             display none
     &__callback
         display inline-block
-        width 46%
-        margin-right 2%
-
-        @media only screen and (max-width: 1100px)
-            width 100%
+        width 42%
+        margin-right 15px
+        a
+            margin-left 25px
+            position relative
+            display inline-block  
+            vertical-align top 
+            font-size 16px
+            color #dde8ea
             
+            &:after
+                content ""
+                position absolute
+                top 0
+                left -24px
+            &.callback_phone
+                &:after
+                    sprite($footer_calllback)
+            &.callback_pen
+                &:after
+                    sprite($footer_review)
+        @media only screen and (max-width: 768px)
+            width 100%
+            margin-bottom  10px 
+            a
+                margin-left 25px 
+                
+.contacts
+    @media phone
+        position relative
+        width 100% 
+        // height 44px 
+        padding 0 
+        border-top 1px solid rgba(255, 225, 255, .18)
+        margin-bottom 0  
+        cursor pointer
+        min-height auto 
+        overflow hidden
+        background #fff green_texture
+        &:last-child
+            border-bottom 1px solid rgba(255, 225, 255, .18)
+        &__phone
+            padding 0
+            margin-bottom 0 
+            span
+                display inline-block
+                vertical-align top
+                width 48% 
+                margin 0
+                padding 0 0 20px 30px  
+                font-size 15px
+                line-height 28px
+                letter-spacing normal
+                &:nth-child(odd)
+                    margin-right 4%
+                &:after
+                    left 0
+        p
+            margin 0
+            padding 20px 0 10px
+            font-size 15px
+            line-height 28px
+        &__callback
+            width 48%
+            margin 0 
+            margin-bottom 25px 
+            a
+                margin-left 20px 
+                font-size 14px
+            &.first-example
+                margin-right 4% 
+
+        .footer-tab_header
+            &:after
+                content none
+            .tab__header
+                position relative
+                display block
+                padding 14px 20px
+                min-height auto 
+                overflow hidden
+                font-size 16px
+                font-weight normal
+                color #FFF 
+                text-transform uppercase
+                span
+                    padding 0
+            .btn__mobile
+                position absolute 
+                display inline-block
+                top 25px
+                right 21px
+                width 16px 
+                height 8px  
+                margin-top -4px
+                background url("i/icons/arrow_tab_down_f.png") no-repeat  
+            .btn__mobile_open
+                background url("i/icons/arrow_tab_up_f.png") no-repeat  
+        .contacts-wrap
+            display none
+            padding 0 20px 
+        span.tab__header_open
+            background rgba(0,87,109,.55)
+            color #FFF 
+            font-weight bold   
+.tab-active_info
+    display block
+  

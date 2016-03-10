@@ -1,36 +1,69 @@
 .search
     position relative
-    float right
-    width 100%
-    margin-top 5px
+    float right 
+    width 50px 
+    height 48px 
+    z-index 5
+    background-image url(/i/icons/search-main.png)
+    background-repeat no-repeat 
+    background-position 50% 50%
+    transition all .2s ease-in-out
+    
+    .is-search-open
+        .search__field
+            display block
+        .search__field
+            &:active
+                border-left 1px solid #d9ecf0 
+                border-right 1px solid #d9ecf0 
+
+
+    &:hover
+        background-color #f5fafa
     &__field
-        float right
-        width 234px
-        padding-right 30px !important
-        color form_input_color
-        font-size 14px 
-        background #e5f2f5
-        border-color transparent
-        box-shadow: none
-        height: 32px !important
+        position absolute
+        display none
+        width 410px 
+        top 0
+        right 0 
+        height auto
+        padding 0 50px 0 25px
+        color lighten(text_color, 26%)
+        font-size 16px 
+        line-height 3
+        background #fff
+        // transition opacity 0.2s ease
+        border none
+        z-index 6
+        box-shadow none
+        border-left 1px solid #d9ecf0 
+        border-right 1px solid #d9ecf0 
+        &:focus
+            box-shadow none        
         &::-webkit-input-placeholder
             color #91b5bc
         @media phone
-            width 100%
+            width 100% 
     &__button
         position absolute
         display block
         top 0
-        right 0
+        right 0  
+        width 50px 
+        height 48px 
+        padding 24px 25px 
         border 0 none
-        margin 7px 8px 0 0
-        opacity 0.75
-        transition opacity 0.2s ease
-        background-color transparent
-        sprite($search)
+        transition opacity 0.2s ease 
+        background none
+        background-image url(/i/icons/search-main.png)
+        background-repeat no-repeat 
+        background-position 50% 50% 
         outline none
+        transition all .2s ease-in-out
+        z-index 6 
         &:hover
-            opacity 1.0
-        &:active
-            opacity 1.0
-     
+            background-color #f5fafa
+.header__nav-right
+    .search
+        &__field
+            border-radius 0

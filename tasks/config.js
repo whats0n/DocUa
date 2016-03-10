@@ -76,7 +76,6 @@ module.exports = {
   js: {
     jsList: [
         "./src/assets/vendor/jquery/jquery-1.12.0.min.js",
-        "./src/assets/vendor/jqueryui/jquery-ui.min.js",
         "./src/assets/vendor/owl-carousel/owl.carousel.js",
         "./src/assets/vendor/twitter-bootstrap/js/tab.js",
         "./src/assets/vendor/twitter-bootstrap/js/dropdown.js",
@@ -95,9 +94,9 @@ module.exports = {
         "./src/assets/vendor/jscrollpane/mwheelIntent.js",
         "./src/assets/vendor/jscrollpane/jquery.jscrollpane.js",
         "./src/assets/vendor/jquery.inputmask/inputmask/jquery.inputmask.js",
-        "./src/assets/vendor/moment/moment.js",
-        "./src/assets/vendor/daterangepicker/daterangepicker.js",
         "./src/assets/vendor/dotdotdot/jquery.dotdotdot.js",
+        "./src/assets/vendor/jquery.datepicker/jquery.plugin.min.js",
+        "./src/assets/vendor/jquery.datepicker/jquery.datepick.js",
         "./src/assets/js/_coffee.js"
     ],
     checkerList: [

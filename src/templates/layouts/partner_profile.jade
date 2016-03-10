@@ -36,17 +36,16 @@ body.out
         }(document, 'script', 'facebook-jssdk'));
     .wrapper
         //- Navbar
-        nav.navbar.navbar-main.navbar-fixed-top
+        nav.navbar.navbar-main.navbar-fixed-top.navbar-main_none
           .container
             button.navbar-toggle.collapsed.visible-xs
               span.icon-bar
-              span.icon-bar 
+              span.icon-bar
               span.icon-bar
 
-            +b.logo.visible-xs: +i({ mobileLogo: true })
+            +b.logo: +i({ mobileLogo: true })
 
             +b.navbar-header
-              +e("span").title.hidden-xs Ваш город:
               +b.location: +i
 
             +b.phones.hidden-xs: +i
@@ -56,39 +55,54 @@ body.out
             //-   span (067) 3370707;
             //-   span (044) 3370707
             hr.header__line
+            .phones.phones_mobile.visible-xs 
+              span (044) 337-07-07
+            +b("a").favorites-link(href="/", title="Избранное")
+              span 14
+            .user-panel.hidden-xs
+              +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
+              //- if file.isCabinet
+              //-   +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
+              //- else
+              //-   +b.user-panel-auth: +i
             +b.feedback
               +e("a").link._callback(href="#{linkPrefix}callback", data-toggle=modalToggle, title="Обратный звонок")
                   span.dotted Обратный звонок
               +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку")
-                  span.dotted Быстрая заявка
-            +b.phones.visible-xs: +i
-            .user-panel.hidden-xs 
-                
-                +b("a").cabinet-enter__link(href="/", title="Избранное") Личный кабинет
-                    +b("i").cabinet-enter__link-icon
-                +b("a").favorites-link.favorites-link__mod(href="/", title="Избранное")
-                  span.dotted Избранное
-         +b.navbar-collapse(class="navbar-mobile collapse"): +i
+                  span.dotted Оставить заявку
+                  
+
+        +b.navbar-collapse(class="navbar-mobile collapse"): +i
         //- Logo and search
         .container-fluid.container-header.hidden-xs
             .row.row-white.cabinet-row__mod
                 .container
                     h1.sr-only Поиск вашего врача – DOC.ua
                     if file.finder
-                        - var headerClass = "header_with-finder" 
-                    header.header(class=headerClass) 
+                        - var headerClass = "header_with-finder"
+                    header.header.main-page-header(class=headerClass)
                         .wrap
                             .row
                                 .col-sm-8
                                     +b.logo.logo__mod: +i
                                 .col-sm-4
                                     +b.search: +i
+                        //- hr.header__line
         //- Menu
         .container-fluid.container-menu.container-menu__mod
-              .row.row-white
-                .container
-                  nav.header__nav
-                    +b.menu: +i({ prefix: "main", items: profileMenu, activeIndex: file.activeMenuItem })
+          .row.row-white
+            .container
+              nav.header__nav
+                +b.menu: +i({ prefix: "main", items: profileMenu, activeIndex: file.activeMenuItem })
+        //- //- Menu
+        //- .container-fluid.container-menu.container-menu__mod
+        //-       .row.row-white
+        //-         .container
+        //-           nav.header__nav
+        //-             +b.menu: +i({ prefix: "main", items: profileMenu, activeIndex: file.activeMenuItem })
+
+
+
 
         //- nav-menu
         .container-fluid.tabs-shadow
@@ -123,34 +137,35 @@ body.out
                    
                    article
                       block content 
-    
-    
     //- Footer
     .container-fluid
-        .row.footer 
-            .container
-                footer.footer__mod
-                    .footer-inner
-                        .wrap
-                            .row
-                                +b.menu
-                                    +b.footer-menu: +i
-                                +b.contacts.col-sm-3.col-xs-6: +i({site: site, socialLinks: true, workingTime: true})
-                                +b.contacts.col-xs-12.visible-xs
-                                    +e('span').callback
-                                        a.dotted(href="#callback", data-toggle="modal", title="Обратный звонок") Обратный звонок
-                                    +e('span').callback
-                                        a.dotted(href="#doc-request-schedule", data-toggle="modal", title="Отправить заявку") Отправить заявку
-                                    +b.social-links: +i
-                                    +e.footer
-                                        +e.copyright
-                                            | &copy;&nbsp;
-                                            a(href="http://#{site.title}", title=site.title)= site.title
-                                            | , 2015
-                                        +e.rights Использование материалов разрешено только при наличии активной ссылки <br> на источник
+      //- SEO
+      .flex_container
         .row.about-this
-            .container
-                +b.about-this-site._seo: +i
+          .container
+            +b.about-this-site._seo: +i
+
+        .row.footer
+          .container
+            footer
+              .footer-inner
+                .wrap
+                  .row
+                    +b.menu
+                      +b.footer-menu: +i
+                    +b.contacts: +i({ site: site, socialLinks: true, workingTime: true })
+
+                    .footer-bottom
+                        +b.partners.hidden-xs: +i
+                        .footer-info
+                          .footer-copyright
+                              | &copy;&nbsp;
+                              a(href="http://#{site.title}", title=site.title)= site.title
+                              | , 2016&nbsp;
+                          .footer-rights Использование материалов разрешено только при наличии активной ссылки на источник                                   
+                        +b.social-links: +i
+
+    
         +b("a").go-top(href="", title="Наверх"): +i
     block modals
     script(src="/doc.min.js")

@@ -8,28 +8,22 @@ else
     - linkPrefix = '/modals.html#'
     - modalToggle = ''
 
+    +e.title.footer-tab_header.js-tab__header-c 
+        span.hidden-xs Звоните нам
+        span.tab__header.visible-xs Контакты
+            span.btn__mobile.js-btn__mobile 
+        .contacts-wrap.tab-close.js-content-hide
+            p Пн.-вс: с 9:00 до 21:00
+            if footerMobile
+                +e("span").phone-number +38 (067) 209-78-987
+            else
+                +e.phone
+                    span.phone_general= site.phoneLandline
+                    span.phone_mts= site.phoneMts
+                    span.phone_life= site.phoneLife
+                    span.phone_kyivstar= site.phoneKyivstar
 
-+e.title Звоните нам
-p Пн.-вс: с 9:00 до 21:00
-if footerMobile
-    +e("span").phone-number +38 (067) 209-78-987
-else
-    +e.phone
-        span= site.phoneLandline
-        span= site.phoneMts
-        span= site.phoneLife
-        span= site.phoneKyivstar
-
-
-.hidden-xs
-    +e('span').callback
-        a.dotted(href="#callback", data-toggle="modal", title="Обратный звонок") Обратный звонок
-    +e('span').callback
-        a.dotted(href="#doc-request-schedule", data-toggle="modal", title="Отправить заявку") Отправить заявку
-    +b.social-links: +i
-    +e.footer
-        +e.copyright
-            | &copy;&nbsp;
-            a(href="http://#{site.title}", title=site.title)= site.title
-            | , 2015
-        +e.rights Использование материалов разрешено только при наличии активной ссылки на источник
+                +e('span').callback.first-example
+                    a.dotted.callback_phone(href="#callback", data-toggle="modal", title="Обратный звонок") Обратный звонок
+                +e('span').callback
+                    a.dotted.callback_pen(href="#doc-request-schedule", data-toggle="modal", title="Отправить заявку") Отправить заявку   
