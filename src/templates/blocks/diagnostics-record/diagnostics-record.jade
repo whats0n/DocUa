@@ -1,0 +1,29 @@
+header.header-styled.index-page-header
+    .row 
+      .col-sm-7.col-xs-12 
+        h2.h1 Запись на диагностику
+      .col-xs-5.text-right.hidden-xs  
+        a.main-more-link(href="/", title="Все предложения") Все диагностические центры
++e.inner
+    +e("ul").list
+        - var limits = 4
+        each diagnostic, i in diagnostics
+            if i < limits
+                if diagnostic.children 
+                    +e("li").item.js-tab__header-d
+                        span.btn__mobile.js-btn__mobile 
+                        +e("span").item-title=diagnostic.title
+                        +e("ul").inner-list.tab-close.js-content-hide
+                            - var items = diagnostic.children
+                            - var limit = 6
+                                each item, i in items
+                                    if i < limit
+                                        +e("li").inner-list__item
+                                            span.inner-list__quantity=item.quantity
+                                            a.inner-list__link(href=item.url, title=item.title)=item.title
+    +b.more-toggle
+        .link-wrap
+            +e("a").link(href="#diagnostic-center", data-toggle="modal", title="Все диагностики")
+                +e("span").show-label
+                    span Все<span class="sum-of-specialization">&nbsp;55&nbsp;</span>диагностики
+ 

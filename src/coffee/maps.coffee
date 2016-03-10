@@ -13,7 +13,7 @@ docMaps =
   map: {}
   geocoder: {}
   cardId: 0
-  domain: '' 
+  domain: ''
   initialize: (allItemsList, pageName, city, domain) ->
     @allItemsList = allItemsList
     @city = city
@@ -27,28 +27,24 @@ docMaps =
       center: latlng
       scrollwheel: false
       disableDefaultUI: true
-      disableDoubleClickZoom: true 
+      disableDoubleClickZoom: true
       panControl: false
-
-
-    # if @pageName == 'action' || @pageName == 'actionAbout'
-    #   @mapCss.inner()
 
     if @pageName == 'map'
       @mapCss.bigMap()
-      @map = new (google.maps.Map)(document.getElementById('map-canvas-big'), mapOptions) 
+      @map = new (google.maps.Map)(document.getElementById('map-canvas-big'), mapOptions)
       @listeners.common @map
       @newScope()
     else
       docMaps.mapOffsetTop = $('.widget-map').offset().top
       @map = new (google.maps.Map)(document.getElementById('map-canvas-right'), mapOptions)
-      if @pageName == 'doctorInner' || @pageName == 'clinicInner' || @pageName == 'clinics'  || @pageName == 'diagnostCenter' || @pageName == 'action' || @pageName == 'actionAbout'  
+      if @pageName == 'doctorInner' or @pageName == 'clinicInner'
         @mapCss.inner()
       else
         @mapCss.index()
-        $(window).scroll -> 
+        $(window).scroll ->
           docMaps.mapCss.index()
-        @listeners.common @map 
+        @listeners.common @map
       @newScope()
       @mapModal()
 
@@ -56,9 +52,6 @@ docMaps =
     if list
       @allItemsList = list
     if @pageName == 'doctorInner'
-      @addNewMarker = @addMarker.inner()
-      @addNewMarker()
-    if @pageName == 'diagnostCenter'
       @addNewMarker = @addMarker.inner()
       @addNewMarker()
     else
@@ -123,17 +116,17 @@ docMaps =
       navbarHeight = $('.navbar-main').outerHeight()
 
       if docMaps.mapOffsetTop - $(window).scrollTop() < 0
-        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 30)
+        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 40)
         $('.widget-map').css
           position: 'fixed'
           $('.widget-map').width $('.widget-map').parent('aside').width()
 
-        if $(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)  
+        if $('html').height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)
           docMaps.canAnimateTop = true
           $('aside').height($('aside').prev().height())
           $('.widget-map').css
             position: 'absolute'
-            bottom: 20
+            bottom: 10
             top: 'auto'
         else
           if docMaps.canAnimateTop
@@ -153,7 +146,7 @@ docMaps =
         return
 
     inner: -> #one clinic or one doctor side map
-      if docMaps.pageName == 'clinicInner' && docMaps.pageName == 'diagnostic-center'
+      if docMaps.pageName == 'clinicInner'
         $('#map-canvas-right, .widget-map').height(600)
       else
         $('#map-canvas-right, .widget-map').height($('.card').outerHeight())
@@ -249,8 +242,8 @@ docMaps =
     docMaps.fitMap [marker], map
 
     if marker.addInfo.affilate
-      if docMaps.pageName == 'diagnostList'
-        offsetTop = $("[data-id='" + marker.addInfo.id + "']").offset().top
+      if docMaps.pageName == 'clinics'
+        offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").offset().top
       else
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").closest('.card').offset().top
     else

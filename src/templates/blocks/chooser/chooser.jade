@@ -2,16 +2,18 @@
     section
         case data.page
             when "doctors"
-                ul.chooser__list.columnize(data-columns="6", data-balance-method="balanceCount")
+                ul.chooser__list
                     each specialization in specializations
                         li.chooser__list__item(class=specialization.class)
+                            span.chooser__list__quantity=specialization.quantity
                             a.chooser__list__item-link(href=specialization.url, title=specialization.title)= specialization.title
-                +b.more-toggle.more-toggle_with-icon
-                    +e("a").link(href="#select-specialization", data-toggle="modal", title="Все специальности")
-                        +e("span").show-label
-                            span Все специальности
+                +b.more-toggle
+                    .link-wrap
+                        +e("a").link(href="#select-specialization", data-toggle="modal", title="Все специальности")
+                            +e("span").show-label
+                                span Все<span class="sum-of-specialization">&nbsp;74&nbsp;</span>специальности
             when "worldDoctors"
-                ul.chooser__list.chooser__list_offset.columnize(data-columns="6", data-balance-method="balanceCount")
+                ul.chooser__list.chooser__list_offset.columnize(data-columns="4", data-balance-method="balanceCount")
                     each specialization in worldSpecializations
                         li.chooser__list__item(class=specialization.class)
                             a.chooser__list__item-link(href=specialization.url, title=specialization.title)= specialization.title
@@ -23,7 +25,7 @@
                 a.more-link.pull-right(href="/clinics.html", title="Все направления") Все направления
                 h3.chooser__title Найти клинику по направлению
                 hr.dotted
-                ul.chooser__list.columnize(data-columns="6", data-balance-method="balanceCount")
+                ul.chooser__list.columnize(data-columns="4", data-balance-method="balanceCount")
                     each branch in branches
                         li.chooser__list__item
                             a.chooser__list__item-link(href=branch.url, title=branch.title)= branch.title
@@ -31,7 +33,7 @@
                 a.more-link.pull-right(href="/doctors.html", title="Все специальности") Все специальности
                 h3.chooser__title Выберите специальность врача для онлайн-консультации
                 hr.dotted
-                ul.chooser__list.columnize(data-columns="6", data-balance-method="balanceCount")
+                ul.chooser__list.columnize(data-columns="4", data-balance-method="balanceCount")
                     each specialization in specializations
                         li.chooser__list__item
                             a.chooser__list__item-link(href=specialization.url, title=specialization.title)= specialization.title
@@ -39,7 +41,7 @@
                 a.more-link.pull-right(href="/", title="Все диагностические центры") Все диагностические центры
                 h3.chooser__title Популярные виды диагностики
                 hr.dotted
-                ul.chooser__list.columnize(data-columns="6", data-balance-method="balanceCount")
+                ul.chooser__list.columnize(data-columns="4", data-balance-method="balanceCount")
                     each diagnostic in diagnostics
                         if diagnostic.popular
                             li.chooser__list__item.chooser__list__item_parent

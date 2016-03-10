@@ -1,25 +1,100 @@
 .phones
-    float left
-    position:relative
+    display inline-block
+    vertical-align baseline 
+    position relative
     margin 0
+    max-width 190px 
+    width 100% 
     font-size 14px
     line-height 1
+    text-align left
+    @media phone
+        max-width 140px 
+        float right
     .select7
         margin-top 3px
         &:hover
             color header_icons_color
+        &__option
+            color blue_base
+            padding 5px 17px 6px
+            font-size 16px
+            transition all .2s ease-in-out
+            @media phone
+                font-size 14px
+            &:hover
+                background #deeff2
         &__current
             &-value
-                border-bottom-color transparent
+                font-size 16px
+                color #00829b 
+                border-bottom 1px dotted
+                @media phone
+                    font-size 14px
+                &:hover
+                    color #0099a8
+                    border-bottom none
+                .select7__icon 
+                    box-shadow 2px 1px 0 7px #fff
                 .select7__icon img
                     vertical-align top
+        &__caret
+            margin-top 0
+        &__icon
+            top 0
+            margin-right 10px
+            // transition all .2s ease-in-out
         &_open
             .select7__current-value
-                color #262626
+                color #0099a8
+                border-bottom none
+            .select7__icon
+                margin-right 10px
+                box-shadow none
+            .select7__caret
+                margin-top -8px
+                border-color transparent transparent #00829b !important
+        &.select7_phones
+            .select7__current
+                padding 0 15px 0 18px 
+            .select7__drop
+                margin -33px 0 0 
+                padding 36px 0 5px
+            &__option
+                padding 4px 17px
     &.visible-xs
         @media phone
             margin: 0 !important
             float: right
-
-.navbar-main .phones
-    color #fff
+            
+.phones_mobile
+    text-align right
+    span
+        position relative
+        display inline-block
+        padding-left 25px 
+        line-height 1.5
+        color blue_base
+        &:before
+            content ""
+            position absolute
+            top 2px
+            left 0
+            width 19px
+            height 19px
+            background-image url(i/icons/phone-icon-new.png)
+            background-repeat no-repeat
+            background-position initial
+.navbar-main
+    .phones
+        float left 
+.navbar-main_inner
+    .phones
+        float none 
+        .select7
+            .select7__icon 
+                top 0
+            &__drop
+                .select7__option
+                    .select7__icon 
+                        top -1px

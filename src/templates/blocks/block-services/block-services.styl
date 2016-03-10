@@ -1,6 +1,5 @@
 .block-services
     &-wrapper
-        margin-top 10px
         &.show-hidden
             .block-services
                 &__item
@@ -20,6 +19,7 @@
         &.active
             .block-services
                 &__icon
+                    background-color: #5e6e71
                     transform: rotate(180deg)
         &.is-hidden
             display: none
@@ -27,62 +27,40 @@
             display inline-block
             margin 0px 0 0px 21px
             padding 2px 22px 4px
-        &.item-null
-            .block-services__title 
-                background-color #FFF
-                border-top-color #e6edef
-                border-bottom 1px solid #e6edef
-                
-                &:hover
-                    background-color #f3f8fb 
-                .block-services__title-in
-                    clearfix()
-                    .block-services__price-discount
-                        @media screen560
-                            width 100%
-                            display inline-block
-                            text-align left
-                            margin -10px 0 10px 0
-                            padding-left 20px
-                            // margin  -10px 20px 10px 20px
-                            
     &__title
         clearfix()
         padding: 0 21px 
         cursor: pointer
         user-select: none
-        background-color: #e5f2f5
-        border-top: 1px solid #FFF
-        &.title__mod
-            border-top none
         strong
             color: #5e6e71
             font-size: 15px
             line-height: 1.2
             padding: 13px 0 13px 20px
-            display: inline-block
+            display: block
             overflow: hidden 
             position: relative
-            @media screen560
-                width 72%
-            span
-                color: #90b1b8
-                font-weight normal
-        
-            
+        &-in
+            border-top: 1px solid #c0d2d6
         // .title-in__no-info
         //     strong
         //        padding: 13px 0 13px 0  
     &__icon
         position: absolute
-        top: 50%
-        margin-top -2px
-        left: 4px
-        border-style: solid 
-        border-color:  #5e6e71 transparent transparent
-        border-width: 5px 4px 0 
-        
-                         
+        top: 15px
+        left: 0
+        width: 14px
+        height: 14px
+        border-radius: 50%
+        background-color: #c0d1d8
+        &:before
+            content: "" 
+            position: absolute
+            top: 5px
+            left: 4px
+            border-style: solid
+            border-color: #fff transparent transparent
+            border-width: 5px 3px 0              
     &__price-discount
         float: right
         font-size: 15px
@@ -97,50 +75,38 @@
             padding: 0 5px
         a.btn-hide
             display none
-            @media screen560
-                float right
     &__drop
         position: relative
         padding-top: 1px
         display: none
+        &:before
+            content: "" 
+            position: absolute
+            top: 0
+            left: 21px
+            right: 21px
+            border-bottom: 1px solid #c0d2d6 
     &__left
-        // float: left
-        display inline-block
-        vertical-align middle
+        float: left
         font-size: 15px
-        line-height: 16px
+        line-height: 22px
         color: #5e6e71
-        width: 63%
-        @media phone
-            float left
-            width 50% 
-            padding: 10px 0
+        width: 65%
+        padding: 8px 0
         span
             color: #90b1b8
     &__right
-        // float: right
-        display inline-block
-        vertical-align middle
-        width: 36%
+        float: right
+        width: 35%
         text-align: right
-        // padding 15px 0
         font-size: 0
-        @media phone
-            float right
-            width 50%
-            padding: 5px 0 
         span
             color: #5e6e71
             font-size: 16px
             display: inline-block
             vertical-align: top
             line-height: 1
-            padding: 15px 0
-        .old_price
-            color: #a9bbc2
-            text-decoration: line-through
-            padding-right 5px
-            
+            padding: 11px 0  
     .btn
         font-size: 16px
         font-weight: 700
@@ -148,20 +114,12 @@
         display: inline-block
         vertical-align: top
     &__row
-        padding 0 20px 0 39px
+        padding: 0 21px 0 39px
         margin-bottom: -1px
         position: relative
-        border-bottom: 1px solid #e6edef
-        height 50px
-        @media phone
-            height auto 
-        
-        &:last-child
-            border-bottom transparent
         &:hover
-            background-color: #f3f8fb
+            background-color: #e5f2f5
             z-index: 2
-            // border-bottom 1px solid #f3f8fb
             .block-services
                 &__row-in
                     border-color: transparent 
@@ -169,22 +127,23 @@
                         background-color: green_base
                     .btn
                         display: inline-block
-                        @media screen560
-                            margin: 9px 0 4px 15px
-                    .old_price
-                        display none
         &-in
+            border-bottom: 1px solid #c0d2d6
             position: relative
             clearfix()
+            &:before
+                content: "" 
+                position: absolute
+                top: 16px
+                left: -17px
+                width: 8px
+                height: 8px
+                background-color: #96b8bf
+                border-radius: 50%
+                transition: background 0.2s
             .btn
                 display: none
-                margin: 9px 0 4px 21px
-            .small-card__action
-                padding 0 
-                span
-                    &:after
-                        right -9px
-                        
+                margin: 4px 0 4px 21px 
     &__bottom
         padding: 0 21px 0 39px
         clearfix()
@@ -205,39 +164,23 @@
                 border-color: green_base
         .more-toggle
             display: block
-    // section
-    //     .block-services
-    //         margin-top: -9px
+    section
+        .block-services
+            margin-top: -9px
 .row-item__mod
     .block-services__left
         @media screen560
             width 100%
     .block-services__right
         @media screen560
-            float left
-            width 100% 
+            float none
+            width 100%
             text-align left
-            a
-                float right
 .price-discount__mod
     @media screen560
         float none
         text-align left
         margin-left 0
-.small-card__action-mod
-    span.orange
-        background-color #ffc02a !important
-        // &:before
-        //     border-right: 2px solid #ffc02a
-        &:after
-            border-color: none
-            border none
-            border-left none
-            background url('i/icons/head-tringle.png') no-repeat center
-            display inline-block
-            right -9px
-            width 19px
-            height 22px
-// .item-with-btn
-//     &:hover
-//         background-color #e5f2f5       
+.item-with-btn
+    &:hover
+        background-color #e5f2f5       

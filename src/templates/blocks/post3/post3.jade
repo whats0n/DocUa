@@ -1,0 +1,106 @@
+//- if data.postWide
+//-     if data.thumb
+//-         +e.thumb(style="background-image: url(i/actionPost1.jpg);")
+
+//-             if data.timerBadge
+//-                 +b.timer-badge
+//-                     if data.timerBadge.type == "generic"
+//-                         +e("span").text
+//-                             | #{data.timerBadge.html[0]}
+//-                             br
+//-                             | #{data.timerBadge.html[1]}
+//-                     else
+//-                         +e("span").days= data.timerBadge.days 
+//-                         +e("span").text дней<br>осталось
+if !data.postWide
+    if data.sticker
+        +e.sticker
+            span.sticker-bg 
+            span.sticker-desc=data.sticker.desc 
+            span.sticker-benefit=data.sticker.benefit
+    if data.thumb
+        +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+
+            if data.timerBadge
+                +b.timer-badge
+                    if data.timerBadge.type == "generic"
+                        +e("span").text
+                            | #{data.timerBadge.html[0]}
+                            br
+                            | #{data.timerBadge.html[1]}
+                    else
+                        +e("span").days= data.timerBadge.days 
+                        +e("span").text дней<br>осталось
++e.body
+    +e.title
+        if data.link
+            +e.link(href=data.link, title=data.title)= data.title
+        else
+            = data.title
+    if data.price
+        +e.price
+            if data.price.old
+                +e("span").price-old= data.price.old
+                    | &nbsp; #{data.price.currency}
+            if data.price.value
+                +e("span").price-value
+                    if data.price.prefix
+                        | #{data.price.prefix}&nbsp;
+                    | #{data.price.value}
+                    if data.price.currency
+                        | &nbsp;#{data.price.currency}
+
+
+//- if data.badge
+//-     +b.badge-label(class="badge-label_background_#{data.badge.background}")
+//-         if data.badge.html
+//-             != data.badge.html
+//-         else if data.badge.title
+//-             = data.badge.title
+//-         +e("span").arrow: span
+
+
+
+
+
+//- +e.footer
+//-     if data.price
+//-         +e.price
+//-             if data.price.old
+//-                 +e("span").price-old= data.price.old
+//-                     | &nbsp; #{data.price.currency}
+//-             if data.price.value
+//-                 +e("span").price-value
+//-                     if data.price.prefix
+//-                         | #{data.price.prefix}&nbsp;
+//-                     | #{data.price.value}
+//-                     if data.price.currency
+//-                         | &nbsp;#{data.price.currency}
+//- +e.more
+//-     +e('a').more-link.btn.btn-success Подробнее
+
+
+
+//- if !data.postWide
+//-     if data.thumb
+//-         +e.thumb(style="background-image: url(i/actionPost2.jpg);")
+
+//-             if data.timerBadge
+//-                 +b.timer-badge
+//-                     if data.timerBadge.type == "generic"
+//-                         +e("span").text
+//-                             | #{data.timerBadge.html[0]}
+//-                             br
+//-                             | #{data.timerBadge.html[1]}
+//-                     else
+//-                         +e("span").days= data.timerBadge.days
+//-                         +e("span").text дней<br>осталось
+
+//- //- +e.add-info
+//-     ul
+//-         li
+//-             a(href="") Оптима-фарм
+//-         li
+//-             .metro(data-toggle="tooltip-metro" data-placement="top" data-container="false" title="Осокорки, Позняки, Лукьяновская, Осокорки") Осокорки, Позняки, Лукьяновская, Осокорки
+//-         li
+//-             a(href="") Лабораторная диагностика +12

@@ -1,0 +1,338 @@
+.row-articles
+    padding 0 0 50px 
+    @media only screen and (max-width:768px)
+        padding 0 
+    @media phone
+        padding 0
+.blog-xs
+    @media phone
+        width 100% 
+        padding 0 
+.blog-block
+    position relative
+    width 100% 
+    height 442px 
+    @media phone
+        height 100% 
+        padding 0 18px 
+        padding-bottom 70px
+        background-color #fff
+    .header-styled
+        margin-top 35px
+        margin-bottom 10px
+        @media phone 
+            margin-top 17px
+            margin-bottom 5px 
+            padding-top 20px
+        .h1
+            font-size 30px
+            @media only screen and (max-width: 768px)
+                font-size 24px
+            @media phone
+                font-size 22px
+                text-align center
+    .article-block
+        position relative
+        top 0
+        bottom 0
+        left 0
+        right 0 
+        height 442px 
+        background-color white 
+        border-radius 2px
+        box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
+        margin-bottom 10px
+        overflow hidden 
+        @media only screen and (max-width: 768px)
+            height 328px 
+        @media phone
+            height 223px 
+            margin-bottom 20px 
+        &:before
+            content ""
+            position absolute
+            top 0
+            bottom 0
+            left 0
+            right 0 
+            background-image linear-gradient(to top, rgba(0, 46, 55, 0.53) 0%, rgba(0, 46, 55, 0.62) 0%, rgba(0, 46, 55, 0.62) 0%, rgba(2, 57, 67, 0.34) 48%, rgba(4, 68, 81, 0.62) 100%)
+            background-repeat no-repeat
+            background-size 100% 100%
+            z-index 1 
+        &__img
+            position: absolute
+            width 100%
+            height 100% 
+            margin-left 0
+            background-size cover
+            background-position center center
+            background-repeat no-repeat
+        &__title
+            position absolute
+            bottom 25%
+            left 5%
+            right 0 
+            font-size: 47px
+            font-weight: 700
+            line-height: 1
+            min-height 94px
+            padding 0
+            padding-right 35% 
+            z-index 5
+            @media only screen and (max-width:1024px)
+                font-size 35px
+                padding-right 38%  
+            @media only screen and (max-width:768px)
+                font-size 30px
+            @media phone
+                padding 0
+                right 5%
+                bottom 20%
+                min-height auto
+            a
+                display: inline-block
+                color #FFF 
+                text-decoration none
+                @media phone
+                    font-size 18px
+                &:hover
+                    text-decoration underline
+        &__info
+            position absolute
+            bottom 3%
+            left 3.9%
+            right 0 
+            padding: 0 15px 15px
+            clearfix()
+            @media phone
+                &.big-article
+                    bottom 0 
+                    left 0
+                    right 0
+        .main-time
+            left 6%
+            top 12%
+            z-index 2
+        .info-list
+            float none
+            @media only screen and (max-width: screenLg)
+                float: none
+                clear: both
+                
+    .info-list
+        font-size: 0
+        li
+            position relative
+            display: inline-block
+            vertical-align: top
+            font-size: 13px
+            line-height: 20px
+            padding: 0 0 0 14px  
+            z-index 5
+            &.first-child
+                padding: 0
+            a, span
+                color: green_base
+                text-decoration: none
+                position: relative
+                display: inline-block
+                &.is-view
+                    padding: 0 0 0 28px
+                    &:before, &:after
+                        width: 28px
+                    &:before
+                        sprite($in_view_main)
+                        top 3px
+                        @media phone
+                            sprite($in_view_main_dark)
+                    // &:after
+                    //     background-image: url("i/icons/in-view-active.png")
+                &.is-like
+                    padding: 0 0 0 20px
+                    &:before, &:after
+                        width: 20px
+                        bottom: 4px
+                    &:before
+                        sprite($in_like_main)
+                        top -1px
+                        @media phone  
+                            sprite($in_like_main_dark)
+                    // &:after
+                    //     background-image: url("i/icons/in-like-active.png")
+                &.is-share
+                    padding: 0 0 0 20px
+                    &:before, &:after
+                        width: 20px
+                    &:before
+                        sprite($in_share_main)
+                        top 2px
+                        @media phone
+                            sprite($in_share_main_dark)
+                    // &:after
+                    //     background-image: url("i/icons/in-share-active.png")
+                &:before, &:after
+                    content: ""
+                    position: absolute
+                    top: 0
+                    bottom: 0
+                    left: 0
+                    transition: opacity 0.2s, visibility 0.2s
+                    background-repeat: no-repeat
+                    background-position: center left 
+                &:after
+                    visibility: hidden 
+                    opacity: 0
+            a
+                &:hover
+                    &:before
+                        opacity: 0
+                        visibility: hidden
+                    &:after
+                        opacity: 0.73
+                        visibility: visible
+        &.big-article
+            a, span
+                &.is-view
+                    &:before
+                        @media phone
+                            sprite($in_view_main)
+                &.is-like
+                    &:before
+                        @media phone  
+                            sprite($in_like_main)
+                &.is-share
+                    &:before
+                        @media phone
+                            sprite($in_share_main)
+    .main-time
+        position absolute
+        top 4px
+        left -21% 
+        margin-bottom: 2px
+        opacity .75
+        background-color rgba(255, 255, 255, 0.12)
+        border 1px dashed white
+        border-radius 2px
+        color #FFF 
+        @media only screen and (max-width:1024px)
+            top 2px 
+            left -24%
+        @media only screen and (max-width:768px)
+            display none 
+        @media phone
+            display block
+        &_day
+            display inline-block
+            font-size 24px 
+            padding 7px 10px 0
+        &_month
+            display block
+            font-size 16px
+            line-height 1
+            text-align center
+            padding-bottom 7px
+            margin-top -5px
+
+    .blog-list
+        position absolute
+        width 25% 
+        top 15%
+        right 5%  
+        z-index 5
+        @media only screen and (max-width:768px)
+            width 30%
+            top 10% 
+        @media phone
+            position relative
+            width 100% 
+            right 0 
+        &__img
+            display none
+            vertical-align top
+            width 25%
+            height 65px 
+            margin-right 5%  
+            background-size cover
+            background-position center center
+            background-repeat no-repeat
+            @media phone
+                display inline-block 
+        &__item
+            position relative
+            border none
+            padding: 0 0 15px 
+            margin-bottom: 20px
+            @media only screen and (max-width:768px)
+                margin-bottom 0 
+            @media phone
+                font-size 0
+            &.last-child
+                padding: 0
+                margin: 0
+                border: none
+        &__link
+            font-size: 16px
+            line-height: 19px
+            text-decoration: underline
+            font-weight: 700 
+            display: inline-block
+            color #FFF 
+            &:hover
+                text-decoration none
+            @media phone
+                margin-top -3px
+                font-size 15px
+                font-weight bold
+                line-height 20px
+                text-decoration underline
+                overflow hidden
+                // height 40px
+                // text-overflow ellipsis
+                // // white-space nowrap
+                color blue_base 
+                &:hover
+                    text-decoration none
+        .article-block__info
+            position relative
+            padding 12px 0 0px
+            padding-left 0
+            top 0
+            right 0
+            left 0 
+            @media only screen and (max-width:768px)
+                padding-top 10px 
+            @media phone
+                display inline-block
+                vertical-align top
+                padding-left 0
+                padding-top 5px 
+        .right-side-xs
+            @media phone
+                width 70% 
+                display inline-block
+                vertical-align top
+    .main-more-link
+        position absolute
+        display inline-block
+        bottom 10%
+        right 15%  
+        font-size 18px
+        font-weight bold
+        color #FFF 
+        text-decoration underline
+        color #ffb546
+        z-index 5
+        @media only screen and (max-width:1024px)
+            right 12.2% 
+        @media only screen and (max-width:768px)
+            right 11.2%
+        &:after
+            content ""
+            position absolute
+            top 7px
+            right 5px 
+            width 20px  
+            height 15px  
+            sprite($arrow_right_orange)
+        &:hover
+            text-decoration none

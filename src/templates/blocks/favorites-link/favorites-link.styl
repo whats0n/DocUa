@@ -1,17 +1,43 @@
 .favorites-link
     position relative
-    padding-left $navbar_favorites_width + 5
+    display inline-block
+    vertical-align baseline 
+    margin-left 5px
+    padding-left 23px
     font-weight normal
-    color #fff
-    
-    &:hover
-        color #fff
-        span
-            border-bottom transparent
-    
+    color green_base
+    text-decoration none
+    font-size 17px 
     &:before
         content ''
         position absolute
         left 0
         top 3px
-        sprite($navbar_favorites)
+        sprite($star_main) 
+        background-repeat no-repeat
+    span
+        border-bottom none
+    &:hover
+        color green_base
+    &:hover:before 
+        sprite($star_main_hover)
+            
+
+// .favorites-link
+//     position relative
+//     padding-left $navbar_favorites_width + 5 
+//     font-weight normal
+//     color #fff
+    
+//     &:hover
+//         color #fff
+//         span
+//             border-bottom transparent
+    
+//     &:before
+//         content ''
+//         position absolute 
+//         left 0
+//         top 3px
+//         sprite($navbar_favorites)
+         

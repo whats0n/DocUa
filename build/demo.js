@@ -155,47 +155,6 @@ doctors = [
     }
 ]
 
-diagnost = [
-    {
-        id: "d",
-        name: "Днепролаб на м. Осокорки",
-        address: "пр. Петра Григоренка, 13 б",
-        rating: 4.2,
-        specialty: "Дерматолог, Трихолог",
-        image: "/i/_alexandriyskiy-constantin.jpg",
-    },
-    {
-        id: "d",
-        name: "Днепролаб на м. Осокорки2",
-        address: "Набережно луговая 8",
-        rating: 3.8,
-        specialty: "Косметолог",
-        image: "/i/_alexandriyskiy-constantin.jpg",
-        
-    }
-     
-]
-
-actions = [
-    {
-        id: "a1",
-        name: "Александрийский Константин Константинович",
-        address: "пр.Науки, 30",
-        rating: 4.2,
-        specialty: "Дерматолог, Трихолог",
-        image: "/i/_alexandriyskiy-constantin.jpg",
-        
-    },
-    {
-        id: "a2",
-        name: "Доктор Константин Сергеевич",
-        address: "Артема 12",
-        rating: 3.8,
-        specialty: "Косметолог",
-        image: "/i/_alexandriyskiy-constantin.jpg",
-    }
-]
-
 var subUrl = location.pathname.split('/')[1];
 
 if (subUrl === 'clinics.html')
@@ -214,21 +173,6 @@ if (subUrl === 'map.html') {
 
 if (subUrl === 'doctors.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(doctors, 'doctors', 'Киев', 'vrachi.dev.doc.ua'));
-
-
-if (subUrl === 'diagnostic-list.html')
-    google.maps.event.addDomListener(window, 'load', docMaps.initialize(diagnost, 'diagnostList', 'Киев', 'vrachi.dev.doc.ua'));
-
-if (subUrl === 'diagnostic-center.html')
-    google.maps.event.addDomListener(window, 'load', docMaps.initialize(diagnost, 'diagnostCenter', 'Киев', 'vrachi.dev.doc.ua'));
-
-if (subUrl === 'action.html')
-    google.maps.event.addDomListener(window, 'load', docMaps.initialize(actions, 'action', 'Киев', 'vrachi.dev.doc.ua'));
-
-if (subUrl === 'action-about.html')
-    google.maps.event.addDomListener(window, 'load', docMaps.initialize(actions, 'actionAbout', 'Киев', 'vrachi.dev.doc.ua'));
-
-
 
 if (subUrl === 'doctor-consultation.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(doctors[0].affilates, 'doctorInner', 'Киев', 'vrachi.dev.doc.ua'));

@@ -1,6 +1,5 @@
 - card = data.card
 - clinic= data.clinic
-- diagnost= data.diagnosList
 - clinicFilials= data.clinicFilials
 - clinicInnerFilials= data.clinicInnerFilials
 - doctorWorld = data.doctorWorld
@@ -102,9 +101,9 @@ article.hreview-aggregate.vcard.hcard
                                 != benefit.title
             if clinic || clinic_inner
                 hr.dashed
-            if clinic || clinic_inner || diagnost 
+            if clinic || clinic_inner
                 .address-info
-                    if card.address 
+                    if card.address && !clinicWorld
                         +e.address.adr
                             a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=card.adress)= card.address
                         .geo.hidden
@@ -150,8 +149,6 @@ article.hreview-aggregate.vcard.hcard
                                 +e.location.card__location_metro(class=job.metroType)
                                     = job.metro
                                 +e.location= job.location
-                            +b.label-great: +i
-                            +b.label-great: +i
             if !clinic_inner
                 +e.footer
                     if (doctors_page && !landing) || file.page_name == 'disease'

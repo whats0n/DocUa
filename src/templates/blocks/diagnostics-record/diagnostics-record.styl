@@ -1,0 +1,182 @@
+.diagnostics-record
+	@media phone
+		.header-styled
+			margin-top 15px
+			margin-bottom 6px 
+		.h1
+			font-size 22px
+			font-weight bold
+			text-align center
+	&__inner
+		// height 480px 
+		padding-bottom 50px 
+		@media phone 
+			padding-bottom 0
+	&__list
+		margin 0 -30px 
+		font-size 0 
+		@media phone
+			margin 0 -25px 
+	&__item
+		width 25%  
+		display inline-block
+		vertical-align top 
+		min-height 50px 
+		padding 0 30px 
+		box-sizing border-box 
+		@media only screen and (max-width: 768px)
+			width 50% 
+			margin-bottom 20px 
+	&__item-title
+		display inline-block
+		min-height 50px
+		font-size 18px
+		font-weight bold
+		color text_color
+	&__inner-list 
+		margin-top 15px 
+	&__inner-list__item
+		position relative
+		margin-bottom 15px  
+		padding-left 45px
+		.inner-list__link
+			font-size 16px
+			font-weight 700
+			text-decoration underline
+			color blue_base 
+			&:hover
+				text-decoration none 
+		.inner-list__quantity
+			position absolute 
+			top 2px
+			left 0 
+			font-size 17px  
+			font-weight bold
+			color green_base  
+
+	.more-toggle
+		position relative
+		display inline-block
+		margin-top 20px 
+		font-size 14px
+		// bottom 50px
+		left 0
+		right 0 
+		height 50px 
+		background none
+		.link-wrap
+			position relative
+			display inline-block
+			transition all .2s ease-in-out
+			background grey_texture
+			&:hover:before
+				border-color green_base
+			&:hover
+				.more-toggle__link
+					color green_base
+					border-color green_base
+			&:before
+				content "" 
+				position absolute
+				top 4px
+				right -4px
+				width 100% 
+				height 100% 
+				border 1px dashed blue_base
+				z-index -1
+		&__link
+			position relative 
+			top 0 
+			margin-top 0
+			padding-top 0
+			padding 10px 25px
+			color: blue_base
+			border 1px dashed blue_base
+			outline none
+			background none
+			z-index 2 
+			transition all .2s ease-in-out
+			// &:hover
+			// 	color green_base
+			// 	border-color green_base 
+		.more-toggle__show-label
+			padding 0
+			top 0
+			&:after
+				content none
+			>span
+				border 0
+				font-size 17px 
+				font-weight bold
+				
+.diagnostics-record__item
+	@media phone
+		position relative
+		width 100% 
+		// height 44px 
+		padding 0 20px 
+		border-top 1px solid rgba(0,0,0, .18)
+		margin-bottom 0  
+		cursor pointer
+		min-height auto 
+		overflow hidden
+		background #fff grey_texture
+		&:last-child
+			border-bottom 1px solid rgba(0,0,0, .18)
+		.tab__header_open
+			background green_texture 
+			color #FFF 
+			font-weight bold
+		.diagnostics-record
+			&__item-title
+				display block
+				margin 0 -20px  
+				padding 12px 20px 
+				vertical-align middle 
+				min-height auto 
+				font-size 18px
+				font-weight normal 
+				text-transform uppercase
+			&__inner-list
+				display none
+				margin-top 0 !important
+				padding-top 0
+				background #fff
+				margin 0 -20px 0px
+				padding-bottom: 0
+				margin-top 25px 
+			&__inner-list__item
+				position relative
+				margin-bottom 0
+				padding 10px 55px 12px 65px
+				border-bottom 1px solid rgba(0,0,0, .18)
+				&:after
+					content ""
+					position absolute
+					top 16px
+					right 25px
+					sprite($arrow_right_green)
+				&:last-child
+					border-bottom 0
+				.inner-list__quantity
+					left 25px
+					top 11px
+			.inner-list__link
+				text-decoration none
+				&:hover
+					text-decoration underline
+		.btn__mobile
+			position absolute 
+			top 25px
+			right 21px
+			width 16px 
+			height 8px  
+			margin-top -4px
+			background url("i/icons/arrow_tab_down.png") no-repeat  
+		.btn__mobile_open
+			background url("i/icons/arrow_tab_up.png") no-repeat  
+
+
+
+.tab-active_info
+	display block

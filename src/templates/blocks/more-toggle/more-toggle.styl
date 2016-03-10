@@ -49,6 +49,22 @@
         .show-hidden-small-cards &
             display inline-block
 
+.more-toogle-parent
+    position relative
+    padding-bottom 70px  
+    .more-toggle
+        bottom 20px
+        position relative
+        display inline-block
+        margin-top 20px
+        font-size 14px
+        left 0
+        right 0
+        height 50px
+        background 0 0
+        @media phone
+            bottom 0 
+
 .has-hidden-small-cards
     margin-bottom 32px !important
     .more-toggle
@@ -88,3 +104,64 @@
                 right: 0
                 bottom: 0
                 background: #fff
+                
+.chooser, .more-toogle-parent, .blog-block
+    .more-toggle
+        display block
+        font-size 14px
+        bottom -18px
+        .link-wrap
+            position relative
+            display inline-block
+            transition all .2s ease-in-out
+            &:hover:before
+                border-color green_base
+            &:hover
+                .more-toggle__link
+                    color green_base
+                    border-color green_base
+            &:before
+                content "" 
+                position absolute
+                top 4px
+                right -4px
+                width 100% 
+                height 100% 
+                border 1px dashed blue_base
+                z-index 1
+        &__link
+            position relative
+            top 0 
+            margin-top 0
+            padding-top 0
+            padding 10px 25px
+            color: blue_base
+            border 1px dashed blue_base
+            outline none
+            z-index 2 
+            background-color #fff
+            transition all .2s ease-in-out
+            // &:hover
+            //  color green_base
+            //  border-color green_base 
+        .more-toggle__show-label
+            padding 0
+            top 0
+            &:after
+                content none
+            >span
+                border 0
+                font-size 17px 
+                font-weight bold
+.chooser
+    .more-toggle
+        @media phone
+            bottom 30px
+.more-toogle-parent
+    .more-toggle
+        @media phone
+            bottom 0
+.blog-block
+    .more-toggle
+        @media phone
+            bottom 60px
