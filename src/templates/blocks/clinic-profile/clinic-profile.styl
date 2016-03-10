@@ -12,29 +12,35 @@
 .tabs-shadow
     line-height 40px
     box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
+    background-color #FFF
     clearfix()
 
      
 .clinics-profile__tabs
     margin-left 151px 
+    border-bottom none 
     li
         position relative
+        box-sizing border-box
+        // margin-bottom 0
+        border none
         &:hover
             color blue_link
-            border-color grey_base
+            border none
         a
-            
-            padding 9px 21px
+            padding 10px 21px
+            margin-right 3px
             font-size 15px
             text-decoration none
             outline 0
             border-radius 0 
             color blue_link
+            border none
             @media tablet
                 padding 9px 11px
             &:hover
                 color blue_link
-                border-color grey_base
+                border-color none !important 
                 box-sizing border-box
         &.active
             &:after
@@ -46,7 +52,6 @@
                 left 0
                 top -2px
                 z-index 1
-                
             &:before
                 content 'Заявки'
                 position absolute
@@ -64,9 +69,10 @@
                 color text_color
                 background-color grey_base
                 box-shadow inset 5px 0px 10px -5px rgba(0, 64, 76, 0.15)
-                border-bottom 5px solid grey_base 
+                border none
+                // border-top-color transparent 
+                // border-image url('i/grey_texture.png')
                 &:before
-                    
                     content ""
                     position absolute
                     left 50%
@@ -75,7 +81,6 @@
                     height 0
                     border 8px solid transparent
                     border-top 7px solid blue_base
-                    
                 &:after
                     content ""
                     position absolute
@@ -86,52 +91,44 @@
                     border 8px solid transparent
                     border-top 7px solid #FFF
                     z-index 2
-                    
-                // &:after
-                //     content ""
-                //     width 98%
-                //     height 4px
-                //     position absolute
-                //     right 0
-                //     bottom -5px 
-                //     background-color grey_base
-                
-                    
                 &:hover
                     color text_color
                     background-color grey_base
-                    border-bottom 5px solid grey_base
+                    border none
                 &:focus
                     color text_color
                     background-color grey_base
-                    border-bottom 5px solid grey_base
+                    border none
         
 // clinic-profile 
 .profile-footer__wrap 
     border-top 1px dotted rgba(29,137,160,.45) 
     background-color rgba(#eaf5f9, 0.48)
     padding 25px 0
+    
 
 // CLINIC-PROFILE_CURRENT
 .clinic-current__content
     .tab-content
         .tab-pane
             box-shadow none
-            background grey_base 
+            background grey_texture
+            
 .application
     margin-bottom 80px
-    background grey_base
+    background grey_texture
     &__item-big
         position relative
         margin-top 20px
         border-radius 3px
         box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
         background-color white
+        min-height 180px
         clearfix()
         .left-side
             background-color white
             float left
-            width 50%
+            width 51%
             border-radius 3px 0 0 3px
             @media only screen and (max-width: 1200px)
                 float none
@@ -173,6 +170,7 @@
                         border-radius 3px 
                     &__time
                         font-size 54px
+                        min-height 77px
                         font-weight 300
                         color #FFF
                         font-family Roboto, Arial,  sans-serif
@@ -181,6 +179,7 @@
                 .table-info
                     padding 20px
                     margin-left 161px
+                    min-height 180px
                     // @media only screen and (max-width: 1200px)
                     //     margin-left 0 
                     table
@@ -200,14 +199,14 @@
                                     font-size 14px
                                     font-weight 700
                                     padding-left 10px
-                                    white-space nowrap
-                                    overflow hidden
-                                    -ms-text-overflow ellipsis
-                                    text-overflow ellipsis
+                                    // white-space nowrap
+                                    // overflow hidden
+                                    // -ms-text-overflow ellipsis
+                                    // text-overflow ellipsis
         .right-side
             float left
             background #fcfdfd
-            width 50%
+            width 49%
             -webkit-border-radius 0 3px 3px 0  
             border-radius 0 3px 3px 0
             @media only screen and (max-width: 1200px)
@@ -256,6 +255,7 @@
                     padding 20px
                     -webkit-border-radius 0 3px 3px 0  
                     border-radius 0 3px 3px 0
+                    min-height 215px
                         &:after
                             position static
                             border-left none 
@@ -268,7 +268,9 @@
                         height 100%  
                         width 50%
                         z-index 1 
-                        border-left 1px dashed rgba(29,137,160,.45)    
+                        border-left 1px dashed rgba(29,137,160,.45) 
+                        @media  only screen and (max-width: 1200px)
+                            border-left none
                     &__enter-text
                         width 100%
                         height 69px
@@ -318,9 +320,9 @@
                         @media only screen and (max-width: 1200px)
                             background-color rgba(#909191, 0.26)
         .right-side
-            border-left 1px dashed rgba(29,137,160,.45)
             .right-side__wrap  
                 .comment-block
+                    border-left 1px dashed rgba(29,137,160,.45)
                     width 100%
                     &__item
                         &:last-child
@@ -333,11 +335,31 @@
             &.right-side__cancel
                 &:after
                     background-color rgba(#909191, 0.26) 
+            &.right-side__small
+                border-left none
+                .right-side__wrap 
+                    // .alternative-block
+                    //     &:after
+                    //         display none 
+                    .comment-block
+                        // border-left none
+                        border-right 1px dashed rgba(29,137,160,.45)
+                        min-height 236px 
+                        width 55%
+                        &__item
+                            &:last-child
+                                width auto
+                    .alternative-block
+                        border-left none
+                        &:after
+                            display none 
+                
+                
                                 
 // tab-alternative
 #tab-alternative.tab-pane  
     box-shadow none 
-    background grey_base
+    background grey_texture
     .alternative-btn
         margin 20px 0
         &__button
@@ -353,8 +375,9 @@
                 opacity 0.8
         &__district
             // max-height 40px
-            max-width 746px
+            max-width 400px
             display inline-block
+            vertical-align middle
             padding 0 15px
             clearfix()
             >span
@@ -373,6 +396,19 @@
                     width 13px
                     height 13px
                     cursor pointer
+        &__specialization
+            display inline-block
+            margin-left 15px
+        &__icon-close
+            display none
+            vertical-align middle
+            margin-left 15px 
+            background url('i/icons/clinic-profile-close.png') no-repeat
+            width 13px
+            height 13px
+            cursor pointer
+            &.is-active
+              display inline-block
                 
                      
             
@@ -403,6 +439,75 @@
                 &__enter-text
                     margin 12px 0
 
+.application__alternative
+    table.application__item-big
+        tr 
+            td 
+                padding 20px
+                vertical-align top
+                &:first-child
+                    vertical-align middle
+                    width 14%
+                    background-color: #168da4
+                    border-radius 3px 0 0 3px
+                    .title
+                        text-align center
+                        &__time
+                            font-family: Roboto
+                            font-size: 54px
+                            color #fff 
+                            font-weight 300 
+                            letter-spacing -3px
+                        &__picture
+                            width 113px
+                            
+                &:nth-child(2)
+                    width 37%
+                    table
+                        tr
+                            td
+                                padding 0
+                                border none
+                                &:first-child
+                                    background none
+                &:nth-child(3)
+                    width 27%
+                    border-left: 1px dashed rgba(29,137,160,.45)
+                    background-color #fcfdfd 
+                    .comment-block 
+                        &__item
+                            &:first-child
+                                min-height 115px
+                &:last-child
+                    width 22%
+                    border-left 1px dashed rgba(29,137,160,.45)
+                    background-color #fcfdfd 
+                    .alternative-block 
+                        &__enter-text
+                            margin: 12px 0
+                            width: 100%;
+                            min-height: 80px;
+                            background: #fff;
+                            border: 1px solid rgba(61,160,180,.27);
+                            border-radius: 3px;
+                            box-shadow: inset 2px 2.3px 1px rgba(43,151,173,.12);
+                            outline: 0;
+                            text-align: left;
+                            font-style: italic;
+                            padding: 10px;
+                        &__button
+                            width: 100%;
+                            font-size: 16px;
+                            font-weight: 700;
+                            color: #fff;
+                            background-color: #168da4;
+                    
+                    
+
+    
+                       
+    
+
 //tab-finished
 .completed-header
     margin-top 20px
@@ -418,6 +523,37 @@
             margin-right 0
         @media only screen and (max-width: 1024px) 
             margin-right 10px
+        .block-wrap 
+            position relative
+            &__search
+                background-color white
+                border 1px solid rgba(61, 160, 180, 0.37)
+                border-radius 3px
+                box-shadow inset 2px 3.3px 1px rgba(43, 151, 173, 0.12)
+                width 256px
+                padding 5px 10px 5px 15px
+                font-size 14px
+                color text_color
+                outline none
+                &::-webkit-input-placeholder 
+                    color #bed3d8
+                &::-moz-placeholder
+                    color #bed3d8          
+                &:-moz-placeholder 
+                    color #bed3d8          
+                &:-ms-input-placeholder
+                    color #bed3d8  
+                @media only screen and (max-width: 1024px) 
+                    width 200px  
+            &__icons
+                position absolute 
+                cursor pointer
+                right 15px
+                top 50%
+                margin-top -8px  
+                width 17px
+                height 17px
+                background url('i/icons/clinic-profile-search.png') no-repeat
         .everyone-header
             display inline-block
             background-color white
@@ -459,211 +595,46 @@
                 &:hover
                     background-color #e5f2f5 
                     color #168da4 
-        .date-picker
-            position relative
-            width 226px
-            height 31px
-            color #bed3d8
-            padding-left 7px
-            cursor pointer 
-            &:before
-                content ''
-                float left
-                margin-top 0 
-                border none
-                background url('i/cabinet/piker-calendar.png') no-repeat center center
-                margin-right 10px
-                width 20px
-                height 20px
-            
-        .date-wrap
-            display none
-            position absolute 
-            z-index 100 
-            top 50px
-            right 0
-            width 596px
-            background-color #FFF 
-            border 1px solid blue_base
-            border-radius 3px
-            box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
-            &.is-open
-                display block   
-            .date-header
-                background-color blue_base 
-                border-radius 2px 2px 0 0 
-                width 100%
-                color white
-                text-align center
-                &:after
-                    content ''
-                    position absolute
-                    top -21px
-                    right 193px 
-                    width 0
-                    height 0
-                    border 11px solid transparent
-                    border-bottom 10px solid blue_base
-                &__item
-                    display inline-block
-                    font-size 14px
-                    line-height 40px
-                    padding 0 12px
-                    &:first-child
-                        padding 0
-                    &.active
-                        a
-                            font-weight 700 
-                            border-color blue_base 
-                &__link
-                    color #FFF
-                    text-decoration none
-                    border-bottom 1px dashed #fff 
-                    &:hover
-                        border-color blue_base
-            .datepick
-                width 595px !important
-                clearfix()
-                a 
-                    text-decoration none
-            .datepick-month
-                width 50%
-                float left
-                text-align center
-                .datepick-month-header
-                    line-height 35px
-                &.last
-                    border-left 1px solid  rgba(#148ca3, 0.33)
-                    margin-left -1px
                     
-                table
-                    width 100%
-                thead
-                    tr
-                        &:first-child
-                            border-top 1px solid rgba(#148ca3, 0.33)
-                        &:last-child
-                            span
-                                font-size 15px
-                                line-height 32px
-                                text-transform uppercase
-                                color #148ca3 
-                            
-                        .datepickerGoNext
-                            a
-                                font-size 20px
-                        .datepickerGoPrev
-                            a
-                                font-size 20px
-                        th
-                           text-align center
-                           a
-                               font-size 16px
-                               line-height 32px 
-                               color text_color
-                tbody
-                    tr
-                        line-height 35px
-                        td
-                            .datepick-other-month
-                                color #a6b8bc 
-                            .datepick-today
-                                color #f07804
-                                position relative
-                                &:after
-                                    content ''
-                                    position absolute
-                                    bottom -6px
-                                    left 50% 
-                                    margin-left -3px
-                                    z-index 10
-                                    display block
-                                    background-color #f07804
-                                    width 5px
-                                    height 5px
-                                    border-radius 50%
-                            .datepick-selected, .datepick-highlight
-                                position relative
-                                &:before
-                                    content ''
-                                    position absolute
-                                    top 50%
-                                    margin-top -18px
-                                    left 50%
-                                    margin-left -22px
-                                    width 46px
-                                    height 35px
-                                    border-radius 3px 
-                                    background-color grey_base 
-                                    z-index -5 
-                        a
-                            color #1d1e29  
-    
-        
-            .date-footer
-                border-top 1px solid rgba(#148ca3, 0.33)
-                // min-height 50px
-                line-height 50px
-                clearfix()
-                &__left
-                    float left
-                    color #91b5bc
-                    font-size 16px
-                    padding-left 25px
-                    input
-                        border none
-                        width 180px
-                &__right
-                    float right
-                &__button
-                    color #fff
-                    font-size 14px
-                    font-weight: 700
-                    width 115px
-                    padding 5px 0
-                    margin-right 10px
-                    &.btn-green
-                        background-color green_base
-                        &:hover
-                            background-color #3ab3a2
-                            
-                    &.btn-grey
-                        background-color #a9bdc4
-                        &:hover
-                            background-color #A4B4BB
-                         
-                    
-            
-                    
-                
-    .block-wrap 
+    &__date-picker
         position relative
-        &__search
-            background-color white
-            border 1px solid rgba(61, 160, 180, 0.37)
-            border-radius 3px
-            box-shadow inset 2px 3.3px 1px rgba(43, 151, 173, 0.12)
-            width 256px
-            padding 5px 10px 5px 15px
-            font-size 14px
-            color text_color
-            outline none
-            &::-webkit-input-placeholder 
-                color #bed3d8
-            &::-moz-placeholder
-                color #bed3d8          
-            &:-moz-placeholder 
-                color #bed3d8          
-            &:-ms-input-placeholder
-                color #bed3d8  
-            @media only screen and (max-width: 1024px) 
-                width 200px  
-        &__icons
+        width 226px
+        height 31px
+        color #bed3d8
+        padding-left 35px
+        cursor pointer
+        background-color: white
+        border: 1px solid rgba(22, 141, 164, 0.7)
+        border-radius: 3px
+        box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15) 
+        text-align left
+        
+    .date-picker
+        position relative
+        outline none
+        &:before
+            content ''
             position absolute
-            cursor pointer
-            right 15px
+            left 8px
             top 50%
-            margin-top -8px  
-            width 17px
-            height 17px
-            background url('i/icons/clinic-profile-search.png') no-repeat 
+            margin-top -10px
+            border none
+            background url('i/cabinet/piker-calendar.png') no-repeat center center
+            margin-right 10px
+            width 20px
+            height 20px
+            z-index 5
+             
+        &:after
+            content ''
+            position absolute
+            top 50%
+            margin-top -3px
+            right 15px 
+            width 0
+            height 0
+            border 4px solid transparent
+            border-top 5px solid blue_base
+        &:focus
+            outline none
+            border none

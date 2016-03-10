@@ -34,34 +34,37 @@
     <nav class="navbar navbar-main navbar-fixed-top">
       <div class="container">
         <button class="navbar-toggle collapsed visible-xs"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-        <div class="logo visible-xs"><a href="/" title="Doc.ua"><img src="i/doc-logo-mobile.png" alt="Doc.ua" width="82" height="25" class="logo__image" title=""/></a>
+        <div class="logo visible-xs"><a href="/" title="Doc.ua"><img src="i/doc-logo-mobile.png" alt="Doc.ua" width="93" height="25" class="logo__image" title=""/></a>
         </div>
         <div class="navbar-header"><span class="hidden-xs navbar-header__title">Ваш город:</span>
           <div class="location">
-            <select class="select7">
+            <select class="select7 select7_city">
               <option value="Днепропетровск">Днепропетровск</option>
               <option value="Киев" selected>Киев</option>
               <option value="Львов">Львов</option>
+              <option value="Ивано-Франковск">Ивано-Франковск</option>
             </select>
           </div>
         </div>
         <div class="hidden-xs phones">
-          <select class="select7">
-            <option value="landline" selected data-icon="i/phone-icon.png">(044) 3370707</option>
-            <option value="mts" data-icon="i/mts-logo.png">(095) 3370707</option>
-            <option value="life" data-icon="i/life-logo.png">(063) 3370707</option>
-            <option value="kyivstar" data-icon="i/kyivstar-logo.png">(067) 3370707</option>
+          <select class="select7 select7_phones">
+            <option value="landline" selected data-icon="i/icons/phone-icon-new.png">(044) 3370707</option>
+            <option value="mts" data-icon="i/icons/mts-logo.png">(095) 3370707</option>
+            <option value="life" data-icon="i/icons/life-logo.png">(063) 3370707</option>
+            <option value="kyivstar" data-icon="i/icons/kyivstar-logo.png">(067) 3370707        </option>
+            <option value="callback" data-icon="i/icons/phone-icon-callback.png">Обратный звонок</option>
           </select>
         </div>
         <hr class="header__line">
         <div class="feedback"><a href="undefinedcallback" title="Обратный звонок" class="feedback__link feedback__link_callback"><span class="dotted">Обратный звонок</span></a><a href="undefineddoc-request-schedule" title="Оставить заявку" class="feedback__link feedback__link_feedback mobile-none"><span class="dotted">Быстрая заявка</span></a>
         </div>
         <div class="phones visible-xs">
-          <select class="select7">
-            <option value="landline" selected data-icon="i/phone-icon.png">(044) 3370707</option>
-            <option value="mts" data-icon="i/mts-logo.png">(095) 3370707</option>
-            <option value="life" data-icon="i/life-logo.png">(063) 3370707</option>
-            <option value="kyivstar" data-icon="i/kyivstar-logo.png">(067) 3370707</option>
+          <select class="select7 select7_phones">
+            <option value="landline" selected data-icon="i/icons/phone-icon-new.png">(044) 3370707</option>
+            <option value="mts" data-icon="i/icons/mts-logo.png">(095) 3370707</option>
+            <option value="life" data-icon="i/icons/life-logo.png">(063) 3370707</option>
+            <option value="kyivstar" data-icon="i/icons/kyivstar-logo.png">(067) 3370707        </option>
+            <option value="callback" data-icon="i/icons/phone-icon-callback.png">Обратный звонок</option>
           </select>
         </div>
         <div class="user-panel hidden-xs"> <a href="/" title="Избранное" class="cabinet-enter__link">Здравствуйте, Марина!<i class="cabinet-enter__link-icon"></i></a><a href="/" title="Избранное" class="favorites-link favorites-link__mod"><span class="dotted">Избранное</span></a>
@@ -72,171 +75,158 @@
       <div class="row">
         <div class="container">
           <div class="search">
-            <form>
+            <form class="js-form">
               <fieldset>
-                <input type="text" placeholder="Найдите врача или клинику" class="form-control input-sm search__field">
-                <button type="submit" class="search__button"></button>
+                <input type="text" placeholder="введите то, что ищите..." class="form-control input-sm search__field js-search-input">
+                <button type="submit" class="search__button js-search-btn"></button>
               </fieldset>
             </form>
             <div class="hidden search-result">
               <ul class="livesearch top-list"><span class="last-child"></span>
-                <div class="more-toggle show"><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span> →</span></a></div>
                 <li data-index="doctor" data-id="2193" class="top-list__item"><a href="/doctor-consultation.html" title="Радецкая Валентина Валентиновна" class="top-list__item-link">
-                    <div class="top-list__rating">
-                      <div class="rating rating_size_small pull-right">
-                        <div class="rating__stars">
-                          <div class="rating__stars-bg"></div>
-                          <div style="width: 70%;" class="rating__stars-overlay"></div>
-                        </div>
-                        <div class="rating__value value">3.2</div>
-                      </div>
-                    </div>
                     <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                     <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Радецкая Валентина Валентиновна</div></a>
                   <div class="specialty article-list-item__date">Онколог</div>
-                </li>
-                <li data-index="doctor" data-id="4082" class="top-list__item"><a href="/doctor-consultation.html" title="Каминский Валерий Валерьевич" class="top-list__item-link">
-                    <div class="top-list__rating">
-                      <div class="rating rating_size_small pull-right">
-                        <div class="rating__stars">
-                          <div class="rating__stars-bg"></div>
-                          <div style="width: 100%;" class="rating__stars-overlay"></div>
-                        </div>
-                        <div class="rating__value value">4.7</div>
+                  <div class="top-list__rating">
+                    <div class="rating rating_size_small pull-right">
+                      <div class="rating__value value">3.2</div>
+                      <div class="rating__stars">
+                        <div class="rating__stars-bg"></div>
+                        <div style="width: 70%;" class="rating__stars-overlay"></div>
                       </div>
                     </div>
+                  </div>
+                </li>
+                <li data-index="doctor" data-id="4082" class="top-list__item"><a href="/doctor-consultation.html" title="Каминский Валерий Валерьевич" class="top-list__item-link">
                     <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                     <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Каминский Валерий Валерьевич</div></a>
                   <div class="specialty article-list-item__date">Стоматолог</div>
-                </li>
-                <li data-index="doctor" data-id="5121" class="top-list__item"><a href="/doctor-consultation.html" title="Жаров  Валерий  Валерьевич" class="top-list__item-link">
-                    <div class="top-list__rating">
-                      <div class="rating rating_size_small pull-right">
-                        <div class="rating__stars">
-                          <div class="rating__stars-bg"></div>
-                          <div style="width: 80%;" class="rating__stars-overlay"></div>
-                        </div>
-                        <div class="rating__value value">3.9</div>
+                  <div class="top-list__rating">
+                    <div class="rating rating_size_small pull-right">
+                      <div class="rating__value value">4.7</div>
+                      <div class="rating__stars">
+                        <div class="rating__stars-bg"></div>
+                        <div style="width: 100%;" class="rating__stars-overlay"></div>
                       </div>
                     </div>
+                  </div>
+                </li>
+                <li data-index="doctor" data-id="5121" class="top-list__item"><a href="/doctor-consultation.html" title="Жаров  Валерий  Валерьевич" class="top-list__item-link">
                     <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                     <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Жаров  Валерий  Валерьевич</div></a>
                   <div class="specialty article-list-item__date">Акушер-гинеколог, Гинеколог</div>
-                </li>
-                <li data-index="doctor" data-id="318" class="top-list__item"><a href="/doctor-consultation.html" title="Валихновский Ростислав Любомирович" class="top-list__item-link">
-                    <div class="top-list__rating">
-                      <div class="rating rating_size_small pull-right">
-                        <div class="rating__stars">
-                          <div class="rating__stars-bg"></div>
-                          <div style="width: 100%;" class="rating__stars-overlay"></div>
-                        </div>
-                        <div class="rating__value value">4.9</div>
+                  <div class="top-list__rating">
+                    <div class="rating rating_size_small pull-right">
+                      <div class="rating__value value">3.9</div>
+                      <div class="rating__stars">
+                        <div class="rating__stars-bg"></div>
+                        <div style="width: 80%;" class="rating__stars-overlay"></div>
                       </div>
                     </div>
+                  </div>
+                </li>
+                <li data-index="doctor" data-id="318" class="top-list__item"><a href="/doctor-consultation.html" title="Валихновский Ростислав Любомирович" class="top-list__item-link">
                     <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                     <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Валихновский Ростислав Любомирович</div></a>
                   <div class="specialty article-list-item__date">Пластический хирург, Хирург</div>
-                </li>
-                <li data-index="doctor" data-id="319" class="top-list__item"><a href="/doctor-consultation.html" title="Валихновский Тарас Любомирович" class="top-list__item-link">
-                    <div class="top-list__rating">
-                      <div class="rating rating_size_small pull-right">
-                        <div class="rating__stars">
-                          <div class="rating__stars-bg"></div>
-                          <div style="width: 91%;" class="rating__stars-overlay"></div>
-                        </div>
-                        <div class="rating__value value">4.5</div>
+                  <div class="top-list__rating">
+                    <div class="rating rating_size_small pull-right">
+                      <div class="rating__value value">4.9</div>
+                      <div class="rating__stars">
+                        <div class="rating__stars-bg"></div>
+                        <div style="width: 100%;" class="rating__stars-overlay"></div>
                       </div>
                     </div>
+                  </div>
+                </li>
+                <li data-index="doctor" data-id="319" class="top-list__item"><a href="/doctor-consultation.html" title="Валихновский Тарас Любомирович" class="top-list__item-link">
                     <div class="top-list__item-image thumb"></div>
                     <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Валихновский Тарас Любомирович</div></a>
                   <div class="specialty article-list-item__date">Пластический хирург, Хирург</div>
                 </li>
                 <li data-index="doctor" data-id="3070" class="top-list__item"><a href="/doctor-consultation.html" title="Валишевский  Орест  Владимирович" class="top-list__item-link">
-                    <div class="top-list__rating">
-                      <div class="rating rating_size_small pull-right">
-                        <div class="rating__stars">
-                          <div class="rating__stars-bg"></div>
-                          <div style="width: 91%;" class="rating__stars-overlay"></div>
-                        </div>
-                        <div class="rating__value value">4.3</div>
-                      </div>
-                    </div>
                     <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                     <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Валишевский  Орест  Владимирович</div></a>
                   <div class="specialty article-list-item__date">УЗИ-специалист</div>
-                </li>
-                <li data-index="doctor" data-id="3521" class="top-list__item"><a href="/doctor-consultation.html" title="Вальковец Ирина Лукашевна" class="top-list__item-link">
-                    <div class="top-list__rating">
-                      <div class="rating rating_size_small pull-right">
-                        <div class="rating__stars">
-                          <div class="rating__stars-bg"></div>
-                          <div style="width: 60%;" class="rating__stars-overlay"></div>
-                        </div>
-                        <div class="rating__value value">2.9</div>
+                  <div class="top-list__rating">
+                    <div class="rating rating_size_small pull-right">
+                      <div class="rating__value value">4.3</div>
+                      <div class="rating__stars">
+                        <div class="rating__stars-bg"></div>
+                        <div style="width: 91%;" class="rating__stars-overlay"></div>
                       </div>
                     </div>
+                  </div>
+                </li>
+                <li data-index="doctor" data-id="3521" class="top-list__item"><a href="/doctor-consultation.html" title="Вальковец Ирина Лукашевна" class="top-list__item-link">
                     <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                     <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Вальковец Ирина Лукашевна</div></a>
                   <div class="specialty article-list-item__date">Психолог</div>
-                </li>
-                <li data-index="doctor" data-id="4861" class="top-list__item"><a href="/doctor-consultation.html" title="Валанцевич  Надежда  Дмитриевна " class="top-list__item-link">
-                    <div class="top-list__rating">
-                      <div class="rating rating_size_small pull-right">
-                        <div class="rating__stars">
-                          <div class="rating__stars-bg"></div>
-                          <div style="width: 80%;" class="rating__stars-overlay"></div>
-                        </div>
-                        <div class="rating__value value">4.1</div>
+                  <div class="top-list__rating">
+                    <div class="rating rating_size_small pull-right">
+                      <div class="rating__value value">2.9</div>
+                      <div class="rating__stars">
+                        <div class="rating__stars-bg"></div>
+                        <div style="width: 60%;" class="rating__stars-overlay"></div>
                       </div>
                     </div>
+                  </div>
+                </li>
+                <li data-index="doctor" data-id="4861" class="top-list__item"><a href="/doctor-consultation.html" title="Валанцевич  Надежда  Дмитриевна " class="top-list__item-link">
                     <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                     <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Валанцевич  Надежда  Дмитриевна</div></a>
                   <div class="specialty article-list-item__date">Педиатр</div>
-                </li>
-                <li data-index="doctor" data-id="25" class="top-list__item"><a href="/doctor-consultation.html" title="Ильченко  Валерий Викторович" class="top-list__item-link">
-                    <div class="top-list__rating">
-                      <div class="rating rating_size_small pull-right">
-                        <div class="rating__stars">
-                          <div class="rating__stars-bg"></div>
-                          <div style="width: 100%;" class="rating__stars-overlay"></div>
-                        </div>
-                        <div class="rating__value value">4.8</div>
+                  <div class="top-list__rating">
+                    <div class="rating rating_size_small pull-right">
+                      <div class="rating__value value">4.1</div>
+                      <div class="rating__stars">
+                        <div class="rating__stars-bg"></div>
+                        <div style="width: 80%;" class="rating__stars-overlay"></div>
                       </div>
                     </div>
+                  </div>
+                </li>
+                <li data-index="doctor" data-id="25" class="top-list__item"><a href="/doctor-consultation.html" title="Ильченко  Валерий Викторович" class="top-list__item-link">
                     <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                     <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Ильченко  Валерий Викторович</div></a>
                   <div class="specialty article-list-item__date">Проктолог, Хирург, Эндоскопист</div>
-                </li>
-                <li data-index="doctor" data-id="106" class="top-list__item"><a href="/doctor-consultation.html" title="Денисюк  Валентин Иванович" class="top-list__item-link">
-                    <div class="top-list__rating">
-                      <div class="rating rating_size_small pull-right">
-                        <div class="rating__stars">
-                          <div class="rating__stars-bg"></div>
-                          <div style="width: 91%;" class="rating__stars-overlay"></div>
-                        </div>
-                        <div class="rating__value value">4.5</div>
+                  <div class="top-list__rating">
+                    <div class="rating rating_size_small pull-right">
+                      <div class="rating__value value">4.8</div>
+                      <div class="rating__stars">
+                        <div class="rating__stars-bg"></div>
+                        <div style="width: 100%;" class="rating__stars-overlay"></div>
                       </div>
                     </div>
+                  </div>
+                </li>
+                <li data-index="doctor" data-id="106" class="top-list__item"><a href="/doctor-consultation.html" title="Денисюк  Валентин Иванович" class="top-list__item-link">
                     <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                     <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Денисюк  Валентин Иванович</div></a>
                   <div class="specialty article-list-item__date">Стоматолог</div>
+                  <div class="top-list__rating">
+                    <div class="rating rating_size_small pull-right">
+                      <div class="rating__value value">4.5</div>
+                      <div class="rating__stars">
+                        <div class="rating__stars-bg"></div>
+                        <div style="width: 91%;" class="rating__stars-overlay"></div>
+                      </div>
+                    </div>
+                  </div>
                 </li>
+                <div class="more-toggle show"><span class="more-toggle__found">Найдено <span class="more-toggle__found-number">18</span> результатов</span><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span></span></a></div>
               </ul>
             </div>
           </div>
           <div class="menu">
             <ul class="mobile-menu">
-              <li class="mobile-menu__item"><a href="/doctors.html" title="Каталог врачей" class="mobile-menu__item-link">Каталог врачей</a>
+              <li class="mobile-menu__item"><a href="/doctors.html" title="Каталог врачей" data="Каталог врачей" class="mobile-menu__item-link">Каталог врачей</a>
               </li>
-              <li class="mobile-menu__item"><a href="/clinics.html" title="Клиники" class="mobile-menu__item-link">Клиники</a>
+              <li class="mobile-menu__item"><a href="/clinics.html" title="Клиники" data="Клиники" class="mobile-menu__item-link">Клиники</a>
               </li>
-              <li class="mobile-menu__item"><a href="/diagnostic-centers.html" title="Диагностика" class="mobile-menu__item-link">Диагностика</a>
+              <li class="mobile-menu__item"><a href="/diagnostic-centers.html" title="Диагностика" data="Диагностика" class="mobile-menu__item-link">Диагностика</a>
               </li>
-              <li class="mobile-menu__item"><a href="/bundles.html" title="Пакеты услуг" class="mobile-menu__item-link">Пакеты услуг</a>
-              </li>
-              <li class="mobile-menu__item"><a href="/promo.html" title="Акции клиник" class="mobile-menu__item-link">Акции клиник</a>
-              </li>
-              <li class="mobile-menu__item"><a href="/news.html" title="Блог здоровья" class="mobile-menu__item-link">Блог здоровья</a>
+              <li class="mobile-menu__item"><a href="/promo.html" title="Спецпредложения" data="Спецпредложения" class="mobile-menu__item-link">Спецпредложения</a>
               </li>
             </ul>
           </div>
@@ -258,155 +248,146 @@
                 </div>
                 <div class="col-sm-4">
                   <div class="search">
-                    <form>
+                    <form class="js-form">
                       <fieldset>
-                        <input type="text" placeholder="Найдите врача или клинику" class="form-control input-sm search__field">
-                        <button type="submit" class="search__button"></button>
+                        <input type="text" placeholder="введите то, что ищите..." class="form-control input-sm search__field js-search-input">
+                        <button type="submit" class="search__button js-search-btn"></button>
                       </fieldset>
                     </form>
                     <div class="hidden search-result">
                       <ul class="livesearch top-list"><span class="last-child"></span>
-                        <div class="more-toggle show"><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span> →</span></a></div>
                         <li data-index="doctor" data-id="2193" class="top-list__item"><a href="/doctor-consultation.html" title="Радецкая Валентина Валентиновна" class="top-list__item-link">
-                            <div class="top-list__rating">
-                              <div class="rating rating_size_small pull-right">
-                                <div class="rating__stars">
-                                  <div class="rating__stars-bg"></div>
-                                  <div style="width: 70%;" class="rating__stars-overlay"></div>
-                                </div>
-                                <div class="rating__value value">3.2</div>
-                              </div>
-                            </div>
                             <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                             <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Радецкая Валентина Валентиновна</div></a>
                           <div class="specialty article-list-item__date">Онколог</div>
-                        </li>
-                        <li data-index="doctor" data-id="4082" class="top-list__item"><a href="/doctor-consultation.html" title="Каминский Валерий Валерьевич" class="top-list__item-link">
-                            <div class="top-list__rating">
-                              <div class="rating rating_size_small pull-right">
-                                <div class="rating__stars">
-                                  <div class="rating__stars-bg"></div>
-                                  <div style="width: 100%;" class="rating__stars-overlay"></div>
-                                </div>
-                                <div class="rating__value value">4.7</div>
+                          <div class="top-list__rating">
+                            <div class="rating rating_size_small pull-right">
+                              <div class="rating__value value">3.2</div>
+                              <div class="rating__stars">
+                                <div class="rating__stars-bg"></div>
+                                <div style="width: 70%;" class="rating__stars-overlay"></div>
                               </div>
                             </div>
+                          </div>
+                        </li>
+                        <li data-index="doctor" data-id="4082" class="top-list__item"><a href="/doctor-consultation.html" title="Каминский Валерий Валерьевич" class="top-list__item-link">
                             <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                             <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Каминский Валерий Валерьевич</div></a>
                           <div class="specialty article-list-item__date">Стоматолог</div>
-                        </li>
-                        <li data-index="doctor" data-id="5121" class="top-list__item"><a href="/doctor-consultation.html" title="Жаров  Валерий  Валерьевич" class="top-list__item-link">
-                            <div class="top-list__rating">
-                              <div class="rating rating_size_small pull-right">
-                                <div class="rating__stars">
-                                  <div class="rating__stars-bg"></div>
-                                  <div style="width: 80%;" class="rating__stars-overlay"></div>
-                                </div>
-                                <div class="rating__value value">3.9</div>
+                          <div class="top-list__rating">
+                            <div class="rating rating_size_small pull-right">
+                              <div class="rating__value value">4.7</div>
+                              <div class="rating__stars">
+                                <div class="rating__stars-bg"></div>
+                                <div style="width: 100%;" class="rating__stars-overlay"></div>
                               </div>
                             </div>
+                          </div>
+                        </li>
+                        <li data-index="doctor" data-id="5121" class="top-list__item"><a href="/doctor-consultation.html" title="Жаров  Валерий  Валерьевич" class="top-list__item-link">
                             <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                             <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Жаров  Валерий  Валерьевич</div></a>
                           <div class="specialty article-list-item__date">Акушер-гинеколог, Гинеколог</div>
-                        </li>
-                        <li data-index="doctor" data-id="318" class="top-list__item"><a href="/doctor-consultation.html" title="Валихновский Ростислав Любомирович" class="top-list__item-link">
-                            <div class="top-list__rating">
-                              <div class="rating rating_size_small pull-right">
-                                <div class="rating__stars">
-                                  <div class="rating__stars-bg"></div>
-                                  <div style="width: 100%;" class="rating__stars-overlay"></div>
-                                </div>
-                                <div class="rating__value value">4.9</div>
+                          <div class="top-list__rating">
+                            <div class="rating rating_size_small pull-right">
+                              <div class="rating__value value">3.9</div>
+                              <div class="rating__stars">
+                                <div class="rating__stars-bg"></div>
+                                <div style="width: 80%;" class="rating__stars-overlay"></div>
                               </div>
                             </div>
+                          </div>
+                        </li>
+                        <li data-index="doctor" data-id="318" class="top-list__item"><a href="/doctor-consultation.html" title="Валихновский Ростислав Любомирович" class="top-list__item-link">
                             <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                             <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Валихновский Ростислав Любомирович</div></a>
                           <div class="specialty article-list-item__date">Пластический хирург, Хирург</div>
-                        </li>
-                        <li data-index="doctor" data-id="319" class="top-list__item"><a href="/doctor-consultation.html" title="Валихновский Тарас Любомирович" class="top-list__item-link">
-                            <div class="top-list__rating">
-                              <div class="rating rating_size_small pull-right">
-                                <div class="rating__stars">
-                                  <div class="rating__stars-bg"></div>
-                                  <div style="width: 91%;" class="rating__stars-overlay"></div>
-                                </div>
-                                <div class="rating__value value">4.5</div>
+                          <div class="top-list__rating">
+                            <div class="rating rating_size_small pull-right">
+                              <div class="rating__value value">4.9</div>
+                              <div class="rating__stars">
+                                <div class="rating__stars-bg"></div>
+                                <div style="width: 100%;" class="rating__stars-overlay"></div>
                               </div>
                             </div>
+                          </div>
+                        </li>
+                        <li data-index="doctor" data-id="319" class="top-list__item"><a href="/doctor-consultation.html" title="Валихновский Тарас Любомирович" class="top-list__item-link">
                             <div class="top-list__item-image thumb"></div>
                             <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Валихновский Тарас Любомирович</div></a>
                           <div class="specialty article-list-item__date">Пластический хирург, Хирург</div>
                         </li>
                         <li data-index="doctor" data-id="3070" class="top-list__item"><a href="/doctor-consultation.html" title="Валишевский  Орест  Владимирович" class="top-list__item-link">
-                            <div class="top-list__rating">
-                              <div class="rating rating_size_small pull-right">
-                                <div class="rating__stars">
-                                  <div class="rating__stars-bg"></div>
-                                  <div style="width: 91%;" class="rating__stars-overlay"></div>
-                                </div>
-                                <div class="rating__value value">4.3</div>
-                              </div>
-                            </div>
                             <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                             <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Валишевский  Орест  Владимирович</div></a>
                           <div class="specialty article-list-item__date">УЗИ-специалист</div>
-                        </li>
-                        <li data-index="doctor" data-id="3521" class="top-list__item"><a href="/doctor-consultation.html" title="Вальковец Ирина Лукашевна" class="top-list__item-link">
-                            <div class="top-list__rating">
-                              <div class="rating rating_size_small pull-right">
-                                <div class="rating__stars">
-                                  <div class="rating__stars-bg"></div>
-                                  <div style="width: 60%;" class="rating__stars-overlay"></div>
-                                </div>
-                                <div class="rating__value value">2.9</div>
+                          <div class="top-list__rating">
+                            <div class="rating rating_size_small pull-right">
+                              <div class="rating__value value">4.3</div>
+                              <div class="rating__stars">
+                                <div class="rating__stars-bg"></div>
+                                <div style="width: 91%;" class="rating__stars-overlay"></div>
                               </div>
                             </div>
+                          </div>
+                        </li>
+                        <li data-index="doctor" data-id="3521" class="top-list__item"><a href="/doctor-consultation.html" title="Вальковец Ирина Лукашевна" class="top-list__item-link">
                             <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                             <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Вальковец Ирина Лукашевна</div></a>
                           <div class="specialty article-list-item__date">Психолог</div>
-                        </li>
-                        <li data-index="doctor" data-id="4861" class="top-list__item"><a href="/doctor-consultation.html" title="Валанцевич  Надежда  Дмитриевна " class="top-list__item-link">
-                            <div class="top-list__rating">
-                              <div class="rating rating_size_small pull-right">
-                                <div class="rating__stars">
-                                  <div class="rating__stars-bg"></div>
-                                  <div style="width: 80%;" class="rating__stars-overlay"></div>
-                                </div>
-                                <div class="rating__value value">4.1</div>
+                          <div class="top-list__rating">
+                            <div class="rating rating_size_small pull-right">
+                              <div class="rating__value value">2.9</div>
+                              <div class="rating__stars">
+                                <div class="rating__stars-bg"></div>
+                                <div style="width: 60%;" class="rating__stars-overlay"></div>
                               </div>
                             </div>
+                          </div>
+                        </li>
+                        <li data-index="doctor" data-id="4861" class="top-list__item"><a href="/doctor-consultation.html" title="Валанцевич  Надежда  Дмитриевна " class="top-list__item-link">
                             <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                             <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Валанцевич  Надежда  Дмитриевна</div></a>
                           <div class="specialty article-list-item__date">Педиатр</div>
-                        </li>
-                        <li data-index="doctor" data-id="25" class="top-list__item"><a href="/doctor-consultation.html" title="Ильченко  Валерий Викторович" class="top-list__item-link">
-                            <div class="top-list__rating">
-                              <div class="rating rating_size_small pull-right">
-                                <div class="rating__stars">
-                                  <div class="rating__stars-bg"></div>
-                                  <div style="width: 100%;" class="rating__stars-overlay"></div>
-                                </div>
-                                <div class="rating__value value">4.8</div>
+                          <div class="top-list__rating">
+                            <div class="rating rating_size_small pull-right">
+                              <div class="rating__value value">4.1</div>
+                              <div class="rating__stars">
+                                <div class="rating__stars-bg"></div>
+                                <div style="width: 80%;" class="rating__stars-overlay"></div>
                               </div>
                             </div>
+                          </div>
+                        </li>
+                        <li data-index="doctor" data-id="25" class="top-list__item"><a href="/doctor-consultation.html" title="Ильченко  Валерий Викторович" class="top-list__item-link">
                             <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                             <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Ильченко  Валерий Викторович</div></a>
                           <div class="specialty article-list-item__date">Проктолог, Хирург, Эндоскопист</div>
-                        </li>
-                        <li data-index="doctor" data-id="106" class="top-list__item"><a href="/doctor-consultation.html" title="Денисюк  Валентин Иванович" class="top-list__item-link">
-                            <div class="top-list__rating">
-                              <div class="rating rating_size_small pull-right">
-                                <div class="rating__stars">
-                                  <div class="rating__stars-bg"></div>
-                                  <div style="width: 91%;" class="rating__stars-overlay"></div>
-                                </div>
-                                <div class="rating__value value">4.5</div>
+                          <div class="top-list__rating">
+                            <div class="rating rating_size_small pull-right">
+                              <div class="rating__value value">4.8</div>
+                              <div class="rating__stars">
+                                <div class="rating__stars-bg"></div>
+                                <div style="width: 100%;" class="rating__stars-overlay"></div>
                               </div>
                             </div>
+                          </div>
+                        </li>
+                        <li data-index="doctor" data-id="106" class="top-list__item"><a href="/doctor-consultation.html" title="Денисюк  Валентин Иванович" class="top-list__item-link">
                             <div class="top-list__item-image thumb"><img src="http://doc.ua/uploads/1/0/5/8/3/10583/35x35/resize_bg_imagecrop_ratiof_width_insert/1.jpg" alt="" class="ls__img"></div>
                             <div style="padding-bottom: 0px;padding-top: 0px" class="top-list__item-title">Денисюк  Валентин Иванович</div></a>
                           <div class="specialty article-list-item__date">Стоматолог</div>
+                          <div class="top-list__rating">
+                            <div class="rating rating_size_small pull-right">
+                              <div class="rating__value value">4.5</div>
+                              <div class="rating__stars">
+                                <div class="rating__stars-bg"></div>
+                                <div style="width: 91%;" class="rating__stars-overlay"></div>
+                              </div>
+                            </div>
+                          </div>
                         </li>
+                        <div class="more-toggle show"><span class="more-toggle__found">Найдено <span class="more-toggle__found-number">18</span> результатов</span><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span></span></a></div>
                       </ul>
                     </div>
                   </div>
@@ -430,7 +411,7 @@
           <h1></h1>
           <article>
             <div class="row">   
-              <aside class="l-3 hidden-xs"> 
+              <aside class="l-3 hidden-xs">  
                 <div class="cabinet-aside"> 
                   <ul>
                     <li class="cabinet-aside__item is-active"><a href="cabinet-profile.html" class="cabinet-aside__link cabinet-aside__link-profile is-active">Мой профиль</a>
@@ -606,58 +587,40 @@
                 <div class="menu">
                   <div class="footer-menu">
                     <ul class="footer-menu">
-                      <li class="footer-menu__item footer-menu__item-has_sub col-sm-3 col-xs-6"><span class="footer-menu__item-link">Сервис</span>                                  
-                        <ul class="footer-sub-menu">
+                      <li class="footer-menu__item footer-menu__item-has_sub"><span class="footer-menu__item-link footer-tab_header js-tab__header-f">Сервис<span class="btn__mobile js-btn__mobile"> </span></span>
+                        <ul class="footer-sub-menu tab-close js-content-hide"> 
                           <li class="footer-sub-menu__item"><a href="/about.html" title="О нас" class="footer-sub-menu__item-link">О нас</a></li>                                        
                           <li class="footer-sub-menu__item"><a href="/about-rating.html" title="О рейтинге" class="footer-sub-menu__item-link">О рейтинге</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/articles.html" title="Блог" class="footer-sub-menu__item-link">Блог</a></li>                                        
+                          <li class="footer-sub-menu__item"><a href="/articles.html" title="Блог" class="footer-sub-menu__item-link">Блог</a></li> 
+                          <li class="footer-sub-menu__item"><a href="/partners.html" title="Партнерам" class="footer-sub-menu__item-link">Партнерам</a></li>                                        
                           <li class="footer-sub-menu__item"><a href="/rules.html" title="Правила сервиса" class="footer-sub-menu__item-link">Правила сервиса</a></li>
-                        </ul>                                  
-                        <div class="partners hidden-xs">
-                          <fieldset class="partners__fieldset">
-                            <legend class="partners__title">Наши партнеры:</legend>                                          <a href="http://chernovetskyiinvestments.com/" title="" target="_blank" rel="nofollow" class="partners__item"><img src="i/partner-1.png" alt=""></a>                                          <a href="http://socpartnerstvo.org/" title="" target="_blank" rel="nofollow" class="partners__item"><img src="i/partner-2.png" alt=""></a>                                          <a href="http://eda.ua/" title="" target="_blank" rel="nofollow" class="partners__item"><img src="i/partner-3.png" alt=""></a>
-                          </fieldset>
-                        </div>
-                      </li>                                
-                      <li class="footer-menu__item footer-menu__item-has_sub col-sm-3 col-xs-6"><span class="footer-menu__item-link">Пациенту</span>                                  
-                        <ul class="footer-sub-menu">
+                        </ul>                                   
+                      </li>
+                      <li class="footer-menu__item footer-menu__item-has_sub"><span class="footer-menu__item-link footer-tab_header js-tab__header-f">Пациенту<span class="btn__mobile js-btn__mobile"> </span></span>
+                        <ul data-columns="4" data-balance-method="balanceCount" class="footer-sub-menu tab-close js-content-hide columnize">
                           <li class="footer-sub-menu__item"><a href="/doctors.html" title="Врачи" class="footer-sub-menu__item-link">Врачи</a></li>                                        
                           <li class="footer-sub-menu__item"><a href="/clinics.html" title="Клиники" class="footer-sub-menu__item-link">Клиники</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/actions.html" title="Акции" class="footer-sub-menu__item-link">Акции</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/" title="Памятка пациента" class="footer-sub-menu__item-link">Памятка пациента</a></li>                                        
+                          <li class="footer-sub-menu__item"><a href="/diagnostic-center.html" title="Диагностические центры" class="footer-sub-menu__item-link">Диагностические центры</a></li>                                        
+                          <li class="footer-sub-menu__item"><a href="/" title="Спецпредложения" class="footer-sub-menu__item-link">Спецпредложения</a></li>
+                          <li class="footer-sub-menu__item"><a href="/med-library.html" title="Медицинская библиотека" class="footer-sub-menu__item-link">Медицинская библиотека</a></li>                                        
                           <li class="footer-sub-menu__item"><a href="/diseases.html" title="Справочник заболеваний" class="footer-sub-menu__item-link">Справочник заболеваний</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/checker.html" title="Онлайн диагностика" class="footer-sub-menu__item-link">Онлайн диагностика</a></li>
-                        </ul>
-                      </li>                                
-                      <li class="footer-menu__item footer-menu__item-has_sub col-sm-3 col-xs-6"><span class="footer-menu__item-link">Врачу и клинике</span>                                  
-                        <ul class="footer-sub-menu">
-                          <li class="footer-sub-menu__item"><a href="/partners.html" title="Преимущества" class="footer-sub-menu__item-link">Преимущества</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/registration-doctor.html" title="Регистрация врача" class="footer-sub-menu__item-link">Регистрация врача</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/registration-clinic.html" title="Регистрация клиники" class="footer-sub-menu__item-link">Регистрация клиники</a></li>
+                          <li class="footer-sub-menu__item"><a href="/symptom-checker.html" title="Онлайн-диагностика" class="footer-sub-menu__item-link">Онлайн-диагностика</a></li>
                         </ul>
                       </li>
                     </ul>
                   </div>
                 </div>
                 <div class="col-sm-3 col-xs-6 contacts">
-                  <div class="contacts__title">Звоните нам
-                  </div>
-                  <p>Пн.-вс: с 9:00 до 21:00</p>
-                  <div class="contacts__phone"><span>(044) 337 07 07</span><span>(095) 337 07 07</span><span>(063) 337 07 07</span><span>(067) 337 07 07</span>
-                  </div>
-                  <div class="hidden-xs"><span class="contacts__callback"><a href="#callback" data-toggle="modal" title="Обратный звонок" class="dotted">Обратный звонок</a></span><span class="contacts__callback"><a href="#doc-request-schedule" data-toggle="modal" title="Отправить заявку" class="dotted">Отправить заявку</a></span>
-                    <div class="social-links"><a href="/" title="Doc.ua в Фейсбуке" target="_blank" class="social-links__item social-links__item-social-fb"></a><a href="/" title="Doc.ua ВКонтакте" target="_blank" class="social-links__item social-links__item-social-vk"></a><a href="https://plus.google.com/+DocUa-Find_a_Doctor/posts" title="Doc.ua в Google PLus" target="_blank" rel="publisher" class="social-links__item social-links__item-social-gplus"></a><a href="/" title="Rss лента" target="_blank" class="social-links__item social-links__item-social-rss"></a>
-                    </div>
-                    <div class="contacts__footer">
-                      <div class="contacts__copyright">&copy;&nbsp;<a href="http://Doc.ua" title="Doc.ua">Doc.ua</a>, 2015
-                      </div>
-                      <div class="contacts__rights">Использование материалов разрешено только при наличии активной ссылки на источник
-                      </div>
+                  <div class="contacts__title footer-tab_header js-tab__header-c"> <span class="hidden-xs">Звоните нам</span><span class="tab__header visible-xs">Контакты<span class="btn__mobile js-btn__mobile"> </span></span>
+                    <div class="contacts-wrap tab-close js-content-hide">
+                      <p>Пн.-вс: с 9:00 до 21:00</p>
+                      <div class="contacts__phone"><span class="phone_general">(044) 337 07 07</span><span class="phone_mts">(095) 337 07 07</span><span class="phone_life">(063) 337 07 07</span><span class="phone_kyivstar">(067) 337 07 07</span>
+                      </div><span class="contacts__callback first-example"><a href="#callback" data-toggle="modal" title="Обратный звонок" class="dotted callback_phone">Обратный звонок</a></span><span class="contacts__callback"><a href="#doc-request-schedule" data-toggle="modal" title="Отправить заявку" class="dotted callback_pen">Отправить заявку   </a></span>
                     </div>
                   </div>
                 </div>
                 <div class="col-xs-12 contacts visible-xs"><span class="contacts__callback"><a href="#callback" data-toggle="modal" title="Обратный звонок" class="dotted">Обратный звонок</a></span><span class="contacts__callback"><a href="#doc-request-schedule" data-toggle="modal" title="Отправить заявку" class="dotted">Отправить заявку</a></span>
-                  <div class="social-links"><a href="/" title="Doc.ua в Фейсбуке" target="_blank" class="social-links__item social-links__item-social-fb"></a><a href="/" title="Doc.ua ВКонтакте" target="_blank" class="social-links__item social-links__item-social-vk"></a><a href="https://plus.google.com/+DocUa-Find_a_Doctor/posts" title="Doc.ua в Google PLus" target="_blank" rel="publisher" class="social-links__item social-links__item-social-gplus"></a><a href="/" title="Rss лента" target="_blank" class="social-links__item social-links__item-social-rss"></a>
+                  <div class="social-links"><a href="/" title="Doc.ua в Фейсбуке" target="_blank" class="social-links__item social-links__item-social-fb"></a><a href="/" title="Doc.ua ВКонтакте" target="_blank" class="social-links__item social-links__item-social-vk"></a><a href="https://plus.google.com/+DocUa-Find_a_Doctor/posts" title="Doc.ua в Google PLus" target="_blank" rel="publisher" class="social-links__item social-links__item-social-gplus"></a>
                   </div>
                   <div class="contacts__footer">
                     <div class="contacts__copyright">&copy;&nbsp;<a href="http://Doc.ua" title="Doc.ua">Doc.ua</a>, 2015

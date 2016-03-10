@@ -13,7 +13,7 @@ docMaps =
   map: {}
   geocoder: {}
   cardId: 0
-  domain: ''
+  domain: '' 
   initialize: (allItemsList, pageName, city, domain) ->
     @allItemsList = allItemsList
     @city = city
@@ -23,28 +23,32 @@ docMaps =
     latlng = new (google.maps.LatLng)(-50.446, -30.515)
     mapOptions =
       zoom: 10
-      maxZoom: 10
+      maxZoom: 10 
       center: latlng
       scrollwheel: false
       disableDefaultUI: true
-      disableDoubleClickZoom: true
+      disableDoubleClickZoom: true 
       panControl: false
+
+
+    # if @pageName == 'action' || @pageName == 'actionAbout'
+    #   @mapCss.inner() 
 
     if @pageName == 'map'
       @mapCss.bigMap()
-      @map = new (google.maps.Map)(document.getElementById('map-canvas-big'), mapOptions)
+      @map = new (google.maps.Map)(document.getElementById('map-canvas-big'), mapOptions) 
       @listeners.common @map
       @newScope()
     else
       docMaps.mapOffsetTop = $('.widget-map').offset().top
       @map = new (google.maps.Map)(document.getElementById('map-canvas-right'), mapOptions)
-      if @pageName == 'doctorInner' or @pageName == 'clinicInner'
+      if @pageName == 'doctorInner' || @pageName == 'clinicInner' || @pageName == 'clinics'  || @pageName == 'diagnostCenter' || @pageName == 'action' || @pageName == 'actionAbout'  
         @mapCss.inner()
       else
         @mapCss.index()
-        $(window).scroll ->
+        $(window).scroll -> 
           docMaps.mapCss.index()
-        @listeners.common @map
+        @listeners.common @map 
       @newScope()
       @mapModal()
 
@@ -54,8 +58,11 @@ docMaps =
     if @pageName == 'doctorInner'
       @addNewMarker = @addMarker.inner()
       @addNewMarker()
+    if @pageName == 'diagnostCenter'
+      @addNewMarker = @addMarker.inner()
+      @addNewMarker()
     else
-      @addNewMarker = @addMarker.clinics()
+      @addNewMarker = @addMarker.diagnostList()
       @addNewMarker()
 
   scrollInit: () ->
@@ -112,21 +119,21 @@ docMaps =
       docMaps.popupMarker.setMap null
 
   mapCss:
-    index: -> #clinics and doctors list side map
+    index: -> #diagnosticLists and doctors list side map
       navbarHeight = $('.navbar-main').outerHeight()
 
       if docMaps.mapOffsetTop - $(window).scrollTop() < 0
-        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 40)
+        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 30)
         $('.widget-map').css
           position: 'fixed'
           $('.widget-map').width $('.widget-map').parent('aside').width()
 
-        if $('html').height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)
+        if $(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)  
           docMaps.canAnimateTop = true
           $('aside').height($('aside').prev().height())
           $('.widget-map').css
             position: 'absolute'
-            bottom: 10
+            bottom: 20
             top: 'auto'
         else
           if docMaps.canAnimateTop
@@ -146,7 +153,7 @@ docMaps =
         return
 
     inner: -> #one clinic or one doctor side map
-      if docMaps.pageName == 'clinicInner'
+      if docMaps.pageName == 'clinicInner' && docMaps.pageName == 'diagnosticCenter'
         $('#map-canvas-right, .widget-map').height(600)
       else
         $('#map-canvas-right, .widget-map').height($('.card').outerHeight())
@@ -160,40 +167,40 @@ docMaps =
         $('#map-canvas-big').height(docMaps.mapHeight)
 
   addMarker:
-    clinics: () ->
-      clinicIndex = 0
+    diagnostList: () ->
+      diagnostIndex = 0
       affilateIndex = -1
       return ->
-        if clinicIndex < @allItemsList.length
+        if diagnostIndex < @allItemsList.length
 
           addInfo = {}
-          if clinicIndex == 0
+          if diagnostIndex == 0
             addInfo.active = true
           else
             addInfo.active = false
 
-          addInfo.name = @allItemsList[clinicIndex].name
-          addInfo.id = clinics[clinicIndex].id
-          addInfo.image = @allItemsList[clinicIndex].image
-          if @allItemsList[clinicIndex].affilates
+          addInfo.name = @allItemsList[diagnostIndex].name
+          addInfo.id = clinics[diagnostIndex].id
+          addInfo.image = @allItemsList[diagnostIndex].image
+          if @allItemsList[diagnostIndex].affilates
             if affilateIndex == -1
               affilateIndex = 0
 
-            addInfo.affilate = @allItemsList[clinicIndex].affilates[affilateIndex]
-            address = @allItemsList[clinicIndex].affilates[affilateIndex].address
+            addInfo.affilate = @allItemsList[diagnostIndex].affilates[affilateIndex]
+            address = @allItemsList[diagnostIndex].affilates[affilateIndex].address
 
-            if affilateIndex == @allItemsList[clinicIndex].affilates.length - 1
+            if affilateIndex == @allItemsList[diagnostIndex].affilates.length - 1
               affilateIndex = -1
-              clinicIndex += 1
+              diagnostIndex += 1
             else
               affilateIndex += 1
           else
-            address = @allItemsList[clinicIndex].address
-            addInfo.directions = @allItemsList[clinicIndex].directions
-            addInfo.address = @allItemsList[clinicIndex].address
-            addInfo.reviews = @allItemsList[clinicIndex].reviews
-            addInfo.rating = @allItemsList[clinicIndex].rating
-            clinicIndex += 1
+            address = @allItemsList[diagnostIndex].address
+            addInfo.directions = @allItemsList[diagnostIndex].directions
+            addInfo.address = @allItemsList[diagnostIndex].address
+            addInfo.reviews = @allItemsList[diagnostIndex].reviews
+            addInfo.rating = @allItemsList[diagnostIndex].rating
+            diagnostIndex += 1
 
           address += ' ' + @city
           @geocoder.geocode {'address': address}, (results, status) ->
@@ -242,8 +249,8 @@ docMaps =
     docMaps.fitMap [marker], map
 
     if marker.addInfo.affilate
-      if docMaps.pageName == 'clinics'
-        offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").offset().top
+      if docMaps.pageName == 'diagnostList'
+        offsetTop = $("[data-id='" + marker.addInfo.id + "']").offset().top
       else
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").closest('.card').offset().top
     else
@@ -318,9 +325,9 @@ docMaps =
       $("body").on "mouseover", ".card", ->
         if docMaps.cardId != $(@).data('id') and docMaps.markersList.length > 0
           docMaps.resetMarkers()
-          if docMaps.pageName == 'clinics'
-            if $(@).find('.small-card').length > 0
-              index = docMaps.findMarker('id', $(@).find('.small-card').eq(0).data('id'))
+          if docMaps.pageName == 'diagnostic-list'
+            if $(@).find('.card-services').length > 0
+              index = docMaps.findMarker('id', $(@).find('.card-services').eq(0).data('id'))
             else
               index = docMaps.findMarker('id', $(@).closest('.card').data('id'))
           else if docMaps.pageName == 'doctors'
@@ -329,8 +336,8 @@ docMaps =
             else
               index = docMaps.findMarker('id', $(@).closest('.card').data('id'))
 
-          if $(@).find('.small-card').length > 0
-            list = 	docMaps.markersList.slice(index, index + ($(@).find('.small-card').length))
+          if $(@).find('.card-services').length > 0
+            list = 	docMaps.markersList.slice(index, index + ($(@).find('.card-services').length))
           else if $(@).find('.card__job').length > 0
             list = 	docMaps.markersList.slice(index, index + ($(@).find('.card__job').length))
           else

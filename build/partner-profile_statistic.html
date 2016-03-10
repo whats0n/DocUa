@@ -448,7 +448,7 @@
         <div class="container main-content">
           <article>
             <div class="row">
-              <section class="col-sm-7"> 
+              <section class="col-sm-8"> 
                 <div class="change-time">
                   <ul class="nav-days template-block">
                     <li class="active nav-days__item"><a href="#" class="nav-days__link">Сегодня</a>
@@ -460,22 +460,20 @@
                     <li class="nav-days__item"><a href="#" class="nav-days__link">Месяц</a>
                     </li>
                   </ul>
-                  <div class="nav-calendar template-block"> <span class="nav-calendar__date">12 декабря 2015</span>
+                  <div class="nav-calendar">
+                    <input type="text" class="js-datepicker nav-calendar__date-picker"/>
                   </div>
                 </div>
               </section>
-              <article class="col-sm-5">
+              <article class="col-sm-4">
                 <ul class="deduce">
                   <li class="deduce__item">Детализация 
-                    <div class="js-section-choice">
-                      <div class="deduce__number js-field-child template-block">по дням
-                      </div>
-                      <ul class="section-choice">
-                        <li class="section-choice__item js-child">по дням</li>
-                        <li class="section-choice__item js-child">по неделям</li>
-                        <li class="section-choice__item js-child">по месяцам</li>
-                      </ul>
-                    </div>
+                    <select name="by_period" class="drop-down">
+                      <option value="day" class="drop-down__item">По дням
+                      </option>
+                      <option value="month" class="drop-down__item">По месяцам
+                      </option>
+                    </select>
                   </li>
                 </ul>
               </article>
@@ -487,15 +485,12 @@
               <section class="col-sm-12">
                 <ul class="deduce deduce__left">
                   <li class="deduce__item">Информация за 
-                    <div class="js-section-choice">
-                      <div class="deduce__number js-field-child template-block">2015 год
-                      </div>
-                      <ul class="section-choice">
-                        <li class="section-choice__item js-child">2015 год</li>
-                        <li class="section-choice__item js-child">2016 год</li>
-                        <li class="section-choice__item js-child">2017 год </li>
-                      </ul>
-                    </div>
+                    <select name="year" class="drop-down">
+                      <option value="2015" class="drop-down__item">2015 год
+                      </option>
+                      <option value="2016" class="drop-down__item">2016 год
+                      </option>
+                    </select>
                   </li>
                 </ul>
               </section>
@@ -503,19 +498,19 @@
             <div class="row">
               <section class="col-sm-12">
                 <table cellpadding="0" cellspacing="0" class="partner-table partner-table__statistic">
-                  <thead class="partner-table__head"> 
+                  <thead> 
                     <tr>
-                      <td>Месяц</td>
-                      <td>Посетителей</td>
-                      <td>Кликов</td>
-                      <td>Заказов</td>
-                      <td>Конверсия</td>
-                      <td>Отмененные</td>
-                      <td>Принятые</td>
-                      <td>Комиссия</td>
+                      <th>Месяц</th>
+                      <th>Посетителей</th>
+                      <th>Кликов</th>
+                      <th>Заказов</th>
+                      <th>Конверсия</th>
+                      <th>Отмененные</th>
+                      <th>Принятые</th>
+                      <th>Комиссия</th>
                     </tr>
                   </thead>
-                  <tbody class="partner-table__body">
+                  <tbody>
                     <tr>
                       <td>Ноябрь 2015 </td>
                       <td>132 856</td>
@@ -667,7 +662,7 @@
                             <li class="footer-sub-menu__item"><a href="/articles.html" title="Блог" class="footer-sub-menu__item-link">Блог</a></li> 
                             <li class="footer-sub-menu__item"><a href="/partners.html" title="Партнерам" class="footer-sub-menu__item-link">Партнерам</a></li>                                        
                             <li class="footer-sub-menu__item"><a href="/rules.html" title="Правила сервиса" class="footer-sub-menu__item-link">Правила сервиса</a></li>
-                          </ul>                                  
+                          </ul>                                   
                         </li>
                         <li class="footer-menu__item footer-menu__item-has_sub"><span class="footer-menu__item-link footer-tab_header js-tab__header-f">Пациенту<span class="btn__mobile js-btn__mobile"> </span></span>
                           <ul data-columns="4" data-balance-method="balanceCount" class="footer-sub-menu tab-close js-content-hide columnize">

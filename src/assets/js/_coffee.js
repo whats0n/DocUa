@@ -1460,37 +1460,20 @@ $(".alternative-btn__district").on("click", ".js-remove", function() {
   }
 });
 
-$(".js-btn-picker").on("click", function() {
-  var picker;
-  picker = $(this).siblings(".date-wrap");
-  picker.toggleClass('is-open');
-  return $('.js-datepicker').datepick({
-    dateFormat: 'd MM',
-    rangeSelect: true,
-    monthsToShow: [1, 2],
-    showTrigger: '#calImg',
-    showOtherMonths: true,
-    selectOtherMonths: true,
-    changeMonth: false,
-    altField: '.date-footer__text',
-    altFormat: 'd MM'
-  });
+$("#select-specialization").on("click", "li a", function() {
+  var item;
+  item = $(this);
+  $('.alternative-btn__specialization span').empty();
+  $('.alternative-btn__specialization span').text(item.text());
+  $('.js-remove').addClass('is-active');
+  return $('.js-btn-special').text('Выбрана специальность');
 });
 
-$(".js-date-close").on("click", function() {
-  var value;
-  value = $('.date-footer__text').val();
-  $(".date-wrap").removeClass("is-open");
-  return $('.js-clone-date').text(value);
-});
-
-$(".date-header__item").on("click", function() {
-  var Picker, day, today, today7;
-  Picker = $('.js-datepicker').datepick();
-  today = Picker.find('.datepick-today').text();
-  day = 7;
-  today7 = parseInt(today) + day;
-  return $(this).addClass('active');
+$(".js-remove").on("click", function() {
+  $(this).siblings("span").empty();
+  $(this).removeClass('is-active');
+  $('.js-btn-special').text('Выберите специальность');
+  return false;
 });
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -1540,6 +1523,32 @@ $('.js-tab__header-c').click(function() {
   item.toggleClass('tab-active_info');
   $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
   return false;
+});
+
+$(function() {
+  return $('.js-datepicker').daterangepicker({
+    autoUpdateInput: true,
+    alwaysShowCalendars: true,
+    startDate: moment(),
+    opens: "left",
+    applyClass: "apply-btn",
+    cancelClass: "cancel-btn",
+    ranges: {
+      'Последние :': [],
+      '7 дней': [moment(), moment().add(6, 'days')],
+      '14 дней': [moment(), moment().add(13, 'days')],
+      '30 дней': [moment(), moment().add(29, 'days')]
+    },
+    locale: {
+      format: 'YYYY.MM.DD',
+      separator: ' - ',
+      applyLabel: 'Подтвердить',
+      cancelLabel: 'Отменить',
+      daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
+      monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+      firstDay: 1
+    }
+  });
 });
 
 $('.js-tab__header-d').click(function() {
@@ -1947,7 +1956,21 @@ $(document).ready(function() {
   });
 });
 
+$(".js-autocomplete-doc").each(function() {
+  var availableTags;
+  availableTags = ['Аллерголог', 'Андролог', 'Анестезиолог', 'Венеролог', 'Вертебролог', 'Гастроэнтеролог', 'Гематолог', 'Генетик', 'Дерматолог', 'Диетолог', 'Иммунолог', 'Кардиолог', 'Кинезитерапевт', 'Логопед', 'Маммолог', 'Нарколог', 'Невролог', 'Ортопед', 'Педиатр', 'Подолог', 'Ревматолог', 'Терапевт'];
+  return $('.js-autocomplete-doc').autocomplete({
+    source: availableTags
+  });
+});
 
+$(".js-autocomplete-clinic").each(function() {
+  var availableTags;
+  availableTags = ['Инсайт Медикал', 'Саперная слободка', 'Исида', 'Феврония Клинская', 'Валерия Ильинишна Колмагорова', 'Феврония Клинская', 'Добробут'];
+  return $('.js-autocomplete-clinic').autocomplete({
+    source: availableTags
+  });
+});
 
 var phonesAutoChange;
 
@@ -2176,23 +2199,6 @@ $(function() {
   return $(".photo-gallery").makeCustomPhotoGallery();
 });
 
-$(document).on("change", ".pill-group .pill input", function(e) {
-  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
-  $pill = $(e.target).closest(".pill");
-  checked = $(e.target).is(":checked");
-  $childrenPills = $pill.siblings("ul").find(".pill");
-  if ($childrenPills.length > 0) {
-    return $childrenPills.find("input").prop("checked", checked);
-  } else {
-    $parentPill = $pill.closest("ul").siblings(".pill");
-    if ($parentPill.length === 1) {
-      $pillsGroup = $parentPill.siblings("ul").find(".pill");
-      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
-      return $parentPill.find("input").prop("checked", allChecked);
-    }
-  }
-});
-
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2238,6 +2244,23 @@ $(window).resize(postLocationWidthFix);
 $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
+
+$(document).on("change", ".pill-group .pill input", function(e) {
+  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
+  $pill = $(e.target).closest(".pill");
+  checked = $(e.target).is(":checked");
+  $childrenPills = $pill.siblings("ul").find(".pill");
+  if ($childrenPills.length > 0) {
+    return $childrenPills.find("input").prop("checked", checked);
+  } else {
+    $parentPill = $pill.closest("ul").siblings(".pill");
+    if ($parentPill.length === 1) {
+      $pillsGroup = $parentPill.siblings("ul").find(".pill");
+      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
+      return $parentPill.find("input").prop("checked", allChecked);
+    }
+  }
+});
 
 var postLocationWidthFix;
 
@@ -2376,7 +2399,346 @@ smallCardInit();
 
 $("body").on("smallCardInit", smallCardInit);
 
-
+(function() {
+  var $bodyMap, $commonPill, $skinPill, IE, detailed, gender, map, otherZoneClickHandler, refreshView, selectZone, selected, setGender, side, toggleDetailed, toggleSide, unselectZones, zones;
+  $bodyMap = void 0;
+  $commonPill = void 0;
+  $skinPill = void 0;
+  IE = void 0;
+  detailed = void 0;
+  gender = void 0;
+  map = void 0;
+  otherZoneClickHandler = void 0;
+  refreshView = void 0;
+  selectZone = void 0;
+  selected = void 0;
+  setGender = void 0;
+  side = void 0;
+  toggleDetailed = void 0;
+  toggleSide = void 0;
+  unselectZones = void 0;
+  zones = void 0;
+  $bodyMap = $('.body-map');
+  IE = !!top.execScript;
+  $bodyMap.toggleClass('body-map_ie', IE);
+  if ($bodyMap.length > 0 && $('.body-map__container').length > 0) {
+    $commonPill = $bodyMap.find('[data-zone-id=\'common\']');
+    $skinPill = $bodyMap.find('[data-zone-id=\'skin\']');
+    gender = 'man';
+    side = 'front';
+    detailed = false;
+    map = null;
+    selected = null;
+    zones = {};
+    refreshView = function() {
+      var $el, _i, _len, _ref, createZone, resetCss, svgFile, svgFileKey, zone;
+      $el = void 0;
+      createZone = void 0;
+      resetCss = void 0;
+      svgFile = void 0;
+      svgFileKey = void 0;
+      zone = void 0;
+      _i = void 0;
+      _len = void 0;
+      _ref = void 0;
+      if (map) {
+        map.remove();
+        map = null;
+      }
+      if (detailed) {
+        resetCss = {
+          top: '-10%',
+          left: '-15%'
+        };
+      } else {
+        resetCss = {
+          top: 0,
+          left: '50%'
+        };
+      }
+      $el = $bodyMap.find('.body-map__main').panElement('destroy').css(resetCss).removeClass('body-map__main_detailed').hide().filter('.body-map__main_' + gender + '_' + side).show().toggleClass('body-map__main_detailed', detailed);
+      svgFileKey = '' + gender + '-' + side + (detailed ? '-detailed' : '');
+      svgFile = SVG_FILES[svgFileKey];
+      map = Raphael($el.find('.body-map__zones')[0]);
+      map.setViewBox(svgFile.viewbox[0], svgFile.viewbox[1], svgFile.viewbox[2], svgFile.viewbox[3], true);
+      map.setSize('100%', '100%');
+      unselectZones();
+      zones = {};
+      createZone = function(zone) {
+        var _len;
+        var _i;
+        var clicking, path, pathList, pathString;
+        clicking = void 0;
+        path = void 0;
+        pathList = void 0;
+        pathString = void 0;
+        _i = void 0;
+        _len = void 0;
+        pathList = (function() {
+          var _ref;
+          var _len;
+          var _i;
+          var _results;
+          _i = void 0;
+          _len = void 0;
+          _ref = void 0;
+          _results = void 0;
+          if (zone.path) {
+            return [map.path(zone.path)];
+          } else if (zone.pathList) {
+            _ref = zone.pathList;
+            _results = [];
+            _i = 0;
+            _len = _ref.length;
+            while (_i < _len) {
+              pathString = _ref[_i];
+              _results.push(map.path(pathString));
+              _i++;
+            }
+            return _results;
+          } else {
+            throw new Error('invalid zone ' + JSON.stringify(zone));
+          }
+        })();
+        while (_i < _len) {
+          path = pathList[_i];
+          path.attr({
+            zoneId: zone.id,
+            'stroke-width': 0,
+            fill: '#ff4c4c',
+            cursor: 'pointer',
+            opacity: 0
+          });
+          path.mouseover(function() {
+            var _j, _len1, p;
+            p = void 0;
+            _j = void 0;
+            _len1 = void 0;
+            if (zone.id !== selected) {
+              _j = 0;
+              _len1 = pathList.length;
+              while (_j < _len1) {
+                p = pathList[_j];
+                p.attr({
+                  opacity: 0.5
+                });
+                _j++;
+              }
+            }
+            return $bodyMap.trigger('mouseoverZone', {
+              gender: gender,
+              side: side,
+              detailed: detailed,
+              zoneId: zone.id
+            });
+          });
+          path.mouseout(function() {
+            var _j, _len1, p;
+            p = void 0;
+            _j = void 0;
+            _len1 = void 0;
+            if (zone.id !== selected) {
+              _j = 0;
+              _len1 = pathList.length;
+              while (_j < _len1) {
+                p = pathList[_j];
+                p.attr({
+                  opacity: 0
+                });
+                _j++;
+              }
+            }
+            return $bodyMap.trigger('mouseoutZone', {
+              gender: gender,
+              side: side,
+              detailed: detailed,
+              zoneId: zone.id
+            });
+          });
+          clicking = false;
+          path.mousedown(function() {
+            return clicking = true;
+          });
+          path.mousemove(function() {
+            return clicking = false;
+          });
+          path.mouseup(function(e) {
+            var $m, offset, offsetX, offsetY;
+            $m = void 0;
+            offset = void 0;
+            offsetX = void 0;
+            offsetY = void 0;
+            if (!clicking) {
+              return;
+            }
+            $m = $bodyMap.find('.body-map__main:visible');
+            offset = $m.offset();
+            offsetX = e.offsetX || e.pageX - offset.left;
+            offsetY = e.offsetY || e.pageY - offset.top;
+            return $bodyMap.trigger('clickZone', {
+              gender: gender,
+              side: side,
+              detailed: detailed,
+              zoneId: zone.id,
+              offset: {
+                left: offsetX,
+                top: offsetY
+              },
+              size: {
+                width: $m.width(),
+                height: $m.height()
+              }
+            });
+          });
+          _i++;
+        }
+        return zones[zone.id] = pathList;
+      };
+      _ref = svgFile.zones;
+      _i = 0;
+      _len = _ref.length;
+      while (_i < _len) {
+        zone = _ref[_i];
+        createZone(zone);
+        _i++;
+      }
+      if (detailed) {
+        return $el.panElement();
+      }
+    };
+    unselectZones = function() {
+      var _i, _len, id, p, pathList;
+      id = void 0;
+      p = void 0;
+      pathList = void 0;
+      _i = void 0;
+      _len = void 0;
+      $skinPill.prop('checked', false);
+      $commonPill.prop('checked', false);
+      for (id in zones) {
+        id = id;
+        pathList = zones[id];
+        _i = 0;
+        _len = pathList.length;
+        while (_i < _len) {
+          p = pathList[_i];
+          p.attr({
+            opacity: 0
+          });
+          _i++;
+        }
+      }
+      return selected = null;
+    };
+    selectZone = function(id) {
+      unselectZones();
+      setTimeout((function() {
+        var _i, _len, _ref, _results, p;
+        p = void 0;
+        _i = void 0;
+        _len = void 0;
+        _ref = void 0;
+        _results = void 0;
+        switch (id) {
+          case 'common':
+            return $commonPill.prop('checked', true);
+          case 'skin':
+            return $skinPill.prop('checked', true);
+          default:
+            _ref = zones[id];
+            _results = [];
+            _i = 0;
+            _len = _ref.length;
+            while (_i < _len) {
+              p = _ref[_i];
+              _results.push(p.attr({
+                opacity: 0.5
+              }));
+              _i++;
+            }
+            return _results;
+        }
+      }), 1);
+      return selected = id;
+    };
+    setGender = function() {
+      gender = (function() {
+        switch ($bodyMap.find('.body-map__select [name=\'gender\']:checked').val()) {
+          case 'male':
+            return 'man';
+          case 'female':
+            return 'woman';
+          default:
+            throw new Error('invalid gender');
+        }
+      })();
+      return refreshView();
+    };
+    toggleSide = function() {
+      side = side === 'front' ? 'back' : 'front';
+      return refreshView();
+    };
+    toggleDetailed = function() {
+      detailed = !detailed;
+      $bodyMap.find('.body-map__zoom').toggleClass('body-map__zoom_out', detailed);
+      return refreshView();
+    };
+    $bodyMap.find('.body-map__select [name=\'gender\']').change(function() {
+      setGender();
+      return $bodyMap.trigger('selectGender', {
+        gender: gender
+      });
+    });
+    $bodyMap.find('.body-map__rotate').click(function() {
+      toggleSide();
+      return $bodyMap.trigger('selectSide', {
+        side: side
+      });
+    });
+    $bodyMap.find('.body-map__zoom').click(function() {
+      toggleDetailed();
+      return $bodyMap.trigger('selectDetailed', {
+        detailed: detailed
+      });
+    });
+    $bodyMap.on('selectZone', function(e, o) {
+      return selectZone(o.zoneId);
+    });
+    otherZoneClickHandler = function(e) {
+      $bodyMap.trigger('clickZone', {
+        zoneId: $(this).data('zoneId'),
+        gender: gender,
+        detailed: detailed,
+        side: side
+      });
+      e.stopPropagation();
+      e.preventDefault();
+      return false;
+    };
+    $commonPill.click(otherZoneClickHandler);
+    $skinPill.click(otherZoneClickHandler);
+    $bodyMap.on('clickZone', function(event, o) {
+      var $c, $d, _ref;
+      $c = void 0;
+      $d = void 0;
+      _ref = void 0;
+      if ((_ref = o.zoneId) === 'common' || _ref === 'skin' || o.detailed) {
+        return $bodyMap.trigger('selectZone', {
+          zoneId: o.zoneId
+        });
+      } else {
+        toggleDetailed();
+        $d = $bodyMap.find('.body-map__main_detailed');
+        $c = $d.parent();
+        return $bodyMap.find('.body-map__main').css({
+          top: '' + Math.min(0, Math.max($c.height() - $d.height(), -($d.height() - $c.height()) / 2 + (0.5 - (o.offset.top / o.size.height)) * $d.height())) + 'px',
+          left: '' + Math.min(0, Math.max($c.width() - $d.width(), -($d.width() - $c.width()) / 2 + (0.5 - (o.offset.left / o.size.width)) * $d.width())) + 'px'
+        });
+      }
+    });
+    setGender();
+  }
+}).call(this);
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
@@ -3109,7 +3471,7 @@ docMaps = {
     } else {
       docMaps.mapOffsetTop = $('.widget-map').offset().top;
       this.map = new google.maps.Map(document.getElementById('map-canvas-right'), mapOptions);
-      if (this.pageName === 'doctorInner' || this.pageName === 'clinicInner') {
+      if (this.pageName === 'doctorInner' || this.pageName === 'clinicInner' || this.pageName === 'clinics' || this.pageName === 'diagnostCenter' || this.pageName === 'action' || this.pageName === 'actionAbout') {
         this.mapCss.inner();
       } else {
         this.mapCss.index();
@@ -3128,9 +3490,13 @@ docMaps = {
     }
     if (this.pageName === 'doctorInner') {
       this.addNewMarker = this.addMarker.inner();
+      this.addNewMarker();
+    }
+    if (this.pageName === 'diagnostCenter') {
+      this.addNewMarker = this.addMarker.inner();
       return this.addNewMarker();
     } else {
-      this.addNewMarker = this.addMarker.clinics();
+      this.addNewMarker = this.addMarker.diagnostList();
       return this.addNewMarker();
     }
   },
@@ -3199,16 +3565,16 @@ docMaps = {
       var mapHeight, navbarHeight;
       navbarHeight = $('.navbar-main').outerHeight();
       if (docMaps.mapOffsetTop - $(window).scrollTop() < 0) {
-        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 40);
+        $('#map-canvas-right, .widget-map').height($(window).height() - navbarHeight - 30);
         $('.widget-map').css({
           position: 'fixed'
         }, $('.widget-map').width($('.widget-map').parent('aside').width()));
-        if ($('html').height() <= $(window).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)) {
+        if ($(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true)) {
           docMaps.canAnimateTop = true;
           $('aside').height($('aside').prev().height());
           $('.widget-map').css({
             position: 'absolute',
-            bottom: 10,
+            bottom: 20,
             top: 'auto'
           });
         } else {
@@ -3234,7 +3600,7 @@ docMaps = {
       });
     },
     inner: function() {
-      if (docMaps.pageName === 'clinicInner') {
+      if (docMaps.pageName === 'clinicInner' && docMaps.pageName === 'diagnosticCenter') {
         return $('#map-canvas-right, .widget-map').height(600);
       } else {
         return $('#map-canvas-right, .widget-map').height($('.card').outerHeight());
@@ -3251,41 +3617,41 @@ docMaps = {
     }
   },
   addMarker: {
-    clinics: function() {
-      var affilateIndex, clinicIndex;
-      clinicIndex = 0;
+    diagnostList: function() {
+      var affilateIndex, diagnostIndex;
+      diagnostIndex = 0;
       affilateIndex = -1;
       return function() {
         var addInfo, address;
-        if (clinicIndex < this.allItemsList.length) {
+        if (diagnostIndex < this.allItemsList.length) {
           addInfo = {};
-          if (clinicIndex === 0) {
+          if (diagnostIndex === 0) {
             addInfo.active = true;
           } else {
             addInfo.active = false;
           }
-          addInfo.name = this.allItemsList[clinicIndex].name;
-          addInfo.id = clinics[clinicIndex].id;
-          addInfo.image = this.allItemsList[clinicIndex].image;
-          if (this.allItemsList[clinicIndex].affilates) {
+          addInfo.name = this.allItemsList[diagnostIndex].name;
+          addInfo.id = clinics[diagnostIndex].id;
+          addInfo.image = this.allItemsList[diagnostIndex].image;
+          if (this.allItemsList[diagnostIndex].affilates) {
             if (affilateIndex === -1) {
               affilateIndex = 0;
             }
-            addInfo.affilate = this.allItemsList[clinicIndex].affilates[affilateIndex];
-            address = this.allItemsList[clinicIndex].affilates[affilateIndex].address;
-            if (affilateIndex === this.allItemsList[clinicIndex].affilates.length - 1) {
+            addInfo.affilate = this.allItemsList[diagnostIndex].affilates[affilateIndex];
+            address = this.allItemsList[diagnostIndex].affilates[affilateIndex].address;
+            if (affilateIndex === this.allItemsList[diagnostIndex].affilates.length - 1) {
               affilateIndex = -1;
-              clinicIndex += 1;
+              diagnostIndex += 1;
             } else {
               affilateIndex += 1;
             }
           } else {
-            address = this.allItemsList[clinicIndex].address;
-            addInfo.directions = this.allItemsList[clinicIndex].directions;
-            addInfo.address = this.allItemsList[clinicIndex].address;
-            addInfo.reviews = this.allItemsList[clinicIndex].reviews;
-            addInfo.rating = this.allItemsList[clinicIndex].rating;
-            clinicIndex += 1;
+            address = this.allItemsList[diagnostIndex].address;
+            addInfo.directions = this.allItemsList[diagnostIndex].directions;
+            addInfo.address = this.allItemsList[diagnostIndex].address;
+            addInfo.reviews = this.allItemsList[diagnostIndex].reviews;
+            addInfo.rating = this.allItemsList[diagnostIndex].rating;
+            diagnostIndex += 1;
           }
           address += ' ' + this.city;
           return this.geocoder.geocode({
@@ -3355,8 +3721,8 @@ docMaps = {
     marker.setIcon(docMaps.icon2);
     docMaps.fitMap([marker], map);
     if (marker.addInfo.affilate) {
-      if (docMaps.pageName === 'clinics') {
-        offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").offset().top;
+      if (docMaps.pageName === 'diagnostList') {
+        offsetTop = $("[data-id='" + marker.addInfo.id + "']").offset().top;
       } else {
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").closest('.card').offset().top;
       }
@@ -3441,9 +3807,9 @@ docMaps = {
         var index, list;
         if (docMaps.cardId !== $(this).data('id') && docMaps.markersList.length > 0) {
           docMaps.resetMarkers();
-          if (docMaps.pageName === 'clinics') {
-            if ($(this).find('.small-card').length > 0) {
-              index = docMaps.findMarker('id', $(this).find('.small-card').eq(0).data('id'));
+          if (docMaps.pageName === 'diagnostic-list') {
+            if ($(this).find('.card-services').length > 0) {
+              index = docMaps.findMarker('id', $(this).find('.card-services').eq(0).data('id'));
             } else {
               index = docMaps.findMarker('id', $(this).closest('.card').data('id'));
             }
@@ -3454,8 +3820,8 @@ docMaps = {
               index = docMaps.findMarker('id', $(this).closest('.card').data('id'));
             }
           }
-          if ($(this).find('.small-card').length > 0) {
-            list = docMaps.markersList.slice(index, index + ($(this).find('.small-card').length));
+          if ($(this).find('.card-services').length > 0) {
+            list = docMaps.markersList.slice(index, index + ($(this).find('.card-services').length));
           } else if ($(this).find('.card__job').length > 0) {
             list = docMaps.markersList.slice(index, index + ($(this).find('.card__job').length));
           } else {

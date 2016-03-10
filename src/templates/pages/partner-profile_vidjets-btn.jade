@@ -4,11 +4,11 @@
     page_name: partner-profile_vidjets-preview 
     activeMenuItem: 1
 
-.row
+.row 
   section.col-md-12 
-    +b.come-back 
+    +b.come-back
       +e('i').icon
-      +e('a').link(href='#') Назад к списку виджетов    
+      +e('a').link(href='#') Назад к списку виджетов  
 .row                  
   section.col-md-6                     
     +b.partner-block
@@ -16,7 +16,7 @@
         strong “Кнопка”
       +e.content
         +b.setting-element
-            +e.content
+            +e('form').content(action="")
                 table.installation
                     tr 
                         td Тип кнопки
@@ -39,19 +39,22 @@
                                     +e("li").list.js-child Харьков
                                     +e("li").list.js-child Харьков
                                     +e("li").list.js-child Харьков
-                    tr 
-                        td Врачи
+                    tr  
                         td 
-                            .dddd
-                                input.enter-info(placeholder='введите фамилию, имя, отчество врача')
+                            label(for="doc") Врачи
+                        td 
+                            input.enter-info.js-autocomplete-doc(placeholder='введите фамилию, имя, отчество врача' id='doc'  type='text')
                     tr
-                        td Клиники
-                        td
-                           input.enter-info(placeholder='введите название клиники')
-                    tr 
-                        td Текст кнопки 
                         td 
-                            input.enter-info(placeholder='введите текст')
+                            label(for="clinic") Клиники
+                        td
+                            //- label.enter0label(for='clinic')
+                            input.enter-info.js-autocomplete-clinic(placeholder='введите название клиники' id='clinic' type='text')
+                    tr 
+                        td 
+                            label(for="text") Текст кнопки 
+                        td 
+                            input.enter-info(placeholder='введите текст' id='text')
                     tr
                         td Цвет виджета
                         td 

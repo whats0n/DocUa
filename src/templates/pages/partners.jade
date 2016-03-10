@@ -8,10 +8,10 @@
     
 +b.comment-quotes: +i({ quotes: commentQuotes })
 
-section.partners-main     
-   header.header-styled.header-partners  
+section.partners-main      
+   header.header-styled.header-partners
       h2.h1 Преимущество для партнеров 
-   .row 
+   .row
       .col-sm-6
          +b.feature
             +e.header  
@@ -20,7 +20,7 @@ section.partners-main
                +e.title.h3 Дополнительный канал рекламы
             +e.content
                p  Сотрудничая с DOC.UA вы получаете дополнительный и эффективный канал рекламы, преимуществом которого является то, что вы платите только за «реального пациента», который пришел на прием.
-         +b.feature 
+         +b.feature  
             +e.header
                +e("span").icon
                   img(src="/i/icon-note_partners.png", alt="")
@@ -47,19 +47,25 @@ section.partners-main
                         .col-md-2.col-sm-3.is-align-right
                            label.control-label(for="field-registration-email"): span Емейл
                         .col-md-10.col-sm-9
-                           input#field-registration-email.form-control(type="text" placeholder="введите свой емейл")
+                           .input-email.input-validation_modals
+                              input#field-registration-email.form-control.input-validation_modals.input-validation__border(type="text" placeholder="введите свой емейл") 
+                              .input-validation_message Необходимо заполнить поле «Емейл».
                      .form-group
                         .col-md-2.col-sm-3.is-align-right
                            label.control-label(for="field-registration-password"): span Пароль
                         .col-md-10.col-sm-9
                            .input-password
-                              input#field-registration-password.form-control(type="password" placeholder="введите свой пароль")
-                              span.password-eye
+                              .input-password.input-validation_modals
+                                 input#field-registration-password.form-control.input-validation__border(type="password" placeholder="введите свой пароль")
+                                 .input-validation_message Пароль короткий (Минимум: 6 симв.).
+                                 span.password-eye
                      .form-group
                         .col-md-2.col-sm-3.is-align-right
                            label.control-label.phone-input-mask(for="field-registration-phone"): span Телефон 
                         .col-md-10.col-sm-9
-                           input#field-registration-phone.form-control(type="text" placeholder="введите свой телефон")
+                           .input-phone.input-validation_modals
+                              input#field-registration-phone.form-control.input-validation__border(type="text" placeholder="введите свой телефон")
+                              .input-validation_message Пароль короткий (Минимум: 6 симв.).
                      .form-group.form-labels
                         .col-md-2.col-sm-3.col-xs-3.is-align-right
                            label.control-label Я &mdash; 

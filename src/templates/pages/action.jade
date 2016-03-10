@@ -5,26 +5,26 @@
     modals: feedback, select-specialization
     page_name: action 
 
-.row     
+.row      
     article.col-md-12 
         +b("header").article-header
-            h1= file.title            
+            h1= file.title          
     section.col-md-9   
         include ../blocks/action/action.jade
 
 
         +b.section-action
-            +e.item.is-badge-label
+            +e.item.is-badge-label.card
                 +b.badge-label.badge-label_background_green
                     p только через
                     img(src="i/doc-logo-small-white.png", alt"")
                     +e("span").arrow: span
                 +e.left.item-left__mod
-                    .card__left-side
+                    .card__left-side  
                         .card__image 
                             a(href="#") 
                                 img(src='i/_isida.jpg').photo
-                        +b.rating.value-size_big
+                        +b.rating.value-size_big 
                             +e.value.value 4.9
                             +e.stars 
                                 +e.stars-bg
@@ -55,7 +55,7 @@
                         +e.old 1245грн
                         +e.new 1050грн 
                         +e("a").btn(href="#") Записаться на прием 
-            +e.item
+            +e.item.card
                 +e.left.item-left__mod
                     .card__left-side
                         .card__image 

@@ -212,10 +212,12 @@
 			width 24%
 			background-color #fdfefe
 			z-index 5 
+			text-align right
 			@media phone
 				position static
 				width 100%
 				margin-left 0
+				text-align left
 			@media screen560
 				float none
 				width 100%
@@ -345,6 +347,11 @@
 				color #fd4b37
 				&:before
 					background url('i/icons/action-benefit-red.png')  no-repeat
+			&.yellow-border
+				border: 1px dashed rgba(255, 192, 042, 1) 
+				color #FFC02A
+				&:before
+					background url('i/icons/action-benefit-yellow.png')  no-repeat  
 
 
 //ACTION-ABOUT
@@ -653,6 +660,46 @@
 		padding 20px 20px 10px 20px 
 		li
 			color #4b89d3
+
+// new about-block
+.action-about__mod
+	
+	.action-about__in
+		padding 25px 0px 
+		
+	.action-about__title-wrap
+		padding 0px 20px 
+		
+	.action-about__caption
+		font-size: 17px
+		font-weight: 700 
+		border-bottom: 1px solid #e6edef
+		padding 0 0 15px 20px
+		margin-bottom 0
+	.block-services__item
+		.block-services__title
+			padding 0
+			background #FFF 
+			border-top none 
+	.block-services__row
+		padding 0
+		border-bottom none
+		height auto
+		&:hover
+			border-bottom none
+		&:hover .old_price
+			display none
+			
+	.block-services__row-in
+		border-bottom: 1px solid #e6edef
+		padding 0 20px	 
+		&:before
+			display none
+		.old_price
+			color: #a9bbc2
+			text-decoration: line-through
+			padding-right 10px
+			transition all 0.5s
 
 
  

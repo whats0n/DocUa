@@ -5,7 +5,7 @@
     activeMenuItem: 2  
  
 .row
-    section.col-sm-7  
+    section.col-sm-8 
       .change-time
         +b('ul').nav-days.template-block
           +e('li').item.active
@@ -16,19 +16,18 @@
               +e('a').link(href="#") Неделя
           +e('li').item
               +e('a').link(href="#") Месяц
-        +b.nav-calendar.template-block
-          +e('span').date 12 декабря 2015
+        +b.nav-calendar
+          +e('input').date-picker.js-datepicker(type="text")
+          
 
 
-    article.col-sm-5
+    article.col-sm-4
       +b('ul').deduce
         +e.item Выводить на страницу: 
-            .js-section-choice
-                +e.number.template-block.js-field-child 10
-                ul.section-choice
-                    li.section-choice__item.js-child 10
-                    li.section-choice__item.js-child 20
-                    li.section-choice__item.js-child 50
+            +b('select').drop-down(name='by_num')
+                +e('option').item(value='1') 10
+                +e('option').item(value='2') 20
+                +e('option').item(value='3') 50
 
         +e.item Заказов: 
             strong 200
@@ -37,70 +36,73 @@
 
 .row
   section.col-sm-12.partner-table__invoices-mod
-    table.partner-table.partner-table__invoices
-        thead.partner-table__head 
-            tr
-                td ID
-                td Дата создания
-                td Источник
-                td Статус
-                td Комиссия
-        tbody.partner-table__body
-            tr
-                td 345289 
-                td 2015-12-15, 18:01:34
-                td виджет врача id 3754329
-                td принят
-                td 20 
-                    | &#8372;
-            tr
-                td 389589 
-                td 2015-12-15, 18:01:34
-                td виджет врача id 3754329
-                td в работе
-                td 30 
-                    | &#8372;
-                
-            tr
-                td 345289 
-                td 2015-12-15, 18:01:34
-                td виджет врача id 3754329
-                td принят
-                td 20 
-                    | &#8372;
-            tr
-                td 389589 
-                td 2015-12-15, 18:01:34
-                td виджет врача id 3754329
-                td в работе
-                td 30 
-                    | &#8372;
-            tr
-                td 345289 
-                td 2015-12-15, 18:01:34
-                td виджет врача id 3754329
-                td принят
-                td 20 
-                    | &#8372;
-            tr
-                td 389589 
-                td 2015-12-15, 18:01:34
-                td виджет врача id 3754329
-                td в работе
-                td 30 
-                    | &#8372;
-            tr
-                td(colspan="5")
-                    +b('ul').payoff
-                        +e('li').item Принят: 
-                            strong 138
-                        +e('li').item Отменен:  
-                            strong 60
-                        +e('li').item В работе: 
-                            strong 2  
-                        +e('li').item Комиссия: 
-                            strong 5 880 
-                                | &#8372;
+    .partner-table__in
+        table.partner-table.partner-table__invoices
+            thead 
+                tr
+                    th ID
+                    th Дата создания
+                    th Источник
+                    th Статус
+                    th Комиссия
+            tbody
+                tr
+                    td 345289 
+                    td 2015-12-15, 18:01:34
+                    td виджет врача id 3754329
+                    td принят
+                    td 20 
+                        | &#8372;
+                tr
+                    td 389589 
+                    td 2015-12-15, 18:01:34
+                    td виджет врача id 3754329
+                    td в работе
+                    td 30 
+                        | &#8372;
+                    
+                tr
+                    td 345289 
+                    td 2015-12-15, 18:01:34
+                    td виджет врача id 3754329
+                    td принят
+                    td 20 
+                        | &#8372;
+                tr
+                    td 389589 
+                    td 2015-12-15, 18:01:34
+                    td виджет врача id 3754329
+                    td в работе
+                    td 30 
+                        | &#8372;
+                tr
+                    td 345289 
+                    td 2015-12-15, 18:01:34
+                    td виджет врача id 3754329
+                    td принят
+                    td 20 
+                        | &#8372;
+                tr
+                    td 389589 
+                    td 2015-12-15, 18:01:34
+                    td виджет врача id 3754329
+                    td в работе
+                    td 30 
+                        | &#8372;
+        .partner-table__footer
+            +b('ul').payoff
+                +e('li').item Принят: 
+                    strong 138
+                +e('li').item Отменен:  
+                    strong 60
+                +e('li').item В работе: 
+                    strong 2  
+                +e('li').item Комиссия: 
+                    strong 5 880 
+                        | &#8372;
+                    
+                //- tr
+                //-     td(colspan="5")
 .row
   section.col-sm-12
     .pagination-orders 

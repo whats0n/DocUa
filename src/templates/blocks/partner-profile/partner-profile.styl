@@ -16,13 +16,29 @@
         border-bottom 1px solid rgba(0, 130, 155, 0.32)
         border-left 1px solid rgba(0, 130, 155, 0.32)
         border-right 1px solid rgba(0, 130, 155, 0.32)
- 
+
+// autocomplete
+.autocomplete__wrap
+    position relative 
+    width 100%
+.ui-autocomplete
+    border: 1px solid rgba(22,141,164,.7)
+    background-color #fff
+    z-index 2 
+    width 200px
+    .ui-menu-item
+        cursor: pointer
+        font-size: 14px
+        padding: 5px 10px 5px 20px
+        &:hover
+            background-color #e5f2f5
+            color #168da4
 
 // partner-profile_vidjets
 .vidjets-block
     display inline-flex
-    flex-flow: row wrap;
-    width 100.01% 
+    flex-flow: row wrap
+    width 100.01%  
     &__item
         position relative
         width 33.333333333%
@@ -32,6 +48,15 @@
         text-align center
         transition all 0.3s
         outline none
+        &.is-disabled
+            background #e5f2f5
+            .vidjets-block__link
+                cursor default
+            &:hover
+                background #e5f2f5
+            
+            &:hover .vidjets-block__text
+                color #1d89a0
         &:nth-child(3n)
             border-right none
         &:nth-child(-n+3)
@@ -49,15 +74,15 @@
         &:hover .vidjet-clinic
             &:before
                 background url('i/icons/vidjet-clinic_hover.png')  no-repeat
-        // &:hover .vidjets-doctors
+        // &:hover .vidjet-doctors
         //     &:before 
         //         background url('i/icons/vidjets-doctors_hover.png')  no-repeat
         // &:hover .vidjets-clinics
         //     &:before
         //         background url('i/icons/vidjets-clinics_hover.png')  no-repeat
-        &:hover .vidjet-search
-            &:before
-                background url('i/icons/vidjet-search_hover.png')  no-repeat
+        // &:hover .vidjet-search
+        //     &:before
+        //         background url('i/icons/vidjet-search_hover.png')  no-repeat
                 
      
     &__link
@@ -102,13 +127,13 @@
                 background url('i/icons/vidjet-clinic.png')  no-repeat
                 width 146px
                 height 66px
-        &.vidjets-doctors
+        &.vidjet-doctors
             padding-top 40px
             &:before
                 background url('i/icons/vidjets-doctors.png')  no-repeat
                 width 153px
                 height 74px
-        &.vidjets-clinics
+        &.vidjet-clinics
             padding-top 40px
             &:before
                 background url('i/icons/vidjets-clinics.png')  no-repeat
@@ -214,7 +239,7 @@
         display none
         position absolute
         top 31px 
-        z-index 2
+        z-index 10
         background-color #FFF  
         right 0
         border 1px solid rgba(22, 141, 164, 0.7)
@@ -238,6 +263,8 @@
            padding 20px
            background-color #f0f8fb
            min-height 372px 
+           code
+               word-wrap break-word
            // overflow-x auto
            
 .vidjets-rezult
@@ -246,6 +273,9 @@
     text-align center
     margin-bottom 100px
     line-height 69px
+    &.vidjets-rezult__mod
+        text-align left
+        line-height normal
     &__text
         font-size 83px
         font-weight 700
@@ -314,27 +344,28 @@
     margin-top 20px
     border-collapse separate 
     margin-bottom 30px
-    
     box-shadow 0 2px 4px rgba(0, 64, 76, 0.19)
     
-    &__head
+    thead
         background-color #1d89a0
-        border 1px solid #1d89a0
+        border 1px solid #1d89a0 
         tr
             height 40px
             background-color #1d89a0
-            border 1px solid transparent
+            // border 1px solid transparent
             color #FFF
             font-size 15px
             font-weight 400
-            td
-                border-right none !important
+            th
+                font-weight normal
                 &:first-child
                     background-color #1d89a0
                     padding-left 29px  
                     text-align left
                     border-radius 3px 3px 0 0 
-    &__body
+                &:last-child
+                    border-top 1px solid #1d89a0
+    tbody
         border 1px solid rgba(0,130,155,.16)
         background-color: white
         tr
@@ -346,6 +377,17 @@
             color #677779 
             &:nth-child(even)
                 background-color: rgba(#eaf5f9, 0.48)
+                // td
+                //     &:first-child
+                //         border-right 1px solid rgba(#eaf5f9, 0.48) !important
+                //     &:last-child
+                //         border-left 1px solid rgba(#eaf5f9, 0.48) !important
+            // &:nth-child(odd)
+            //     td
+            //         &:first-child
+            //             border-right 1px solid #fff !important
+            //         &:last-child
+            //             border-left 1px solid #fff !important
             &:last-child
                 td
                     border-bottom none
@@ -369,6 +411,48 @@
 
 
  
+
+.partner-table__in
+    margin-top 20px
+    margin-bottom 20px
+    box-shadow: 0 2px 4px rgba(0,64,76,.19)
+    
+    .partner-table__text
+        display block
+        line-height 40px 
+        border-radius 3px 3px 0 0 
+        background-color #1d89a0
+        border 1px solid #1d89a0
+        text-align left 
+        color #FFF
+        font-size 15px
+        font-weight 400
+        padding 0 10px 0 29px
+    .partner-table__footer
+        border-top 1px dashed rgba(0, 130, 155, 0.32)
+        background-color #fff9e9
+        text-align right
+        border-left none   
+        padding-right 20px
+        border-radius 0 0 3px 3px 
+        .payoff
+            &__item
+                display inline-block 
+                margin-left 25px
+                line-height 47px 
+    .partner-table
+        margin 0
+    .partner-table__invoices
+        tr
+            &:last-child
+                td
+                    border-bottom none
+                    &:first-child
+                        border-bottom-left-radius 0px
+                    &:last-child
+                        border-bottom-right-radius 0px 
+                    
+        
 // partner-profile_account
 .block-account
     clearfix()
@@ -405,7 +489,7 @@
         background url(i/cabinet/parol.png) no-repeat 
 
 .partner-table__admin
-    .partner-table__body
+    tbody
         tr
             td
                 &:first-child
@@ -427,34 +511,35 @@
 
 .partner-table__invoices
     margin-bottom 40px
-    .partner-table__head 
+    thead 
         tr
-            td
-                
+            th
                 &:first-child
                     border-radius 3px 0 0 0
                     text-align right
                     width 11%
                     padding-left 0
+                    border-right 1px solid #1d89a0 
                 &:nth-child(2)
                     text-align left
                     padding-left 70px
-                    // width 37%
                 &:nth-child(3)
                     text-align center
-                    // width 13%
                 &:nth-child(4)
                     text-align center
-                    // width 12%
                 &:nth-child(5)
                     text-align left
                     padding-left 50px
                 &:last-child
                     border-radius 0 3px  0 0 
-                    // width 10%
                     text-align center
-    .partner-table__body
+                    border-left 1px solid #1d89a0
+    tbody
         tr
+            &:nth-child(odd)
+                td
+                    &:first-child
+                        border-right 1px solid #fff 
             td
                 padding 0 
                 &:first-child
@@ -482,17 +567,7 @@
                     font-size 14px
                     font-style italic
                     color #4b89d3
-            &:last-child
-                background-color #fff9e9
-                td
-                    text-align right
-                    border-left none   
-                    padding-right 20px
-                    border-radius 0 0 3px 3px 
-                    .payoff
-                        &__item
-                            display inline-block 
-                            margin-left 25px
+           
                             
 
 // partner-profile_orders
@@ -513,7 +588,7 @@
             padding 5px 20px
             display inline-block
             border-right 1px dashed rgba(0, 130, 155, 0.32)
-            @media phone_tablet
+            @media only screen and (max-width: 1050px)
                 padding 5px 15px
             &.active
                 background-color #1d89a0
@@ -535,10 +610,15 @@
     .nav-calendar
         position relative
         display inline-block
-        &__date
+        background #fff
+        &__date-picker
+            border 1px solid #00829b
+            box-shadow: 0 2px 4px rgba(0, 64, 76, 0.19)
+            border-radius 3px 
             display inline-block
-            padding 5px 15px 5px 40px 
+            padding 5px 5px 5px 40px 
             color #91b5bc
+            width 210px
         &:before
             content ''
             position absolute
@@ -549,12 +629,23 @@
             background url('i/cabinet/piker-calendar.png')  no-repeat
             width 20px
             height 20px
+        
 .deduce__left
     float left
     .deduce__item
         &:last-child
             padding 0
-
+.drop-down
+    cursor pointer
+    font-size 14px
+    padding 5px 10px 5px 10px
+    background-color: white
+    border: 1px solid rgba(22, 141, 164, 0.7)
+    border-radius: 3px
+    box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
+    height 31px
+    color: #91b5bc
+    margin-left 15px
 
 .deduce
     margin  20px 0 0 0
@@ -562,20 +653,18 @@
     &__item
         float right
         margin-left 30px
+        @media only screen and (max-width: 1200px)
+            margin-left 15px
+        @media only screen and (max-width: 1150px)
+            margin-left 0
+        @media only screen and (max-width: 1096px)
+            margin-left 30px
+        
         &:last-child
             padding 5px 10px
             margin-left 0
-        .js-section-choice
-            display inline-block 
-            margin-left 15px
-            .section-choice
-                .section-choice__item
-                    cursor pointer
-                    font-size 14px
-                    padding 5px 10px 5px 10px
-                    &:hover
-                        background-color #e5f2f5
-                        color #168da4      
+            @media only screen and (max-width: 1096px)
+                padding 10px 0 0 0 
 
     &__number
         position relative
@@ -596,64 +685,105 @@
 
 .partner-table__invoices-mod
     .partner-table__invoices
-        margin 20px 0
-        tr
-            td
-                
-                &:first-child
-                    width 5%
-                &:nth-child(2)
-                    width 20%
-                &:nth-child(3)
-                    text-align left
-                    width 20%
-                &:nth-child(4)
-                    text-align center
-                    width 13%
-                &:nth-child(5)
-                    text-align left
-                    padding-left 50px
-                &:last-child
-                    width 10%
-                    text-align right
-                    padding-right 50px
-                    border-left none
+        thead
+            tr
+                th
+                    
+                    &:first-child    
+                        border-right 1px solid #1d89a0 
+                        width 5%
+                    &:nth-child(2)
+                        width 20%
+                    &:nth-child(3)
+                        text-align left
+                        width 20%
+                    &:nth-child(4)
+                        text-align center
+                        width 13%
+                    &:nth-child(5)
+                        text-align left
+                        padding-left 50px
+                    &:last-child
+                        border-left 1px solid #1d89a0 
+                        width 10%
+                        text-align right
+                        padding-right 50px
+                        // border-left none 
+        tbody
+            tr
+                &:nth-child(odd)
+                    td
+                        &:first-child 
+                            border-right 1px solid #fff 
+                        &:last-child
+                            border-left 1px solid #fff
+                td
+                    
+                    &:first-child
+                        width 5%
+                    &:nth-child(2)
+                        width 20%
+                    &:nth-child(3)
+                        text-align left
+                        width 20%
+                    &:nth-child(4)
+                        text-align center
+                        width 13%
+                    &:nth-child(5)
+                        text-align left
+                        padding-left 50px
+                    &:last-child
+                        width 10%
+                        text-align right
+                        padding-right 50px
+                        border-left none
 .pagination-orders
     .pagination
         text-align left
         margin-bottom 20px
         .previous
-            display none  
+            display none
+        .pg-xs-hide
+            display inline-block !important //for firefox  
 
 
 // partner-profile_statistic
 .partner-table__statistic 
-
-               
-    tr
-        td
-            // border-right none !important
-            &:first-child
-                padding-left 29px
-                text-align left
-                border-radius 3px 0 0 0 
-                width 15%
-            &:nth-child(2)
+    thead
+        tr
+            th
                 text-align right
-            &:nth-child(3)
+                &:first-child    
+                    border-right 1px solid #1d89a0 
+                    border-radius 3px 0 0 0
+                    padding-left 29px
+                    text-align left
+                    width 15%
+                &:last-child
+                    border-left 1px solid #1d89a0 
+                    border-radius  0 3px 0 0
+                    padding-right 30px 
+    tbody                
+        tr
+            &:nth-child(odd)
+                td
+                    text-align right
+                    &:first-child
+                        border-right 1px solid #fff 
+                    &:last-child
+                        border-left 1px solid #fff 
+                        padding-right 30px
+            td
                 text-align right
-            &:nth-child(4)
-                text-align right
-            &:nth-child(5)
-                text-align right
-            &:nth-child(6)
-                text-align right
-            &:nth-child(7)
-                text-align right
-            &:last-child
-                text-align right
-                padding-right 30px 
-                border-radius 0 3px 0 0
+                &:first-child
+                    padding-left 29px
+                    text-align left
+                    width 15%
+                &:last-child
+                    text-align right
+                    padding-right 30px 
+                    // border-radius 0 3px 0 0
+    
     
                 
     

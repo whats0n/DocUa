@@ -11,4 +11,4 @@ $ ->
     $(".js-form").removeClass "is-search-open"  
 
   $('.js-form').on "click", (e) ->
-    e.stopPropagation()
+    e.stopPropagation()  

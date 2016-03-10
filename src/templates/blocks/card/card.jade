@@ -1,5 +1,6 @@
 - card = data.card
 - clinic= data.clinic
+- diagnost= data.diagnosList
 - clinicFilials= data.clinicFilials
 - clinicInnerFilials= data.clinicInnerFilials
 - doctorWorld = data.doctorWorld
@@ -12,7 +13,7 @@
 
 article.hreview-aggregate.vcard.hcard
     .item
-        if card.actions && !doctorWorld
+        if card.actions && !doctorWorld && file.page_name != 'diagnostic-list'
             +b("a").action-badge(href="/", title="")
                 +e("span").content
                     +e("span").content-inner
@@ -42,12 +43,18 @@ article.hreview-aggregate.vcard.hcard
                             li.thumbs__item
                                 a.thumbs__item-link.owlbox(href=photo.full, rel="doctor-photo", title="")
                                     img(src=photo.thumb, alt="")
-            if !clinicDiagnostic
+            if !clinicDiagnostic && file.page_name != 'diagnostic-list'
                 +b.rating.value-size_big(class=ratingColorBlack): +i({ value: card.averageRating })
 
-            if clinicDiagnostic && landing
+            if clinicDiagnostic && landing  
                 +b.likebox.likebox_centered: +i({ likes: card.likes, dislikes: card.dislikes })
-
+             
+            if file.page_name == 'diagnostic-list'
+                //- +b.likebox.likebox_centered: +i({ likes: card.likes, dislikes: card.dislikes })
+                +e.testimonials(class=testimonialsClass)
+                    //- a(href="#{card.filename}#tab-reviews", title="#{card.testimonialsCount} отзывa")
+                    a(href="#").count= card.testimonialsCount 
+                        |  отзыва
             if onlineConsultation
                 +e.consultations
                     span.count= card.onlineConsultationCount
@@ -71,7 +78,10 @@ article.hreview-aggregate.vcard.hcard
             if !card.hasFilials
                 +b.favorites-block.pull-right: +i
             +e.title.fn.org
-                if !clinicWorld
+                if file.page_name == 'diagnostic-list'
+                    h3.h3
+                        a(href=pageLink, title=card.name)= card.name
+                if !clinicWorld  && file.page_name != 'diagnostic-list' 
                     if landing
                         h3.h3 
                             if clinic
@@ -86,10 +96,11 @@ article.hreview-aggregate.vcard.hcard
                     if card.label
                         +e.label.title
                             strong= card.label
-                +e.label-description.card__label-descroption-mod
-                    span #{card.labelDescription}&nbsp;
-                    if clinic || clinic_inner
-                        a(href="#" data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+                if file.page_name != 'diagnostic-list'
+                    +e.label-description.card__label-descroption-mod
+                        span #{card.labelDescription}&nbsp;
+                            if clinic || clinic_inner
+                                a(href="#" data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
             if card.benefits
                 if clinicWorld
                     - var benefitsClasses = "benefits_width_auto"
@@ -99,7 +110,21 @@ article.hreview-aggregate.vcard.hcard
                             +e("img").icon(src="#{benefit.image}", alt="")
                             +e("span").title
                                 != benefit.title
-            if clinic || clinic_inner
+            if file.page_name == 'diagnostic-list'
+                .address-info
+                    if card.address 
+                        +e.address.adr
+                            a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=card.adress)= card.address
+                        .geo.hidden
+                            .latitude: span.value-title(title=card.googleMapCordinates.lat)
+                            .longitude: span.value-title(title=card.googleMapCordinates.lng)
+                        if card.metro 
+                            +e.location= card.location.join(", ")
+                            +e.location.card__location_metro(class=card.metroType)
+                                = card.metro.join(", ")
+            if clinic || clinic_inner  
+                hr.dashed
+            if file.page_name == 'diagnostic-list'
                 hr.dashed
             if clinic || clinic_inner
                 .address-info
@@ -123,6 +148,8 @@ article.hreview-aggregate.vcard.hcard
                     if clinicWorld
                         +e("span").region-adress= card.adress
             if !doctorWorld && clinic || clinic_inner
+                p= card.about_general
+            if file.page_name == 'diagnostic-list'
                 p= card.about_general
 
             //- if landing
@@ -149,9 +176,14 @@ article.hreview-aggregate.vcard.hcard
                                 +e.location.card__location_metro(class=job.metroType)
                                     = job.metro
                                 +e.location= job.location
+            if file.page_name == 'diagnostic-list'
+                .small-card__action.small-card__action-mod
+                    +e.action
+                        span.orange Акция
+                        a(href="#", title="") Скидки на все услуги -15%
             if !clinic_inner
                 +e.footer
-                    if (doctors_page && !landing) || file.page_name == 'disease'
+                    if (doctors_page && !landing) || file.page_name == 'disease' || file.page_name == 'diagnostic-list'
                         +e.socwrap
                             +e.socitem
                                 a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
@@ -174,7 +206,7 @@ article.hreview-aggregate.vcard.hcard
                         a.link(href="#") Акции клиники (17)
                         a.link.link-border(href="#") Пакеты услуг (2)
                     if !card.hasFilials && (clinicDiagnosticSingle != "big") && (clinicDiagnosticSingle != "small")
-                        if card.status == 'inactive' && !onlineConsultation && !clinicDiagnostic
+                        if card.status == 'inactive' && !onlineConsultation && !clinicDiagnostic 
                             .pull-right(data-toggle="tooltip", data-original-title="Извините, но этот врач временно недоступен", data-placement="bottom")
                                 button.btn.btn-primary(disabled="disabled") Записаться на прием
                         else if clinicDiagnostic && landing || doctorWorld
@@ -183,6 +215,8 @@ article.hreview-aggregate.vcard.hcard
                             a.btn.btn-primary.pull-right(href="/modals.html#diagnostic-request", title="", class=buttonBigger) Записаться
                         else if clinicDiagnostic
                             a.btn.btn-primary.pull-right(href="/modals.html#diagnostic-request", title="") Записаться на диагностику
+                        else if file.page_name == 'diagnostic-list'
+                            button.btn.btn-primary.pull-right(href="/modals.html#diagnostic-request", title="") Записаться
                         else if onlineConsultation
                             a.btn.btn-primary.pull-right(href="/modals.html#doctor-request-online", title="") Задать вопрос
                             +e.reply
