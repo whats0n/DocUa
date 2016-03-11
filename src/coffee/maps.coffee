@@ -209,7 +209,7 @@ docMaps =
                 icon = docMaps.icon2
               else
                 icon = docMaps.icon1
-              marker = new (google.maps.Marker)(
+              marker = new (google.maps.Marker)( 
                 map: docMaps.map
                 icon: icon
                 addInfo: addInfo

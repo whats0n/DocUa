@@ -2199,6 +2199,23 @@ $(function() {
   return $(".photo-gallery").makeCustomPhotoGallery();
 });
 
+$(document).on("change", ".pill-group .pill input", function(e) {
+  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
+  $pill = $(e.target).closest(".pill");
+  checked = $(e.target).is(":checked");
+  $childrenPills = $pill.siblings("ul").find(".pill");
+  if ($childrenPills.length > 0) {
+    return $childrenPills.find("input").prop("checked", checked);
+  } else {
+    $parentPill = $pill.closest("ul").siblings(".pill");
+    if ($parentPill.length === 1) {
+      $pillsGroup = $parentPill.siblings("ul").find(".pill");
+      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
+      return $parentPill.find("input").prop("checked", allChecked);
+    }
+  }
+});
+
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2244,23 +2261,6 @@ $(window).resize(postLocationWidthFix);
 $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
-
-$(document).on("change", ".pill-group .pill input", function(e) {
-  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
-  $pill = $(e.target).closest(".pill");
-  checked = $(e.target).is(":checked");
-  $childrenPills = $pill.siblings("ul").find(".pill");
-  if ($childrenPills.length > 0) {
-    return $childrenPills.find("input").prop("checked", checked);
-  } else {
-    $parentPill = $pill.closest("ul").siblings(".pill");
-    if ($parentPill.length === 1) {
-      $pillsGroup = $parentPill.siblings("ul").find(".pill");
-      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
-      return $parentPill.find("input").prop("checked", allChecked);
-    }
-  }
-});
 
 var postLocationWidthFix;
 
