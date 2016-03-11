@@ -50,11 +50,14 @@ article.hreview-aggregate.vcard.hcard
                 +b.likebox.likebox_centered: +i({ likes: card.likes, dislikes: card.dislikes })
              
             if file.page_name == 'diagnostic-list'
-                //- +b.likebox.likebox_centered: +i({ likes: card.likes, dislikes: card.dislikes })
-                +e.testimonials(class=testimonialsClass)
-                    //- a(href="#{card.filename}#tab-reviews", title="#{card.testimonialsCount} отзывa")
-                    a(href="#").count= card.testimonialsCount 
-                        |  отзыва
+                +b.like-box
+                    +e.like
+                        +e.votes= card.likes
+                    +e.dislike
+                        +e.votes= card.dislikes   
+                //- +e.testimonials(class=testimonialsClass)
+                //-     a(href="#").count= card.testimonialsCount 
+                //-         |  отзыва
             if onlineConsultation
                 +e.consultations
                     span.count= card.onlineConsultationCount
@@ -65,12 +68,12 @@ article.hreview-aggregate.vcard.hcard
                     a(href="#{card.filename}#tab-reviews", title="#{card.testimonialsCount} отзывов")
                         span.count= card.testimonialsCount
                         |  отзывов
-                    if !doctorWorld && !clinicWorld
+                    if !doctorWorld && !clinicWorld && file.page_name != 'diagnostic-list'
                         +e("a").info(href="/modals.html#rating-clinic")
             if card.schedule && !clinic_inner & !doctors_page
                 +e.schedule(class=additionalClass)
                     ul
-                        each item in card.schedule
+                        each item in card.schedule 
                             li
                                 span.left= item.day
                                 span.right= item.time
@@ -283,3 +286,11 @@ if clinicInnerFilials
                     if i < 3
                         +b.small-card(data-id= 'f' + clinicFilial.id): +i({ item: clinicFilial, clinic: true, clinic_inner: true})
         +b.more-toggle: +i({ title: "Все филиалы", className: "show-hidden-small-cards", absSelector: "[data-uid='" + uid + "']" })
+if file.page_name == 'diagnostic-list'
+    .block-services-wrapper(data-uid=uid)
+        include ../blocks/block-services/block-services.jade 
+        +b.load-more
+            +e('span').text 180 услуг диагностического центра
+            +e('a').link(href="#") Посмотреть весь прайс-лист
+
+
