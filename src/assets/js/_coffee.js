@@ -1515,6 +1515,10 @@ $(function() {
   });
 });
 
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-c').addClass('js-tab__header-c');
+}
+
 $('.js-tab__header-c').click(function() {
   var item;
   $(this).children('span').toggleClass('tab__header_open');
@@ -1550,6 +1554,10 @@ $(function() {
     }
   });
 });
+
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-d').addClass('js-tab__header-d');
+}
 
 $('.js-tab__header-d').click(function() {
   var item;
@@ -1861,6 +1869,10 @@ $('.finder').on('diagnosticSelected', function(t, e) {
 });
 
 
+
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-f').addClass('js-tab__header-f');
+}
 
 $('.js-tab__header-f').click(function() {
   var item;
@@ -2199,6 +2211,23 @@ $(function() {
   return $(".photo-gallery").makeCustomPhotoGallery();
 });
 
+$(document).on("change", ".pill-group .pill input", function(e) {
+  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
+  $pill = $(e.target).closest(".pill");
+  checked = $(e.target).is(":checked");
+  $childrenPills = $pill.siblings("ul").find(".pill");
+  if ($childrenPills.length > 0) {
+    return $childrenPills.find("input").prop("checked", checked);
+  } else {
+    $parentPill = $pill.closest("ul").siblings(".pill");
+    if ($parentPill.length === 1) {
+      $pillsGroup = $parentPill.siblings("ul").find(".pill");
+      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
+      return $parentPill.find("input").prop("checked", allChecked);
+    }
+  }
+});
+
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2244,23 +2273,6 @@ $(window).resize(postLocationWidthFix);
 $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
-
-$(document).on("change", ".pill-group .pill input", function(e) {
-  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
-  $pill = $(e.target).closest(".pill");
-  checked = $(e.target).is(":checked");
-  $childrenPills = $pill.siblings("ul").find(".pill");
-  if ($childrenPills.length > 0) {
-    return $childrenPills.find("input").prop("checked", checked);
-  } else {
-    $parentPill = $pill.closest("ul").siblings(".pill");
-    if ($parentPill.length === 1) {
-      $pillsGroup = $parentPill.siblings("ul").find(".pill");
-      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
-      return $parentPill.find("input").prop("checked", allChecked);
-    }
-  }
-});
 
 var postLocationWidthFix;
 
