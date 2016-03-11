@@ -12,6 +12,7 @@ body.lock {
 }
 body >.container-fluid {
   position: relative;
+  z-index: 2;
 }
 body >.container-fluid.container-finder {
   z-index: 3;
@@ -1250,9 +1251,6 @@ ul.border-dotted .first li {
 .main-content .tab-content .post__more-link {
   padding-left: 6%;
   padding-right: 6%;
-}
-aside {
-  margin-bottom: 20px;
 }
 aside .widget h3 {
   font-size: 18px;
@@ -2774,10 +2772,6 @@ article.static-page .header-styled.header-styled-mod {
     margin-left: 0;
   }
 }
-.container-fluid_main {
-  background: background-image url("i/grey_texture.png");
-  position: relative;
-}
 .container__mod {
   margin-top: 20px;
 }
@@ -3179,6 +3173,7 @@ article.static-page .header-styled.header-styled-mod {
   -ms-flex-direction: column-reverse;
   flex-direction: column-reverse;
   width: 100%;
+  margin-top: 20px;
 }
 .row.about-this {
   background: background-image url("i/dark_green_texture.png") !important;
@@ -3657,6 +3652,9 @@ article.static-page .header-styled.header-styled-mod {
   .section-action .section-action__right .right-info__benefit.benefit__mod {
     margin-right: 0;
   }
+}
+.section-action .card {
+  padding: 0;
 }
 @media only screen and (max-width: 767px) {
   .section-action__item.is-badge-label .section-action__left .card__left-side {
@@ -4908,6 +4906,9 @@ article.static-page .header-styled.header-styled-mod {
 .badge-label img:first-child {
   margin-top: 4px;
 }
+.card .badge-label p {
+  margin: 0 0 4px;
+}
 .benefits {
   margin: 20px 0 0;
   padding: 0;
@@ -5280,7 +5281,7 @@ article.static-page .header-styled.header-styled-mod {
   height: 22px;
 }
 .row-articles {
-  padding: 0 0 50px;
+  padding: 0 0 30px;
 }
 @media only screen and (max-width: 768px) {
   .row-articles {
@@ -11290,6 +11291,9 @@ hr {
     columns: 1;
   }
 }
+.diseases-check-list.diseases_aside {
+  columns: auto;
+}
 .diseases-content .header-styled.header-styled-noborder,
 .all-diseases .header-styled.header-styled-noborder {
   border-bottom: none;
@@ -11699,6 +11703,7 @@ hr {
 .finder {
   margin-top: 20px;
   margin-bottom: 45px;
+  padding: 0 10px;
   position: relative;
   z-index: 2;
   white-space: nowrap;
@@ -11711,6 +11716,9 @@ hr {
 }
 .finder:after {
   clear: both;
+}
+.finder.finder_main-page {
+  padding: 0;
 }
 .finder.search-title_none .finder__search-title {
   display: none;
@@ -11850,12 +11858,12 @@ hr {
   -webkit-box-shadow: 0 0 20px #35bfae;
   box-shadow: 0 0 20px #35bfae;
 }
-.finder__field:hover span {
+.finder__field:hover .finder__field_img {
   opacity: 0.75;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
   filter: alpha(opacity=75);
 }
-.finder__field span {
+.finder__field_img {
   display: inline-block;
   position: absolute;
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -13634,6 +13642,7 @@ ul.footer-menu {
   height: 48px;
   margin: 0;
   padding: 0;
+  padding-left: 10px;
   list-style: none;
   font-size: 0;
 }
@@ -15597,7 +15606,7 @@ ul.footer-menu {
   color: #00829b;
   border: 1px dashed #00829b;
   outline: none;
-  z-index: 2;
+  z-index: 1;
   background-color: #fff;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -18436,7 +18445,7 @@ article a {
 }
 .phones .select7__current-value {
   position: relative;
-  margin-left: 25px;
+  margin-left: 27px;
   font-size: 16px;
   color: #00829b;
 }
@@ -18451,8 +18460,8 @@ article a {
 }
 .phones .select7__current-value .select7__icon {
   position: absolute;
-  top: 0;
-  left: -25px;
+  top: 0px;
+  left: -27px;
 }
 .phones .select7__current-value .select7__icon img {
   vertical-align: top;
@@ -18521,7 +18530,7 @@ article a {
   float: none;
 }
 .navbar-main_inner .phones .select7 .select7__icon {
-  top: 0;
+  top: 1px;
 }
 .navbar-main_inner .phones .select7__drop .select7__option .select7__icon {
   top: -1px;

@@ -20,7 +20,7 @@ phonesAutoChange =
       clearInterval phonesAutoChange.interval
 
   startSwitch: () ->
-    phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 5000)
+    phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 500000)
 
   switchPhone: () ->
     phonesAutoChange.checked += 1

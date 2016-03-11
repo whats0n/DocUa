@@ -127,7 +127,7 @@ body
           .container
             .wrap
               +b.finder-title.hidden-xs: +i({ page: file.finder })
-              +b.finder.search-title_none: +i({ page: file.finder })
+              +b.finder.finder_main-page.search-title_none: +i({ page: file.finder })
             .row.row-counters.hidden-xs
               .col-sm-4
                 +b.counter: +i({ value: 841, title: "записей за сутки"})
@@ -213,12 +213,11 @@ body
       
     //- Diagnostics
     if file.indexPage || file.main
-    .container-fluid_main
-        .container-fluid 
-          .row
-            .container
-              if file.diagnosticsRecord
-                +b.diagnostics-record: +i
+      .container-fluid  
+        .row
+          .container
+            if file.diagnosticsRecord
+              +b.diagnostics-record: +i
 
     //- Advantages
     if file.indexPage
@@ -251,17 +250,7 @@ body
                   .row
                     +b.menu
                       +b.footer-menu: +i
-                    //- +b.contacts.col-sm-4.col-xs-6: +i({ site: site, socialLinks: true, workingTime: true })
                     +b.contacts: +i({ site: site, socialLinks: true, workingTime: true })
-
-                    //- +b.contacts.col-xs-12.visible-xs                  
-                    //- +b.contacts.visible-xs
-                    //-   +e('span').callback
-                    //-       a.dotted(href="#callback", data-toggle="modal", title="Обратный звонок") Обратный звонок
-                    //-   +e('span').callback
-                    //-     a.dotted(href="#doc-request-schedule", data-toggle="modal", title="Отправить заявку") Отправить заявку
-
-                    //- .footer-bottom.col-sm-12.col-xs-6                  
                     .footer-bottom
                         +b.partners.hidden-xs: +i
                         .footer-info

@@ -2,10 +2,13 @@ $finder_input_padding = 8px
 .finder
     margin-top 20px
     margin-bottom 45px 
+    padding 0 10px 
     position relative
     z-index 2
     white-space nowrap
     clearfix()
+    &.finder_main-page
+        padding 0 
     &.search-title_none
         .finder__search-title
             display none
@@ -107,9 +110,9 @@ $finder_input_padding = 8px
             top 6px
         &:hover
             box-shadow 0 0 20px rgba(53, 191, 174, 1)
-            span
+            .finder__field_img
                 opacity .75
-        span
+        &_img
             display inline-block
             position absolute
             transition opacity .2s ease-in-out

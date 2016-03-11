@@ -15,18 +15,18 @@ form(action="/")
             when "doctors"
                 +e.field.finder__field-icon-doctors
                     +e("input").field-text(type="text" placeholder="Выберите специальность врача" class="form-control")
-                    span(data-target="#select-specialization", data-toggle="modal")
+                    span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
                     +b.search-result.hidden: +i
                 +e.field.finder__field-icon-location
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    span(data-target="#select-area", data-toggle="modal")
+                    span.finder__field_img(data-target="#select-area", data-toggle="modal")
                     +b.search-result.hidden: +i
                 +e.submit
                     button.btn.btn-warning.form-control(type="submit") Найти врача
             when "map"
                 +e.field.finder__field-icon-doctors
                     +e("input").field-text(type="text" placeholder="Выберите специальность врача" class="form-control")
-                    span(data-target="#select-specialization", data-toggle="modal")
+                    span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
                 +e.submit
                     a.finder__btn-map.btn.btn-success.form-control(href="/clinics.html") К списку
             when "countries"
@@ -39,10 +39,10 @@ form(action="/")
             when "clinics"
                 +e.field.finder__field-icon-clinics
                     +e("input").field-text(type="text" placeholder="Выберите направление" class="form-control")
-                    span(data-target="#select-branch", data-toggle="modal")
+                    span.finder__field_img(data-target="#select-branch", data-toggle="modal")
                 +e.field.finder__field-icon-location
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    span(data-target="#select-area", data-toggle="modal")
+                    span.finder__field_img(data-target="#select-area", data-toggle="modal")
                 +e.submit
                     button.btn.btn-warning.form-control(type="submit") Найти клинику
             when "diagnostics"
@@ -58,18 +58,18 @@ form(action="/")
 
                 +e.field.finder__field-icon-aim
                     +e("input").field-text(type="text" placeholder="Выберите тип пакета" class="form-control")
-                    span(data-target="#select-bundles", data-toggle="modal")
+                    span.finder__field_img(data-target="#select-bundles", data-toggle="modal")
                 +e.field.finder__field-icon-location
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    span(data-target="#select-area", data-toggle="modal")
+                    span.finder__field_img(data-target="#select-area", data-toggle="modal")
                 +e.submit
                     button.btn.btn-warning.form-control(type="submit") Найти услугу
             when "actions"
                 +e.field.finder__field-icon-aim
                     +e("input").field-text(type="text" placeholder="Выберите тему акции" class="form-control")
-                    span(data-target="#select-actions", data-toggle="modal")
+                    span.finder__field_img(data-target="#select-actions", data-toggle="modal")
                 +e.field.finder__field-icon-location
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    span(data-target="#select-area", data-toggle="modal")
+                    span.finder__field_img(data-target="#select-area", data-toggle="modal")
                 +e.submit
                     button.btn.btn-warning.form-control(type="submit") Найти акцию
