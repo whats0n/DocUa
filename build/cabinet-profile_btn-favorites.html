@@ -31,12 +31,12 @@
     }(document, 'script', 'facebook-jssdk'));
   </script>
   <div class="wrapper">
-    <nav class="navbar navbar-main navbar-fixed-top">
+    <nav class="navbar navbar-main navbar-fixed-top navbar-main_none">
       <div class="container">
         <button class="navbar-toggle collapsed visible-xs"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-        <div class="logo visible-xs"><a href="/" title="Doc.ua"><img src="i/doc-logo-mobile.png" alt="Doc.ua" width="93" height="25" class="logo__image" title=""/></a>
+        <div class="logo"><a href="/" title="Doc.ua"><img src="i/doc-logo-mobile.png" alt="Doc.ua" width="93" height="25" class="logo__image" title=""/></a>
         </div>
-        <div class="navbar-header"><span class="hidden-xs navbar-header__title">Ваш город:</span>
+        <div class="navbar-header">
           <div class="location">
             <select class="select7 select7_city">
               <option value="Днепропетровск">Днепропетровск</option>
@@ -56,18 +56,23 @@
           </select>
         </div>
         <hr class="header__line">
-        <div class="feedback"><a href="undefinedcallback" title="Обратный звонок" class="feedback__link feedback__link_callback"><span class="dotted">Обратный звонок</span></a><a href="undefineddoc-request-schedule" title="Оставить заявку" class="feedback__link feedback__link_feedback mobile-none"><span class="dotted">Быстрая заявка</span></a>
+        <div class="phones phones_mobile visible-xs"> <span>(044) 337-07-07</span></div><a href="/" title="Избранное" class="favorites-link"><span>14</span></a>
+        <div class="user-panel hidden-xs">
+          <div class="user-panel-menu">
+            <div class="dropdown dropdown_clickable">
+              <button data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle user-panel-menu__button"><span class="user-panel-menu__name">Мой профиль</span></button>
+              <ul class="dropdown-menu">
+                <li><a href="/cabinet/user/personal.html" title="Мой профиль" class="dropdown-menu__item">Мой профиль</a></li>
+                <li><a href="/cabinet/user/requests.html" title="Мои записи" class="dropdown-menu__item">Мои записи</a></li>
+                <li><a href="/cabinet/user/testimonials.html" title="Мои отзывы" class="dropdown-menu__item">Мои отзывы</a></li>
+                <li><a href="/cabinet/user/favorites.html" title="Избранное" class="dropdown-menu__item">Избранное</a></li>
+                <li class="divider"></li>
+                <li><a href="/" title="Выход" class="dropdown-menu__item logout">Выход</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="phones visible-xs">
-          <select class="select7 select7_phones">
-            <option value="landline" selected data-icon="i/icons/phone-icon-new.png">(044) 3370707</option>
-            <option value="mts" data-icon="i/icons/mts-logo.png">(095) 3370707</option>
-            <option value="life" data-icon="i/icons/life-logo.png">(063) 3370707</option>
-            <option value="kyivstar" data-icon="i/icons/kyivstar-logo.png">(067) 3370707        </option>
-            <option value="callback" data-icon="i/icons/phone-icon-callback.png">Обратный звонок</option>
-          </select>
-        </div>
-        <div class="user-panel hidden-xs"> <a href="/" title="Избранное" class="cabinet-enter__link">Здравствуйте, Марина!<i class="cabinet-enter__link-icon"></i></a><a href="/" title="Избранное" class="favorites-link favorites-link__mod"><span class="dotted">Избранное</span></a>
+        <div class="feedback"><a href="undefinedcallback" title="Обратный звонок" class="feedback__link feedback__link_callback"><span class="dotted">Обратный звонок</span></a><a href="undefineddoc-request-schedule" title="Оставить заявку" class="feedback__link feedback__link_feedback mobile-none"><span class="dotted">Оставить заявку</span></a>
         </div>
       </div>
     </nav>
@@ -237,7 +242,7 @@
       <div class="row row-white cabinet-row__mod">
         <div class="container">
           <h1 class="sr-only">Поиск вашего врача – DOC.ua</h1>
-          <header class="header"> 
+          <header class="header main-page-header"> 
             <div class="wrap">
               <div class="row">
                 <div class="col-sm-8">
@@ -410,7 +415,7 @@
         <div class="container main-content">
           <h1></h1>
           <article>
-            <div class="row">      
+            <div class="row">       
               <aside class="l-3 hidden-xs"> 
                 <div class="cabinet-aside"> 
                   <ul>
@@ -447,75 +452,79 @@
     </div>
   </div>
   <div class="container-fluid">
-    <div class="row footer"> 
-      <div class="container">
-        <footer class="footer__mod">
-          <div class="footer-inner">
+    <div class="flex_container">
+      <div class="row about-this">
+        <div class="container">
+          <div class="about-this-site about-this-site_seo">
             <div class="wrap">
-              <div class="row">
-                <div class="menu">
-                  <div class="footer-menu">
-                    <ul class="footer-menu">
-                      <li class="footer-menu__item footer-menu__item-has_sub"><span class="footer-menu__item-link footer-tab_header js-tab__header-f">Сервис<span class="btn__mobile js-btn__mobile"> </span></span>
-                        <ul class="footer-sub-menu tab-close js-content-hide"> 
-                          <li class="footer-sub-menu__item"><a href="/about.html" title="О нас" class="footer-sub-menu__item-link">О нас</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/about-rating.html" title="О рейтинге" class="footer-sub-menu__item-link">О рейтинге</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/articles.html" title="Блог" class="footer-sub-menu__item-link">Блог</a></li> 
-                          <li class="footer-sub-menu__item"><a href="/partners.html" title="Партнерам" class="footer-sub-menu__item-link">Партнерам</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/rules.html" title="Правила сервиса" class="footer-sub-menu__item-link">Правила сервиса</a></li>
-                        </ul>                                   
-                      </li>
-                      <li class="footer-menu__item footer-menu__item-has_sub"><span class="footer-menu__item-link footer-tab_header js-tab__header-f">Пациенту<span class="btn__mobile js-btn__mobile"> </span></span>
-                        <ul data-columns="4" data-balance-method="balanceCount" class="footer-sub-menu tab-close js-content-hide columnize">
-                          <li class="footer-sub-menu__item"><a href="/doctors.html" title="Врачи" class="footer-sub-menu__item-link">Врачи</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/clinics.html" title="Клиники" class="footer-sub-menu__item-link">Клиники</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/diagnostic-center.html" title="Диагностические центры" class="footer-sub-menu__item-link">Диагностические центры</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/" title="Спецпредложения" class="footer-sub-menu__item-link">Спецпредложения</a></li>
-                          <li class="footer-sub-menu__item"><a href="/med-library.html" title="Медицинская библиотека" class="footer-sub-menu__item-link">Медицинская библиотека</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/diseases.html" title="Справочник заболеваний" class="footer-sub-menu__item-link">Справочник заболеваний</a></li>                                        
-                          <li class="footer-sub-menu__item"><a href="/symptom-checker.html" title="Онлайн-диагностика" class="footer-sub-menu__item-link">Онлайн-диагностика</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 contacts">
-                  <div class="contacts__title footer-tab_header js-tab__header-c"> <span class="hidden-xs">Звоните нам</span><span class="tab__header visible-xs">Контакты<span class="btn__mobile js-btn__mobile"> </span></span>
-                    <div class="contacts-wrap tab-close js-content-hide">
-                      <p>Пн.-вс: с 9:00 до 21:00</p>
-                      <div class="contacts__phone"><span class="phone_general">(044) 337 07 07</span><span class="phone_mts">(095) 337 07 07</span><span class="phone_life">(063) 337 07 07</span><span class="phone_kyivstar">(067) 337 07 07</span>
-                      </div><span class="contacts__callback first-example"><a href="#callback" data-toggle="modal" title="Обратный звонок" class="dotted callback_phone">Обратный звонок</a></span><span class="contacts__callback"><a href="#doc-request-schedule" data-toggle="modal" title="Отправить заявку" class="dotted callback_pen">Отправить заявку   </a></span>
+              <h1 class="sr-only">Поиск врачей в Киеве</h1>
+              <p>Doc.ua — сервис, при помощи которого поиск и вызов врача на дом или запись на прием, консультацию стали невероятно простыми задачами. На сайте представлено большое число клиник, врачей в Киеве, а также присутствуют отзывы наших посетителей.</p>
+              <p>Вызов врача на дом онлайн гораздо удобнее, ведь вам не надо искать номер телефона клиники, тратить время на звонки, рисковать попасть к не совсем компетентному в своей области специалисту. Воспользуйтесь нашим простым поиском на сайте, выбрав специализацию доктора и предпочтительный район или станцию метро, почитайте отзывы и остановитесь на наиболее подходящем для себя варианте. Также тут можно найти врача по фамилии и вызвать частного врача на дом (как альтернатива вызову участкового доктора из поликлиники).</p>
+              <p>Вызов врача домой в Киеве или запись на прием через сайт делается круглосуточно буквально в несколько кликов мышкой, причем это совершенно бесплатно. С Doc.ua вы сможете навсегда забыть об очередях в клинике, звонках в регистратуру и плохих специалистах — записывайтесь на прием к врачу онлайн и будьте здоровы.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row footer">
+        <div class="container">
+          <footer>
+            <div class="footer-inner">
+              <div class="wrap">
+                <div class="row">
+                  <div class="menu">
+                    <div class="footer-menu">
+                      <ul class="footer-menu">
+                        <li class="footer-menu__item footer-menu__item-has_sub"><span class="footer-menu__item-link footer-tab_header js-tab__mobile-f">Сервис<span class="btn__mobile js-btn__mobile"> </span></span>
+                          <ul class="footer-sub-menu tab-close js-content-hide"> 
+                            <li class="footer-sub-menu__item"><a href="/about.html" title="О нас" class="footer-sub-menu__item-link">О нас</a></li>                                        
+                            <li class="footer-sub-menu__item"><a href="/about-rating.html" title="О рейтинге" class="footer-sub-menu__item-link">О рейтинге</a></li>                                        
+                            <li class="footer-sub-menu__item"><a href="/articles.html" title="Блог" class="footer-sub-menu__item-link">Блог</a></li> 
+                            <li class="footer-sub-menu__item"><a href="/partners.html" title="Партнерам" class="footer-sub-menu__item-link">Партнерам</a></li>                                        
+                            <li class="footer-sub-menu__item"><a href="/rules.html" title="Правила сервиса" class="footer-sub-menu__item-link">Правила сервиса</a></li>
+                          </ul>                                   
+                        </li>
+                        <li class="footer-menu__item footer-menu__item-has_sub"><span class="footer-menu__item-link footer-tab_header js-tab__mobile-f">Пациенту<span class="btn__mobile js-btn__mobile"> </span></span>
+                          <ul data-columns="4" data-balance-method="balanceCount" class="footer-sub-menu tab-close js-content-hide columnize">
+                            <li class="footer-sub-menu__item"><a href="/doctors.html" title="Врачи" class="footer-sub-menu__item-link">Врачи</a></li>                                        
+                            <li class="footer-sub-menu__item"><a href="/clinics.html" title="Клиники" class="footer-sub-menu__item-link">Клиники</a></li>                                        
+                            <li class="footer-sub-menu__item"><a href="/diagnostic-center.html" title="Диагностические центры" class="footer-sub-menu__item-link">Диагностические центры</a></li>                                        
+                            <li class="footer-sub-menu__item"><a href="/" title="Спецпредложения" class="footer-sub-menu__item-link">Спецпредложения</a></li>
+                            <li class="footer-sub-menu__item"><a href="/med-library.html" title="Медицинская библиотека" class="footer-sub-menu__item-link">Медицинская библиотека</a></li>                                        
+                            <li class="footer-sub-menu__item"><a href="/diseases.html" title="Справочник заболеваний" class="footer-sub-menu__item-link">Справочник заболеваний</a></li>                                        
+                            <li class="footer-sub-menu__item"><a href="/symptom-checker.html" title="Онлайн-диагностика" class="footer-sub-menu__item-link">Онлайн-диагностика</a></li>
+                          </ul>
+                        </li>
+                      </ul>
                     </div>
                   </div>
-                </div>
-                <div class="col-xs-12 contacts visible-xs"><span class="contacts__callback"><a href="#callback" data-toggle="modal" title="Обратный звонок" class="dotted">Обратный звонок</a></span><span class="contacts__callback"><a href="#doc-request-schedule" data-toggle="modal" title="Отправить заявку" class="dotted">Отправить заявку</a></span>
-                  <div class="social-links"><a href="/" title="Doc.ua в Фейсбуке" target="_blank" class="social-links__item social-links__item-social-fb"></a><a href="/" title="Doc.ua ВКонтакте" target="_blank" class="social-links__item social-links__item-social-vk"></a><a href="https://plus.google.com/+DocUa-Find_a_Doctor/posts" title="Doc.ua в Google PLus" target="_blank" rel="publisher" class="social-links__item social-links__item-social-gplus"></a>
-                  </div>
-                  <div class="contacts__footer">
-                    <div class="contacts__copyright">&copy;&nbsp;<a href="http://Doc.ua" title="Doc.ua">Doc.ua</a>, 2015
+                  <div class="contacts">
+                    <div class="contacts__title footer-tab_header js-tab__mobile-c"><span class="hidden-xs">Звоните нам</span><span class="tab__header visible-xs">Контакты<span class="btn__mobile js-btn__mobile"> </span></span>
+                      <div class="contacts-wrap tab-close js-content-hide">
+                        <p>Пн.-вс: с 9:00 до 21:00</p>
+                        <div class="contacts__phone"><span class="phone_general">(044) 337 07 07</span><span class="phone_mts">(095) 337 07 07</span><span class="phone_life">(063) 337 07 07</span><span class="phone_kyivstar">(067) 337 07 07</span>
+                        </div><span class="contacts__callback first-example"><a href="#callback" data-toggle="modal" title="Обратный звонок" class="dotted callback_phone">Обратный звонок</a></span><span class="contacts__callback"><a href="#doc-request-schedule" data-toggle="modal" title="Отправить заявку" class="dotted callback_pen">Отправить заявку   </a></span>
+                      </div>
                     </div>
-                    <div class="contacts__rights">Использование материалов разрешено только при наличии активной ссылки <br> на источник
+                  </div>
+                  <div class="footer-bottom">
+                    <div class="hidden-xs partners">
+                      <fieldset class="partners__fieldset"><a href="http://chernovetskyiinvestments.com/" title="" target="_blank" rel="nofollow" class="partners__item"><img src="i/partner-1.png" alt=""></a><a href="http://socpartnerstvo.org/" title="" target="_blank" rel="nofollow" class="partners__item"><img src="i/partner-2.png" alt=""></a><a href="http://eda.ua/" title="" target="_blank" rel="nofollow" class="partners__item"><img src="i/partner-3.png" alt=""></a>
+                      </fieldset>
+                    </div>
+                    <div class="footer-info">
+                      <div class="footer-copyright">&copy;&nbsp;<a href="http://Doc.ua" title="Doc.ua">Doc.ua</a>, 2016&nbsp;</div>
+                      <div class="footer-rights">Использование материалов разрешено только при наличии активной ссылки на источник                                   </div>
+                    </div>
+                    <div class="social-links"><a href="/" title="Doc.ua в Фейсбуке" target="_blank" class="social-links__item social-links__item-social-fb"></a><a href="/" title="Doc.ua ВКонтакте" target="_blank" class="social-links__item social-links__item-social-vk"></a><a href="https://plus.google.com/+DocUa-Find_a_Doctor/posts" title="Doc.ua в Google PLus" target="_blank" rel="publisher" class="social-links__item social-links__item-social-gplus"></a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </footer>
-      </div>
-    </div>
-    <div class="row about-this">
-      <div class="container">
-        <div class="about-this-site about-this-site_seo">
-          <div class="wrap">
-            <h1 class="sr-only">Поиск врачей в Киеве</h1>
-            <p>Doc.ua — сервис, при помощи которого поиск и вызов врача на дом или запись на прием, консультацию стали невероятно простыми задачами. На сайте представлено большое число клиник, врачей в Киеве, а также присутствуют отзывы наших посетителей.</p>
-            <p>Вызов врача на дом онлайн гораздо удобнее, ведь вам не надо искать номер телефона клиники, тратить время на звонки, рисковать попасть к не совсем компетентному в своей области специалисту. Воспользуйтесь нашим простым поиском на сайте, выбрав специализацию доктора и предпочтительный район или станцию метро, почитайте отзывы и остановитесь на наиболее подходящем для себя варианте. Также тут можно найти врача по фамилии и вызвать частного врача на дом (как альтернатива вызову участкового доктора из поликлиники).</p>
-            <p>Вызов врача домой в Киеве или запись на прием через сайт делается круглосуточно буквально в несколько кликов мышкой, причем это совершенно бесплатно. С Doc.ua вы сможете навсегда забыть об очередях в клинике, звонках в регистратуру и плохих специалистах — записывайтесь на прием к врачу онлайн и будьте здоровы.</p>
-          </div>
+          </footer>
         </div>
-      </div>
-    </div><a href="" title="Наверх" class="go-top"><i class="go-top__icon"></i></a>
+      </div><a href="" title="Наверх" class="go-top"><i class="go-top__icon"></i></a>
+    </div>
   </div>
   <script src="/doc.min.js"></script>
   <script src="/jquery.mockjax.js"></script>

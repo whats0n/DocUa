@@ -27,7 +27,7 @@
     detailed = false
     map = null
     selected = null
-    zones = {}
+    zones = {} 
 
     refreshView = ->
       $el = undefined

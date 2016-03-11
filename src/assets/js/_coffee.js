@@ -2011,7 +2011,7 @@ phonesAutoChange = {
     });
   },
   startSwitch: function() {
-    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 5000);
+    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 500000);
   },
   switchPhone: function() {
     phonesAutoChange.checked += 1;

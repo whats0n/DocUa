@@ -176,30 +176,31 @@ body
 
     //- Footer
     .container-fluid
-        .row.footer
-            .container
-                footer
-                    .footer-inner
-                        .wrap
-                            .row
-                                +b.menu
-                                    +b.footer-menu: +i
-                                +b.contacts.col-sm-3.col-xs-6: +i({site: site, socialLinks: true, workingTime: true})
-                                +b.contacts.col-xs-12.visible-xs
-                                    +e('span').callback
-                                        a.dotted(href="#callback", data-toggle="modal", title="Обратный звонок") Обратный звонок
-                                    +e('span').callback
-                                        a.dotted(href="#doc-request-schedule", data-toggle="modal", title="Отправить заявку") Отправить заявку
-                                    +b.social-links: +i
-                                    +e.footer
-                                        +e.copyright
-                                            | &copy;&nbsp;
-                                            a(href="http://#{site.title}", title=site.title)= site.title
-                                            | , 2015
-                                        +e.rights Использование материалов разрешено только при наличии активной ссылки <br> на источник
+      //- SEO
+      .flex_container
         .row.about-this
           .container
             +b.about-this-site._seo: +i
+
+        .row.footer
+          .container
+            footer
+              .footer-inner
+                .wrap
+                  .row
+                    +b.menu
+                      +b.footer-menu: +i
+                    +b.contacts: +i({ site: site, socialLinks: true, workingTime: true })
+                    .footer-bottom
+                        +b.partners.hidden-xs: +i
+                        .footer-info
+                          .footer-copyright
+                              | &copy;&nbsp;
+                              a(href="http://#{site.title}", title=site.title)= site.title
+                              | , 2016&nbsp;
+                          .footer-rights Использование материалов разрешено только при наличии активной ссылки на источник                                   
+                        +b.social-links: +i
+
         +b("a").go-top(href="", title="Наверх"): +i
     block modals
     script(src="/doc.min.js")

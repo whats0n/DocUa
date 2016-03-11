@@ -12,6 +12,7 @@ body.lock {
 }
 body >.container-fluid {
   position: relative;
+  z-index: 2;
 }
 body >.container-fluid.container-finder {
   z-index: 3;
@@ -3652,6 +3653,9 @@ article.static-page .header-styled.header-styled-mod {
     margin-right: 0;
   }
 }
+.section-action .card {
+  padding: 0;
+}
 @media only screen and (max-width: 767px) {
   .section-action__item.is-badge-label .section-action__left .card__left-side {
     margin-top: 50px;
@@ -4901,6 +4905,9 @@ article.static-page .header-styled.header-styled-mod {
 }
 .badge-label img:first-child {
   margin-top: 4px;
+}
+.card .badge-label p {
+  margin: 0 0 4px;
 }
 .benefits {
   margin: 20px 0 0;
@@ -11281,6 +11288,9 @@ hr {
     columns: 1;
   }
 }
+.diseases-check-list.diseases_aside {
+  columns: auto;
+}
 .diseases-content .header-styled.header-styled-noborder,
 .all-diseases .header-styled.header-styled-noborder {
   border-bottom: none;
@@ -11690,6 +11700,7 @@ hr {
 .finder {
   margin-top: 20px;
   margin-bottom: 45px;
+  padding: 0 10px;
   position: relative;
   z-index: 2;
   white-space: nowrap;
@@ -11702,6 +11713,9 @@ hr {
 }
 .finder:after {
   clear: both;
+}
+.finder.finder_main-page {
+  padding: 0;
 }
 .finder.search-title_none .finder__search-title {
   display: none;
@@ -11841,12 +11855,12 @@ hr {
   -webkit-box-shadow: 0 0 20px #35bfae;
   box-shadow: 0 0 20px #35bfae;
 }
-.finder__field:hover span {
+.finder__field:hover .finder__field_img {
   opacity: 0.75;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
   filter: alpha(opacity=75);
 }
-.finder__field span {
+.finder__field_img {
   display: inline-block;
   position: absolute;
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -13625,6 +13639,7 @@ ul.footer-menu {
   height: 48px;
   margin: 0;
   padding: 0;
+  padding-left: 10px;
   list-style: none;
   font-size: 0;
 }
@@ -15588,7 +15603,7 @@ ul.footer-menu {
   color: #00829b;
   border: 1px dashed #00829b;
   outline: none;
-  z-index: 2;
+  z-index: 1;
   background-color: #fff;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -18426,9 +18441,10 @@ article a {
   background: #deeff2;
 }
 .phones .select7__current-value {
+  position: relative;
+  margin-left: 27px;
   font-size: 16px;
   color: #00829b;
-  border-bottom: 1px dotted;
 }
 @media only screen and (max-width: 767px) {
   .phones .select7__current-value {
@@ -18440,8 +18456,9 @@ article a {
   border-bottom: none;
 }
 .phones .select7__current-value .select7__icon {
-  -webkit-box-shadow: 2px 1px 0 7px #fff;
-  box-shadow: 2px 1px 0 7px #fff;
+  position: absolute;
+  top: 0px;
+  left: -27px;
 }
 .phones .select7__current-value .select7__icon img {
   vertical-align: top;
@@ -18510,7 +18527,7 @@ article a {
   float: none;
 }
 .navbar-main_inner .phones .select7 .select7__icon {
-  top: 0;
+  top: 1px;
 }
 .navbar-main_inner .phones .select7__drop .select7__option .select7__icon {
   top: -1px;
