@@ -31,9 +31,6 @@ docMaps =
       panControl: false
 
 
-    # if @pageName == 'action' || @pageName == 'actionAbout'
-    #   @mapCss.inner() 
-
     if @pageName == 'map'
       @mapCss.bigMap()
       @map = new (google.maps.Map)(document.getElementById('map-canvas-big'), mapOptions) 
@@ -65,7 +62,7 @@ docMaps =
       @addNewMarker = @addMarker.inner()
       @addNewMarker()
     else
-      @addNewMarker = @addMarker.clinics()
+      @addNewMarker = @addMarker.diagnostList()
       @addNewMarker()
 
   scrollInit: () ->
@@ -85,14 +82,14 @@ docMaps =
     $.ajax
       url: 'https://' + docMaps.domain + '/api/doctor/doctors?' + filter + '=' + filterValue
       data: {}
-      success: (data) ->
-        for i in [0..data.length - 1]
-          d = data[i]
-          tpl = '<li class="short-list__item"> <div class="male short-list__image"><img src="' + 'https://' + docMaps.domain + d.image + '" alt=""> </div>' +
-            '<div class="short-list__item-content"><a href="/doctor-consultation.html" title="' + d.name + '" class="short-list__title">' + d.name + '</a>' +
-            '<div class="short-list__label">' + d.specialty + '</div> <div class="rating"> <div class="rating__stars"> <div class="rating__stars-bg"> </div> <div style="width: ' + d.rating * 20 + '%;" class="rating__stars-overlay"> </div> </div> <div class="rating__value value">' + d.rating + ' </div> </div> </div> </li>'
-          $('.short-list__items').append(tpl)
-        docMaps.scrollInit()
+      # success: (data) ->
+      #   for i in [0..data.length - 1]
+      #     d = data[i]
+      #     tpl = '<li class="short-list__item"> <div class="male short-list__image"><img src="' + 'https://' + docMaps.domain + d.image + '" alt=""> </div>' +
+      #       '<div class="short-list__item-content"><a href="/doctor-consultation.html" title="' + d.name + '" class="short-list__title">' + d.name + '</a>' +
+      #       '<div class="short-list__label">' + d.specialty + '</div> <div class="rating"> <div class="rating__stars"> <div class="rating__stars-bg"> </div> <div style="width: ' + d.rating * 20 + '%;" class="rating__stars-overlay"> </div> </div> <div class="rating__value value">' + d.rating + ' </div> </div> </div> </li>'
+      #     $('.short-list__items').append(tpl)
+      #   $('.short-list__items-wrapper').scrollInit()
           
   mapModal: ->
     geocoder = new (google.maps.Geocoder)
@@ -131,7 +128,7 @@ docMaps =
           position: 'fixed'
           $('.widget-map').width $('.widget-map').parent('aside').width()
 
-        if $(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 80  
+        if $(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 120  
           docMaps.canAnimateTop = true
           $('aside').height($('aside').prev().height())
           $('.widget-map').css
@@ -170,7 +167,7 @@ docMaps =
         $('#map-canvas-big').height(docMaps.mapHeight)
 
   addMarker:
-    clinics: () ->
+    diagnostList: () ->
       clinicIndex = 0
       affilateIndex = -1
       return ->
@@ -217,12 +214,10 @@ docMaps =
                 icon: icon
                 addInfo: addInfo
                 position: results[0].geometry.location)
-              console.log(marker)
               docMaps.markersList.push marker
               docMaps.listeners.marker(marker, docMaps.map)
               if addInfo.active
                 docMaps.map.setCenter marker.getPosition()
-                # console.log(marker.getPosition()) 
               docMaps.addNewMarker()
             else
               console.log 'Geocode was not successful for the following reason: ' + status
@@ -254,7 +249,7 @@ docMaps =
     docMaps.fitMap [marker], map
 
     if marker.addInfo.affilate
-      if docMaps.pageName == 'diagnostList'
+      if docMaps.pageName == 'diagnostList' 
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").offset().top
       else
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").closest('.card').offset().top
@@ -311,7 +306,7 @@ docMaps =
           docMaps.showInfoWindow map, marker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' +
               '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
           docMaps.loadDoctors('affiliate', 28)
-          map.setCenter marker.getPosition()
+          map.setCenter 
         else if docMaps.pageName == 'doctorInner'
           $('#clinic-location-map').modal()
         else if docMaps.pageName == 'actionAbout'
@@ -336,7 +331,7 @@ docMaps =
       $("body").on "mouseover", ".card", ->
         if docMaps.cardId != $(@).data('id') and docMaps.markersList.length > 0
           docMaps.resetMarkers()
-          if docMaps.pageName == 'diagnosticList'
+          if docMaps.pageName == 'diagnostList'
             if $(@).find('.card-services').length > 0
               index = docMaps.findMarker('id', $(@).find('.card-services').eq(0).data('id'))
             else
@@ -348,9 +343,9 @@ docMaps =
               index = docMaps.findMarker('id', $(@).closest('.card').data('id'))
 
           if $(@).find('.card-services').length > 0
-            list = 	docMaps.markersList.slice(index, index + ($(@).find('.card-services').length))
+            list =  docMaps.markersList.slice(index, index + ($(@).find('.card-services').length))
           else if $(@).find('.card__job').length > 0
-            list = 	docMaps.markersList.slice(index, index + ($(@).find('.card__job').length))
+            list =  docMaps.markersList.slice(index, index + ($(@).find('.card__job').length))
           else
             list = []
             list.push docMaps.markersList[index]

@@ -11416,6 +11416,40 @@ hr {
 .header-styled__darkColor .h1 {
   color: #5e6e71;
 }
+.favorites-link {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: 5px;
+  padding-left: 23px;
+  font-weight: normal;
+  color: #3ebfac;
+  text-decoration: none;
+  font-size: 17px;
+}
+.favorites-link:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  background-image: url("/i/sprites-general.png");
+  background-position: -281px -268px;
+  width: 19px;
+  height: 17px;
+  background-repeat: no-repeat;
+}
+.favorites-link span {
+  border-bottom: none;
+}
+.favorites-link:hover {
+  color: #3ebfac;
+}
+.favorites-link:hover:before {
+  background-image: url("/i/sprites-general.png");
+  background-position: 0px -318px;
+  width: 19px;
+  height: 17px;
+}
 .favorites-block {
   white-space: nowrap;
   margin-top: 3px;
@@ -11482,40 +11516,6 @@ hr {
   background-position: -38px -355px;
   width: 16px;
   height: 13px;
-}
-.favorites-link {
-  position: relative;
-  display: inline-block;
-  vertical-align: baseline;
-  margin-left: 5px;
-  padding-left: 23px;
-  font-weight: normal;
-  color: #3ebfac;
-  text-decoration: none;
-  font-size: 17px;
-}
-.favorites-link:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 3px;
-  background-image: url("/i/sprites-general.png");
-  background-position: -281px -268px;
-  width: 19px;
-  height: 17px;
-  background-repeat: no-repeat;
-}
-.favorites-link span {
-  border-bottom: none;
-}
-.favorites-link:hover {
-  color: #3ebfac;
-}
-.favorites-link:hover:before {
-  background-image: url("/i/sprites-general.png");
-  background-position: 0px -318px;
-  width: 19px;
-  height: 17px;
 }
 .feature {
   margin-bottom: 45px;
@@ -13933,12 +13933,14 @@ ul.footer-menu {
   border-top: transparent;
 }
 .big-map__widget .jspVerticalBar {
+  display: inline-block;
   width: 1px;
   background-color: #c0d2d6;
   left: auto;
   right: 10px;
 }
 .big-map__widget .jspDrag {
+  display: inline-block;
   background-color: #c0d2d6;
   width: 3px;
   left: -1px;
@@ -13961,6 +13963,10 @@ ul.footer-menu {
 }
 .big-map__widget .short-list__image {
   margin-bottom: 5px;
+}
+.short-list__items-wrapper {
+  height: 500px;
+  overflow: hidden;
 }
 .med-library {
   position: relative;
@@ -18445,7 +18451,7 @@ article a {
 }
 .phones .select7__current-value {
   position: relative;
-  margin-left: 27px;
+  margin-left: 25px;
   font-size: 16px;
   color: #00829b;
 }
@@ -18460,8 +18466,8 @@ article a {
 }
 .phones .select7__current-value .select7__icon {
   position: absolute;
-  top: 0px;
-  left: -27px;
+  top: 0;
+  left: -25px;
 }
 .phones .select7__current-value .select7__icon img {
   vertical-align: top;
@@ -18530,7 +18536,7 @@ article a {
   float: none;
 }
 .navbar-main_inner .phones .select7 .select7__icon {
-  top: 1px;
+  top: 0;
 }
 .navbar-main_inner .phones .select7__drop .select7__option .select7__icon {
   top: -1px;

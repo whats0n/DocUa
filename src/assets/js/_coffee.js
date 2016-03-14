@@ -1476,16 +1476,6 @@ $(".js-remove").on("click", function() {
   return false;
 });
 
-$('.js-tab__header-c').click(function() {
-  var item;
-  $(this).children('span').toggleClass('tab__header_open');
-  item = $(this).children('.js-content-hide');
-  item.slideToggle('fast');
-  item.toggleClass('tab-active_info');
-  $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
-  return false;
-});
-
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
 $(function() {
@@ -1525,6 +1515,20 @@ $(function() {
   });
 });
 
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-c').addClass('js-tab__header-c');
+}
+
+$('.js-tab__header-c').click(function() {
+  var item;
+  $(this).children('span').toggleClass('tab__header_open');
+  item = $(this).children('.js-content-hide');
+  item.slideToggle('fast');
+  item.toggleClass('tab-active_info');
+  $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
+  return false;
+});
+
 $(function() {
   return $('.js-datepicker').daterangepicker({
     autoUpdateInput: true,
@@ -1550,6 +1554,10 @@ $(function() {
     }
   });
 });
+
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-d').addClass('js-tab__header-d');
+}
 
 $('.js-tab__header-d').click(function() {
   var item;
@@ -1862,6 +1870,10 @@ $('.finder').on('diagnosticSelected', function(t, e) {
 
 
 
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-f').addClass('js-tab__header-f');
+}
+
 $('.js-tab__header-f').click(function() {
   var item;
   item = $(this).children('.js-content-hide');
@@ -1999,7 +2011,7 @@ phonesAutoChange = {
     });
   },
   startSwitch: function() {
-    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 5000);
+    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 500000);
   },
   switchPhone: function() {
     phonesAutoChange.checked += 1;
@@ -2308,6 +2320,12 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
+$(function() {
+  return $(".price-block_collapse .price-block__header").on("click", function() {
+    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
+  });
+});
+
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2353,12 +2371,6 @@ $(window).resize(postLocationWidthFix);
 $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
-
-$(function() {
-  return $(".price-block_collapse .price-block__header").on("click", function() {
-    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
-  });
-});
 
 $(function() {
   $('.js-search-btn').click(function() {
@@ -3500,7 +3512,7 @@ docMaps = {
       this.addNewMarker = this.addMarker.inner();
       return this.addNewMarker();
     } else {
-      this.addNewMarker = this.addMarker.clinics();
+      this.addNewMarker = this.addMarker.diagnostList();
       return this.addNewMarker();
     }
   },
@@ -3522,16 +3534,7 @@ docMaps = {
     $('.short-list__items').html('');
     return $.ajax({
       url: 'https://' + docMaps.domain + '/api/doctor/doctors?' + filter + '=' + filterValue,
-      data: {},
-      success: function(data) {
-        var d, i, j, ref, tpl;
-        for (i = j = 0, ref = data.length - 1; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
-          d = data[i];
-          tpl = '<li class="short-list__item"> <div class="male short-list__image"><img src="' + 'https://' + docMaps.domain + d.image + '" alt=""> </div>' + '<div class="short-list__item-content"><a href="/doctor-consultation.html" title="' + d.name + '" class="short-list__title">' + d.name + '</a>' + '<div class="short-list__label">' + d.specialty + '</div> <div class="rating"> <div class="rating__stars"> <div class="rating__stars-bg"> </div> <div style="width: ' + d.rating * 20 + '%;" class="rating__stars-overlay"> </div> </div> <div class="rating__value value">' + d.rating + ' </div> </div> </div> </li>';
-          $('.short-list__items').append(tpl);
-        }
-        return docMaps.scrollInit();
-      }
+      data: {}
     });
   },
   mapModal: function() {
@@ -3573,7 +3576,7 @@ docMaps = {
         $('.widget-map').css({
           position: 'fixed'
         }, $('.widget-map').width($('.widget-map').parent('aside').width()));
-        if ($(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 80) {
+        if ($(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 120) {
           docMaps.canAnimateTop = true;
           $('aside').height($('aside').prev().height());
           $('.widget-map').css({
@@ -3621,7 +3624,7 @@ docMaps = {
     }
   },
   addMarker: {
-    clinics: function() {
+    diagnostList: function() {
       var affilateIndex, clinicIndex;
       clinicIndex = 0;
       affilateIndex = -1;
@@ -3674,7 +3677,6 @@ docMaps = {
                 addInfo: addInfo,
                 position: results[0].geometry.location
               });
-              console.log(marker);
               docMaps.markersList.push(marker);
               docMaps.listeners.marker(marker, docMaps.map);
               if (addInfo.active) {
@@ -3791,7 +3793,7 @@ docMaps = {
         if (docMaps.pageName === 'map') {
           docMaps.showInfoWindow(map, marker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' + '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>');
           docMaps.loadDoctors('affiliate', 28);
-          return map.setCenter(marker.getPosition());
+          return map.setCenter;
         } else if (docMaps.pageName === 'doctorInner') {
           return $('#clinic-location-map').modal();
         } else if (docMaps.pageName === 'actionAbout') {
@@ -3818,7 +3820,7 @@ docMaps = {
         var index, list;
         if (docMaps.cardId !== $(this).data('id') && docMaps.markersList.length > 0) {
           docMaps.resetMarkers();
-          if (docMaps.pageName === 'diagnosticList') {
+          if (docMaps.pageName === 'diagnostList') {
             if ($(this).find('.card-services').length > 0) {
               index = docMaps.findMarker('id', $(this).find('.card-services').eq(0).data('id'));
             } else {

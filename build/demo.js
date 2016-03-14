@@ -171,6 +171,24 @@ diagnost = [
         rating: 3.8,
         specialty: "Косметолог",
         image: "/i/_alexandriyskiy-constantin.jpg",
+        affilates: [
+            {
+                id: "f1",
+                address: "ул. Раисы Окипной, 21",
+                directions: "Гастроэнтерология, гинекология, кардиология, неврология",
+                name: "Филиал «Левобережный»",
+                rating: 2,
+                reviews: 14
+            },
+            {
+                id: "f2",
+                address: "Богдана Хмельницкого 16-22",
+                directions: "Гастроэнтерология, гинекология, кардиология, неврология",
+                name: "Филиал «Оболонь»",
+                rating: 5,
+                reviews: 11
+            },
+        ]
         
     }
      
