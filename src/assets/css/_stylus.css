@@ -3476,6 +3476,16 @@ article.static-page .header-styled.header-styled-mod {
 .section-action__middle .main-title .about {
   padding-top: 15px;
 }
+@media only screen and (max-width: 767px) {
+  .section-action__middle .main-title .about {
+    min-height: 115px;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .section-action__middle .main-title .about {
+    min-height: auto;
+  }
+}
 .section-action__middle .main-title .about__item {
   font-size: 14px;
   font-weight: 400;
@@ -6565,30 +6575,8 @@ hr {
   background-color: #fff;
   height: 1px;
 }
-.cabinet-notes__inner {
-  overflow-y: auto;
-}
-@media only screen and (max-width: 991px) {
-  .cabinet-notes__inner {
-    width: 600px;
-  }
-}
-.cabinet-notes__inner .jspHorizontalBar {
-  height: 5px;
-}
-.cabinet-notes__inner .jspTrack {
-  background-color: #a9d1da;
-  height: 1px;
-}
-.cabinet-notes__inner .jspDrag {
-  background-color: #a9d1da;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  height: 5px;
-  top: -2px;
-}
 .cabinet-notes__inner .cabinet-notes {
-  width: 904px;
+  width: 100%;
   outline: none;
   margin-bottom: 20px;
   -webkit-box-shadow: 0 2px 4px rgba(0,64,76,0.19);
@@ -6660,6 +6648,7 @@ hr {
   -webkit-border-bottom-right-radius: 3px;
 }
 .cabinet-notes__inner .cabinet-notes__body tr td:first-child {
+  width: 10%;
   text-align: right;
   border-bottom: 1px dotted rgba(29,137,160,0.45);
   border-left: 1px solid rgba(0,130,155,0.32);
@@ -6669,10 +6658,11 @@ hr {
   border-bottom: 1px dotted rgba(29,137,160,0.45);
 }
 .cabinet-notes__inner .cabinet-notes__body tr td:nth-child(3) {
-  width: 195px;
+  width: 20%;
   border-bottom: 1px dotted rgba(29,137,160,0.45);
 }
 .cabinet-notes__inner .cabinet-notes__body tr td:nth-child(4) {
+  width: 25%;
   border-bottom: 1px dotted rgba(29,137,160,0.45);
 }
 .cabinet-notes__inner .cabinet-notes__body tr td:last-child {
@@ -10165,10 +10155,10 @@ hr {
   margin: 0 10px;
   color: rgba(255,255,255,0.84);
 }
-.ranges li.last-child {
+.ranges li:last-child {
   display: none;
 }
-.ranges li.first-child {
+.ranges li:first-child {
   border-bottom: none;
   cursor: default;
 }
@@ -13130,9 +13120,6 @@ ul.footer-menu {
     content: none;
     display: none;
   }
-}
-.card__right-side .dashed__mod {
-  background: url("i/icons/dashed.png") left bottom repeat-x;
 }
 .job-schedule {
   position: absolute;
@@ -17645,7 +17632,7 @@ article a {
   word-wrap: break-word;
 }
 .vidjets-rezult {
-  border: 1px dashed #c8dde3;
+  border: 1px solid rgba(0,130,155,0.32);
   -webkit-border-radius: 3px;
   border-radius: 3px;
   text-align: center;

@@ -112,7 +112,7 @@ docMaps =
       docMaps.popupMarker = new (google.maps.Marker)(
         map: map
         icon: docMaps.icon2
-        position: docMaps.markersList[index].position)
+        position: docMaps.markersList[index].position) 
       docMaps.fitMap [docMaps.popupMarker], map, 14
 
     $('#clinic-location-map').on 'hidden.bs.modal', (e) ->
@@ -306,7 +306,7 @@ docMaps =
           docMaps.showInfoWindow map, marker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' +
               '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
           docMaps.loadDoctors('affiliate', 28)
-          map.setCenter 
+          map.setCenter marker.getPosition()
         else if docMaps.pageName == 'doctorInner'
           $('#clinic-location-map').modal()
         else if docMaps.pageName == 'actionAbout'
