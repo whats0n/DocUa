@@ -214,7 +214,6 @@ docMaps =
                 icon: icon
                 addInfo: addInfo
                 position: results[0].geometry.location)
-              console.log(marker)
               docMaps.markersList.push marker
               docMaps.listeners.marker(marker, docMaps.map)
               if addInfo.active
@@ -367,7 +366,6 @@ docMaps =
     i = 0
     index = -1
     while index == -1 or i < docMaps.markersList.length - 1
-      console.log(docMaps.markersList.length)
       if docMaps.markersList[i].addInfo.affilate
         if docMaps.markersList[i].addInfo.affilate[key] == value
           index = i

@@ -3398,6 +3398,7 @@ article.static-page .header-styled.header-styled-mod {
 }
 .section-action__left .rating .rating__value {
   margin-right: 5px;
+  float: none;
 }
 .section-action__left .card__testimonials {
   padding-top: 5px;
@@ -3448,7 +3449,6 @@ article.static-page .header-styled.header-styled-mod {
     border-right: none;
     border-left: none;
     width: 60%;
-    float: right;
   }
 }
 @media only screen and (max-width: 560px) {
@@ -3546,6 +3546,11 @@ article.static-page .header-styled.header-styled-mod {
 }
 .section-action__middle .price__btn:hover {
   background-color: #32b3a3;
+}
+@media only screen and (max-width: 1050px) {
+  .section-action__middle .price__btn {
+    font-size: 16px;
+  }
 }
 @media only screen and (max-width: 767px) {
   .section-action__middle .price__btn {
@@ -8159,6 +8164,8 @@ hr {
 .card hr,
 .small-card hr {
   margin: 5px -4px 5px;
+  border: none;
+  background: url("i/icons/dashed.png") left bottom repeat-x;
 }
 @media only screen and (max-width: 560px) {
   .card hr,
@@ -11416,40 +11423,6 @@ hr {
 .header-styled__darkColor .h1 {
   color: #5e6e71;
 }
-.favorites-link {
-  position: relative;
-  display: inline-block;
-  vertical-align: baseline;
-  margin-left: 5px;
-  padding-left: 23px;
-  font-weight: normal;
-  color: #3ebfac;
-  text-decoration: none;
-  font-size: 17px;
-}
-.favorites-link:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 3px;
-  background-image: url("/i/sprites-general.png");
-  background-position: -281px -268px;
-  width: 19px;
-  height: 17px;
-  background-repeat: no-repeat;
-}
-.favorites-link span {
-  border-bottom: none;
-}
-.favorites-link:hover {
-  color: #3ebfac;
-}
-.favorites-link:hover:before {
-  background-image: url("/i/sprites-general.png");
-  background-position: 0px -318px;
-  width: 19px;
-  height: 17px;
-}
 .favorites-block {
   white-space: nowrap;
   margin-top: 3px;
@@ -11516,6 +11489,40 @@ hr {
   background-position: -38px -355px;
   width: 16px;
   height: 13px;
+}
+.favorites-link {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: 5px;
+  padding-left: 23px;
+  font-weight: normal;
+  color: #3ebfac;
+  text-decoration: none;
+  font-size: 17px;
+}
+.favorites-link:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  background-image: url("/i/sprites-general.png");
+  background-position: -281px -268px;
+  width: 19px;
+  height: 17px;
+  background-repeat: no-repeat;
+}
+.favorites-link span {
+  border-bottom: none;
+}
+.favorites-link:hover {
+  color: #3ebfac;
+}
+.favorites-link:hover:before {
+  background-image: url("/i/sprites-general.png");
+  background-position: 0px -318px;
+  width: 19px;
+  height: 17px;
 }
 .feature {
   margin-bottom: 45px;
@@ -13123,6 +13130,9 @@ ul.footer-menu {
     content: none;
     display: none;
   }
+}
+.card__right-side .dashed__mod {
+  background: url("i/icons/dashed.png") left bottom repeat-x;
 }
 .job-schedule {
   position: absolute;
