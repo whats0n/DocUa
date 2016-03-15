@@ -2320,12 +2320,6 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
-$(function() {
-  return $(".price-block_collapse .price-block__header").on("click", function() {
-    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
-  });
-});
-
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2371,6 +2365,12 @@ $(window).resize(postLocationWidthFix);
 $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
+
+$(function() {
+  return $(".price-block_collapse .price-block__header").on("click", function() {
+    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
+  });
+});
 
 $(function() {
   $('.js-search-btn').click(function() {
@@ -3512,7 +3512,7 @@ docMaps = {
       this.addNewMarker = this.addMarker.inner();
       return this.addNewMarker();
     } else {
-      this.addNewMarker = this.addMarker.diagnostList();
+      this.addNewMarker = this.addMarker.clinics();
       return this.addNewMarker();
     }
   },
@@ -3534,7 +3534,16 @@ docMaps = {
     $('.short-list__items').html('');
     return $.ajax({
       url: 'https://' + docMaps.domain + '/api/doctor/doctors?' + filter + '=' + filterValue,
-      data: {}
+      data: {},
+      success: function(data) {
+        var d, i, j, ref, tpl;
+        for (i = j = 0, ref = data.length - 1; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
+          d = data[i];
+          tpl = '<li class="short-list__item"> <div class="male short-list__image"><img src="' + 'https://' + docMaps.domain + d.image + '" alt=""> </div>' + '<div class="short-list__item-content"><a href="/doctor-consultation.html" title="' + d.name + '" class="short-list__title">' + d.name + '</a>' + '<div class="short-list__label">' + d.specialty + '</div> <div class="rating"> <div class="rating__stars"> <div class="rating__stars-bg"> </div> <div style="width: ' + d.rating * 20 + '%;" class="rating__stars-overlay"> </div> </div> <div class="rating__value value">' + d.rating + ' </div> </div> </div> </li>';
+          $('.short-list__items').append(tpl);
+        }
+        return $('.short-list__items-wrapper').scrollInit();
+      }
     });
   },
   mapModal: function() {
@@ -3624,7 +3633,7 @@ docMaps = {
     }
   },
   addMarker: {
-    diagnostList: function() {
+    clinics: function() {
       var affilateIndex, clinicIndex;
       clinicIndex = 0;
       affilateIndex = -1;
@@ -3638,7 +3647,7 @@ docMaps = {
             addInfo.active = false;
           }
           addInfo.name = this.allItemsList[clinicIndex].name;
-          addInfo.id = clinics[clinicIndex].id;
+          addInfo.id = diagnost[clinicIndex].id;
           addInfo.image = this.allItemsList[clinicIndex].image;
           if (this.allItemsList[clinicIndex].affilates) {
             if (affilateIndex === -1) {
@@ -3677,6 +3686,7 @@ docMaps = {
                 addInfo: addInfo,
                 position: results[0].geometry.location
               });
+              console.log(marker);
               docMaps.markersList.push(marker);
               docMaps.listeners.marker(marker, docMaps.map);
               if (addInfo.active) {
@@ -3728,7 +3738,7 @@ docMaps = {
     marker.setIcon(docMaps.icon2);
     docMaps.fitMap([marker], map);
     if (marker.addInfo.affilate) {
-      if (docMaps.pageName === 'diagnostList') {
+      if (docMaps.pageName === 'clinics') {
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").offset().top;
       } else {
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").closest('.card').offset().top;
@@ -3863,6 +3873,7 @@ docMaps = {
     i = 0;
     index = -1;
     while (index === -1 || i < docMaps.markersList.length - 1) {
+      console.log(docMaps.markersList.length);
       if (docMaps.markersList[i].addInfo.affilate) {
         if (docMaps.markersList[i].addInfo.affilate[key] === value) {
           index = i;
