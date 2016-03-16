@@ -4134,6 +4134,14 @@ article.static-page .header-styled.header-styled-mod {
   -ms-transition: all 0.5s;
   transition: all 0.5s;
 }
+.doctors-card__modifie .doctors-card__rating {
+  top: 21px;
+}
+@media only screen and (max-width: 450px) {
+  .doctors-card__modifie .doctors-card__info .btn {
+    width: 100%;
+  }
+}
 /*badge = 64px*/
 .action-badge {
   position: absolute;
@@ -4930,11 +4938,6 @@ article.static-page .header-styled.header-styled-mod {
   list-style: none;
   overflow: hidden;
 }
-@media only screen and (max-width: 767px) {
-  .benefits {
-    clear: both;
-  }
-}
 .benefits_width_auto .benefits__item,
 .benefits_width_auto .benefits__title {
   width: auto;
@@ -5119,12 +5122,12 @@ article.static-page .header-styled.header-styled-mod {
   line-height: 16px;
   color: #5e6e71;
   width: 63%;
+  padding: 10px 0;
 }
 @media only screen and (max-width: 767px) {
   .block-services__left {
     float: left;
     width: 50%;
-    padding: 10px 0;
   }
 }
 .block-services__left span {
@@ -5169,7 +5172,6 @@ article.static-page .header-styled.header-styled-mod {
   margin-bottom: -1px;
   position: relative;
   border-bottom: 1px solid #e6edef;
-  height: 50px;
 }
 @media only screen and (max-width: 767px) {
   .block-services__row {
@@ -5215,6 +5217,10 @@ article.static-page .header-styled.header-styled-mod {
 .block-services__row-in .btn {
   display: none;
   margin: 9px 0 4px 21px;
+}
+.block-services__row-in .btn:focus {
+  outline: none;
+  border: none;
 }
 .block-services__row-in .small-card__action {
   padding: 0;
@@ -7506,12 +7512,17 @@ hr {
 }
 @media only screen and (max-width: 991px) {
   .card__title >* {
-    font-size: 18px !important;
+    font-size: 18px;
   }
 }
 @media only screen and (max-width: 560px) {
   .card__title >* {
     margin-top: 7px !important;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .card__title >* {
+    font-size: 16px;
   }
 }
 .card__title .h3 {
@@ -7676,7 +7687,8 @@ hr {
 @media only screen and (max-width: 560px) {
   .card__schedule,
   .small-card__schedule {
-    margin-right: 15px;
+    font-size: 11px;
+    padding: 10px 5px;
   }
 }
 .card__schedule:before,
@@ -7727,6 +7739,13 @@ hr {
 .small-card__schedule li .right {
   float: left;
   width: 70px;
+}
+@media only screen and (max-width: 560px) {
+  .card__schedule li .right,
+  .small-card__schedule li .right {
+    float: right;
+    width: auto;
+  }
 }
 @media only screen and (max-width: 560px) {
   .card__right-side .right-side-rating,
@@ -7781,12 +7800,19 @@ hr {
   .small-card__left-side {
     min-height: 150px;
     width: 156px;
+    margin-right: 20px;
   }
 }
 @media only screen and (max-width: 480px) {
   .card__left-side,
   .small-card__left-side {
     width: 130px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .card__left-side,
+  .small-card__left-side {
+    margin-right: 10px;
   }
   .card__left-side .card__testimonials,
   .small-card__left-side .card__testimonials {
@@ -7801,7 +7827,7 @@ hr {
     top: 85px;
   }
 }
-@media only screen and (max-width: 480px) and (max-width: 767px) {
+@media only screen and (max-width: 400px) and (max-width: 767px) {
   .card__left-side .card__testimonials,
   .small-card__left-side .card__testimonials {
     position: relative;
@@ -7809,7 +7835,7 @@ hr {
     top: auto;
   }
 }
-@media only screen and (max-width: 480px) and (max-width: 767px) {
+@media only screen and (max-width: 400px) and (max-width: 767px) {
   .card__left-side .like-box,
   .small-card__left-side .like-box {
     position: relative;
@@ -7844,30 +7870,6 @@ hr {
 .card__title,
 .small-card__title {
   display: block;
-}
-@media only screen and (max-width: 767px) {
-  .card__title,
-  .small-card__title {
-    float: right;
-    display: inline-block;
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 320px) {
-  .card__title,
-  .small-card__title {
-    width: 51%;
-  }
-  .card__title .h3,
-  .small-card__title .h3 {
-    font-size: 16px !important;
-  }
-}
-@media only screen and (max-width: 480px) {
-  .card__title,
-  .small-card__title {
-    width: 58%;
-  }
 }
 .card__image,
 .small-card__image {
@@ -7951,26 +7953,6 @@ hr {
   .card .favorites-block,
   .small-card .favorites-block {
     margin-top: 1px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .card__label-description,
-  .small-card__label-description {
-    float: right;
-    display: inline-block;
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 320px) {
-  .card__label-description,
-  .small-card__label-description {
-    width: 51%;
-  }
-}
-@media only screen and (max-width: 480px) {
-  .card__label-description,
-  .small-card__label-description {
-    width: 58%;
   }
 }
 .card__address,
@@ -15213,6 +15195,10 @@ ul.footer-menu {
   right: 3px;
   width: 1px;
 }
+#select-area-districts .district-list__other,
+#select-area-districts2 .district-list__other {
+  padding: 0 30px 0 14px;
+}
 #select-area-districts .district-list__mod,
 #select-area-districts2 .district-list__mod {
   padding: 2px 30px 50px 14px;
@@ -21152,7 +21138,6 @@ __thumbs .owl-next {
 }
 @media only screen and (max-width: 767px) {
   .reviews-list__content {
-    padding-top: 15px;
     padding-right: 0;
   }
 }
@@ -21300,6 +21285,11 @@ __thumbs .owl-next {
 }
 .tab-content #tab-reviews .reviews-list__item {
   padding: 15px 20px;
+}
+@media only screen and (max-width: 767px) {
+  .tab-content #tab-reviews .reviews-list__item {
+    padding: 10px 20px;
+  }
 }
 .tab-content #tab-reviews .reviews-list__item p {
   margin-bottom: 0;
