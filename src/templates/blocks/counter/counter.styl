@@ -1,9 +1,14 @@
 $counter_radius = 55px
 .row-counters
     margin 40px 0 130px
-    
+    padding 0 15% 
+    @media only screen and (max-width 1024px)
+        padding 0 6%
+    @media only screen and (max-width 850px)
+        padding 0 4%
+        
     >div
-        padding-left 20px
+        padding 0
         @media tablet
             padding 0
         &:nth-child(1)
@@ -11,9 +16,11 @@ $counter_radius = 55px
                 &:before
                     sprite($stat_daily)
         &:nth-child(2)
-            padding-left 8%
+            padding-left 4%
             @media tablet
                 padding-left 5%
+            @media (max-width 850px)
+                padding 0 
             .counter
                 &:before 
                     sprite($stat_doctors)
@@ -40,7 +47,8 @@ $counter_radius = 55px
         font-size 36px
         font-weight 700
         line-height 1
-        
+        @media (max-width 850px)
+            font-size 32px
     &__title
         font-size 18px
         line-height 1  

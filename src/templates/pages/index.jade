@@ -10,46 +10,272 @@
     
 .main-container
   section.offers-list.more-toogle-parent  
-    header.header-styled.index-page-header                   
-      .row 
+    header.header-styled.index-page-header                        
+      .row  
         .col-sm-7.col-xs-12  
-          h2.h1 Акционные предложения     
+          h2.h1 Акционные предложения         
         .col-sm-5.col-xs-12.text-right.hidden-xs
           a.main-more-link(href="/", title="Все предложения") Все предложения
     .row.offset-bottom-0
         .col-md-6.col-xs-12   
-            each offer in specialOffers        
+            each offer in specialOffers         
               if offer.postWide       
-                +b("article").post2.post-wide: +i(offer)          
+                +b("article").post2.post-wide: +i(offer)           
         .col-md-6.col-xs-12.block-10    
           - var limit = 5   
           - var postWide     
           each offer, i in specialOffers      
             if !offer.postWide    
               if i < limit 
-                .col-md-6.col-sm-3
+                .col-md-6.col-sm-6 
                   +b("article").post2: +i(offer)
         +b.more-toggle.visible-xs
           .link-wrap
             +e("a").link(href="#select-area-diagnostics", data-toggle="modal", title="Все предложения")
                 +e("span").show-label
                     span Все предложения            
-                       
 
-  section.offers-list.hidden-xs    
-    header.header-styled.index-page-header
-      .row 
-        .col-xs-7 
-          h2.h1 Акционные предложения      
-        .col-xs-5.text-right  
+  section.offers-list
+    header.header-styled.index-page-header                        
+      .row  
+        .col-sm-7.col-xs-12  
+          h2.h1 Акционные предложения         
+        .col-sm-5.col-xs-12.text-right.hidden-xs
           a.main-more-link(href="/", title="Все предложения") Все предложения
     .row.offset-bottom-0 
         .col-md-12.col-xs-12.post-thin 
-          - var limit = 7  
-          - var postWide
-          each offer, i in specialOffers       
-            if !offer.postWide
-              if i < limit  
-                .col-md-6.col-sm-12
-                  +b("article").post3: +i(offer)  
-                                                                 
+          ul.owl.owl_action.index-list
+            li.index-list__item
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+                    
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+            li.index-list__item
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+                    
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+            li.index-list__item
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+                    
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body 
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+            li.index-list__item
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+                    
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+            li.index-list__item
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+                    
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+            li.index-list__item
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 
+                    
+              +b("a").post3(href="/service.html" title="Вылечи свою спину сам!")
+                +e.sticker
+                  <span class="sticker-bg"></span>
+                  <span class="sticker-desc">Выгода </span>
+                  <span class="sticker-benefit">50%</span>
+                +e.thumb(style="background-image: url(i/actionPost2.jpg);") 
+                +e.body
+                  +e.title
+                   +e("span").link "Вылечи свою спину сам!
+                  +e.price
+                    +e("span").price-old 3200&nbsp;грн
+                    +e("span").price-value 2283&nbsp;грн 

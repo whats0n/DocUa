@@ -180,6 +180,11 @@ $ ->
             opts.items = 7
             opts.itemsTablet = [979,4]
             opts.itemsMobile = [767,2]
+        if $(@).is ".owl_action"
+            opts.items = 2
+            opts.pagination = on
+            opts.itemsTablet = [979,2]
+            opts.itemsMobile = [768,1]
         if $(@).is ".gallery"
             opts.items = 4
             opts.itemsTablet = [979,5]

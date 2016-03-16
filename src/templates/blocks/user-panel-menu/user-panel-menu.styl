@@ -2,7 +2,10 @@
     .user-panel, .user-panel-menu
         float none !important
         display inline-block
-        vertical-align baseline 
+        vertical-align middle
+        font-size 0  
+        @media (max-width 768px)
+            display none
 .user-panel-menu
     margin-left 15px 
     &:focus
@@ -11,7 +14,8 @@
         outline none
     &__button
         display block
-        padding 2px 0 2px 22px
+        padding 0
+        padding-left 22px
         color blue_base
         text-align left
         background-color transparent !important
@@ -20,29 +24,32 @@
         -webkit-box-shadow none !important
         box-shadow none !important
         font-size 16px 
+        line-height 1
         &:active
             color blue_select !important
         &:hover
             color blue_select
             background-color transparent
+            span
+                border-color transparent
         span
+            display inline-block
+            line-height 1 
             border-bottom 1px dotted
-            &:hover
-                border-bottom none
             &:focus
-                border none
+                border-color transparent 
                 background transparent  
         &:before
             content ''
             position absolute
             left 0px
-            top 7px
+            top 1px
             sprite($user_main)
             box-shadow 2px 1px 0 6px #fff
     .dropdown.open 
         >.btn
             color blue_select
-            background-color transparent
+            background-color transparent 
     .dropdown-menu>li>a
         color blue_select
         &:hover

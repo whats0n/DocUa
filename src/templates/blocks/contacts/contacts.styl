@@ -7,7 +7,9 @@
     color #fff
     overflow hidden 
     @media only screen and (max-width: 1024px)
-        width 37%     
+        width 37%       
+    @media only screen and (max-width: 980px)
+        width 25%
     @media only screen and (max-width: 768px)
         width 33% 
     a
@@ -78,6 +80,8 @@
             padding-bottom 2% 
             font-size 17px
             font-weight normal
+            @media only screen and (max-width: 980px)
+                padding-left 15% 
             @media only screen and (max-width: 768px)
                 padding-left 12% 
             &:after
@@ -114,25 +118,28 @@
             display inline-block  
             vertical-align top 
             font-size 16px
-            color #dde8ea
-            
+            color #dde8ea 
             &:after
                 content ""
                 position absolute
                 top 0
                 left -24px
+                @media only screen and (max-width 980px)
+                    left -25px
+
             &.callback_phone
                 &:after
                     sprite($footer_calllback)
             &.callback_pen
                 &:after
                     sprite($footer_review)
-        @media only screen and (max-width: 768px)
+        @media only screen and (max-width: 980px)
             width 100%
             margin-bottom  10px 
             a
                 margin-left 25px 
-                
+
+
 .contacts
     @media phone
         position relative
@@ -173,7 +180,7 @@
             margin 0 
             margin-bottom 25px 
             a
-                margin-left 20px 
+                margin-left 25px 
                 font-size 14px
             &.first-example
                 margin-right 4% 
@@ -207,7 +214,7 @@
         .contacts-wrap
             display none
             padding 0 20px 
-        span.tab__header_open
+        .contacts__tab.tab__header_open
             background rgba(0,87,109,.55)
             color #FFF 
             font-weight bold   
