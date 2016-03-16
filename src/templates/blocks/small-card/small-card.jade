@@ -31,10 +31,10 @@ article
                         span 320 грн
                     a(class="btn btn-sm btn-primary pull-right") Записаться на прием
     else
-        +e.left-side.hidden-xs
-            +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+        +e.left-side
+            +b.rating.hidden-xs(class=ratingColorBlack): +i({ value: card.averageRating })
 
-            +e.testimonials(class=testimonialsClass)
+            +e.testimonials.hidden-xs(class=testimonialsClass)
                 a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
                     span.count= item.testimonialsCount
                     |  отзывов

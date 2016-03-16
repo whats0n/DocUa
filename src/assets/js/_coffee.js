@@ -3569,7 +3569,7 @@ docMaps = {
           tpl = '<li class="short-list__item"> <div class="male short-list__image"><img src="' + 'https://' + docMaps.domain + d.image + '" alt=""> </div>' + '<div class="short-list__item-content"><a href="/doctor-consultation.html" title="' + d.name + '" class="short-list__title">' + d.name + '</a>' + '<div class="short-list__label">' + d.specialty + '</div> <div class="rating"> <div class="rating__stars"> <div class="rating__stars-bg"> </div> <div style="width: ' + d.rating * 20 + '%;" class="rating__stars-overlay"> </div> </div> <div class="rating__value value">' + d.rating + ' </div> </div> </div> </li>';
           $('.short-list__items').append(tpl);
         }
-        return docMaps.scrollInit();
+        return $('.short-list__items-wrapper').scrollInit();
       }
     });
   },
@@ -3612,7 +3612,7 @@ docMaps = {
         $('.widget-map').css({
           position: 'fixed'
         }, $('.widget-map').width($('.widget-map').parent('aside').width()));
-        if ($(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 80) {
+        if ($(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 120) {
           docMaps.canAnimateTop = true;
           $('aside').height($('aside').prev().height());
           $('.widget-map').css({
@@ -3674,7 +3674,7 @@ docMaps = {
             addInfo.active = false;
           }
           addInfo.name = this.allItemsList[clinicIndex].name;
-          addInfo.id = clinics[clinicIndex].id;
+          addInfo.id = diagnost[clinicIndex].id;
           addInfo.image = this.allItemsList[clinicIndex].image;
           if (this.allItemsList[clinicIndex].affilates) {
             if (affilateIndex === -1) {
@@ -3713,7 +3713,6 @@ docMaps = {
                 addInfo: addInfo,
                 position: results[0].geometry.location
               });
-              console.log(marker);
               docMaps.markersList.push(marker);
               docMaps.listeners.marker(marker, docMaps.map);
               if (addInfo.active) {
@@ -3765,7 +3764,7 @@ docMaps = {
     marker.setIcon(docMaps.icon2);
     docMaps.fitMap([marker], map);
     if (marker.addInfo.affilate) {
-      if (docMaps.pageName === 'diagnostList') {
+      if (docMaps.pageName === 'clinics') {
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").offset().top;
       } else {
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").closest('.card').offset().top;
@@ -3857,7 +3856,7 @@ docMaps = {
         var index, list;
         if (docMaps.cardId !== $(this).data('id') && docMaps.markersList.length > 0) {
           docMaps.resetMarkers();
-          if (docMaps.pageName === 'diagnosticList') {
+          if (docMaps.pageName === 'diagnostList') {
             if ($(this).find('.card-services').length > 0) {
               index = docMaps.findMarker('id', $(this).find('.card-services').eq(0).data('id'));
             } else {

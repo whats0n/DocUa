@@ -884,7 +884,7 @@ mixin modal(name, classes, dialogClasses)
     .modal-header
         button.close.close-special(aria-hidden="true", data-dismiss="modal", type="button")
         .modal-title Выберите специальность врача
-    .modal-body.body-branch
+    .body-branch
         ul.alphabet-list.columnize(data-columns="4", data-min-column-width="0", data-adaptive-column-count="true")
             //- li.alphabet-list__item.alphabet-list__item_all
             //-     a(href="", title="Показать всех врачей")
@@ -925,7 +925,7 @@ mixin modal(name, classes, dialogClasses)
                 - selectAreaClasses = 'select-area_location_kharkiv'
                 - metroMapClasses = 'metro-map_kharkiv' 
             #select-area-districts2.tab-pane.active(class=selectAreaClasses)
-                ul.districts-check-list.district-list__mod.columnize(data-columns="5", data-min-column-width="0", data-adaptive-column-count="true")
+                ul.districts-check-list.district-list__other.columnize(data-columns="5", data-min-column-width="0", data-adaptive-column-count="true")
                     each district in districtsList
                         li.pill-group
                             label.pill.with-icon

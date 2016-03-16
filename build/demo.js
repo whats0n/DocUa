@@ -157,7 +157,7 @@ doctors = [
 
 diagnost = [
     {
-        id: "d",
+        id: "d1",
         name: "Днепролаб на м. Осокорки",
         address: "пр. Петра Григоренка, 13 б",
         rating: 4.2,
@@ -165,13 +165,12 @@ diagnost = [
         image: "/i/_alexandriyskiy-constantin.jpg",
     },
     {
-        id: "d",
+        id: "d2",
         name: "Днепролаб на м. Осокорки2",
         address: "Набережно луговая 8",
         rating: 3.8,
         specialty: "Косметолог",
         image: "/i/_alexandriyskiy-constantin.jpg",
-        
     }
      
 ]
@@ -215,7 +214,6 @@ if (subUrl === 'map.html') {
 if (subUrl === 'doctors.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(doctors, 'doctors', 'Киев', 'vrachi.dev.doc.ua'));
 
-
 if (subUrl === 'diagnostic-list.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(diagnost, 'diagnostList', 'Киев', 'vrachi.dev.doc.ua'));
 
@@ -227,8 +225,6 @@ if (subUrl === 'action.html')
 
 if (subUrl === 'action-about.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(actions, 'actionAbout', 'Киев', 'vrachi.dev.doc.ua'));
-
-
 
 if (subUrl === 'doctor-consultation.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(doctors[0].affilates, 'doctorInner', 'Киев', 'vrachi.dev.doc.ua'));

@@ -126,9 +126,11 @@
             font-size 24px 
             line-height 1.4 !important
             @media phone_tablet
-                font-size 18px !important
+                font-size 18px 
             @media screen560
                 margin-top 7px !important
+            @media only screen and (max-width: 400px)
+                font-size 16px
         .h3
             font-weight: 700 
         a
@@ -237,7 +239,9 @@
         border 1px dashed text_blue
         border-radius border_radius_sm
         @media screen560
-            margin-right: 15px
+            font-size 11px
+            padding 10px 5px
+            // margin-right: 15px
         &:before
             content ''
             position absolute
@@ -260,6 +264,9 @@
             .right
                 float left
                 width 70px
+                @media screen560
+                    float right
+                    width auto
     @media screen560
         &__right-side
             .right-side-rating
@@ -290,8 +297,11 @@
             // float none
             min-height 150px 
             width: 156px
+            margin-right 20px
         @media only screen and (max-width: 480px)
-            width 130px 
+            width 130px
+        @media only screen and (max-width: 400px)
+            margin-right 10px 
             // .rating
             //     position absolute
             //     right 10px
@@ -333,16 +343,16 @@
             padding-left 0
     &__title
         display block
-        @media phone
-            float right
-            display inline-block
-            width 100%
-        @media only screen and (max-width: 320px)
-            width 51% 
-            .h3
-                font-size 16px !important
-        @media only screen and (max-width: 480px)
-            width 58% 
+        // @media phone
+        //     float right
+        //     display inline-block
+        //     width 100%
+        // @media only screen and (max-width: 320px)
+        //     width 51% 
+        //     .h3
+        //         font-size 16px !important
+        // @media only screen and (max-width: 480px)
+        //     width 58% 
     &__image
         width 140px
         margin 3px 0 15px
@@ -387,16 +397,16 @@
         margin-top 4px
         @media tablet
             margin-top: 1px
-    &__label-description
-        // margin-bottom 10px
-        @media phone 
-            float right
-            display inline-block
-            width 100%
-        @media only screen and (max-width: 320px)
-            width 51% 
-        @media only screen and (max-width: 480px)
-            width 58% 
+    // &__label-description
+    //     // margin-bottom 10px
+    //     @media phone 
+    //         float right
+    //         display inline-block
+    //         width 100%
+    //     @media only screen and (max-width: 320px)
+    //         width 51% 
+    //     @media only screen and (max-width: 480px)
+    //         width 58% 
     &__address, &__location, &__metro
         float left
         position relative
@@ -484,6 +494,8 @@
                 margin-left 0
     hr
         margin 5px -4px 5px
+        border none
+        background url('i/icons/dashed.png') left bottom repeat-x
         @media screen560
             clear: both
     .address-info 
