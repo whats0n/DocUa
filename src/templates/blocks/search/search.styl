@@ -8,38 +8,55 @@
     background-repeat no-repeat 
     background-position 50% 50%
     transition all .2s ease-in-out
+    border 1px solid  transparent
     
     .is-search-open
         .search__field
             display block
-        .search__field
+    .is-search-active
+        .search__button
+            border 1px solid transparent
+            &:hover
+                border-color #00829b
+                border-left-color transparent
+                &:before
+                    content ""
+                    position absolute
+                    top -1px
+                    left -1px
+                    width 1px 
+                    height 1px
+                    background-color #00829b
             &:active
-                border-left 1px solid #d9ecf0 
+                border 1px solid transparent
                 border-right 1px solid #d9ecf0 
-
 
     &:hover
         background-color #f5fafa
     &__field
         position absolute
         display none
-        width 410px 
-        top 0
-        right 0 
+        width 445px 
+        top -1px
+        right -1px
         height auto
-        padding 0 50px 0 25px
+        padding 0 50px 0 20px
         color lighten(text_color, 26%)
         font-size 16px 
-        line-height 3
+        line-height 2.9 
         background #fff
         // transition opacity 0.2s ease
         border none
         z-index 6
         box-shadow none
+        border 1px solid transparent
         border-left 1px solid #d9ecf0 
         border-right 1px solid #d9ecf0 
-        &:focus
-            box-shadow none        
+        &:focus, &:active
+            box-shadow none
+            border-left 1px solid #00829b
+            border-top 1px solid #00829b
+            border-right 1px solid #00829b
         &::-webkit-input-placeholder
             color #91b5bc
         @media phone
@@ -47,11 +64,11 @@
     &__button
         position absolute
         display block
-        top 0
-        right 0  
+        top -1px
+        right -1px
         width 50px 
         height 48px 
-        padding 24px 25px 
+        padding 22px 24px 
         border 0 none
         transition opacity 0.2s ease 
         background none
@@ -60,10 +77,25 @@
         background-position 50% 50% 
         outline none
         transition all .2s ease-in-out
+        box-sizing border-box 
         z-index 6 
+        border 1px solid transparent
+        border-right 1px solid #d9ecf0 
         &:hover
             background-color #f5fafa
+        // &:after
+        //     content ""
+        //     position absolute
+        //     top 0
+        //     right -1px 
+        //     height 100% 
+        //     width 1px 
+        //     background-color transparent
+        //     transition all .2s ease-in-out
+            // &:after
+            //     background-color #d9ecf0
+
 .header__nav-right
     .search
         &__field
-            border-radius 0
+            border-radius 0 

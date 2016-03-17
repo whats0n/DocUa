@@ -1,14 +1,85 @@
 $post_hor_padding = 14px
 
+.index-list
+    font-size 0
+    &__item
+        display inline-block
+        vertical-align top 
+        width 100%
+        @media only screen and (max-width: 980px)
+            width 96% 
+        @media phone
+            width 100% 
+            text-align center
+.owl_action:not([class="owl-wrapper-outer"])
+    text-align center
+    
+.post-thin
+    .owl
+        list-style none
+        position relative
+        padding 0 
+        // transition all .2s ease-in-out
+        &-controls
+            position relative 
+            display inline-block
+            vertical-align top 
+        &-prev
+        &-next
+            top 6px
+        &-prev
+            left -25px
+            sprite($owl_prev2)
+            &:hover
+                sprite($owl_prev_act2)
+        &-next
+            right -25px
+            sprite($owl_next2)
+            &:hover
+                sprite($owl_next_act2)
+        &-item
+            position relative
+            display inline-block
+            vertical-align top 
+            padding-right 10px
+            @media phone
+                padding-right 0
+            &.current
+                background #fff9e9 + 10%
+        .owl-wrapper-outer
+            text-align center
+        
+        &-pagination
+            margin-bottom 30px
+            text-align center
+        &-page
+            display inline-block
+            vertical-align top 
+            width 15px 
+            height 15px 
+            margin-right 8px
+            border-radius 50%
+            background-color #00829b
+            opacity 0.29
+            &:last-child
+                margin-right 0 
+            &.active
+                opacity 1
 .post3
     position relative
+    display inline-block
+    vertical-align top
     max-width 565px 
-    // width 100% 
+    width 100% 
     height 188px
     margin-bottom 25px
     background transparent
     font-size 0
     overflow hidden 
+    &:hover
+        .post3__link 
+            border-bottom none
+            color blue_select  
     @media only screen and (max-width:768px)
         margin 0 auto 
         margin-bottom 25px 
@@ -23,12 +94,10 @@ $post_hor_padding = 14px
         overflow hidden 
         padding 9% 14px 0 30px
         z-index 2
-        &:hover
-            .post3__link 
-                border-bottom none
-                color blue_select  
-        @media screen560
-            height auto
+        text-align left
+        @media phone
+            padding 11% 14px 0 14px 
+        
     &__thumb
         position relative
         display inline-block
@@ -44,12 +113,15 @@ $post_hor_padding = 14px
         display inline-block
         vertical-align top
         margin-bottom 10px 
+        @media phone
+            margin-bottom 20px 
     &__link 
         font-size 20px 
         font-weight bold
         color blue_base 
         border-bottom 1px solid blue_base
         text-decoration none
+        transition all .2s ease-in-out
     &__sticker 
         position absolute
         top 0
@@ -95,6 +167,9 @@ $post_hor_padding = 14px
             width 100%
             &-old + &-value
                 float right
+                @media only screen and (max-width: 320px)
+                    float none 
+                    margin-left 0 
             &-old
                 float left
                 line-height 1.3       
@@ -105,6 +180,9 @@ $post_hor_padding = 14px
             font-size 28px
             line-height 1 
             color text_color 
+            @media phone
+                font-size 26px
+
         &-old + &-value
             margin-top 0
             display inline
@@ -114,6 +192,10 @@ $post_hor_padding = 14px
             font-size 23px
             line-height 1
             text-decoration line-through
+            @media phone
+                font-size 20px
+            @media only screen and (max-width: 320px)
+                margin-bottom 10px 
 .main-more-link
     position relative
     padding-right 35px

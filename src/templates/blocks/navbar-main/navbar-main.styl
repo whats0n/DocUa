@@ -22,7 +22,7 @@
         float left  
         position relative
         display inline-block
-        vertical-align baseline 
+        vertical-align middle 
         max-width 185px 
         width 100% 
         margin-right 10px !important
@@ -38,7 +38,7 @@
             position absolute
             vertical-align baseline 
             sprite($locat)
-            bottom 3px
+            bottom 0px
     .select7
         &__caret
             margin-left 8px
@@ -75,12 +75,16 @@
     .navbar-toggle
         .icon-bar + .icon-bar
             margin-top: 4px
-            
+    .navbar-toggle
+        &:hover, &:focus
+            .icon-bar 
+                background-color: #95d8e5
+
 .navbar-main_none
     display none
 
 .navbar-main.navbar-main_inner
-    padding-top 8px 
+    padding-top 10px 
     text-align right
     background-color white
     border none
@@ -106,7 +110,22 @@
         margin 10px 0px 0 0
         height 37px 
         padding 0px 15px
+    .mobile-menu
+        @media only screen and (max-width: 480px)
+            padding 15px 0        
+        @media only screen and (max-width: 320px)
+            padding 30px 0
     @media phone 
         .search-result .livesearch.top-list
             max-width 706px 
             width 100%
+            
+.navbar-fixed-top
+    &.navbar-main
+        border-bottom 1px solid #e5f2f5
+    .navbar-header
+        margin-top 4px 
+    .phones
+        margin-top 5px
+    .favorites-link, .user-panel
+        margin-top 2px
