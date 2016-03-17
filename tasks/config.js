@@ -26,8 +26,6 @@ module.exports = {
         './src/stylus/1_doc.styl',
         './src/stylus/partners-branding/index.styl',
         './src/templates/blocks/**/*.styl',
-        './src/assets/vendor/popups/main.css',
-        './src/assets/vendor/popups/media-queries.css',
         // '!./src/templates/blocks/cabinet/cabinet.styl',
         // '!./src/templates/blocks/doctor-profile/doctor-profile.styl',
         // '!./src/templates/blocks/issue/issue.styl',
@@ -49,6 +47,8 @@ module.exports = {
         './src/assets/vendor/pickadate/themes/classic.time.css',
         './src/assets/vendor/jscrollpane/jquery.jscrollpane.css',
         './src/assets/css/_stylus.css',
+        './src/assets/vendor/popups/main.css', 
+        './src/assets/vendor/popups/media-queries.css', 
     ],
     partnersCssList: [
         './src/assets/css/partners-branding/*.css',
@@ -101,6 +101,9 @@ module.exports = {
         "./src/assets/vendor/daterangepicker/daterangepicker.js",
         "./src/assets/vendor/clamp/clamp.js",
         "./src/assets/vendor/dotdotdot/jquery.dotdotdot.js",
+        './src/assets/vendor/popups/main.js',
+        './src/assets/vendor/popups/plugins.js',
+        // './src/assets/vendor/popups/popup_overlay.js',
         "./src/assets/js/_coffee.js"
     ],
     checkerList: [

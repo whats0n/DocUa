@@ -1008,115 +1008,90 @@ mixin modal(name, classes, dialogClasses)
                         button.btn.btn-primary.btn-block.btn-xs-block(type="button") Завершить регистрацию
         h3 Для чего нужно выбирать E-mail?
         p.ocean-blue.offset-0.modals-text Основной e-mail даст Вам возможность получать регулярные оповещения о данных приема, напоминание о приеме и возможность оставлять отзывы о врачах, клиниках.
-.modals-other
-    +modal("request-dialog")
-    
-        .modals
-            .modal-dialog
-                .modal-content
-                    form(action='#')
-                        .modal-left-side
-                            .side-section.modal-header
-                                img.logo(src='i/popups/popup-logo.png', alt='')
-                                h2 Запись на прием в клинику
-                                .modal-icon.record_icon.record_icon-clinica
-                                .close-popup.js-close-window
-                            .side-section
-                                .modal-icon.icon-clinic
-                                .side-section-main
-                                    .side-section-header.section__radio
-                                        h3 Выберите филиал 
-                                        .section-form
-                                        .section-form__inner
-                                        form
-                                            input#radio1.modal-radio(type='radio', name='clinica')
-                                            label.this-text1(for='radio1')
-                                                | Добробут «Стационар для  взрослых» 
-                                                span.radio-text_hide1  Поликлиника для взрослых
-                                            input#radio2.modal-radio(type='radio', name='clinica')
-                                            label.this-text2(for='radio2')
-                                                | Добробут «Поликлиника для взрослых на Левом берегу. 
-                                                span.radio-text_hide2 Поликлиника для взрослых на»
-                                            input#radio3.modal-radio(type='radio', name='clinica')
-                                            label.this-text3(for='radio3')
-                                                | Добробут «Стационар для  взрослых» 
-                                                span.radio-text_hide3 Поликлиника для взрослых
-                                            input#radio3.modal-radio(type='radio', name='clinica')
-                                            label(for='radio3')
-                                                | Добробут «Стационар для  взрослых» 
-                                                span.radio-text_hide4 Поликлиника для взрослых
-                                            input#radio3.modal-radio(type='radio', name='clinica')
-                                            label.this-text3(for='radio3')
-                                                | Добробут «Стационар для  взрослых» 
-                                                span.radio-text_hide3 Поликлиника для взрослых
-                            .side-section
-                                .modal-icon.icon-location
-                                .side-section-main
-                                    .side-section-header
-                                        h3 ул. Раисы Окипной, 8б, 4-й этаж (м. Левобережная)
-                            .side-section.js-doctor-text
-                                .modal-icon.icon-doc
-                                .side-section-main
-                                    .side-section-header.input-validatiom
-                                        h3 Специализация врача
-                                        a.input-validation__border.btn-validation__border.modal-button.btn-border.btn-full.js-btn-text(href='#', data-dialog='#specialization') Выберете специальность
-                                        .input-validation__message.btn-validation__message Cпециальность не выбрана
-                                        .side-section__main
-                                            .side-section_item.section-doctors
-                                                span
-                                    .side-section-content
-                                        .side-section-content-inner
-                        .modal-right-side
-                            .modal-right-content
-                                .content-order_footer.mobile-border
-                                .modal-icon.clients_icon
-                                h3.js-btn-info Информация о пациенте
-                                .tab-close
-                                .mobile-border.border-new.js-content-hide
-                                .row.row-none.js-content-hide.line-pad
-                                    .col-sm-6.col-sm_none
-                                        .row.row-none
-                                            .col-sm-12.col-sm_none
-                                                .input-validatiom
-                                                    input.modal-form-input.input-validation__border(type='text', placeholder='Имя, фамилия*')
-                                                    .input-validation__message Заполните поле Имя, фамилия
-                                        .row.row-none
-                                            .col-sm-12.col-sm_none
-                                                input.modal-form-input.phone-input-mask(type='tel', placeholder='Телефон*')
-                                        .row.row-none.margin-bottom-0
-                                            .col-sm-12.col-sm_none
-                                                input.modal-form-input(type='text', placeholder='E-mail')
-                                    .col-sm-6.col-sm_none
-                                        textarea.modal-form-input(name='', id='', cols='30', rows='10', placeholder='Комментарий')
-                                span.js-content-hide
+
+   
++modal("request-dialog")
+    .modal-other__wrap
+                form(action='#')
+                    .modal-left-side
+                        .side-section.modal-header
+                            img.logo(src='i/popups/popup-logo.png', alt='')
+                            h2 Запись на прием в клинику
+                            .modal-icon.record_icon.record_icon-clinica
+                            .close-popup.js-close-window
+                        .side-section
+                            .modal-icon.icon-clinic
+                            .side-section-main
+                                .side-section-header
+                                    h3
+                                        | Савмед, клиника
+                                        | ортопедо-травматологии
+                                        | и вертебрологии (Дневной
+                                        | стационар болезней
+                                        | позвоночника и суставов)
+                        .side-section
+                            .modal-icon.icon-location
+                            .side-section-main
+                                .side-section-header
+                                    h3 ул. Раисы Окипной, 8б, 4-й этаж (м. Левобережная)
+                        .side-section.js-doctor-text
+                            .modal-icon.icon-doc
+                            .side-section-main
+                                .side-section-header
+                                    h3 Специализация врача
+                                    a.modal-button.btn-border.btn-full.js-btn-text(href='#', data-dialog='#specialization') Измените специальность
+                                    .side-section__main
+                                        .side-section_item.section-doctors
+                                .side-section-content
+                                    .side-section-content-inner
+                    .modal-right-side
+                        .modal-right-content
+                            .content-order_footer.mobile-border
+                              .modal-icon.clients_icon
+                              h3.js-btn-info Информация о пациенте
+                              .tab-close
+                              .mobile-border.border-new.js-content-hide
+                              .row.row-none.js-content-hide.line-pad
+                                .col-sm-6.col-sm_none
+                                  .row.row-none
+                                    .col-sm-12.col-sm_none
+                                      input.modal-form-input(type='text', placeholder='Имя, фамилия*')
+                                  .row.row-none
+                                    .col-sm-12.col-sm_none
+                                      input.modal-form-input.phone-input-mask(type='tel', placeholder='Телефон*')
+                                  .row.row-none.margin-bottom-0
+                                    .col-sm-12.col-sm_none
+                                      input.modal-form-input(type='text', placeholder='E-mail')
+                                .col-sm-6.col-sm_none
+                                  textarea.modal-form-input(name='', id='', cols='30', rows='10', placeholder='Комментарий')
+                              span.js-content-hide
                                 input#checkbox-1.modal-checkbox(type='checkbox', name='')
                                 label(for='checkbox-1') Врач для ребенка
                                 input#checkbox-2.modal-checkbox(type='checkbox', name='', checked='checked')
                                 label(for='checkbox-2') Выезд на дом
-                                .line
-                                .row.row-none
-                                    .col-sm-6.col-sm_none
-                                        .modal-right-header.mobile-border
-                                            .modal-icon.icon-calendar
-                                                h3.js-btn-cal Желаемая дата приема
-                                                .tab-close__calendar
-                                        .modal-calendar.input-validatiom.input-validation__border.input-validation__border-date
-                                            input#modal-calendar(type='text', name='', aria-haspopup='false')
-                                            .input-validation__message.input-validation__date Выберете дату
-                                    .col-sm-6.mobile-head.col-sm_none
-                                        .modal-right-header.mobile-border
-                                            .modal-icon.icon-clock
-                                            h3.js-btn-time Желаемое время приема
-                                            .tab-close__time
-                                        .modal-time.input-validatiom.input-validation__border.input-validation__border-time
-                                            table.modal-time-header
-                                                tr
-                                                    th
-                                                        a(href='#', data-group='1') Утро
-                                                    th
-                                                        a(href='#', data-group='2') Обед
-                                                    th
-                                                        a(href='#', data-group='3') Вечер
+                            .line
+                            .row.row-none
+                                .col-sm-6.col-sm_none
+                                    .modal-right-header.mobile-border
+                                        .modal-icon.icon-calendar
+                                        h3.js-btn-cal Желаемая дата приема
+                                        .tab-close__calendar
+                                    .modal-calendar
+                                        input#modal-calendar(type='text', name='', aria-haspopup='false')
+                                .col-sm-6.mobile-head.col-sm_none
+                                    .modal-right-header.mobile-border
+                                        .modal-icon.icon-clock
+                                        h3.js-btn-time Желаемое время приема
+                                        .tab-close__time
+                                    .modal-time
+                                        table.modal-time-header
+                                          tr
+                                            th
+                                                a(href='#', data-group='1') Утро
+                                            th
+                                                a(href='#', data-group='2') Обед
+                                            th
+                                                a(href='#', data-group='3') Вечер
                                         .modal-time-groups
                                             .modal-time-cell
                                                 input#time-0700.modal-checkbox(type='checkbox', name='time', value='7am', data-group-id='1')
@@ -1170,169 +1145,168 @@ mixin modal(name, classes, dialogClasses)
                                         .modal-time-footer
                                             input#checkbox-3.modal-checkbox.free-time(type='checkbox', name='')
                                             label(for='checkbox-3') время неважно
-                                        .input-validation__message.input-validation__time Выберете время
-                              .modal-form-footer
+                            .modal-form-footer
                                 .row.row-none
                                     .col-sm-6.col-sm_none
                                         p
                                             | Отправляя заявку, вы принимаете
-                                        br
-                                        a(href='#') правила работы сервиса
+                                            br
+                                            a(href='#') правила работы сервиса
                                             | .
                                     .col-sm-6.col-sm_none
                                         button.modal-button.btn-full.btn-green.btn-large Отправить заявку
                         #dialog-window.window-doctors(data-block='js-doctor-text')
-                          .dialog-close
-                          .dialog-window-content
-                            .select-specialization
-                              .col-1-3
-                                h3.letter-title A
-                                ul
-                                  li.list-item
-                                    input(type='radio', name='radio-var', id='')
-                                    label(for='', data-name='gineco') Акушер-гинеколог!
-                                  li.list-item
-                                    input(type='radio', name='radio-var', id='')
-                                    label(for='', data-name='allergo') Аллерголог
-                                  li.list-item
-                                    input#radio-3(type='radio', name='radio-var')
-                                    label(for='radio-3', data-name='andro') Андролог
-                                  li.list-item
-                                    input#radio-4(type='radio', name='radio-var')
-                                    label(for='radio-4', data-name='reanim') Анестезиолог-реаниматолог
-                                h3.letter-title B
-                                ul
-                                  li.list-item
-                                    input#radio-5(type='radio', name='')
-                                    label(for='radio-5', data-name='vener') Венеролог
-                                  li.list-item
-                                    input#radio-6(type='radio', name='')
-                                    label(for='radio-6', data-name='sdsd') Венеролог
-                                  li.list-item
-                                    input#radio-7(type='radio', name='')
-                                    label(for='radio-7', data-name='sddf') Венеролог
-                                  li.list-item
-                                    input#radio-8(type='radio', name='')
-                                    label(for='radio-8', data-name='dsfsd') Венеролог
-                                  li.list-item
-                                    input#radio-9(type='radio', name='')
-                                    label(for='radio-9', data-name='weww') Венеролог
-                                  li.list-item
-                                    input#radio-10(type='radio', name='')
-                                    label(for='radio-10', data-name='adasa') Венеролог
-                                  li.list-item
-                                    input#radio-11(type='radio', name='')
-                                    label(for='radio-11', data-name='wewe') Венеролог
-                                  li.list-item
-                                    input#radio-12(type='radio', name='')
-                                    label(for='radio-12', data-name='sfdd') Венеролог
-                              .col-1-3
-                                h3.letter-title A
-                                ul
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='ginekilog') Акушер-гинеколог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='allegrol') Аллерголог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='androlog') Андролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='reanimatol') Анестезиолог-реаниматолог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='ginekolog') Акушер-гинеколог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='allegrol') Аллерголог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='allegrol1') Андролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='anesteziolog') Анестезиолог-реаниматолог
-                                h3.letter-title B
-                                ul
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='venerolog') Венеролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='vertebrolog') Вертебролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='veneros') Венеролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='vertebro') Вертебролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='veneroza') Венеролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='verteb') Вертебролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='venerolog4') Венеролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='vertr') Вертебролог
-                              .col-1-3
-                                h3.letter-title B
-                                ul
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='vwnwrol2') Венеролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='vertebrolog2') Вертебролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='allegrolww') Венеролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='vertew2') Вертебролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='venerol3') Венеролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='verteeebllog') Вертебролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='vene') Венеролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='verteb2') Вертебролог
-                                h3.letter-title A
-                                ul
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='akysher') Акушер-гинеколог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='allegrol2') Аллерголог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='alndrolog') Андролог
-                                  li.list-item
-                                    input(type='radio', name='', id='')
-                                    label(for='', data-name='aneste') Анестезиолог-реаниматолог
-                          .dialog-footer
-                            a.modal-button.btn-green(href='#', data-apply-select='') Ок
-                            a.modal-button.btn-dark.btn-small(href='#', data-clear-select='') Очистить выбор
-                .hidden
-                  #close-dialog
-                    img(src='i/popups/logo-big.png', alt='', width='301', height='89')
-                    .h1 Вы действительно хотите прервать запись?
-                    .h2
-                      | Если у вас возникли вопросы, 
-                      br
-                      |                     позвоните нам по телефону:
-                      br
-                      |                     (044) 337-07-107 или (067) 123-45-607
-                    img.doc(src='i/popups/doc-image.png', alt='', width='140', height='294')
-                    a.button.close-dialog(href='#') Прервать
-                    a.button.return(href='#') Продолжить
+                            .dialog-close
+                            .dialog-window-content
+                                .select-specialization
+                                    .col-1-3
+                                        h3.letter-title A
+                                        ul
+                                            li.list-item
+                                                input#1(type='radio', name='radio-var')
+                                                label(for='1', data-name='ginekolog') Акушер-гинеколог!
+                                            li.list-item
+                                                input(type='radio', name='radio-var', id='')
+                                                label(for='', data-name='allergo') Аллерголог
+                                            li.list-item
+                                                input(type='radio', name='radio-var', id='')
+                                                label(for='', data-name='angro') Андролог
+                                            li.list-item
+                                                input(type='radio', name='radio-var', id='')
+                                                label(for='', data-name='reanimatol') Анестезиолог-реаниматолог
+                                        h3.letter-title B
+                                        ul
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='venerolog') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='verteb') Вертебролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='venero') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='vertebro') Вертебролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='venerologg') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='veneros') Вертебролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='veneroza') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='vertebrolog') Вертебролог
+                                    .col-1-3
+                                        h3.letter-title A
+                                        ul
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='akysher') Акушер-гинеколог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='aller') Аллерголог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='andrologw') Андролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='anesteziolog') Анестезиолог-реаниматолог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='aks2') Акушер-гинеколог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='allergo') Аллерголог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='androl') Андролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='', data-name='aneste') Анестезиолог-реаниматолог
+                                        h3.letter-title B
+                                        ul
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Вертебролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Вертебролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Вертебролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Вертебролог
+                                    .col-1-3
+                                        h3.letter-title B
+                                        ul
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Вертебролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Вертебролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Вертебролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Венеролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Вертебролог
+                                        h3.letter-title A
+                                        ul
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Акушер-гинеколог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Аллерголог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Андролог
+                                            li.list-item
+                                                input(type='radio', name='', id='')
+                                                label(for='') Анестезиолог-реаниматолог
+                            .dialog-footer
+                                a.modal-button.btn-green(href='#', data-apply-select='') Ок
+                                a.modal-button.btn-dark.btn-small(href='#', data-clear-select='') Очистить выбор
+                    .hidden
+                        #close-dialog
+                            img(src='i/popups/logo-big.png', alt='', width='301', height='89')
+                            .h1 Вы действительно хотите прервать запись?
+                            .h2
+                                | Если у вас возникли вопросы, 
+                                br
+                                |                     позвоните нам по телефону:
+                                br
+                                |                     (044) 337-07-107 или (067) 123-45-607
+                            img.doc(src='i/popups/doc-image.png', alt='', width='140', height='294')
+                            a.button.close-dialog(href='#') Прервать
+                            a.button.return(href='#') Продолжить

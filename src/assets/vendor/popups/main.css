@@ -1,6 +1,6 @@
 .sprites, .modal-icon, .side-section-content .select-list label::before, #modal-calendar_root .picker__nav--prev:before,
 #modal-calendar_root .picker__nav--next:before, #dialog-window .dialog-close, .remove-item {
-  background: url(../img/sprites.png) no-repeat; }
+  background: url("i/popups/sprites.png") no-repeat; }
 
 .checkbox-active {
   width: 16px;
@@ -67,13 +67,13 @@
 .icon-info {
   width: 19px;
   height: 19px;
-  background-image: url(../img/icon-info.png);
+  background-image: url("i/popups/icon-info.png");
   }
 
 .icon-info:hover {
   width: 19px;
   height: 19px;
-  background-image: url(../img/icon-info_hover.png); }
+  background-image: url("i/popups/icon-info_hover.png"); }
 
 .icon-location {
   width: 30px;
@@ -125,34 +125,33 @@
 .modal-icon {
   display: inline-block; }
 
-.modal {
-  background: rgba(8, 90, 106, 0.82); }
-  .modal label {
-    cursor: pointer;
-    margin-bottom: 0; }
-
 
 #request-dialog .modal-dialog {
   max-width: 965px;
-  max-height: 680px;
-  overflow: hidden; }
+  /*width: 100%;*/
+  max-height: 700px;
+  /*overflow: hidden;*/
+   }
 
-.modal-backdrop.in {
-  opacity: 0; }
-
+/*.modal-backdrop.in {
+  opacity: 0; }*/
+.modal-other__wrap .modal-dialog {
+	width: 100%;
+}
 .modal-left-side {
   position: absolute;
   left: 0;
   top: 0px;
   width: 242px;
   height: 100%;
-  border-radius: 5px 0 0 3px;
-  background: url(../img/left-side.jpg) no-repeat; }
+  border-radius: 3px 0 0 3px;
+  background-image: url("i/popups/left-side.jpg");
+  background-size: cover; }
 
-.modal .modal-right-side {
+.modal-right-side {
   padding-left: 242px; }
-  .modal .modal-right-side .row {
-    margin-bottom: 18px; }
+.modal-other__wrap .modal-right-side .row {
+  margin-bottom: 18px; }
 
 .side-section {
   border-bottom: 1px solid #4e7e84;
@@ -160,7 +159,7 @@
   min-height: 70px;
   margin-bottom: -1px; }
 
-.modal-content {
+.modal-other__wrap .modal-content {
   margin-top: 0;
   border-radius: 10px 3px 3px 10px; }
 
@@ -231,7 +230,7 @@ input.modal-form-input {
     cursor: pointer; }
     .modal-checkbox + label::before {
       content: " ";
-      background: url(../img/sprites.png) no-repeat;
+      background: url("i/popups/sprites.png") no-repeat;
       position: absolute;
       left: 0;
       top: 1px;
@@ -256,25 +255,24 @@ input.modal-form-input {
     padding-right: 5px;
     margin-top: 15px;
     margin-left: 40px;
-    /*min-width: 186px;*/
     position: relative;
     cursor: pointer;
     color: #bbe3eb; }
     .modal-radio + label::before {
       content: " ";
-      background: url(../img/radio-input.png) no-repeat;
+      background: url("i/popups/radio-input.png") no-repeat;
       position: absolute;
       left: -32px;
       top: -1px;
       width: 20px;
       height: 20px;}
     .modal-radio:checked + label::before {
-      background: url(../img/radio-input_active.png) no-repeat; }
+      background: url("i/popups/radio-input_active.png") no-repeat; }
     .modal-radio[disabled] + label {
       color: #c9cdce;
       cursor: default; }
     .modal-radio[disabled] + label::before {
-       background: url(../img/radio-input.png) no-repeat; }
+       background: url("i/popups/radio-input.png") no-repeat; }
   .modal-radio + label:hover {
     color: #fff;
   }
@@ -286,8 +284,6 @@ input.modal-form-input {
     display: inline-block;
     transition-duration: 2s;
   }
-
-
 
 .line {
   width: 100%;
@@ -416,7 +412,7 @@ input.modal-form-input {
     right: 0;
     margin: 0; }
 
-/*  CALENDAR  */
+
 #modal-calendar {
   display: none !important; }
 
@@ -709,10 +705,10 @@ input.modal-form-input {
 button.btn-full {
   width: 100%; }
 
-.modal-left-side {
-  background: url(../img/left-side.jpg) no-repeat center; }
+/*.modal-left-side {
+  background-image: url("i/popups/left-side.jpg") no-repeat center; }*/
 
-.modal-header {
+.modal-other__wrap .modal-header {
   text-align: center; }
   .modal-left-side .modal-header {
     padding: 25px 10px 0;
@@ -731,8 +727,7 @@ button.btn-full {
     margin-left: 15px;
     margin-bottom: 7px; }
 
-.side-section .modal-doc-userpick, .side-section
-.modal-icon {
+.side-section .modal-doc-userpick, .side-section .modal-icon {
   float: left; }
   .side-section .modal-doc-userpick + .side-section-main, .side-section
   .modal-icon + .side-section-main {
@@ -788,7 +783,7 @@ button.btn-full {
 .dialog-window__special {
   height: 390px; }
 #dialog-window {
-  background: url(../img/modal.jpg) no-repeat;
+  background: url("i/popups/modal.jpg") no-repeat;
   position: absolute;
   left: 306px;
   top: 20px;
@@ -820,7 +815,7 @@ button.btn-full {
     height: 11px;
     background-position: 0 -42px; }
   #dialog-window .dialog-close:hover {
-    background: url("../img/tooltip-hover.png");
+    background: url("i/popups/tooltip-hover.png");
     width: 11px;
     height: 11px;
   }
@@ -937,7 +932,6 @@ button.btn-full {
    max-height: 0;
 }
 
-
 .letter-title {
   background: #74aab1;
   border-radius: 2px;
@@ -950,49 +944,25 @@ button.btn-full {
   text-align: center;
   font-size: 16px; }
 
-.jspScrollable {
+.modal-other__wrap .jspScrollable {
   padding-right: 5px; }
-.jspVerticalBar {
+.modal-other__wrap .jspVerticalBar {
   left: auto;
   top: 0;
   right: 2px;
   width: 1px; }
-.jspTrack {
+.modal-other__wrap .jspTrack {
   background: #607b80; }
-.jspDrag {
+.modal-other__wrap .jspDrag {
   width: 5px;
   border-radius: 2px;
-  background: #59727a;
-  margin: 0 -2px; }
-.jspCapTop {
+  background: #59727a; }
+.modal-other__wrap .jspCapTop {
   height: 8px;
   display: block; }
-.jspCapBottom {
+.modal-other__wrap .jspCapBottom {
   height: 12px;
   display: block; }
-  /*.jspScrollable .jspContainer::after {
-    content: " ";
-    height: 15px;
-    display: block;
-    position: relative;
-    top: 100%;
-    margin-top: -15px;
-    margin-right: 5px;
-  background: -moz-linear-gradient(top, rgba(32, 124, 202, 0) 65%, #0f494f 100%);*/
-  /* FF3.6+
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(65%, rgba(32, 124, 202, 0)), color-stop(100%, #0f494f));
-  /* Chrome,Safari4+
-  background: -webkit-linear-gradient(top, rgba(32, 124, 202, 0) 65%, #0f494f 100%);
-  /* Chrome10+,Safari5.1+
-  background: -o-linear-gradient(top, rgba(32, 124, 202, 0) 65%, #0f494f 100%);
-  /* Opera 11.10+
-  background: -ms-linear-gradient(top, rgba(32, 124, 202, 0) 65%, #0f494f 100%);
-  /* IE10+
-  background: linear-gradient(to bottom, rgba(32, 124, 202, 0) 65%, #0f494f 100%);
-  /* W3C
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00207cca', endColorstr='#0f494f',GradientType=0 );
-  /* IE6-9  }*/
-
 .remove-item {
   position: absolute;
   right: 4px;
@@ -1108,14 +1078,14 @@ button.btn-full {
 
 .clients_icon {
   display: none;
-  background-image: url(../img/clients_icon.png);
+  background-image: url("i/popups/clients_icon.png");
   width: 25px;
   height: 25px;
   position: absolute;
 }
 .record_icon {
   display: none;
-  background-image: url(../img/record__icon.png);
+  background-image: url("i/popups/record__icon.png");
   width: 28px;
   height: 25px;
   position: absolute;
@@ -1131,7 +1101,7 @@ button.btn-full {
   display: none;
   width: 18px;
   height: 10px;
-  background-image: url(../img/tab-close.png);
+  background-image: url("i/popups/tab-close.png");
   position: absolute;
   right: 20px;
   top: 30px;
@@ -1141,7 +1111,7 @@ button.btn-full {
   display: none;
   width: 18px;
   height: 10px;
-  background-image: url(../img/tab-close.png);
+  background-image: url("i/popups/tab-close.png");
   position: absolute;
   right: -3px;
   top: 7px;
@@ -1151,7 +1121,7 @@ button.btn-full {
   display: none;
   width: 18px;
   height: 10px;
-  background-image: url(../img/tab-close.png);
+  background-image: url("i/popups/tab-close.png");
   position: absolute;
   right: -3px;
   top: 7px;
@@ -1160,7 +1130,7 @@ button.btn-full {
 .tab-active_info {
   width: 18px;
   height: 10px;
-  background-image: url(../img/tab-open.png);
+  background-image: url("i/popups/tab-open.png");
   position: absolute;
   right: 20px;
   top: 30px;
@@ -1169,7 +1139,7 @@ button.btn-full {
 .tab-active_calendar {
   width: 18px;
   height: 10px;
-  background-image: url(../img/tab-open.png);
+  background-image: url("i/popups/tab-open.png");
   position: absolute;
   right: -3px;
   top: 7px;
@@ -1177,13 +1147,13 @@ button.btn-full {
 }
 
 #close-dialog {
-  background: url(../img/finish-bg.jpg) no-repeat;
-  width: 968px;
-  height: 680px;
+  background: url("i/popups/finish-bg.jpg") no-repeat;
+  width: 964px;
+  height: 683px;
   position: absolute;
   left: 50%;
-  top: 20px;
-  margin-left: -484.5px;
+  top: 40px;
+  margin-left: -483px;
   opacity: 0;
   transition: all .3s;
   border-radius: 3px;
@@ -1212,7 +1182,7 @@ button.btn-full {
     text-decoration: none;
     font-weight: bold;
     border-radius: 3px; }
-    #close-dialog .button.close-dialog {
+     #close-dialog .button.close-dialog {
       background: #9edce9; }
       #close-dialog .button.close-dialog:hover {
         background: #9edce9; }
@@ -1229,7 +1199,7 @@ button.btn-full {
   cursor: pointer;
   width: 13px;
   height: 13px;
-  background: url(../img/item-close.png) no-repeat;
+  background: url("i/popups/item-close.png") no-repeat;
 }
 
 .side-section__main{
@@ -1273,7 +1243,7 @@ button.btn-full {
   position: absolute;
   top: 12px;
   right: 0;
-  background-image: url(../img/item-close_hover.png);
+  background-image:  url("i/popups/item-close_hover.png");
 }
 
 .select-specialization .list-item label:hover {
@@ -1312,11 +1282,7 @@ button.btn-full {
   line-height: 1.3;
   border-top: 1px solid #4e7e84;
 }
-/* .side-section_item .list-item__diagnost span::after {
-   content: '...';
-   color: #bbe3eb; */
- 
-}
+
 .item-price {
   position: absolute;
   top: 30px;
@@ -1399,13 +1365,11 @@ button.btn-full {
   height: 21px;
   line-height: 21px;
 }
-
 .section-form__inner {
   margin-top: 10px;
   margin-left: -40px;
   width: 215px;
   height: 200px;
-  /*overflow-x: hidden ;*/
   overflow: auto;
   outline: none; 
 }
@@ -1413,6 +1377,3 @@ button.btn-full {
 
 
 
-}
-
-/*# sourceMappingURL=main.css.map */
