@@ -1935,6 +1935,8 @@ $("#select-area-diagnostics").on("click", "li a", function() {
   return $("#select-area-diagnostics").modal("hide");
 });
 
+
+
 if ($(window).width() < 768) {
   $('.navbar-fixed-top').removeClass('navbar-main_none');
 } else {

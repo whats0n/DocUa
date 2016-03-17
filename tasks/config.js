@@ -26,6 +26,8 @@ module.exports = {
         './src/stylus/1_doc.styl',
         './src/stylus/partners-branding/index.styl',
         './src/templates/blocks/**/*.styl',
+        './src/assets/vendor/popups/main.css',
+        './src/assets/vendor/popups/media-queries.css',
         // '!./src/templates/blocks/cabinet/cabinet.styl',
         // '!./src/templates/blocks/doctor-profile/doctor-profile.styl',
         // '!./src/templates/blocks/issue/issue.styl',
