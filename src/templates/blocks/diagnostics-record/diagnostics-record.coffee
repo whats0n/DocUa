@@ -4,7 +4,7 @@ if window.matchMedia('screen and (max-width: 767px)').matches
 $('.js-tab__header-d').click  ->
   item = $(@).children('.js-content-hide')
   item.slideToggle 'fast'
-  item.toggleClass 'tab-active_info'
+  item.toggleClass 'tab-active_info-index'
   $(@).find('.btn__mobile').toggleClass 'btn__mobile_open'
   $(@).find('.diagnostics-record__item-title').toggleClass 'tab__header_open'  
   #event.stopPropagation();

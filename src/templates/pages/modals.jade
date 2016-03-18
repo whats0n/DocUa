@@ -1,11 +1,11 @@
 //---
   layout: layouts/main
   finder: doctors
-  modals: feedback, callback, doctor-request, clinic-request, diagnostic-request, doc-request-schedule, request-thanks, login, select-area, select-area-diagnostics, select-branch, select-specialization, select-actions, select-services, notification, rating, rating-clinic, info, info-var-2, info-var-3, info-var-4, select-other-spec, select-other-area, password, confirm-number, finishing-registration
-   
-.wrap                                   
-    .breadcrumbs         
-      ol.breadcrumb 
+  modals: feedback, callback, doctor-request, clinic-request, diagnostic-request, doc-request-schedule, request-thanks, login, select-area, select-area-diagnostics, select-branch, select-specialization, select-actions, select-services, notification, rating, rating-clinic, info, info-var-2, info-var-3, info-var-4, select-other-spec, select-other-area, password, confirm-number, finishing-registration, request-dialog, 
+    
+.wrap                                    
+    .breadcrumbs           
+      ol.breadcrumb                        
         li(itemscope='', itemtype='http://data-vocabulary.org/Breadcrumb')
           a(href='/', title='Главная', itemprop='url')
             span(itemprop='title') Главная
@@ -13,8 +13,17 @@
           a(href='modals.html', title='Модальные окна', itemprop='url')
             span(itemprop='title') Модальные окна
     .row 
-      article.col-sm-12          
-        h1 Модальные окна                
+      article.col-sm-12                         
+        h1 Модальные окна     
+        h3 other  
+        ol
+          //- li
+          //-   p 
+          //-     a.btn.btn-success(href='#request-clinic', data-toggle='modal', title='') Clinica 
+          li
+            p  
+              a.btn.btn-success(href='#request-dialog', data-toggle='modal', title='') Zapic_napriom
+
         h3 New           
         ol       
           li     
@@ -23,13 +32,13 @@
             p.small <a href="#feedback" data-toggle="modal">Show feedback</a> 
           li
             p
-              a.btn.btn-default.btn-sm(href='#callback', data-toggle='modal') callback 
+              a.btn.btn-default.btn-sm(href='#callback', data-toggle='modal') callback  
             p.small <a href="#callback" data-toggle="modal">Show callback</a>
-          li
+          li 
             p
               a.btn.btn-default.btn-sm(href='#info-var-2', data-toggle='modal') attention
             p.small <a href="#info-var-2" data-toggle="modal">Show attention</a>
-          li 
+          li  
             p  
               a.btn.btn-default.btn-sm(href='#login', data-toggle='modal') login
             p.small <a href="#login" data-toggle="modal">Show login</a>
@@ -50,10 +59,10 @@
               a.btn.btn-default.btn-sm(href='#select-area', data-toggle='modal') select-area
             p.small <a href="#select-area" class="js-popup-bt" data-toggle="modal">Show select-area</a>
           li              
-            p     
+            p      
               a.btn.btn-default.btn-sm(href='#select-area-diagnostics', data-toggle='modal') select-area-diagnostics
             p.small 
-              | <a href="#select-area-diagnostics" data-toggle="modal">Show select-area-diagnostics</a>  
+              | <a href="#select-area-diagnostics" data-toggle="modal">Show select-area-diagnostics</a>     
           li            
             p 
               a.btn.btn-default.btn-sm(href='#select-specialization', data-toggle='modal') select-specialization
@@ -64,22 +73,24 @@
               a.btn.btn-default.btn-sm(href='#select-other-spec', data-toggle='modal') select-other-spec 
             p.small <a href="#select-other-spec" data-toggle="modal">Show select-other-spec</a>
           li   
-            p 
-              a.btn.btn-default.btn-sm(href='#select-other-area', data-toggle='modal') select-other-area
-            p.small <a href="#select-other-area" class="js-popup-bt" data-toggle="modal">Show select-other-area</a>    
-          li
+            p       
+              a.btn.btn-default.btn-sm(href='#select-other-area', data-toggle='modal') select-other-area 
+            p.small <a href="#select-other-area" class="js-popup-bt" data-toggle="modal">Show select-other-area</a>        
+          li   
             p
               a.btn.btn-default.btn-sm(href='#password', data-toggle='modal') password 
-            p.small <a href="#password" data-toggle="modal">password</a>
-          li
-            p
+            p.small <a href="#password" data-toggle="modal">password</a> 
+          li     
+            p 
               a.btn.btn-default.btn-sm(href='#confirm-number', data-toggle='modal') confirm-number 
             p.small <a href="#confirm-number" data-toggle="modal">confirm-number</a>
-          li
-            p
+          li 
+            p 
               a.btn.btn-default.btn-sm(href='#finishing-registration', data-toggle='modal') finishing-registration
             p.small <a href="#finishing-registration" data-toggle="modal">finishing-registration</a>
-          
+
+        
+
                  
         h3 Old          
         ul

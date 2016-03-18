@@ -39,6 +39,6 @@ $(".post3").each (el) ->
         module = $(@).find('.clamp-js')
 
         [].forEach.call module, (el) ->
-          $clamp el, clamp: '48px'
+          $clamp el, clamp: 3
           return
-        # $clamp module, clamp: 3 
+        # $clamp module, clamp: 3  

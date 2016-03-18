@@ -47,6 +47,8 @@ module.exports = {
         './src/assets/vendor/pickadate/themes/classic.time.css',
         './src/assets/vendor/jscrollpane/jquery.jscrollpane.css',
         './src/assets/css/_stylus.css',
+        './src/assets/vendor/popups/main.css', 
+        './src/assets/vendor/popups/media-queries.css', 
     ],
     partnersCssList: [
         './src/assets/css/partners-branding/*.css',

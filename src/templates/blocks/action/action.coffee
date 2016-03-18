@@ -5,8 +5,8 @@ $("#select-specialization").on "click", "li a", ->
   # $('.direction__btn').empty()
   $('.js-clone span').text(item.text())
   $('.js-clear' ).addClass 'is-active'
-  $('.direction__title').text('Выбрано направление')
-  return $("#select-specialization").modal "hide"
+  $('.direction__title').text('Выбрано направление')  
+  return $("#select-specialization").modal "hide" 
   
 $(".js-clear").on "click", ->
   $(this).siblings("span").text("Выберите направление")
