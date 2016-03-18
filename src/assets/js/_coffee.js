@@ -1322,17 +1322,7 @@ $('.js-services-btn').on('click', function() {
   return false;
 });
 
-$(".blog-list__item").each(function(el) {
-  var module;
-  if ($(this).find('.clamp-js')) {
-    module = $(this).find('.clamp-js');
-    return [].forEach.call(module, function(el) {
-      $clamp(el, {
-        clamp: 2
-      });
-    });
-  }
-});
+
 
 $('.js-add-tel').click(function() {
   $('.add-tel').addClass('is-active');
@@ -1573,7 +1563,7 @@ if (window.matchMedia('screen and (max-width: 767px)').matches) {
 
 $('.js-tab__header-d').click(function() {
   var item;
-  item = $(this).children('.js-content-hide');
+  item = $(this).children('.js-content_hide-index');
   item.slideToggle('fast');
   item.toggleClass('tab-active_info-index');
   $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
@@ -1888,7 +1878,7 @@ if (window.matchMedia('screen and (max-width: 767px)').matches) {
 
 $('.js-tab__header-f').click(function() {
   var item;
-  item = $(this).children('.js-content-hide');
+  item = $(this).children('.js-content_hide-index');
   item.slideToggle('fast');
   item.toggleClass('tab-active_info-index');
   $(this).toggleClass('tab__header_open');
@@ -2335,75 +2325,7 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
-$(".post2").each(function(el) {
-  var module;
-  if ($(this).find('.clamp-js')) {
-    module = $(this).find('.clamp-js');
-    return [].forEach.call(module, function(el) {
-      $clamp(el, {
-        clamp: 3
-      });
-    });
-  }
-});
 
-var postLocationWidthFix;
-
-postLocationWidthFix = function() {
-  return $(".post").each(function() {
-    var locationValueWidth, locationWidth, px;
-    if ($(this).hasClass("post_single")) {
-      if ($(window).width() > 767) {
-        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() - $(this).find(".post__submits").width() - 10;
-        locationValueWidth = locationWidth - 35;
-        px = "px";
-      } else {
-        locationWidth = 'auto';
-        locationValueWidth = 245;
-        px = '';
-      }
-    } else {
-      if (($(window).width() > 979) || ($(window).width() < 768)) {
-        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() + 10;
-        locationValueWidth = locationWidth - 35;
-        px = "px";
-      } else {
-        locationWidth = 'auto';
-        if ($(this).closest(".widget").length) {
-          locationValueWidth = 130;
-        } else {
-          locationValueWidth = 180;
-        }
-        px = '';
-      }
-    }
-    $(this).find(".post__location").attr('style', "width: " + locationWidth + px + " !important");
-    $(this).find(".post__location-title").css({
-      maxWidth: locationValueWidth + "px"
-    });
-    return $(this).find(".select7__current-value").css({
-      maxWidth: locationValueWidth + "px"
-    });
-  });
-};
-
-$(window).resize(postLocationWidthFix);
-
-$(document).on("shown.bs.tab", postLocationWidthFix);
-
-postLocationWidthFix();
-
-$(".post3").each(function(el) {
-  var module;
-  if ($(this).find('.clamp-js')) {
-    module = $(this).find('.clamp-js');
-    return [].forEach.call(module, function(el) {
-      $clamp(el, {
-        clamp: 3
-      });
-    });
-  }
-});
 
 $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {
