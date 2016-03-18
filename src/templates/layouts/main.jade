@@ -37,16 +37,17 @@ body
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
-    nav.navbar.navbar-main.navbar-fixed-top.navbar-main_none
+    nav.navbar.navbar-main.navbar-fixed-top
       .container
         button.navbar-toggle.collapsed.visible-xs
           span.icon-bar
           span.icon-bar
           span.icon-bar
-
+  
         +b.logo: +i({ mobileLogo: true })
 
         +b.navbar-header
+          +e("span").loc-icon.hidden-xs
           +b.location: +i
 
         +b.phones.hidden-xs: +i
@@ -115,14 +116,14 @@ body
 
               +b.search.js-search: +i
 
-    //- if file.indexPage
-    //-   .prarallax-wrap.hidden-xs
+    if file.indexPage
+      .parallax-wrap.hidden-xs
 
     //- Finder
     if file.finder
     .container-fluid.container-finder 
       if file.indexPage || file.main
-        .row.row-finder
+        .row.row-finder.row-finder_main
           .container-bg
           .container
             .wrap
@@ -235,7 +236,7 @@ body
                 +b.blog-block: +i
                 
     //- Footer
-    .container-fluid
+    .container-fluid.container-fluid_footer-bg
       //- SEO
       .flex_container
         .row.about-this

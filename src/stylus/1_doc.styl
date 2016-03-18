@@ -1,7 +1,6 @@
 html
     background red
 html, body
-    background grey_texture
     min-width: 320px
 body
     &.lock
@@ -10,11 +9,14 @@ body
     >.container-fluid //parallax overflow
         position relative
         z-index 2
-        // >.row:not(.row-finder)
-        //     background grey_base
+        >.row:not(.row-finder)
+            background grey_texture
+            // opacity .95 
             // background #E3E8E8 
         &.container-finder
             z-index 3 
+            .row-finder:not(.row-finder_main)
+                background green_texture
         &.container-menu
             z-index 5
             border-top 1px solid #d9ecf0
@@ -63,6 +65,9 @@ ul
               line-height: 24px
               color: #96b8bf
               
+.container-fluid_footer-bg
+    background grey_texture
+    
 .container-menu
     .container
         @media (max-width 1200px)
@@ -74,11 +79,14 @@ ul
     left 0
     right 0
     bottom 0       
-    background-image url("/i/parallax-bg2.jpg")
-    background-repeat no-repeat
-    background-size cover
+    background-image linear-gradient(to top, rgba(3, 33, 39, 0.62) 0%, rgba(3, 33, 39, 0.53) 0%, rgba(5, 44, 51, 0.23) 36%, rgba(7, 51, 60, 0.28) 61%, rgba(9, 62, 72, 0.53) 96%, rgba(9, 63, 73, 0.53) 100%)
     z-index -1 
-.main-container
+    @media phone
+        background-image linear-gradient(to top, rgba(3, 33, 39, 0.62) 0%, rgba(3, 33, 39, 0.53) 0%, rgba(5, 44, 51, 0.23) 36%, rgba(7, 51, 60, 0.28) 61%, rgba(9, 62, 72, 0.53) 96%, rgba(9, 63, 73, 0.53) 100%), url("/i/parallax-bg2.jpg")
+        background-repeat no-repeat
+        background-size cover
+        z-index -1
+.main-container 
     &:before
         content ""
         position absolute
@@ -92,12 +100,12 @@ ul
     @media phone
         position relative
 
-.prarallax-wrap
-    position absolute
+.parallax-wrap
+    position fixed
     left 0
     top 0
     width 100%
-    height 750px
+    height 640px
     @media tablet_desktop
         background url('i/parallax-bg2.jpg') center center no-repeat
         background-size contain

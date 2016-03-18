@@ -31,3 +31,14 @@ postLocationWidthFix = ->
 $(window).resize postLocationWidthFix
 $(document).on "shown.bs.tab", postLocationWidthFix
 postLocationWidthFix()
+
+
+# $clamp module, clamp: 3 
+$(".post2").each (el) ->
+    if $(@).find('.clamp-js')
+        module = $(@).find('.clamp-js')
+
+        [].forEach.call module, (el) ->
+          $clamp el, clamp: 3
+          return
+        # $clamp module, clamp: 3 

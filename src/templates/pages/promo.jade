@@ -1,14 +1,14 @@
 //---
     layout: layouts/main
     title: Акции
-    activeMenuItem: 4
+    activeMenuItem: 3
     finder: actions
     modals: select-area, select-actions
     find_text: акций
     page_name: promo
 
 .row.offers-container 
-   each action, i in actionsData
+   each action, i in actionsData 
       .col-md-3.col-sm-4.col-xs-6
          +b("article").post: +i(action)
  
@@ -18,4 +18,4 @@
             span Показать еще <br> 20 акций
 
     .col-xs-12
-        +b("ul").pagination: +i     
+        +b("ul").pagination: +i      

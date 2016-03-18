@@ -1,10 +1,11 @@
-
-if $(window).width() < 768
-  $('.navbar-fixed-top').removeClass 'navbar-main_none'
-else
-  $(window).scroll ->
-    if $(window).scrollTop() > 150
-      $('.navbar-fixed-top').removeClass 'navbar-main_none'
-    else
-      $('.navbar-fixed-top').addClass 'navbar-main_none'
+$(window).scroll ->
+    if window.matchMedia('screen and (min-width: 768px)').matches
+        if $(window).scrollTop() > 150 
+          $('.navbar-fixed-top').addClass 'navbar-main_slide'
+        else
+          $('.navbar-fixed-top').removeClass 'navbar-main_slide'
+        return
     return
+    
+if window.matchMedia('screen and (max-width: 767px)').matches
+  $('.navbar-fixed-top').addClass 'navbar-main_slide'

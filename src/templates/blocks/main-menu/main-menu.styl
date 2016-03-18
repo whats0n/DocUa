@@ -14,26 +14,31 @@
         height 100%
         position relative 
         vertical-align top 
+        &:last-child
+            a
+                margin-right 0 
         &-link
             position relative
             display block
             height 100%
-            padding 0 33px
+            margin-right 65px
+            // padding 0 33px
             font-size 16px
             line-height 3
             white-space nowrap
             color #5e6e71
             text-transform uppercase
             text-decoration none
+            transition none
             &:before
                 content attr(data)
                 position absolute
                 top 0
-                left 33px
+                left 0
                 font-size 16px
                 color transparent
                 font-weight 700
-                transition all .2s ease-in-out
+                transition all .1s ease-in-out
                 @media only screen and (max-width: 790px)
                     font-size 14px
                     padding 2px 5px 
@@ -47,14 +52,20 @@
                 padding 2px 13px
                 font-size 14px  
             &:hover
+                border-bottom 3px solid green_base 
                 text-decoration none
-                color transparent
-            &:hover:before
                 color blue_base 
-        &:hover
-            border-bottom 3px solid green_base 
+            &:focus
+                border-bottom 3px solid green_base 
+                text-decoration none
+            &:active
+                color transparent 
+            &:active:before
+                color blue_base 
         &.active
-            border-bottom 3px solid green_base 
             a
+                border-bottom 3px solid green_base 
                 color blue_base
                 font-weight 700
+        // &:hover
+        //     border-bottom 3px solid green_base 

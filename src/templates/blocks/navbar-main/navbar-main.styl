@@ -1,9 +1,10 @@
 .navbar-main
-    padding-top 8px 
+    padding 5px 0
+    padding-bottom 4px 
     text-align right
     background-color white
     border none 
-    transition all .2s ease-in-out
+    // transition all .2s ease-in-out
     clearfix()
     @media phone
         border-bottom 2px solid #e5f2f5
@@ -64,24 +65,18 @@
             display none
     .user-panel
         float right
-        
         >div, >a
             float right
-    // @media phone_tablet
-    //     .user-panel
-    //         float left
-    //         margin-right 100px
-    //         margin-top 10px
     .navbar-toggle
         .icon-bar + .icon-bar
             margin-top: 4px
     .navbar-toggle
-        &:hover, &:focus
-            .icon-bar 
-                background-color: #95d8e5
-
-.navbar-main_none
-    display none
+        .icon-bar
+            background-color blue_base
+            .lock &
+                background-color #95d8e5 
+        // .icon-bar:focus
+        //     background-color #95d8e5 
 
 .navbar-main.navbar-main_inner
     padding-top 10px 
@@ -111,21 +106,40 @@
         height 37px 
         padding 0px 15px
     .mobile-menu
-        @media only screen and (max-width: 480px)
+        @media only screen and (max-height: 320px)
             padding 15px 0        
-        @media only screen and (max-width: 320px)
+        @media only screen and (min-height: 321px)
             padding 30px 0
     @media phone 
         .search-result .livesearch.top-list
             max-width 706px 
             width 100%
-            
+        
+    
 .navbar-fixed-top
     &.navbar-main
-        border-bottom 1px solid #e5f2f5
+        transition transform .4s
+        transform translateY(-100%)
+        border-bottom 2px solid rgba(62,191,172,0.7) 
+        @media phone
+            transition none
+            border 0
+            padding 6px 0 
+    .logo
+        margin-right 33px
+        @media phone
+            margin-right 8px 
+            &__image
+                margin-right 0 
     .navbar-header
-        margin-top 4px 
+        margin-top 6px 
+        @media phone
+            margin-top 0
     .phones
-        margin-top 5px
+        margin-top 7px
     .favorites-link, .user-panel
-        margin-top 2px
+        margin-top 4px
+
+.navbar-main_slide
+    &.navbar-main
+        transform translateY(0)

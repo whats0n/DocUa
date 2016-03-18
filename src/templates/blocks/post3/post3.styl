@@ -78,7 +78,8 @@ $post_hor_padding = 14px
     overflow hidden 
     &:hover
         .post3__link 
-            border-bottom none
+            text-decoration none
+            // border-bottom none
             color blue_select  
     @media only screen and (max-width:768px)
         margin 0 auto 
@@ -92,11 +93,13 @@ $post_hor_padding = 14px
         border-radius 2px
         border 1px dashed blue_base
         overflow hidden 
-        padding 9% 14px 0 30px
+        padding 9% 14px 20px 30px
         z-index 2
         text-align left
         @media phone
-            padding 11% 14px 0 14px 
+            padding 7% 14px 0
+        @media only screen and (max-width: 320px)
+            padding 11% 14px 0
         
     &__thumb
         position relative
@@ -112,16 +115,16 @@ $post_hor_padding = 14px
     &__title
         display inline-block
         vertical-align top
-        margin-bottom 10px 
         @media phone
-            margin-bottom 20px 
+            margin-top 10px 
     &__link 
         font-size 20px 
         font-weight bold
         color blue_base 
-        border-bottom 1px solid blue_base
-        text-decoration none
+        text-decoration underline
         transition all .2s ease-in-out
+        @media phone
+            font-size 19px
     &__sticker 
         position absolute
         top 0
@@ -156,23 +159,17 @@ $post_hor_padding = 14px
             z-index 5
 
     &__price
+        position absolute
+        bottom 20px
+        left 30px
+        right 14px  
         display inline-block
         vertical-align top
-        // position absolute
-        // bottom 20px
-        // left 18px
-        // right 0
         height 25px 
         @media only screen and (max-width: 1024px)
             width 100%
-            &-old + &-value
-                float right
-                @media only screen and (max-width: 320px)
-                    float none 
-                    margin-left 0 
-            &-old
-                float left
-                line-height 1.3       
+        @media phone
+            left 15px 
         &-value
             display inline-block
             margin-left 15px
@@ -182,7 +179,9 @@ $post_hor_padding = 14px
             color text_color 
             @media phone
                 font-size 26px
-
+            @media only screen and (max-width: 320px)
+                margin-left 10px 
+                font-size 22px
         &-old + &-value
             margin-top 0
             display inline
@@ -195,7 +194,7 @@ $post_hor_padding = 14px
             @media phone
                 font-size 20px
             @media only screen and (max-width: 320px)
-                margin-bottom 10px 
+                font-size 18px
 .main-more-link
     position relative
     padding-right 35px

@@ -1,14 +1,14 @@
 //---
     layout: layouts/main
     title: Диагностические центры Киева
-    activeMenuItem: 0
+    activeMenuItem: 2
     finder: doctors
     modals: select-area, select-branch, clinic-location-map, clinic-request
     page_name: diagnostic-list  
     find_text: клиник 
  
 .row     
-    .col-md-9.col-xs-12                                   
+    .col-md-9.col-xs-12                                    
         h1= file.title
              
     .col-md-9.col-xs-12      
@@ -20,7 +20,7 @@
             option(value="rate_az") по названию (А-Я) 
             option(value="rate_za") по названию (Я-А)           
 .row                  
-    .col-md-9.col-xs-12.promo-container         
+    .col-md-9.col-xs-12.promo-container           
         +b("ul").card-list    
             each diagnost in diagnostList      
                 +b.card.card-services(data-id='d' + diagnost.id): +i({ card: diagnost, location: true})
