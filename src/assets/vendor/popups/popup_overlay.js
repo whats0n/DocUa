@@ -13,7 +13,7 @@
     var zindexvalues = [];
     var lastclicked = [];
     var scrollbarwidth;
-    var bodymarginright = null;
+    var bodymarginright = null; 
     var opensuffix = '_open';
     var closesuffix = '_close';
     var visiblePopupsArray = [];

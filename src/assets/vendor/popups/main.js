@@ -2,7 +2,7 @@
 	$(function(){
 		"use strict";
 
-		function transitionEndEventName() {
+		function transitionEndEventName() { 
 			var i,
 				undefined,
 				el = document.createElement('div'),
@@ -546,7 +546,7 @@
 
 
 		//disrticts select
-		$('dt.list-item').on('click', function(){
+		$('dt.list-item').on('click', function(){ 
 			var this_ = $(this),
 				parents = this_.parents('.select-parents'),
 				list_ = parents.find('.list-item'),

@@ -1579,15 +1579,6 @@ $('.js-tab__header-d').click(function() {
   return false;
 });
 
-$('.js-nav a').on('click', function() {
-  var section;
-  section = $(this).attr('href');
-  $('html, body').animate({
-    scrollTop: $(section).offset().top - 35
-  }, 500);
-  return false;
-});
-
 $.fn.initFavoritesBlock = function() {
   return this.each(function() {
     var favored, favoritesBlockInitialized, ref;
@@ -1609,6 +1600,17 @@ $.fn.initFavoritesBlock = function() {
 };
 
 $(".favorites-block").initFavoritesBlock();
+
+$('.js-nav a').on('click', function() {
+  var section;
+  section = $(this).attr('href');
+  $('html, body').animate({
+    scrollTop: $(section).offset().top - 35
+  }, 500);
+  return false;
+});
+
+
 
 var trim;
 
@@ -1877,8 +1879,6 @@ $('.finder').on('diagnosticSelected', function(t, e) {
   $('.finder [data-target=\'#select-area-diagnostics\'] input[type=\'hidden\']').val(i);
   return $('#select-area-diagnostics').modal('hide');
 });
-
-
 
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
   $('.js-tab__mobile-f').addClass('js-tab__header-f');
