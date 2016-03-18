@@ -101,6 +101,8 @@ module.exports = {
         "./src/assets/vendor/daterangepicker/daterangepicker.js",
         "./src/assets/vendor/clamp/clamp.js",
         "./src/assets/vendor/dotdotdot/jquery.dotdotdot.js",
+        './src/assets/vendor/popups/main.js',
+        './src/assets/vendor/popups/plugins.js',
         "./src/assets/js/_coffee.js"
     ],
     checkerList: [

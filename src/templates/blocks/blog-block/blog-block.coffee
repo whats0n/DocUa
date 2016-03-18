@@ -1,11 +1,11 @@
-# # $clamp module, clamp: 2 
-# $(".blog-list__item").each (el) ->
-#     if $(@).find('.clamp-js')
-#         module = $(@).find('.clamp-js')
+# $clamp module, clamp: 2 
+$(".blog-list__item").each (el) ->
+    if $(@).find('.clamp-js')
+        module = $(@).find('.clamp-js')
 
-#         [].forEach.call module, (el) ->
-#           $clamp el, clamp: 2
-#           return
+        [].forEach.call module, (el) ->
+          $clamp el, clamp: 2
+          return
 
  
 # module = document.querySelectorAll('.clamp-js')

@@ -2,7 +2,7 @@ if window.matchMedia('screen and (max-width: 767px)').matches
   $('.js-tab__mobile-d').addClass 'js-tab__header-d'
 
 $('.js-tab__header-d').click  ->
-  item = $(@).children('.js-content_hide-index')
+  item = $(@).children('.js-content-hide')
   item.slideToggle 'fast'
   item.toggleClass 'tab-active_info-index'
   $(@).find('.btn__mobile').toggleClass 'btn__mobile_open'
