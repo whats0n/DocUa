@@ -783,10 +783,12 @@
           </div>
           <div class="row"> 
             <article class="col-sm-12">                      
-              <h1>Модальные окна   </h1>
+              <h1>Модальные окна    </h1>
               <h3>other  </h3>
               <ol>
-                <li> <a href="#request-dialog" data-toggle="modal" title="" class="btn btn-success">Clinica </a></li>
+                <li>
+                  <p> <a href="#request-dialog" data-toggle="modal" title="" class="btn btn-success">Zapic_napriom</a></p>
+                </li>
               </ol>
               <h3>New           </h3>
               <ol>      
@@ -795,10 +797,10 @@
                   <p class="small"><a href="#feedback" data-toggle="modal">Show feedback</a> </p>
                 </li>
                 <li>
-                  <p><a href="#callback" data-toggle="modal" class="btn btn-default btn-sm">callback </a></p>
+                  <p><a href="#callback" data-toggle="modal" class="btn btn-default btn-sm">callback  </a></p>
                   <p class="small"><a href="#callback" data-toggle="modal">Show callback</a></p>
                 </li>
-                <li>
+                <li> 
                   <p><a href="#info-var-2" data-toggle="modal" class="btn btn-default btn-sm">attention</a></p>
                   <p class="small"><a href="#info-var-2" data-toggle="modal">Show attention</a></p>
                 </li>
@@ -4708,43 +4710,79 @@
                 <form action="#">
                   <div class="modal-left-side">
                     <div class="side-section modal-header"><img src="i/popups/popup-logo.png" alt="" class="logo">
-                      <h2>Запись на прием в клинику</h2>
-                      <div class="modal-icon record_icon record_icon-clinica"></div>
+                      <div class="modal-icon record_icon"></div>
+                      <h2>Запись на прием</h2>
                       <div class="close-popup js-close-window"></div>
-                    </div>
-                    <div class="side-section">
-                      <div class="modal-icon icon-clinic"></div>
-                      <div class="side-section-main">
-                        <div class="side-section-header">
-                          <h3>
-                            Савмед, клиника
-                            ортопедо-травматологии
-                            и вертебрологии (Дневной
-                            стационар болезней
-                            позвоночника и суставов)
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="side-section">
-                      <div class="modal-icon icon-location"></div>
-                      <div class="side-section-main">
-                        <div class="side-section-header">
-                          <h3>ул. Раисы Окипной, 8б, 4-й этаж (м. Левобережная)</h3>
-                        </div>
-                      </div>
                     </div>
                     <div class="side-section js-doctor-text">
                       <div class="modal-icon icon-doc"></div>
                       <div class="side-section-main">
-                        <div class="side-section-header">
-                          <h3>Специализация врача</h3><a href="#" data-dialog="#specialization" class="modal-button btn-border btn-full js-btn-text">Измените специальность</a>
+                        <div class="side-section-header side-section-after">
+                          <h3>Специализация врача</h3><a href="#" class="modal-button btn-border btn-full js-btn-open js-btn-text">Выберете специальность</a>
                           <div class="side-section__main">
                             <div class="side-section_item section-doctors"></div>
                           </div>
                         </div>
                         <div class="side-section-content">
-                          <div class="side-section-content-inner"></div>
+                          <div class="side-section-content-inner">
+                            <ul class="simple-list">
+                              <li class="list-item">
+                                <input id="radio-1_1" type="checkbox" name="radio-var" class="hidden">
+                                <label for="radio-1_1">Акушер-гинеколог</label>
+                                <div class="remove-item"></div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="side-section js-district-text">
+                      <div class="modal-icon icon-location"></div>
+                      <div class="side-section-main">
+                        <div class="side-section-header">
+                          <h3>Район</h3><a href="#" data-dialog="district" class="modal-button btn-border btn-full js-btn-text__disrtict">Выберите район</a>
+                          <div class="side-section__main">
+                            <div class="side-section_item section-district"></div>
+                          </div>
+                        </div>
+                        <div class="side-section-content">
+                          <div class="side-section-content-inner">
+                            <ul class="simple-list">
+                              <li class="list-item district-label">
+                                <input id="radio-3_1" type="radio" name="radio-var" class="hidden">
+                                <label for="radio-3_1">Голосеевский район</label>
+                                <div class="remove-item"></div>
+                              </li>
+                              <li class="list-item district-label">
+                                <input id="radio-3_1" type="radio" name="radio-var" class="hidden">
+                                <label for="radio-3_1">Голосеевский район</label>
+                                <div class="remove-item"></div>
+                                <ul>
+                                  <li class="list-item">
+                                    <input id="radio-3_2" type="radio" name="radio-var" class="hidden">
+                                    <label for="radio-3_2">Багриновая гора</label>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="list-item district-label">
+                                <input id="radio-3_3" type="radio" name="radio-var" class="hidden">
+                                <label for="radio-3_3">Голосеевский район</label>
+                                <div class="remove-item"></div>
+                                <ul>
+                                  <li class="list-item">
+                                    <input id="radio-3_2" type="radio" name="radio-var" class="hidden">
+                                    <label for="radio-3_2">Багриновая гора</label>
+                                    <div class="remove-item"></div>
+                                  </li>
+                                  <li class="list-item">
+                                    <input id="radio-3_2" type="radio" name="radio-var" class="hidden">
+                                    <label for="radio-3_2">Багриновая гора</label>
+                                    <div class="remove-item"></div>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -4894,206 +4932,518 @@
                         </div>
                       </div>
                     </div>
-                    <div id="dialog-window" data-block="js-doctor-text" class="window-doctors">
-                      <div class="dialog-close"></div>
-                      <div class="dialog-window-content">
-                        <div class="select-specialization">
-                          <div class="col-1-3">
-                            <h3 class="letter-title">A</h3>
-                            <ul>
-                              <li class="list-item">
-                                <input id="1" type="radio" name="radio-var">
-                                <label for="1" data-name="ginekolog">Акушер-гинеколог!</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="radio-var" id="">
-                                <label for="" data-name="allergo">Аллерголог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="radio-var" id="">
-                                <label for="" data-name="angro">Андролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="radio-var" id="">
-                                <label for="" data-name="reanimatol">Анестезиолог-реаниматолог</label>
-                              </li>
-                            </ul>
-                            <h3 class="letter-title">B</h3>
-                            <ul>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="venerolog">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="verteb">Вертебролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="venero">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="vertebro">Вертебролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="venerologg">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="veneros">Вертебролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="veneroza">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="vertebrolog">Вертебролог</label>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="col-1-3">
-                            <h3 class="letter-title">A</h3>
-                            <ul>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="akysher">Акушер-гинеколог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="aller">Аллерголог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="andrologw">Андролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="anesteziolog">Анестезиолог-реаниматолог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="aks2">Акушер-гинеколог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="allergo">Аллерголог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="androl">Андролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="" data-name="aneste">Анестезиолог-реаниматолог</label>
-                              </li>
-                            </ul>
-                            <h3 class="letter-title">B</h3>
-                            <ul>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Вертебролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Вертебролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Вертебролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Вертебролог</label>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="col-1-3">
-                            <h3 class="letter-title">B</h3>
-                            <ul>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Вертебролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Вертебролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Вертебролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Венеролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Вертебролог</label>
-                              </li>
-                            </ul>
-                            <h3 class="letter-title">A</h3>
-                            <ul>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Акушер-гинеколог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Аллерголог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Андролог</label>
-                              </li>
-                              <li class="list-item">
-                                <input type="radio" name="" id="">
-                                <label for="">Анестезиолог-реаниматолог</label>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="dialog-footer"><a href="#" data-apply-select="" class="modal-button btn-green">Ок</a><a href="#" data-clear-select="" class="modal-button btn-dark btn-small">Очистить выбор</a></div>
-                    </div>
-                  </div>
-                  <div class="hidden">
-                    <div id="close-dialog"><img src="i/popups/logo-big.png" alt="" width="301" height="89">
-                      <div class="h1">Вы действительно хотите прервать запись?</div>
-                      <div class="h2">Если у вас возникли вопросы, <br>                    позвоните нам по телефону:<br>                    (044) 337-07-107 или (067) 123-45-607</div><img src="i/popups/doc-image.png" alt="" width="140" height="294" class="doc"><a href="#" class="button close-dialog">Прервать</a><a href="#" class="button return">Продолжить</a>
-                    </div>
                   </div>
                 </form>
+                <div id="dialog-window" data-block="js-district-text" class="js-district">
+                  <div class="dialog-close"></div>
+                  <div class="dialog-window-content border-cols">
+                    <div class="select-district">
+                      <div class="col-1-3">
+                        <dl class="select-parents">
+                          <dt class="list-item">
+                            <input id="d1" type="checkbox" name="">
+                            <label for="d1" data-name="goloseevo" class="js-head-district">Голосеевский район</label>
+                          </dt>
+                          <dd>
+                            <ul class="district-list js-in-district">
+                              <li class="list-item">
+                                <input id="district-1-1" type="checkbox" name="">
+                                <label for="district-1-1" data-name="bagr">Багриновая гора</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-1-2" type="checkbox" name="">
+                                <label for="district-1-2" data-name="goloseev">Голосеево</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-1-3" type="checkbox" name="">
+                                <label for="district-1-1                                                    3" data-name="golos">Голосеевский</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="demeev">Демеевка</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="dobriu">Добрый путь</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="kibcenter">Кибцентр</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="kutaev">Китаев</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="korchov">Корчеватое</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="mushel">Мышеловка</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="kibcen">Кибцентр</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="kitaev">Китаев</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="korchov1">Корчеватое</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="mushelo">Мышеловка</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="pirigo">Пирогово</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="slobodka">Саперная слободка</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="teremki">Теремки-1</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="teremki2">Теремки-2</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="" data-name="univers">
+                                <label for="">Университетский </label>
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="col-1-3">
+                        <dl class="select-parents">
+                          <dt class="list-item">
+                            <input id="dd2" type="checkbox" name="">
+                            <label for="d" data-name="goloseevoqq" class="js-head-district">Голосеевский район</label>
+                          </dt>
+                          <dd>
+                            <ul class="district-list js-in-district2">
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="gora">Багриновая гора</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="gol">Голосеево</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="goloss">Голосеевский</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="demee">Демеевка</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="district-2-5" data-name="dobriuu">Добрый путь</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="kib">Кибцентр</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="kita">Китаев</label>
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                        <dl class="select-parents">
+                          <dt class="list-item">
+                            <input id="d22" type="checkbox" name="">
+                            <label for="d2" data-name="goloseevos" class="js-head-district">Голосеевский район</label>
+                          </dt>
+                          <dd>
+                            <ul class="district-list">
+                              <li class="list-item">
+                                <input id="district-3-1" type="checkbox" name="">
+                                <label for="district-3-1" data-name="goraa">Багриновая гора</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-2" type="checkbox" name="">
+                                <label for="district-3-2" data-name="golo">Голосеево</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-3" type="checkbox" name="">
+                                <label for="district-3-3" data-name="golosse">Голосеевский</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-4" type="checkbox" name="">
+                                <label for="district-3-4" data-name="demeevka">Демеевка</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-5" type="checkbox" name="">
+                                <label for="district-3-5" data-name="dobr">Добрый путь</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-6" type="checkbox" name="">
+                                <label for="district-3-6" data-name="kibc">Кибцентр</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-7" type="checkbox" name="">
+                                <label for="district-3-7" data-name="kiteev">Китаев</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-8" type="checkbox" name="">
+                                <label for="district-3-8" data-name="korch">Корчеватое</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-9" type="checkbox" name="">
+                                <label for="district-3-9" data-name="mushe">Мышеловка</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-10" type="checkbox" name="">
+                                <label for="district-3-10" data-name="kibsent">Кибцентр</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-11" type="checkbox" name="">
+                                <label for="district-3-11" data-name="kitaevv">Китаев</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-12" type="checkbox" name="">
+                                <label for="district-3-12" data-name="qqq">Корчеватое</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-13" type="checkbox" name="">
+                                <label for="district-3-13" data-name="muee">Мышеловка</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-14" type="checkbox" name="">
+                                <label for="district-3-14" data-name="pirrr">Пирогово</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-15" type="checkbox" name="">
+                                <label for="district-3-15" data-name="slobodkaa">Саперная слободка</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-16" type="checkbox" name="">
+                                <label for="district-3-16" data-name="ter">Теремки-1</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-17" type="checkbox" name="">
+                                <label for="district-3-17" data-name="terem">Теремки-2</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-3-18" type="checkbox" name="">
+                                <label for="district-3-18" data-name="universw">Университ...</label>
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="col-1-3">
+                        <dl class="select-parents">
+                          <dt class="list-item">
+                            <input id="dd3" type="checkbox" name="">
+                            <label for="d3" data-name="goloseevoq1" class="js-head-district">Голосеевский район</label>
+                          </dt>
+                          <dd>
+                            <ul class="district-list">
+                              <li class="list-item">
+                                <input id="district-4-1" type="checkbox" name="">
+                                <label for="district-4-1" data-name="gor">Багриновая гора</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-4-2" type="checkbox" name="">
+                                <label for="district-4-2" data-name="gos">Голосеево</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-4-3" type="checkbox" name="">
+                                <label for="district-4-3" data-name="golos">Голосеевский</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-4-4" type="checkbox" name="">
+                                <label for="district-4-4" data-name="dem">Демеевка</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-4-5" type="checkbox" name="">
+                                <label for="district-4-5" data-name="dobriuua">Добрый путь</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-4-6" type="checkbox" name="">
+                                <label for="district-4-6" data-name="univers">Кибцентр</label>
+                              </li>
+                              <li class="list-item">
+                                <input id="district-4-7" type="checkbox" name="">
+                                <label for="district-4-7" data-name="dfd">Китаев</label>
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                        <dl class="select-parents">
+                          <dt class="list-item">
+                            <input id="dd1" type="checkbox" name="">
+                            <label for="ddd" data-name="goloseevoee" class="js-head-district">Голосеевский район</label>
+                          </dt>
+                          <dd>
+                            <ul class="district-list">
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="qwe">Багриновая гора</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="golo2">Голосеево</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="golos3">Голосеевский</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="demeevka2">Демеевка</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="dobriu2">Добрый путь</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="kibsenter">Кибцентр</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="kitaevv2">Китаев</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="korch2">Корчеватое</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="vbitkjdrf">Мышеловка</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="kibsenter2">Кибцентр</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="" data-name="kitaev2">Китаев</label>
+                              </li>
+                              <li class="list-item">
+                                <input type="checkbox" name="" id="">
+                                <label for="district-5-12" data-name="korchovatoe">Корчеватое</label>
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dialog-footer"><a href="#" data-apply-select="" class="modal-button btn-green js-btn-copy__dictrict">Ок</a><a href="#" class="modal-button btn-dark btn-small js-btn-clear">Очистить выбор</a></div>
+                </div>
+                <div id="dialog-window" data-block="js-doctor-text" class="js-doctors">
+                  <div class="dialog-close"></div>
+                  <div class="dialog-window-content dialog-window__special">
+                    <div class="select-specialization">
+                      <div class="col-1-3">
+                        <h3 class="letter-title">A</h3>
+                        <ul>
+                          <li class="list-item">
+                            <input id="radio-1" type="radio" name="">
+                            <label for="radio-1" data-name="akysher">Акушер-гинеколог!</label>
+                          </li>
+                          <li class="list-item">
+                            <input id="radio-2" type="radio" name="radio-var">
+                            <label for="radio-2" data-name="allegrolog">Аллерголог</label>
+                          </li>
+                          <li class="list-item">
+                            <input id="radio-3" type="radio" name="radio-var">
+                            <label for="radio-3" data-name="androlog">Андролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input id="radio-4" type="radio" name="radio-var">
+                            <label for="radio-4" data-name="reanim">Анестезиолог-реаниматолог</label>
+                          </li>
+                        </ul>
+                        <h3 class="letter-title">B</h3>
+                        <ul>
+                          <li class="list-item">
+                            <input id="radio-5" type="radio" name="">
+                            <label for="radio-5" data-name="vener">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="sdsd">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input id="radio-7" type="radio" name="">
+                            <label for="radio-7" data-name="sddf">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input id="radio-8" type="radio" name="">
+                            <label for="radio-8" data-name="dsfsd">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input id="radio-9" type="radio" name="">
+                            <label for="radio-9" data-name="weww">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input id="radio-10" type="radio" name="">
+                            <label for="radio-10" data-name="adasa">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input id="radio-11" type="radio" name="">
+                            <label for="radio-11" data-name="wewe">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input id="radio-12" type="radio" name="">
+                            <label for="radio-12" data-name="sfdd">Венеролог</label>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-1-3">
+                        <h3 class="letter-title">A</h3>
+                        <ul>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="ginekilog">Акушер-гинеколог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="allegrol">Аллерголог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="androlog">Андролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="reanimatol">Анестезиолог-реаниматолог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="ginekolog">Акушер-гинеколог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="allegrol">Аллерголог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="allegrol1">Андролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="anesteziolog">Анестезиолог-реаниматолог</label>
+                          </li>
+                        </ul>
+                        <h3 class="letter-title">B</h3>
+                        <ul>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="venerolog">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="vertebrolog">Вертебролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="veneros">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="vertebro">Вертебролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="veneroza">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="verteb">Вертебролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="venerolog4">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="vertr">Вертебролог</label>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-1-3">
+                        <h3 class="letter-title">B</h3>
+                        <ul>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="vwnwrol2">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="vertebrolog2">Вертебролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="allegrolww">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="vertew2">Вертебролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="venerol3">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="verteeebllog">Вертебролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="vene">Венеролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="verteb2">Вертебролог</label>
+                          </li>
+                        </ul>
+                        <h3 class="letter-title">A</h3>
+                        <ul>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="akysher">Акушер-гинеколог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="allegrol2">Аллерголог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="alndrolog">Андролог</label>
+                          </li>
+                          <li class="list-item">
+                            <input type="radio" name="" id="">
+                            <label for="" data-name="aneste">Анестезиолог-реаниматолог</label>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dialog-footer dialog-footer__none"><a href="#" data-apply-select="" class="modal-button btn-green">Ок</a><a href="#" data-clear-select="" class="modal-button btn-dark btn-small">Очистить выбор</a></div>
+                </div>
+                <div class="hidden">
+                  <div id="close-dialog"><img src="i/popups/logo-big.png" alt="" width="301" height="89">
+                    <div class="h1">Вы действительно хотите прервать запись?</div>
+                    <div class="h2">Если у вас возникли вопросы, <br>                    позвоните нам по телефону:<br>                    (044) 337-07-107 или (067) 123-45-607</div><img src="i/popups/doc-image.png" alt="" width="140" height="294" class="doc"><a href="#" class="button close-dialog">Прервать</a><a href="#" class="button return">Продолжить</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

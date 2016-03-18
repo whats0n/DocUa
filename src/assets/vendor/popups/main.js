@@ -303,6 +303,7 @@
 				$( '.modal-dialog', e.target).after( closeDialog );
 				closeDialog.css({'opacity': 1});
 			}
+			
 		});
 
 		$(document).on('click', '.button.return', function(e) {
