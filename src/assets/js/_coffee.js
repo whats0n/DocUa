@@ -1314,14 +1314,6 @@ $(function() {
   return updateBadgeLabels();
 });
 
-$('.js-services-btn').on('click', function() {
-  var drop;
-  drop = $(this).siblings('.js-services-block');
-  drop.slideToggle('fast');
-  $(this).parents('.js-services').toggleClass('active');
-  return false;
-});
-
 $(".blog-list__item").each(function(el) {
   var module;
   if ($(this).find('.clamp-js')) {
@@ -1332,6 +1324,14 @@ $(".blog-list__item").each(function(el) {
       });
     });
   }
+});
+
+$('.js-services-btn').on('click', function() {
+  var drop;
+  drop = $(this).siblings('.js-services-block');
+  drop.slideToggle('fast');
+  $(this).parents('.js-services').toggleClass('active');
+  return false;
 });
 
 $('.js-add-tel').click(function() {
@@ -1488,6 +1488,20 @@ $(".js-remove").on("click", function() {
   return false;
 });
 
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-c').addClass('js-tab__header-c');
+}
+
+$('.js-tab__header-c').click(function() {
+  var item;
+  $(this).children('span').toggleClass('tab__header_open');
+  item = $(this).children('.js-content-hide');
+  item.slideToggle('fast');
+  item.toggleClass('tab-active_info-index');
+  $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
+  return false;
+});
+
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
 $(function() {
@@ -1525,20 +1539,6 @@ $(function() {
       }
     }
   });
-});
-
-if (window.matchMedia('screen and (max-width: 767px)').matches) {
-  $('.js-tab__mobile-c').addClass('js-tab__header-c');
-}
-
-$('.js-tab__header-c').click(function() {
-  var item;
-  $(this).children('span').toggleClass('tab__header_open');
-  item = $(this).children('.js-content-hide');
-  item.slideToggle('fast');
-  item.toggleClass('tab-active_info-index');
-  $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
-  return false;
 });
 
 $(function() {
@@ -2335,6 +2335,64 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
+$(".post2").each(function(el) {
+  var module;
+  if ($(this).find('.clamp-js')) {
+    module = $(this).find('.clamp-js');
+    return [].forEach.call(module, function(el) {
+      $clamp(el, {
+        clamp: 3
+      });
+    });
+  }
+});
+
+var postLocationWidthFix;
+
+postLocationWidthFix = function() {
+  return $(".post").each(function() {
+    var locationValueWidth, locationWidth, px;
+    if ($(this).hasClass("post_single")) {
+      if ($(window).width() > 767) {
+        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() - $(this).find(".post__submits").width() - 10;
+        locationValueWidth = locationWidth - 35;
+        px = "px";
+      } else {
+        locationWidth = 'auto';
+        locationValueWidth = 245;
+        px = '';
+      }
+    } else {
+      if (($(window).width() > 979) || ($(window).width() < 768)) {
+        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() + 10;
+        locationValueWidth = locationWidth - 35;
+        px = "px";
+      } else {
+        locationWidth = 'auto';
+        if ($(this).closest(".widget").length) {
+          locationValueWidth = 130;
+        } else {
+          locationValueWidth = 180;
+        }
+        px = '';
+      }
+    }
+    $(this).find(".post__location").attr('style', "width: " + locationWidth + px + " !important");
+    $(this).find(".post__location-title").css({
+      maxWidth: locationValueWidth + "px"
+    });
+    return $(this).find(".select7__current-value").css({
+      maxWidth: locationValueWidth + "px"
+    });
+  });
+};
+
+$(window).resize(postLocationWidthFix);
+
+$(document).on("shown.bs.tab", postLocationWidthFix);
+
+postLocationWidthFix();
+
 $(".post3").each(function(el) {
   var module;
   if ($(this).find('.clamp-js')) {
@@ -2743,64 +2801,6 @@ $("body").on("smallCardInit", smallCardInit);
     setGender();
   }
 }).call(this);
-
-var postLocationWidthFix;
-
-postLocationWidthFix = function() {
-  return $(".post").each(function() {
-    var locationValueWidth, locationWidth, px;
-    if ($(this).hasClass("post_single")) {
-      if ($(window).width() > 767) {
-        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() - $(this).find(".post__submits").width() - 10;
-        locationValueWidth = locationWidth - 35;
-        px = "px";
-      } else {
-        locationWidth = 'auto';
-        locationValueWidth = 245;
-        px = '';
-      }
-    } else {
-      if (($(window).width() > 979) || ($(window).width() < 768)) {
-        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() + 10;
-        locationValueWidth = locationWidth - 35;
-        px = "px";
-      } else {
-        locationWidth = 'auto';
-        if ($(this).closest(".widget").length) {
-          locationValueWidth = 130;
-        } else {
-          locationValueWidth = 180;
-        }
-        px = '';
-      }
-    }
-    $(this).find(".post__location").attr('style', "width: " + locationWidth + px + " !important");
-    $(this).find(".post__location-title").css({
-      maxWidth: locationValueWidth + "px"
-    });
-    return $(this).find(".select7__current-value").css({
-      maxWidth: locationValueWidth + "px"
-    });
-  });
-};
-
-$(window).resize(postLocationWidthFix);
-
-$(document).on("shown.bs.tab", postLocationWidthFix);
-
-postLocationWidthFix();
-
-$(".post2").each(function(el) {
-  var module;
-  if ($(this).find('.clamp-js')) {
-    module = $(this).find('.clamp-js');
-    return [].forEach.call(module, function(el) {
-      $clamp(el, {
-        clamp: 3
-      });
-    });
-  }
-});
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 

@@ -29,7 +29,7 @@
     selected = null
     zones = {} 
 
-    refreshView = ->
+    refreshView = -> 
       $el = undefined
       createZone = undefined
       resetCss = undefined
