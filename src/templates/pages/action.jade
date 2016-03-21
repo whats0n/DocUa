@@ -97,14 +97,14 @@
         .widget.widget-map
             #map-canvas-right
             a.btn.btn-success(href="/map.html") Развернуть карту
-        .widget.widget-doctor
-            h3 Врачи по направлению
-            - var items = []
-            - var limit = 4
-            each doctor, i in doctors
-                if i < limit
-                    - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
-            +b.short-list: +i({ items: items })
-            .link.link-more
-                   a(href="/doctors.html") Все врачи 
+        //- .widget.widget-doctor
+        //-     h3 Врачи по направлению
+        //-     - var items = []
+        //-     - var limit = 4
+        //-     each doctor, i in doctors
+        //-         if i < limit
+        //-             - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
+        //-     +b.short-list: +i({ items: items })
+        //-     .link.link-more
+        //-            a(href="/doctors.html") Все врачи 
                  
