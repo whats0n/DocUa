@@ -19,6 +19,11 @@ article.hreview-aggregate.vcard.hcard
                     +e("span").content-inner
                         span.underline 50% скидка на консультации
                         |  всех специалистов Института планирования семьи!
+        else
+            .item-promo__block 
+                a(href="#").item-promo__title промо 
+                .item-promo__hidden Ресторан размещен  вверху списка на правах рекламы
+
         if clinicWorld
             +e.title.fn.org
                 h3.h3
@@ -26,6 +31,8 @@ article.hreview-aggregate.vcard.hcard
                     if onlineConsultation
                         - pageLink = '/doctors/consultation.html'
                     a(href=pageLink, title=card.name)= card.name
+        
+
         +e.left-side
             +e.image(class=card.gender)
                 if landing
@@ -179,6 +186,7 @@ article.hreview-aggregate.vcard.hcard
                                 +e.location.card__location_metro(class=job.metroType)
                                     = job.metro
                                 +e.location= job.location
+                            +b.label-great: +i
             if file.page_name == 'diagnostic-list'
                 .small-card__action.small-card__action-mod
                     +e.action

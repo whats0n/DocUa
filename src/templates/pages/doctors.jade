@@ -24,11 +24,13 @@
                     +e("a").link(href="#").is-green Лукьяновка 
                 +e("li").item.is-last 
                     +e("a").link(href="#").is-blue Позняки
-        +b("ul").card-list 
+        +b("ul").card-list.promo-container   
             each doctor in doctors
-                +b.card(data-id= 'c' + doctor.id): +i({ card: doctor, landing: true, moreLink: true, doctors_page: true }) 
+                +b.card.item-promo(data-id= 'c' + doctor.id): +i({ card: doctor, landing: true, moreLink: true, doctors_page: true }) 
         +b("ul").doctors-card.promo-container
-            +e("li").item 
+            +e("li").item.item-promo
+                .item-promo__block 
+                    a(href="#").item-promo__title спецпредложение 
                 +e("div").img
                     img(src="i/_alexandriyskiy-constantin.jpg", alt="")
                 +e("div").container
@@ -47,7 +49,7 @@
                             +b.rating: +i({ value: 4.9 })
                             +e("a").views(href="#") 233 отзыва
                         +b("a").btn.btn-success(href="#doctor-request" data-toggle="modal") Записаться на прием
-            +e("li").item.item-promo
+            +e("li").item.item-promo 
                 .item-promo__block 
                     a(href="#").item-promo__title промо 
                     .item-promo__hidden Ресторан размещен  вверху списка на правах рекламы 

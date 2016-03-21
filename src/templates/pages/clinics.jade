@@ -7,7 +7,7 @@
     page_name: clinics
     find_text: клиник
 
-.row         
+.row          
     section.col-md-9     
         +b.doctors-region 
             h3 Клиники пульмонологии в других районах (6) 
@@ -24,16 +24,16 @@
                     +e("a").link(href="#").is-green Шулявка  
                 +e("li").item.is-last
                     +e("a").link(href="#").is-green Оболонь 
-        +b("ul").card-list.promo-container    
+        +b("ul").card-list.promo-container     
             each clinic in clinics
                 if clinic.hasFilials
                     - classes = "card_clinic has-hidden-small-cards" 
 
                 - var uid = "uid-130146"
                 if clinic.address  
-                    +b.card.card-underline(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, moreLink: true, clinicFilials: affilatesIsida, uid: uid })
+                    +b.card.card-underline.item-promo(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, moreLink: true, clinicFilials: affilatesIsida, uid: uid })
                 else
-                    +b.card.card-underline(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, clinicFilials: affilatesIsida, uid: uid }) 
+                    +b.card.card-underline.item-promo(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, clinicFilials: affilatesIsida, uid: uid }) 
             +b.small-card.small-card_mod.item-promo
                 .item-promo__block 
                     a(href="#").item-promo__title промо 

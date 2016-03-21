@@ -8,7 +8,7 @@
     find_text: клиник 
  
 .row     
-    .col-md-9.col-xs-12                                    
+    .col-md-9.col-xs-12                                     
         h1= file.title
              
     .col-md-9.col-xs-12      
@@ -21,9 +21,9 @@
             option(value="rate_za") по названию (Я-А)           
 .row                  
     .col-md-9.col-xs-12.promo-container            
-        +b("ul").card-list    
+        +b("ul").card-list.promo-container    
             each diagnost in diagnostList      
-                +b.card.card-services(data-id='d' + diagnost.id): +i({ card: diagnost, location: true})
+                +b.card.card-services.item-promo(data-id='d' + diagnost.id): +i({ card: diagnost, location: true})
                 
             //- +b.card.card-services.item.item-promo
             //-     .item       
