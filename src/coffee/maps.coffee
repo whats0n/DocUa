@@ -153,7 +153,7 @@ docMaps =
         return
 
     inner: -> #one clinic or one doctor side map
-      if docMaps.pageName == 'clinicInner' 
+      if docMaps.pageName == 'clinicInner' || docMaps.pageName == 'actionAbout' 
         $('#map-canvas-right, .widget-map').height(600)
       else
         $('#map-canvas-right, .widget-map').height($('.card').outerHeight(true))
@@ -167,6 +167,7 @@ docMaps =
         $('#map-canvas-big').height(docMaps.mapHeight)
 
   addMarker:
+    # clinics and doctors
     clinics: () ->
       clinicIndex = 0
       affilateIndex = -1
@@ -242,7 +243,7 @@ docMaps =
           index++
         else
           docMaps.fitMap docMaps.markersList, docMaps.map
-
+    # diagnistic map
     diagnost: () ->
       clinicIndex = 0
       affilateIndex = -1
@@ -298,27 +299,8 @@ docMaps =
             else
               console.log 'Geocode was not successful for the following reason: ' + status
 
-    inner: () ->
-      index = 0
-      return ->
-        if index < @allItemsList.length
-          addInfo = @allItemsList[index]
-          @geocoder.geocode {'address': addInfo.address + ' ' + @city}, (results, status) ->
-            if status == google.maps.GeocoderStatus.OK
-              marker = new (google.maps.Marker)(
-                map: docMaps.map
-                icon: docMaps.icon1
-                addInfo: addInfo
-                position: results[0].geometry.location)
-              docMaps.markersList.push marker
-              docMaps.listeners.marker(marker, docMaps.map)
-              docMaps.addNewMarker()
-            else
-              console.log 'Geocode was not successful for the following reason: ' + status
-          index++
-        else
-          docMaps.fitMap docMaps.markersList, docMaps.map
-
+    
+    # actions map
     actions: () ->
       clinicIndex = 0
       affilateIndex = -1
@@ -374,26 +356,7 @@ docMaps =
             else
               console.log 'Geocode was not successful for the following reason: ' + status
 
-    inner: () ->
-      index = 0
-      return ->
-        if index < @allItemsList.length
-          addInfo = @allItemsList[index]
-          @geocoder.geocode {'address': addInfo.address + ' ' + @city}, (results, status) ->
-            if status == google.maps.GeocoderStatus.OK
-              marker = new (google.maps.Marker)(
-                map: docMaps.map
-                icon: docMaps.icon1
-                addInfo: addInfo
-                position: results[0].geometry.location)
-              docMaps.markersList.push marker
-              docMaps.listeners.marker(marker, docMaps.map)
-              docMaps.addNewMarker()
-            else
-              console.log 'Geocode was not successful for the following reason: ' + status
-          index++
-        else
-          docMaps.fitMap docMaps.markersList, docMaps.map
+    
 
   sideMarkerActivate: (marker, map) ->
     docMaps.resetMarkers()
@@ -432,6 +395,8 @@ docMaps =
       $('.marker-window').clone().insertAfter($('.marker-window'))
       $('.marker-window').first().remove()
       $('.marker-window .gm-style-iw').css('width': 220)
+      $('.marker-window').children().find('.card__address').css('font-size': 14)
+      $('.marker-window').children().find('.marker-review').css('font-size': 16)
       $('.marker-window .gm-style-iw>div').eq(0).css('width': 220, 'max-width': 220)
       $('.marker-window .gm-style-iw>div').eq(0).addClass 'is-active'
       $('.marker-window .gm-style-iw>div>div').eq(0).addClass 'is-active'
