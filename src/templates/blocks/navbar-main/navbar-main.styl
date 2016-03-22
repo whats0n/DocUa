@@ -24,10 +24,17 @@
         position relative
         display inline-block
         vertical-align middle 
+        margin-right 45px
+        margin-left 30px 
+        margin-top 2px 
         max-width 185px 
         width 100% 
         margin-right 10px !important
         text-align left
+        @media only screen and (max-width: 1120px)
+            margin-left 20px 
+        @media phone_tablet
+            margin-right: 15px
         @media phone 
             max-width 145px
         &__title
@@ -48,11 +55,7 @@
             color #0099a8
         &__option
             color blue_base
-            
-    .navbar-header
-        margin-right 45px
-        @media phone_tablet
-            margin-right: 15px
+
     .user-panel-menu__button
         -webkit-border-radius 2px 
         border-radius 2px 
@@ -87,8 +90,6 @@
         position relative
         width auto 
         padding-right 0 
-    .navbar-header
-        float none
         
 .navbar-mobile
     .menu
@@ -118,6 +119,7 @@
     
 .navbar-fixed-top
     &.navbar-main
+        padding 4px 0 2px 
         transition transform .4s
         transform translateY(-100%)
         border-bottom 2px solid rgba(62,191,172,0.7) 
@@ -127,6 +129,8 @@
             padding 6px 0 
     .logo
         margin-right 33px
+        @media only screen and (max-height: 1030px)
+            margin-right 0 
         @media phone
             margin-right 8px 
             &__image
@@ -137,6 +141,9 @@
             margin-top 0
     .phones
         margin-top 7px
+    .phones_mobile
+        margin-top 0
+        padding-top 3px 
     .favorites-link, .user-panel
         margin-top 4px
 

@@ -1322,7 +1322,12 @@ $('.js-services-btn').on('click', function() {
   return false;
 });
 
-
+$(document).ready(function() {
+  return $(".js-clamp-2").dotdotdot({
+    ellipsis: ' ...',
+    wrap: "letter"
+  });
+});
 
 $('.js-add-tel').click(function() {
   $('.add-tel').addClass('is-active');
@@ -1524,7 +1529,7 @@ if (window.matchMedia('screen and (max-width: 767px)').matches) {
 $('.js-tab__header-c').click(function() {
   var item;
   $(this).children('span').toggleClass('tab__header_open');
-  item = $(this).children('.js-content-hide');
+  item = $(this).children('.js-content_hide-index');
   item.slideToggle('fast');
   item.toggleClass('tab-active_info-index');
   $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
@@ -1989,45 +1994,44 @@ $(".js-autocomplete-clinic").each(function() {
   });
 });
 
-var phonesAutoChange;
+$(".phones__item_life").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_life").toggleClass("phones__item_hover");
+});
 
-phonesAutoChange = {
-  select: $('.navbar-main .phones .select7'),
-  options: ['mts', 'life', 'kyivstar', 'landline'],
-  checked: 0,
-  interval: 0,
-  init: function() {
-    this.listeners();
-    return this.startSwitch();
-  },
-  listeners: function() {
-    $('body').on('click', function(e) {
-      clearInterval(phonesAutoChange.interval);
-      return phonesAutoChange.startSwitch();
-    });
-    phonesAutoChange.select.find('.select7__current').click(function(e) {
-      e.stopPropagation();
-      if (!phonesAutoChange.select.hasClass('select7_open')) {
-        return startSwitch();
-      }
-    });
-    return $('body').on('select7Opened', function(e) {
-      return clearInterval(phonesAutoChange.interval);
-    });
-  },
-  startSwitch: function() {
-    return phonesAutoChange.interval = setInterval(phonesAutoChange.switchPhone, 500000);
-  },
-  switchPhone: function() {
-    phonesAutoChange.checked += 1;
-    if (phonesAutoChange.checked >= phonesAutoChange.options.length) {
-      phonesAutoChange.checked = 0;
+$(".phones__item_mts").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_mts").toggleClass("phones__item_hover");
+});
+
+$(".phones__item_kyivstar").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_kyivstar").toggleClass("phones__item_hover");
+});
+
+$(".phones__item_civic").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_civic").toggleClass("phones__item_hover");
+});
+
+$(function() {
+  $(".js-phones-btn").click(function() {
+    var _parent, _this;
+    _this = $(this);
+    _parent = _this.parents(".js-phones");
+    if (_parent.find(".js-phones-list").hasClass("phones__list_block")) {
+      return true;
+    } else {
+      _this.addClass("phones__toggle_open");
+      _parent.find(".js-phones-list").addClass("phones__list_block");
+      return false;
     }
-    return phonesAutoChange.select.val(phonesAutoChange.options[phonesAutoChange.checked]).trigger('change');
-  }
-};
-
-phonesAutoChange.init();
+  });
+  return $(document).on("click", function() {
+    $(".js-phones-list").removeClass("phones__list_block");
+    return $(".js-phones-btn").removeClass("phones__toggle_open");
+  });
+});
 
 var galleryCount, generateMarkupForOwlCarousel, initOwlCarousel, syncOwlCarousels;
 
@@ -2279,53 +2283,19 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
-var postLocationWidthFix;
-
-postLocationWidthFix = function() {
-  return $(".post").each(function() {
-    var locationValueWidth, locationWidth, px;
-    if ($(this).hasClass("post_single")) {
-      if ($(window).width() > 767) {
-        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() - $(this).find(".post__submits").width() - 10;
-        locationValueWidth = locationWidth - 35;
-        px = "px";
-      } else {
-        locationWidth = 'auto';
-        locationValueWidth = 245;
-        px = '';
-      }
-    } else {
-      if (($(window).width() > 979) || ($(window).width() < 768)) {
-        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() + 10;
-        locationValueWidth = locationWidth - 35;
-        px = "px";
-      } else {
-        locationWidth = 'auto';
-        if ($(this).closest(".widget").length) {
-          locationValueWidth = 130;
-        } else {
-          locationValueWidth = 180;
-        }
-        px = '';
-      }
-    }
-    $(this).find(".post__location").attr('style', "width: " + locationWidth + px + " !important");
-    $(this).find(".post__location-title").css({
-      maxWidth: locationValueWidth + "px"
-    });
-    return $(this).find(".select7__current-value").css({
-      maxWidth: locationValueWidth + "px"
-    });
+$(document).ready(function() {
+  return $(".js-clamp-3").dotdotdot({
+    ellipsis: ' ...',
+    wrap: "letter"
   });
-};
+});
 
-$(window).resize(postLocationWidthFix);
-
-$(document).on("shown.bs.tab", postLocationWidthFix);
-
-postLocationWidthFix();
-
-
+$(document).ready(function() {
+  return $(".js-clamp-3").dotdotdot({
+    ellipsis: ' ...',
+    wrap: "letter"
+  });
+});
 
 $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {

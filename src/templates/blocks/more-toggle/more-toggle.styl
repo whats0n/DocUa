@@ -78,7 +78,7 @@
         &__show-label:after
             top 6px
             right 0
-            sprite($square)
+            sprite($square) 
 .card
     .more-toggle
         &__show-label, &__hide-label
@@ -108,7 +108,7 @@
                 bottom: 0
                 background: #fff
                 
-.chooser, .more-toogle-parent, .blog-block
+.chooser, .more-toogle-parent, .blog-block, .diagnostics-record
     .more-toggle
         display block
         font-size 14px
@@ -169,4 +169,21 @@
 .blog-block
     .more-toggle
         @media phone
-            bottom 60px
+            bottom 65px
+.diagnostics-record
+    .more-toggle
+        @media phone
+            background none
+            bottom 65px
+            &__link
+                background url(i/grey_texture_opac90.png)
+                &:after
+                    content ""
+                    position absolute
+                    top 0
+                    left 0
+                    right 0
+                    bottom 0
+                    background-color rgba(255, 255, 255, .3)
+                    z-index -1
+                      

@@ -99,7 +99,7 @@ $post_hor_padding = 14px
         @media phone
             padding 7% 14px 0
         @media only screen and (max-width: 320px)
-            padding 11% 14px 0
+            padding 14% 14px 0
         
     &__thumb
         position relative
@@ -112,17 +112,23 @@ $post_hor_padding = 14px
         background-size cover
         background-repeat no-repeat
         z-index 3
-    &__title
-        display inline-block
-        vertical-align top
-        @media phone
-            margin-top 10px 
+    // &__title
+    //     display inline-block
+    //     vertical-align top
+    //     height 48px 
+    //     @media phone
+    //         margin-top 10px 
     &__link 
+        display block 
+        max-width 300px 
+        height 90px 
         font-size 20px 
         font-weight bold
         color blue_base 
         text-decoration underline
         transition all .2s ease-in-out
+        @media only screen and (max-width: 1023px)
+            height 80px 
         @media phone
             font-size 19px
     &__sticker 
@@ -154,7 +160,7 @@ $post_hor_padding = 14px
             font-size 18px
             font-weight bold
             line-height 1 
-            color #FFF 
+            color #FFF !important
             opacity 1
             z-index 5
 

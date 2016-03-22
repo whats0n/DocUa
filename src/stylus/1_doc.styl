@@ -1,5 +1,5 @@
 html
-    background red
+    // background red
 html, body
     min-width: 320px
 body
@@ -15,7 +15,7 @@ body
             // background #E3E8E8 
         &.container-finder
             z-index 3 
-            .row-finder:not(.row-finder_main)
+            .row-finder:not(.row-finder_main) 
                 background green_texture
         &.container-menu
             z-index 5
@@ -37,13 +37,25 @@ body
             background #fff
         .row-finder
             position relative
-            // z-index 4
+            // z-index 4 
+    >.wrapper
+        >.container-fluid 
+            position relative
+            z-index 2
+            >.row
+                background grey_texture
     &.body-map
         height 100%
         overflow hidden
         @media phone
             height: auto
             overflow: visible
+.container-fluid_nopadding
+    padding 0
+.container_nopadding
+    @media phone
+        width 100% 
+        padding 0 
 ul
     list-style: none
     margin: 0
@@ -67,11 +79,12 @@ ul
               
 .container-fluid_footer-bg
     background grey_texture
-    
-.container-menu
-    .container
-        @media (max-width 1200px)
-            width 100% 
+    @media phone
+        font-size 0
+// .container-menu
+//     .container
+//         @media (max-width 1200px)
+//             width 100% 
 .container-bg
     // z-index 4
     position absolute

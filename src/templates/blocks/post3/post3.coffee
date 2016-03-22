@@ -42,3 +42,8 @@
 #           $clamp el, clamp: 3
 #           return
 #         # $clamp module, clamp: 3   
+
+$(document).ready ->
+	$(".js-clamp-3").dotdotdot
+		ellipsis: ' ...'
+		wrap: "letter"
