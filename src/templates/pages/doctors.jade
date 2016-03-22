@@ -9,7 +9,7 @@
 
 .row 
     section.col-md-9            
-        +b.doctors-region         
+        +b.doctors-region           
             h3 Врачи-иммунологи в других районах (4)    
             //- div.directory-patient.border-dotted.columnize(data-columns="3")
             //-     each item in ["Осокорки", "Оболонь", "Шулявка", "Нижний Печерск"]
@@ -23,7 +23,7 @@
                 +e("li").item.is-last
                     +e("a").link(href="#").is-green Лукьяновка 
                 +e("li").item.is-last 
-                    +e("a").link(href="#").is-blue Позняки
+                    +e("a").link(href="#").is-blue Позняки 
         +b("ul").card-list.promo-container   
             each doctor in doctors
                 +b.card.item-promo(data-id= 'c' + doctor.id): +i({ card: doctor, landing: true, moreLink: true, doctors_page: true }) 

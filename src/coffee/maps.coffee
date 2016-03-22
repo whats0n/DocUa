@@ -52,21 +52,15 @@ docMaps =
   newScope: (list) ->
     if list
       @allItemsList = list
-    if @pageName == 'doctorInner'
+    if @pageName == 'doctorInner' || @pageName == 'diagnostCenter' || @pageName == 'actionAbout'
       @addNewMarker = @addMarker.inner()
       @addNewMarker()
-    if @pageName == 'diagnostCenter'
-      @addNewMarker = @addMarker.inner()
-      @addNewMarker()
-    if @pageName == 'actionAbout'
-      @addNewMarker = @addMarker.inner()
-      @addNewMarker()
-    if @pageName == 'diagnostList'
+    else if @pageName == 'diagnostList'
       @addNewMarker = @addMarker.diagnost()
       @addNewMarker()
-    # if @pageName == 'action'
-    #   @addNewMarker = @addMarker.diagnost()
-    #   @addNewMarker()
+    else if @pageName == 'action'
+      @addNewMarker = @addMarker.actions()
+      @addNewMarker()
     else
       @addNewMarker = @addMarker.clinics()
       @addNewMarker()
@@ -262,7 +256,83 @@ docMaps =
             addInfo.active = false
 
           addInfo.name = @allItemsList[clinicIndex].name
-          addInfo.id = diagnost[clinicIndex].id
+          addInfo.id = diagnost[clinicIndex].id 
+          addInfo.image = @allItemsList[clinicIndex].image
+          if @allItemsList[clinicIndex].affilates
+            if affilateIndex == -1
+              affilateIndex = 0
+
+            addInfo.affilate = @allItemsList[clinicIndex].affilates[affilateIndex]
+            address = @allItemsList[clinicIndex].affilates[affilateIndex].address
+
+            if affilateIndex == @allItemsList[clinicIndex].affilates.length - 1
+              affilateIndex = -1
+              clinicIndex += 1
+            else
+              affilateIndex += 1
+          else
+            address = @allItemsList[clinicIndex].address
+            addInfo.directions = @allItemsList[clinicIndex].directions
+            addInfo.address = @allItemsList[clinicIndex].address
+            addInfo.reviews = @allItemsList[clinicIndex].reviews
+            addInfo.rating = @allItemsList[clinicIndex].rating
+            clinicIndex += 1
+
+          address += ' ' + @city
+          @geocoder.geocode {'address': address}, (results, status) ->
+            if status == google.maps.GeocoderStatus.OK
+              if addInfo.active and not docMaps.pageName == 'map'
+                icon = docMaps.icon2
+              else
+                icon = docMaps.icon1
+              marker = new (google.maps.Marker)( 
+                map: docMaps.map
+                icon: icon
+                addInfo: addInfo
+                position: results[0].geometry.location)
+              docMaps.markersList.push marker
+              docMaps.listeners.marker(marker, docMaps.map)
+              if addInfo.active
+                docMaps.map.setCenter marker.getPosition()
+              docMaps.addNewMarker()
+            else
+              console.log 'Geocode was not successful for the following reason: ' + status
+
+    inner: () ->
+      index = 0
+      return ->
+        if index < @allItemsList.length
+          addInfo = @allItemsList[index]
+          @geocoder.geocode {'address': addInfo.address + ' ' + @city}, (results, status) ->
+            if status == google.maps.GeocoderStatus.OK
+              marker = new (google.maps.Marker)(
+                map: docMaps.map
+                icon: docMaps.icon1
+                addInfo: addInfo
+                position: results[0].geometry.location)
+              docMaps.markersList.push marker
+              docMaps.listeners.marker(marker, docMaps.map)
+              docMaps.addNewMarker()
+            else
+              console.log 'Geocode was not successful for the following reason: ' + status
+          index++
+        else
+          docMaps.fitMap docMaps.markersList, docMaps.map
+
+    actions: () ->
+      clinicIndex = 0
+      affilateIndex = -1
+      return ->
+        if clinicIndex < @allItemsList.length
+
+          addInfo = {}
+          if clinicIndex == 0
+            addInfo.active = true
+          else
+            addInfo.active = false
+
+          addInfo.name = @allItemsList[clinicIndex].name
+          addInfo.id = actions[clinicIndex].id 
           addInfo.image = @allItemsList[clinicIndex].image
           if @allItemsList[clinicIndex].affilates
             if affilateIndex == -1
@@ -393,8 +463,6 @@ docMaps =
           $('#clinic-location-map').modal()
         else if docMaps.pageName == 'actionAbout'
           $('#clinic-location-map').modal()
-        else if docMaps.pageName == 'action'
-          $('#clinic-location-map').modal()
         else if docMaps.pageName == 'diagnostCenter'
           $('#clinic-location-map').modal()
         else
@@ -418,7 +486,7 @@ docMaps =
               index = docMaps.findMarker('id', $(@).find('.small-card').eq(0).data('id'))
             else
               index = docMaps.findMarker('id', $(@).closest('.card').data('id'))
-          if docMaps.pageName == 'diagnostList'
+          else if docMaps.pageName == 'diagnostList'
             if $(@).find('.card-services').length > 0
               index = docMaps.findMarker('id', $(@).find('.card-services').eq(0).data('id'))
             else
@@ -428,6 +496,11 @@ docMaps =
               index = docMaps.findMarker('id', $(@).find('.card__job').eq(0).data('id'))
             else
               index = docMaps.findMarker('id', $(@).closest('.card').data('id'))
+          else if docMaps.pageName == 'action'
+            if $(@).find('.action-card').length > 0
+              index = docMaps.findMarker('id', $(@).find('.action-card').eq(0).data('id'))
+            else
+              index = docMaps.findMarker('id', $(@).closest('.card').data('id'))
 
           if $(@).find('.card-services').length > 0
             list =  docMaps.markersList.slice(index, index + ($(@).find('.card-services').length))
@@ -435,6 +508,8 @@ docMaps =
             list =  docMaps.markersList.slice(index, index + ($(@).find('.card__job').length))
           else if $(@).find('.small-card').length > 0
             list =  docMaps.markersList.slice(index, index + ($(@).find('.small-card').length))
+          else if $(@).find('.action-card').length > 0
+            list =  docMaps.markersList.slice(index, index + ($(@).find('.action-card').length))
           else
             list = []
             list.push docMaps.markersList[index]
