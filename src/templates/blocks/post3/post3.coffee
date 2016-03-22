@@ -1,3 +1,9 @@
+# $clamp module, clamp: 3 
+$(".post3").each (el) ->
+    if $(@).find('.clamp-js')
+        module = $(@).find('.clamp-js')
+
+
 # postLocationWidthFix = ->
 
 #     $(".post").each ->
@@ -31,19 +37,3 @@
 # $(window).resize postLocationWidthFix
 # $(document).on "shown.bs.tab", postLocationWidthFix
 # postLocationWidthFix()
-
-
-# # $clamp module, clamp: 3 
-# $(".post3").each (el) ->
-#     if $(@).find('.clamp-js')
-#         module = $(@).find('.clamp-js')
-
-#         [].forEach.call module, (el) ->
-#           $clamp el, clamp: 3
-#           return
-#         # $clamp module, clamp: 3   
-
-$(document).ready ->
-	$(".js-clamp-3").dotdotdot
-		ellipsis: ' ...'
-		wrap: "letter"

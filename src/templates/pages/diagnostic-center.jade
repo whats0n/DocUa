@@ -49,7 +49,7 @@
                             span.orange-light Акция
                             a(href="#", title="") Скидки на все услуги -15%
                     +e.share-bottom
-                        +e.socwrap
+                        +e.socwrap 
                             +e.socitem
                                 a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
                                 script.
@@ -119,10 +119,7 @@
                                             each item in about.items
                                                 li= item
                     #tab-price.tab-pane
-                        include ../blocks/block-services/block-services.jade 
-                        +b.load-more
-                            +e('span').text 180 услуг  диагностического центра
-                            +e('a').link(href="#") Посмотреть весь прайс-лист
+                        +b.block-package: +i       
                     #tab-reviews.tab-pane 
                         +b.diagnostic-reviews
                             

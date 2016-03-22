@@ -1,4 +1,4 @@
-$.fn.initFavoritesBlock = ->
+$.fn.initFavoritesBlock = -> 
     @each ->
         {favored, favoritesBlockInitialized} = $(@).data()
         return if favoritesBlockInitialized

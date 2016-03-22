@@ -1568,7 +1568,7 @@ if (window.matchMedia('screen and (max-width: 767px)').matches) {
 
 $('.js-tab__header-d').click(function() {
   var item;
-  item = $(this).children('.js-content_hide-index');
+  item = $(this).children('.js-content-hide');
   item.slideToggle('fast');
   item.toggleClass('tab-active_info-index');
   $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
@@ -1883,7 +1883,7 @@ if (window.matchMedia('screen and (max-width: 767px)').matches) {
 
 $('.js-tab__header-f').click(function() {
   var item;
-  item = $(this).children('.js-content_hide-index');
+  item = $(this).children('.js-content-hide');
   item.slideToggle('fast');
   item.toggleClass('tab-active_info-index');
   $(this).toggleClass('tab__header_open');
@@ -2290,11 +2290,11 @@ $(document).ready(function() {
   });
 });
 
-$(document).ready(function() {
-  return $(".js-clamp-3").dotdotdot({
-    ellipsis: ' ...',
-    wrap: "letter"
-  });
+$(".post3").each(function(el) {
+  var module;
+  if ($(this).find('.clamp-js')) {
+    return module = $(this).find('.clamp-js');
+  }
 });
 
 $(function() {
@@ -3431,7 +3431,7 @@ docMaps = {
     } else {
       docMaps.mapOffsetTop = $('.widget-map').offset().top;
       this.map = new google.maps.Map(document.getElementById('map-canvas-right'), mapOptions);
-      if (this.pageName === 'doctorInner' || this.pageName === 'clinicInner' || this.pageName === 'clinics' || this.pageName === 'diagnostCenter' || this.pageName === 'action' || this.pageName === 'actionAbout') {
+      if (this.pageName === 'doctorInner' || this.pageName === 'clinicInner' || this.pageName === 'diagnostCenter' || this.pageName === 'actionAbout') {
         this.mapCss.inner();
       } else {
         this.mapCss.index();
@@ -3458,6 +3458,10 @@ docMaps = {
     }
     if (this.pageName === 'actionAbout') {
       this.addNewMarker = this.addMarker.inner();
+      this.addNewMarker();
+    }
+    if (this.pageName === 'diagnostList') {
+      this.addNewMarker = this.addMarker.diagnost();
       return this.addNewMarker();
     } else {
       this.addNewMarker = this.addMarker.clinics();
@@ -3595,6 +3599,103 @@ docMaps = {
             addInfo.active = false;
           }
           addInfo.name = this.allItemsList[clinicIndex].name;
+          addInfo.id = clinics[clinicIndex].id;
+          addInfo.image = this.allItemsList[clinicIndex].image;
+          if (this.allItemsList[clinicIndex].affilates) {
+            if (affilateIndex === -1) {
+              affilateIndex = 0;
+            }
+            addInfo.affilate = this.allItemsList[clinicIndex].affilates[affilateIndex];
+            address = this.allItemsList[clinicIndex].affilates[affilateIndex].address;
+            if (affilateIndex === this.allItemsList[clinicIndex].affilates.length - 1) {
+              affilateIndex = -1;
+              clinicIndex += 1;
+            } else {
+              affilateIndex += 1;
+            }
+          } else {
+            address = this.allItemsList[clinicIndex].address;
+            addInfo.directions = this.allItemsList[clinicIndex].directions;
+            addInfo.address = this.allItemsList[clinicIndex].address;
+            addInfo.reviews = this.allItemsList[clinicIndex].reviews;
+            addInfo.rating = this.allItemsList[clinicIndex].rating;
+            clinicIndex += 1;
+          }
+          address += ' ' + this.city;
+          return this.geocoder.geocode({
+            'address': address
+          }, function(results, status) {
+            var icon, marker;
+            if (status === google.maps.GeocoderStatus.OK) {
+              if (addInfo.active && !docMaps.pageName === 'map') {
+                icon = docMaps.icon2;
+              } else {
+                icon = docMaps.icon1;
+              }
+              marker = new google.maps.Marker({
+                map: docMaps.map,
+                icon: icon,
+                addInfo: addInfo,
+                position: results[0].geometry.location
+              });
+              docMaps.markersList.push(marker);
+              docMaps.listeners.marker(marker, docMaps.map);
+              if (addInfo.active) {
+                docMaps.map.setCenter(marker.getPosition());
+              }
+              return docMaps.addNewMarker();
+            } else {
+              return console.log('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+        }
+      };
+    },
+    inner: function() {
+      var index;
+      index = 0;
+      return function() {
+        var addInfo;
+        if (index < this.allItemsList.length) {
+          addInfo = this.allItemsList[index];
+          this.geocoder.geocode({
+            'address': addInfo.address + ' ' + this.city
+          }, function(results, status) {
+            var marker;
+            if (status === google.maps.GeocoderStatus.OK) {
+              marker = new google.maps.Marker({
+                map: docMaps.map,
+                icon: docMaps.icon1,
+                addInfo: addInfo,
+                position: results[0].geometry.location
+              });
+              docMaps.markersList.push(marker);
+              docMaps.listeners.marker(marker, docMaps.map);
+              return docMaps.addNewMarker();
+            } else {
+              return console.log('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+          return index++;
+        } else {
+          return docMaps.fitMap(docMaps.markersList, docMaps.map);
+        }
+      };
+    },
+    diagnost: function() {
+      var affilateIndex, clinicIndex;
+      clinicIndex = 0;
+      affilateIndex = -1;
+      return function() {
+        var addInfo, address;
+        if (clinicIndex < this.allItemsList.length) {
+          addInfo = {};
+          if (clinicIndex === 0) {
+            addInfo.active = true;
+          } else {
+            addInfo.active = false;
+          }
+          addInfo.name = this.allItemsList[clinicIndex].name;
           addInfo.id = diagnost[clinicIndex].id;
           addInfo.image = this.allItemsList[clinicIndex].image;
           if (this.allItemsList[clinicIndex].affilates) {
@@ -3685,7 +3786,7 @@ docMaps = {
     marker.setIcon(docMaps.icon2);
     docMaps.fitMap([marker], map);
     if (marker.addInfo.affilate) {
-      if (docMaps.pageName === 'clinics') {
+      if (docMaps.pageName === 'diagnostCenter') {
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").offset().top;
       } else {
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").closest('.card').offset().top;
@@ -3777,6 +3878,13 @@ docMaps = {
         var index, list;
         if (docMaps.cardId !== $(this).data('id') && docMaps.markersList.length > 0) {
           docMaps.resetMarkers();
+          if (docMaps.pageName === 'clinics') {
+            if ($(this).find('.small-card').length > 0) {
+              index = docMaps.findMarker('id', $(this).find('.small-card').eq(0).data('id'));
+            } else {
+              index = docMaps.findMarker('id', $(this).closest('.card').data('id'));
+            }
+          }
           if (docMaps.pageName === 'diagnostList') {
             if ($(this).find('.card-services').length > 0) {
               index = docMaps.findMarker('id', $(this).find('.card-services').eq(0).data('id'));
@@ -3794,6 +3902,8 @@ docMaps = {
             list = docMaps.markersList.slice(index, index + ($(this).find('.card-services').length));
           } else if ($(this).find('.card__job').length > 0) {
             list = docMaps.markersList.slice(index, index + ($(this).find('.card__job').length));
+          } else if ($(this).find('.small-card').length > 0) {
+            list = docMaps.markersList.slice(index, index + ($(this).find('.small-card').length));
           } else {
             list = [];
             list.push(docMaps.markersList[index]);

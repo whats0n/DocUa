@@ -7,10 +7,10 @@
     page_name: clinics
     find_text: клиник
 
-.row         
+.row          
     section.col-md-9     
         +b.doctors-region 
-            h3 Клиники пульмонологии в других районах (6)
+            h3 Клиники пульмонологии в других районах (6) 
             +e("ul").list 
                 +e("li").item 
                     +e("a").link(href="#").is-red Осокорки
@@ -23,17 +23,17 @@
                 +e("li").item.is-last 
                     +e("a").link(href="#").is-green Шулявка  
                 +e("li").item.is-last
-                    +e("a").link(href="#").is-green Оболонь
-        +b("ul").card-list.promo-container    
+                    +e("a").link(href="#").is-green Оболонь 
+        +b("ul").card-list.promo-container     
             each clinic in clinics
                 if clinic.hasFilials
                     - classes = "card_clinic has-hidden-small-cards" 
 
                 - var uid = "uid-130146"
                 if clinic.address  
-                    +b.card.card-underline(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, moreLink: true, clinicFilials: affilatesIsida, uid: uid })
+                    +b.card.card-underline.item-promo(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, moreLink: true, clinicFilials: affilatesIsida, uid: uid })
                 else
-                    +b.card.card-underline(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, clinicFilials: affilatesIsida, uid: uid }) 
+                    +b.card.card-underline.item-promo(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, clinicFilials: affilatesIsida, uid: uid }) 
             +b.small-card.small-card_mod.item-promo
                 .item-promo__block 
                     a(href="#").item-promo__title промо 
@@ -126,17 +126,17 @@
         +b("a").load-items(href="#"): +i
 
         +b("ul").pagination: +i 
-    aside.col-md-3.hidden-sm.hidden-xs
+    aside.col-md-3.hidden-sm.hidden-xs 
         .widget.widget-map
             #map-canvas-right
             a.btn.btn-success(href="/map.html") Развернуть карту
-        .widget.widget-doctor
-            h3 Похожие врачи
-            - var items = []
-            - var limit = 4
-            each doctor, i in doctors
-                if i < limit
-                    - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
-            +b.short-list: +i({ items: items })
-            .link.link-more
-                   a(href="/doctors.html") Все врачи
+        //- .widget.widget-doctor
+        //-     h3 Похожие врачи
+        //-     - var items = []
+        //-     - var limit = 4
+        //-     each doctor, i in doctors
+        //-         if i < limit
+        //-             - items.push({ gender: doctor.gender, image: doctor.photo.main, title: doctor.name, url: '/' , label: doctor.label, location: doctor.location, rating: doctor.averageRating })
+        //-     +b.short-list: +i({ items: items })
+        //-     .link.link-more
+        //-            a(href="/doctors.html") Все врачи

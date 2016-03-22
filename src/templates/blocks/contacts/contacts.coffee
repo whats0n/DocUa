@@ -9,3 +9,4 @@ $('.js-tab__header-c').click  ->
   $(@).find('.btn__mobile').toggleClass 'btn__mobile_open'
   #event.stopPropagation();
   false
+ 
