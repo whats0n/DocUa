@@ -171,6 +171,7 @@ docMaps =
     clinics: () ->
       clinicIndex = 0
       affilateIndex = -1
+
       return ->
         if clinicIndex < @allItemsList.length
 
@@ -229,6 +230,7 @@ docMaps =
         if index < @allItemsList.length
           addInfo = @allItemsList[index]
           @geocoder.geocode {'address': addInfo.address + ' ' + @city}, (results, status) ->
+
             if status == google.maps.GeocoderStatus.OK
               marker = new (google.maps.Marker)(
                 map: docMaps.map
