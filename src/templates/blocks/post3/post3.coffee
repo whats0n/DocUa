@@ -1,7 +1,7 @@
-# $clamp module, clamp: 3 
-$(".post3").each (el) ->
-    if $(@).find('.clamp-js')
-        module = $(@).find('.clamp-js')
+# # $clamp module, clamp: 3 
+# $(".post3").each (el) ->
+#     if $(@).find('.clamp-js')
+#         module = $(@).find('.clamp-js')
 
 
 # postLocationWidthFix = ->

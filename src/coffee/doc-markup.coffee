@@ -32,14 +32,7 @@ $ ->
             $('.navbar-mobile').slideToggle 300
             $('body').toggleClass('lock')
 
-    $('.footer-menu__item-link')
-        .on "click", (e) ->
-            if $(window).width() < 768
-                $(@).parent().find('.footer-sub-menu').slideToggle 300
-    $('.contacts__title')
-        .on "click", (e) ->
-            if $(window).width() < 768
-                $(@).parent().find('.contacts__phone').slideToggle 300
+
 
     # detect scrollbar width
     $("body").prepend $scrollDiv = $("<div>").css

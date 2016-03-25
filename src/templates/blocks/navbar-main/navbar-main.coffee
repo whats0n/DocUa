@@ -9,3 +9,8 @@ $(window).scroll ->
     
 if window.matchMedia('screen and (max-width: 767px)').matches
   $('.navbar-fixed-top').addClass 'navbar-main_slide'
+
+# delete select7 dropdown
+$(window).scroll ->
+	if !$(".navbar-main_slide").length
+		$("body").trigger('click')

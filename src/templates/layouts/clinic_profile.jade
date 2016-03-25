@@ -36,7 +36,7 @@ body.out
         }(document, 'script', 'facebook-jssdk'));
     .wrapper
         //- Navbar
-        nav.navbar.navbar-main.navbar-fixed-top.navbar-main_none
+        nav.navbar.navbar-main.navbar-fixed-top
           .container
             button.navbar-toggle.collapsed.visible-xs
               span.icon-bar
@@ -55,8 +55,7 @@ body.out
             //-   span (067) 3370707;
             //-   span (044) 3370707
             hr.header__line
-            .phones.phones_mobile.visible-xs 
-              span (044) 337-07-07
+            +b.phones.phones_mobile.js-phones.visible-xs: +i
             +b("a").favorites-link(href="/", title="Избранное")
               span 14
             .user-panel.hidden-xs
@@ -129,6 +128,9 @@ body.out
                                 +b.finder: +i({page: file.finder})
                             if file.chooser
                                 +b.chooser.hidden-xs: +i({page: file.chooser, specializations: specializations})
+        //- pages texture
+        .page-bg
+
         //- Main container
         .container-fluid
             .row

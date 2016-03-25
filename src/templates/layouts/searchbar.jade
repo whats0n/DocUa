@@ -34,7 +34,7 @@ body
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     //- Navbar
-    nav.navbar.navbar-main.navbar-fixed-top.navbar-main_none
+    nav.navbar.navbar-main.navbar-fixed-top
       .container
         button.navbar-toggle.collapsed.visible-xs
           span.icon-bar
@@ -53,8 +53,7 @@ body
         //-   span (067) 3370707;
         //-   span (044) 3370707
         hr.header__line
-        .phones.phones_mobile.visible-xs 
-          span (044) 337-07-07
+        +b.phones.phones_mobile.js-phones.visible-xs: +i
         +b("a").favorites-link(href="/", title="Избранное")
           span 14
         .user-panel.hidden-xs
@@ -82,8 +81,7 @@ body
           header.header.main-page-header(class=headerClass)
             .wrap
               .row
-                .col-md-4.col-sm-3
-                  +b.logo: +i
+                +b.logo: +i
 
                 .navbar-main.navbar-main_inner
                   .container
@@ -102,7 +100,7 @@ body
 
     //- Menu
     .container-fluid.container-menu.hidden-xs
-      .row.row-white
+      .row.row-white.row_border
         .container
           nav.header__nav
             +b.menu: +i({ prefix: "main", items: mainMenu, activeIndex: file.activeMenuItem })
@@ -111,7 +109,9 @@ body
                 +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку") Оставить заявку
 
               +b.search.js-search: +i
-
+    
+    //- pages texture
+    .page-bg
     //- if file.indexPage
     //-   .prarallax-wrap.hidden-xs
 

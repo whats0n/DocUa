@@ -15,7 +15,7 @@ body, html
 .footer__mod
     height 317px
 .cabinet-row__mod
-    padding-bottom 20px
+    padding-bottom 11px
 .container__mod 
     margin-top 0
     margin-bottom 20px
@@ -224,7 +224,10 @@ body, html
             
             &.item__mod
                 display none
-            
+            .modal-radio
+                +label
+                    &:hover
+                        color text_color
         &__title
             // float left
             display inline-block
@@ -463,24 +466,25 @@ body, html
     width 283px
     float right 
     font-size 14px 
-.modal-radio
-    display none
-.modal-radio + label
-    margin-left 28px
-    padding-right 30px
-    position relative
-    cursor pointer
-    &:before
-        content ''
-        display inline-block
-        background url('i/cabinet/checkbox.png') no-repeat
-        position absolute
-        left -30px
-        top -1px
-        width 20px
-        height 20px 
-.modal-radio:checked + label::before 
-    background url('i/cabinet/checkbox-active.png') no-repeat 
+.profile__item
+    .modal-radio
+        display none
+    .modal-radio + label
+        margin-left 28px
+        padding-right 30px
+        position relative
+        cursor pointer
+        &:before
+            content ''
+            display inline-block
+            background url('i/cabinet/checkbox.png') no-repeat
+            position absolute
+            left -30px
+            top -1px
+            width 20px
+            height 20px 
+    .modal-radio:checked + label::before 
+        background url('i/cabinet/checkbox-active.png') no-repeat 
     
 
             

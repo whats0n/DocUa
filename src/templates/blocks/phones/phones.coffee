@@ -14,21 +14,42 @@ $(".phones__item_civic").hover ->
   $(@).toggleClass("phones__item_hover")
   $(".phones__list").find(".phones__item_civic").toggleClass("phones__item_hover")
 
+# for desktop
 $ ->
-  $(".js-phones-btn").click ->
-    _this = $(@)
-    _parent = _this.parents(".js-phones")
+  if window.matchMedia('screen and (min-width: 768px)').matches
+    $(".js-phones").find(".phones__toggle").addClass("js-phones-btn")
+    $(".js-phones-btn").click ->
+      _this = $(@)
+      _parent = _this.parents(".js-phones")
 
-    if _parent.find(".js-phones-list").hasClass("phones__list_block")
-      return true
-    else 
-      _this.addClass("phones__toggle_open")
-      _parent.find(".js-phones-list").addClass("phones__list_block")
-      false
+      if _parent.find(".js-phones-list").hasClass("phones__list_block")
+        return true
+      else 
+        _this.addClass("phones__toggle_open")
+        _parent.find(".js-phones-list").addClass("phones__list_block")
+        false
 
-  $(document).on "click", ->
-    $(".js-phones-list").removeClass "phones__list_block"  
-    $(".js-phones-btn").removeClass "phones__toggle_open"  
+    $(document).on "click", ->
+      $(".js-phones-list").removeClass "phones__list_block"  
+      $(".js-phones-btn").removeClass "phones__toggle_open"  
+
+# for phones
+$ ->
+  if window.matchMedia('screen and (max-width: 767px)').matches
+    $(".js-phones").addClass("js-phones-btn")
+    $(".js-phones-btn").click ->
+      _this = $(@)
+
+      if _this.find(".js-phones-list").hasClass("phones__list_block")
+        return true
+      else 
+        _this.find(".phones__toggle").addClass("phones__toggle_open")
+        _this.find(".js-phones-list").addClass("phones__list_block")
+        false
+
+    $(document).on "click", ->
+      $(".js-phones-list").removeClass "phones__list_block"  
+      $(".phones__toggle").removeClass "phones__toggle_open"  
 
 
 

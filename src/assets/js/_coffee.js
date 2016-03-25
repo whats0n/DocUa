@@ -1414,6 +1414,45 @@ $('.js-date-mast').inputmask({
   mask: "99.99.9999 "
 });
 
+var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
+$(function() {
+  var $block, activeItemIndex, setActiveElement;
+  $block = $(".comment-quotes");
+  activeItemIndex = 0;
+  setActiveElement = function(el) {
+    $block.find(".comment-quotes__item.active").removeClass("active");
+    $block.find(".comment-quotes__pane.active").removeClass("active");
+    $(el).addClass("active");
+    activeItemIndex = $(el).parent().index();
+    return $block.find(".comment-quotes__pane").eq(activeItemIndex).addClass("active");
+  };
+  $(".comment-quotes__item").on("click", function() {
+    return setActiveElement(this);
+  });
+  return $(".comment-quotes__header").owlCarousel({
+    navigation: true,
+    pagination: false,
+    navigationText: ["", ""],
+    rewindNav: false,
+    lazyLoad: false,
+    items: 5,
+    itemsDesktop: [1215, 5],
+    itemsTablet: [979, 5],
+    itemsMobile: [767, 2],
+    afterAction: function(el) {
+      var activateIndex, owl;
+      owl = $(el).data("owlCarousel");
+      if (owl) {
+        if (indexOf.call(owl.owl.visibleItems, activeItemIndex) < 0) {
+          activateIndex = activeItemIndex < owl.owl.visibleItems[0] ? owl.owl.visibleItems[0] : owl.owl.visibleItems[owl.owl.visibleItems.length - 1];
+          return setActiveElement($block.find(".comment-quotes__item").eq(activateIndex).get());
+        }
+      }
+    }
+  });
+});
+
 $("#select-area").on("change", "input", function() {
   var spanMain, spanText;
   spanText = $(this).siblings('span').text();
@@ -1483,56 +1522,17 @@ $(".js-remove").on("click", function() {
   return false;
 });
 
-var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-
-$(function() {
-  var $block, activeItemIndex, setActiveElement;
-  $block = $(".comment-quotes");
-  activeItemIndex = 0;
-  setActiveElement = function(el) {
-    $block.find(".comment-quotes__item.active").removeClass("active");
-    $block.find(".comment-quotes__pane.active").removeClass("active");
-    $(el).addClass("active");
-    activeItemIndex = $(el).parent().index();
-    return $block.find(".comment-quotes__pane").eq(activeItemIndex).addClass("active");
-  };
-  $(".comment-quotes__item").on("click", function() {
-    return setActiveElement(this);
-  });
-  return $(".comment-quotes__header").owlCarousel({
-    navigation: true,
-    pagination: false,
-    navigationText: ["", ""],
-    rewindNav: false,
-    lazyLoad: false,
-    items: 5,
-    itemsDesktop: [1215, 5],
-    itemsTablet: [979, 5],
-    itemsMobile: [767, 2],
-    afterAction: function(el) {
-      var activateIndex, owl;
-      owl = $(el).data("owlCarousel");
-      if (owl) {
-        if (indexOf.call(owl.owl.visibleItems, activeItemIndex) < 0) {
-          activateIndex = activeItemIndex < owl.owl.visibleItems[0] ? owl.owl.visibleItems[0] : owl.owl.visibleItems[owl.owl.visibleItems.length - 1];
-          return setActiveElement($block.find(".comment-quotes__item").eq(activateIndex).get());
-        }
-      }
-    }
-  });
-});
-
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
   $('.js-tab__mobile-c').addClass('js-tab__header-c');
 }
 
 $('.js-tab__header-c').click(function() {
-  var item;
-  $(this).children('span').toggleClass('tab__header_open');
-  item = $(this).children('.js-content_hide-index');
+  var item, parent;
+  parent = $(this).parent(".js-tab__parent-index");
+  item = parent.children('.js-content_hide-index');
   item.slideToggle('fast');
-  item.toggleClass('tab-active_info-index');
-  $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
+  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
+  $(this).toggleClass('tab__header_open');
   return false;
 });
 
@@ -1567,12 +1567,13 @@ if (window.matchMedia('screen and (max-width: 767px)').matches) {
 }
 
 $('.js-tab__header-d').click(function() {
-  var item;
-  item = $(this).children('.js-content-hide');
+  var item, parent;
+  parent = $(this).parent(".js-tab__parent-index");
+  item = parent.children('.js-content-hide');
   item.slideToggle('fast');
   item.toggleClass('tab-active_info-index');
-  $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
-  $(this).find('.diagnostics-record__item-title').toggleClass('tab__header_open');
+  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
+  $(this).toggleClass('tab__header_open');
   return false;
 });
 
@@ -1882,12 +1883,13 @@ if (window.matchMedia('screen and (max-width: 767px)').matches) {
 }
 
 $('.js-tab__header-f').click(function() {
-  var item;
-  item = $(this).children('.js-content-hide');
+  var item, parent;
+  parent = $(this).parent(".js-tab__parent-index");
+  item = parent.children('.js-content_hide-index');
   item.slideToggle('fast');
   item.toggleClass('tab-active_info-index');
+  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
   $(this).toggleClass('tab__header_open');
-  $(this).find('.btn__mobile').toggleClass('btn__mobile_open');
   return false;
 });
 
@@ -1957,6 +1959,12 @@ if (window.matchMedia('screen and (max-width: 767px)').matches) {
   $('.navbar-fixed-top').addClass('navbar-main_slide');
 }
 
+$(window).scroll(function() {
+  if (!$(".navbar-main_slide").length) {
+    return $("body").trigger('click');
+  }
+});
+
 $(document).ready(function() {
   $('.js-tab-container').each(function() {
     $(this).find('.js-tab-link').first().addClass('active');
@@ -2015,22 +2023,46 @@ $(".phones__item_civic").hover(function() {
 });
 
 $(function() {
-  $(".js-phones-btn").click(function() {
-    var _parent, _this;
-    _this = $(this);
-    _parent = _this.parents(".js-phones");
-    if (_parent.find(".js-phones-list").hasClass("phones__list_block")) {
-      return true;
-    } else {
-      _this.addClass("phones__toggle_open");
-      _parent.find(".js-phones-list").addClass("phones__list_block");
-      return false;
-    }
-  });
-  return $(document).on("click", function() {
-    $(".js-phones-list").removeClass("phones__list_block");
-    return $(".js-phones-btn").removeClass("phones__toggle_open");
-  });
+  if (window.matchMedia('screen and (min-width: 768px)').matches) {
+    $(".js-phones").find(".phones__toggle").addClass("js-phones-btn");
+    $(".js-phones-btn").click(function() {
+      var _parent, _this;
+      _this = $(this);
+      _parent = _this.parents(".js-phones");
+      if (_parent.find(".js-phones-list").hasClass("phones__list_block")) {
+        return true;
+      } else {
+        _this.addClass("phones__toggle_open");
+        _parent.find(".js-phones-list").addClass("phones__list_block");
+        return false;
+      }
+    });
+    return $(document).on("click", function() {
+      $(".js-phones-list").removeClass("phones__list_block");
+      return $(".js-phones-btn").removeClass("phones__toggle_open");
+    });
+  }
+});
+
+$(function() {
+  if (window.matchMedia('screen and (max-width: 767px)').matches) {
+    $(".js-phones").addClass("js-phones-btn");
+    $(".js-phones-btn").click(function() {
+      var _this;
+      _this = $(this);
+      if (_this.find(".js-phones-list").hasClass("phones__list_block")) {
+        return true;
+      } else {
+        _this.find(".phones__toggle").addClass("phones__toggle_open");
+        _this.find(".js-phones-list").addClass("phones__list_block");
+        return false;
+      }
+    });
+    return $(document).on("click", function() {
+      $(".js-phones-list").removeClass("phones__list_block");
+      return $(".phones__toggle").removeClass("phones__toggle_open");
+    });
+  }
 });
 
 var galleryCount, generateMarkupForOwlCarousel, initOwlCarousel, syncOwlCarousels;
@@ -2290,12 +2322,7 @@ $(document).ready(function() {
   });
 });
 
-$(".post3").each(function(el) {
-  var module;
-  if ($(this).find('.clamp-js')) {
-    return module = $(this).find('.clamp-js');
-  }
-});
+
 
 $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {
@@ -2731,16 +2758,6 @@ $(function() {
   $('.navbar-main .navbar-toggle').on("click", function(e) {
     $('.navbar-mobile').slideToggle(300);
     return $('body').toggleClass('lock');
-  });
-  $('.footer-menu__item-link').on("click", function(e) {
-    if ($(window).width() < 768) {
-      return $(this).parent().find('.footer-sub-menu').slideToggle(300);
-    }
-  });
-  $('.contacts__title').on("click", function(e) {
-    if ($(window).width() < 768) {
-      return $(this).parent().find('.contacts__phone').slideToggle(300);
-    }
   });
   $("body").prepend($scrollDiv = $("<div>").css({
     width: "100px",
@@ -3448,20 +3465,14 @@ docMaps = {
     if (list) {
       this.allItemsList = list;
     }
-    if (this.pageName === 'doctorInner') {
+    if (this.pageName === 'doctorInner' || this.pageName === 'diagnostCenter' || this.pageName === 'actionAbout') {
       this.addNewMarker = this.addMarker.inner();
-      this.addNewMarker();
-    }
-    if (this.pageName === 'diagnostCenter') {
-      this.addNewMarker = this.addMarker.inner();
-      this.addNewMarker();
-    }
-    if (this.pageName === 'actionAbout') {
-      this.addNewMarker = this.addMarker.inner();
-      this.addNewMarker();
-    }
-    if (this.pageName === 'diagnostList') {
+      return this.addNewMarker();
+    } else if (this.pageName === 'diagnostList') {
       this.addNewMarker = this.addMarker.diagnost();
+      return this.addNewMarker();
+    } else if (this.pageName === 'action') {
+      this.addNewMarker = this.addMarker.actions();
       return this.addNewMarker();
     } else {
       this.addNewMarker = this.addMarker.clinics();
@@ -3568,7 +3579,7 @@ docMaps = {
       });
     },
     inner: function() {
-      if (docMaps.pageName === 'clinicInner') {
+      if (docMaps.pageName === 'clinicInner' || docMaps.pageName === 'actionAbout') {
         return $('#map-canvas-right, .widget-map').height(600);
       } else {
         return $('#map-canvas-right, .widget-map').height($('.card').outerHeight(true));
@@ -3748,34 +3759,69 @@ docMaps = {
         }
       };
     },
-    inner: function() {
-      var index;
-      index = 0;
+    actions: function() {
+      var affilateIndex, clinicIndex;
+      clinicIndex = 0;
+      affilateIndex = -1;
       return function() {
-        var addInfo;
-        if (index < this.allItemsList.length) {
-          addInfo = this.allItemsList[index];
-          this.geocoder.geocode({
-            'address': addInfo.address + ' ' + this.city
+        var addInfo, address;
+        if (clinicIndex < this.allItemsList.length) {
+          addInfo = {};
+          if (clinicIndex === 0) {
+            addInfo.active = true;
+          } else {
+            addInfo.active = false;
+          }
+          addInfo.name = this.allItemsList[clinicIndex].name;
+          addInfo.id = actions[clinicIndex].id;
+          addInfo.image = this.allItemsList[clinicIndex].image;
+          if (this.allItemsList[clinicIndex].affilates) {
+            if (affilateIndex === -1) {
+              affilateIndex = 0;
+            }
+            addInfo.affilate = this.allItemsList[clinicIndex].affilates[affilateIndex];
+            address = this.allItemsList[clinicIndex].affilates[affilateIndex].address;
+            if (affilateIndex === this.allItemsList[clinicIndex].affilates.length - 1) {
+              affilateIndex = -1;
+              clinicIndex += 1;
+            } else {
+              affilateIndex += 1;
+            }
+          } else {
+            address = this.allItemsList[clinicIndex].address;
+            addInfo.directions = this.allItemsList[clinicIndex].directions;
+            addInfo.address = this.allItemsList[clinicIndex].address;
+            addInfo.reviews = this.allItemsList[clinicIndex].reviews;
+            addInfo.rating = this.allItemsList[clinicIndex].rating;
+            clinicIndex += 1;
+          }
+          address += ' ' + this.city;
+          return this.geocoder.geocode({
+            'address': address
           }, function(results, status) {
-            var marker;
+            var icon, marker;
             if (status === google.maps.GeocoderStatus.OK) {
+              if (addInfo.active && !docMaps.pageName === 'map') {
+                icon = docMaps.icon2;
+              } else {
+                icon = docMaps.icon1;
+              }
               marker = new google.maps.Marker({
                 map: docMaps.map,
-                icon: docMaps.icon1,
+                icon: icon,
                 addInfo: addInfo,
                 position: results[0].geometry.location
               });
               docMaps.markersList.push(marker);
               docMaps.listeners.marker(marker, docMaps.map);
+              if (addInfo.active) {
+                docMaps.map.setCenter(marker.getPosition());
+              }
               return docMaps.addNewMarker();
             } else {
               return console.log('Geocode was not successful for the following reason: ' + status);
             }
           });
-          return index++;
-        } else {
-          return docMaps.fitMap(docMaps.markersList, docMaps.map);
         }
       };
     }
@@ -3825,6 +3871,12 @@ docMaps = {
       $('.marker-window .gm-style-iw').css({
         'width': 220
       });
+      $('.marker-window').children().find('.card__address').css({
+        'font-size': 14
+      });
+      $('.marker-window').children().find('.marker-review').css({
+        'font-size': 16
+      });
       $('.marker-window .gm-style-iw>div').eq(0).css({
         'width': 220,
         'max-width': 220
@@ -3856,8 +3908,6 @@ docMaps = {
           return $('#clinic-location-map').modal();
         } else if (docMaps.pageName === 'actionAbout') {
           return $('#clinic-location-map').modal();
-        } else if (docMaps.pageName === 'action') {
-          return $('#clinic-location-map').modal();
         } else if (docMaps.pageName === 'diagnostCenter') {
           return $('#clinic-location-map').modal();
         } else {
@@ -3884,8 +3934,7 @@ docMaps = {
             } else {
               index = docMaps.findMarker('id', $(this).closest('.card').data('id'));
             }
-          }
-          if (docMaps.pageName === 'diagnostList') {
+          } else if (docMaps.pageName === 'diagnostList') {
             if ($(this).find('.card-services').length > 0) {
               index = docMaps.findMarker('id', $(this).find('.card-services').eq(0).data('id'));
             } else {
@@ -3897,6 +3946,12 @@ docMaps = {
             } else {
               index = docMaps.findMarker('id', $(this).closest('.card').data('id'));
             }
+          } else if (docMaps.pageName === 'action') {
+            if ($(this).find('.action-card').length > 0) {
+              index = docMaps.findMarker('id', $(this).find('.action-card').eq(0).data('id'));
+            } else {
+              index = docMaps.findMarker('id', $(this).closest('.card').data('id'));
+            }
           }
           if ($(this).find('.card-services').length > 0) {
             list = docMaps.markersList.slice(index, index + ($(this).find('.card-services').length));
@@ -3904,6 +3959,8 @@ docMaps = {
             list = docMaps.markersList.slice(index, index + ($(this).find('.card__job').length));
           } else if ($(this).find('.small-card').length > 0) {
             list = docMaps.markersList.slice(index, index + ($(this).find('.small-card').length));
+          } else if ($(this).find('.action-card').length > 0) {
+            list = docMaps.markersList.slice(index, index + ($(this).find('.action-card').length));
           } else {
             list = [];
             list.push(docMaps.markersList[index]);

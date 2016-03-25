@@ -73,12 +73,12 @@
     .more-toggle
         display block
 
-.chooser
-    .more-toggle
-        &__show-label:after
-            top 6px
-            right 0
-            sprite($square) 
+// .chooser
+//     .more-toggle
+//         &__show-label:after
+//             top 6px
+//             right 0
+//             sprite($square) 
 .card
     .more-toggle
         &__show-label, &__hide-label
@@ -108,8 +108,10 @@
                 bottom: 0
                 background: #fff
                 
-.chooser, .more-toogle-parent, .blog-block, .diagnostics-record
-    .more-toggle
+
+// styles for buttons on index page with double and single strokes
+.more-toggle
+    &.double-stroke-btn, &.single-stroke-btn
         display block
         font-size 14px
         bottom -18px
@@ -134,7 +136,7 @@
                 z-index 1
             @media phone
                 width 92% 
-        &__link
+        .more-toggle__link
             position relative
             top 0 
             margin-top 0
@@ -158,8 +160,31 @@
                 border 0
                 font-size 17px 
                 font-weight bold
+                
+.single-stroke-btn
+    &.more-toggle
+        .link-wrap
+            &:before
+                content none
+
+// color fill for toggle btns
+.white-toggle
+    &.more-toggle
+        background none
+        .more-toggle__link
+            background #fff
+.texture-toggle
+    &.more-toggle
+        background none
+        .more-toggle__link
+            background grey_texture
+            
+
+
+// position more-toggle in different blocks
 .chooser
     .more-toggle
+        bottom 0
         @media phone
             bottom 30px
 .more-toogle-parent
@@ -172,9 +197,9 @@
             bottom 65px
 .diagnostics-record
     .more-toggle
+        bottom auto
         @media phone
             background none
-            bottom 65px
             &__link
                 background url(i/grey_texture_opac90.png)
                 &:after

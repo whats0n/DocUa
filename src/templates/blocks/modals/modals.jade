@@ -1009,848 +1009,1184 @@ mixin modal(name, classes, dialogClasses)
         h3 Для чего нужно выбирать E-mail?
         p.ocean-blue.offset-0.modals-text Основной e-mail даст Вам возможность получать регулярные оповещения о данных приема, напоминание о приеме и возможность оставлять отзывы о врачах, клиниках.
 
-   
-//- +modal("request-clinic")
-//-     .modal-other__wrap
-//-                 form(action='#')
-//-                     .modal-left-side
-//-                         .side-section.modal-header
-//-                             img.logo(src='i/popups/popup-logo.png', alt='')
-//-                             h2 Запись на прием в клинику
-//-                             .modal-icon.record_icon.record_icon-clinica
-//-                             .close-popup.js-close-window
-//-                         .side-section
-//-                             .modal-icon.icon-clinic
-//-                             .side-section-main
-//-                                 .side-section-header
-//-                                     h3
-//-                                         | Савмед, клиника
-//-                                         | ортопедо-травматологии
-//-                                         | и вертебрологии (Дневной
-//-                                         | стационар болезней
-//-                                         | позвоночника и суставов)
-//-                         .side-section
-//-                             .modal-icon.icon-location
-//-                             .side-section-main
-//-                                 .side-section-header
-//-                                     h3 ул. Раисы Окипной, 8б, 4-й этаж (м. Левобережная)
-//-                         .side-section.js-doctor-text
-//-                             .modal-icon.icon-doc
-//-                             .side-section-main
-//-                                 .side-section-header
-//-                                     h3 Специализация врача
-//-                                     a.modal-button.btn-border.btn-full.js-btn-text(href='#', data-dialog='#specialization') Измените специальность
-//-                                     .side-section__main
-//-                                         .side-section_item.section-doctors
-//-                                 .side-section-content
-//-                                     .side-section-content-inner
-//-                     .modal-right-side
-//-                         .modal-right-content
-//-                             .content-order_footer.mobile-border
-//-                               .modal-icon.clients_icon
-//-                               h3.js-btn-info Информация о пациенте
-//-                               .tab-close__info
-//-                               .mobile-border.border-new.js-content-hide
-//-                               .row.row-none.js-content-hide.line-pad
-//-                                 .col-sm-6.col-sm_none
-//-                                   .row.row-none
-//-                                     .col-sm-12.col-sm_none
-//-                                       input.modal-form-input(type='text', placeholder='Имя, фамилия*')
-//-                                   .row.row-none
-//-                                     .col-sm-12.col-sm_none
-//-                                       input.modal-form-input.phone-input-mask(type='tel', placeholder='Телефон*')
-//-                                   .row.row-none.margin-bottom-0
-//-                                     .col-sm-12.col-sm_none
-//-                                       input.modal-form-input(type='text', placeholder='E-mail')
-//-                                 .col-sm-6.col-sm_none
-//-                                   textarea.modal-form-input(name='', id='', cols='30', rows='10', placeholder='Комментарий')
-//-                               span.js-content-hide
-//-                                 input#checkbox-1.modal-checkbox(type='checkbox', name='')
-//-                                 label(for='checkbox-1') Врач для ребенка
-//-                                 input#checkbox-2.modal-checkbox(type='checkbox', name='', checked='checked')
-//-                                 label(for='checkbox-2') Выезд на дом
-//-                             .line
-//-                             .row.row-none
-//-                                 .col-sm-6.col-sm_none
-//-                                     .modal-right-header.mobile-border
-//-                                         .modal-icon.icon-calendar
-//-                                         h3.js-btn-cal Желаемая дата приема
-//-                                         .tab-close__calendar
-//-                                     .modal-calendar
-//-                                         input#modal-calendar(type='text', name='', aria-haspopup='false')
-//-                                 .col-sm-6.mobile-head.col-sm_none
-//-                                     .modal-right-header.mobile-border
-//-                                         .modal-icon.icon-clock
-//-                                         h3.js-btn-time Желаемое время приема
-//-                                         .tab-close__time
-//-                                     .modal-time
-//-                                         table.modal-time-header
-//-                                           tr
-//-                                             th
-//-                                                 a(href='#', data-group='1') Утро
-//-                                             th
-//-                                                 a(href='#', data-group='2') Обед
-//-                                             th
-//-                                                 a(href='#', data-group='3') Вечер
-//-                                         .modal-time-groups
-//-                                             .modal-time-cell
-//-                                                 input#time-0700.modal-checkbox(type='checkbox', name='time', value='7am', data-group-id='1')
-//-                                                 label(for='time-0700') 07:00
-//-                                             .modal-time-cell
-//-                                                 input#time-0800.modal-checkbox(type='checkbox', name='time', value='8am', data-group-id='1')
-//-                                                 label(for='time-0800') 08:00
-//-                                             .modal-time-cell
-//-                                                 input#time-0900.modal-checkbox(type='checkbox', name='time', value='9am', data-group-id='1')
-//-                                                 label(for='time-0900') 09:00
-//-                                             .modal-time-cell
-//-                                                 input#time-1000.modal-checkbox(type='checkbox', name='time', value='10am', data-group-id='1')
-//-                                                 label(for='time-1000') 10:00
-//-                                             .modal-time-cell
-//-                                                 input#time-1100.modal-checkbox(type='checkbox', name='time', value='11am', data-group-id='1')
-//-                                                 label(for='time-1100') 11:00
-//-                                             .modal-time-cell
-//-                                                 input#time-1200.modal-checkbox(type='checkbox', name='time', value='12am', data-group-id='2')
-//-                                                 label(for='time-1200') 12:00
-//-                                             .modal-time-cell
-//-                                                 input#time-1300.modal-checkbox(type='checkbox', name='time', value='1pm', data-group-id='2')
-//-                                                 label(for='time-1300') 13:00
-//-                                             .modal-time-cell
-//-                                                 input#time-1400.modal-checkbox(type='checkbox', name='time', value='2pm', data-group-id='2')
-//-                                                 label(for='time-1400') 14:00
-//-                                             .modal-time-cell
-//-                                                 input#time-1500.modal-checkbox(type='checkbox', name='time', value='3pm', data-group-id='2')
-//-                                                 label(for='time-1500') 15:00
-//-                                             .modal-time-cell
-//-                                                 input#time-1600.modal-checkbox(type='checkbox', name='time', value='4pm', data-group-id='2')
-//-                                                 label(for='time-1600') 16:00
-//-                                             .modal-time-cell
-//-                                                 input#time-1700.modal-checkbox(type='checkbox', name='time', value='5pm', data-group-id='3')
-//-                                                 label(for='time-1700') 17:00
-//-                                             .modal-time-cell
-//-                                                 input#time-1800.modal-checkbox(type='checkbox', name='time', value='6pm', data-group-id='3')
-//-                                                 label(for='time-1800') 18:00
-//-                                             .modal-time-cell
-//-                                                 input#time-1900.modal-checkbox(type='checkbox', name='time', value='7pm', data-group-id='3', disabled='')
-//-                                                 label(for='time-1900') 19:00
-//-                                             .modal-time-cell
-//-                                                 input#time-2000.modal-checkbox(type='checkbox', name='time', value='8pm', data-group-id='3', disabled='')
-//-                                                 label(for='time-2000') 20:00
-//-                                             .modal-time-cell
-//-                                                 input#time-2100.modal-checkbox(type='checkbox', name='time', value='9pm', data-group-id='3', disabled='')
-//-                                                 label(for='time-2100') 21:00
-//-                                             .modal-time-cell
-//-                                                 input#time-2200.modal-checkbox(type='checkbox', name='time', value='10pm', data-group-id='3', disabled='')
-//-                                                 label(for='time-2200') 22:00
-//-                                         .line
-//-                                         .modal-time-footer
-//-                                             input#checkbox-3.modal-checkbox.free-time(type='checkbox', name='')
-//-                                             label(for='checkbox-3') время неважно
-//-                             .modal-form-footer
-//-                                 .row.row-none
-//-                                     .col-sm-6.col-sm_none
-//-                                         p
-//-                                             | Отправляя заявку, вы принимаете
-//-                                             br
-//-                                             a(href='#') правила работы сервиса
-//-                                             | .
-//-                                     .col-sm-6.col-sm_none
-//-                                         button.modal-button.btn-full.btn-green.btn-large Отправить заявку
-//-                         #dialog-window.window-doctors(data-block='js-doctor-text')
-//-                             .dialog-close
-//-                             .dialog-window-content
-//-                                 .select-specialization
-//-                                     .col-1-3
-//-                                         h3.letter-title A
-//-                                         ul
-//-                                             li.list-item
-//-                                                 input#1(type='radio', name='radio-var')
-//-                                                 label(for='1', data-name='ginekolog') Акушер-гинеколог!
-//-                                             li.list-item
-//-                                                 input(type='radio', name='radio-var', id='')
-//-                                                 label(for='', data-name='allergo') Аллерголог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='radio-var', id='')
-//-                                                 label(for='', data-name='angro') Андролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='radio-var', id='')
-//-                                                 label(for='', data-name='reanimatol') Анестезиолог-реаниматолог
-//-                                         h3.letter-title B
-//-                                         ul
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='venerolog') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='verteb') Вертебролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='venero') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='vertebro') Вертебролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='venerologg') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='veneros') Вертебролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='veneroza') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='vertebrolog') Вертебролог
-//-                                     .col-1-3
-//-                                         h3.letter-title A
-//-                                         ul
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='akysher') Акушер-гинеколог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='aller') Аллерголог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='andrologw') Андролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='anesteziolog') Анестезиолог-реаниматолог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='aks2') Акушер-гинеколог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='allergo') Аллерголог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='androl') Андролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='', data-name='aneste') Анестезиолог-реаниматолог
-//-                                         h3.letter-title B
-//-                                         ul
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Вертебролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Вертебролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Вертебролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Вертебролог
-//-                                     .col-1-3
-//-                                         h3.letter-title B
-//-                                         ul
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Вертебролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Вертебролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Вертебролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Венеролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Вертебролог
-//-                                         h3.letter-title A
-//-                                         ul
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Акушер-гинеколог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Аллерголог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Андролог
-//-                                             li.list-item
-//-                                                 input(type='radio', name='', id='')
-//-                                                 label(for='') Анестезиолог-реаниматолог
-//-                             .dialog-footer
-//-                                 a.modal-button.btn-green(href='#', data-apply-select='') Ок
-//-                                 a.modal-button.btn-dark.btn-small(href='#', data-clear-select='') Очистить выбор
-//-                     .hidden
-//-                         #close-dialog
-//-                             img(src='i/popups/logo-big.png', alt='', width='301', height='89')
-//-                             .h1 Вы действительно хотите прервать запись?
-//-                             .h2
-//-                                 | Если у вас возникли вопросы, 
-//-                                 br
-//-                                 |                     позвоните нам по телефону:
-//-                                 br
-//-                                 |                     (044) 337-07-107 или (067) 123-45-607
-//-                             img.doc(src='i/popups/doc-image.png', alt='', width='140', height='294')
-//-                             a.button.close-dialog(href='#') Прервать
-//-                             a.button.return(href='#') Продолжить
-
-+modal("request-dialog") 
-    .modal-other__wrap
-        form(action='#')
-              .modal-left-side
-                .side-section.modal-header
-                  img.logo(src='i/popups/popup-logo.png', alt='')
-                  .modal-icon.record_icon
-                  h2 Запись на прием
-                  .close-popup.js-close-window
-                .side-section.js-doctor-text
-                  .modal-icon.icon-doc
-                  .side-section-main
-                    .side-section-header.side-section-after
-                      h3 Специализация врача
-                      a.modal-button.btn-border.btn-full.js-btn-open.js-btn-text(href='#') Выберете специальность
-                      .side-section__main
-                        .side-section_item.section-doctors
+  
++modal("request-dialog")
+        #request-dialog-container  
+            .modal-dialog
+              .modal-content
+                form#order-form-56f0ee0579641(action='#', name='order-form-56f0ee0579641')
+                  .modal-left-side
+                    .side-section.modal-header
+                      img.logo(src='/assets/495d167f/newpopup/img/popup-logo.png', alt='')
+                      h2 Запись на прием в клинику
+                      .modal-icon.record_icon.record_icon-clinica
+                      .close-popup.js-close-window
+                    .side-section
+                      .modal-icon.icon-clinic
+                      .side-section-main
+                        .side-section-header.section__radio
+                          h3 Выберите филиал
+                          .section-form
+                            .section-form__inner.jspScrollable(tabindex='0', style='overflow: hidden; padding: 0px; width: 215px;')
+                              .jspContainer(style='width: 215px; height: 250px;')
+                                .jspPane(style='padding: 0px; top: 0px; width: 210px;')
+                                  input#radio-673.modal-radio(checked='', type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='пр-т. Воздухофлотский, 38', value='673')
+                                  label.this-text1(for='radio-673') Добробут «Поликлиника для взрослых»
+                                  .clearfix
+                                  input#radio-674.modal-radio(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='пр-т. Комарова, 3, корп. 5', value='674')
+                                  label.this-text1(for='radio-674') Добробут «Стационар для взрослых»
+                                  .clearfix
+                                  input#radio-675.modal-radio(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='ул. Татарская, 2-Е', value='675')
+                                  label.this-text1(for='radio-675') Добробут «Детская клиника»
+                                  .clearfix
+                                  input#radio-676.modal-radio(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='ул. Драгоманова, 21-А', value='676')
+                                  label.this-text1(for='radio-676') Добробут «Детская клиника на Левом берегу»
+                                  .clearfix
+                                  input#radio-677.modal-radio(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='ул. Ломоносова, 52/3', value='677')
+                                  label.this-text1(for='radio-677') Добробут «Детская поликлиника в Голосеевском районе»
+                                  .clearfix
+                                  input#radio-678.modal-radio(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address=' ул. Мишуги, 12', value='678')
+                                  label.this-text1(for='radio-678') Добробут «Поликлиника для взрослых на Левом берегу»
+                                  .clearfix
+                                .jspVerticalBar
+                                  .jspCap.jspCapTop
+                                  .jspTrack(style='height: 230px;')
+                                    .jspDrag(style='height: 150px;')
+                                      .jspDragTop
+                                      .jspDragBottom
+                                  .jspCap.jspCapBottom
+                    #affiliate_address.side-section
+                      .modal-icon.icon-location
+                      .side-section-main
+                        .side-section-header.section-header__cost
+                          h3 пр-т. Воздухофлотский, 38
+                    .side-section.js-doctor-text
+                      .modal-icon.icon-doc
+                      .side-section-main
+                        .side-section-header
+                          h3 Специализация врача
+                          a.modal-button.btn-border.btn-full.js-btn-text(href='#', data-dialog='specialization') Выберите специализацию
+                          .input-validation__message.btn-validation__message.hidden Выберите «специализацию»
+                          .side-section__main
+                            .side-section_item.section-doctors
+                        .side-section-content
+                        #specialization-label.hidden(data-select='Выберите специализацию', data-change='Измените специализацию')
                     .side-section-content
-                      .side-section-content-inner
-                        ul.simple-list
-                          li.list-item
-                            input#radio-1_1.hidden(type='checkbox', name='radio-var')
-                            label(for='radio-1_1') Акушер-гинеколог
-                            .remove-item
-                .side-section.js-district-text
-                  .modal-icon.icon-location
-                  .side-section-main
-                    .side-section-header
-                      h3 Район
-                      a.modal-button.btn-border.btn-full.js-btn-text__disrtict(href='#', data-dialog='district') Выберите район
-                      .side-section__main
-                        .side-section_item.section-district
-                    .side-section-content
-                      .side-section-content-inner
-                        ul.simple-list
-                          li.list-item.district-label
-                            input#radio-3_1.hidden(type='radio', name='radio-var')
-                            label(for='radio-3_1') Голосеевский район
-                            .remove-item
-                          li.list-item.district-label
-                            input#radio-3_1.hidden(type='radio', name='radio-var')
-                            label(for='radio-3_1') Голосеевский район
-                            .remove-item
-                            ul
-                              li.list-item
-                                input#radio-3_2.hidden(type='radio', name='radio-var')
-                                label(for='radio-3_2') Багриновая гора
-                          li.list-item.district-label
-                            input#radio-3_3.hidden(type='radio', name='radio-var')
-                            label(for='radio-3_3') Голосеевский район
-                            .remove-item
-                            ul
-                              li.list-item
-                                input#radio-3_2.hidden(type='radio', name='radio-var')
-                                label(for='radio-3_2') Багриновая гора
-                                .remove-item
-                              li.list-item
-                                input#radio-3_2.hidden(type='radio', name='radio-var')
-                                label(for='radio-3_2') Багриновая гора
-                                .remove-item
-              .modal-right-side
-                .modal-right-content
-                  .content-order_footer.mobile-border
-                    .modal-icon.clients_icon
-                    h3.js-btn-info Информация о пациенте
-                    .tab-close__info
-                    .mobile-border.border-new.js-content-hide
-                    .row.row-none.js-content-hide.line-pad
-                      .col-sm-6.col-sm_none
+                  .modal-right-side
+                    .modal-right-content
+                      .content-order_footer.mobile-border
+                        .modal-icon.clients_icon
+                        h3.js-btn-info Информация о пациенте
+                        .tab-close
+                        .mobile-border.border-new.js-content-hide
+                        .row.row-none.js-content-hide.line-pad
+                          .col-sm-6.col-sm_none
+                            .row.row-none
+                              .col-sm-12.col-sm_none
+                                input.modal-form-input(type='text', placeholder='Имя, фамилия*', name='order-form-56f0ee0579641[name]', value='')
+                                .input-validation__message.hidden Введите «имя и фамилию»
+                            .row.row-none
+                              .col-sm-12.col-sm_none
+                                input.modal-form-input.phone-input-mask(type='text', placeholder='Телефон*', name='order-form-56f0ee0579641[phone]', value='')
+                                .input-validation__message.hidden Введите «телефон»
+                            .row.row-none.margin-bottom-0
+                              .col-sm-12.col-sm_none
+                                input.modal-form-input(type='text', placeholder='E-mail', name='order-form-56f0ee0579641[email]', value='')
+                          .col-sm-6.col-sm_none
+                            textarea#comment.modal-form-input(cols='30', rows='10', placeholder='Комментарий', name='order-form-56f0ee0579641[comment]')
+                        .user-info-checkbox-holder
+                          span.js-content-hide
+                            span#show-adult
+                              input#checkbox-1.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[adult]')
+                              label(for='checkbox-1') Врач для ребенка
+                            span#show-to-home.hidden
+                              input#checkbox-2.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[to_home]')
+                              label(for='checkbox-2') Выезд на дом
+                      script(type='text/javascript').
+                        $(document).ready(function() {
+                        userData('order-form-56f0ee0579641').load();
+                        });
+                      .line
+                      .row.row-none
+                        .col-sm-6.col-sm_none
+                          .modal-right-header.mobile-border
+                            .modal-icon.icon-calendar
+                            h3.js-btn-cal Желаемая дата приема
+                            .tab-close__calendar
+                          .modal-calendar
+                            input#modal-calendar.picker__input(type='text', name='desired_date', data-value='', aria-haspopup='true', readonly='', aria-expanded='false', aria-readonly='false', aria-owns='modal-calendar_root modal-calendar_hidden')
+                            #modal-calendar_root.picker(aria-hidden='true')
+                              .picker__holder
+                                .picker__frame
+                                  .picker__wrap
+                                    .picker__box
+                                      .picker__header
+                                        .picker__month марта
+                                        .picker__year 2016
+                                        .picker__nav--prev.picker__nav--disabled(data-nav='-1', role='button', aria-controls='modal-calendar_table', title='Предыдущий месяц')  
+                                        .picker__nav--next(data-nav='1', role='button', aria-controls='modal-calendar_table', title='Следующий месяц')  
+                                      table#modal-calendar_table.picker__table(role='grid', aria-controls='modal-calendar', aria-readonly='true')
+                                        thead
+                                          tr
+                                            th.picker__weekday(scope='col', title='понедельник') пн
+                                            th.picker__weekday(scope='col', title='вторник') вт
+                                            th.picker__weekday(scope='col', title='среда') ср
+                                            th.picker__weekday(scope='col', title='четверг') чт
+                                            th.picker__weekday(scope='col', title='пятница') пт
+                                            th.picker__weekday(scope='col', title='суббота') сб
+                                            th.picker__weekday(scope='col', title='воскресенье') вс
+                                        tbody
+                                          tr
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus.picker__day--disabled(data-pick='1456696800000', role='gridcell', aria-disabled='true') 29
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1456783200000', role='gridcell', aria-disabled='true') 1
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1456869600000', role='gridcell', aria-disabled='true') 2
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1456956000000', role='gridcell', aria-disabled='true') 3
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457042400000', role='gridcell', aria-disabled='true') 4
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457128800000', role='gridcell', aria-disabled='true') 5
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457215200000', role='gridcell', aria-disabled='true') 6
+                                          tr
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457301600000', role='gridcell', aria-disabled='true') 7
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457388000000', role='gridcell', aria-disabled='true') 8
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457474400000', role='gridcell', aria-disabled='true') 9
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457560800000', role='gridcell', aria-disabled='true') 10
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457647200000', role='gridcell', aria-disabled='true') 11
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457733600000', role='gridcell', aria-disabled='true') 12
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457820000000', role='gridcell', aria-disabled='true') 13
+                                          tr
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457906400000', role='gridcell', aria-disabled='true') 14
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1457992800000', role='gridcell', aria-disabled='true') 15
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1458079200000', role='gridcell', aria-disabled='true') 16
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1458165600000', role='gridcell', aria-disabled='true') 17
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1458252000000', role='gridcell', aria-disabled='true') 18
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1458338400000', role='gridcell', aria-disabled='true') 19
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1458424800000', role='gridcell', aria-disabled='true') 20
+                                          tr
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1458511200000', role='gridcell', aria-disabled='true') 21
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--today.picker__day--selected.picker__day--highlighted(data-pick='1458597600000', role='gridcell', aria-selected='true', aria-activedescendant='true') 22
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus(data-pick='1458684000000', role='gridcell') 23
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus(data-pick='1458770400000', role='gridcell') 24
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus(data-pick='1458856800000', role='gridcell') 25
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1458943200000', role='gridcell', aria-disabled='true') 26
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus.picker__day--disabled(data-pick='1459029600000', role='gridcell', aria-disabled='true') 27
+                                          tr
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus(data-pick='1459112400000', role='gridcell') 28
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus(data-pick='1459198800000', role='gridcell') 29
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus(data-pick='1459285200000', role='gridcell') 30
+                                            td(role='presentation')
+                                              .picker__day.picker__day--infocus(data-pick='1459371600000', role='gridcell') 31
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus(data-pick='1459458000000', role='gridcell') 1
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus.picker__day--disabled(data-pick='1459544400000', role='gridcell', aria-disabled='true') 2
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus.picker__day--disabled(data-pick='1459630800000', role='gridcell', aria-disabled='true') 3
+                                          tr
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus(data-pick='1459717200000', role='gridcell') 4
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus(data-pick='1459803600000', role='gridcell') 5
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus(data-pick='1459890000000', role='gridcell') 6
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus(data-pick='1459976400000', role='gridcell') 7
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus(data-pick='1460062800000', role='gridcell') 8
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus.picker__day--disabled(data-pick='1460149200000', role='gridcell', aria-disabled='true') 9
+                                            td(role='presentation')
+                                              .picker__day.picker__day--outfocus.picker__day--disabled(data-pick='1460235600000', role='gridcell', aria-disabled='true') 10
+                                      .picker__footer
+                                        button.picker__button--today(type='button', data-pick='1458597600000', disabled='', aria-controls='modal-calendar') сегодня
+                                        button.picker__button--clear(type='button', data-clear='1', disabled='', aria-controls='modal-calendar') удалить
+                                        button.picker__button--close(type='button', data-close='true', disabled='', aria-controls='modal-calendar') закрыть
+                            input#modal-calendar_hidden(type='hidden', name='desired_date_submit', value='2016-03-22')
+                            .input-validation__message.input-validation__date.hidden Выберите «дату»
+                        .col-sm-6.mobile-head.col-sm_none
+                          .modal-right-header.mobile-border
+                            .modal-icon.icon-clock
+                            h3.js-btn-time Желаемое время приема
+                            .tab-close__time
+                          .modal-time
+                            table.modal-time-header
+                              tbody
+                                tr
+                                  th
+                                    a(href='#', data-group='1') Утро
+                                  th
+                                    a(href='#', data-group='2') Обед
+                                  th
+                                    a(href='#', data-group='3') Вечер
+                            .modal-time-groups
+                              .modal-time-cell
+                                input#time-0700.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='07:00', data-group-id='1', disabled='')
+                                label(for='time-0700') 07:00
+                              .modal-time-cell
+                                input#time-0800.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='08:00', data-group-id='1', disabled='')
+                                label(for='time-0800') 08:00
+                              .modal-time-cell
+                                input#time-0900.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='09:00', data-group-id='1', disabled='')
+                                label(for='time-0900') 09:00
+                              .modal-time-cell
+                                input#time-1000.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='10:00', data-group-id='1', disabled='')
+                                label(for='time-1000') 10:00
+                              .modal-time-cell
+                                input#time-1100.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='11:00', data-group-id='1')
+                                label(for='time-1100') 11:00
+                              .modal-time-cell
+                                input#time-1200.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='12:00', data-group-id='2')
+                                label(for='time-1200') 12:00
+                              .modal-time-cell
+                                input#time-1300.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='13:00', data-group-id='2')
+                                label(for='time-1300') 13:00
+                              .modal-time-cell
+                                input#time-1400.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='14:00', data-group-id='2')
+                                label(for='time-1400') 14:00
+                              .modal-time-cell
+                                input#time-1500.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='15:00', data-group-id='2')
+                                label(for='time-1500') 15:00
+                              .modal-time-cell
+                                input#time-1600.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='16:00', data-group-id='2')
+                                label(for='time-1600') 16:00
+                              .modal-time-cell
+                                input#time-1700.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='17:00', data-group-id='3', disabled='')
+                                label(for='time-1700') 17:00
+                              .modal-time-cell
+                                input#time-1800.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='18:00', data-group-id='3', disabled='')
+                                label(for='time-1800') 18:00
+                              .modal-time-cell
+                                input#time-1900.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='19:00', data-group-id='3', disabled='')
+                                label(for='time-1900') 19:00
+                              .modal-time-cell
+                                input#time-2000.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='20:00', data-group-id='3', disabled='')
+                                label(for='time-2000') 20:00
+                              .modal-time-cell
+                                input#time-2100.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='21:00', data-group-id='3', disabled='')
+                                label(for='time-2100') 21:00
+                              .modal-time-cell
+                                input#time-2200.modal-checkbox(type='checkbox', name='order-form-56f0ee0579641[time][]', value='22:00', data-group-id='3', disabled='')
+                                label(for='time-2200') 22:00
+                            .line
+                            .modal-time-footer
+                              input#checkbox-3.modal-checkbox.free-time(type='checkbox', name='order-form-56f0ee0579641[time]', data-pre-entry='11:11', data-normal='Любое время', value='Любое время', style='display: none;')
+                              label(for='checkbox-3', data-pre-entry='Предварительная запись', data-normal='время неважно') время неважно
+                            .input-validation__message.input-validation__time.hidden Выберите «время»
+                      .modal-form-footer
                         .row.row-none
-                          .col-sm-12.col-sm_none
-                            input.modal-form-input(type='text', placeholder='Имя, фамилия*')
-                        .row.row-none
-                          .col-sm-12.col-sm_none
-                            input.modal-form-input.phone-input-mask(type='tel', placeholder='Телефон*')
-                        .row.row-none.margin-bottom-0
-                          .col-sm-12.col-sm_none
-                            input.modal-form-input(type='text', placeholder='E-mail')
-                      .col-sm-6.col-sm_none
-                        textarea.modal-form-input(name='', id='', cols='30', rows='10', placeholder='Комментарий')
-                    span.js-content-hide
-                      input#checkbox-1.modal-checkbox(type='checkbox', name='')
-                      label(for='checkbox-1') Врач для ребенка
-                      input#checkbox-2.modal-checkbox(type='checkbox', name='', checked='checked')
-                      label(for='checkbox-2') Выезд на дом
-                  .line
-                  .row.row-none
-                    .col-sm-6.col-sm_none
-                      .modal-right-header.mobile-border
-                        .modal-icon.icon-calendar
-                        h3.js-btn-cal Желаемая дата приема
-                        .tab-close__calendar
-                      .modal-calendar
-                        input#modal-calendar(type='text', name='', aria-haspopup='false')
-                    .col-sm-6.mobile-head.col-sm_none
-                      .modal-right-header.mobile-border
-                        .modal-icon.icon-clock
-                        h3.js-btn-time Желаемое время приема
-                        .tab-close__time
-                      .modal-time
-                        table.modal-time-header
-                          tr
-                            th
-                              a(href='#', data-group='1') Утро
-                            th
-                              a(href='#', data-group='2') Обед
-                            th
-                              a(href='#', data-group='3') Вечер
-                        .modal-time-groups
-                          .modal-time-cell
-                            input#time-0700.modal-checkbox(type='checkbox', name='time', value='7am', data-group-id='1')
-                            label(for='time-0700') 07:00
-                          .modal-time-cell
-                            input#time-0800.modal-checkbox(type='checkbox', name='time', value='8am', data-group-id='1')
-                            label(for='time-0800') 08:00
-                          .modal-time-cell
-                            input#time-0900.modal-checkbox(type='checkbox', name='time', value='9am', data-group-id='1')
-                            label(for='time-0900') 09:00
-                          .modal-time-cell
-                            input#time-1000.modal-checkbox(type='checkbox', name='time', value='10am', data-group-id='1')
-                            label(for='time-1000') 10:00
-                          .modal-time-cell
-                            input#time-1100.modal-checkbox(type='checkbox', name='time', value='11am', data-group-id='1')
-                            label(for='time-1100') 11:00
-                          .modal-time-cell
-                            input#time-1200.modal-checkbox(type='checkbox', name='time', value='12am', data-group-id='2')
-                            label(for='time-1200') 12:00
-                          .modal-time-cell
-                            input#time-1300.modal-checkbox(type='checkbox', name='time', value='1pm', data-group-id='2')
-                            label(for='time-1300') 13:00
-                          .modal-time-cell
-                            input#time-1400.modal-checkbox(type='checkbox', name='time', value='2pm', data-group-id='2')
-                            label(for='time-1400') 14:00
-                          .modal-time-cell
-                            input#time-1500.modal-checkbox(type='checkbox', name='time', value='3pm', data-group-id='2')
-                            label(for='time-1500') 15:00
-                          .modal-time-cell
-                            input#time-1600.modal-checkbox(type='checkbox', name='time', value='4pm', data-group-id='2')
-                            label(for='time-1600') 16:00
-                          .modal-time-cell
-                            input#time-1700.modal-checkbox(type='checkbox', name='time', value='5pm', data-group-id='3')
-                            label(for='time-1700') 17:00
-                          .modal-time-cell
-                            input#time-1800.modal-checkbox(type='checkbox', name='time', value='6pm', data-group-id='3')
-                            label(for='time-1800') 18:00
-                          .modal-time-cell
-                            input#time-1900.modal-checkbox(type='checkbox', name='time', value='7pm', data-group-id='3', disabled='')
-                            label(for='time-1900') 19:00
-                          .modal-time-cell
-                            input#time-2000.modal-checkbox(type='checkbox', name='time', value='8pm', data-group-id='3', disabled='')
-                            label(for='time-2000') 20:00
-                          .modal-time-cell
-                            input#time-2100.modal-checkbox(type='checkbox', name='time', value='9pm', data-group-id='3', disabled='')
-                            label(for='time-2100') 21:00
-                          .modal-time-cell
-                            input#time-2200.modal-checkbox(type='checkbox', name='time', value='10pm', data-group-id='3', disabled='')
-                            label(for='time-2200') 22:00
-                        .line
-                        .modal-time-footer
-                          input#checkbox-3.modal-checkbox.free-time(type='checkbox', name='')
-                          label(for='checkbox-3') время неважно
-                  .modal-form-footer
-                    .row.row-none
-                      .col-sm-6.col-sm_none
-                        p
-                          | Отправляя заявку, вы принимаете
-                          br
-                          a(href='#') правила работы сервиса
-                          | .
-                      .col-sm-6.col-sm_none
-                        button.modal-button.btn-full.btn-green.btn-large Отправить заявку
-            #dialog-window.js-district(data-block='js-district-text')
-              .dialog-close
-              .dialog-window-content.border-cols
-                .select-district
-                  .col-1-3
-                    dl.select-parents
-                      dt.list-item
-                        input#d1(type='checkbox', name='')
-                        label.js-head-district(for='d1', data-name='goloseevo') Голосеевский район
-                      dd
-                        ul.district-list.js-in-district
-                          li.list-item
-                            input#district-1-1(type='checkbox', name='')
-                            label(for='district-1-1', data-name='bagr') Багриновая гора
-                          li.list-item
-                            input#district-1-2(type='checkbox', name='')
-                            label(for='district-1-2', data-name='goloseev') Голосеево
-                          li.list-item
-                            input#district-1-3(type='checkbox', name='')
-                            label(for='district-1-1\
-                            3', data-name='golos') Голосеевский
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='demeev') Демеевка
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='dobriu') Добрый путь
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='kibcenter') Кибцентр
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='kutaev') Китаев
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='korchov') Корчеватое
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='mushel') Мышеловка
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='kibcen') Кибцентр
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='kitaev') Китаев
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='korchov1') Корчеватое
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='mushelo') Мышеловка
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='pirigo') Пирогово
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='slobodka') Саперная слободка
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='teremki') Теремки-1
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='teremki2') Теремки-2
-                          li.list-item
-                            input(type='checkbox', name='', id='', data-name='univers')
-                            label(for='') Университетский 
-                  .col-1-3
-                    dl.select-parents
-                      dt.list-item
-                        input#dd2(type='checkbox', name='')
-                        label.js-head-district(for='d', data-name='goloseevoqq') Голосеевский район
-                      dd
-                        ul.district-list.js-in-district2
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='gora') Багриновая гора
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='gol') Голосеево
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='goloss') Голосеевский
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='demee') Демеевка
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='district-2-5', data-name='dobriuu') Добрый путь
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='kib') Кибцентр
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='kita') Китаев
-                    dl.select-parents
-                      dt.list-item
-                        input#d22(type='checkbox', name='')
-                        label.js-head-district(for='d2', data-name='goloseevos') Голосеевский район
-                      dd
-                        ul.district-list
-                          li.list-item
-                            input#district-3-1(type='checkbox', name='')
-                            label(for='district-3-1', data-name='goraa') Багриновая гора
-                          li.list-item
-                            input#district-3-2(type='checkbox', name='')
-                            label(for='district-3-2', data-name='golo') Голосеево
-                          li.list-item
-                            input#district-3-3(type='checkbox', name='')
-                            label(for='district-3-3', data-name='golosse') Голосеевский
-                          li.list-item
-                            input#district-3-4(type='checkbox', name='')
-                            label(for='district-3-4', data-name='demeevka') Демеевка
-                          li.list-item
-                            input#district-3-5(type='checkbox', name='')
-                            label(for='district-3-5', data-name='dobr') Добрый путь
-                          li.list-item
-                            input#district-3-6(type='checkbox', name='')
-                            label(for='district-3-6', data-name='kibc') Кибцентр
-                          li.list-item
-                            input#district-3-7(type='checkbox', name='')
-                            label(for='district-3-7', data-name='kiteev') Китаев
-                          li.list-item
-                            input#district-3-8(type='checkbox', name='')
-                            label(for='district-3-8', data-name='korch') Корчеватое
-                          li.list-item
-                            input#district-3-9(type='checkbox', name='')
-                            label(for='district-3-9', data-name='mushe') Мышеловка
-                          li.list-item
-                            input#district-3-10(type='checkbox', name='')
-                            label(for='district-3-10', data-name='kibsent') Кибцентр
-                          li.list-item
-                            input#district-3-11(type='checkbox', name='')
-                            label(for='district-3-11', data-name='kitaevv') Китаев
-                          li.list-item
-                            input#district-3-12(type='checkbox', name='')
-                            label(for='district-3-12', data-name='qqq') Корчеватое
-                          li.list-item
-                            input#district-3-13(type='checkbox', name='')
-                            label(for='district-3-13', data-name='muee') Мышеловка
-                          li.list-item
-                            input#district-3-14(type='checkbox', name='')
-                            label(for='district-3-14', data-name='pirrr') Пирогово
-                          li.list-item
-                            input#district-3-15(type='checkbox', name='')
-                            label(for='district-3-15', data-name='slobodkaa') Саперная слободка
-                          li.list-item
-                            input#district-3-16(type='checkbox', name='')
-                            label(for='district-3-16', data-name='ter') Теремки-1
-                          li.list-item
-                            input#district-3-17(type='checkbox', name='')
-                            label(for='district-3-17', data-name='terem') Теремки-2
-                          li.list-item
-                            input#district-3-18(type='checkbox', name='')
-                            label(for='district-3-18', data-name='universw') Университ...
-                  .col-1-3
-                    dl.select-parents
-                      dt.list-item
-                        input#dd3(type='checkbox', name='')
-                        label.js-head-district(for='d3', data-name='goloseevoq1') Голосеевский район
-                      dd
-                        ul.district-list
-                          li.list-item
-                            input#district-4-1(type='checkbox', name='')
-                            label(for='district-4-1', data-name='gor') Багриновая гора
-                          li.list-item
-                            input#district-4-2(type='checkbox', name='')
-                            label(for='district-4-2', data-name='gos') Голосеево
-                          li.list-item
-                            input#district-4-3(type='checkbox', name='')
-                            label(for='district-4-3', data-name='golos') Голосеевский
-                          li.list-item
-                            input#district-4-4(type='checkbox', name='')
-                            label(for='district-4-4', data-name='dem') Демеевка
-                          li.list-item
-                            input#district-4-5(type='checkbox', name='')
-                            label(for='district-4-5', data-name='dobriuua') Добрый путь
-                          li.list-item
-                            input#district-4-6(type='checkbox', name='')
-                            label(for='district-4-6', data-name='univers') Кибцентр
-                          li.list-item
-                            input#district-4-7(type='checkbox', name='')
-                            label(for='district-4-7', data-name='dfd') Китаев
-                    dl.select-parents
-                      dt.list-item
-                        input#dd1(type='checkbox', name='')
-                        label.js-head-district(for='ddd', data-name='goloseevoee') Голосеевский район
-                      dd
-                        ul.district-list
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='qwe') Багриновая гора
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='golo2') Голосеево
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='golos3') Голосеевский
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='demeevka2') Демеевка
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='dobriu2') Добрый путь
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='kibsenter') Кибцентр
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='kitaevv2') Китаев
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='korch2') Корчеватое
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='vbitkjdrf') Мышеловка
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='kibsenter2') Кибцентр
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='', data-name='kitaev2') Китаев
-                          li.list-item
-                            input(type='checkbox', name='', id='')
-                            label(for='district-5-12', data-name='korchovatoe') Корчеватое
-              .dialog-footer
-                a.modal-button.btn-green.js-btn-copy__dictrict(href='#', data-apply-select='') Ок
-                a.modal-button.btn-dark.btn-small.js-btn-clear(href='#') Очистить выбор
-            #dialog-window.js-doctors(data-block='js-doctor-text')
-              .dialog-close
-              .dialog-window-content.dialog-window__special
-                .select-specialization
-                  .col-1-3
-                    h3.letter-title A
-                    ul
-                      li.list-item
-                        input#radio-1(type='radio', name='')
-                        label(for='radio-1', data-name='akysher') Акушер-гинеколог!
-                      li.list-item
-                        input#radio-2(type='radio', name='radio-var')
-                        label(for='radio-2', data-name='allegrolog') Аллерголог
-                      li.list-item
-                        input#radio-3(type='radio', name='radio-var')
-                        label(for='radio-3', data-name='androlog') Андролог
-                      li.list-item
-                        input#radio-4(type='radio', name='radio-var')
-                        label(for='radio-4', data-name='reanim') Анестезиолог-реаниматолог
-                    h3.letter-title B
-                    ul
-                      li.list-item
-                        input#radio-5(type='radio', name='')
-                        label(for='radio-5', data-name='vener') Венеролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='sdsd') Венеролог
-                      li.list-item
-                        input#radio-7(type='radio', name='')
-                        label(for='radio-7', data-name='sddf') Венеролог
-                      li.list-item
-                        input#radio-8(type='radio', name='')
-                        label(for='radio-8', data-name='dsfsd') Венеролог
-                      li.list-item
-                        input#radio-9(type='radio', name='')
-                        label(for='radio-9', data-name='weww') Венеролог
-                      li.list-item
-                        input#radio-10(type='radio', name='')
-                        label(for='radio-10', data-name='adasa') Венеролог
-                      li.list-item
-                        input#radio-11(type='radio', name='')
-                        label(for='radio-11', data-name='wewe') Венеролог
-                      li.list-item
-                        input#radio-12(type='radio', name='')
-                        label(for='radio-12', data-name='sfdd') Венеролог
-                  .col-1-3
-                    h3.letter-title A
-                    ul
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='ginekilog') Акушер-гинеколог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='allegrol') Аллерголог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='androlog') Андролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='reanimatol') Анестезиолог-реаниматолог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='ginekolog') Акушер-гинеколог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='allegrol') Аллерголог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='allegrol1') Андролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='anesteziolog') Анестезиолог-реаниматолог
-                    h3.letter-title B
-                    ul
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='venerolog') Венеролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='vertebrolog') Вертебролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='veneros') Венеролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='vertebro') Вертебролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='veneroza') Венеролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='verteb') Вертебролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='venerolog4') Венеролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='vertr') Вертебролог
-                  .col-1-3
-                    h3.letter-title B
-                    ul
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='vwnwrol2') Венеролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='vertebrolog2') Вертебролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='allegrolww') Венеролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='vertew2') Вертебролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='venerol3') Венеролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='verteeebllog') Вертебролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='vene') Венеролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='verteb2') Вертебролог
-                    h3.letter-title A
-                    ul
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='akysher') Акушер-гинеколог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='allegrol2') Аллерголог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='alndrolog') Андролог
-                      li.list-item
-                        input(type='radio', name='', id='')
-                        label(for='', data-name='aneste') Анестезиолог-реаниматолог
-              .dialog-footer.dialog-footer__none
-                a.modal-button.btn-green(href='#', data-apply-select='') Ок
-                a.modal-button.btn-dark.btn-small(href='#', data-clear-select='') Очистить выбор
+                          .col-sm-6.col-sm_none
+                            p
+                              | Отправляя заявку, вы принимаете
+                              br
+                              a(href='/rules.html') правила работы сервиса
+                              | .
+                          .col-sm-6.col-sm_none
+                            button.modal-button.btn-full.btn-green.btn-large(type='submit', name='order-form-56f0ee0579641_submit', value='create_order') Отправить заявку
+                  script.
+                    window.addEventListener('load',function(){
+                    $('body').on('click','button:last',function(){$(this).attr('disabled',true);});
+                    $(document).ajaxComplete(function() {
+                    $('button:last').attr('disabled',false);
+                    });
+                    });
+                script(type='text/javascript').
+                  $( document ).ready(function(){
+                  $('#dialog-window .dialog-window-content .select-specialization').replaceWith($($('[data-id] .select-specialization')[0]).clone(true));
+                  $('[data-dialog-name="specialization"] .dialog-window-content').jScrollPane().data('jsp').reinitialise();
+                  $('[name="order-form-56f0ee0579641[affiliate_id]"]').on('change', function() {
+                  var dialogWindow = $('[data-dialog-name="specialization"]');
+                  var dialogJSP = $('.dialog-window-content', dialogWindow).jScrollPane().data('jsp');
+                  $('.jspContainer .select-specialization', dialogWindow).replaceWith($('[data-id="' + $(this).attr('id') +'"] .select-specialization').clone(true));
+                  if (typeof dialogWindow[0].reinit !== 'undefined') {
+                  dialogWindow[0].reinit();
+                  }
+                  dialogJSP.reinitialise();
+                  });
+                  });
+                #dialog-window.window-doctors(data-block='js-doctor-text', data-dialog-name='specialization')
+                  .dialog-close
+                  .dialog-window-content(style='overflow: hidden; padding: 0px; width: 493px;')
+                    .jspContainer(style='width: 493px; height: 0px;')
+                      .jspPane(style='padding: 0px; top: 0px; left: 0px; width: 493px;')
+                        .select-specialization.user-content
+                          .col-1-3
+                            h3.letter-title А
+                            ul(data-group='single')
+                              li.list-item.first-child
+                                input#specialty-5(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-5', data-specialty_id='5')
+                                label(for='specialty-5', data-name='specialty-5', data-specialty_id='5') Андролог
+                              li.list-item.last-child
+                                input#specialty-3(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-3', data-specialty_id='3')
+                                label(for='specialty-3', data-name='specialty-3', data-specialty_id='3') Акушер-гинеколог
+                            h3.letter-title В
+                            ul(data-group='single')
+                              li.list-item.last-child.first-child
+                                input#specialty-68(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-68', data-specialty_id='68')
+                                label(for='specialty-68', data-name='specialty-68', data-specialty_id='68') Врач функциональной диагностики
+                            h3.letter-title Г
+                            ul(data-group='single')
+                              li.list-item.first-child
+                                input#specialty-13(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-13', data-specialty_id='13')
+                                label(for='specialty-13', data-name='specialty-13', data-specialty_id='13') Гинеколог
+                              li.list-item.last-child
+                                input#specialty-8(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-8', data-specialty_id='8')
+                                label(for='specialty-8', data-name='specialty-8', data-specialty_id='8') Гастроэнтеролог
+                            h3.letter-title Д
+                            ul(data-group='single')
+                              li.list-item.first-child
+                                input#specialty-61(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-61', data-specialty_id='61')
+                                label(for='specialty-61', data-name='specialty-61', data-specialty_id='61') Дерматовенеролог
+                              li.list-item.last-child
+                                input#specialty-15(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-15', data-specialty_id='15')
+                                label(for='specialty-15', data-name='specialty-15', data-specialty_id='15') Дерматолог
+                            h3.letter-title К
+                            ul(data-group='single')
+                              li.list-item.last-child.first-child
+                                input#specialty-19(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-19', data-specialty_id='19')
+                                label(for='specialty-19', data-name='specialty-19', data-specialty_id='19') Кардиолог
+                            h3.letter-title М
+                            ul(data-group='single')
+                              li.list-item.first-child
+                                input#specialty-24(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-24', data-specialty_id='24')
+                                label(for='specialty-24', data-name='specialty-24', data-specialty_id='24') Маммолог
+                              li.list-item.last-child
+                                input#specialty-26(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-26', data-specialty_id='26')
+                                label(for='specialty-26', data-name='specialty-26', data-specialty_id='26') Массажист
+                          .col-1-3
+                            h3.letter-title Н
+                            ul(data-group='single')
+                              li.list-item.last-child.first-child
+                                input#specialty-28(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-28', data-specialty_id='28')
+                                label(for='specialty-28', data-name='specialty-28', data-specialty_id='28') Невролог
+                            h3.letter-title О
+                            ul(data-group='single')
+                              li.list-item.first-child
+                                input#specialty-34(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-34', data-specialty_id='34')
+                                label(for='specialty-34', data-name='specialty-34', data-specialty_id='34') Ортопед
+                              li.list-item
+                                input#specialty-32(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-32', data-specialty_id='32')
+                                label(for='specialty-32', data-name='specialty-32', data-specialty_id='32') Онколог
+                              li.list-item
+                                input#specialty-23(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-23', data-specialty_id='23')
+                                label(for='specialty-23', data-name='specialty-23', data-specialty_id='23') Отоларинголог (ЛОР)
+                              li.list-item.last-child
+                                input#specialty-31(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-31', data-specialty_id='31')
+                                label(for='specialty-31', data-name='specialty-31', data-specialty_id='31') Офтальмолог
+                            h3.letter-title П
+                            ul(data-group='single')
+                              li.list-item.first-child
+                                input#specialty-37(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-37', data-specialty_id='37')
+                                label(for='specialty-37', data-name='specialty-37', data-specialty_id='37') Проктолог
+                              li.list-item.last-child
+                                input#specialty-39(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-39', data-specialty_id='39')
+                                label(for='specialty-39', data-name='specialty-39', data-specialty_id='39') Психолог
+                            h3.letter-title Р
+                            ul(data-group='single')
+                              li.list-item.first-child
+                                input#specialty-42(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-42', data-specialty_id='42')
+                                label(for='specialty-42', data-name='specialty-42', data-specialty_id='42') Ревматолог
+                              li.list-item
+                                input#specialty-45(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-45', data-specialty_id='45')
+                                label(for='specialty-45', data-name='specialty-45', data-specialty_id='45') Рефлексотерапевт
+                              li.list-item.last-child
+                                input#specialty-71(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-71', data-specialty_id='71')
+                                label(for='specialty-71', data-name='specialty-71', data-specialty_id='71') Реабилитолог
+                          .col-1-3
+                            h3.letter-title С
+                            ul(data-group='single')
+                              li.list-item.first-child
+                                input#specialty-47(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-47', data-specialty_id='47')
+                                label(for='specialty-47', data-name='specialty-47', data-specialty_id='47') Сексопатолог
+                              li.list-item.last-child
+                                input#specialty-80(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-80', data-specialty_id='80')
+                                label(for='specialty-80', data-name='specialty-80', data-specialty_id='80') Сурдолог
+                            h3.letter-title Т
+                            ul(data-group='single')
+                              li.list-item.first-child
+                                input#specialty-50(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-50', data-specialty_id='50')
+                                label(for='specialty-50', data-name='specialty-50', data-specialty_id='50') Травматолог
+                              li.list-item.last-child
+                                input#specialty-49(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-49', data-specialty_id='49')
+                                label(for='specialty-49', data-name='specialty-49', data-specialty_id='49') Терапевт
+                            h3.letter-title У
+                            ul(data-group='single')
+                              li.list-item.first-child
+                                input#specialty-53(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-53', data-specialty_id='53')
+                                label(for='specialty-53', data-name='specialty-53', data-specialty_id='53') Уролог
+                              li.list-item.last-child
+                                input#specialty-52(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-52', data-specialty_id='52')
+                                label(for='specialty-52', data-name='specialty-52', data-specialty_id='52') УЗИ-специалист
+                            h3.letter-title Х
+                            ul(data-group='single')
+                              li.list-item.last-child.first-child
+                                input#specialty-56(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-56', data-specialty_id='56')
+                                label(for='specialty-56', data-name='specialty-56', data-specialty_id='56') Хирург
+                            h3.letter-title Э
+                            ul(data-group='single')
+                              li.list-item.last-child.first-child
+                                input#specialty-57(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-57', data-specialty_id='57')
+                                label(for='specialty-57', data-name='specialty-57', data-specialty_id='57') Эндокринолог
+                  .dialog-footer
+                    a.modal-button.btn-green(href='#', data-apply-select='') Ок
+                    a.modal-button.btn-dark.btn-small(href='#', data-clear-select='') Очистить выбор
+                #dialog-window
+                  .dialog-close
+                  .dialog-window-content
+          .hidden
+            #close-dialog
+              img(src='/assets/495d167f/newpopup/img/logo-big.png', alt='', width='301', height='89')
+              .h1 Вы действительно хотите прервать запись?
+              .h2
+                | Если у вас возникли вопросы, 
+                br
+                |             позвоните нам по телефону:
+                br
+                |             (044) 337 07 07
+                div
+                  div(data-match='mts', disabled='', style='display: none;')  или (095) 337 07 07
+                  div(data-match='life', disabled='', style='display: none;')  или (063) 337 07 07
+                  div(data-match='kyivstar', disabled='', style='display: none;')  или (067) 337 07 07
+              img.doc(src='/assets/495d167f/newpopup/img/doc-image.png', alt='', width='140', height='294')
+              a#cancel-order.button.close-dialog(href='#') Прервать
+              a.button.return(href='#') Вернуться
+            div(data-id='radio-673')
+              .select-specialization.user-content
+                .col-1-3
+                  h3.letter-title А
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-5(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-5', data-specialty_id='5')
+                      label(for='specialty-5', data-name='specialty-5', data-specialty_id='5') Андролог
+                    li.list-item.last-child
+                      input#specialty-3(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-3', data-specialty_id='3')
+                      label(for='specialty-3', data-name='specialty-3', data-specialty_id='3') Акушер-гинеколог
+                  h3.letter-title В
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-68(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-68', data-specialty_id='68')
+                      label(for='specialty-68', data-name='specialty-68', data-specialty_id='68') Врач функциональной диагностики
+                  h3.letter-title Г
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-13(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-13', data-specialty_id='13')
+                      label(for='specialty-13', data-name='specialty-13', data-specialty_id='13') Гинеколог
+                    li.list-item.last-child
+                      input#specialty-8(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-8', data-specialty_id='8')
+                      label(for='specialty-8', data-name='specialty-8', data-specialty_id='8') Гастроэнтеролог
+                  h3.letter-title Д
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-61(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-61', data-specialty_id='61')
+                      label(for='specialty-61', data-name='specialty-61', data-specialty_id='61') Дерматовенеролог
+                    li.list-item.last-child
+                      input#specialty-15(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-15', data-specialty_id='15')
+                      label(for='specialty-15', data-name='specialty-15', data-specialty_id='15') Дерматолог
+                  h3.letter-title К
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-19(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-19', data-specialty_id='19')
+                      label(for='specialty-19', data-name='specialty-19', data-specialty_id='19') Кардиолог
+                  h3.letter-title М
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-24(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-24', data-specialty_id='24')
+                      label(for='specialty-24', data-name='specialty-24', data-specialty_id='24') Маммолог
+                    li.list-item.last-child
+                      input#specialty-26(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-26', data-specialty_id='26')
+                      label(for='specialty-26', data-name='specialty-26', data-specialty_id='26') Массажист
+                .col-1-3
+                  h3.letter-title Н
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-28(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-28', data-specialty_id='28')
+                      label(for='specialty-28', data-name='specialty-28', data-specialty_id='28') Невролог
+                  h3.letter-title О
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-34(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-34', data-specialty_id='34')
+                      label(for='specialty-34', data-name='specialty-34', data-specialty_id='34') Ортопед
+                    li.list-item
+                      input#specialty-32(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-32', data-specialty_id='32')
+                      label(for='specialty-32', data-name='specialty-32', data-specialty_id='32') Онколог
+                    li.list-item
+                      input#specialty-23(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-23', data-specialty_id='23')
+                      label(for='specialty-23', data-name='specialty-23', data-specialty_id='23') Отоларинголог (ЛОР)
+                    li.list-item.last-child
+                      input#specialty-31(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-31', data-specialty_id='31')
+                      label(for='specialty-31', data-name='specialty-31', data-specialty_id='31') Офтальмолог
+                  h3.letter-title П
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-37(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-37', data-specialty_id='37')
+                      label(for='specialty-37', data-name='specialty-37', data-specialty_id='37') Проктолог
+                    li.list-item.last-child
+                      input#specialty-39(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-39', data-specialty_id='39')
+                      label(for='specialty-39', data-name='specialty-39', data-specialty_id='39') Психолог
+                  h3.letter-title Р
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-42(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-42', data-specialty_id='42')
+                      label(for='specialty-42', data-name='specialty-42', data-specialty_id='42') Ревматолог
+                    li.list-item
+                      input#specialty-45(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-45', data-specialty_id='45')
+                      label(for='specialty-45', data-name='specialty-45', data-specialty_id='45') Рефлексотерапевт
+                    li.list-item.last-child
+                      input#specialty-71(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-71', data-specialty_id='71')
+                      label(for='specialty-71', data-name='specialty-71', data-specialty_id='71') Реабилитолог
+                .col-1-3
+                  h3.letter-title С
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-47(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-47', data-specialty_id='47')
+                      label(for='specialty-47', data-name='specialty-47', data-specialty_id='47') Сексопатолог
+                    li.list-item.last-child
+                      input#specialty-80(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-80', data-specialty_id='80')
+                      label(for='specialty-80', data-name='specialty-80', data-specialty_id='80') Сурдолог
+                  h3.letter-title Т
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-50(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-50', data-specialty_id='50')
+                      label(for='specialty-50', data-name='specialty-50', data-specialty_id='50') Травматолог
+                    li.list-item.last-child
+                      input#specialty-49(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-49', data-specialty_id='49')
+                      label(for='specialty-49', data-name='specialty-49', data-specialty_id='49') Терапевт
+                  h3.letter-title У
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-53(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-53', data-specialty_id='53')
+                      label(for='specialty-53', data-name='specialty-53', data-specialty_id='53') Уролог
+                    li.list-item.last-child
+                      input#specialty-52(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-52', data-specialty_id='52')
+                      label(for='specialty-52', data-name='specialty-52', data-specialty_id='52') УЗИ-специалист
+                  h3.letter-title Х
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-56(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-56', data-specialty_id='56')
+                      label(for='specialty-56', data-name='specialty-56', data-specialty_id='56') Хирург
+                  h3.letter-title Э
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-57(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-57', data-specialty_id='57')
+                      label(for='specialty-57', data-name='specialty-57', data-specialty_id='57') Эндокринолог
+            div(data-id='radio-674')
+              .select-specialization.user-content
+                .col-1-3
+                  h3.letter-title А
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-6(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-6', data-specialty_id='6')
+                      label(for='specialty-6', data-name='specialty-6', data-specialty_id='6') Анестезиолог-реаниматолог
+                    li.list-item
+                      input#specialty-3(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-3', data-specialty_id='3')
+                      label(for='specialty-3', data-name='specialty-3', data-specialty_id='3') Акушер-гинеколог
+                    li.list-item.last-child
+                      input#specialty-4(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-4', data-specialty_id='4')
+                      label(for='specialty-4', data-name='specialty-4', data-specialty_id='4') Аллерголог
+                  h3.letter-title В
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-82(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-82', data-specialty_id='82')
+                      label(for='specialty-82', data-name='specialty-82', data-specialty_id='82') Врач спортивной медицины
+                    li.list-item.last-child
+                      input#specialty-68(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-68', data-specialty_id='68')
+                      label(for='specialty-68', data-name='specialty-68', data-specialty_id='68') Врач функциональной диагностики
+                  h3.letter-title Г
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-13(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-13', data-specialty_id='13')
+                      label(for='specialty-13', data-name='specialty-13', data-specialty_id='13') Гинеколог
+                  h3.letter-title Д
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-16(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-16', data-specialty_id='16')
+                      label(for='specialty-16', data-name='specialty-16', data-specialty_id='16') Диетолог
+                  h3.letter-title И
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-18(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-18', data-specialty_id='18')
+                      label(for='specialty-18', data-name='specialty-18', data-specialty_id='18') Инфекционист
+                  h3.letter-title К
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-19(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-19', data-specialty_id='19')
+                      label(for='specialty-19', data-name='specialty-19', data-specialty_id='19') Кардиолог
+                .col-1-3
+                  h3.letter-title О
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-34(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-34', data-specialty_id='34')
+                      label(for='specialty-34', data-name='specialty-34', data-specialty_id='34') Ортопед
+                    li.list-item
+                      input#specialty-23(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-23', data-specialty_id='23')
+                      label(for='specialty-23', data-name='specialty-23', data-specialty_id='23') Отоларинголог (ЛОР)
+                    li.list-item.last-child
+                      input#specialty-32(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-32', data-specialty_id='32')
+                      label(for='specialty-32', data-name='specialty-32', data-specialty_id='32') Онколог
+                  h3.letter-title П
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-36(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-36', data-specialty_id='36')
+                      label(for='specialty-36', data-name='specialty-36', data-specialty_id='36') Пластический хирург
+                    li.list-item
+                      input#specialty-37(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-37', data-specialty_id='37')
+                      label(for='specialty-37', data-name='specialty-37', data-specialty_id='37') Проктолог
+                    li.list-item.last-child
+                      input#specialty-39(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-39', data-specialty_id='39')
+                      label(for='specialty-39', data-name='specialty-39', data-specialty_id='39') Психолог
+                  h3.letter-title Р
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-43(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-43', data-specialty_id='43')
+                      label(for='specialty-43', data-name='specialty-43', data-specialty_id='43') Рентгенолог
+                    li.list-item.last-child
+                      input#specialty-71(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-71', data-specialty_id='71')
+                      label(for='specialty-71', data-name='specialty-71', data-specialty_id='71') Реабилитолог
+                  h3.letter-title Т
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-50(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-50', data-specialty_id='50')
+                      label(for='specialty-50', data-name='specialty-50', data-specialty_id='50') Травматолог
+                    li.list-item.last-child
+                      input#specialty-49(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-49', data-specialty_id='49')
+                      label(for='specialty-49', data-name='specialty-49', data-specialty_id='49') Терапевт
+                .col-1-3
+                  h3.letter-title У
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-52(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-52', data-specialty_id='52')
+                      label(for='specialty-52', data-name='specialty-52', data-specialty_id='52') УЗИ-специалист
+                    li.list-item.last-child
+                      input#specialty-53(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-53', data-specialty_id='53')
+                      label(for='specialty-53', data-name='specialty-53', data-specialty_id='53') Уролог
+                  h3.letter-title Ф
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-55(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-55', data-specialty_id='55')
+                      label(for='specialty-55', data-name='specialty-55', data-specialty_id='55') Флеболог
+                    li.list-item.last-child
+                      input#specialty-54(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-54', data-specialty_id='54')
+                      label(for='specialty-54', data-name='specialty-54', data-specialty_id='54') Физиотерапевт
+                  h3.letter-title Х
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-56(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-56', data-specialty_id='56')
+                      label(for='specialty-56', data-name='specialty-56', data-specialty_id='56') Хирург
+                  h3.letter-title Э
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-57(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-57', data-specialty_id='57')
+                      label(for='specialty-57', data-name='specialty-57', data-specialty_id='57') Эндокринолог
+                    li.list-item.last-child
+                      input#specialty-70(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-70', data-specialty_id='70')
+                      label(for='specialty-70', data-name='specialty-70', data-specialty_id='70') Эндоскопист
+            div(data-id='radio-675')
+              .select-specialization.user-content
+                .col-1-3
+                  h3.letter-title А
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-4(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-4', data-specialty_id='4')
+                      label(for='specialty-4', data-name='specialty-4', data-specialty_id='4') Аллерголог
+                    li.list-item.last-child
+                      input#specialty-3(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-3', data-specialty_id='3')
+                      label(for='specialty-3', data-name='specialty-3', data-specialty_id='3') Акушер-гинеколог
+                  h3.letter-title Г
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-8(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-8', data-specialty_id='8')
+                      label(for='specialty-8', data-name='specialty-8', data-specialty_id='8') Гастроэнтеролог
+                    li.list-item
+                      input#specialty-11(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-11', data-specialty_id='11')
+                      label(for='specialty-11', data-name='specialty-11', data-specialty_id='11') Гематолог
+                    li.list-item.last-child
+                      input#specialty-13(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-13', data-specialty_id='13')
+                      label(for='specialty-13', data-name='specialty-13', data-specialty_id='13') Гинеколог
+                  h3.letter-title Д
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-15(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-15', data-specialty_id='15')
+                      label(for='specialty-15', data-name='specialty-15', data-specialty_id='15') Дерматолог
+                    li.list-item.last-child
+                      input#specialty-61(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-61', data-specialty_id='61')
+                      label(for='specialty-61', data-name='specialty-61', data-specialty_id='61') Дерматовенеролог
+                  h3.letter-title И
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-18(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-18', data-specialty_id='18')
+                      label(for='specialty-18', data-name='specialty-18', data-specialty_id='18') Инфекционист
+                  h3.letter-title К
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-19(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-19', data-specialty_id='19')
+                      label(for='specialty-19', data-name='specialty-19', data-specialty_id='19') Кардиолог
+                  h3.letter-title Л
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-22(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-22', data-specialty_id='22')
+                      label(for='specialty-22', data-name='specialty-22', data-specialty_id='22') Логопед
+                  h3.letter-title М
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-26(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-26', data-specialty_id='26')
+                      label(for='specialty-26', data-name='specialty-26', data-specialty_id='26') Массажист
+                    li.list-item.last-child
+                      input#specialty-25(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-25', data-specialty_id='25')
+                      label(for='specialty-25', data-name='specialty-25', data-specialty_id='25') Мануальный терапевт
+                .col-1-3
+                  h3.letter-title Н
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-28(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-28', data-specialty_id='28')
+                      label(for='specialty-28', data-name='specialty-28', data-specialty_id='28') Невролог
+                    li.list-item
+                      input#specialty-30(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-30', data-specialty_id='30')
+                      label(for='specialty-30', data-name='specialty-30', data-specialty_id='30') Нефролог
+                    li.list-item.last-child
+                      input#specialty-59(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-59', data-specialty_id='59')
+                      label(for='specialty-59', data-name='specialty-59', data-specialty_id='59') Неонатолог
+                  h3.letter-title О
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-23(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-23', data-specialty_id='23')
+                      label(for='specialty-23', data-name='specialty-23', data-specialty_id='23') Отоларинголог (ЛОР)
+                    li.list-item
+                      input#specialty-34(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-34', data-specialty_id='34')
+                      label(for='specialty-34', data-name='specialty-34', data-specialty_id='34') Ортопед
+                    li.list-item.last-child
+                      input#specialty-31(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-31', data-specialty_id='31')
+                      label(for='specialty-31', data-name='specialty-31', data-specialty_id='31') Офтальмолог
+                  h3.letter-title П
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-35(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-35', data-specialty_id='35')
+                      label(for='specialty-35', data-name='specialty-35', data-specialty_id='35') Педиатр
+                    li.list-item
+                      input#specialty-39(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-39', data-specialty_id='39')
+                      label(for='specialty-39', data-name='specialty-39', data-specialty_id='39') Психолог
+                    li.list-item.last-child
+                      input#specialty-41(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-41', data-specialty_id='41')
+                      label(for='specialty-41', data-name='specialty-41', data-specialty_id='41') Пульмонолог
+                  h3.letter-title Р
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-45(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-45', data-specialty_id='45')
+                      label(for='specialty-45', data-name='specialty-45', data-specialty_id='45') Рефлексотерапевт
+                    li.list-item
+                      input#specialty-71(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-71', data-specialty_id='71')
+                      label(for='specialty-71', data-name='specialty-71', data-specialty_id='71') Реабилитолог
+                    li.list-item.last-child
+                      input#specialty-43(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-43', data-specialty_id='43')
+                      label(for='specialty-43', data-name='specialty-43', data-specialty_id='43') Рентгенолог
+                .col-1-3
+                  h3.letter-title С
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-80(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-80', data-specialty_id='80')
+                      label(for='specialty-80', data-name='specialty-80', data-specialty_id='80') Сурдолог
+                  h3.letter-title Т
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-50(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-50', data-specialty_id='50')
+                      label(for='specialty-50', data-name='specialty-50', data-specialty_id='50') Травматолог
+                  h3.letter-title У
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-53(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-53', data-specialty_id='53')
+                      label(for='specialty-53', data-name='specialty-53', data-specialty_id='53') Уролог
+                    li.list-item.last-child
+                      input#specialty-52(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-52', data-specialty_id='52')
+                      label(for='specialty-52', data-name='specialty-52', data-specialty_id='52') УЗИ-специалист
+                  h3.letter-title Ф
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-54(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-54', data-specialty_id='54')
+                      label(for='specialty-54', data-name='specialty-54', data-specialty_id='54') Физиотерапевт
+                    li.list-item.last-child
+                      input#specialty-58(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-58', data-specialty_id='58')
+                      label(for='specialty-58', data-name='specialty-58', data-specialty_id='58') Фтизиатр
+                  h3.letter-title Х
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-56(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-56', data-specialty_id='56')
+                      label(for='specialty-56', data-name='specialty-56', data-specialty_id='56') Хирург
+                  h3.letter-title Э
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-57(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-57', data-specialty_id='57')
+                      label(for='specialty-57', data-name='specialty-57', data-specialty_id='57') Эндокринолог
+            div(data-id='radio-676')
+              .select-specialization.user-content
+                .col-1-3
+                  h3.letter-title А
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-3(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-3', data-specialty_id='3')
+                      label(for='specialty-3', data-name='specialty-3', data-specialty_id='3') Акушер-гинеколог
+                    li.list-item.last-child
+                      input#specialty-4(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-4', data-specialty_id='4')
+                      label(for='specialty-4', data-name='specialty-4', data-specialty_id='4') Аллерголог
+                  h3.letter-title В
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-68(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-68', data-specialty_id='68')
+                      label(for='specialty-68', data-name='specialty-68', data-specialty_id='68') Врач функциональной диагностики
+                  h3.letter-title Г
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-13(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-13', data-specialty_id='13')
+                      label(for='specialty-13', data-name='specialty-13', data-specialty_id='13') Гинеколог
+                    li.list-item.last-child
+                      input#specialty-8(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-8', data-specialty_id='8')
+                      label(for='specialty-8', data-name='specialty-8', data-specialty_id='8') Гастроэнтеролог
+                  h3.letter-title Д
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-15(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-15', data-specialty_id='15')
+                      label(for='specialty-15', data-name='specialty-15', data-specialty_id='15') Дерматолог
+                    li.list-item.last-child
+                      input#specialty-61(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-61', data-specialty_id='61')
+                      label(for='specialty-61', data-name='specialty-61', data-specialty_id='61') Дерматовенеролог
+                  h3.letter-title И
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-18(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-18', data-specialty_id='18')
+                      label(for='specialty-18', data-name='specialty-18', data-specialty_id='18') Инфекционист
+                  h3.letter-title К
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-19(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-19', data-specialty_id='19')
+                      label(for='specialty-19', data-name='specialty-19', data-specialty_id='19') Кардиолог
+                  h3.letter-title Л
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-22(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-22', data-specialty_id='22')
+                      label(for='specialty-22', data-name='specialty-22', data-specialty_id='22') Логопед
+                .col-1-3
+                  h3.letter-title М
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-26(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-26', data-specialty_id='26')
+                      label(for='specialty-26', data-name='specialty-26', data-specialty_id='26') Массажист
+                  h3.letter-title Н
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-59(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-59', data-specialty_id='59')
+                      label(for='specialty-59', data-name='specialty-59', data-specialty_id='59') Неонатолог
+                    li.list-item
+                      input#specialty-28(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-28', data-specialty_id='28')
+                      label(for='specialty-28', data-name='specialty-28', data-specialty_id='28') Невролог
+                    li.list-item.last-child
+                      input#specialty-29(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-29', data-specialty_id='29')
+                      label(for='specialty-29', data-name='specialty-29', data-specialty_id='29') Нейрохирург
+                  h3.letter-title О
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-23(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-23', data-specialty_id='23')
+                      label(for='specialty-23', data-name='specialty-23', data-specialty_id='23') Отоларинголог (ЛОР)
+                    li.list-item
+                      input#specialty-34(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-34', data-specialty_id='34')
+                      label(for='specialty-34', data-name='specialty-34', data-specialty_id='34') Ортопед
+                    li.list-item.last-child
+                      input#specialty-31(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-31', data-specialty_id='31')
+                      label(for='specialty-31', data-name='specialty-31', data-specialty_id='31') Офтальмолог
+                  h3.letter-title П
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-35(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-35', data-specialty_id='35')
+                      label(for='specialty-35', data-name='specialty-35', data-specialty_id='35') Педиатр
+                    li.list-item.last-child
+                      input#specialty-39(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-39', data-specialty_id='39')
+                      label(for='specialty-39', data-name='specialty-39', data-specialty_id='39') Психолог
+                  h3.letter-title Р
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-43(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-43', data-specialty_id='43')
+                      label(for='specialty-43', data-name='specialty-43', data-specialty_id='43') Рентгенолог
+                    li.list-item.last-child
+                      input#specialty-71(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-71', data-specialty_id='71')
+                      label(for='specialty-71', data-name='specialty-71', data-specialty_id='71') Реабилитолог
+                .col-1-3
+                  h3.letter-title С
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-66(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-66', data-specialty_id='66')
+                      label(for='specialty-66', data-name='specialty-66', data-specialty_id='66') Семейный врач
+                  h3.letter-title Т
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-50(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-50', data-specialty_id='50')
+                      label(for='specialty-50', data-name='specialty-50', data-specialty_id='50') Травматолог
+                  h3.letter-title У
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-52(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-52', data-specialty_id='52')
+                      label(for='specialty-52', data-name='specialty-52', data-specialty_id='52') УЗИ-специалист
+                    li.list-item.last-child
+                      input#specialty-53(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-53', data-specialty_id='53')
+                      label(for='specialty-53', data-name='specialty-53', data-specialty_id='53') Уролог
+                  h3.letter-title Ф
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-54(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-54', data-specialty_id='54')
+                      label(for='specialty-54', data-name='specialty-54', data-specialty_id='54') Физиотерапевт
+                    li.list-item.last-child
+                      input#specialty-58(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-58', data-specialty_id='58')
+                      label(for='specialty-58', data-name='specialty-58', data-specialty_id='58') Фтизиатр
+                  h3.letter-title Х
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-56(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-56', data-specialty_id='56')
+                      label(for='specialty-56', data-name='specialty-56', data-specialty_id='56') Хирург
+                  h3.letter-title Э
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-70(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-70', data-specialty_id='70')
+                      label(for='specialty-70', data-name='specialty-70', data-specialty_id='70') Эндоскопист
+                    li.list-item.last-child
+                      input#specialty-57(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-57', data-specialty_id='57')
+                      label(for='specialty-57', data-name='specialty-57', data-specialty_id='57') Эндокринолог
+            div(data-id='radio-677')
+              .select-specialization.user-content
+                .col-1-3
+                  h3.letter-title Г
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-8(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-8', data-specialty_id='8')
+                      label(for='specialty-8', data-name='specialty-8', data-specialty_id='8') Гастроэнтеролог
+                  h3.letter-title Д
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-61(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-61', data-specialty_id='61')
+                      label(for='specialty-61', data-name='specialty-61', data-specialty_id='61') Дерматовенеролог
+                    li.list-item.last-child
+                      input#specialty-15(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-15', data-specialty_id='15')
+                      label(for='specialty-15', data-name='specialty-15', data-specialty_id='15') Дерматолог
+                  h3.letter-title К
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-19(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-19', data-specialty_id='19')
+                      label(for='specialty-19', data-name='specialty-19', data-specialty_id='19') Кардиолог
+                  h3.letter-title Л
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-22(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-22', data-specialty_id='22')
+                      label(for='specialty-22', data-name='specialty-22', data-specialty_id='22') Логопед
+                .col-1-3
+                  h3.letter-title М
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-26(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-26', data-specialty_id='26')
+                      label(for='specialty-26', data-name='specialty-26', data-specialty_id='26') Массажист
+                  h3.letter-title О
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-34(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-34', data-specialty_id='34')
+                      label(for='specialty-34', data-name='specialty-34', data-specialty_id='34') Ортопед
+                    li.list-item
+                      input#specialty-23(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-23', data-specialty_id='23')
+                      label(for='specialty-23', data-name='specialty-23', data-specialty_id='23') Отоларинголог (ЛОР)
+                    li.list-item.last-child
+                      input#specialty-31(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-31', data-specialty_id='31')
+                      label(for='specialty-31', data-name='specialty-31', data-specialty_id='31') Офтальмолог
+                  h3.letter-title П
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-35(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-35', data-specialty_id='35')
+                      label(for='specialty-35', data-name='specialty-35', data-specialty_id='35') Педиатр
+                .col-1-3
+                  h3.letter-title Р
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-71(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-71', data-specialty_id='71')
+                      label(for='specialty-71', data-name='specialty-71', data-specialty_id='71') Реабилитолог
+                  h3.letter-title Т
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-50(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-50', data-specialty_id='50')
+                      label(for='specialty-50', data-name='specialty-50', data-specialty_id='50') Травматолог
+                  h3.letter-title У
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-52(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-52', data-specialty_id='52')
+                      label(for='specialty-52', data-name='specialty-52', data-specialty_id='52') УЗИ-специалист
+                  h3.letter-title Х
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-56(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-56', data-specialty_id='56')
+                      label(for='specialty-56', data-name='specialty-56', data-specialty_id='56') Хирург
+                  h3.letter-title Э
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-70(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-70', data-specialty_id='70')
+                      label(for='specialty-70', data-name='specialty-70', data-specialty_id='70') Эндоскопист
+            div(data-id='radio-678')
+              .select-specialization.user-content
+                .col-1-3
+                  h3.letter-title А
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-3(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-3', data-specialty_id='3')
+                      label(for='specialty-3', data-name='specialty-3', data-specialty_id='3') Акушер-гинеколог
+                    li.list-item
+                      input#specialty-5(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-5', data-specialty_id='5')
+                      label(for='specialty-5', data-name='specialty-5', data-specialty_id='5') Андролог
+                    li.list-item.last-child
+                      input#specialty-4(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-4', data-specialty_id='4')
+                      label(for='specialty-4', data-name='specialty-4', data-specialty_id='4') Аллерголог
+                  h3.letter-title В
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-82(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-82', data-specialty_id='82')
+                      label(for='specialty-82', data-name='specialty-82', data-specialty_id='82') Врач спортивной медицины
+                  h3.letter-title Г
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-13(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-13', data-specialty_id='13')
+                      label(for='specialty-13', data-name='specialty-13', data-specialty_id='13') Гинеколог
+                    li.list-item.last-child
+                      input#specialty-8(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-8', data-specialty_id='8')
+                      label(for='specialty-8', data-name='specialty-8', data-specialty_id='8') Гастроэнтеролог
+                  h3.letter-title Д
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-61(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-61', data-specialty_id='61')
+                      label(for='specialty-61', data-name='specialty-61', data-specialty_id='61') Дерматовенеролог
+                    li.list-item
+                      input#specialty-15(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-15', data-specialty_id='15')
+                      label(for='specialty-15', data-name='specialty-15', data-specialty_id='15') Дерматолог
+                    li.list-item.last-child
+                      input#specialty-16(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-16', data-specialty_id='16')
+                      label(for='specialty-16', data-name='specialty-16', data-specialty_id='16') Диетолог
+                  h3.letter-title К
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-19(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-19', data-specialty_id='19')
+                      label(for='specialty-19', data-name='specialty-19', data-specialty_id='19') Кардиолог
+                  h3.letter-title М
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-24(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-24', data-specialty_id='24')
+                      label(for='specialty-24', data-name='specialty-24', data-specialty_id='24') Маммолог
+                    li.list-item.last-child
+                      input#specialty-26(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-26', data-specialty_id='26')
+                      label(for='specialty-26', data-name='specialty-26', data-specialty_id='26') Массажист
+                .col-1-3
+                  h3.letter-title Н
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-29(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-29', data-specialty_id='29')
+                      label(for='specialty-29', data-name='specialty-29', data-specialty_id='29') Нейрохирург
+                    li.list-item.last-child
+                      input#specialty-28(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-28', data-specialty_id='28')
+                      label(for='specialty-28', data-name='specialty-28', data-specialty_id='28') Невролог
+                  h3.letter-title О
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-23(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-23', data-specialty_id='23')
+                      label(for='specialty-23', data-name='specialty-23', data-specialty_id='23') Отоларинголог (ЛОР)
+                    li.list-item
+                      input#specialty-34(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-34', data-specialty_id='34')
+                      label(for='specialty-34', data-name='specialty-34', data-specialty_id='34') Ортопед
+                    li.list-item
+                      input#specialty-32(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-32', data-specialty_id='32')
+                      label(for='specialty-32', data-name='specialty-32', data-specialty_id='32') Онколог
+                    li.list-item.last-child
+                      input#specialty-31(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-31', data-specialty_id='31')
+                      label(for='specialty-31', data-name='specialty-31', data-specialty_id='31') Офтальмолог
+                  h3.letter-title П
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-37(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-37', data-specialty_id='37')
+                      label(for='specialty-37', data-name='specialty-37', data-specialty_id='37') Проктолог
+                    li.list-item
+                      input#specialty-41(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-41', data-specialty_id='41')
+                      label(for='specialty-41', data-name='specialty-41', data-specialty_id='41') Пульмонолог
+                    li.list-item.last-child
+                      input#specialty-35(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-35', data-specialty_id='35')
+                      label(for='specialty-35', data-name='specialty-35', data-specialty_id='35') Педиатр
+                  h3.letter-title Р
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-71(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-71', data-specialty_id='71')
+                      label(for='specialty-71', data-name='specialty-71', data-specialty_id='71') Реабилитолог
+                    li.list-item.last-child
+                      input#specialty-42(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-42', data-specialty_id='42')
+                      label(for='specialty-42', data-name='specialty-42', data-specialty_id='42') Ревматолог
+                  h3.letter-title С
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-66(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-66', data-specialty_id='66')
+                      label(for='specialty-66', data-name='specialty-66', data-specialty_id='66') Семейный врач
+                    li.list-item.last-child
+                      input#specialty-80(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-80', data-specialty_id='80')
+                      label(for='specialty-80', data-name='specialty-80', data-specialty_id='80') Сурдолог
+                .col-1-3
+                  h3.letter-title Т
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-50(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-50', data-specialty_id='50')
+                      label(for='specialty-50', data-name='specialty-50', data-specialty_id='50') Травматолог
+                    li.list-item.last-child
+                      input#specialty-49(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-49', data-specialty_id='49')
+                      label(for='specialty-49', data-name='specialty-49', data-specialty_id='49') Терапевт
+                  h3.letter-title У
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-52(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-52', data-specialty_id='52')
+                      label(for='specialty-52', data-name='specialty-52', data-specialty_id='52') УЗИ-специалист
+                    li.list-item.last-child
+                      input#specialty-53(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-53', data-specialty_id='53')
+                      label(for='specialty-53', data-name='specialty-53', data-specialty_id='53') Уролог
+                  h3.letter-title Ф
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-58(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-58', data-specialty_id='58')
+                      label(for='specialty-58', data-name='specialty-58', data-specialty_id='58') Фтизиатр
+                    li.list-item.last-child
+                      input#specialty-54(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-54', data-specialty_id='54')
+                      label(for='specialty-54', data-name='specialty-54', data-specialty_id='54') Физиотерапевт
+                  h3.letter-title Х
+                  ul(data-group='single')
+                    li.list-item.last-child.first-child
+                      input#specialty-56(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-56', data-specialty_id='56')
+                      label(for='specialty-56', data-name='specialty-56', data-specialty_id='56') Хирург
+                  h3.letter-title Э
+                  ul(data-group='single')
+                    li.list-item.first-child
+                      input#specialty-57(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-57', data-specialty_id='57')
+                      label(for='specialty-57', data-name='specialty-57', data-specialty_id='57') Эндокринолог
+                    li.list-item.last-child
+                      input#specialty-70(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-70', data-specialty_id='70')
+                      label(for='specialty-70', data-name='specialty-70', data-specialty_id='70') Эндоскопист
             .hidden
               #close-dialog
                 img(src='i/popups/logo-big.png', alt='', width='301', height='89')
@@ -1864,3 +2200,555 @@ mixin modal(name, classes, dialogClasses)
                 img.doc(src='i/popups/doc-image.png', alt='', width='140', height='294')
                 a.button.close-dialog(href='#') Прервать
                 a.button.return(href='#') Продолжить
+    //- .modal-other__wrap
+    //-     form(action='#')
+    //-           .modal-left-side
+    //-             .side-section.modal-header
+    //-               img.logo(src='i/popups/popup-logo.png', alt='')
+    //-               .modal-icon.record_icon
+    //-               h2 Запись на прием
+    //-               .close-popup.js-close-window
+    //-             .side-section.js-doctor-text
+    //-               .modal-icon.icon-doc
+    //-               .side-section-main
+    //-                 .side-section-header.side-section-after
+    //-                   h3 Специализация врача
+    //-                   a.modal-button.btn-border.btn-full.js-btn-open.js-btn-text(href='#') Выберете специальность
+    //-                   .side-section__main
+    //-                     .side-section_item.section-doctors
+    //-                 .side-section-content
+    //-                   .side-section-content-inner
+    //-                     ul.simple-list
+    //-                       li.list-item
+    //-                         input#radio-1_1.hidden(type='checkbox', name='radio-var')
+    //-                         label(for='radio-1_1') Акушер-гинеколог
+    //-                         .remove-item
+    //-             .side-section.js-district-text
+    //-               .modal-icon.icon-location
+    //-               .side-section-main
+    //-                 .side-section-header
+    //-                   h3 Район
+    //-                   a.modal-button.btn-border.btn-full.js-btn-text__disrtict(href='#', data-dialog='district') Выберите район
+    //-                   .side-section__main
+    //-                     .side-section_item.section-district
+    //-                 .side-section-content
+    //-                   .side-section-content-inner
+    //-                     ul.simple-list
+    //-                       li.list-item.district-label
+    //-                         input#radio-3_1.hidden(type='radio', name='radio-var')
+    //-                         label(for='radio-3_1') Голосеевский район
+    //-                         .remove-item
+    //-                       li.list-item.district-label
+    //-                         input#radio-3_1.hidden(type='radio', name='radio-var')
+    //-                         label(for='radio-3_1') Голосеевский район
+    //-                         .remove-item
+    //-                         ul
+    //-                           li.list-item
+    //-                             input#radio-3_2.hidden(type='radio', name='radio-var')
+    //-                             label(for='radio-3_2') Багриновая гора
+    //-                       li.list-item.district-label
+    //-                         input#radio-3_3.hidden(type='radio', name='radio-var')
+    //-                         label(for='radio-3_3') Голосеевский район
+    //-                         .remove-item
+    //-                         ul
+    //-                           li.list-item
+    //-                             input#radio-3_2.hidden(type='radio', name='radio-var')
+    //-                             label(for='radio-3_2') Багриновая гора
+    //-                             .remove-item
+    //-                           li.list-item
+    //-                             input#radio-3_2.hidden(type='radio', name='radio-var')
+    //-                             label(for='radio-3_2') Багриновая гора
+    //-                             .remove-item
+    //-           .modal-right-side
+    //-             .modal-right-content
+    //-               .content-order_footer.mobile-border
+    //-                 .modal-icon.clients_icon
+    //-                 h3.js-btn-info Информация о пациенте
+    //-                 .tab-close__info
+    //-                 .mobile-border.border-new.js-content-hide
+    //-                 .row.row-none.js-content-hide.line-pad
+    //-                   .col-sm-6.col-sm_none
+    //-                     .row.row-none
+    //-                       .col-sm-12.col-sm_none
+    //-                         input.modal-form-input(type='text', placeholder='Имя, фамилия*')
+    //-                     .row.row-none
+    //-                       .col-sm-12.col-sm_none
+    //-                         input.modal-form-input.phone-input-mask(type='tel', placeholder='Телефон*')
+    //-                     .row.row-none.margin-bottom-0
+    //-                       .col-sm-12.col-sm_none
+    //-                         input.modal-form-input(type='text', placeholder='E-mail')
+    //-                   .col-sm-6.col-sm_none
+    //-                     textarea.modal-form-input(name='', id='', cols='30', rows='10', placeholder='Комментарий')
+    //-                 span.js-content-hide
+    //-                   input#checkbox-1.modal-checkbox(type='checkbox', name='')
+    //-                   label(for='checkbox-1') Врач для ребенка
+    //-                   input#checkbox-2.modal-checkbox(type='checkbox', name='', checked='checked')
+    //-                   label(for='checkbox-2') Выезд на дом
+    //-               .line
+    //-               .row.row-none
+    //-                 .col-sm-6.col-sm_none
+    //-                   .modal-right-header.mobile-border
+    //-                     .modal-icon.icon-calendar
+    //-                     h3.js-btn-cal Желаемая дата приема
+    //-                     .tab-close__calendar
+    //-                   .modal-calendar
+    //-                     input#modal-calendar(type='text', name='', aria-haspopup='false')
+    //-                 .col-sm-6.mobile-head.col-sm_none
+    //-                   .modal-right-header.mobile-border
+    //-                     .modal-icon.icon-clock
+    //-                     h3.js-btn-time Желаемое время приема
+    //-                     .tab-close__time
+    //-                   .modal-time
+    //-                     table.modal-time-header
+    //-                       tr
+    //-                         th
+    //-                           a(href='#', data-group='1') Утро
+    //-                         th
+    //-                           a(href='#', data-group='2') Обед
+    //-                         th
+    //-                           a(href='#', data-group='3') Вечер
+    //-                     .modal-time-groups
+    //-                       .modal-time-cell
+    //-                         input#time-0700.modal-checkbox(type='checkbox', name='time', value='7am', data-group-id='1')
+    //-                         label(for='time-0700') 07:00
+    //-                       .modal-time-cell
+    //-                         input#time-0800.modal-checkbox(type='checkbox', name='time', value='8am', data-group-id='1')
+    //-                         label(for='time-0800') 08:00
+    //-                       .modal-time-cell
+    //-                         input#time-0900.modal-checkbox(type='checkbox', name='time', value='9am', data-group-id='1')
+    //-                         label(for='time-0900') 09:00
+    //-                       .modal-time-cell
+    //-                         input#time-1000.modal-checkbox(type='checkbox', name='time', value='10am', data-group-id='1')
+    //-                         label(for='time-1000') 10:00
+    //-                       .modal-time-cell
+    //-                         input#time-1100.modal-checkbox(type='checkbox', name='time', value='11am', data-group-id='1')
+    //-                         label(for='time-1100') 11:00
+    //-                       .modal-time-cell
+    //-                         input#time-1200.modal-checkbox(type='checkbox', name='time', value='12am', data-group-id='2')
+    //-                         label(for='time-1200') 12:00
+    //-                       .modal-time-cell
+    //-                         input#time-1300.modal-checkbox(type='checkbox', name='time', value='1pm', data-group-id='2')
+    //-                         label(for='time-1300') 13:00
+    //-                       .modal-time-cell
+    //-                         input#time-1400.modal-checkbox(type='checkbox', name='time', value='2pm', data-group-id='2')
+    //-                         label(for='time-1400') 14:00
+    //-                       .modal-time-cell
+    //-                         input#time-1500.modal-checkbox(type='checkbox', name='time', value='3pm', data-group-id='2')
+    //-                         label(for='time-1500') 15:00
+    //-                       .modal-time-cell
+    //-                         input#time-1600.modal-checkbox(type='checkbox', name='time', value='4pm', data-group-id='2')
+    //-                         label(for='time-1600') 16:00
+    //-                       .modal-time-cell
+    //-                         input#time-1700.modal-checkbox(type='checkbox', name='time', value='5pm', data-group-id='3')
+    //-                         label(for='time-1700') 17:00
+    //-                       .modal-time-cell
+    //-                         input#time-1800.modal-checkbox(type='checkbox', name='time', value='6pm', data-group-id='3')
+    //-                         label(for='time-1800') 18:00
+    //-                       .modal-time-cell
+    //-                         input#time-1900.modal-checkbox(type='checkbox', name='time', value='7pm', data-group-id='3', disabled='')
+    //-                         label(for='time-1900') 19:00
+    //-                       .modal-time-cell
+    //-                         input#time-2000.modal-checkbox(type='checkbox', name='time', value='8pm', data-group-id='3', disabled='')
+    //-                         label(for='time-2000') 20:00
+    //-                       .modal-time-cell
+    //-                         input#time-2100.modal-checkbox(type='checkbox', name='time', value='9pm', data-group-id='3', disabled='')
+    //-                         label(for='time-2100') 21:00
+    //-                       .modal-time-cell
+    //-                         input#time-2200.modal-checkbox(type='checkbox', name='time', value='10pm', data-group-id='3', disabled='')
+    //-                         label(for='time-2200') 22:00
+    //-                     .line
+    //-                     .modal-time-footer
+    //-                       input#checkbox-3.modal-checkbox.free-time(type='checkbox', name='')
+    //-                       label(for='checkbox-3') время неважно
+    //-               .modal-form-footer
+    //-                 .row.row-none
+    //-                   .col-sm-6.col-sm_none
+    //-                     p
+    //-                       | Отправляя заявку, вы принимаете
+    //-                       br
+    //-                       a(href='#') правила работы сервиса
+    //-                       | .
+    //-                   .col-sm-6.col-sm_none
+    //-                     button.modal-button.btn-full.btn-green.btn-large Отправить заявку
+    //-         #dialog-window.js-district(data-block='js-district-text')
+    //-           .dialog-close
+    //-           .dialog-window-content.border-cols
+    //-             .select-district
+    //-               .col-1-3
+    //-                 dl.select-parents
+    //-                   dt.list-item
+    //-                     input#d1(type='checkbox', name='')
+    //-                     label.js-head-district(for='d1', data-name='goloseevo') Голосеевский район
+    //-                   dd
+    //-                     ul.district-list.js-in-district
+    //-                       li.list-item
+    //-                         input#district-1-1(type='checkbox', name='')
+    //-                         label(for='district-1-1', data-name='bagr') Багриновая гора
+    //-                       li.list-item
+    //-                         input#district-1-2(type='checkbox', name='')
+    //-                         label(for='district-1-2', data-name='goloseev') Голосеево
+    //-                       li.list-item
+    //-                         input#district-1-3(type='checkbox', name='')
+    //-                         label(for='district-1-1\
+    //-                         3', data-name='golos') Голосеевский
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='demeev') Демеевка
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='dobriu') Добрый путь
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='kibcenter') Кибцентр
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='kutaev') Китаев
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='korchov') Корчеватое
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='mushel') Мышеловка
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='kibcen') Кибцентр
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='kitaev') Китаев
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='korchov1') Корчеватое
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='mushelo') Мышеловка
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='pirigo') Пирогово
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='slobodka') Саперная слободка
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='teremki') Теремки-1
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='teremki2') Теремки-2
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='', data-name='univers')
+    //-                         label(for='') Университетский 
+    //-               .col-1-3
+    //-                 dl.select-parents
+    //-                   dt.list-item
+    //-                     input#dd2(type='checkbox', name='')
+    //-                     label.js-head-district(for='d', data-name='goloseevoqq') Голосеевский район
+    //-                   dd
+    //-                     ul.district-list.js-in-district2
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='gora') Багриновая гора
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='gol') Голосеево
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='goloss') Голосеевский
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='demee') Демеевка
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='district-2-5', data-name='dobriuu') Добрый путь
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='kib') Кибцентр
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='kita') Китаев
+    //-                 dl.select-parents
+    //-                   dt.list-item
+    //-                     input#d22(type='checkbox', name='')
+    //-                     label.js-head-district(for='d2', data-name='goloseevos') Голосеевский район
+    //-                   dd
+    //-                     ul.district-list
+    //-                       li.list-item
+    //-                         input#district-3-1(type='checkbox', name='')
+    //-                         label(for='district-3-1', data-name='goraa') Багриновая гора
+    //-                       li.list-item
+    //-                         input#district-3-2(type='checkbox', name='')
+    //-                         label(for='district-3-2', data-name='golo') Голосеево
+    //-                       li.list-item
+    //-                         input#district-3-3(type='checkbox', name='')
+    //-                         label(for='district-3-3', data-name='golosse') Голосеевский
+    //-                       li.list-item
+    //-                         input#district-3-4(type='checkbox', name='')
+    //-                         label(for='district-3-4', data-name='demeevka') Демеевка
+    //-                       li.list-item
+    //-                         input#district-3-5(type='checkbox', name='')
+    //-                         label(for='district-3-5', data-name='dobr') Добрый путь
+    //-                       li.list-item
+    //-                         input#district-3-6(type='checkbox', name='')
+    //-                         label(for='district-3-6', data-name='kibc') Кибцентр
+    //-                       li.list-item
+    //-                         input#district-3-7(type='checkbox', name='')
+    //-                         label(for='district-3-7', data-name='kiteev') Китаев
+    //-                       li.list-item
+    //-                         input#district-3-8(type='checkbox', name='')
+    //-                         label(for='district-3-8', data-name='korch') Корчеватое
+    //-                       li.list-item
+    //-                         input#district-3-9(type='checkbox', name='')
+    //-                         label(for='district-3-9', data-name='mushe') Мышеловка
+    //-                       li.list-item
+    //-                         input#district-3-10(type='checkbox', name='')
+    //-                         label(for='district-3-10', data-name='kibsent') Кибцентр
+    //-                       li.list-item
+    //-                         input#district-3-11(type='checkbox', name='')
+    //-                         label(for='district-3-11', data-name='kitaevv') Китаев
+    //-                       li.list-item
+    //-                         input#district-3-12(type='checkbox', name='')
+    //-                         label(for='district-3-12', data-name='qqq') Корчеватое
+    //-                       li.list-item
+    //-                         input#district-3-13(type='checkbox', name='')
+    //-                         label(for='district-3-13', data-name='muee') Мышеловка
+    //-                       li.list-item
+    //-                         input#district-3-14(type='checkbox', name='')
+    //-                         label(for='district-3-14', data-name='pirrr') Пирогово
+    //-                       li.list-item
+    //-                         input#district-3-15(type='checkbox', name='')
+    //-                         label(for='district-3-15', data-name='slobodkaa') Саперная слободка
+    //-                       li.list-item
+    //-                         input#district-3-16(type='checkbox', name='')
+    //-                         label(for='district-3-16', data-name='ter') Теремки-1
+    //-                       li.list-item
+    //-                         input#district-3-17(type='checkbox', name='')
+    //-                         label(for='district-3-17', data-name='terem') Теремки-2
+    //-                       li.list-item
+    //-                         input#district-3-18(type='checkbox', name='')
+    //-                         label(for='district-3-18', data-name='universw') Университ...
+    //-               .col-1-3
+    //-                 dl.select-parents
+    //-                   dt.list-item
+    //-                     input#dd3(type='checkbox', name='')
+    //-                     label.js-head-district(for='d3', data-name='goloseevoq1') Голосеевский район
+    //-                   dd
+    //-                     ul.district-list
+    //-                       li.list-item
+    //-                         input#district-4-1(type='checkbox', name='')
+    //-                         label(for='district-4-1', data-name='gor') Багриновая гора
+    //-                       li.list-item
+    //-                         input#district-4-2(type='checkbox', name='')
+    //-                         label(for='district-4-2', data-name='gos') Голосеево
+    //-                       li.list-item
+    //-                         input#district-4-3(type='checkbox', name='')
+    //-                         label(for='district-4-3', data-name='golos') Голосеевский
+    //-                       li.list-item
+    //-                         input#district-4-4(type='checkbox', name='')
+    //-                         label(for='district-4-4', data-name='dem') Демеевка
+    //-                       li.list-item
+    //-                         input#district-4-5(type='checkbox', name='')
+    //-                         label(for='district-4-5', data-name='dobriuua') Добрый путь
+    //-                       li.list-item
+    //-                         input#district-4-6(type='checkbox', name='')
+    //-                         label(for='district-4-6', data-name='univers') Кибцентр
+    //-                       li.list-item
+    //-                         input#district-4-7(type='checkbox', name='')
+    //-                         label(for='district-4-7', data-name='dfd') Китаев
+    //-                 dl.select-parents
+    //-                   dt.list-item
+    //-                     input#dd1(type='checkbox', name='')
+    //-                     label.js-head-district(for='ddd', data-name='goloseevoee') Голосеевский район
+    //-                   dd
+    //-                     ul.district-list
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='qwe') Багриновая гора
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='golo2') Голосеево
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='golos3') Голосеевский
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='demeevka2') Демеевка
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='dobriu2') Добрый путь
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='kibsenter') Кибцентр
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='kitaevv2') Китаев
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='korch2') Корчеватое
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='vbitkjdrf') Мышеловка
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='kibsenter2') Кибцентр
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='', data-name='kitaev2') Китаев
+    //-                       li.list-item
+    //-                         input(type='checkbox', name='', id='')
+    //-                         label(for='district-5-12', data-name='korchovatoe') Корчеватое
+    //-           .dialog-footer
+    //-             a.modal-button.btn-green.js-btn-copy__dictrict(href='#', data-apply-select='') Ок
+    //-             a.modal-button.btn-dark.btn-small.js-btn-clear(href='#') Очистить выбор
+    //-         #dialog-window.js-doctors(data-block='js-doctor-text')
+    //-           .dialog-close
+    //-           .dialog-window-content.dialog-window__special
+    //-             .select-specialization
+    //-               .col-1-3
+    //-                 h3.letter-title A
+    //-                 ul
+    //-                   li.list-item
+    //-                     input#radio-1(type='radio', name='')
+    //-                     label(for='radio-1', data-name='akysher') Акушер-гинеколог!
+    //-                   li.list-item
+    //-                     input#radio-2(type='radio', name='radio-var')
+    //-                     label(for='radio-2', data-name='allegrolog') Аллерголог
+    //-                   li.list-item
+    //-                     input#radio-3(type='radio', name='radio-var')
+    //-                     label(for='radio-3', data-name='androlog') Андролог
+    //-                   li.list-item
+    //-                     input#radio-4(type='radio', name='radio-var')
+    //-                     label(for='radio-4', data-name='reanim') Анестезиолог-реаниматолог
+    //-                 h3.letter-title B
+    //-                 ul
+    //-                   li.list-item
+    //-                     input#radio-5(type='radio', name='')
+    //-                     label(for='radio-5', data-name='vener') Венеролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='sdsd') Венеролог
+    //-                   li.list-item
+    //-                     input#radio-7(type='radio', name='')
+    //-                     label(for='radio-7', data-name='sddf') Венеролог
+    //-                   li.list-item
+    //-                     input#radio-8(type='radio', name='')
+    //-                     label(for='radio-8', data-name='dsfsd') Венеролог
+    //-                   li.list-item
+    //-                     input#radio-9(type='radio', name='')
+    //-                     label(for='radio-9', data-name='weww') Венеролог
+    //-                   li.list-item
+    //-                     input#radio-10(type='radio', name='')
+    //-                     label(for='radio-10', data-name='adasa') Венеролог
+    //-                   li.list-item
+    //-                     input#radio-11(type='radio', name='')
+    //-                     label(for='radio-11', data-name='wewe') Венеролог
+    //-                   li.list-item
+    //-                     input#radio-12(type='radio', name='')
+    //-                     label(for='radio-12', data-name='sfdd') Венеролог
+    //-               .col-1-3
+    //-                 h3.letter-title A
+    //-                 ul
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='ginekilog') Акушер-гинеколог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='allegrol') Аллерголог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='androlog') Андролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='reanimatol') Анестезиолог-реаниматолог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='ginekolog') Акушер-гинеколог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='allegrol') Аллерголог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='allegrol1') Андролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='anesteziolog') Анестезиолог-реаниматолог
+    //-                 h3.letter-title B
+    //-                 ul
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='venerolog') Венеролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='vertebrolog') Вертебролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='veneros') Венеролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='vertebro') Вертебролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='veneroza') Венеролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='verteb') Вертебролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='venerolog4') Венеролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='vertr') Вертебролог
+    //-               .col-1-3
+    //-                 h3.letter-title B
+    //-                 ul
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='vwnwrol2') Венеролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='vertebrolog2') Вертебролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='allegrolww') Венеролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='vertew2') Вертебролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='venerol3') Венеролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='verteeebllog') Вертебролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='vene') Венеролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='verteb2') Вертебролог
+    //-                 h3.letter-title A
+    //-                 ul
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='akysher') Акушер-гинеколог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='allegrol2') Аллерголог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='alndrolog') Андролог
+    //-                   li.list-item
+    //-                     input(type='radio', name='', id='')
+    //-                     label(for='', data-name='aneste') Анестезиолог-реаниматолог
+    //-           .dialog-footer.dialog-footer__none
+    //-             a.modal-button.btn-green(href='#', data-apply-select='') Ок
+    //-             a.modal-button.btn-dark.btn-small(href='#', data-clear-select='') Очистить выбор
+    //-         .hidden
+    //-           #close-dialog
+    //-             img(src='i/popups/logo-big.png', alt='', width='301', height='89')
+    //-             .h1 Вы действительно хотите прервать запись?
+    //-             .h2
+    //-               | Если у вас возникли вопросы, 
+    //-               br
+    //-               |                     позвоните нам по телефону:
+    //-               br
+    //-               |                     (044) 337-07-107 или (067) 123-45-607
+    //-             img.doc(src='i/popups/doc-image.png', alt='', width='140', height='294')
+    //-             a.button.close-dialog(href='#') Прервать
+    //-             a.button.return(href='#') Продолжить

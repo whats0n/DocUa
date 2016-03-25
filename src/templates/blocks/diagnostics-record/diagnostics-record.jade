@@ -5,23 +5,142 @@ header.header-styled.index-page-header
       .col-xs-5.text-right.hidden-xs  
         a.main-more-link(href="/", title="Все предложения") Все диагностические центры
 +e.inner
+    //- +e("ul").list
+    //-     - var limits = 4
+    //-     each diagnostic, i in diagnostics
+    //-         if i < limits
+    //-             if diagnostic.children 
+    //-                 +e("li").item.js-tab__mobile-d
+    //-                     span.btn__mobile
+    //-                     +e("span").item-title=diagnostic.title
+    //-                     +e("ul").inner-list.js-content-hide
+    //-                         - var items = diagnostic.children
+    //-                         - var limit = 6
+    //-                             each item, i in items
+    //-                                 if i < limit
+    //-                                     +e("li").inner-list__item
+    //-                                         span.inner-list__quantity=item.quantity
+    //-                                         a.inner-list__link(href=item.url, title=item.title)=item.title
     +e("ul").list
-        - var limits = 4
-        each diagnostic, i in diagnostics
-            if i < limits
-                if diagnostic.children 
-                    +e("li").item.js-tab__mobile-d
-                        span.btn__mobile
-                        +e("span").item-title=diagnostic.title
-                        +e("ul").inner-list.js-content-hide
-                            - var items = diagnostic.children
-                            - var limit = 6
-                                each item, i in items
-                                    if i < limit
-                                        +e("li").inner-list__item
-                                            span.inner-list__quantity=item.quantity
-                                            a.inner-list__link(href=item.url, title=item.title)=item.title
-    +b.more-toggle
+      +e("li").items.hidden-xs  
+        +e("span").item-title Узи
+        +e("span").item-title Эндоскопические методы исследования
+        +e("span").item-title Рентген (рентгенография)
+        +e("span").item-title МРТ (магнитно-резонансная томография)
+
+      +e("li").item.js-tab__parent-index
+        span.btn__mobile
+        +e("span").item-title.item-title_mobile.js-tab__mobile-d Узи
+        +e("ul").inner-list.js-content-hide
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="глаз") глаз
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="головного мозга") головного мозга
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="желчного пузыря") желчного пузыря
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="желчного пузыря с определением функции") желчного пузыря с определением функции
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="лимфатических узлов") лимфатических узлов
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="матки и придатков") матки и придатков
+
+      +e("li").item.js-tab__parent-index
+        span.btn__mobile
+        +e("span").item-title.item-title_mobile.js-tab__mobile-d Эндоскопические методы исследования
+        +e("ul").inner-list.js-content-hide
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="глаз") глаз
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="головного мозга") головного мозга
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="желчного пузыря") желчного пузыря
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="желчного пузыря с определением функции") желчного пузыря с определением функции
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="лимфатических узлов") лимфатических узлов
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="матки и придатков") матки и придатков
+
+      +e("li").item.js-tab__parent-index
+        span.btn__mobile
+        +e("span").item-title.item-title_mobile.js-tab__mobile-d Рентген (рентгенография)
+        +e("ul").inner-list.js-content-hide
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="глаз") глаз
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="головного мозга") головного мозга
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="желчного пузыря") желчного пузыря
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="желчного пузыря с определением функции") желчного пузыря с определением функции
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="лимфатических узлов") лимфатических узлов
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="матки и придатков") матки и придатков
+
+      +e("li").item.js-tab__parent-index
+        span.btn__mobile
+        +e("span").item-title.item-title_mobile.js-tab__mobile-d МРТ (магнитно-резонансная томография)
+        +e("ul").inner-list.js-content-hide
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="глаз") глаз
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="головного мозга") головного мозга
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="желчного пузыря") желчного пузыря
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="желчного пузыря с определением функции") желчного пузыря с определением функции
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="лимфатических узлов") лимфатических узлов
+          
+          +e("li").inner-list__item
+            span.inner-list__quantity 333
+            a.inner-list__link(href="/" title="матки и придатков") матки и придатков
+
+    +b.more-toggle.double-stroke-btn.texture-toggle
         .link-wrap
             +e("a").link(href="#diagnostic-center", data-toggle="modal", title="Все диагностики")
                 +e("span").show-label

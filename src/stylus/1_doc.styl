@@ -9,10 +9,10 @@ body
     >.container-fluid //parallax overflow
         position relative
         z-index 2
-        >.row:not(.row-finder)
-            background grey_texture
-            // opacity .95 
-            // background #E3E8E8 
+        .row
+            &.row_grey-texture
+                background: url(i/grey_texture_orig.png)
+                background-attachment: fixed
         &.container-finder
             z-index 3 
             .row-finder:not(.row-finder_main) 
@@ -25,7 +25,7 @@ body
                 content ""
                 position absolute
                 bottom 0
-                left 0
+                left 0 
                 right 0
                 height 1px
                 width 100% 
@@ -37,7 +37,9 @@ body
             background #fff
         .row-finder
             position relative
-            // z-index 4 
+        .container
+            &.main-content
+                padding-bottom 20px
     >.wrapper
         >.container-fluid 
             position relative
@@ -60,14 +62,47 @@ body
                     padding-left 10px 
             &.container-header
                 z-index 6 
-            >.row
-                background grey_texture
+        >.container-fluid 
+            &.tabs-shadow
+                z-index 3
+                .row
+                    background none
+            &.container-menu__mod
+                z-index 3
     &.body-map
         height 100%
         overflow hidden
         @media phone
             height: auto
             overflow: visible
+.page-bg
+    position fixed
+    background grey_texture
+    background-repeat repeat 
+    width 100% 
+    height 100% 
+    bottom 0
+    opacity .8 
+    
+
+.parallax-wrap
+    position fixed
+    left 0
+    top 20px
+    width 100%
+    height 640px
+    background url('i/parallax-bg2.jpg') center center no-repeat
+    background-size cover
+    @media phone
+        top 0 
+        height 390px 
+    &:after
+        content ""
+        position absolute
+        width 100% 
+        height 100% 
+        background-image linear-gradient(to top, rgba(3, 33, 39, 0.62) 0%, rgba(3, 33, 39, 0.53) 0%, rgba(5, 44, 51, 0.23) 36%, rgba(7, 51, 60, 0.28) 61%, rgba(9, 62, 72, 0.53) 96%, rgba(9, 63, 73, 0.53) 100%)
+        
 .container-fluid_nopadding
     padding 0
 .container_nopadding
@@ -103,20 +138,7 @@ ul
 //     .container
 //         @media (max-width 1200px)
 //             width 100% 
-.container-bg
-    // z-index 4
-    position absolute
-    top 0
-    left 0
-    right 0
-    bottom 0       
-    background-image linear-gradient(to top, rgba(3, 33, 39, 0.62) 0%, rgba(3, 33, 39, 0.53) 0%, rgba(5, 44, 51, 0.23) 36%, rgba(7, 51, 60, 0.28) 61%, rgba(9, 62, 72, 0.53) 96%, rgba(9, 63, 73, 0.53) 100%)
-    z-index -1 
-    @media phone
-        background-image linear-gradient(to top, rgba(3, 33, 39, 0.62) 0%, rgba(3, 33, 39, 0.53) 0%, rgba(5, 44, 51, 0.23) 36%, rgba(7, 51, 60, 0.28) 61%, rgba(9, 62, 72, 0.53) 96%, rgba(9, 63, 73, 0.53) 100%), url("/i/parallax-bg2.jpg")
-        background-repeat no-repeat
-        background-size cover
-        z-index -1
+        
 .main-container 
     &:before
         content ""
@@ -131,17 +153,6 @@ ul
     @media phone
         position relative
 
-.parallax-wrap
-    position fixed
-    left 0
-    top 20px
-    width 100%
-    height 640px
-    @media tablet_desktop
-        background url('i/parallax-bg2.jpg') center center no-repeat
-        background-size cover
-    @media tablet
-        position absolute
 .row
     &-white
         background #fff !important

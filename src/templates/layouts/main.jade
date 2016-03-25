@@ -57,8 +57,7 @@ body
         //-   span (067) 3370707;
         //-   span (044) 3370707
         hr.header__line
-        .phones.phones_mobile.visible-xs 
-          span (044) 337-07-07
+        +b.phones.phones_mobile.js-phones.visible-xs: +i
         +b("a").favorites-link(href="/", title="Избранное")
           span 14
         .user-panel.hidden-xs
@@ -114,9 +113,11 @@ body
                 +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку") Оставить заявку
 
               +b.search.js-search: +i
+    //- pages texture
+    .page-bg
 
     if file.indexPage
-      .parallax-wrap.hidden-xs
+      .parallax-wrap
 
     //- Finder
     if file.finder
@@ -154,7 +155,7 @@ body
     //- Promo banners
     if file.indexPage
       .container-fluid 
-        .row
+        .row.row_grey-texture
           .container.promo-banners
             +b.promo-banner.row: +i([{ image: 'promo-banner-1.jpg', title: "Онкоскрининг - полная диагностика всего тела"}, { image: 'promo-banner-2.jpg', title: "Добробут теперь на DOC.ua"}])
     //- Main container
@@ -214,7 +215,7 @@ body
     //- Diagnostics
     if file.indexPage || file.main
       .container-fluid  
-        .row
+        .row.row_grey-texture
           .container.container_nopadding
             if file.diagnosticsRecord
               +b.diagnostics-record: +i
@@ -229,7 +230,7 @@ body
       //- Blog
       if file.page_name != 'articles' && file.page_name != 'articles-inner' && file.page_name != 'doctors' && file.page_name != 'diagnostic-center' && file.page_name != 'diagnostic-center_bez' && file.page_name != 'action' && file.page_name != 'search'  && file.page_name != 'search_no_rezult'
         .container-fluid
-          .row.row-articles
+          .row.row-articles.row_grey-texture
             .container.blog-xs
               section
                 +b.blog-block: +i

@@ -1,7 +1,8 @@
 $(document).ready ->
     $(".js-clamp-3").dotdotdot
         ellipsis: ' ...'
-        wrap: "letter"
+        wrap: "letter" 
+        
 
 # postLocationWidthFix = ->
 
