@@ -174,7 +174,7 @@ $ ->
             opts.itemsTablet = [979,4]
             opts.itemsMobile = [767,2]
         if $(@).is ".owl_action"
-            opts.items = 2
+            opts.items = 1
             opts.pagination = on
             opts.itemsTablet = [979,2]
             opts.itemsMobile = [768,1]
