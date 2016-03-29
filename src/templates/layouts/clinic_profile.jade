@@ -42,15 +42,16 @@ body.out
               span.icon-bar
               span.icon-bar
               span.icon-bar
-
+      
             +b.logo: +i({ mobileLogo: true })
 
             +b.navbar-header
+              +e("span").loc-icon.hidden-xs
               +b.location: +i
 
             +b.phones.js-phones.hidden-xs: +i
             //- +b.mobile-phones.visible-xs
-            //-   span (095) 3370707; 
+            //-   span (095) 3370707;
             //-   span (063) 3370707;
             //-   span (067) 3370707;
             //-   span (044) 3370707
@@ -72,24 +73,37 @@ body.out
                   
 
         +b.navbar-collapse(class="navbar-mobile collapse"): +i
+
+
         //- Logo and search
         .container-fluid.container-header.hidden-xs
-            .row.row-white.cabinet-row__mod
-                .container
-                    h1.sr-only Поиск вашего врача – DOC.ua
-                    if file.finder
-                        - var headerClass = "header_with-finder" 
-                    header.header.main-page-header(class=headerClass) 
-                        .wrap
-                            .row
-                                .col-sm-8
-                                    +b.logo.logo__mod: +i
-                                .col-sm-4
-                                    +b.search: +i
+          .row.row-white
+            .container
+              h1.sr-only Поиск вашего врача – DOC.ua
+              if file.finder
+                - var headerClass = "header_with-finder"
+              header.header.main-page-header(class=headerClass)
+                .wrap
+                  .row
+                    +b.logo: +i
+
+                    .navbar-main.navbar-main_inner
+                      .container
+                        +b.navbar-header
+                          +e("span").loc-icon.hidden-xs
+                          +b.location: +i
+                        +b.phones.js-phones.hidden-xs: +i
+                        +b("a").favorites-link(href="/", title="Избранное")
+                          span 14
+                        .user-panel.hidden-xs
+                          +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
+
         //- Menu
         .container-fluid.container-menu__mod.hidden-xs
           .row.row-white
             .container
+                +b.search.js-search: +i
+
                 if file.page_name == 'clinic-profile'
                     +b("ul").clinic-nav
                         +e("li").item.active

@@ -41,10 +41,17 @@ body
                 width 100% 
                 z-index -1
                 background-color #e5f2f5
+            .header__nav
+                margin 0 
         &.container-header
             z-index 6
             padding-bottom 11px
             background #fff
+            .main-page-header
+                .row
+                    margin 0
+                .phones
+                    margin-right 15px 
         .row-finder
             position relative
         .container
@@ -54,6 +61,24 @@ body
         >.container-fluid 
             position relative
             z-index 2
+            .row
+                .row_grey-texture
+                    &:before
+                        content ""
+                        position absolute
+                        top 0
+                        bottom 0
+                        right 0
+                        left 0  
+                        width 100% 
+                        height 100% 
+                        background: url(i/grey_texture_orig.png)
+                        background-attachment: fixed
+                        opacity .8
+            &.container-finder
+                z-index 3 
+                .row-finder:not(.row-finder_main) 
+                    background green_texture
             &.container-menu
                 z-index 5
                 border-top 1px solid #d9ecf0
@@ -68,10 +93,25 @@ body
                         width 100% 
                         z-index -1
                         background-color #e5f2f5
-                .menu
-                    padding-left 10px 
+                .header__nav
+                    margin 0 
+                // .menu
+                //     padding-left 10px 
             &.container-header
                 z-index 6 
+                padding-bottom 11px
+                background #fff
+                .main-page-header
+                    .row
+                        margin 0
+                    .phones
+                        margin-right 15px 
+            .row-finder
+                position relative
+            .container
+                &.main-content
+                    padding-bottom 20px
+
         >.container-fluid 
             &.tabs-shadow
                 z-index 3

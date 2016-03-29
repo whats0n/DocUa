@@ -47,10 +47,19 @@ body >.container-fluid.container-menu:after {
   z-index: -1;
   background-color: #e5f2f5;
 }
+body >.container-fluid.container-menu .header__nav {
+  margin: 0;
+}
 body >.container-fluid.container-header {
   z-index: 6;
   padding-bottom: 11px;
   background: #fff;
+}
+body >.container-fluid.container-header .main-page-header .row {
+  margin: 0;
+}
+body >.container-fluid.container-header .main-page-header .phones {
+  margin-right: 15px;
 }
 body >.container-fluid .row-finder {
   position: relative;
@@ -61,6 +70,27 @@ body >.container-fluid .container.main-content {
 body >.wrapper >.container-fluid {
   position: relative;
   z-index: 2;
+}
+body >.wrapper >.container-fluid .row .row_grey-texture:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("i/grey_texture_orig.png");
+  background-attachment: fixed;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+}
+body >.wrapper >.container-fluid.container-finder {
+  z-index: 3;
+}
+body >.wrapper >.container-fluid.container-finder .row-finder:not(.row-finder_main) {
+  background: background-image url("i/green_texture.png");
 }
 body >.wrapper >.container-fluid.container-menu {
   z-index: 5;
@@ -77,11 +107,25 @@ body >.wrapper >.container-fluid.container-menu background #fff:after {
   z-index: -1;
   background-color: #e5f2f5;
 }
-body >.wrapper >.container-fluid.container-menu .menu {
-  padding-left: 10px;
+body >.wrapper >.container-fluid.container-menu .header__nav {
+  margin: 0;
 }
 body >.wrapper >.container-fluid.container-header {
   z-index: 6;
+  padding-bottom: 11px;
+  background: #fff;
+}
+body >.wrapper >.container-fluid.container-header .main-page-header .row {
+  margin: 0;
+}
+body >.wrapper >.container-fluid.container-header .main-page-header .phones {
+  margin-right: 15px;
+}
+body >.wrapper >.container-fluid .row-finder {
+  position: relative;
+}
+body >.wrapper >.container-fluid .container.main-content {
+  padding-bottom: 20px;
 }
 body >.wrapper >.container-fluid.tabs-shadow {
   z-index: 3;
@@ -4757,8 +4801,8 @@ article.static-page .header-styled.header-styled-mod {
   position: relative;
   padding: 0 25px 0 0;
 }
-.articles-list .article-list-item__meta li.last-child:before,
-.med-articles-list .article-list-item__meta li.last-child:before {
+.articles-list .article-list-item__meta li:last-child:before,
+.med-articles-list .article-list-item__meta li:last-child:before {
   display: none;
 }
 .articles-list .article-list-item__meta li:before,
@@ -8802,13 +8846,17 @@ hr {
   content: 'Заявки';
   position: absolute;
   left: 50%;
-  margin-left: -20px;
   top: -44px;
   z-index: 5;
   color: #00829b;
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 .clinics-profile__tabs li.active a {
   position: relative;
@@ -8828,6 +8876,11 @@ hr {
   height: 0;
   border: 8px solid transparent;
   border-top: 7px solid #00829b;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 .clinics-profile__tabs li.active a:after {
   content: "";
@@ -8838,6 +8891,11 @@ hr {
   height: 0;
   border: 8px solid transparent;
   border-top: 7px solid #fff;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: 2;
 }
 .clinics-profile__tabs li.active a:hover {
@@ -10966,7 +11024,7 @@ hr {
 .diagnostics-record__inner-list__item {
   position: relative;
   margin-bottom: 15px;
-  padding-left: 45px;
+  padding-left: 35px;
 }
 .diagnostics-record__inner-list__item .inner-list__link {
   font-size: 16px;
@@ -13779,11 +13837,11 @@ ul.footer-menu {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.load-items span {
+.load-items__item {
   position: relative;
 }
-.load-items span:before,
-.load-items span:after {
+.load-items__item:before,
+.load-items__item:after {
   content: '';
   position: absolute;
   top: 8px;
@@ -13793,15 +13851,15 @@ ul.footer-menu {
   height: 21px;
 }
 @media only screen and (max-width: 767px) {
-  .load-items span:before,
-  .load-items span:after {
+  .load-items__item:before,
+  .load-items__item:after {
     display: none;
   }
 }
-.load-items span:before {
+.load-items__item:before {
   left: -54px;
 }
-.load-items span:after {
+.load-items__item:after {
   right: -54px;
 }
 .load-items-mod {
@@ -14054,7 +14112,6 @@ ul.footer-menu {
 @media only screen and (max-width: 790px) {
   .main-menu__item-link:before {
     font-size: 14px;
-    padding: 2px 5px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -14068,7 +14125,7 @@ ul.footer-menu {
 }
 @media only screen and (max-width: 940px) {
   .main-menu__item-link {
-    margin-right: 35px;
+    margin-right: 25px;
     padding-top: 2px;
     font-size: 14px;
   }

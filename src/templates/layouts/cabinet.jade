@@ -40,15 +40,16 @@ body.out
               span.icon-bar
               span.icon-bar
               span.icon-bar
-
+      
             +b.logo: +i({ mobileLogo: true })
 
             +b.navbar-header
+              +e("span").loc-icon.hidden-xs
               +b.location: +i
 
-            +b.phones.hidden-xs: +i
+            +b.phones.js-phones.hidden-xs: +i
             //- +b.mobile-phones.visible-xs
-            //-   span (095) 3370707; 
+            //-   span (095) 3370707;
             //-   span (063) 3370707;
             //-   span (067) 3370707;
             //-   span (044) 3370707
@@ -70,22 +71,42 @@ body.out
                   
 
         +b.navbar-collapse(class="navbar-mobile collapse"): +i
+
+
         //- Logo and search
         .container-fluid.container-header.hidden-xs
-            .row.row-white.cabinet-row__mod
-                .container
-                    h1.sr-only Поиск вашего врача – DOC.ua
-                    if file.finder
-                        - var headerClass = "header_with-finder" 
-                    header.header.main-page-header(class=headerClass) 
-                        .wrap
-                            .row
-                                .col-sm-8
-                                    +b.logo: +i
-                                .col-sm-4
-                                    +b.search: +i
+          .row.row-white
+            .container
+              h1.sr-only Поиск вашего врача – DOC.ua
+              if file.finder
+                - var headerClass = "header_with-finder"
+              header.header.main-page-header(class=headerClass)
+                .wrap
+                  .row
+                    +b.logo: +i
+
+                    .navbar-main.navbar-main_inner
+                      .container
+                        +b.navbar-header
+                          +e("span").loc-icon.hidden-xs
+                          +b.location: +i
+                        +b.phones.js-phones.hidden-xs: +i
+                        +b("a").favorites-link(href="/", title="Избранное")
+                          span 14
+                        .user-panel.hidden-xs
+                          +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
+
         //- Menu
-        .container-fluid.container-menu.hidden-xs.container__mod 
+        .container-fluid.container-menu.hidden-xs
+          .row.row-white.row_border
+            .container
+              nav.header__nav
+                +b.menu: +i({ prefix: "main", items: mainMenu, activeIndex: file.activeMenuItem })
+                .header__nav-right
+                  +b.feedback.main-page_feedback
+                    +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку") Оставить заявку
+
+                  +b.search.js-search: +i
             
                     
         //- Finder
