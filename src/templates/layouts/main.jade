@@ -111,8 +111,11 @@ body
             .header__nav-right
               +b.feedback.main-page_feedback
                 +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку") Оставить заявку
-
-              +b.search.js-search: +i
+              if file.indexPage || file.main
+                +b.search.search_main-page.js-search: +i
+              else
+                +b.search.js-search: +i
+                
     //- pages texture
     .page-bg
 

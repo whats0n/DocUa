@@ -11,8 +11,10 @@ mixin menu(prefix, items, addUlClasses, addLiClasses, activeIndex, activeSubinde
             - if (parseInt(activeIndex) === i) liClasses.push("active");
 
             li(class=liClasses)
-                if item.url
+                if item.url && !item.empty
                     a(href=item.url, title=item.title, data=item.dataLink, class="#{prefix}-menu__item-link")= item.title
+                else if item.url && item.empty
+                    a.disabled(href=item.url, title=item.title, data=item.dataLink, class="#{prefix}-menu__item-link")= item.title
                 else
                     span(class="#{prefix}-menu__item-link", data=item.dataLink)= item.title
                 if item.children
