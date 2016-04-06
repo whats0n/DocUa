@@ -14,10 +14,12 @@
         include ../blocks/action/action.jade
 
  
-        +b.section-action
+        +b.section-action.promo-container
 
             each action in actionsList
-                +e.item.is-badge-label.action-card.card(data-id='a' + action.id)
+                +e.item.is-badge-label.action-card.card(data-id='a' + action.id).item-promo
+                    .item-promo__block   
+                        a(href="#").item-promo__title спецпредложение 
                     +b.badge-label.badge-label_background_green
                         p только через 
                         img(src="i/doc-logo-small-white.png", alt"")

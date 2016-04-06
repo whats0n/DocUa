@@ -1314,7 +1314,7 @@ $(function() {
   return updateBadgeLabels();
 });
 
-$('.js-services-btn').on('click', function() {
+$(document).on('click', '.js-services-btn', function() {
   var drop;
   drop = $(this).siblings('.js-services-block');
   drop.slideToggle('fast');

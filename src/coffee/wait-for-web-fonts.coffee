@@ -15,7 +15,7 @@ waitForWebFonts = (fonts, callback) ->
 		loadedFonts = 0
 
 		((font) ->
-			node = document.createElement("span")
+			node = document.createElement("span") 
 			node.innerHTML = "giItT1WQy@!-/#"
 			node.style.position = "fixed"
 			node.style.left = "-10000px"
