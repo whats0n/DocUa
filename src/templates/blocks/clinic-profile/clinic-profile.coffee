@@ -7,7 +7,7 @@ $("#select-area").on "change", "input", ->
 
 	if $(this).prop('checked')
 		$(this).parents('label').addClass 'is-active'
-		$(this).siblings('span').attr 'data-place', spanText
+		$(this).siblings('span').attr 'data-place', spanText 
 		$('.js-btn-text').text('Добавьте район')
 
 	
