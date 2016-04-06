@@ -285,332 +285,332 @@
 
 
   # begin new js block
-$ ->
-  t = undefined
-  e = undefined
-  n = undefined
-  i = undefined
-  o = undefined
-  r = undefined
-  s = undefined
-  a = undefined
-  l = undefined
-  c = undefined
-  u = undefined
-  d = undefined
-  h = undefined
-  p = undefined
-  f = undefined
-  m = undefined
-  g = undefined
-  t = $('.body-map')
-  i = ! !top.execScript
-  t.toggleClass('body-map_ie', i)
-  t.length > 0 and $('.body-map__container').length > 0 and e = t.find('[data-zone-id=\'common\']')
-  n = t.find('[data-zone-id=\'skin\']')
-  r = 'man'
-  h = 'front'
-  o = !1
-  s = null
-  u = null
-  g = {}
+# $ ->
+#   t = undefined
+#   e = undefined
+#   n = undefined
+#   i = undefined
+#   o = undefined
+#   r = undefined
+#   s = undefined
+#   a = undefined
+#   l = undefined
+#   c = undefined
+#   u = undefined
+#   d = undefined
+#   h = undefined
+#   p = undefined
+#   f = undefined
+#   m = undefined
+#   g = undefined
+#   t = $('.body-map')
+#   i = ! !top.execScript
+#   t.toggleClass('body-map_ie', i)
+#   t.length > 0 and $('.body-map__container').length > 0 and e = t.find('[data-zone-id=\'common\']')
+#   n = t.find('[data-zone-id=\'skin\']')
+#   r = 'man'
+#   h = 'front'
+#   o = !1
+#   s = null
+#   u = null
+#   g = {}
 
-  l = ->
-    `var e`
-    `var n`
-    `var i`
-    `var a`
-    `var l`
-    `var c`
-    `var d`
-    `var p`
-    `var f`
-    e = undefined
-    n = undefined
-    i = undefined
-    a = undefined
-    l = undefined
-    c = undefined
-    d = undefined
-    p = undefined
-    f = undefined
-    s and s.remove()
-    s = null
+#   l = ->
+#     `var e`
+#     `var n`
+#     `var i`
+#     `var a`
+#     `var l`
+#     `var c`
+#     `var d`
+#     `var p`
+#     `var f`
+#     e = undefined
+#     n = undefined
+#     i = undefined
+#     a = undefined
+#     l = undefined
+#     c = undefined
+#     d = undefined
+#     p = undefined
+#     f = undefined
+#     s and s.remove()
+#     s = null
 
-    if o 
-      i = 
-        top: '-10%'
-        left: '-15%' 
-    else
-      i = 
-        top: 0
-        left: '50%'
-    e = t.find('.body-map__main').panElement('destroy').css(i).removeClass('body-map__main_detailed').hide().filter('.body-map__main_' + r + '_' + h).show().toggleClass('body-map__main_detailed', o)
-    l = '' + r + '-' + h + (if o then '-detailed' else '')
-    a = SVG_FILES[l]
-    s = Raphael(e.find('.body-map__zones')[0])
-    s.setViewBox(a.viewbox[0], a.viewbox[1], a.viewbox[2], a.viewbox[3], !0)
-    s.setSize('100%', '100%')
-    m()
-    g = {}
+#     if o 
+#       i = 
+#         top: '-10%'
+#         left: '-15%' 
+#     else
+#       i = 
+#         top: 0
+#         left: '50%'
+#     e = t.find('.body-map__main').panElement('destroy').css(i).removeClass('body-map__main_detailed').hide().filter('.body-map__main_' + r + '_' + h).show().toggleClass('body-map__main_detailed', o)
+#     l = '' + r + '-' + h + (if o then '-detailed' else '')
+#     a = SVG_FILES[l]
+#     s = Raphael(e.find('.body-map__zones')[0])
+#     s.setViewBox(a.viewbox[0], a.viewbox[1], a.viewbox[2], a.viewbox[3], !0)
+#     s.setSize('100%', '100%')
+#     m()
+#     g = {}
 
-    n = (e) ->
-      `var n`
-      `var i`
-      `var a`
-      `var l`
-      `var c`
-      `var d`
-      n = undefined
-      i = undefined
-      a = undefined
-      l = undefined
-      c = undefined
-      d = undefined
-      a = do ->
-        `var t`
-        `var n`
-        `var i`
-        `var o`
-        t = undefined
-        n = undefined
-        i = undefined
-        o = undefined
-        if e.path
-          return [ s.path(e.path) ]
-        if e.pathList
-          i = e.pathList
-          o = []
-          t = 0
-          n = i.length
-          while n > t
-            l = i[t]
-            o.push(s.path(l))
-            t++
-          return o
-        throw new Error('invalid zone ' + JSON.stringify(e))
-        return
+#     n = (e) ->
+#       `var n`
+#       `var i`
+#       `var a`
+#       `var l`
+#       `var c`
+#       `var d`
+#       n = undefined
+#       i = undefined
+#       a = undefined
+#       l = undefined
+#       c = undefined
+#       d = undefined
+#       a = do ->
+#         `var t`
+#         `var n`
+#         `var i`
+#         `var o`
+#         t = undefined
+#         n = undefined
+#         i = undefined
+#         o = undefined
+#         if e.path
+#           return [ s.path(e.path) ]
+#         if e.pathList
+#           i = e.pathList
+#           o = []
+#           t = 0
+#           n = i.length
+#           while n > t
+#             l = i[t]
+#             o.push(s.path(l))
+#             t++
+#           return o
+#         throw new Error('invalid zone ' + JSON.stringify(e))
+#         return
 
-      c = 0
-      d = a.length
-      while d > c
-        i = a[c]
-        i.attr(
-          zoneId: e.id
-          'stroke-width': 0
-          fill: '#ff4c4c'
-          cursor: 'pointer'
-          opacity: 0)
-        i.mouseover(->
-          `var n`
-          `var i`
-          `var s`
-          n = undefined
-          i = undefined
-          s = undefined
-          if e.id != u
-            i = 0
-            s = a.length
-            while s > i
-              n = a[i]
-              n.attr(opacity: .5)
-              i++
-          t.trigger 'mouseoverZone',
-            gender: r
-            side: h
-            detailed: o
-            zoneId: e.id
-        )
-        i.mouseout(->
-          `var n`
-          `var i`
-          `var s`
-          n = undefined
-          i = undefined
-          s = undefined
-          if e.id != u
-            i = 0
-            s = a.length
-            while s > i
-              n = a[i]
-              n.attr(opacity: 0)
-              i++
-          t.trigger 'mouseoutZone',
-            gender: r
-            side: h
-            detailed: o
-            zoneId: e.id
-        )
-        n = !1
-        i.mousedown(->
-          n = !0
-        )
-        i.mousemove(->
-          n = !1
-        )
-        i.mouseup((i) ->
-          `var s`
-          `var a`
-          `var l`
-          `var c`
-          s = undefined
-          a = undefined
-          l = undefined
-          c = undefined
-          if n
-            return s = t.find('.body-map__main:visible')
-            a = s.offset()
-            l = i.offsetX or i.pageX - (a.left)
-            c = i.offsetY or i.pageY - (a.top)
-            t.trigger('clickZone',
-              gender: r
-              side: h
-              detailed: o
-              zoneId: e.id
-              offset:
-                left: l
-                top: c
-              size:
-                width: s.width()
-                height: s.height())
+#       c = 0
+#       d = a.length
+#       while d > c
+#         i = a[c]
+#         i.attr(
+#           zoneId: e.id
+#           'stroke-width': 0
+#           fill: '#ff4c4c'
+#           cursor: 'pointer'
+#           opacity: 0)
+#         i.mouseover(->
+#           `var n`
+#           `var i`
+#           `var s`
+#           n = undefined
+#           i = undefined
+#           s = undefined
+#           if e.id != u
+#             i = 0
+#             s = a.length
+#             while s > i
+#               n = a[i]
+#               n.attr(opacity: .5)
+#               i++
+#           t.trigger 'mouseoverZone',
+#             gender: r
+#             side: h
+#             detailed: o
+#             zoneId: e.id
+#         )
+#         i.mouseout(->
+#           `var n`
+#           `var i`
+#           `var s`
+#           n = undefined
+#           i = undefined
+#           s = undefined
+#           if e.id != u
+#             i = 0
+#             s = a.length
+#             while s > i
+#               n = a[i]
+#               n.attr(opacity: 0)
+#               i++
+#           t.trigger 'mouseoutZone',
+#             gender: r
+#             side: h
+#             detailed: o
+#             zoneId: e.id
+#         )
+#         n = !1
+#         i.mousedown(->
+#           n = !0
+#         )
+#         i.mousemove(->
+#           n = !1
+#         )
+#         i.mouseup((i) ->
+#           `var s`
+#           `var a`
+#           `var l`
+#           `var c`
+#           s = undefined
+#           a = undefined
+#           l = undefined
+#           c = undefined
+#           if n
+#             return s = t.find('.body-map__main:visible')
+#             a = s.offset()
+#             l = i.offsetX or i.pageX - (a.left)
+#             c = i.offsetY or i.pageY - (a.top)
+#             t.trigger('clickZone',
+#               gender: r
+#               side: h
+#               detailed: o
+#               zoneId: e.id
+#               offset:
+#                 left: l
+#                 top: c
+#               size:
+#                 width: s.width()
+#                 height: s.height())
 
-          return
-        )
-        c++
-      g[e.id] = a
+#           return
+#         )
+#         c++
+#       g[e.id] = a
 
-f = a.zones
-d = 0
-p = f.length
-while p > d
-  c = f[d]
-  n(c)
-  d++
-if o then e.panElement() else undefined
+# f = a.zones
+# d = 0
+# p = f.length
+# while p > d
+#   c = f[d]
+#   n(c)
+#   d++
+# if o then e.panElement() else undefined
 
-m = ->
-    `var t`
-    `var i`
-    `var o`
-    `var r`
-    `var s`
-    t = undefined
-    i = undefined
-    o = undefined
-    r = undefined
-    s = undefined
-    n.prop('checked', !1)
-    e.prop('checked', !1)
-    for t of g
-      `t = t`
-      o = g[t]
-      r = 0
-      s = o.length
-      while s > r
-        i = o[r]
-        i.attr(opacity: 0)
-        r++
-    u = null
+# m = ->
+#     `var t`
+#     `var i`
+#     `var o`
+#     `var r`
+#     `var s`
+#     t = undefined
+#     i = undefined
+#     o = undefined
+#     r = undefined
+#     s = undefined
+#     n.prop('checked', !1)
+#     e.prop('checked', !1)
+#     for t of g
+#       `t = t`
+#       o = g[t]
+#       r = 0
+#       s = o.length
+#       while s > r
+#         i = o[r]
+#         i.attr(opacity: 0)
+#         r++
+#     u = null
 
-c = (t) ->
-    m()
-    setTimeout((->
-      `var i`
-      `var o`
-      `var r`
-      `var s`
-      `var a`
-      i = undefined
-      o = undefined
-      r = undefined
-      s = undefined
-      a = undefined
-      switch t
-        when 'common'
-          return e.prop('checked', !0)
-        when 'skin'
-          return n.prop('checked', !0)
-        else
-          s = g[t]
-          a = []
-          o = 0
-          r = s.length
-          while r > o
-            i = s[o]
-            a.push(i.attr(opacity: .5))
-            o++
-          return a
-      return
-    ), 1)
-    u = t
+# c = (t) ->
+#     m()
+#     setTimeout((->
+#       `var i`
+#       `var o`
+#       `var r`
+#       `var s`
+#       `var a`
+#       i = undefined
+#       o = undefined
+#       r = undefined
+#       s = undefined
+#       a = undefined
+#       switch t
+#         when 'common'
+#           return e.prop('checked', !0)
+#         when 'skin'
+#           return n.prop('checked', !0)
+#         else
+#           s = g[t]
+#           a = []
+#           o = 0
+#           r = s.length
+#           while r > o
+#             i = s[o]
+#             a.push(i.attr(opacity: .5))
+#             o++
+#           return a
+#       return
+#     ), 1)
+#     u = t
 
-d = ->
-    r = do ->
-      switch t.find('.body-map__select [name=\'gender\']:checked').val()
-        when 'male'
-          return 'man'
-        when 'female'
-          return 'woman'
-        else
-          throw new Error('invalid gender')
-      return
+# d = ->
+#     r = do ->
+#       switch t.find('.body-map__select [name=\'gender\']:checked').val()
+#         when 'male'
+#           return 'man'
+#         when 'female'
+#           return 'woman'
+#         else
+#           throw new Error('invalid gender')
+#       return
 
-    l()
+#     l()
 
-f = ->
-    h = if 'front' == h then 'back' else 'front'
-    l()
+# f = ->
+#     h = if 'front' == h then 'back' else 'front'
+#     l()
 
-p = ->
-    o = !o
-    t.find('.body-map__zoom').toggleClass('body-map__zoom_out', o)
-    l()
+# p = ->
+#     o = !o
+#     t.find('.body-map__zoom').toggleClass('body-map__zoom_out', o)
+#     l()
 
-t.find('.body-map__select [name=\'gender\']').change(->
-    d()
-    t.trigger('selectGender', gender: r)
-  )
-t.find('.body-map__rotate').click(->
-  f()
-  t.trigger('selectSide', side: h)
-)
-t.find('.body-map__zoom').click(->
-  p()
-  t.trigger('selectDetailed', detailed: o)
-)
-t.on('selectZone', (t, e) ->
-  c e.zoneId
-)
+# t.find('.body-map__select [name=\'gender\']').change(->
+#     d()
+#     t.trigger('selectGender', gender: r)
+#   )
+# t.find('.body-map__rotate').click(->
+#   f()
+#   t.trigger('selectSide', side: h)
+# )
+# t.find('.body-map__zoom').click(->
+#   p()
+#   t.trigger('selectDetailed', detailed: o)
+# )
+# t.on('selectZone', (t, e) ->
+#   c e.zoneId
+# )
 
-a = (e) -> 
-  t.trigger('clickZone',
-    zoneId: $(this).data('zoneId')
-    gender: r
-    detailed: o
-    side: h)
-  e.stopPropagation()
-  e.preventDefault()
-  !1
+# a = (e) -> 
+#   t.trigger('clickZone',
+#     zoneId: $(this).data('zoneId')
+#     gender: r
+#     detailed: o
+#     side: h)
+#   e.stopPropagation()
+#   e.preventDefault()
+#   !1
 
-  e.click(a)
-  n.click(a)
-  t.on('clickZone', (e, n) ->
-    `var i`
-    `var o`
-    `var r`
-    i = undefined
-    o = undefined
-    r = undefined
-    if 'common' == (r = n.zoneId) or 'skin' == r or n.detailed then t.trigger('selectZone', zoneId: n.zoneId) else p()
-    o = t.find('.body-map__main_detailed')
-    i = o.parent()
-    t.find('.body-map__main').css(
-      top: '' + Math.min(0, Math.max(i.height() - o.height(), -(o.height() - i.height()) / 2 + (.5 - (n.offset.top / n.size.height)) * o.height())) + 'px'
-      left: '' + Math.min(0, Math.max(i.width() - o.width(), -(o.width() - i.width()) / 2 + (.5 - (n.offset.left / n.size.width)) * o.width())) + 'px')
-  )
-  d()
+#   e.click(a)
+#   n.click(a)
+#   t.on('clickZone', (e, n) ->
+#     `var i`
+#     `var o`
+#     `var r`
+#     i = undefined
+#     o = undefined
+#     r = undefined
+#     if 'common' == (r = n.zoneId) or 'skin' == r or n.detailed then t.trigger('selectZone', zoneId: n.zoneId) else p()
+#     o = t.find('.body-map__main_detailed')
+#     i = o.parent()
+#     t.find('.body-map__main').css(
+#       top: '' + Math.min(0, Math.max(i.height() - o.height(), -(o.height() - i.height()) / 2 + (.5 - (n.offset.top / n.size.height)) * o.height())) + 'px'
+#       left: '' + Math.min(0, Math.max(i.width() - o.width(), -(o.width() - i.width()) / 2 + (.5 - (n.offset.left / n.size.width)) * o.width())) + 'px')
+#   )
+#   d()
 
-  return
+#   return
 
   # end new js block
 
