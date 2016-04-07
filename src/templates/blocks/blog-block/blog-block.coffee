@@ -1,7 +1,7 @@
-$(document).ready ->
-	$(".js-clamp-2").dotdotdot
-		ellipsis: ' ...'
-		wrap: "letter"
+# $(document).ready ->
+# 	$(".js-clamp-2").dotdotdot
+# 		ellipsis: ' ...'
+# 		wrap: "letter"
 
 # module = document.querySelectorAll('.clamp-js')
 # # $clamp module, clamp: 2 

@@ -1322,12 +1322,7 @@ $(document).on('click', '.js-services-btn', function() {
   return false;
 });
 
-$(document).ready(function() {
-  return $(".js-clamp-2").dotdotdot({
-    ellipsis: ' ...',
-    wrap: "letter"
-  });
-});
+
 
 $('.js-add-tel').click(function() {
   $('.add-tel').addClass('is-active');
@@ -2315,12 +2310,7 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
-$(document).ready(function() {
-  return $(".js-clamp-3").dotdotdot({
-    ellipsis: ' ...',
-    wrap: "letter"
-  });
-});
+
 
 
 

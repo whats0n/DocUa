@@ -99,7 +99,7 @@ module.exports = {
         "./src/assets/vendor/jquery.inputmask/inputmask/jquery.inputmask.js",
         "./src/assets/vendor/moment/moment.js",
         "./src/assets/vendor/daterangepicker/daterangepicker.js",
-        "./src/assets/vendor/dotdotdot/jquery.dotdotdot.min.js",
+        "./src/assets/vendor/dotdotdot/jquery.dotdotdot.js",
         // './src/assets/vendor/popups/main.js',
         './src/assets/vendor/popups/plugins.js',
         "./src/assets/js/_coffee.js"
