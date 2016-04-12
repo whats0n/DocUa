@@ -2714,7 +2714,7 @@ $("body").on("smallCardInit", smallCardInit);
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
 $(function() {
-  var $scrollDiv, $selectCollapse, $setDatePickerLang, $tabLink, addDot, findTitle, formatResult, formatSelection, href, mobileCss, pagination, postLoadHeight, ref, refreshChildrenAgesSelector, scrollbarWidth, shhack;
+  var $scrollDiv, $selectCollapse, $setDatePickerLang, $tabLink, findTitle, formatResult, formatSelection, href, mobileCss, pagination, postLoadHeight, ref, refreshChildrenAgesSelector, scrollbarWidth, shhack;
   $.fn.applyRegularScript = function() {
     return this.find(".phone-input-mask").inputmask({
       mask: "+38 (999) 999-99-99",
@@ -3272,12 +3272,6 @@ $(function() {
   if (location.hash && location.hash !== "" && $(location.hash).hasClass("modal")) {
     $(location.hash).modal("show");
   }
-  addDot = function() {
-    return $(".short-card__review-text, .post__title").dotdotdot({
-      ellipsis: ' ...'
-    });
-  };
-  $(window).resize(addDot);
   $(document).on("click", "a[href^='#tab-doctors']", function(e) {
     return $(window).scrollTo($("#tab-doctors"), 500, {
       offset: -100
@@ -3541,7 +3535,7 @@ docMaps = {
         }, $('.widget-map').width($('.widget-map').parent('aside').width()));
         if ($(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 120) {
           docMaps.canAnimateTop = true;
-          $('aside').height($('aside').prev().height());
+          $('aside').height($('aside').prev().height() + 40);
           $('.widget-map').css({
             position: 'absolute',
             bottom: 20,
@@ -3555,9 +3549,10 @@ docMaps = {
             });
           }
         }
-        google.maps.event.trigger(docMaps.map, "resize");
+        google.maps.event.trigger(google_maps.map, "resize");
       } else {
         mapHeight = ($('#map-canvas-right').position().top + $(window).scrollTop()) + ($(window).height() - ($('.container-header').outerHeight() + $('.container-menu').outerHeight() + ($('.container-finder').outerHeight() + 30) + 115));
+        docMaps.canAnimateTop = true;
         $('#map-canvas-right, .widget-map').height(mapHeight);
         $('.widget-map').css({
           position: 'relative',

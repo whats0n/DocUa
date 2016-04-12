@@ -488,10 +488,10 @@ $ ->
     if location.hash and location.hash isnt "" and $(location.hash).hasClass "modal"
         $(location.hash).modal "show"
 
-    addDot = ->
-        $(".short-card__review-text, .post__title").dotdotdot
-            ellipsis: ' ...'
-    $(window).resize addDot
+    # addDot = ->
+    #     $(".short-card__review-text, .post__title").dotdotdot
+    #         ellipsis: ' ...'
+    # $(window).resize addDot
 
     $(document).on "click", "a[href^='#tab-doctors']", (e) ->
         $(window).scrollTo $("#tab-doctors"), 500, {offset: -100}
