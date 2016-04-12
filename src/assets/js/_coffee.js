@@ -1997,69 +1997,6 @@ $(".js-autocomplete-clinic").each(function() {
   });
 });
 
-$(".phones__item_life").hover(function() {
-  $(this).toggleClass("phones__item_hover");
-  return $(".phones__list").find(".phones__item_life").toggleClass("phones__item_hover");
-});
-
-$(".phones__item_mts").hover(function() {
-  $(this).toggleClass("phones__item_hover");
-  return $(".phones__list").find(".phones__item_mts").toggleClass("phones__item_hover");
-});
-
-$(".phones__item_kyivstar").hover(function() {
-  $(this).toggleClass("phones__item_hover");
-  return $(".phones__list").find(".phones__item_kyivstar").toggleClass("phones__item_hover");
-});
-
-$(".phones__item_civic").hover(function() {
-  $(this).toggleClass("phones__item_hover");
-  return $(".phones__list").find(".phones__item_civic").toggleClass("phones__item_hover");
-});
-
-$(function() {
-  if (window.matchMedia('screen and (min-width: 768px)').matches) {
-    $(".js-phones").find(".phones__toggle").addClass("js-phones-btn");
-    $(".js-phones-btn").click(function() {
-      var _parent, _this;
-      _this = $(this);
-      _parent = _this.parents(".js-phones");
-      if (_parent.find(".js-phones-list").hasClass("phones__list_block")) {
-        return true;
-      } else {
-        _this.addClass("phones__toggle_open");
-        _parent.find(".js-phones-list").addClass("phones__list_block");
-        return false;
-      }
-    });
-    return $(document).on("click", function() {
-      $(".js-phones-list").removeClass("phones__list_block");
-      return $(".js-phones-btn").removeClass("phones__toggle_open");
-    });
-  }
-});
-
-$(function() {
-  if (window.matchMedia('screen and (max-width: 767px)').matches) {
-    $(".js-phones").addClass("js-phones-btn");
-    $(".js-phones-btn").click(function() {
-      var _this;
-      _this = $(this);
-      if (_this.find(".js-phones-list").hasClass("phones__list_block")) {
-        return true;
-      } else {
-        _this.find(".phones__toggle").addClass("phones__toggle_open");
-        _this.find(".js-phones-list").addClass("phones__list_block");
-        return false;
-      }
-    });
-    return $(document).on("click", function() {
-      $(".js-phones-list").removeClass("phones__list_block");
-      return $(".phones__toggle").removeClass("phones__toggle_open");
-    });
-  }
-});
-
 var galleryCount, generateMarkupForOwlCarousel, initOwlCarousel, syncOwlCarousels;
 
 galleryCount = 1;
@@ -2247,6 +2184,69 @@ $(function() {
   return $(".photo-gallery").makeCustomPhotoGallery();
 });
 
+$(".phones__item_life").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_life").toggleClass("phones__item_hover");
+});
+
+$(".phones__item_mts").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_mts").toggleClass("phones__item_hover");
+});
+
+$(".phones__item_kyivstar").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_kyivstar").toggleClass("phones__item_hover");
+});
+
+$(".phones__item_civic").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_civic").toggleClass("phones__item_hover");
+});
+
+$(function() {
+  if (window.matchMedia('screen and (min-width: 768px)').matches) {
+    $(".js-phones").find(".phones__toggle").addClass("js-phones-btn");
+    $(".js-phones-btn").click(function() {
+      var _parent, _this;
+      _this = $(this);
+      _parent = _this.parents(".js-phones");
+      if (_parent.find(".js-phones-list").hasClass("phones__list_block")) {
+        return true;
+      } else {
+        _this.addClass("phones__toggle_open");
+        _parent.find(".js-phones-list").addClass("phones__list_block");
+        return false;
+      }
+    });
+    return $(document).on("click", function() {
+      $(".js-phones-list").removeClass("phones__list_block");
+      return $(".js-phones-btn").removeClass("phones__toggle_open");
+    });
+  }
+});
+
+$(function() {
+  if (window.matchMedia('screen and (max-width: 767px)').matches) {
+    $(".js-phones").addClass("js-phones-btn");
+    $(".js-phones-btn").click(function() {
+      var _this;
+      _this = $(this);
+      if (_this.find(".js-phones-list").hasClass("phones__list_block")) {
+        return true;
+      } else {
+        _this.find(".phones__toggle").addClass("phones__toggle_open");
+        _this.find(".js-phones-list").addClass("phones__list_block");
+        return false;
+      }
+    });
+    return $(document).on("click", function() {
+      $(".js-phones-list").removeClass("phones__list_block");
+      return $(".phones__toggle").removeClass("phones__toggle_open");
+    });
+  }
+});
+
 $(document).on("change", ".pill-group .pill input", function(e) {
   var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
   $pill = $(e.target).closest(".pill");
@@ -2312,13 +2312,13 @@ postLocationWidthFix();
 
 
 
-
-
 $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {
     return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
   });
 });
+
+
 
 $(function() {
   $('.js-search-btn').click(function() {
@@ -3533,9 +3533,9 @@ docMaps = {
           position: 'fixed',
           top: '60px'
         }, $('.widget-map').width($('.widget-map').parent('aside').width()));
-        if ($(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 120) {
+        if ($(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 120 - parseInt($('.main-content aside').css('margin-top'))) {
           docMaps.canAnimateTop = true;
-          $('aside').height($('aside').prev().height() + 40);
+          $('aside').height($('aside').prev().height() - parseInt($('.main-content aside').css('margin-top')));
           $('.widget-map').css({
             position: 'absolute',
             bottom: 20,
@@ -3551,12 +3551,12 @@ docMaps = {
         }
         google.maps.event.trigger(google_maps.map, "resize");
       } else {
-        mapHeight = ($('#map-canvas-right').position().top + $(window).scrollTop()) + ($(window).height() - ($('.container-header').outerHeight() + $('.container-menu').outerHeight() + ($('.container-finder').outerHeight() + 30) + 115));
+        mapHeight = ($('#map-canvas-right').position().top + $(window).scrollTop()) + ($(window).height() - ($('.container-header').outerHeight() + $('.container-menu').outerHeight() + ($('.container-finder').outerHeight() + 50) + 115));
         docMaps.canAnimateTop = true;
         $('#map-canvas-right, .widget-map').height(mapHeight);
         $('.widget-map').css({
           position: 'relative',
-          top: 'auto'
+          top: '0'
         });
       }
       return $(window).resize(function() {

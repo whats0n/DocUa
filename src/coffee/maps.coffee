@@ -130,9 +130,9 @@ docMaps =
 
           $('.widget-map').width $('.widget-map').parent('aside').width()
 
-        if $(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 120  
+        if $(document).height() <= $(document).scrollTop() + $(window).height() + $('.row.footer').outerHeight(true) + $('.row-articles').outerHeight(true) + 120 - parseInt($('.main-content aside').css('margin-top')) 
           docMaps.canAnimateTop = true
-          $('aside').height($('aside').prev().height() + 40)
+          $('aside').height($('aside').prev().height() - parseInt($('.main-content aside').css('margin-top')))
           $('.widget-map').css
             position: 'absolute'
             bottom: 20
@@ -144,12 +144,12 @@ docMaps =
               top: navbarHeight + 20
         google.maps.event.trigger(google_maps.map, "resize")
       else
-        mapHeight = ($('#map-canvas-right').position().top + $(window).scrollTop()) + ($(window).height() - ($('.container-header').outerHeight() + $('.container-menu').outerHeight() + ($('.container-finder').outerHeight() + 30) + 115 )) 
+        mapHeight = ($('#map-canvas-right').position().top + $(window).scrollTop()) + ($(window).height() - ($('.container-header').outerHeight() + $('.container-menu').outerHeight() + ($('.container-finder').outerHeight() + 50) + 115 )) 
         docMaps.canAnimateTop = true
         $('#map-canvas-right, .widget-map').height(mapHeight)
         $('.widget-map').css
           position: 'relative'
-          top: 'auto'
+          top: '0'
 
       $(window).resize ->
         $('.widget-map').width $('.widget-map').parent('aside').width()
