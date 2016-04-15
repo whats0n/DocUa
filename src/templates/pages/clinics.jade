@@ -26,7 +26,7 @@
                 +e("li").item.is-last
                     +e("a").link(href="#").is-green Оболонь  
 
-        +b("ul").card-list.promo-container      
+        +b("ul").card-list.promo-container.main-content       
             each clinic in clinics
                 if clinic.hasFilials
                     - classes = "card_clinic has-hidden-small-cards" 
@@ -50,10 +50,10 @@
                         a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
                             span.count= item.testimonialsCount
                             |  отзывов
-                +e.right-side 
+                +e.right-side
                     +b.favorites-block.pull-right: +i
-                    +e.title.fn.org
-                        h3.h3
+                    +e.title.fn.org 
+                        h1
                             a(href=pageLink, title=item.name)= item.name
                     .right-side-rating.visible-xs
                         +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
@@ -90,12 +90,12 @@
 
                     +e.testimonials(class=testimonialsClass)
                         a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
-                            span.count= item.testimonialsCount
+                            span.count= item.testimonialsCount 
                             |  отзывов
                 +e.right-side
                     +b.favorites-block.pull-right: +i
                     +e.title.fn.org
-                        h3.h3
+                        h1
                             a(href=pageLink, title=item.name)= item.name
                     .right-side-rating.visible-xs
                         +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
@@ -125,7 +125,7 @@
                                             span.right= item1.time
                         a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
                     
-        +b("a").load-items(href="#"): +i
+        +b("a").load-items(href="#"): +i 
 
         +b("ul").pagination: +i 
     aside.col-md-3.hidden-sm.hidden-xs 

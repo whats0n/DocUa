@@ -6,10 +6,10 @@
    modals: select-area, select-actions
    page_name: med-library
 
-section.col-md-9 
+section.col-md-9.main-content
    +b.med-library   
       header.header-styled.header-styled_notopmargin
-         h2.h1 Медицинская библиотека
+         h1 Медицинская библиотека
       +e.body
          +e.list-wrap
             +e("ul").list.columnize(data-columns="3", data-min-column-width="10", data-adaptive-column-count="true")
@@ -32,7 +32,7 @@ section.col-md-9
 aside.col-md-3.hidden-sm.hidden-xs                 
    .widget
       +b.widget-articles 
-         h3 Заболевания   
+         .h3 Заболевания   
          +e.body  
                +e("ul").list
                   +e("li").item.alphabet-list__sub-item
@@ -79,7 +79,7 @@ aside.col-md-3.hidden-sm.hidden-xs
                a(href="#") Все заболевания
  
    .widget.widget-online-diagnostic  
-      h3 Онлайн-диагностика
+      .h3 Онлайн-диагностика
       +b("div").online-diagnostic
          +e("a").link(href="/diseases.html", title="")
             +e("img").img(src="i/online-diagnostic.png", alt="")

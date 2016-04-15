@@ -27,7 +27,7 @@ article.hreview-aggregate.vcard.hcard
 
         if clinicWorld
             +e.title.fn.org
-                h3.h3
+                h1
                     - var pageLink = card.filename
                     if onlineConsultation
                         - pageLink = '/doctors/consultation.html'
@@ -90,18 +90,18 @@ article.hreview-aggregate.vcard.hcard
                 +b.favorites-block.pull-right: +i
             +e.title.fn.org
                 if file.page_name == 'diagnostic-list'
-                    h3.h3
+                    h1
                         a(href=pageLink, title=card.name)= card.name
                 if !clinicWorld  && file.page_name != 'diagnostic-list' 
                     if landing
-                        h3.h3 
+                        h1 
                             if clinic
                                 - pageLink = '/clinic-inner.html'
                             else
                                 - pageLink = '/doctor-consultation.html'
                             a(href=pageLink, title=card.name)= card.name
                     else
-                        h3= card.name
+                        h1= card.name
             if !clinicDiagnostic 
                 if file.page_name == 'disease'
                     if card.label

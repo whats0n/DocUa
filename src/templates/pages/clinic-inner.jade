@@ -29,9 +29,9 @@
                                 li
                                     span.left= item.day
                                     span.right= item.time
-                +e.right-side 
+                +e.right-side.main-content
                     +e.title.fn.org 
-                        h3.h3
+                        h1
                             - var pageLink = card.filename
                             if onlineConsultation
                                 - pageLink = '/doctors/consultation.html'
@@ -488,7 +488,7 @@
             #map-canvas-right
             a.btn.btn-success(href="/map.html") Развернуть карту
         .widget.widget-clinic
-            h3 Похожие клиники
+            .h3 Похожие клиники
             - var items = []
             - var limit = 4
             each clinic, i in clinics

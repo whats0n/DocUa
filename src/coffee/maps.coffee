@@ -375,6 +375,7 @@ docMaps =
         offsetTop = $("[data-id='" + marker.addInfo.affilate.id + "']").closest('.card').offset().top
     else
       offsetTop = $("[data-id='" + marker.addInfo.id + "']").offset().top
+
     yPos = offsetTop - $('.navbar-main').outerHeight() - 20
     $('html,body').animate {scrollTop: yPos}, 'slow'
 
@@ -427,8 +428,12 @@ docMaps =
         if docMaps.pageName == 'map'
           docMaps.showInfoWindow map, marker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' +
               '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
-          docMaps.loadDoctors('affiliate', 28)
-          map.setCenter marker.getPosition()
+          # docMaps.loadDoctors('affiliate', 28)
+          map.panTo(marker.getPosition()) 
+          # console.log(marker.getPosition())
+          # map.setZoom(8)
+          docMaps.resetMarkers()
+          marker.setIcon docMaps.icon2
         else if docMaps.pageName == 'doctorInner'
           $('#clinic-location-map').modal()
         else if docMaps.pageName == 'actionAbout'

@@ -52,7 +52,7 @@ article
             +e.title.fn.org
                 if !clinicWorld
                     if landing
-                        h3.h3
+                        h1
                             - var pageLink = item.filename
                             if onlineConsultation
                                 - pageLink = '/doctors/consultation.html'
@@ -60,7 +60,7 @@ article
                                 - pageLink = '/clinic-inner.html'
                             a(href=pageLink, title=item.name)= item.name
                     else
-                        h3= card.name
+                        h1= card.name
             
             .right-side-rating.visible-xs
                 +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
