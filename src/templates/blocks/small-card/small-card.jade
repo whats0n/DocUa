@@ -46,13 +46,13 @@ article
                 //-             li
                 //-                 span.left= item1.day
                 //-                 span.right= item1.time
-        +e.right-side
+        +e.right-side.main-content
             if !item.hasFilials 
                 +b.favorites-block.pull-right: +i
             +e.title.fn.org
                 if !clinicWorld
                     if landing
-                        h1
+                        .h4
                             - var pageLink = item.filename
                             if onlineConsultation
                                 - pageLink = '/doctors/consultation.html'
@@ -60,7 +60,7 @@ article
                                 - pageLink = '/clinic-inner.html'
                             a(href=pageLink, title=item.name)= item.name
                     else
-                        h1= card.name
+                        .h4= card.name
             
             .right-side-rating.visible-xs
                 +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
