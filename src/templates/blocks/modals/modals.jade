@@ -1027,34 +1027,35 @@ mixin modal(name, classes, dialogClasses)
                         .side-section-header.section__radio
                           h3 Выберите филиал
                           .section-form
-                            .section-form__inner.jspScrollable(tabindex='0', style='overflow: hidden; padding: 0px; width: 215px;')
-                              .jspContainer(style='width: 215px; height: 250px;')
-                                .jspPane(style='padding: 0px; top: 0px; width: 210px;')
-                                  input#radio-673.modal-radio__other(checked='', type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='пр-т. Воздухофлотский, 38', value='673')
-                                  label.this-text1(for='radio-673') Добробут «Поликлиника для взрослых»
-                                  .clearfix
-                                  input#radio-674.modal-radio__other(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='пр-т. Комарова, 3, корп. 5', value='674')
-                                  label.this-text1(for='radio-674') Добробут «Стационар для взрослых»
-                                  .clearfix
-                                  input#radio-675.modal-radio__other(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='ул. Татарская, 2-Е', value='675')
-                                  label.this-text1(for='radio-675') Добробут «Детская клиника»
-                                  .clearfix
-                                  input#radio-676.modal-radio__other(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='ул. Драгоманова, 21-А', value='676')
-                                  label.this-text1(for='radio-676') Добробут «Детская клиника на Левом берегу»
-                                  .clearfix
-                                  input#radio-677.modal-radio__other(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='ул. Ломоносова, 52/3', value='677')
-                                  label.this-text1(for='radio-677') Добробут «Детская поликлиника в Голосеевском районе»
-                                  .clearfix
-                                  input#radio-678.modal-radio__other(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address=' ул. Мишуги, 12', value='678')
-                                  label.this-text1(for='radio-678') Добробут «Поликлиника для взрослых на Левом берегу»
-                                  .clearfix
-                                .jspVerticalBar
-                                  .jspCap.jspCapTop
-                                  .jspTrack(style='height: 230px;')
-                                    .jspDrag(style='height: 150px;')
-                                      .jspDragTop
-                                      .jspDragBottom
-                                  .jspCap.jspCapBottom
+                            .section-form__inner
+                                //- .jspScrollable(tabindex='0', style='overflow: hidden; padding: 0px; width: 215px;')
+                                //- .jspContainer(style='width: 215px; height: 250px;')
+                                  .jspPane(style='padding: 0px; top: 0px; width: 210px;')
+                                input#radio-673.modal-radio__other(checked='', type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='пр-т. Воздухофлотский, 38', value='673')
+                                label.this-text1(for='radio-673') Добробут «Поликлиника для взрослых»
+                                .clearfix
+                                input#radio-674.modal-radio__other(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='пр-т. Комарова, 3, корп. 5', value='674')
+                                label.this-text1(for='radio-674') Добробут «Стационар для взрослых»
+                                .clearfix
+                                  //- input#radio-675.modal-radio__other(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='ул. Татарская, 2-Е', value='675')
+                                  //- label.this-text1(for='radio-675') Добробут «Детская клиника»
+                                  //- .clearfix
+                                  //- input#radio-676.modal-radio__other(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='ул. Драгоманова, 21-А', value='676')
+                                  //- label.this-text1(for='radio-676') Добробут «Детская клиника на Левом берегу»
+                                  //- .clearfix
+                                  //- input#radio-677.modal-radio__other(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address='ул. Ломоносова, 52/3', value='677')
+                                  //- label.this-text1(for='radio-677') Добробут «Детская поликлиника в Голосеевском районе»
+                                  //- .clearfix
+                                  //- input#radio-678.modal-radio__other(type='radio', name='order-form-56f0ee0579641[affiliate_id]', data-hospital_id='586', data-address=' ул. Мишуги, 12', value='678')
+                                  //- label.this-text1(for='radio-678') Добробут «Поликлиника для взрослых на Левом берегу»
+                                  //- .clearfix
+                                //- .jspVerticalBar
+                                //-   .jspCap.jspCapTop
+                                //-   .jspTrack(style='height: 230px;')
+                                //-     .jspDrag(style='height: 150px;')
+                                //-       .jspDragTop
+                                //-       .jspDragBottom
+                                //-   .jspCap.jspCapBottom
                     #affiliate_address.side-section
                       .modal-icon.icon-coupon
                       .side-section-main
@@ -1339,9 +1340,9 @@ mixin modal(name, classes, dialogClasses)
                   });
                 #dialog-window.window-doctors(data-block='js-doctor-text', data-dialog-name='specialization')
                   .dialog-close
-                  .dialog-window-content(style='overflow: hidden; padding: 0px; width: 493px;')
-                    .jspContainer(style='width: 493px; height: 0px;')
-                      .jspPane(style='padding: 0px; top: 0px; left: 0px; width: 493px;')
+                  .dialog-window-content(style='overflow: hidden; padding: 0px; ')
+                    .jspContainer(style=' height: 0px;')
+                      .jspPane(style='padding: 0px; top: 0px; left: 0px; ')
                         .select-specialization.user-content
                           .col-1-3
                             h3.letter-title А
@@ -1460,6 +1461,13 @@ mixin modal(name, classes, dialogClasses)
                               li.list-item.last-child.first-child
                                 input#specialty-57(type='radio', name='order-form-56f0ee0579641[specialties][]', data-name='specialty-57', data-specialty_id='57')
                                 label(for='specialty-57', data-name='specialty-57', data-specialty_id='57') Эндокринолог
+                      .jspVerticalBar
+                          .jspCap.jspCapTop
+                              .jspTrack(style="height: 327px;")
+                                  .jspDrag(style="height: 114px; top: 0px;")
+                                      .jspDragTop
+                                      .jspDragBottom
+                                  .jspCap.jspCapBottom
                   .dialog-footer
                     a.modal-button.btn-green(href='#', data-apply-select='') Ок
                     a.modal-button.btn-dark.btn-small(href='#', data-clear-select='') Очистить выбор
