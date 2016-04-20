@@ -1019,13 +1019,15 @@ button.btn-full {
     .select-diagnostic .list-item::before, .select-diagnostic .list-item1::before {
       left: 0;
       top: 19px; }
+    .select-diagnostic .list-item::before, .select-diagnostic .list-item1::before {
+      display: none; }
     .select-diagnostic .list-item:first-child, .select-diagnostic .list-item1:first-child {
       border-top: none; }
     .select-diagnostic .list-item:last-child, .select-diagnostic .list-item1:last-child {
       border-bottom: 1px solid #4f787e;}
     .select-diagnostic .list-item.selected, .select-diagnostic .list-item:hover {
       padding: 0;
-      border-top: none;
+      border-top: transparent;
       background: none; }
       .select-diagnostic .list-item.selected label, .select-diagnostic .list-item:hover label {
         background: #5f8087;
@@ -1461,9 +1463,13 @@ body, html {
   .side-section-main_mod h3 {
     margin-left: 40px;
   }
+
+ul.package-list :before {
+  display: none;
+}
 ul.package-list .list-item:before {
   display: none;
 }
 ul.package-list .list-item:hover {
-  border-bottom: transparent;
+  border-top: transparent;
 }
