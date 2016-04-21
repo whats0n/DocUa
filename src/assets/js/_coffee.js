@@ -3892,6 +3892,8 @@ docMaps = {
           return marker.setIcon(docMaps.icon2);
         } else if (docMaps.pageName === 'doctorInner') {
           return $('#clinic-location-map').modal();
+        } else if (docMaps.pageName === 'doctorInner') {
+          return $('#clinic-location-map').modal();
         } else if (docMaps.pageName === 'actionAbout') {
           return $('#clinic-location-map').modal();
         } else if (docMaps.pageName === 'diagnostCenter') {
@@ -3906,9 +3908,6 @@ docMaps = {
         return setTimeout((function() {
           return $('.finder-map').prependTo('.big-map__container');
         }), 1500);
-      });
-      $("body").on("click", ".marker-window >div:last", function(e) {
-        return $('.marker-window').remove();
       });
       $("body").on("mouseover", ".card", function() {
         var index, list;

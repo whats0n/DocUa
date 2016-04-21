@@ -280,8 +280,8 @@
   .modal-left-side .modal-header {
     padding: 18px 40px 18px 60px;
     margin: 0;
-    min-height: 60px;
-    text-align: left;
+    min-height: 60px !important; 
+    text-align: left !important; 
   }
   textarea.modal-form-input {
     height: 97px;
@@ -327,7 +327,7 @@
     padding: 20px 0;
   }
 
-  .tab-close__info, .tab-close__calendar,.tab-close__time  {
+  .tab-close, .tab-close__calendar, .tab-close__time  {
     display: block;
   }
   .row .col-sm-6,.row .col-sm-6:nth-child(2) {
@@ -348,7 +348,7 @@
    }
   .modal-time-footer {
     position: absolute;
-    bottom: 8%;
+    bottom: 5%;
     left: 39%;
   }
   .modal-time, .picker__holder {
@@ -382,7 +382,7 @@
     border-left: none;
   }
   .modal .modal-right-side .row, .modal form .row {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
   }
   .content-order_footer .row .row-none .js-content-hide {
     padding: 0 18px 0 19px;
@@ -505,6 +505,10 @@
     right: 18px;
     top: 27px;
   }
+  .tab-close, .tab-active_info {
+    right: 18px;
+    top: 27px;
+  }
 
   .side-section {
     position: relative;
@@ -545,10 +549,10 @@
   }
 
   /* info */
-  .js-content-hide label:last-child {
+  /*.js-content-hide label:last-child {
     display: none;
   }
-
+*/
   .modal-form-input {
     margin-bottom: 20px;
   }
@@ -705,6 +709,13 @@
   }
   .section-district label {
     width: 65%;
+  }
+  .modal-right-content {
+    padding: 0 !important;
+  }
+  .line {
+    margin: 4px 0;
+    display: none;
   }
 
 }

@@ -115,8 +115,19 @@ docMaps =
         position: docMaps.markersList[index].position) 
       docMaps.fitMap [docMaps.popupMarker], map, 14
 
+      # google.maps.event.addListener marker, 'click', ->
+      #   docMaps.showInfoWindow map, marker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' +
+      #       '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
+      #   # docMaps.loadDoctors('affiliate', 28)
+      #   map.panTo(marker.getPosition()) 
+      #   # console.log(marker.getPosition())
+      #   # map.setZoom(8)
+      #   docMaps.resetMarkers()
+      #   marker.setIcon docMaps.icon2
     $('#clinic-location-map').on 'hidden.bs.modal', (e) ->
       docMaps.popupMarker.setMap null
+
+    
 
   mapCss:
     index: -> #diagnosticLists and doctors list side map
@@ -434,6 +445,9 @@ docMaps =
           # map.setZoom(8)
           docMaps.resetMarkers()
           marker.setIcon docMaps.icon2
+        # else if 
+        else if docMaps.pageName == 'doctorInner'
+          $('#clinic-location-map').modal()
         else if docMaps.pageName == 'doctorInner'
           $('#clinic-location-map').modal()
         else if docMaps.pageName == 'actionAbout'
@@ -449,8 +463,8 @@ docMaps =
           $('.finder-map').prependTo('.big-map__container')
         ), 1500
 
-      $("body").on "click", ".marker-window >div:last", (e) ->
-        $('.marker-window').remove()
+      # $("body").on "click", ".marker-window >div:last", (e) ->
+      #   $('.marker-window').remove()
 
       # Card mouseover
       $("body").on "mouseover", ".card", ->
