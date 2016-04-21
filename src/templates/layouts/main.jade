@@ -169,6 +169,7 @@ body
     .container-fluid
       .row
         .container.main-content
+
           //- Breadcrumbs/Controls row
           if !file.indexPage 
             .row
@@ -216,6 +217,10 @@ body
               //-   .col-md-12
               //-     .doctors-alert
               //-       strong К сожалению, в выбранном Вами районе "с. Софиевская Борщаговка" клиник по направлению пульмонология не найдено. Найдите клинику пульмонологии в ближайших районах
+          //- .container-seo
+          .row.about-this.js-seo
+            .container
+              +b.about-this-site._seo: +i
           //- Content
           block content
       
@@ -248,10 +253,7 @@ body
     .container-fluid.container-fluid_footer-bg.container-fluid_nopadding
       //- SEO
       .flex_container
-          //- .container-seo
-          .row.about-this
-            .container
-              +b.about-this-site._seo: +i
+          
   
           .row.footer
             .container
@@ -271,6 +273,7 @@ body
                                 | , 2016&nbsp;
                             .footer-rights Использование материалов разрешено только при наличии активной ссылки на источник                                   
                           +b.social-links: +i
+          .js-seo-insert
 
   
 

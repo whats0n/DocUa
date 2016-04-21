@@ -1280,6 +1280,10 @@ if (typeof define === 'function' && define.amd) {
   window.waitForWebFonts = waitForWebFonts;
 }
 
+$(document).each(function() {
+  return $(".js-seo").appendTo('.js-seo-insert');
+});
+
 $("#select-specialization").on("click", "li a", function() {
   var item;
   item = $(this);
