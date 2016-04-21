@@ -8,8 +8,8 @@
     find_text: клиник
 
 
-.row           
-    section.col-md-9              
+.row             
+    section.col-md-9               
         +b.doctors-region  
             h3 Клиники пульмонологии в других районах (6) 
             +e("ul").list 
@@ -59,7 +59,7 @@
                         +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
                         +e.testimonials(class=testimonialsClass)
                             a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
-                                span.count= item.testimonialsCount
+                                span.count= item.testimonialsCount 
                                 |  отзывов
                     +e.label-description.small-card__description-mod
                         span #{item.labelDescription}&nbsp;
@@ -77,7 +77,7 @@
                         if file.page_name != clinics
                             +e.schedule
                                 ul
-                                    each item1 in item.schedule
+                                    each item1 in item.schedule 
                                         li
                                             span.left #{item1.day}:
                                             span.right= item1.time

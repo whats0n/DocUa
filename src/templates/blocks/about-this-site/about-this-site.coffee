@@ -1,4 +1,4 @@
 $(document).each ->
-  $(".js-seo").appendTo('.js-seo-insert')
+  $(".js-seo").clone().appendTo('.js-seo-insert').addClass('is-open')
   
  
