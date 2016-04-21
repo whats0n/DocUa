@@ -1281,7 +1281,23 @@ if (typeof define === 'function' && define.amd) {
 }
 
 $(document).each(function() {
-  return $(".js-seo").clone().appendTo('.js-seo-insert').addClass('is-open');
+  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
+});
+
+$("#select-specialization").on("click", "li a", function() {
+  var item;
+  item = $(this);
+  $('.js-clone span').text(item.text());
+  $('.js-clear').addClass('is-active');
+  $('.direction__title').text('Выбрано направление');
+  return $("#select-specialization").modal("hide");
+});
+
+$(".js-clear").on("click", function() {
+  $(this).siblings("span").text("Выберите направление");
+  $(this).removeClass('is-active');
+  $('.direction__title').text('Направление');
+  return false;
 });
 
 $(function() {
@@ -1300,22 +1316,6 @@ $(function() {
   $(document).on("shown.bs.tab", updateBadgeLabels);
   $(document).on("shown.bs.modal", updateBadgeLabels);
   return updateBadgeLabels();
-});
-
-$("#select-specialization").on("click", "li a", function() {
-  var item;
-  item = $(this);
-  $('.js-clone span').text(item.text());
-  $('.js-clear').addClass('is-active');
-  $('.direction__title').text('Выбрано направление');
-  return $("#select-specialization").modal("hide");
-});
-
-$(".js-clear").on("click", function() {
-  $(this).siblings("span").text("Выберите направление");
-  $(this).removeClass('is-active');
-  $('.direction__title').text('Направление');
-  return false;
 });
 
 $(document).on('click', '.js-services-btn', function() {
