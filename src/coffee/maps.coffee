@@ -102,6 +102,13 @@ docMaps =
     $('#clinic-location-map').on 'shown.bs.modal', (e) ->
       google.maps.event.trigger(map, "resize")
       index = docMaps.findMarker('id', $(e.relatedTarget).closest("[data-id]").data('id'))
+      contentString = '<div class="map-marker-content"> <div class="image"><img src="i/_isida.jpg" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">ИСИДА</a> <div class="card__address">' + '<span>ул. Теодора Драйзера, 4</span></div> <div class="rating"> <div class="rating__value value">3</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: '  + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> 17 отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div></div>'
+
+      infowindow = new google.maps.InfoWindow
+        content: contentString
+        maxWidth: 200
+        zIndex: 10011
+      
 
       addInfo = {}
       if docMaps.markersList[index].addInfo.affilate
@@ -115,17 +122,36 @@ docMaps =
         position: docMaps.markersList[index].position) 
       docMaps.fitMap [docMaps.popupMarker], map, 14
 
-      # google.maps.event.addListener marker, 'click', ->
-      #   docMaps.showInfoWindow map, marker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' +
-      #       '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
-      #   # docMaps.loadDoctors('affiliate', 28)
-      #   map.panTo(marker.getPosition()) 
-      #   # console.log(marker.getPosition())
-      #   # map.setZoom(8)
-      #   docMaps.resetMarkers()
-      #   marker.setIcon docMaps.icon2
-    $('#clinic-location-map').on 'hidden.bs.modal', (e) ->
-      docMaps.popupMarker.setMap null
+      # #popup marke click
+      google.maps.event.addListener docMaps.popupMarker, 'click', ->
+        infowindow.open map, docMaps.popupMarker
+
+
+       # $('.marker-window').remove()
+
+        # $('.marker-window').remove()   
+        setTimeout (->
+          gmEl = $('.map-marker-content').closest('.gm-style-iw')
+          gmEl.parent().addClass('marker-window')
+          $('.marker-window').clone().insertAfter($('.marker-window'))
+          $('.marker-window').first().remove()
+          $('.marker-window .gm-style-iw').css('width': 220)
+          $('.marker-window').children().find('.card__address').css('font-size': 14)
+          $('.marker-window').children().find('.title').css('font-size': 15)
+          $('.marker-window').children().find('.rating__value').css('font-size': 19)
+          
+          $('.marker-window').children().find('.marker-review').css('font-size': 16)
+          $('.marker-window .gm-style-iw>div').eq(0).css('width': 220, 'max-width': 220)
+          $('.marker-window .gm-style-iw>div').eq(0).addClass 'is-active'
+          $('.marker-window .gm-style-iw>div>div').eq(0).addClass 'is-active'
+          # $('.marker-window').show()
+          # $('.marker-window').prependTo('.big-map__container')
+        ), 400
+        
+
+
+    # $('#clinic-location-map').on 'hidden.bs.modal', (e) ->
+    #   docMaps.popupMarker.setMap null 
 
     
 
@@ -422,21 +448,21 @@ docMaps =
     ), 500
 
 
+
   listeners:
     marker: (marker, map) ->
-      if docMaps.pageName == 'map'
-        if marker.addInfo.affilate
-          rating = marker.addInfo.affilate.rating
-          address = marker.addInfo.affilate.address
-          reviews = marker.addInfo.affilate.reviews
-        else
-          rating = marker.addInfo.rating
-          address = marker.addInfo.address
-          reviews = marker.addInfo.reviews
+      if marker.addInfo.affilate
+        rating = marker.addInfo.affilate.rating
+        address = marker.addInfo.affilate.address
+        reviews = marker.addInfo.affilate.reviews
+      else
+        rating = marker.addInfo.rating
+        address = marker.addInfo.address
+        reviews = marker.addInfo.reviews
 
       #marker click
       google.maps.event.addListener marker, 'click', ->
-        if docMaps.pageName == 'map'
+        if docMaps.pageName == 'map'  
           docMaps.showInfoWindow map, marker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' +
               '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
           # docMaps.loadDoctors('affiliate', 28)
@@ -445,9 +471,12 @@ docMaps =
           # map.setZoom(8)
           docMaps.resetMarkers()
           marker.setIcon docMaps.icon2
-        # else if 
-        else if docMaps.pageName == 'doctorInner'
-          $('#clinic-location-map').modal()
+        # else if $('#clinic-location-map').modal()
+        #   docMaps.showInfoWindow map, marker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' +
+        #     '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
+        # else if docMaps.pageName == 'diagnostCenter'
+        #   docMaps.popupMarker 
+
         else if docMaps.pageName == 'doctorInner'
           $('#clinic-location-map').modal()
         else if docMaps.pageName == 'actionAbout'
@@ -457,14 +486,28 @@ docMaps =
         else
           docMaps.sideMarkerActivate marker, map
 
+      
+      # #popup marke click
+        # google.maps.event.addListener docMaps.popupMarker, 'click', ->
+        #   alert()
+        # docMaps.open map, docMaps.popupMarker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' + '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
+       
+      # docMaps.popup.event.addListener marker, 'click', ->
+      #   docMaps.showInfoWindow map, marker, '<div class="image"><img src="' + marker.addInfo.image + '" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">' + marker.addInfo.name + '</a> <div class="card__address">' +
+      #     '<span>' + address + '</span></div> <div class="rating"> <div class="rating__value value">' + rating + '</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: ' + rating * 20 + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> ' + reviews + ' отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div>'
+      #   # docMaps.loadDoctors('affiliate', 28)
+      #   map.panTo(marker.getPosition()) 
+      #   docMaps.resetMarkers()
+      #   marker.setIcon docMaps.icon2
+
     common: (map) ->
       google.maps.event.addListenerOnce map, 'idle', ->
         setTimeout (->
           $('.finder-map').prependTo('.big-map__container')
         ), 1500
 
-      # $("body").on "click", ".marker-window >div:last", (e) ->
-      #   $('.marker-window').remove()
+      $("body").on "click", ".marker-window >div:last", (e) ->
+        $('.marker-window').remove()
 
       # Card mouseover
       $("body").on "mouseover", ".card", ->
