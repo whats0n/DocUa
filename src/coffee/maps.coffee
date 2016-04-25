@@ -71,7 +71,7 @@ docMaps =
       @scrollApi = ''
     scrollObj = $('.short-list__items-wrapper')
     scrollObj.width($('.big-map__widget').width())
-    scrollObj.height(@mapHeight - $('.short-list__header').outerHeight(true))
+    scrollObj.height(@mapHeight - $('.short-list__header').outerHeight(true) - 500)
     @scrollApi = scrollObj.jScrollPane(
       verticalGutter: 0
       verticalDragMaxHeight: 30
@@ -84,7 +84,7 @@ docMaps =
       data: {}
       success: (data) ->
         for i in [0..data.length - 1]
-          d = data[i]
+          d = data[4]
           tpl = '<li class="short-list__item"> <div class="male short-list__image"><img src="' + 'https://' + docMaps.domain + d.image + '" alt=""> </div>' +
             '<div class="short-list__item-content"><a href="/doctor-consultation.html" title="' + d.name + '" class="short-list__title">' + d.name + '</a>' +
             '<div class="short-list__label">' + d.specialty + '</div> <div class="rating"> <div class="rating__stars"> <div class="rating__stars-bg"> </div> <div style="width: ' + d.rating * 20 + '%;" class="rating__stars-overlay"> </div> </div> <div class="rating__value value">' + d.rating + ' </div> </div> </div> </li>'

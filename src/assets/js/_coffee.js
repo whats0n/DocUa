@@ -1280,10 +1280,6 @@ if (typeof define === 'function' && define.amd) {
   window.waitForWebFonts = waitForWebFonts;
 }
 
-$(document).each(function() {
-  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
-});
-
 $("#select-specialization").on("click", "li a", function() {
   var item;
   item = $(this);
@@ -1298,6 +1294,10 @@ $(".js-clear").on("click", function() {
   $(this).removeClass('is-active');
   $('.direction__title').text('Направление');
   return false;
+});
+
+$(document).each(function() {
+  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
 });
 
 $(function() {
@@ -1892,31 +1892,6 @@ $('.js-tab__header-f').click(function() {
   return false;
 });
 
-var $goTop, SHOW_GOTOP_AFTER, goTopShown;
-
-SHOW_GOTOP_AFTER = 500;
-
-$goTop = $(".go-top");
-
-$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
-
-$goTop.click(function() {
-  $('html,body').animate({
-    scrollTop: 0
-  }, 800);
-  return false;
-});
-
-$(window).scroll(function() {
-  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeIn("fast");
-    return goTopShown = true;
-  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeOut("fast");
-    return goTopShown = false;
-  }
-});
-
 $(function() {
   var updateGroup1, updateGroup2;
   updateGroup1 = function() {
@@ -2265,6 +2240,31 @@ $(document).on("change", ".pill-group .pill input", function(e) {
       allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
       return $parentPill.find("input").prop("checked", allChecked);
     }
+  }
+});
+
+var $goTop, SHOW_GOTOP_AFTER, goTopShown;
+
+SHOW_GOTOP_AFTER = 500;
+
+$goTop = $(".go-top");
+
+$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
+
+$goTop.click(function() {
+  $('html,body').animate({
+    scrollTop: 0
+  }, 800);
+  return false;
+});
+
+$(window).scroll(function() {
+  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
+    $goTop.stop(true, true).fadeIn("fast");
+    return goTopShown = true;
+  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
+    $goTop.stop(true, true).fadeOut("fast");
+    return goTopShown = false;
   }
 });
 
@@ -3475,7 +3475,7 @@ docMaps = {
     }
     scrollObj = $('.short-list__items-wrapper');
     scrollObj.width($('.big-map__widget').width());
-    scrollObj.height(this.mapHeight - $('.short-list__header').outerHeight(true));
+    scrollObj.height(this.mapHeight - $('.short-list__header').outerHeight(true) - 500);
     return this.scrollApi = scrollObj.jScrollPane({
       verticalGutter: 0,
       verticalDragMaxHeight: 30
@@ -3489,7 +3489,7 @@ docMaps = {
       success: function(data) {
         var d, i, j, ref, tpl;
         for (i = j = 0, ref = data.length - 1; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
-          d = data[i];
+          d = data[4];
           tpl = '<li class="short-list__item"> <div class="male short-list__image"><img src="' + 'https://' + docMaps.domain + d.image + '" alt=""> </div>' + '<div class="short-list__item-content"><a href="/doctor-consultation.html" title="' + d.name + '" class="short-list__title">' + d.name + '</a>' + '<div class="short-list__label">' + d.specialty + '</div> <div class="rating"> <div class="rating__stars"> <div class="rating__stars-bg"> </div> <div style="width: ' + d.rating * 20 + '%;" class="rating__stars-overlay"> </div> </div> <div class="rating__value value">' + d.rating + ' </div> </div> </div> </li>';
           $('.short-list__items').append(tpl);
         }
