@@ -241,6 +241,11 @@ article.hreview-aggregate.vcard.hcard
                                 a.btn.btn-success.pull-right(href="#clinic-request" data-toggle="modal" title="") Записаться в клинику
                             else if !clinic_inner
                                 a.btn.btn-success.pull-right(href="#doctor-request" data-toggle="modal" title="") Записаться на прием
+        if !clinic_inner
+            +e.bottom
+                +b.exclamation
+                    +e.in
+                        +e.text  Извините, на данный момент запись в клинику ограничена
         if clinic && card.hasFilials
             if clinicFilials
                 section
@@ -283,6 +288,9 @@ if clinic_inner
                     a(href="#") Акции клиники (17)
                     a(href="#") Пакеты услуг (2)            
                 a.btn.btn-success.pull-right(href="#doctor-request" data-toggle="modal" title="") Записаться на прием
+        +b.exclamation
+            +e.in
+                +e.text  Извините, на данный момент запись в клинику ограничена
 
 if clinicInnerFilials
     section
