@@ -26,7 +26,7 @@
                 +e("li").item.is-last
                     +e("a").link(href="#").is-green Оболонь  
 
-        +b("ul").card-list.promo-container.main-content           
+        +b("ul").card-list.promo-container.main-content            
             each clinic in clinics
                 if clinic.hasFilials
                     - classes = "card_clinic has-hidden-small-cards" 
@@ -124,8 +124,38 @@
                                             span.left #{item1.day}:
                                             span.right= item1.time
                         a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
+
+
+            +b.small-card.special.item-promo
+                .item-promo__block   
+                    a(href="#").item-promo__title спецпредложение 
+                +e.left-side.hidden-xs.special-left-side
+                    +e.image.special-picture
+                        img.photo(src="i/widget-img.png", alt="")
+                +e.right-side.special-right-side
+                    +e.title.fn.org.special-title
+                        h1
+                            a(href="", title="") Консультация маммолога с УЗИ  молочных желез со скидкой 10%!
                     
-        +b("a").load-items(href="#"): +i 
+                   
+                    .address-info
+                        if item.address && !clinicWorld
+                            +e.address.adr
+                                a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
+                        if item.metro && !clinicWorld
+                            +e.location.card__location_metro(class=item.metroType)
+                                = item.metro.join(", ")
+                        if !onlineConsultation && !doctorWorld && !clinicWorld
+                            +e.location= item.location.join(", ")
+
+                +e.footer.special-block-btn
+                        +b.price
+                            +e.old 1645 грн
+                            +e.new 1 178 грн
+                        a.btn.btn-success(href="/modals.html#doctor-request", title="") Записаться в клинику
+
+
+        +b("a").load-items(href="#"): +i  
 
         +b("ul").pagination: +i 
     aside.col-md-3.hidden-sm.hidden-xs 
