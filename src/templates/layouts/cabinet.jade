@@ -5,7 +5,7 @@ doctype html
 html 
     head
         meta(charset="UTF-8")
-        meta(content="user-scalable=no, width=device-width", name="viewport")
+        //- meta(content="user-scalable=no, width=device-width", name="viewport")
         title
             if file.title
                 | #{file.title} | DOC.ua
@@ -32,10 +32,10 @@ body.out
             js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=224008797710815";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    .wrapper
+    .wrapper.cabinet-wrapper_mod 
         //- Navbar
         nav.navbar.navbar-main.navbar-fixed-top
-          .container
+          .container.cabinet-profile__container
             button.navbar-toggle.collapsed.visible-xs
               span.icon-bar
               span.icon-bar
@@ -74,9 +74,9 @@ body.out
 
 
         //- Logo and search
-        .container-fluid.container-header.hidden-xs
+        .container-fluid.container-header.hidden-xs.cabinet-profile__container
           .row.row-white
-            .container
+            .container.cabinet-profile__container
               h1.sr-only Поиск вашего врача – DOC.ua
               if file.finder
                 - var headerClass = "header_with-finder"
@@ -86,7 +86,7 @@ body.out
                     +b.logo: +i
 
                     .navbar-main.navbar-main_inner
-                      .container
+                      .container.cabinet-profile__container
                         +b.navbar-header
                           +e("span").loc-icon.hidden-xs
                           +b.location: +i
@@ -97,9 +97,9 @@ body.out
                           +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
 
         //- Menu
-        .container-fluid.container-menu.hidden-xs
+        .container-fluid.container-menu.hidden-xs.cabinet-profile__container
           .row.row-white.row_border
-            .container
+            .container.cabinet-profile__container
               nav.header__nav
                 +b.menu: +i({ prefix: "main", items: mainMenu, activeIndex: file.activeMenuItem })
                 .header__nav-right
@@ -110,9 +110,9 @@ body.out
             
                     
         //- Finder
-        .container-fluid.container-finder
+        .container-fluid.container-finder.cabinet-profile__container
             .row.row-finder
-                .container
+                .container.cabinet-profile__container
                     if file.finder || file.chooser
                         .wrap
                             if file.finder
@@ -122,12 +122,12 @@ body.out
                             if file.chooser
                                 +b.chooser.hidden-xs: +i({page: file.chooser, specializations: specializations})
         //- pages texture
-        .page-bg
+        .page-bg.cabinet_mod
 
         //- Main container
-        .container-fluid
+        .container-fluid.cabinet-profile__container
             .row
-                .container.main-content
+                .container.main-content.cabinet-profile__container
                    
                    h1= file.title
                    article
@@ -135,7 +135,7 @@ body.out
     
     
     //- Footer
-    .container-fluid.container-fluid_nopadding
+    .container-fluid.container-fluid_nopadding.cabinet-profile__container
       //- SEO
       .flex_container
         //- .row.about-this
@@ -143,7 +143,7 @@ body.out
         //-     +b.about-this-site._seo: +i
 
         .row.footer
-          .container
+          .container.cabinet-profile__container
             footer
               .footer-inner
                 .wrap
