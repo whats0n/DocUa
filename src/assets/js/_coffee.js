@@ -1280,6 +1280,10 @@ if (typeof define === 'function' && define.amd) {
   window.waitForWebFonts = waitForWebFonts;
 }
 
+$(document).each(function() {
+  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
+});
+
 $("#select-specialization").on("click", "li a", function() {
   var item;
   item = $(this);
@@ -1294,10 +1298,6 @@ $(".js-clear").on("click", function() {
   $(this).removeClass('is-active');
   $('.direction__title').text('Направление');
   return false;
-});
-
-$(document).each(function() {
-  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
 });
 
 $(function() {
@@ -1892,6 +1892,31 @@ $('.js-tab__header-f').click(function() {
   return false;
 });
 
+var $goTop, SHOW_GOTOP_AFTER, goTopShown;
+
+SHOW_GOTOP_AFTER = 500;
+
+$goTop = $(".go-top");
+
+$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
+
+$goTop.click(function() {
+  $('html,body').animate({
+    scrollTop: 0
+  }, 800);
+  return false;
+});
+
+$(window).scroll(function() {
+  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
+    $goTop.stop(true, true).fadeIn("fast");
+    return goTopShown = true;
+  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
+    $goTop.stop(true, true).fadeOut("fast");
+    return goTopShown = false;
+  }
+});
+
 $(function() {
   var updateGroup1, updateGroup2;
   updateGroup1 = function() {
@@ -2243,31 +2268,6 @@ $(document).on("change", ".pill-group .pill input", function(e) {
   }
 });
 
-var $goTop, SHOW_GOTOP_AFTER, goTopShown;
-
-SHOW_GOTOP_AFTER = 500;
-
-$goTop = $(".go-top");
-
-$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
-
-$goTop.click(function() {
-  $('html,body').animate({
-    scrollTop: 0
-  }, 800);
-  return false;
-});
-
-$(window).scroll(function() {
-  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeIn("fast");
-    return goTopShown = true;
-  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeOut("fast");
-    return goTopShown = false;
-  }
-});
-
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2314,7 +2314,10 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
-
+$('.js-truncate').ellipsis({
+  lines: 2,
+  responsive: true
+});
 
 
 
@@ -3105,11 +3108,8 @@ $(function() {
     $(this).siblings("input[type=text], input[type=password]").each(function() {});
     return $(this).prev().attr("type", ($(this).prev().attr("type") === "password" ? "text" : "password"));
   });
-  $('.scroll-pane:not(.scroll-pane_autoreinitialize_off)').jScrollPane({
+  $('.scroll-pane').jScrollPane({
     autoReinitialise: true
-  });
-  $('.scroll-pane.scroll-pane_autoreinitialize_off').jScrollPane({
-    autoReinitialise: false
   });
   $("#symptoms-select").on({
     change: function(e) {

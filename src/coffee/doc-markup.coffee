@@ -363,11 +363,11 @@ $ ->
         $(@).siblings("input[type=text], input[type=password]").each ->
         $(@).prev().attr "type", (if $(@).prev().attr("type") is "password" then "text" else "password")
 
-    $('.scroll-pane:not(.scroll-pane_autoreinitialize_off)').jScrollPane
+    $('.scroll-pane').jScrollPane
         autoReinitialise: on
 
-    $('.scroll-pane.scroll-pane_autoreinitialize_off').jScrollPane
-        autoReinitialise: off
+    # $('.scroll-pane.scroll-pane_autoreinitialize_off').jScrollPane
+    #     autoReinitialise: off
 
     $("#symptoms-select").on
         change: (e) ->

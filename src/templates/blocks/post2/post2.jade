@@ -26,29 +26,56 @@ if !data.postWide
                     else
                         +e("span").days= data.timerBadge.days 
                         +e("span").text дней<br>осталось
-+e("a").body(href=data.link, title=data.title)
-    if data.sticker
-        +e("span").sticker
-            span.sticker-bg 
-            span.sticker-desc=data.sticker.desc 
-            span.sticker-benefit=data.sticker.benefit
-    +e("span").title.js-clamp-3= data.title
-        //- if data.link
-        //-     +e.link(href=data.link, title=data.title)= data.title
-        //- else
-        //-     = data.title
-    if data.price
-        +e.price
-            if data.price.value
-                +e("span").price-value
-                    if data.price.prefix
-                        | #{data.price.prefix}&nbsp;
-                    | #{data.price.value}
-                    if data.price.currency
+
+if data.postWide
+    +e("a").body(href=data.link, title=data.title)
+        if data.sticker
+            +e("span").sticker
+                span.sticker-bg 
+                span.sticker-desc=data.sticker.desc 
+                span.sticker-benefit=data.sticker.benefit
+        +e("span").title.js-truncate= data.title
+            //- if data.link
+            //-     +e.link(href=data.link, title=data.title)= data.title
+            //- else
+            //-     = data.title
+        if data.price
+            +e.price
+                if data.price.value
+                    +e("span").price-value
+                        if data.price.prefix
+                            | #{data.price.prefix}&nbsp;
+                        | #{data.price.value}
+                        if data.price.currency
+                            | &nbsp;#{data.price.currency}
+                if data.price.old
+                    +e("span").price-old= data.price.old
                         | &nbsp;#{data.price.currency}
-            if data.price.old
-                +e("span").price-old= data.price.old
-                    | &nbsp;#{data.price.currency}
+
+if !data.postWide
+    +e("a").body(href=data.link, title=data.title)
+        if data.sticker
+            +e("span").sticker
+                span.sticker-bg 
+                span.sticker-desc=data.sticker.desc 
+                span.sticker-benefit=data.sticker.benefit
+        +e("span").title.js-truncate= data.title
+            //- if data.link
+            //-     +e.link(href=data.link, title=data.title)= data.title
+            //- else
+            //-     = data.title
+        if data.price
+            +e.price
+                if data.price.value
+                    +e("span").price-value
+                        if data.price.prefix
+                            | #{data.price.prefix}&nbsp;
+                        | #{data.price.value}
+                        if data.price.currency
+                            | &nbsp;#{data.price.currency}
+                if data.price.old
+                    +e("span").price-old= data.price.old
+                        | &nbsp;#{data.price.currency}
 
 
 //- if data.badge
