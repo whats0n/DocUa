@@ -75,7 +75,8 @@
                                 +b.title
                                     +e.number 856789 
                                     +e.info на согласовании
-                                    +e.time 02:00
+                                    +e.time 
+                                        //- 02:00
                                     +e.picture
                                         img(src='i/icons/agreed.png')
                             td
@@ -276,6 +277,51 @@
                                     +e.item
                                         strong Комментарий оператора:
                                         span Интересует узи и осмотр, на завтра утро либо на пятницу
+                    +e("table").item-big.item-small
+                        tr
+                            td.item-small__title-time
+                                +b.title
+                                    +e.number.item-small__number 856789
+                                    +e.info.item-small__info Просрочен
+                                    +e.picture
+                                        img(src='i/icons/time-agreed.png')
+                            td
+                                table.table-text   
+                                    tr
+                                        td Филиал:
+                                        td Здравица (Zdravica), медицинский центр...
+                                    tr
+                                        td Врач:
+                                        td Гречка Татьяна Григорьевна
+                                    tr
+                                        td Специальность:
+                                        td Акушер-гинеколог
+                                    tr
+                                        td Цена: 
+                                        td 500 грн.
+                                    tr
+                                        td Дата и время:
+                                        td 22.09.2015 утро (10:00, 11:00, 12:00)
+                                    tr
+                                        td Для кого врач:
+                                        td для взрослог
+                            td
+                                +b.comment-block
+                                    +e.item
+                                        strong Комментарий пациента:
+                                        span Гастроскопия + узи + узи органов малого таза для первой пац., для второй пациентки органов малого таза для первой пац. для второй.
+                                    +e.item
+                                        strong Комментарий оператора:
+                            td.last-child
+                                +b("form").alternative-block(metod="post")
+                                    strong Aльтернатива
+                                    +e("textarea").enter-text
+                                    +e("a").button.btn(href="#") Подтвердить
+                                    +e("a").button.btn.bg-blue(href="#") Aльтернатив
+
+
+
+
                             //- td
                                 //- +b("form").alternative-block(metod="post")
                                 //-     strong Aльтернатива
