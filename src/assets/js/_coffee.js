@@ -2355,6 +2355,8 @@ $(function() {
   });
 });
 
+
+
 var smallCardInit;
 
 smallCardInit = function() {
