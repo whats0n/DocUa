@@ -1,12 +1,24 @@
 .services
+	display table
+	@media only screen and (max-width: 650px)
+		display block
+	&__tr
+		display: table-row
+		@media only screen and (max-width: 650px)
+			display block
 	&__aside
+		display: table-cell
 		vertical-align top
 		background-color: #e9f4f6
+		@media only screen and (max-width: 650px)
+			display block
+			background-color transparent 
 		.services-list
 			width 289px
 			@media only screen and (max-width: 1200px)
 				width 200px
-				
+			@media only screen and (max-width: 650px)
+				display none	
 			&__item
 				position relative
 				border-bottom 1px solid #fff 
@@ -49,21 +61,39 @@
 				@media only screen and (max-width: 767px)
 					line-height normal
 					padding 5px 10px 
+		.services-list-mobile
+			display none
+			@media only screen and (max-width: 650px)
+				display block
+				margin-bottom 10px
+				.dropdown-menu
+					&__link
+						color: blue_link
+						
+						
 	&__content
+		display: table-cell
 		vertical-align top
 		background #FFF 
 		width 100% 
 		padding 20px 21px 21px 31px 
+		@media only screen and (max-width: 650px)
+			display block
+			padding 10px 11px 11px 21px 
 		.services-about
 			&__caption
 				color: #4b89d3
 				font-size: 24px
 				font-weight: 700
+				@media only screen and (max-width: 650px)
+					font-size 20px
 			.services-line
 				width 100%
 				height 1px
 				background-color: #dde7e9
 				margin 21px 0 
+				@media only screen and (max-width: 650px)
+					margin 11px 0 
 			&__text
 				.text-list
 					-webkit-columns 2 
@@ -76,22 +106,37 @@
 						-webkit-columns auto 
 						-moz-columns auto 
 						columns auto 
+					&.text-list_modifie
+						-webkit-columns 1 
+						-moz-columns 1 
+						columns 1 
 					&__item
 						margin-bottom 40px
 						padding-right 20px
+						@media only screen and (max-width: 650px)
+							padding-right 10px
+							margin-bottom 20px
 						.description
 							&__item
 								position relative
 								margin-bottom 10px
-								clearfix()
-								// overflow hidden 
+								display flex
+								flex-flow: row no-wrap
+								align-items: flex-end
+								justify-content: space-between
+								@media only screen and (max-width: 650px)
+									margin-bottom 5px
 								&:before	
 									content ""
 									position absolute
-									top 79% 
+									bottom 3px 
 									width 100%
 									height 1px
 									background url("i/dotts.png") repeat
+								
+								&.item-wrap
+									&:before
+										display none
 								
 								&.heading
 									&:before
@@ -105,16 +150,22 @@
 											text-decoration none
 										
 								.item__left
-									float left
 									position relative
-									background #FFF
 									padding-right 3px 
-									// margin-right 30px
+									width 280px
+									@media only screen and (max-width: 1200px)
+										width 240px
+									@media only screen and (max-width: 1048px)
+										width 200px
+									@media only screen and (max-width: 650px)
+										float none
+										display block
+									@media only screen and (max-width: 374px)
+										width 163px
 								.item__right
 									position relative
-									float right
-									position relative
 									background #FFF 
+									text-align right 
 									padding-left 2px
 									
 							&__link
@@ -123,12 +174,21 @@
 								font-weight: 400
 								
 							.list-in 
-								a
+								width 100%
+								&__title
 									color: #4b89d3
 									font-size: 15px
 									font-weight: 400
-								.description__link
-									padding-left 31px
+									display inline-block
+									margin-bottom 10px
+								.description__item
+									margin-left 31px
+									@media only screen and (max-width: 650px)
+										margin-left 16px
+								.item__left
+									@media only screen and (max-width: 385px)
+										width 148px
+								// 		padding-left 31px
 									
 									
 									
