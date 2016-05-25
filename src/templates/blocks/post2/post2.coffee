@@ -1,4 +1,4 @@
-$('.js-truncate').ellipsis({ 
-	lines: 2,
-	responsive: true
-});
+# $('.js-truncate').ellipsis({ 
+# 	lines: 2,
+# 	responsive: true
+# });

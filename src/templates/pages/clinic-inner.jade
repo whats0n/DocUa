@@ -176,7 +176,7 @@
                                     if item.metro && !clinicWorld
                                         +e.location.card__location_metro(class=item.metroType)
                                             = item.metro.join(", ")
-                                    if !onlineConsultation && !doctorWorld && !clinicWorld
+                                    if !onlineConsultation && !doctorWorld && !clinicWorld 
                                         +e.location= item.location.join(", ")
                                 +e.footer
                                     +e.schedule.small-card__schedule-mod
@@ -397,7 +397,7 @@
 
 
         +b("ul").card-list.card-list_mod
-            .caption-text Вам могут быть итересны клиники радиологии:
+            .caption-text Похожие клиники по близости:
 
             +b.small-card 
                 +e.left-side.hidden-xs
@@ -477,7 +477,7 @@
                             span.left Нд:
                             span.right 9:00 - 19:00
                        a.btn.btn-success.pull-right.diagnost-center_bez(href="/modals.html#doctor-request", title="") Записаться в клинику
-            li.caption-text Вам могут быть итересны клиники радиологии:
+            li.caption-text Похожие клиники по близости:
             +b.small-card
                 +e.left-side.hidden-xs
                     +e.image.small-card__image-mod
@@ -519,13 +519,13 @@
                        a.btn.btn-success.pull-right.diagnost-center_bez(href="/modals.html#doctor-request", title="") Записаться в клинику
         br
         +b.doctors-region       
-            h3 Клиники пульмонологии в других районах (6)
+            .doctors-region__caption Похожие клиники в других районах:
             +e("ul").list 
                 +e("li").item 
                     +e("a").link(href="#").is-red Осокорки
                 +e("li").item
                     +e("a").link(href="#").is-blue Липки 
-                .caption-text Вам могут быть итересны клиники радиологии:
+                //- .caption-text Похожие клиники в других районах:
                 +e("li").item
                     +e("a").link(href="#").is-blue Липки 
                 +e("li").item
@@ -534,13 +534,13 @@
                     +e("a").link(href="#").is-green Лукьяновка 
         br
         +b.doctors-region       
-            h3 Клиники пульмонологии в других районах (6)
+            .doctors-region__caption Похожие клиники в других районах:
             +e("ul").list 
                 +e("li").item  
                     +e("a").link(href="#").is-place Лукьяновка   
                 +e("li").item
                     +e("a").link(href="#").is-place с. Плюты (Обуховский р-н)
-                .caption-text Вам могут быть итересны клиники радиологии: 
+                //- .caption-text Похожие клиники в других районах:
                 +e("li").item 
                     +e("a").link(href="#").is-place с. Капитановка 
                 +e("li").item
