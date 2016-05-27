@@ -1,15 +1,14 @@
 //---
     layout: layouts/main
-    title: Врачи дерматологи в Киеве
+    title: Врачи дерматологи в Киеве 
     activeMenuItem: 0
     finder: doctors
     modals: select-area, select-specialization, doctor-request, clinic-location-map
     page_name: doctors
     find_text: врачей
 
-.row       
-
-    section.col-md-9                      
+.row           
+    section.col-md-9                        
         +b.doctors-region            
             h3 Врачи-иммунологи в других районах (4)     
             //- div.directory-patient.border-dotted.columnize(data-columns="3")
@@ -25,10 +24,10 @@
                     +e("a").link(href="#").is-green Лукьяновка 
                 +e("li").item.is-last 
                     +e("a").link(href="#").is-blue Позняки 
-        +b("ul").card-list.promo-container   
+        +b("ul").card-list.promo-container.u-card-mobile  
             each doctor in doctors
                 +b.card.item-promo(data-id= 'c' + doctor.id): +i({ card: doctor, landing: true, moreLink: true, doctors_page: true }) 
-        +b("ul").doctors-card.promo-container
+        +b("ul").doctors-card.promo-container.u-card-mobile
             +e("li").item.item-promo
                 .item-promo__block   
                     a(href="#").item-promo__title спецпредложение 

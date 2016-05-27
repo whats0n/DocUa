@@ -15,8 +15,8 @@ $("#select-area").on "change", "input", ->
 		$(this).parents('label').removeClass 'is-active'
 		$('.js-btn-text').text('Выберете район')
 
-$(".alternative-block__enter-text").each ->
-	$(@).val ''
+# $(".alternative-block__enter-text").each ->
+# 	$(@).val ''
 
 # clone
 $("#select-area").on "click", ".js-btn-clone", ->

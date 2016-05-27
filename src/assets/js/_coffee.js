@@ -1430,10 +1430,6 @@ $("#select-area").on("change", "input", function() {
   }
 });
 
-$(".alternative-block__enter-text").each(function() {
-  return $(this).val('');
-});
-
 $("#select-area").on("click", ".js-btn-clone", function() {
   var item, itemParent;
   item = $('.is-active').children('span');

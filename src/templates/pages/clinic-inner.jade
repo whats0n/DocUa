@@ -8,11 +8,11 @@
     page_name: doctor_consultation
 
 .row        
-    section.col-md-9    
+    section.col-md-9  
         //- +b.card.offset-bottom-0.inner: +i({ card: clinics[0], landing: true, clinic_inner: true, clinicInnerFilials: affilatesIsida})
 
-        +b.card.offset-bottom-0.inner: +i({ card: clinics[0], landing: true, clinic_inner: true, clinicInnerFilials: affilatesIsida})
-            article.hreview-aggregate.vcard.hcard
+        +b.card.offset-bottom-0.inner.u-card-mobile: +i({ card: clinics[0], landing: true, clinic_inner: true, clinicInnerFilials: affilatesIsida})
+            article.hreview-aggregate.vcard.hcard 
                 +e.left-side
                     +e.image(class=card.gender) 
                         if landing
@@ -251,7 +251,7 @@
                 a(href="#tab-actions", data-toggle="tab") Акции и пакеты услуг (4)
             li.triangle-white
                 a(href="#tab-news", data-toggle="tab") Новости
-        .tab-content.tab-content__mod
+        .tab-content.tab-content__mod 
             #tab-about.tab-pane.clinic-tab.active
                 +b.rating-block
                     +e.separator

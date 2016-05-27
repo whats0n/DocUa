@@ -6,10 +6,11 @@
     page_name: action 
 
 
-.row             
+.row.main-content            
     article.col-md-12  
         +b("header").article-header
-            h1= file.title 
+            h1= file.title
+                span &nbsp;(220 94) 
     .col-md-9.col-xs-12      
         .catalog-controls          
           .catalog-controls__results|  Найдено <strong>220 94 акций</strong>, 
@@ -22,7 +23,7 @@
         include ../blocks/action/action.jade
 
  
-        +b.section-action.promo-container
+        +b.section-action.promo-container.u-card-mobile 
 
             each action in actionsList
                 +e.item.is-badge-label.action-card.card(data-id='a' + action.id).item-promo

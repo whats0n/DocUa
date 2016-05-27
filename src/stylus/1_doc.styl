@@ -201,6 +201,7 @@ ul
     background grey_texture
     @media phone
         font-size 0
+    
 // .container-menu
 //     .container
 //         @media (max-width 1200px)
@@ -557,11 +558,12 @@ ul
         
     h1
         margin-top 0
-        // margin-bottom 12px
         font-weight 700
-        // font-size 28px
         font-size 24px
-        // margin 0 !important
+        span
+            display none
+            @media only screen and (max-width: 640px)
+                display inline-block
     h3 
         font-weight 700
     .content-inner
@@ -604,11 +606,15 @@ ul
         margin-bottom 20px
         font-size 16px
         clearfix()
+        @media only screen and (max-width: 640px)
+            display none
         &__results
             display inline-block
             margin-right 3px
             @media phone_tablet
                 display: block
+            @media only screen and (max-width: 767px)
+                display inline-block
         .catalog-controls__column
             float left 
         .catalog-controls__right-side
@@ -767,7 +773,7 @@ ul
         .tab-pane
             background #fff
             border-radius 0 0 border_radius_sm border_radius_sm
-            box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
+            // box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
             margin-bottom 3px
             &#tab-actions
                 background-color transparent
@@ -1875,7 +1881,7 @@ article.static-page
     .item-promo
         position relative
         border: 1px solid green_base !important
-        border-radius 0 3px 3px 3px 
+        // border-radius 0 3px 3px 3px 
         
         &__block
             position absolute
@@ -1989,6 +1995,13 @@ article.static-page
         margin-top 20px
         background #FFF 
 
+.u-card-mobile
+    @media only screen and (max-width: 640px)
+        margin 0 -10px
+//     @media only screen and (max-width: 560px)
+//         margin 0 -4.1%
+//     @media only screen and (max-width: 320px)
+//         margin 0 -5.8%
 
 
 
