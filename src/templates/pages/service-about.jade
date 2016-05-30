@@ -16,7 +16,7 @@
                     .services-about
                         +b("ul").text-list.text-list_modifie
                             +e('li').item
-                                +b("ul").description
+                                +b("ul").description.description__services-about
                                     +e("li").item.item-wrap
                                         +e("li").item
                                             .item-wrap
@@ -77,18 +77,18 @@
                     .direction__title Место приема:
                     .services-btn(href='#select-area', data-toggle='modal')
                         input.services-btn__go.finder__field-text(type="text", placeholder="Выберите район или метро")(data-target="#select-area")
-                        i.services-btn__icon  
+                        i.services-btn__icon   
                 .direction__right
-                    .direction__text найдено  
-                        b 312 клиник 
+                    .direction__text Найдено  
+                        b 312 клиник
                         |, отсортированы
                         select.select7      
                             option(value="rate_desc", selected) по рейтингу    
                             option(value="rate_az") по названию (А-Я) 
                             option(value="rate_za") по названию (Я-А) 
         +b("ul").card-list.services-card-list
-            +b.small-card.small-card_mod
-                +e.left-side.hidden-xs
+            +b.small-card.small-card_mod.services-card__item
+                +e.left-side
                     +e.image.small-card__image-mod
                         img.photo(src="i/small-card-img1.jpg", alt="")
                     +b.rating
@@ -127,8 +127,8 @@
                     +b.load-more
                         +e('span').text 180 услуг диагностического центра
                         +e('a').link(href="#") Посмотреть весь прайс-лист
-            +b.small-card.small-card_mod
-                +e.left-side.hidden-xs
+            +b.small-card.small-card_mod.services-card__item
+                +e.left-side
                     +e.image.small-card__image-mod
                         img.photo(src="i/small-card-img1.jpg", alt="")
                     +b.rating
@@ -167,8 +167,8 @@
                     +b.load-more
                         +e('span').text 180 услуг диагностического центра
                         +e('a').link(href="#") Посмотреть весь прайс-лист
-            +b.small-card.small-card_mod
-                +e.left-side.hidden-xs
+            +b.small-card.small-card_mod.services-card__item
+                +e.left-side
                     +e.image.small-card__image-mod
                         img.photo(src="i/small-card-img1.jpg", alt="")
                     +b.rating
@@ -208,7 +208,8 @@
                         +e('span').text 180 услуг диагностического центра
                         +e('a').link(href="#") Посмотреть весь прайс-лист
 
-        +b("a").load-items(href="#") Показать больше клиник
+        +b("a").load-items(href="#")
+            span.load-items__item Показать больше клиник
 
         +b("ul").pagination: +i
 
