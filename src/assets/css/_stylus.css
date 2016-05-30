@@ -738,7 +738,7 @@ ul.border-dotted .first li {
 .main-content h1 span {
   display: none;
 }
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 639px) {
   .main-content h1 span {
     display: inline-block;
   }
@@ -810,7 +810,7 @@ ul.border-dotted .first li {
 .main-content .catalog-controls:after {
   clear: both;
 }
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 639px) {
   .main-content .catalog-controls {
     display: none;
   }
@@ -4797,6 +4797,20 @@ article.static-page .header-styled.header-styled-mod {
 .benefits__item:last-child {
   margin-right: 0;
 }
+@media only screen and (max-width: 640px) {
+  .benefits__item {
+    margin-right: 5px;
+    margin-bottom: 0;
+  }
+  .benefits__item:after {
+    content: ",";
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .benefits__item:last-child:after {
+    display: none;
+  }
+}
 .benefits__icon {
   vertical-align: middle;
   margin-right: 5px;
@@ -4814,6 +4828,11 @@ article.static-page .header-styled.header-styled-mod {
   width: 65px;
   font-size: 12px;
   line-height: 14px;
+}
+@media only screen and (max-width: 640px) {
+  .benefits__title {
+    width: auto;
+  }
 }
 .block-package .btn {
   font-size: 16px;
@@ -7654,6 +7673,14 @@ hr {
   padding-right: 130px;
   margin-bottom: 4px;
 }
+.card__job-price__mobile {
+  display: none;
+}
+@media only screen and (max-width: 639px) {
+  .card__job-price__mobile {
+    display: inline-block;
+  }
+}
 .card__job-title,
 .card__job-price {
   font-size: 16px;
@@ -7662,7 +7689,7 @@ hr {
   color: #4b89d3;
   outline: none !important;
 }
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 639px) {
   .card__job-price {
     display: none;
   }
@@ -7683,6 +7710,12 @@ hr {
 .card__job .address-info {
   margin-top: 8px;
   line-height: 20px;
+}
+@media only screen and (max-width: 639px) {
+  .card__job .address-info .card__location,
+  .card__job .address-info .card__address {
+    float: none;
+  }
 }
 .card__label {
   margin-bottom: 5px;
@@ -7713,6 +7746,11 @@ hr {
 .card .benefits {
   margin: 0;
   padding: 8px 0;
+}
+@media only screen and (max-width: 640px) {
+  .card .benefits {
+    padding: 0;
+  }
 }
 .card.card-underline .card__title a {
   text-decoration: underline;
@@ -8091,16 +8129,6 @@ hr {
   position: absolute;
   left: 0;
   top: 2px;
-}
-@media only screen and (max-width: 640px) {
-  .card__address,
-  .small-card__address,
-  .card__location,
-  .small-card__location,
-  .card__metro,
-  .small-card__metro {
-    float: none;
-  }
 }
 .card__address,
 .small-card__address {

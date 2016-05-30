@@ -175,9 +175,12 @@ article.hreview-aggregate.vcard.hcard
                         +e.job(data-id= 'f' + job.id)
                             +e.job-top
                                 +e("a").job-title(href='#')= job.clinic
-                                &nbsp;
-                                +e("span").job-price стоимость приема от 
-                                b #{job.price} 
+                                
+                                +e("span").job-price &nbsp; стоимость приема от 
+                                    b #{job.price}
+                                +e('div').job-price__mobile
+                                    b (#{job.price} 
+                                        | грн)
                                 +b.job-schedule: +i
                             if landing
                                 +e.desc= job.desc

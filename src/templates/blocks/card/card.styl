@@ -153,13 +153,17 @@
             position relative
             padding-right 130px
             margin-bottom: 4px
+        &-price__mobile
+            display none
+            @media only screen and (max-width: 639px)
+                display inline-block
         &-title, &-price
             font-size 16px
         &-title   
             color #4b89d3
             outline none !important
         &-price
-            @media only screen and (max-width: 640px)
+            @media only screen and (max-width: 639px)
                 display none 
         .card__desc, .address-info
             font-size 12px
@@ -172,6 +176,9 @@
         .address-info
             margin-top 8px
             line-height 20px
+            @media only screen and (max-width: 639px)
+                .card__location, .card__address
+                    float none
     &__label
         margin-bottom: 5px
     &__label, &__label-description        
@@ -194,6 +201,8 @@
     .benefits
         margin: 0
         padding: 8px 0
+        @media only screen and (max-width: 640px)
+            padding 0
     &.card-underline
         .card__title
             a
@@ -393,8 +402,8 @@
             position absolute
             left 0
             top 2px
-        @media only screen and (max-width: 640px)
-            float none
+        // @media only screen and (max-width: 640px)
+        //     float none
     &__address
         margin-right 16px
         padding-left ($location_width + 8)

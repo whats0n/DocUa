@@ -18,8 +18,19 @@
         @media phone
             width auto
             margin-right 0
+        
         &:last-child
             margin-right 0
+        @media only screen and (max-width: 640px)
+            margin-right 5px
+            margin-bottom 0
+            &:after 
+                content ","
+                display inline-block
+                vertical-align middle
+            &:last-child
+                &:after
+                    display none
     &__icon
         vertical-align middle
         margin-right 5px
@@ -33,6 +44,8 @@
         width 65px
         font-size 12px
         line-height 14px
+        @media only screen and (max-width: 640px)
+            width auto
         // @media phone
         //     width 80px
             
