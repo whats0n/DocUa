@@ -3,7 +3,7 @@
 		list-style: none !important
 .services
 	display table
-	margin-bottom 81px7
+	margin-bottom 81px
 	@media only screen and (max-width: 650px)
 		display block
 	&__tr
@@ -134,8 +134,20 @@
 				-webkit-columns 1 
 				-moz-columns 1 
 				columns 1 
+				.text-list__item	
+					.description
+						&__item
+							.item__left
+								width auto
+								@media only screen and (max-width: 1200px)
+									width 280px
+								@media only screen and (max-width: 767px)
+									width 200px
+								@media only screen and (max-width: 374px)
+									width 161px
+								
 			&__item
-				margin-bottom 40px
+				margin-bottom 45px
 				padding-right 20px
 				@media only screen and (max-width: 650px)
 					padding-right 10px
@@ -154,7 +166,7 @@
 						&:before	
 							content ""
 							position absolute
-							bottom 3px 
+							bottom 1px 
 							right 0
 							width 100%
 							height 1px
@@ -169,16 +181,17 @@
 							&:before
 								display none
 						&.heading
-							margin-bottom 5px
+							margin-bottom 7px
 							&:before
 								display none
 							.description__link
 								color: #4b89d3
 								font-size: 18px
 								font-weight: 700
-								text-decoration: underline
+								text-decoration none
+								border-bottom 1px solid #4b89d3
 								&:hover
-									text-decoration none 
+									border-color transparent
 						.item__left
 							position relative
 							padding-right 3px 
@@ -204,14 +217,12 @@
 						color: #4b89d3
 						font-size: 15px
 						font-weight: 400
+						line-height 22px  
 						background #FFF 
-						// text-decoration none
-						// &:after
-						// 	content ''
-						// 	display inline-block
-						// 	width 100%
-						// 	height 1px
-						// 	background: linear-gradient(to top, #ffffff 0%, #999999 100%)
+						text-decoration none
+						border-bottom 1px solid #4b89d3
+						&:hover
+							border-color transparent
 					.list-in 
 						width 100%
 						&__title
@@ -220,6 +231,10 @@
 							font-weight: 400
 							display inline-block
 							margin-bottom 10px 
+							text-decoration none
+							border-bottom 1px solid #4b89d3
+							&:hover
+								border-color transparent
 						.description__item
 							margin-left 31px
 							@media only screen and (max-width: 650px)
@@ -325,8 +340,9 @@
 						width 138px !important
 					a
 						text-decoration none
+						border-bottom 1px solid #4b89d3
 						&:hover
-							text-decoration underline
+							border-color transparent
 .services-about-this
 	background-color: #e5f2f5
 	border-radius: 4px
