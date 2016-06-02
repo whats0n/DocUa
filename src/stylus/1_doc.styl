@@ -588,6 +588,8 @@ ul
             text-align left
             margin-top 0
             margin-bottom 10px
+        @media only screen and (max-width: 639px)
+            display none
         &:before
             content ''
             position absolute
@@ -606,8 +608,6 @@ ul
         margin-bottom 20px
         font-size 16px
         clearfix()
-        @media only screen and (max-width: 639px)
-            display none
         &__results
             display inline-block
             margin-right 3px
@@ -617,8 +617,12 @@ ul
                 display inline-block
         .catalog-controls__column
             float left 
+            @media only screen and (max-width: 639px)
+                display none
         .catalog-controls__right-side
-            float right       
+            float right  
+            @media only screen and (max-width: 767px)
+                float left     
         @media phone_tablet
             margin-bottom 15px
             .catalog-controls__column
@@ -1881,7 +1885,7 @@ article.static-page
     .item-promo
         position relative
         border: 1px solid green_base !important
-        // border-radius 0 3px 3px 3px 
+        border-radius 0 3px 3px 3px 
         
         &__block
             position absolute

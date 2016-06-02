@@ -94,7 +94,7 @@ article.hreview-aggregate.vcard.hcard
                         a(href=pageLink, title=card.name)= card.name
                 if !clinicWorld  && file.page_name != 'diagnostic-list' 
                     if landing
-                        h1 
+                        .h3 
                             if clinic
                                 - pageLink = '/clinic-inner.html'
                             else
@@ -108,6 +108,8 @@ article.hreview-aggregate.vcard.hcard
                         +e.label.title
                             strong= card.label
                 if file.page_name != 'diagnostic-list'
+                    +e.label.title
+                        strong= card.label
                     +e.label-description.card__label-descroption-mod
                         span #{card.labelDescription}&nbsp;
                             if clinic || clinic_inner
