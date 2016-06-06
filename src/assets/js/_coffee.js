@@ -1280,6 +1280,10 @@ if (typeof define === 'function' && define.amd) {
   window.waitForWebFonts = waitForWebFonts;
 }
 
+$(document).each(function() {
+  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
+});
+
 $("#select-specialization").on("click", "li a", function() {
   var item;
   item = $(this);
@@ -1294,10 +1298,6 @@ $(".js-clear").on("click", function() {
   $(this).removeClass('is-active');
   $('.direction__title').text('Направление');
   return false;
-});
-
-$(document).each(function() {
-  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
 });
 
 $(function() {
@@ -1517,20 +1517,6 @@ $(function() {
   });
 });
 
-if (window.matchMedia('screen and (max-width: 767px)').matches) {
-  $('.js-tab__mobile-c').addClass('js-tab__header-c');
-}
-
-$('.js-tab__header-c').click(function() {
-  var item, parent;
-  parent = $(this).parent(".js-tab__parent-index");
-  item = parent.children('.js-content_hide-index');
-  item.slideToggle('fast');
-  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
-  $(this).toggleClass('tab__header_open');
-  return false;
-});
-
 $(function() {
   return $('.js-datepicker').daterangepicker({
     autoUpdateInput: true,
@@ -1555,6 +1541,20 @@ $(function() {
       firstDay: 1
     }
   });
+});
+
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-c').addClass('js-tab__header-c');
+}
+
+$('.js-tab__header-c').click(function() {
+  var item, parent;
+  parent = $(this).parent(".js-tab__parent-index");
+  item = parent.children('.js-content_hide-index');
+  item.slideToggle('fast');
+  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
+  $(this).toggleClass('tab__header_open');
+  return false;
 });
 
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
@@ -1913,6 +1913,8 @@ $(window).scroll(function() {
   }
 });
 
+var myFunctionResize;
+
 $(function() {
   var updateGroup1, updateGroup2;
   updateGroup1 = function() {
@@ -1933,6 +1935,26 @@ $('.bs-modal-md').on('show.bs.modal', function(e) {
       autoReinitialise: true
     });
   }, 10);
+});
+
+myFunctionResize = function() {
+  var api, pane;
+  pane = $('.js-list-scroll');
+  pane.jScrollPane();
+  api = pane.data('jsp');
+  api.reinitialise();
+};
+
+$(".dropdown__btn").on("click", function() {
+  if ($(window).width() < 560) {
+    setTimeout(function() {
+      myFunctionResize();
+    }, 15);
+  }
+});
+
+$(window).resize(function() {
+  myFunctionResize();
 });
 
 $("#select-area-diagnostics").on("click", "li a", function() {
@@ -2264,6 +2286,11 @@ $(document).on("change", ".pill-group .pill input", function(e) {
   }
 });
 
+$('.js-truncate').dotdotdot({
+  lines: 2,
+  responsive: true
+});
+
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2310,18 +2337,13 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
-$('.js-truncate').dotdotdot({
-  lines: 2,
-  responsive: true
-});
-
-
-
 $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {
     return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
   });
 });
+
+
 
 $(function() {
   $('.js-search-btn').click(function() {

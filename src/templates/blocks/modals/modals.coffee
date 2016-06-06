@@ -22,6 +22,27 @@ $('.bs-modal-md').on 'show.bs.modal', (e) ->
   , 10
   return
 
+myFunctionResize = ->
+    pane = $('.js-list-scroll')
+    pane.jScrollPane();
+    api = pane.data('jsp');
+    api.reinitialise();
+    return
+    
+$(".dropdown__btn").on "click", ->
+  if $(window).width() < 560
+    setTimeout ->
+      myFunctionResize()
+      return
+    , 15 
+    return
+
+$(window).resize ->
+  myFunctionResize()
+  return
+  
+
+
 
 $("#select-area-diagnostics").on "click", "li a", ->
   return $("#select-area-diagnostics").modal "hide"
