@@ -1,0 +1,637 @@
+//---
+    layout: layouts/main
+    title: Центр лабораторных анализов в Киеве
+    activeMenuItem: 0
+    modals: feedback, select-specialization, clinic-location-map
+    page_name: cla-item
+
+
+.row.main-content             
+    section.col-md-9     
+        +b.section-action.u-card-mobile   
+                +e.item.action-card.card.affilliate.affilliate-item_mod
+                    +e.in
+                        +e.left.item-left__mod      
+                            .card__left-side  
+                                .card__image  
+                                    a(href="#")  
+                                        img(src='i/_isida.jpg').photo 
+                                +b.rating.value-size_big 
+                                    +e.value.value 4.9
+                                    +e.stars 
+                                        +e.stars-bg
+                                        +e.stars-overlay(style="width: 80%;")   
+                                +b.card__testimonials  
+                                    a(href="", title="") 10 отзывов
+                                    a(href='#').card__info
+                        +e.middle
+                            +b.main-title.affilliate-title
+                                +e("a").link(href="#") Медицинская лаборатория Дiла
+                                +e("span").clinic
+                                    b 271 филиал в Киеве   
+                                a(href="#clinic-location-map" data-toggle="modal").dotted.go-map Показать на карте   
+                                +b.about Бесплатный прием специалиста по вопросам лечения спины с диагностикой позвоночника, а также занятия и массаж по акционной цене.
+                            .section-action__right     
+                                +b.right-info
+                                    .benefit__wrap
+                                        +e("p").benefit.affilliate-benefit_mod 10% скидка 
+                                            span на весь перечень анализов
+                                        +e("p").benefit.affilliate-benefit_mod от 10 до 15% скидка 
+                                            span на специальные предложения
+                            +b.price
+                                +e("a").btn(href="#") Получить скидку
+        ul.nav.nav-tabs.nav-clinic.nav-cla
+                    li.triangle-yellow.active: a(href="#tab-analysis", data-toggle="tab") Анализы
+                    li.triangle-grey
+                        a(href="#tab-actions", data-toggle="tab") Акции(3)
+                    li.triangle-grey
+                        a(href="#tab-fillials", data-toggle="tab") Филиалы 
+                    li.triangle-yellow.is-color-triangle
+                        a(href="#tab-reviews", data-toggle="tab") Отзывы
+                    li.triangle-white
+                        a(href="#tab-about", data-toggle="tab") О центре
+                .tab-content.tab-content_cla    
+                    #tab-analysis.tab-pane.clinic-tab.active
+                        +b.price-about Приведенный нижче прайс-лист является неполным, и представлен для общего ознакомления с ценами клиники. Точную стоимость необходимых услуг Вам озвучит оператор нашего колл-центра при подтверждении записи.
+                        +b.about-in
+                            +e("span").price-update Прайс обновлен  14.01.2016
+                        include ../blocks/cla-package/cla-package.jade  
+
+                    #tab-actions.tab-pane
+                        +b.cla-action
+                            +b.section-action
+                                +e.item.card.action-card.card.affilliate.js-offers-tabs
+                                    +e.in
+                                        +e.left.item-left__mod
+                                            .card__left-side
+                                                .card__image 
+                                                    a(href="#")
+                                                        img(src='i/_isida.jpg').photo
+                                                +b.rating.value-size_big
+                                                    +e.value.value 4.9
+                                                    +e.stars 
+                                                        +e.stars-bg
+                                                        +e.stars-overlay(style="width: 80%;") 
+                                                +b.card__testimonials 
+                                                    a(href="", title="") 10 отзывов
+                                                    a(href='#').card__info
+                                        +e.middle
+                                            +b.main-title.cla-main-title
+                                                +e("a").link(href="#") Пакет № 38.1 (Урогенітальне здоров'я 2: ПЛР, у/г зішкріб)
+                                                +e("span").clinic 
+                                                    b Медична лабораторія Synevo
+                                                .cla-about
+                                                    p Скидка доступна в 
+                                                        b 17 
+                                                        | филиалах
+                                                    a(href="#clinic-location-map" data-toggle="modal").dotted.go-map Показать на карте 
+                                                .cla-bottom
+
+                                                    p
+                                                        b 10 анализов в пакете
+                                                    .btn-group.js-offers-btn
+                                                        span.btn-group__icon
+                                                        a(href="#").js-change-text.dotted смотреть перечень анализов
+                                            .section-action__right  
+                                                +b.right-info
+                                                    .benefit__wrap
+                                                        +e("p").benefit.affilliate-benefit_mod.affiliate-icon_mod скидка 10%
+                                            +b.price
+                                                +e.old 610грн
+                                                +e.new 450грн 
+                                                +e("a").btn(href="#") Получить скидку
+                                    +b.hide-content.hide-content_modifie.js-offers-content 
+                                        +b("ul").analysis-list
+                                            +e("li").item 
+                                                span 1004. 
+                                                | Тиреотропний гормон (ТТГ)
+                                            +e("li").item 
+                                                span 1073. 
+                                                | Холестерин
+                                            +e("li").item 
+                                                span 1079. 
+                                                | Глюкоза (сироватка)
+                                            +e("li").item 
+                                                span 4001. 
+                                                | Аналіз крові розгорнутий (ЗАК)
+                                            +e("li").item 
+                                                span 1001. 
+                                                | Пероксидаза щитоподібної залози, антитіла (ATПO)
+                                            +e("li").item 
+                                                span 1019. 
+                                                | Інсулін
+                                            +e("li").item 
+                                                span 2010. 
+                                                | Вірус гепатиту B (HBV), HBcorAg, антитіла сумарні
+                                            +e("li").item 
+                                                span 1042. 
+                                                | Аланінамінотрансфераза (АЛТ, ALT)
+                                            +e("li").item 
+                                                span 1043. 
+                                                | Альбумін
+                                            +e("li").item 
+                                                span 1046. 
+                                                | Аспартатамінотрансфераза (АСТ, AST)
+                                            +e("li").item 
+                                                span 1047. 
+                                                | Білок загальний
+                                            +e("li").item 
+                                                span 1048. 
+                                                | Білірубін загальний
+                                            +e("li").item 
+                                                span 1049. 
+                                                | Білірубін прямий
+                                            +e("li").item 
+                                                span 1051. 
+                                                | γ-глутаматтрансфераза (ГГТ, GGT)
+                                            +e("li").item 
+                                                span 1055. 
+                                                | Креатинін
+                                            +e("li").item 
+                                                span 1064. 
+                                                | C-реактивний білок (СРБ)
+                                            +e("li").item 
+                                                span 1068. 
+                                                | Лужна фосфатаза (ЛФ, ALP)
+                                            +e("li").item 
+                                                span 1074. 
+                                                | Ліпопротеїди високої щільності (ЛПВЩ, HDL)
+                                            +e("li").item 
+                                                span 1075. 
+                                                | Ліпопротеїди низької щільності (ЛПНЩ, LDL)
+                                            +e("li").item 
+                                                span 1072. 
+                                                | Тригліцериди
+                                            +e("li").item 
+                                                span 1080. 
+                                                | Глікований гемоглобін (HbA1c)
+                                            +e("li").item 
+                                                span 2013. 
+                                                | Вірус гепатиту C (HCV), антитіла сумарні
+                                            +e("li").item 
+                                                span 1076. 
+                                                | Ліпопротеїди дуже низької щільності (VLDL)
+                                            +e("li").item 
+                                                span 1077. 
+                                                | Коефіцієнт атерогенності (КА) 
+                                            +e("li").item 
+                                                span 1050. 
+                                                | Білірубін непрямий
+                                            +e("li").item 
+                                                span 4017. 
+                                                | Швидкість осідання еритроцитів (ШОЕ, ESR)
+                                            +e("li").item 
+                                                span 1156. 
+                                                | Кальцій іонізований (сироватка)
+                                            +e("li").item 
+                                                span 1172. 
+                                                | Розрахунок індексу НОМА
+                                            +e("li").item 
+                                                span 1228. 
+                                                | Вітамін D загальний (D2+D3)
+                                            +e("li").item 
+                                                span 1716. 
+                                                | Примітка
+                                        .offers-color
+                                            span Примечание: Какое-то примечание которое мы получаем автоматически из ЦЛА
+                                +e.item.card.action-card.card.affilliate.js-offers-tabs
+                                    +e.in
+                                        +e.left.item-left__mod
+                                            .card__left-side
+                                                .card__image 
+                                                    a(href="#")
+                                                        img(src='i/_isida.jpg').photo
+                                                +b.rating.value-size_big
+                                                    +e.value.value 4.9
+                                                    +e.stars 
+                                                        +e.stars-bg
+                                                        +e.stars-overlay(style="width: 80%;") 
+                                                +b.card__testimonials 
+                                                    a(href="", title="") 10 отзывов
+                                                    a(href='#').card__info
+                                        +e.middle
+                                            +b.main-title.cla-main-title
+                                                +e("a").link(href="#") Пакет № 38.1 (Урогенітальне здоров'я 2: ПЛР, у/г зішкріб)
+                                                +e("span").clinic 
+                                                    b Медична лабораторія Synevo
+                                                .cla-about
+                                                    p Скидка доступна в 
+                                                        b 17 
+                                                        | филиалах
+                                                    a(href="#clinic-location-map" data-toggle="modal").dotted.go-map Показать на карте 
+                                                .cla-bottom
+
+                                                    p
+                                                        b 10 анализов в пакете
+                                                    .btn-group.js-offers-btn
+                                                        span.btn-group__icon
+                                                        a(href="#").js-change-text.dotted смотреть перечень анализов
+                                            .section-action__right  
+                                                +b.right-info
+                                                    .benefit__wrap
+                                                        +e("p").benefit.affilliate-benefit_mod.affiliate-icon_mod скидка 10%
+                                            +b.price
+                                                +e.old 610грн
+                                                +e.new 450грн 
+                                                +e("a").btn(href="#") Получить скидку
+                                    +b.hide-content.hide-content_modifie.js-offers-content 
+                                        +b("ul").analysis-list
+                                            +e("li").item 
+                                                span 1004. 
+                                                | Тиреотропний гормон (ТТГ)
+                                            +e("li").item 
+                                                span 1073. 
+                                                | Холестерин
+                                            +e("li").item 
+                                                span 1079. 
+                                                | Глюкоза (сироватка)
+                                            +e("li").item 
+                                                span 4001. 
+                                                | Аналіз крові розгорнутий (ЗАК)
+                                            +e("li").item 
+                                                span 1001. 
+                                                | Пероксидаза щитоподібної залози, антитіла (ATПO)
+                                            +e("li").item 
+                                                span 1019. 
+                                                | Інсулін
+                                            +e("li").item 
+                                                span 2010. 
+                                                | Вірус гепатиту B (HBV), HBcorAg, антитіла сумарні
+                                            +e("li").item 
+                                                span 1042. 
+                                                | Аланінамінотрансфераза (АЛТ, ALT)
+                                            +e("li").item 
+                                                span 1043. 
+                                                | Альбумін
+                                            +e("li").item 
+                                                span 1046. 
+                                                | Аспартатамінотрансфераза (АСТ, AST)
+                                            +e("li").item 
+                                                span 1047. 
+                                                | Білок загальний
+                                            +e("li").item 
+                                                span 1048. 
+                                                | Білірубін загальний
+                                            +e("li").item 
+                                                span 1049. 
+                                                | Білірубін прямий
+                                            +e("li").item 
+                                                span 1051. 
+                                                | γ-глутаматтрансфераза (ГГТ, GGT)
+                                            +e("li").item 
+                                                span 1055. 
+                                                | Креатинін
+                                            +e("li").item 
+                                                span 1064. 
+                                                | C-реактивний білок (СРБ)
+                                            +e("li").item 
+                                                span 1068. 
+                                                | Лужна фосфатаза (ЛФ, ALP)
+                                            +e("li").item 
+                                                span 1074. 
+                                                | Ліпопротеїди високої щільності (ЛПВЩ, HDL)
+                                            +e("li").item 
+                                                span 1075. 
+                                                | Ліпопротеїди низької щільності (ЛПНЩ, LDL)
+                                            +e("li").item 
+                                                span 1072. 
+                                                | Тригліцериди
+                                            +e("li").item 
+                                                span 1080. 
+                                                | Глікований гемоглобін (HbA1c)
+                                            +e("li").item 
+                                                span 2013. 
+                                                | Вірус гепатиту C (HCV), антитіла сумарні
+                                            +e("li").item 
+                                                span 1076. 
+                                                | Ліпопротеїди дуже низької щільності (VLDL)
+                                            +e("li").item 
+                                                span 1077. 
+                                                | Коефіцієнт атерогенності (КА) 
+                                            +e("li").item 
+                                                span 1050. 
+                                                | Білірубін непрямий
+                                            +e("li").item 
+                                                span 4017. 
+                                                | Швидкість осідання еритроцитів (ШОЕ, ESR)
+                                            +e("li").item 
+                                                span 1156. 
+                                                | Кальцій іонізований (сироватка)
+                                            +e("li").item 
+                                                span 1172. 
+                                                | Розрахунок індексу НОМА
+                                            +e("li").item 
+                                                span 1228. 
+                                                | Вітамін D загальний (D2+D3)
+                                            +e("li").item 
+                                                span 1716. 
+                                                | Примітка
+                                        .offers-color
+                                            span Примечание: Какое-то примечание которое мы получаем автоматически из ЦЛА
+                                +e.item.card.action-card.card.affilliate.js-offers-tabs
+                                    +e.in
+                                        +e.left.item-left__mod
+                                            .card__left-side
+                                                .card__image 
+                                                    a(href="#")
+                                                        img(src='i/_isida.jpg').photo
+                                                +b.rating.value-size_big
+                                                    +e.value.value 4.9
+                                                    +e.stars 
+                                                        +e.stars-bg
+                                                        +e.stars-overlay(style="width: 80%;") 
+                                                +b.card__testimonials 
+                                                    a(href="", title="") 10 отзывов
+                                                    a(href='#').card__info
+                                        +e.middle
+                                            +b.main-title.cla-main-title
+                                                +e("a").link(href="#") Пакет № 38.1 (Урогенітальне здоров'я 2: ПЛР, у/г зішкріб)
+                                                +e("span").clinic 
+                                                    b Медична лабораторія Synevo
+                                                .cla-about
+                                                    p Скидка доступна в 
+                                                        b 17 
+                                                        | филиалах
+                                                    a(href="#clinic-location-map" data-toggle="modal").dotted.go-map Показать на карте 
+                                                .cla-bottom
+
+                                                    p
+                                                        b 10 анализов в пакете
+                                                    .btn-group.js-offers-btn
+                                                        span.btn-group__icon
+                                                        a(href="#").js-change-text.dotted смотреть перечень анализов
+                                            .section-action__right  
+                                                +b.right-info
+                                                    .benefit__wrap
+                                                        +e("p").benefit.affilliate-benefit_mod.affiliate-icon_mod скидка 10%
+                                            +b.price
+                                                +e.old 610грн
+                                                +e.new 450грн 
+                                                +e("a").btn(href="#") Получить скидку
+                                    +b.hide-content.hide-content_modifie.js-offers-content 
+                                        +b("ul").analysis-list
+                                            +e("li").item 
+                                                span 1004. 
+                                                | Тиреотропний гормон (ТТГ)
+                                            +e("li").item 
+                                                span 1073. 
+                                                | Холестерин
+                                            +e("li").item 
+                                                span 1079. 
+                                                | Глюкоза (сироватка)
+                                            +e("li").item 
+                                                span 4001. 
+                                                | Аналіз крові розгорнутий (ЗАК)
+                                            +e("li").item 
+                                                span 1001. 
+                                                | Пероксидаза щитоподібної залози, антитіла (ATПO)
+                                            +e("li").item 
+                                                span 1019. 
+                                                | Інсулін
+                                            +e("li").item 
+                                                span 2010. 
+                                                | Вірус гепатиту B (HBV), HBcorAg, антитіла сумарні
+                                            +e("li").item 
+                                                span 1042. 
+                                                | Аланінамінотрансфераза (АЛТ, ALT)
+                                            +e("li").item 
+                                                span 1043. 
+                                                | Альбумін
+                                            +e("li").item 
+                                                span 1046. 
+                                                | Аспартатамінотрансфераза (АСТ, AST)
+                                            +e("li").item 
+                                                span 1047. 
+                                                | Білок загальний
+                                            +e("li").item 
+                                                span 1048. 
+                                                | Білірубін загальний
+                                            +e("li").item 
+                                                span 1049. 
+                                                | Білірубін прямий
+                                            +e("li").item 
+                                                span 1051. 
+                                                | γ-глутаматтрансфераза (ГГТ, GGT)
+                                            +e("li").item 
+                                                span 1055. 
+                                                | Креатинін
+                                            +e("li").item 
+                                                span 1064. 
+                                                | C-реактивний білок (СРБ)
+                                            +e("li").item 
+                                                span 1068. 
+                                                | Лужна фосфатаза (ЛФ, ALP)
+                                            +e("li").item 
+                                                span 1074. 
+                                                | Ліпопротеїди високої щільності (ЛПВЩ, HDL)
+                                            +e("li").item 
+                                                span 1075. 
+                                                | Ліпопротеїди низької щільності (ЛПНЩ, LDL)
+                                            +e("li").item 
+                                                span 1072. 
+                                                | Тригліцериди
+                                            +e("li").item 
+                                                span 1080. 
+                                                | Глікований гемоглобін (HbA1c)
+                                            +e("li").item 
+                                                span 2013. 
+                                                | Вірус гепатиту C (HCV), антитіла сумарні
+                                            +e("li").item 
+                                                span 1076. 
+                                                | Ліпопротеїди дуже низької щільності (VLDL)
+                                            +e("li").item 
+                                                span 1077. 
+                                                | Коефіцієнт атерогенності (КА) 
+                                            +e("li").item 
+                                                span 1050. 
+                                                | Білірубін непрямий
+                                            +e("li").item 
+                                                span 4017. 
+                                                | Швидкість осідання еритроцитів (ШОЕ, ESR)
+                                            +e("li").item 
+                                                span 1156. 
+                                                | Кальцій іонізований (сироватка)
+                                            +e("li").item 
+                                                span 1172. 
+                                                | Розрахунок індексу НОМА
+                                            +e("li").item 
+                                                span 1228. 
+                                                | Вітамін D загальний (D2+D3)
+                                            +e("li").item 
+                                                span 1716. 
+                                                | Примітка
+                                        .offers-color
+                                            span Примечание: Какое-то примечание которое мы получаем автоматически из ЦЛА
+
+
+                    #tab-fillials.tab-pane
+                        +b.cla-fillials
+                            +e.item
+                                +e.left
+                                    .fillials-address ул. Попудренка, 46/2-А 
+                                +e.right
+                                    a(href="#" data-toggle="tooltip" title="Возможна оплата карточкой Visa").payments-sampler.payments
+                                    a(href="#" data-toggle="tooltip" title="Лабораторный центр работает в воскресенье").cla-calendars-sampler.cla-calendars
+                                    a(href="#" data-toggle="tooltip" title="Детская медсестра работает: Пн  Вт  Ср  Чт  Пт  Сб  Вс" ).nurse-sampler.nurse
+                                    a(href="#" data-toggle="tooltip" title="Уровень загруженности").workload-sampler.workload 
+                                    a(href="#").btn.cla-btn Получить скидку 
+                            +e.item
+                                +e.left
+                                    .fillials-address ул. Попудренка, 46/2-А 
+                                 +e.right
+                                    a(href="#" data-toggle="tooltip" title="Возможна оплата карточкой Visa").payments-sampler.payments
+                                    .cla-calendars-sampler  
+                                    a(href="#" data-toggle="tooltip" title="Детская медсестра работает: Пн  Вт  Ср  Чт  Пт  Сб  Вс" ).nurse-sampler.nurse
+                                    a(href="#" data-toggle="tooltip" title="Уровень загруженности").workload-sampler.workload
+                                    a(href="#").btn.cla-btn Получить скидку 
+                            +e.item
+                                +e.left
+                                    .fillials-address ул. Попудренка, 46/2-А 
+                                 +e.right
+                                    a(href="#" data-toggle="tooltip" title="Возможна оплата карточкой Visa").payments-sampler.payments
+                                    a(href="#" data-toggle="tooltip" title="Лабораторный центр работает в воскресенье").cla-calendars-sampler.cla-calendars
+                                    a(href="#" data-toggle="tooltip" title="Детская медсестра работает: Пн  Вт  Ср  Чт  Пт  Сб  Вс" ).nurse-sampler.nurse
+                                    a(href="#" data-toggle="tooltip" title="Уровень загруженности").workload-sampler.workload
+                                    a(href="#").btn.cla-btn Получить скидку 
+                            +e.item
+                                +e.left
+                                    .fillials-address ул. Попудренка, 46/2-А 
+                                 +e.right
+                                    a(href="#" data-toggle="tooltip" title="Возможна оплата карточкой Visa").payments-sampler.payments
+                                    a(href="#" data-toggle="tooltip" title="Лабораторный центр работает в воскресенье").cla-calendars-sampler.cla-calendars
+                                    a(href="#" data-toggle="tooltip" title="Детская медсестра работает: Пн  Вт  Ср  Чт  Пт  Сб  Вс" ).nurse-sampler.nurse
+                                    a(href="#" data-toggle="tooltip" title="Уровень загруженности").workload-sampler.workload
+                                    a(href="#").btn.cla-btn Получить скидку   
+                            +e.item
+                                +e.left
+                                    .fillials-address ул. Саксаганского, 119, бизнес-центр "Botanic Towers", 4 этаж  (терапевтическое отделение)
+                                 +e.right
+                                    a(href="#" data-toggle="tooltip" title="Возможна оплата карточкой Visa").payments-sampler.payments
+                                    a(href="#" data-toggle="tooltip" title="Лабораторный центр работает в воскресенье").cla-calendars-sampler.cla-calendars
+                                    a(href="#" data-toggle="tooltip" title="Детская медсестра работает: Пн  Вт  Ср  Чт  Пт  Сб  Вс" ).nurse-sampler.nurse
+                                    a(href="#" data-toggle="tooltip" title="Уровень загруженности лабораторного центра в выходные дни").workload-sampler.workload
+                                    a(href="#").btn.cla-btn Получить скидку   
+   
+                    #tab-reviews.tab-pane
+                        +b("ul").cla-reviews.diagnostic-reviews
+                            +e("li").item
+                                +e.title Рейтинг
+                                +e.content 3.5
+                                +e.footer
+                                    +b.rating
+                                        +e.stars 
+                                            +e.stars-bg
+                                            +e.stars-overlay(style="width: 80%;")
+                            +e("li").item
+                                +e.title Отзывов
+                                +e.content 23
+
+                            +e("li").item
+                                +e.title Рекомендации
+                                +e.footer
+                                    +b.like-box.likebox-block
+                                        +e.like
+                                            +e.votes 137
+                                        +e.dislike
+                                            +e.votes 20
+                        +b.reviews-list.reviews-list__mod
+                            +e.item
+                                +e.content 
+                                    .description
+                                        +e.item-header
+                                            span.reviewer.reviews-list__name Карина
+                                            span.dtreviewed.reviews-list__date 01 июня 2016
+                                        +b.rating.rating-reviews_mod
+                                            +e.stars 
+                                                +e.stars-bg
+                                                +e.stars-overlay(style="width: 80%;")
+                                        +e.liked.cla-like_mod Рекомендует 
+                                        p  Небольшая клиника, там вполне комфортно, молодой, отзывчивый персонал.
+                            +e.item
+                                +e.content
+                                    .description
+                                        +e.item-header
+                                            span.reviewer.reviews-list__name Анатолий
+                                            span.dtreviewed.reviews-list__date 01 июня 2016 
+                                        +e.unliked.cla-like_mod Не рекомендует
+                                        p  Было где подождать, очень комфортно, администратор провел в кабинет, не нужно было ходить, искать, все замечательно. В администратор провел в кабинет, не нужно было ходить, искать, все замечательно.
+                            +e.item
+                                +e.content
+                                    .description
+                                        +e.item-header
+                                            span.reviewer.reviews-list__name Вильгельм
+                                            span.dtreviewed.reviews-list__date 01 июня 2016
+                                        +e.liked.cla-like_mod Рекомендует 
+                                        p  Небольшая клиника, там вполне комфортно, молодой, отзывчивый персонал.
+                            +e.item
+                                +e.content
+                                    .description
+                                        +e.item-header
+                                            span.reviewer.reviews-list__name Вильгельм
+                                            span.dtreviewed.reviews-list__date 01 июня 2016
+                                        +b.rating.rating-reviews_mod
+                                            +e.stars 
+                                                +e.stars-bg
+                                                +e.stars-overlay(style="width: 80%;")
+                                        +e.liked.cla-like_mod Рекомендует 
+                                        p  Не совсем удобная парковка, на проезжей части машину оставлять не хочется, а возле самой клиники мест для парковки практически и нет. Не совсем удобная парковка, на проезжей части машину оставлять не хочется, а возле самой клиники мест для парковки практически и нет. Не совсем удобная парковка, на проезжей части машину оставлять не хочется, а возле самой клиники мест для парковки практически и нет. Не совсем удобная парковка а возле самой клиники мест для парковки практически и нет. 
+
+                    #tab-about.tab-pane  
+                        +b("ul").articles-list.news-list
+                            - var limit = 3
+                            each article, i in articlesData
+                                if i < limit
+                                    +b.article-list-item: +i({ article: article, news: true})
+                        .pagination-wrap.pagination__modifie
+                            +b("ul").pagination: +i     
+        
+    aside.col-md-3.hidden-sm.hidden-xs
+        .widget.widget-map
+            #map-canvas-right
+            a.btn.btn-success(href="/map.html") Развернуть карту
+        .widget.widget-doctor.widget-cla
+            .h3 Похожие центры
+            +b.short-list
+                +e.body
+                    +e.items-wrapper
+                        ul.short-list__items
+                            li.short-list__item.first-child
+                              .short-list__image
+                                img(src='i/_insightmedical.png', alt='')
+                              .short-list__item-content
+                                a.short-list__title(href='/', title='Допомога плюс на Нивках') Допомога плюс на Нивках
+                                .short-list__label
+                                  | Нивки
+                                  +b.like-box
+                                    +e.like
+                                      +e.votes 11
+                                    +e.dislike
+                                      +e.votes 3
+                            li.short-list__item
+                              .short-list__image
+                                img(src='i/_isida.jpg', alt='')
+                              .short-list__item-content
+                                a.short-list__title(href='/', title='Здоровье столицы') Здоровье столицы
+                                .short-list__label
+                                  | Печерск
+                                +b.like-box
+                                  +e.like
+                                    +e.votes 11
+                                  +e.dislike
+                                    +e.votes 3
+                            li.short-list__item.last-child
+                              .short-list__image
+                                img(src='i/_insightmedical.png', alt='')
+                              .short-list__item-content
+                                a.short-list__title(href='/', title='Допомога плюс на Нивках') Допомога плюс на Нивках
+                                .short-list__label
+                                  | Нивки
+                                +b.like-box
+                                  +e.like
+                                    +e.votes 11
+                                  +e.dislike
+                                    +e.votes 3
+                        
+            .link.link-more
+                   a(href="/cla.html") Все центры    
+ 

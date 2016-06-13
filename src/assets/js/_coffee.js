@@ -1300,6 +1300,10 @@ $(".js-clear").on("click", function() {
   return false;
 });
 
+$('.cla-fillials a').tooltip({
+  container: '.main-content'
+});
+
 $(function() {
   var updateBadgeLabels;
   updateBadgeLabels = function() {
@@ -1517,6 +1521,20 @@ $(function() {
   });
 });
 
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-c').addClass('js-tab__header-c');
+}
+
+$('.js-tab__header-c').click(function() {
+  var item, parent;
+  parent = $(this).parent(".js-tab__parent-index");
+  item = parent.children('.js-content_hide-index');
+  item.slideToggle('fast');
+  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
+  $(this).toggleClass('tab__header_open');
+  return false;
+});
+
 $(function() {
   return $('.js-datepicker').daterangepicker({
     autoUpdateInput: true,
@@ -1541,20 +1559,6 @@ $(function() {
       firstDay: 1
     }
   });
-});
-
-if (window.matchMedia('screen and (max-width: 767px)').matches) {
-  $('.js-tab__mobile-c').addClass('js-tab__header-c');
-}
-
-$('.js-tab__header-c').click(function() {
-  var item, parent;
-  parent = $(this).parent(".js-tab__parent-index");
-  item = parent.children('.js-content_hide-index');
-  item.slideToggle('fast');
-  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
-  $(this).toggleClass('tab__header_open');
-  return false;
 });
 
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
@@ -2286,11 +2290,6 @@ $(document).on("change", ".pill-group .pill input", function(e) {
   }
 });
 
-$('.js-truncate').dotdotdot({
-  lines: 2,
-  responsive: true
-});
-
 var postLocationWidthFix;
 
 postLocationWidthFix = function() {
@@ -2337,13 +2336,31 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
+$('.js-truncate').dotdotdot({
+  lines: 2,
+  responsive: true
+});
+
+
+
 $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {
     return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
   });
 });
 
-
+$(document).on('click', '.js-offers-btn', function() {
+  var drop;
+  drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
+  drop.slideToggle('fast');
+  $(this).parents('.js-offers-tabs').toggleClass('is-active');
+  if ($('.js-offers-tabs').hasClass('is-active')) {
+    $(this).find('.js-change-text').text('свернуть перечень анализов');
+  } else {
+    $(this).find('.js-change-text').text('смотреть перечень анализов');
+  }
+  return false;
+});
 
 $(function() {
   $('.js-search-btn').click(function() {
@@ -3479,7 +3496,7 @@ docMaps = {
     } else {
       docMaps.mapOffsetTop = $('.widget-map').offset().top;
       this.map = new google.maps.Map(document.getElementById('map-canvas-right'), mapOptions);
-      if (this.pageName === 'doctorInner' || this.pageName === 'clinicInner' || this.pageName === 'diagnostCenter' || this.pageName === 'actionAbout') {
+      if (this.pageName === 'doctorInner' || this.pageName === 'clinicInner' || this.pageName === 'diagnostCenter' || this.pageName === 'actionAbout' || this.pageName === 'claInner') {
         this.mapCss.inner();
       } else {
         this.mapCss.index();
@@ -3503,6 +3520,9 @@ docMaps = {
       this.addNewMarker = this.addMarker.diagnost();
       return this.addNewMarker();
     } else if (this.pageName === 'action') {
+      this.addNewMarker = this.addMarker.actions();
+      return this.addNewMarker();
+    } else if (this.pageName === 'cla') {
       this.addNewMarker = this.addMarker.actions();
       return this.addNewMarker();
     } else {
@@ -3645,7 +3665,7 @@ docMaps = {
       });
     },
     inner: function() {
-      if (docMaps.pageName === 'clinicInner' || docMaps.pageName === 'actionAbout') {
+      if (docMaps.pageName === 'clinicInner' || docMaps.pageName === 'actionAbout' || docMaps.pageName === 'claInner') {
         return $('#map-canvas-right, .widget-map').height(600);
       } else {
         return $('#map-canvas-right, .widget-map').height($('.card').outerHeight(true));
@@ -3890,6 +3910,72 @@ docMaps = {
           });
         }
       };
+    },
+    cla: function() {
+      var affilateIndex, clinicIndex;
+      clinicIndex = 0;
+      affilateIndex = -1;
+      return function() {
+        var addInfo, address;
+        if (clinicIndex < this.allItemsList.length) {
+          addInfo = {};
+          if (clinicIndex === 0) {
+            addInfo.active = true;
+          } else {
+            addInfo.active = false;
+          }
+          addInfo.name = this.allItemsList[clinicIndex].name;
+          addInfo.id = cla[clinicIndex].id;
+          addInfo.image = this.allItemsList[clinicIndex].image;
+          if (this.allItemsList[clinicIndex].affilates) {
+            if (affilateIndex === -1) {
+              affilateIndex = 0;
+            }
+            addInfo.affilate = this.allItemsList[clinicIndex].affilates[affilateIndex];
+            address = this.allItemsList[clinicIndex].affilates[affilateIndex].address;
+            if (affilateIndex === this.allItemsList[clinicIndex].affilates.length - 1) {
+              affilateIndex = -1;
+              clinicIndex += 1;
+            } else {
+              affilateIndex += 1;
+            }
+          } else {
+            address = this.allItemsList[clinicIndex].address;
+            addInfo.directions = this.allItemsList[clinicIndex].directions;
+            addInfo.address = this.allItemsList[clinicIndex].address;
+            addInfo.reviews = this.allItemsList[clinicIndex].reviews;
+            addInfo.rating = this.allItemsList[clinicIndex].rating;
+            clinicIndex += 1;
+          }
+          address += ' ' + this.city;
+          return this.geocoder.geocode({
+            'address': address
+          }, function(results, status) {
+            var icon, marker;
+            if (status === google.maps.GeocoderStatus.OK) {
+              if (addInfo.active && !docMaps.pageName === 'map') {
+                icon = docMaps.icon2;
+              } else {
+                icon = docMaps.icon1;
+              }
+              marker = new google.maps.Marker({
+                map: docMaps.map,
+                icon: icon,
+                addInfo: addInfo,
+                position: results[0].geometry.location
+              });
+              docMaps.markersList.push(marker);
+              docMaps.listeners.marker(marker, docMaps.map);
+              if (addInfo.active) {
+                docMaps.map.setCenter(marker.getPosition());
+              }
+              return docMaps.addNewMarker();
+            } else {
+              return console.log('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+        }
+      };
     }
   },
   sideMarkerActivate: function(marker, map) {
@@ -3975,6 +4061,8 @@ docMaps = {
           return $('#clinic-location-map').modal();
         } else if (docMaps.pageName === 'diagnostCenter') {
           return $('#clinic-location-map').modal();
+        } else if (docMaps.pageName === 'claInner') {
+          return $('#clinic-location-map').modal();
         } else {
           return docMaps.sideMarkerActivate(marker, map);
         }
@@ -4014,6 +4102,12 @@ docMaps = {
           } else if (docMaps.pageName === 'action') {
             if ($(this).find('.action-card').length > 0) {
               index = docMaps.findMarker('id', $(this).find('.action-card').eq(0).data('id'));
+            } else {
+              index = docMaps.findMarker('id', $(this).closest('.card').data('id'));
+            }
+          } else if (docMaps.pageName === 'cla') {
+            if ($(this).find('.affilliate').length > 0) {
+              index = docMaps.findMarker('id', $(this).find('.affilliate').eq(0).data('id'));
             } else {
               index = docMaps.findMarker('id', $(this).closest('.card').data('id'));
             }

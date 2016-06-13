@@ -195,6 +195,26 @@ actions = [
     }
 ]
 
+cla = [
+    {
+        id: "a1",
+        name: "Днепролаб на м. Осокорки",
+        address: "пр.Науки, 30",
+        rating: 4.2,
+        specialty: "Дерматолог, Трихолог",
+        image: "/i/_alexandriyskiy-constantin.jpg",
+        
+    },
+    {
+        id: "a2",
+        name: "Днепролаб на м. Осокорки2",
+        address: "Артема 12",
+        rating: 3.8,
+        specialty: "Косметолог",
+        image: "/i/_alexandriyskiy-constantin.jpg",
+    }
+]
+
 var subUrl = location.pathname.split('/')[1];
 
 if (subUrl === 'clinics.html')
@@ -231,6 +251,13 @@ if (subUrl === 'doctor-consultation.html')
 
 if (subUrl === 'clinic-inner.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(doctors[0].affilates, 'clinicInner', 'Киев', 'vrachi.dev.doc.ua'));
+
+if (subUrl === 'cla.html')
+    google.maps.event.addDomListener(window, 'load', docMaps.initialize(cla, 'cla', 'Киев', 'vrachi.dev.doc.ua'));
+
+if (subUrl === 'cla-item.html')
+    google.maps.event.addDomListener(window, 'load', docMaps.initialize(cla, 'claInner', 'Киев', 'vrachi.dev.doc.ua'));
+
 
 $.mockjax({
     url: /\/map-doctors/i,

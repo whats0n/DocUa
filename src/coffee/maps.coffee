@@ -39,7 +39,7 @@ docMaps =
     else
       docMaps.mapOffsetTop = $('.widget-map').offset().top
       @map = new (google.maps.Map)(document.getElementById('map-canvas-right'), mapOptions)
-      if @pageName == 'doctorInner' || @pageName == 'clinicInner'  || @pageName == 'diagnostCenter' || @pageName == 'actionAbout'  
+      if @pageName == 'doctorInner' || @pageName == 'clinicInner'  || @pageName == 'diagnostCenter' || @pageName == 'actionAbout'  || @pageName == 'claInner'  
         @mapCss.inner()
       else
         @mapCss.index()
@@ -60,6 +60,9 @@ docMaps =
       @addNewMarker()
     else if @pageName == 'action'
       @addNewMarker = @addMarker.actions()
+      @addNewMarker()
+    else if @pageName == 'cla'
+      @addNewMarker = @addMarker.actions() 
       @addNewMarker()
     else
       @addNewMarker = @addMarker.clinics()
@@ -193,7 +196,7 @@ docMaps =
         return
 
     inner: -> #one clinic or one doctor side map
-      if docMaps.pageName == 'clinicInner' || docMaps.pageName == 'actionAbout' 
+      if docMaps.pageName == 'clinicInner' || docMaps.pageName == 'actionAbout' || docMaps.pageName == 'claInner' 
         $('#map-canvas-right, .widget-map').height(600)
       else
         $('#map-canvas-right, .widget-map').height($('.card').outerHeight(true))
@@ -398,6 +401,62 @@ docMaps =
             else
               console.log 'Geocode was not successful for the following reason: ' + status
 
+    # actions map
+    cla: () ->
+      clinicIndex = 0
+      affilateIndex = -1
+      return ->
+        if clinicIndex < @allItemsList.length
+
+          addInfo = {}
+          if clinicIndex == 0
+            addInfo.active = true
+          else
+            addInfo.active = false
+
+          addInfo.name = @allItemsList[clinicIndex].name
+          addInfo.id = cla[clinicIndex].id 
+          addInfo.image = @allItemsList[clinicIndex].image
+          if @allItemsList[clinicIndex].affilates
+            if affilateIndex == -1
+              affilateIndex = 0
+
+            addInfo.affilate = @allItemsList[clinicIndex].affilates[affilateIndex]
+            address = @allItemsList[clinicIndex].affilates[affilateIndex].address
+
+            if affilateIndex == @allItemsList[clinicIndex].affilates.length - 1
+              affilateIndex = -1
+              clinicIndex += 1
+            else
+              affilateIndex += 1
+          else
+            address = @allItemsList[clinicIndex].address
+            addInfo.directions = @allItemsList[clinicIndex].directions
+            addInfo.address = @allItemsList[clinicIndex].address
+            addInfo.reviews = @allItemsList[clinicIndex].reviews
+            addInfo.rating = @allItemsList[clinicIndex].rating
+            clinicIndex += 1
+
+          address += ' ' + @city
+          @geocoder.geocode {'address': address}, (results, status) ->
+            if status == google.maps.GeocoderStatus.OK
+              if addInfo.active and not docMaps.pageName == 'map'
+                icon = docMaps.icon2
+              else
+                icon = docMaps.icon1
+              marker = new (google.maps.Marker)( 
+                map: docMaps.map
+                icon: icon
+                addInfo: addInfo
+                position: results[0].geometry.location)
+              docMaps.markersList.push marker
+              docMaps.listeners.marker(marker, docMaps.map)
+              if addInfo.active
+                docMaps.map.setCenter marker.getPosition()
+              docMaps.addNewMarker()
+            else
+              console.log 'Geocode was not successful for the following reason: ' + status
+
     
 
   sideMarkerActivate: (marker, map) ->
@@ -483,6 +542,8 @@ docMaps =
           $('#clinic-location-map').modal()
         else if docMaps.pageName == 'diagnostCenter'
           $('#clinic-location-map').modal()
+        else if docMaps.pageName == 'claInner'
+          $('#clinic-location-map').modal()
         else
           docMaps.sideMarkerActivate marker, map
 
@@ -531,6 +592,11 @@ docMaps =
           else if docMaps.pageName == 'action'
             if $(@).find('.action-card').length > 0
               index = docMaps.findMarker('id', $(@).find('.action-card').eq(0).data('id'))
+            else
+              index = docMaps.findMarker('id', $(@).closest('.card').data('id')) 
+          else if docMaps.pageName == 'cla'
+            if $(@).find('.affilliate').length > 0
+              index = docMaps.findMarker('id', $(@).find('.affilliate').eq(0).data('id'))
             else
               index = docMaps.findMarker('id', $(@).closest('.card').data('id'))
 
