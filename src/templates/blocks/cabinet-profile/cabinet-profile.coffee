@@ -1,21 +1,24 @@
 $('.js-add-tel').click ->
 	$('.add-tel').addClass 'is-active'
 	return
-  
-
  
 $('.js-section-choice').each ->
+	removeClass = true
 	item = $(this).find('.section-choice')
 	$('body').click ->
-		item.removeClass 'is-open'
+		if removeClass
+			item.removeClass 'is-open'
+			removeClass = true
 	$(this).find('.js-field-child').click ->
 		if $(this).hasClass 'is-active'
 			$('.js-field-child').removeClass 'is-active'
 			$('.section-choice').removeClass 'is-open' 
+			removeClass = false
 		else
 			$('.js-field-child').removeClass 'is-active'
 			$('.section-choice').removeClass 'is-open'
 			$(this).siblings('.section-choice').addClass 'is-open'
+			removeClass = true
 		return false
 	item.click ->
 		return false

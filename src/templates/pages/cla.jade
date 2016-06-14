@@ -21,10 +21,10 @@
             option(value="rate_za") по названию (Я-А) 
           .catalog-controls__right-side
             +b.catalog-checkboxes: +i({items: ["Детская медсестра", "Воскресенье", "Суббота"]})   
-    section.col-md-9     
+    section.col-md-9    
  
  
-        +b.section-action.u-card-mobile    
+        +b.section-action.u-card-mobile.affilliate-wrap
 
             each cla in claList
                 +e.item.action-card.card.affilliate(data-id='a' + cla.id) 
@@ -51,6 +51,7 @@
                                 +b.about Бесплатный прием специалиста по вопросам лечения спины с диагностикой позвоночника, а также занятия и массаж по акционной цене.
                             .section-action__right     
                                 +b.right-info
+
                                     .benefit__wrap
                                         +e("p").benefit.affilliate-benefit_mod 10% скидка 
                                             span на весь перечень анализов

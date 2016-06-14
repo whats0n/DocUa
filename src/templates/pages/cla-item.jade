@@ -7,8 +7,8 @@
 
 
 .row.main-content             
-    section.col-md-9     
-        +b.section-action.u-card-mobile   
+    section.col-md-9.affilliate-wrap  
+        +b.section-action.u-card-mobile
                 +e.item.action-card.card.affilliate.affilliate-item_mod
                     +e.in
                         +e.left.item-left__mod      
@@ -43,18 +43,36 @@
         ul.nav.nav-tabs.nav-clinic.nav-cla
                     li.triangle-yellow.active: a(href="#tab-analysis", data-toggle="tab") Анализы
                     li.triangle-grey
-                        a(href="#tab-actions", data-toggle="tab") Акции(3)
+                        a(href="#tab-actions", data-toggle="tab") Акции(3) 
                     li.triangle-grey
                         a(href="#tab-fillials", data-toggle="tab") Филиалы 
                     li.triangle-yellow.is-color-triangle
                         a(href="#tab-reviews", data-toggle="tab") Отзывы
                     li.triangle-white
-                        a(href="#tab-about", data-toggle="tab") О центре
+                        a(href="#tab-about", data-toggle="tab") О центре 
                 .tab-content.tab-content_cla    
-                    #tab-analysis.tab-pane.clinic-tab.active
+                    #tab-analysis.tab-pane.clinic-tab.active 
+
                         +b.price-about Приведенный нижче прайс-лист является неполным, и представлен для общего ознакомления с ценами клиники. Точную стоимость необходимых услуг Вам озвучит оператор нашего колл-центра при подтверждении записи.
-                        +b.about-in
+                        +b.about-in.about-in_mod
                             +e("span").price-update Прайс обновлен  14.01.2016
+                        +b.cla-search
+                            +e.item
+                                +e("input")(type="text").subject.form-item.js-autocomplete-subject
+                                    
+                            +e.item.js-section-choice
+                                +e.fillials-choise.everyone-header.js-field-child.js-selection-main.form-item Все филиалы сети Synevo
+                                +b('ul').everyone-lists.section-choice.js-choice-scroll
+                                    +e("li").list.js-selection-city Все филиалы сети Synevo
+                                    +e("li").list.js-selection-city Поликлиника для взрослых
+                                    +e("li").list.js-selection-city Детская поликлиника на Голосеевском районе
+                                    +e("li").list.js-selection-city Лечебно - диагностический центр
+                                    +e("li").list.js-selection-city Реабилитационный центр
+                                    +e("li").list.js-selection-city Поликлиника для взрослых
+                                    +e("li").list.js-selection-city Детская поликлиника на Голосеевском районе
+                                    +e("li").list.js-selection-city Лечебно - диагностический центр
+                                    +e("li").list.js-selection-city Реабилитационный центр
+                            +e('a')(href="#").btn-search.btn Искать
                         include ../blocks/cla-package/cla-package.jade  
 
                     #tab-actions.tab-pane
@@ -325,7 +343,7 @@
                                                 | Вітамін D загальний (D2+D3)
                                             +e("li").item 
                                                 span 1716. 
-                                                | Примітка
+                                                | Примітка 
                                         .offers-color
                                             span Примечание: Какое-то примечание которое мы получаем автоматически из ЦЛА
                                 +e.item.card.action-card.card.affilliate.js-offers-tabs
@@ -486,7 +504,7 @@
                                     a(href="#").btn.cla-btn Получить скидку 
                             +e.item
                                 +e.left
-                                    .fillials-address ул. Попудренка, 46/2-А 
+                                    .fillials-address ул. Попудренка, 46/2-А  
                                  +e.right
                                     a(href="#" data-toggle="tooltip" title="Возможна оплата карточкой Visa").payments-sampler.payments
                                     a(href="#" data-toggle="tooltip" title="Лабораторный центр работает в воскресенье").cla-calendars-sampler.cla-calendars
