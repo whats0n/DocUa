@@ -1,9 +1,22 @@
 .promotional-offers
 	display block
 	width 100%
-	// &.promotional-offers_action
-	// 	position absolute 
-	// 	top 100%
+	&.promotional-offers_action
+		.offers 
+			&__item
+				.offers-wrap
+					padding 12px 21px
+				.heading
+					&__left
+						width 50%
+						@media only screen and (max-width: 1200px)
+							width 40%
+						@media only screen and (max-width: 1200px)
+							min-height 57px
+						@media screen560
+							width 100%
+							min-height auto
+						
 	&__title
 		background-color: #e5f2f5
 		line-height 51px
@@ -22,7 +35,7 @@
 				background-color: #f3f8fb
 				outline 1px solid green_base
 			.offers-wrap
-				padding 15px 21px 15px 21px 
+				padding 15px 21px
 				&:hover
 					background-color: #f3f8fb
 					cursor pointer
@@ -53,6 +66,7 @@
 					float right
 					@media screen560
 						float none
+						min-height: 62px
 					.fillials
 						position relative
 						display inline-block

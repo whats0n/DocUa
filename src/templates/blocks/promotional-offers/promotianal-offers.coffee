@@ -9,4 +9,9 @@ $(document).on 'click', '.js-offers-btn', ->
   else
     $(this).find('.js-change-text').text 'смотреть перечень анализов'
 
+  if $('.js-offers-tabs').hasClass('is-active')
+    $(this).find('.js-change-text_big').text 'Cвернуть перечень анализов'
+  else
+    $(this).find('.js-change-text_big').text 'Cмотреть перечень анализов'
+
   false 

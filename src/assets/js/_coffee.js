@@ -1321,6 +1321,7 @@ $(".js-autocomplete-subject").each(function() {
   return $('.js-autocomplete-subject').autocomplete({
     source: availableTags,
     open: function() {
+      $('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 2);
       $(this).data('uiAutocomplete').menu.element.addClass('subject-scroll');
       if (void 0 !== _jScrollPane) {
         _jScrollPaneAPI.destroy();
@@ -1563,6 +1564,20 @@ $(function() {
   });
 });
 
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-c').addClass('js-tab__header-c');
+}
+
+$('.js-tab__header-c').click(function() {
+  var item, parent;
+  parent = $(this).parent(".js-tab__parent-index");
+  item = parent.children('.js-content_hide-index');
+  item.slideToggle('fast');
+  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
+  $(this).toggleClass('tab__header_open');
+  return false;
+});
+
 $(function() {
   return $('.js-datepicker').daterangepicker({
     autoUpdateInput: true,
@@ -1587,20 +1602,6 @@ $(function() {
       firstDay: 1
     }
   });
-});
-
-if (window.matchMedia('screen and (max-width: 767px)').matches) {
-  $('.js-tab__mobile-c').addClass('js-tab__header-c');
-}
-
-$('.js-tab__header-c').click(function() {
-  var item, parent;
-  parent = $(this).parent(".js-tab__parent-index");
-  item = parent.children('.js-content_hide-index');
-  item.slideToggle('fast');
-  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
-  $(this).toggleClass('tab__header_open');
-  return false;
 });
 
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
@@ -2400,6 +2401,11 @@ $(document).on('click', '.js-offers-btn', function() {
     $(this).find('.js-change-text').text('свернуть перечень анализов');
   } else {
     $(this).find('.js-change-text').text('смотреть перечень анализов');
+  }
+  if ($('.js-offers-tabs').hasClass('is-active')) {
+    $(this).find('.js-change-text_big').text('Cвернуть перечень анализов');
+  } else {
+    $(this).find('.js-change-text_big').text('Cмотреть перечень анализов');
   }
   return false;
 });
