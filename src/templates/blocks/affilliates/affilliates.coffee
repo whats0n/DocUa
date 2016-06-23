@@ -2,10 +2,10 @@ $('.cla-fillials a').tooltip
 	container: '.main-content' 
 
 
-# infoCla = $('.info-cla').parents('offers')
+infoCla = $('.info-cla').parent()
 
 $('.info-cla').tooltip 
-	container: '.names'
+	container: infoCla 
 
 
 

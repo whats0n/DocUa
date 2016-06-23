@@ -1300,12 +1300,16 @@ $(".js-clear").on("click", function() {
   return false;
 });
 
+var infoCla;
+
 $('.cla-fillials a').tooltip({
   container: '.main-content'
 });
 
+infoCla = $('.info-cla').parent();
+
 $('.info-cla').tooltip({
-  container: '.names'
+  container: infoCla
 });
 
 $(".js-autocomplete-subject").each(function() {
@@ -1456,14 +1460,6 @@ $('.js-date-mast').inputmask({
   mask: "99.99.9999 "
 });
 
-$(document).on('click', '.js-cla-btn', function() {
-  var drop;
-  drop = $(this).siblings('.js-cla-block');
-  drop.slideToggle('fast');
-  $(this).parents('.js-cla-tabs').toggleClass('active');
-  return false;
-});
-
 $("#select-area").on("change", "input", function() {
   var spanMain, spanText;
   spanText = $(this).siblings('span').text();
@@ -1526,6 +1522,14 @@ $(".js-remove").on("click", function() {
   $(this).siblings("span").empty();
   $(this).removeClass('is-active');
   $('.js-btn-special').text('Выберите специальность');
+  return false;
+});
+
+$(document).on('click', '.js-cla-btn', function() {
+  var drop;
+  drop = $(this).siblings('.js-cla-block');
+  drop.slideToggle('fast');
+  $(this).parents('.js-cla-tabs').toggleClass('active');
   return false;
 });
 
@@ -2414,34 +2418,6 @@ $(document).on('click', '.js-offers-btn', function() {
   return false;
 });
 
-$(function() {
-  $('.js-search-btn').click(function() {
-    if ($('.js-form').hasClass('is-search-open')) {
-      return true;
-    } else {
-      $('.js-form').addClass('is-search-open');
-      return false;
-    }
-  });
-  $('.js-search-input').focus(function() {
-    if ($('.js-form').hasClass('is-search-active')) {
-      return true;
-    } else {
-      $('.js-form').addClass('is-search-active');
-      return false;
-    }
-  });
-  $(document).on("click", function() {
-    return $(".js-form").removeClass("is-search-active");
-  });
-  $(document).on("click", function() {
-    return $(".js-form").removeClass("is-search-open");
-  });
-  return $('.js-form').on("click", function(e) {
-    return e.stopPropagation();
-  });
-});
-
 $("#select-area").on("areaSelected", function(e, arg) {
   var title, value, values;
   values = arg.values;
@@ -2488,6 +2464,34 @@ $(window).resize(smallCardInit);
 smallCardInit();
 
 $("body").on("smallCardInit", smallCardInit);
+
+$(function() {
+  $('.js-search-btn').click(function() {
+    if ($('.js-form').hasClass('is-search-open')) {
+      return true;
+    } else {
+      $('.js-form').addClass('is-search-open');
+      return false;
+    }
+  });
+  $('.js-search-input').focus(function() {
+    if ($('.js-form').hasClass('is-search-active')) {
+      return true;
+    } else {
+      $('.js-form').addClass('is-search-active');
+      return false;
+    }
+  });
+  $(document).on("click", function() {
+    return $(".js-form").removeClass("is-search-active");
+  });
+  $(document).on("click", function() {
+    return $(".js-form").removeClass("is-search-open");
+  });
+  return $('.js-form').on("click", function(e) {
+    return e.stopPropagation();
+  });
+});
 
 (function() {
   var $bodyMap, $commonPill, $skinPill, IE, detailed, gender, map, otherZoneClickHandler, refreshView, selectZone, selected, setGender, side, toggleDetailed, toggleSide, unselectZones, zones;
