@@ -2,10 +2,13 @@ $('.cla-fillials a').tooltip
 	container: '.main-content' 
 
 
-infoCla = $('.info-cla').parent()
-
-$('.info-cla').tooltip 
-	container: infoCla 
+# infoCla = this.find('.info-cla').parent()
+$('.info-cla').each ->
+	_this  = $(this)
+	parent = _this.parent()
+	_this.tooltip 
+		container: parent
+	return
 
 
 
