@@ -1,6 +1,9 @@
 // CLA
+.main-content .cla_catalog-controls  
+	margin-bottom 10px
+	
 .affilliate-wrap
-	margin-bottom 100px
+	margin-bottom 80px
 .section-action
 	.affilliate
 		border: none
@@ -39,7 +42,12 @@
 		.price__btn
 			@media only screen and (max-width: 767px)
 				display inline-block
+		.section-action__middle
+			margin-left -1px
+			&:after
+				display none
 		.section-action__right
+			right 1px
 			.affilliate-benefit_mod
 				border: 1px dashed #9ebfc6
 				padding 3px 7px
@@ -74,7 +82,11 @@
 .rating-reviews_mod
 	display inline-block
 	margin-right 20px
-		
+.reviews-list
+	.cla-unliked
+		&:before
+			background-image: url(i/icons/like-box-dislike.png)
+			bottom -10px
 .cla-like_mod 
 	display inline-block 
 .main-content
@@ -83,6 +95,8 @@
 	
 			
 .cla-reviews
+	@media screen560
+		padding 20px
 	clearfix()
 	background-color: #fff9e9
 	padding 12px
@@ -101,7 +115,6 @@
 			top: 0
 			width: 1px
 			height: 100%
-			
 			border-right: 1px dashed #c0d2d6
 		&:last-child
 			&:after
@@ -112,7 +125,15 @@
 			margin-bottom 15px
 			min-height auto
 			&:after
-				display none
+				top auto
+				bottom -10px
+				left 0
+				height 1px
+				width 100%
+				border-bottom: 1px dashed #c0d2d6
+			&:last-child
+				margin-bottom 0 
+				
 	&__title
 		color: #5e6e71
 		font-size: 14px
@@ -209,6 +230,7 @@
 	margin-top 20px
 	.affilliate
 		.section-action__middle
+			margin-left -1px
 			.cla-main-title	
 				position relative
 				min-height 209px 
@@ -251,9 +273,17 @@
 						float left
 						@media only screen and (max-width: 1200px)
 							width 100%
+						@media only screen and (max-width: 990px)
+							width auto
+						@media only screen and (max-width: 850px)
+							width 100%
 					.btn-group
 						float right
 						@media only screen and (max-width: 1200px)
+							float left
+						@media only screen and (max-width: 990px)
+							float right
+						@media only screen and (max-width: 850px)
 							float left
 						
 //info -cla
@@ -301,6 +331,8 @@
 .cla-search
 	padding 17px 21px 
 	background #FFF
+	font-size 0
+	text-align center
 	
 	clearfix()
 	.form-item
@@ -315,22 +347,24 @@
 		overflow: hidden
 		white-space: nowrap
 	&__item
-		float left
+		display inline-block
+		vertical-align top
 		margin-right 10px
 		margin-bottom -1px 
+		text-align left
 		clearfix()
-		@media only screen and (max-width: 1070px)
-			width 47%
-			margin-right 0
+		&:first-child
+			width 40% 
+		&:nth-child(2)
+			width 37% 
+		@media only screen and (max-width: 620px)
 			&:first-child
-				float left
+				width 100% 
 			&:nth-child(2)
-				float right
-		@media only screen and (max-width: 400px)
-			width 100%
+				width 100% 
+			float none
 			margin-bottom 10px
-			&:nth-child(2)
-				margin-bottom 0
+			margin-right 0
 		.everyone-lists
 			height 175px
 			overflow hidden
@@ -345,15 +379,20 @@
 					background-color #a9d1da
 	&__subject
 		line-height 29px 
-		width: 340px
+		height 31px
+		// width: 340px
+		width 100%
 		color: #5e6e71
+		box-shadow: none
+		-webkit-box-shadow: none
+		-webkit-appearance: none
 		&::placeholder
 			color: #91b5bc
 			font-size: 14px
 		&:focus 
 			outline: none
-		@media only screen and (max-width: 1070px)
-			width 100%
+		// @media only screen and (max-width: 1070px)
+		// 	width 100%
 			
 		// @media only screen and (max-width: 1200px)
 		// 	width 100%
@@ -361,7 +400,8 @@
 	&__fillials-choise
 		position relative
 		line-height: 29px
-		width: 298px
+		// width: 298px
+		width 100%
 		color #91b5bc 
 		&:after
 			content ""
@@ -372,8 +412,8 @@
 			display: inline-block
 			border: 4px solid transparent
 			border-top: 6px solid #1d89a0
-		@media only screen and (max-width: 1070px)
-			width 100%
+		// @media only screen and (max-width: 1070px)
+		// 	width 100%
 		// @media only screen and (max-width: 1200px)
 		// 	width 100%
 	&__btn-search
@@ -388,9 +428,7 @@
 		&:hover, &:focus
 			color #FFF
 			background-color: #32b3a3 
-		@media only screen and (max-width: 1155px)
-			margin-top 10px
-		@media screen560
+		@media only screen and (max-width: 620px)
 			width 100%
 .subject-scroll
 	.jspContainer
@@ -402,6 +440,9 @@
 			background-color #a9d1da
 // 	height 162px
 // 	overflow auto 
+
+.ui-helper-hidden-accessible
+	display none
 	
 	 
 		

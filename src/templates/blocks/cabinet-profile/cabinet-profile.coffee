@@ -68,11 +68,12 @@ $('.js-table-scroll').jScrollPane({
 
 
 $('.js-field-child').click ->
-  setTimeout ->
-    $('.js-choice-scroll').jScrollPane()
+  list = $(this).siblings('.section-choice')
+  if !list.hasClass 'jspScrollable'
+    list.addClass 'jspScrollable'
+    list.jScrollPane()
     return
-  , 10 
-  return  		
+  return
  
 $('.js-selection-city').click ->   
 	text = $(this).text()
