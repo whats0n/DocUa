@@ -20,6 +20,7 @@
 			
 		.affilliate-title
 			.main-title__link
+				display block
 				text-decoration none
 			.main-title__clinic
 				position relative
@@ -163,13 +164,15 @@
 			border-bottom none  
 	&__left
 		float left
-		width 50%
+		width 40%
 		padding 5px 0 0 15px
+		@media only screen and (max-width: 700px)
+			width 32%
 		@media screen560
 			float none
 			width 100%
+			padding 5px 0 0 0 
 		.fillials-address
-			
 			color: text_color
 			font-size: 15px
 			font-weight: 400
@@ -177,7 +180,7 @@
 		 
 	&__right
 		float right
-		width 50%
+		// width 50%
 		text-align right
 		@media screen560
 			float none
@@ -196,6 +199,8 @@
 			margin-left 10px
 			&.cla-calendars
 				background url('i/cla/calendar-cla.png') no-repeat
+			@media only screen and (max-width: 960px)
+				margin-left 5px
 		.nurse-sampler
 			margin-left 10px
 			display inline-block
@@ -203,6 +208,8 @@
 			height 30px 	
 			&.nurse
 				background url('i/cla/nurse.png') no-repeat
+			@media only screen and (max-width: 960px)
+				margin-left 5px
 		.workload-sampler
 			margin-left 10px
 			display inline-block
@@ -210,6 +217,8 @@
 			height 30px
 			&.workload
 				background url('i/cla/workload.png') no-repeat
+			@media only screen and (max-width: 960px)
+				margin-left 5px
 		.cla-btn
 			font-size: 16px
 			font-weight: 700
@@ -221,6 +230,9 @@
 			margin-left 10px
 			&:hover
 				background-color: #32b3a3
+			@media only screen and (max-width: 960px)
+				margin-left 5px
+				font-size 15px
 			@media screen560
 				width 100%
 				display block

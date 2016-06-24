@@ -2423,31 +2423,6 @@ $(document).on('click', '.js-offers-btn', function() {
   return false;
 });
 
-$("#select-area").on("areaSelected", function(e, arg) {
-  var title, value, values;
-  values = arg.values;
-  title = ((function() {
-    var i, len, results;
-    results = [];
-    for (i = 0, len = values.length; i < len; i++) {
-      value = values[i];
-      results.push(value.title);
-    }
-    return results;
-  })()).join(", ");
-  value = ((function() {
-    var i, len, results;
-    results = [];
-    for (i = 0, len = values.length; i < len; i++) {
-      value = values[i];
-      results.push(value.value);
-    }
-    return results;
-  })()).join(", ");
-  $(".js-services-go [data-target='#select-area']").parent().find('.finder__field-text:last').val(values.length > 0 ? title : $(".js-services-go [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
-  return $("#select-area").modal("hide");
-});
-
 $(function() {
   $('.js-search-btn').click(function() {
     if ($('.js-form').hasClass('is-search-open')) {
@@ -2474,6 +2449,31 @@ $(function() {
   return $('.js-form').on("click", function(e) {
     return e.stopPropagation();
   });
+});
+
+$("#select-area").on("areaSelected", function(e, arg) {
+  var title, value, values;
+  values = arg.values;
+  title = ((function() {
+    var i, len, results;
+    results = [];
+    for (i = 0, len = values.length; i < len; i++) {
+      value = values[i];
+      results.push(value.title);
+    }
+    return results;
+  })()).join(", ");
+  value = ((function() {
+    var i, len, results;
+    results = [];
+    for (i = 0, len = values.length; i < len; i++) {
+      value = values[i];
+      results.push(value.value);
+    }
+    return results;
+  })()).join(", ");
+  $(".js-services-go [data-target='#select-area']").parent().find('.finder__field-text:last').val(values.length > 0 ? title : $(".js-services-go [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
+  return $("#select-area").modal("hide");
 });
 
 var smallCardInit;

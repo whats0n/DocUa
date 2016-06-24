@@ -13,7 +13,8 @@
                 span &nbsp;(220 94) 
     .col-md-9      
         .catalog-controls.cla_catalog-controls          
-          .catalog-controls__column Найдено <strong>112 центров</strong>, 
+          .catalog-controls__column 
+            .catalog-controls__results Найдено <strong>112 центров</strong>, 
             | отсортированы         
             select.select7      
               option(value="rate_desc", selected) по рейтингу    
@@ -22,15 +23,12 @@
           .catalog-controls__right-side
             +b.catalog-checkboxes: +i({items: ["Детская медсестра", "Воскресенье", "Суббота"]})   
     section.col-md-9    
- 
- 
-        +b.section-action.u-card-mobile.affilliate-wrap 
-
+        +b.section-action.u-card-mobile.affilliate-wrap  
             each cla in claList
                 +e.item.action-card.card.affilliate(data-id='a' + cla.id) 
                     +e.in
                         +e.left.item-left__mod       
-                            .card__left-side  
+                            .card__left-side   
                                 .card__image  
                                     a(href="#")  
                                         img(src='i/_isida.jpg').photo 
@@ -38,7 +36,7 @@
                                     +e.value.value 4.9
                                     +e.stars 
                                         +e.stars-bg
-                                        +e.stars-overlay(style="width: 80%;")   
+                                        +e.stars-overlay(style="width: 80%;")    
                                 +b.card__testimonials  
                                     a(href="", title="") 10 отзывов
                                     a(href='#').card__info
@@ -63,49 +61,6 @@
                         +e.title 
                             b Акционные предложения Дiла   
                         include ../blocks/promotional-offers/promotional-offers.jade       
-
-
-
-                    //- +b.exclamation
-                    //-     +e.in
-                    //-         +e.text  Извините, на данный момент запись в клинику ограничена 
-
-                //- +e.item.card.action-card.card(data-id='a' + cla.id)
-                //-     +e.left.item-left__mod
-                //-         .card__left-side
-                //-             .card__image 
-                //-                 a(href="#")
-                //-                     img(src='i/_isida.jpg').photo
-                //-             +b.rating.value-size_big
-                //-                 +e.value.value 4.9
-                //-                 +e.stars 
-                //-                     +e.stars-bg
-                //-                     +e.stars-overlay(style="width: 80%;") 
-                //-             +b.card__testimonials 
-                //-                 a(href="", title="") 10 отзывов
-                //-                 a(href='#').card__info
-                //-     +e.middle
-                //-         +b.main-title
-                //-             +e("a").link(href="#") 16% скидки на комплексное ультразвуковое обследование организма (расширенное)!
-                //-             +e("span").clinic 
-                //-                 b Сити Клиника 
-                //-             +e("span").special Гастроэнтерология, гинекология
-                //-             +b("ul").about
-                //-                 +e("li").item Консультацию проводит врач высшей категории;
-                //-                 +e("li").item В прием за 1 грн входит осмотр и консультация;
-                //-                 +e("li").item Экономия на приеме 300 грн;
-                //-         .section-action__right  
-                //-             +b.right-info
-                //-                 .benefit__wrap
-                //-                     +e("p").benefit.red-border выгода 90%
-                //-                     +e("p").benefit.benefit__mod дейстувует до  27.12.2016
-                //-         +b.price
-                //-             +e.old 1245грн
-                //-             +e.new 1050грн 
-                //-             +e("a").btn(href="#") Записаться на прием 
-
-        
-        
     aside.col-md-3.hidden-sm.hidden-xs
         .widget.widget-map
             #map-canvas-right

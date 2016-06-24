@@ -2,7 +2,6 @@ $('.cla-fillials a').tooltip
 	container: '.main-content' 
 
 
-# infoCla = this.find('.info-cla').parent()
 $('.info-cla').each ->
 	_this  = $(this)
 	parent = _this.parent()
