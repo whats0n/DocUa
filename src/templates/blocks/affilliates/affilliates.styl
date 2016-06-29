@@ -36,6 +36,9 @@
 					margin 3px auto 19px
 				
 		&-middle_mod
+			.price
+				@media only screen and (max-width: 767px)
+					padding 0
 			@media screen560
 				padding 25px
 				float none
@@ -50,7 +53,7 @@
 			padding 0
 			width 24% 
 			@media only screen and (max-width: 767px)
-				padding 25px
+				padding 0 25px 25px 25px
 				
 		.section-action__in
 			position relative
@@ -314,34 +317,51 @@
 						@media only screen and (max-width: 1200px) 
 							float left
 				
-				.cla-bottom
-					position absolute
-					bottom 0
-					width: 100%
-					clearfix()
-					@media screen560 
+			.cla-bottom
+				position absolute
+				bottom 0
+				width: 100%
+				clearfix()
+				@media only screen and (max-width: 767px)
+					display none
+					position static
+				@media screen560 
+					position static
+					margin-top 5px
+					display block
+				&.cla-bottom__mobile
+					display none
+					@media only screen and (max-width: 767px)
+						display block
 						position static
-						margin-top 5px
-					p, .btn-group
-						margin 0
-					p
+						p
+							margin-bottom 0
+						a 
+							margin-left 3px
+						.btn-group__icon
+							width 7px 
+					@media screen560 
+						display none
+				p, .btn-group
+					margin 0
+				p
+					float left
+					padding-top 2px
+					@media only screen and (max-width: 1200px)
+						width 100%
+					@media only screen and (max-width: 990px)
+						width auto
+					@media only screen and (max-width: 850px)
+						width 100%
+				.btn-group
+					float right
+					@media only screen and (max-width: 1200px)
 						float left
-						padding-top 2px
-						@media only screen and (max-width: 1200px)
-							width 100%
-						@media only screen and (max-width: 990px)
-							width auto
-						@media only screen and (max-width: 850px)
-							width 100%
-					.btn-group
+					@media only screen and (max-width: 990px)
 						float right
-						@media only screen and (max-width: 1200px)
-							float left
-						@media only screen and (max-width: 990px)
-							float right
-						@media only screen and (max-width: 850px)
-							float left
-						
+					@media only screen and (max-width: 850px)
+						float left
+					
 //info -cla
 .info-cla
 	position relative
