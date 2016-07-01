@@ -2272,9 +2272,14 @@ mixin modal(name, classes, dialogClasses)
                 +e('a')(href="#").icon.mail
 
 +modal("cla-promo_step1", "bs-modal-cla modal-cla modal-cla_promo")
-    button(aria-hidden="true", data-dismiss="modal", type="button").close.modal-close.close__mod
+    .modal-header_close
+        button.close.modal-close.close__mod(aria-hidden="true", data-dismiss="modal", type="button")
      
-    .modal-pref-left.modal-pref-left_mobile
+    .modal-pref-left.modal-pref-left_mobile.cla-angles
+        .pref-border.pos-top 
+        .pref-border.pos-left
+        .pref-border.pref-full.pref-full_left
+        .pref-border.pos-bottom
         +b.pref-body
             +e.picture 
                 img(src="i/korol_logo.png", alt="")
@@ -2282,7 +2287,8 @@ mixin modal(name, classes, dialogClasses)
                 span %
             +e.title Пакет №4.12. «Скрининг для женщин после 50 лет» + ректороманоскопия со скидкой 50%
 
-    .modal-pref-right.modal-pref-right_mobile
+    .modal-pref-right.modal-pref-right_mobile.cla-angles
+        .pref-border.pref-full.pref-full_right
         .caption Для получения скидки заполните форму и получите промо-код
         form.form-horizontal.cla-form__mod(action="/")
             fieldset 
@@ -2304,8 +2310,13 @@ mixin modal(name, classes, dialogClasses)
                             | <br> 
                             a(href="#") правила работы сервиса.
 +modal("cla-promo_step2", "bs-modal-cla modal-cla modal-cla_promo")
-    button(aria-hidden="true", data-dismiss="modal", type="button").close.modal-close.close__mod
-    .modal-pref-left.mobile-hidden
+    .modal-header_close
+        button.close.modal-close.close__mod(aria-hidden="true", data-dismiss="modal", type="button")
+    .modal-pref-left.mobile-hidden.cla-angles
+        .pref-border.pos-top 
+        .pref-border.pos-left
+        .pref-border.pref-full.pref-full_left
+        .pref-border.pos-bottom
         +b.pref-body
             +e.picture
                 img(src="i/no-photo-clinic.png", alt="")
@@ -2313,7 +2324,43 @@ mixin modal(name, classes, dialogClasses)
                 span %
             +e.title Пакет №4.12. «Скрининг для женщин после 50 лет» + ректороманоскопия со скидкой 50%
 
-    .modal-pref-right.modal-pref-right_mod
+    .modal-pref-right.modal-pref-right_mod.cla-angles
+        .pref-border.pref-full.pref-full_right
+        +b.promo-info
+            +e.title Ваш промо-код:
+            +e.number S321000
+            +e.about предоставьте код при посещении центра лабораторных анализов для получения скидки
+        +b.note
+            +e('span').caption Обратите внимание: 
+            +e('span').text купон сгенерирован специально для Вас для использования во всех филиалах сети Synevo и распространяется только на Пакет №4.12 (Биохимия крови + отчет с интерпретацией показателей) 
+            | <br>до 12.06.2016
+        +b.social
+            +e.left
+                +e.text Поделится 
+            +e.right
+                +e('a')(href="#").icon.vk
+                +e('a')(href="#").icon.fb
+                +e('a')(href="#").icon.google
+                +e('a')(href="#").icon.tw
+                +e('a')(href="#").icon.mail
+
++modal("cla-promo-step3", "bs-modal-cla modal-cla modal-cla_promo")
+    .modal-header_close
+        button.close.modal-close.close__mod(aria-hidden="true", data-dismiss="modal", type="button")
+    .modal-pref-left.mobile-hidden.cla-angles
+        .pref-border.pos-top 
+        .pref-border.pos-left
+        .pref-border.pref-full.pref-full_left
+        .pref-border.pos-bottom
+        +b.pref-body
+            +e.picture
+                img(src="i/no-photo-clinic.png", alt="")
+            +e.percent -15
+                span %
+            +e.title Пакет №4.12. «Скрининг для женщин после 50 лет» + ректороманоскопия со скидкой 50%
+
+    .modal-pref-right.modal-pref-right_mod.cla-angles
+        .pref-border.pref-full.pref-full_right
         +b.promo-info
             +e.title Ваш промо-код:
             +e.number S321000

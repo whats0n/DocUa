@@ -1044,13 +1044,30 @@ modal_font_size = 15px
             overflow hidden
             width 270px 
             padding 20px 
+            margin-right -1px
             background-color: #ecf6f8
+            // border: 3px solid transparent
+            // border-image: url('i/cla/preforation.png')
+            // border-image-slice: 5
+            // border-image-repeat: round
+            // box-shadow: 0 0 8px rgba(0, 0, 0, 0.15)
+            &:before
+                right -10px
+                top -10px
+            &:after
+                right -10px
+                bottom -10px
+            
+                    
+                
             &.mobile-hidden
                 @media screen560
                     display none
             &.modal-pref-left_mobile
                 @media screen560
                     width 100%
+                    &:before, &:after
+                        display none
                 .pref-body__picture, .pref-body__percent
                     @media screen560
                         display inline-block
@@ -1059,21 +1076,7 @@ modal_font_size = 15px
                         padding 0 
                 .pref-body__title
                     @media screen560
-                        margin-top 10px
-            &:before, &:after
-                content ''
-                position absolute
-                width 20px 
-                height 20px
-                border-radius 50%
-                // opacity 0 
-                background rgba(#085a6a, .83)
-            &:before
-                right -10px
-                top -10px
-            &:after
-                right -10px
-                bottom -10px
+                        margin-top 10px 
             .pref-body
                 background-color: white
                 border: 1px solid #e1edf0
@@ -1099,28 +1102,23 @@ modal_font_size = 15px
                     line-height: 20px
         .modal-pref-right
             position relative
+            overflow hidden
             padding 40px 
             width 390px 
             // margin-left 270px 
             text-align center
-            &.modal-pref-right_mobile
-                @media screen560
-                    display none
-                
-            &:before, &:after
-                content ''
-                position absolute
-                width 20px 
-                height 20px
-                border-radius 50%
-                // opacity 0 
-                background rgba(#085a6a, .83)
+             
             &:before
                 left -10px
                 top -10px
             &:after
                 left -10px
                 bottom -10px
+            &.modal-pref-right_mobile
+                @media screen560
+                    display none
+                @media only screen and (max-width: 670px)
+                    padding 40px 20px 20px 20px  
             .caption
                 font-size: 20px
                 font-weight: 700
@@ -1133,6 +1131,10 @@ modal_font_size = 15px
             padding 0 23px 20px 30px 
             @media screen560
                 width 100%
+                .pref-full_right
+                    display none
+                &:before, &:after
+                    display none
             .promo-info__title
                 font-size: 20px
             .promo-info__number   
@@ -1170,6 +1172,52 @@ modal_font_size = 15px
                     &:last-child    
                         margin-right 0
                 
-                
+.cla-angles
+    &:before, &:after
+        content ''
+        position absolute
+        width 20px 
+        height 20px
+        border-radius 50%
+        background rgba(28,95,108,1) 
+        z-index 3    
+    .pref-border
+        position absolute
+        background: url("i/cla/preforation.png") 100% 100% repeat
+        height 100%
+        width 3px
+        @media screen560
+            display none
+        &.pos-left
+            left 0
+            top -8.8px
+            z-index 2
+            @media only screen and (max-width: 680px)
+                display none
+        &.pos-top
+            left 82%
+            top -49.6%
+            // top -49%
+            transform rotate(90deg)
+            background-repeat-x: no-repeat 
+            @media only screen and (max-width: 680px)
+                display none
+             
+        &.pos-bottom
+            left 80.4%
+            bottom -49.6%
+            transform rotate(270deg) 
+            background-repeat-x: no-repeat 
+            @media only screen and (max-width: 680px)
+                display none
+        &.pref-full    
+            background: url("i/cla/preforation-full.png") 100% 100% repeat
+            width 7px
+            transform rotate(360deg)
+            top -0.5px 
+            &.pref-full_left
+                right -3px
+            &.pref-full_right
+                left -3px
                     
                     
