@@ -178,3 +178,62 @@ $('.finder').on 'diagnosticSelected', (t, e) ->
   $('#select-area-diagnostics').modal('hide')
 
 
+# cla autocomplete
+$(".js-finder-autocomplete").each ->
+    _jScrollPane = undefined
+    _jScrollPaneAPI = undefined
+    _jSheight = 342
+
+    # Custom autocomplete instance.
+    # $.widget 'app.autocomplete', $.ui.autocomplete,
+    #     options: highlightClass: 'ui-state-highlight'
+    #     _renderItem: (ul, item) ->
+    #         # Replace the matched text with a custom span. This
+    #         # span uses the class found in the "highlightClass" option.
+    #         re = new RegExp('(' + @term + ')', 'gi')
+    #         cls = @options.highlightClass
+    #         template = '<span class=\'' + cls + '\'>$1</span>'
+    #         label = item.label.replace(re, template)
+    #         $li = $('<li/>').appendTo(ul)
+    #         # Create and return the custom menu item content.
+    #         $li.html(label).appendTo ('.subject-scroll')
+    #         $li
+    $.ui.autocomplete::_renderItem = (ul, item) ->
+      item.label = item.label.replace(new RegExp('(?![^&;]+;)(?!<[^<>]*)(' + $.ui.autocomplete.escapeRegex(@term) + ')(?![^<>]*>)(?![^&;]+;)', 'gi'), '<span class="is-active">$1</span>')
+      return $('<li></li>').append('<a>' + item.label + '</a>').appendTo ul
+
+    availableTags = [
+        '(Биохимия для ФиброМакса) (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза'
+        'ФиброМакс (Холестерин; Глюкоза (сыворотка); Триглицериды; Гаптоглог γ-глутаматтрансфераза '
+        'γ-глутаматтрансфераза'
+        'γ-глутаматтрансфераза (ГГТ, GGT)'
+        'γ-глутаматтрансфераза (ГГТ)'
+        'Тиреоидная панель'
+        'Тиреоглобулин (ТГ)'
+        'Тиреоглобулин, антитела (АТТГ)'
+        'Тиреоидный: ТТГ, Т4 св., АМСт (тиреотропный гормон (ТТГ); Тироксин свободный (T4 свободный) Тирокси'
+        'Тиреотропный гормон (ТТГ)'
+        'Тироксин общий'
+        'Тироксин свободный (T4 свободный)'
+    ]
+
+    $('.js-finder-autocomplete').autocomplete 
+        source: availableTags,
+        highlightClass: 'is-active'
+        open: ->
+            $('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 2);
+            $(this).data('uiAutocomplete').menu.element.addClass 'subject-scroll'
+            if undefined != _jScrollPane
+                _jScrollPaneAPI.destroy()
+            $('.subject-scroll > li').wrapAll $('<ul class="scroll-panel"></ul>').height(_jSheight)
+            _jScrollPane = $('.scroll-panel').jScrollPane()
+            _jScrollPaneAPI = _jScrollPane.data('jsp')
+            return
+        close: (event, ui) ->
+            _jScrollPaneAPI.destroy()
+            _jScrollPane = undefined
+            return
+        select: (event, ui) -> 
+            $(this).val ui.item.label
+            false
+

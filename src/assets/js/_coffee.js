@@ -1327,7 +1327,7 @@ $(".js-autocomplete-subject").each(function() {
       if (void 0 !== _jScrollPane) {
         _jScrollPaneAPI.destroy();
       }
-      $('.subject-scroll > li').wrapAll($('<div class="scroll-panel"></div>').height(_jSheight));
+      $('.subject-scroll > li').wrapAll($('<ul class="scroll-panel"></ul>').height(_jSheight));
       _jScrollPane = $('.scroll-panel').jScrollPane();
       _jScrollPaneAPI = _jScrollPane.data('jsp');
     },
@@ -1929,6 +1929,40 @@ $('.finder').on('diagnosticSelected', function(t, e) {
   $('.finder [data-target=\'#select-area-diagnostics\'] .finder__field-text').text(i ? n : $('.finder [data-target=\'#select-area-diagnostics\'] .finder__field-text').data('emptyText')).toggleClass('grey', !i);
   $('.finder [data-target=\'#select-area-diagnostics\'] input[type=\'hidden\']').val(i);
   return $('#select-area-diagnostics').modal('hide');
+});
+
+$(".js-finder-autocomplete").each(function() {
+  var _jScrollPane, _jScrollPaneAPI, _jSheight, availableTags;
+  _jScrollPane = void 0;
+  _jScrollPaneAPI = void 0;
+  _jSheight = 342;
+  $.ui.autocomplete.prototype._renderItem = function(ul, item) {
+    item.label = item.label.replace(new RegExp('(?![^&;]+;)(?!<[^<>]*)(' + $.ui.autocomplete.escapeRegex(this.term) + ')(?![^<>]*>)(?![^&;]+;)', 'gi'), '<span class="is-active">$1</span>');
+    return $('<li></li>').append('<a>' + item.label + '</a>').appendTo(ul);
+  };
+  availableTags = ['(Биохимия для ФиброМакса) (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза', 'ФиброМакс (Холестерин; Глюкоза (сыворотка); Триглицериды; Гаптоглог γ-глутаматтрансфераза ', 'γ-глутаматтрансфераза', 'γ-глутаматтрансфераза (ГГТ, GGT)', 'γ-глутаматтрансфераза (ГГТ)', 'Тиреоидная панель', 'Тиреоглобулин (ТГ)', 'Тиреоглобулин, антитела (АТТГ)', 'Тиреоидный: ТТГ, Т4 св., АМСт (тиреотропный гормон (ТТГ); Тироксин свободный (T4 свободный) Тирокси', 'Тиреотропный гормон (ТТГ)', 'Тироксин общий', 'Тироксин свободный (T4 свободный)'];
+  return $('.js-finder-autocomplete').autocomplete({
+    source: availableTags,
+    highlightClass: 'is-active',
+    open: function() {
+      $('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 2);
+      $(this).data('uiAutocomplete').menu.element.addClass('subject-scroll');
+      if (void 0 !== _jScrollPane) {
+        _jScrollPaneAPI.destroy();
+      }
+      $('.subject-scroll > li').wrapAll($('<ul class="scroll-panel"></ul>').height(_jSheight));
+      _jScrollPane = $('.scroll-panel').jScrollPane();
+      _jScrollPaneAPI = _jScrollPane.data('jsp');
+    },
+    close: function(event, ui) {
+      _jScrollPaneAPI.destroy();
+      _jScrollPane = void 0;
+    },
+    select: function(event, ui) {
+      $(this).val(ui.item.label);
+      return false;
+    }
+  });
 });
 
 

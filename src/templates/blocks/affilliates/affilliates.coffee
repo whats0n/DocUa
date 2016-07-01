@@ -10,7 +10,7 @@ $('.info-cla').each ->
 	return
 
 
-
+# autocomplete
 $(".js-autocomplete-subject").each ->
 	_jScrollPane = undefined
 	_jScrollPaneAPI = undefined
@@ -41,7 +41,7 @@ $(".js-autocomplete-subject").each ->
 			$(this).data('uiAutocomplete').menu.element.addClass 'subject-scroll'
 			if undefined != _jScrollPane
 				_jScrollPaneAPI.destroy()
-			$('.subject-scroll > li').wrapAll $('<div class="scroll-panel"></div>').height(_jSheight)
+			$('.subject-scroll > li').wrapAll $('<ul class="scroll-panel"></ul>').height(_jSheight)
 			_jScrollPane = $('.scroll-panel').jScrollPane()
 			_jScrollPaneAPI = _jScrollPane.data('jsp')
 			return
