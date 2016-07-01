@@ -1,17 +1,20 @@
+
 $(document).on 'click', '.js-offers-btn', ->
   drop = $(this).parents('.js-offers-tabs').find('.js-offers-content')
+  changeText = $(this).children('.dotted')
+  getAttr = changeText.data('hidden')
+  getText = changeText.text()
+  getTextAttr = changeText.data('name')
+
   drop.slideToggle 'fast'
   $(this).parents('.js-offers-tabs').toggleClass 'is-active'
+
+  changeText.toggleClass 'is-change'
   
-
-  if $('.js-offers-tabs').hasClass('is-active')
-    $(this).find('.js-change-text').text 'свернуть перечень анализов'
+  if changeText.hasClass 'is-change'
+    changeText.attr("data-name", getText)
+    changeText.text(getAttr)
   else
-    $(this).find('.js-change-text').text 'смотреть перечень анализов'
+    changeText.text(getTextAttr) 
 
-  if $('.js-offers-tabs').hasClass('is-active')
-    $(this).find('.js-change-text_big').text 'Cвернуть перечень анализов'
-  else
-    $(this).find('.js-change-text_big').text 'Cмотреть перечень анализов'
-
-  false 
+  false
