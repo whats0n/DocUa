@@ -15,7 +15,7 @@ $finder_input_padding = 8px
     &.search-title_none
         .finder__search-title
             display none
-
+    
     &__search-title
         position relative
         float left
@@ -45,6 +45,7 @@ $finder_input_padding = 8px
             border-style solid
             border-width 39px 0 39px 20px
             border-color transparent transparent transparent green_base
+    
     form
         position relative
         float left
@@ -245,6 +246,69 @@ $finder_input_padding = 8px
 
     .livesearch
         width 100% !important
+        
+    .ui-autocomplete
+        position: absolute
+        z-index 3
+        // width 410px
+        // width 100%
+        // height 100px 
+        background-color: white
+        border: 1px solid #d9ecf0
+        border-radius: 2px
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.02)
+        white-space: normal
+        // padding 17px 0
+        .scroll-panel
+            // margin-top 5px 
+           .jspTrack, .jspDrag
+                background-color: #d2e1e4
+            .jspVerticalBar
+                right 5px
+        .ui-menu-item
+            position relative
+            margin -1px 18px 0 18px 
+            border-bottom 1px solid #d9ecf0
+            // overflow hidden
+            // max-height 73px 
+            padding 0
+            // &:first-child
+                // margin-top -17px
+            //     padding 0 5px 15px 21px 
+            &:before
+                content ''
+                position absolute
+                z-index 2 
+                left -18px
+                top 0
+                width 18px
+                height 100%
+                background-color transparent 
+                
+            &:last-child
+                border-bottom 1px solid transparent
+                // padding 15px 5px 0 21px  
+                // margin-bottom -17px
+            &:hover
+                margin-top -1px
+                background-color: #eef9fb
+                border-bottom 1px solid #eef9fb
+                &:before
+                    background-color #eef9fb
+                    // background-color red
+            &.js-text-hidden
+                max-height 73px 
+            a
+                display inline-block
+                padding 15px 0px 15px 0px 
+                // padding-left 18px
+                color: #7c888a
+                text-decoration none
+                font-size 15px
+                
+            span.is-active
+                color: #00829b
+                font-weight: 700
 
 .finder-map
     width: 100%
@@ -369,65 +433,5 @@ $finder_input_padding = 8px
         &:before
             content none
 
-#ui-id-2.ui-autocomplete
-    position: absolute
-    z-index 3
-    // width 410px
-    // width 100%
-    // height 100px 
-    background-color: white
-    border: 1px solid #d9ecf0
-    border-radius: 2px
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.02)
-    white-space: normal
-    // padding 17px 0
-    .scroll-panel
-        // margin-top 5px 
-       .jspTrack, .jspDrag
-            background-color: #d2e1e4
-        .jspVerticalBar
-            right 5px
-    .ui-menu-item
-        position relative
-        margin -1px 18px 0 18px 
-        border-bottom 1px solid #d9ecf0
-        // overflow hidden
-        padding 0
-        // &:first-child
-            // margin-top -17px
-        //     padding 0 5px 15px 21px 
-        &:before
-            content ''
-            position absolute
-            z-index 2 
-            left -18px
-            top 0
-            width 18px
-            height 100%
-            background-color transparent 
-            
-        &:last-child
-            border-bottom 1px solid transparent
-            // padding 15px 5px 0 21px  
-            // margin-bottom -17px
-        &:hover
-            margin-top -1px
-            background-color: #eef9fb
-            border-bottom 1px solid #eef9fb
-            &:before
-                background-color #eef9fb
-                // background-color red
-        &.js-text-hidden
-            max-height 73px 
-        a
-            display inline-block
-            padding 15px 5px 15px 0px 
-            // padding-left 18px
-            color: #7c888a
-            text-decoration none
-            font-size 15px
-            
-        span.is-active
-            color: #00829b
-            font-weight: 700
+
         

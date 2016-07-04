@@ -226,14 +226,14 @@ $(".js-finder-autocomplete").each ->
 
     availableTags = [
         '(Биохимия для ФиброМакса) (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза'
-        'ФиброМакс (Холестерин; Глюкоза (сыворотка); Триглицериды; Гаптоглог γ-глутаматтрансфераза '
+        'ФиброМакс (Холестерин; Глюкоза (сыворотка); Триглицериды; Гаптоглог γ-глутаматтрансфераза'
         'γ-глутаматтрансфераза'
         'γ-глутаматтрансфераза (ГГТ, GGT)'
         'γ-глутаматтрансфераза (ГГТ)'
         'Тиреоидная панель'
         'Тиреоглобулин (ТГ)'
         'Тиреоглобулин, антитела (АТТГ)'
-        'Тиреоидный: ТТГ, Т4 св., АМСт (тиреотропный гормон (ТТГ); Тироксин свободный (T4 свободный) Тирокси'
+        'Тиреоидный: ТТГ, Т4 св., АМСт (тиреотропный гормон (ТТГ); Тироксин свободный (T4 свободный) '
         'Тиреотропный гормон (ТТГ)'
         'Тироксин общий'
         'Тироксин свободный (T4 свободный)'
@@ -248,18 +248,16 @@ $(".js-finder-autocomplete").each ->
                 _jScrollPaneAPI.destroy() 
             if  $('.subject-scroll').height() <= _jSheight
                 $('.subject-scroll > li').wrapAll $('<ul class="scroll-panel"></ul>').css('height', 'auto')
-                console.log('aa')
             else 
-                console.log('go')
                 $('.subject-scroll > li').wrapAll $('<ul class="scroll-panel"></ul>').height(_jSheight)
                 _jScrollPane = $('.scroll-panel').jScrollPane()
                 _jScrollPaneAPI = _jScrollPane.data('jsp')
 
-            if $('.ui-menu-item').height() >= 80
+            if $('.ui-menu-item').height() >= 70
                 _this = $('.ui-menu-item')
                 _this.addClass 'js-text-hidden' 
                 _this.dotdotdot
-                    elipsis: " ..."
+                    elipsis: " ...",
             return 
         close: (event, ui) ->
             _jScrollPaneAPI.destroy()
@@ -270,4 +268,12 @@ $(".js-finder-autocomplete").each ->
             false
 
     
-
+# $('#dot5 .pathname').each ->
+#   path = $(this).html().split('/')
+#   if path.length > 1
+#     name = path.pop()
+#     $(this).html path.join('/') + '<span class="filename">/' + name + '</span>'
+#     $(this).dotdotdot
+#       after: 'span.filename'
+#       wrap: 'letter'
+#   return
