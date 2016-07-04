@@ -178,11 +178,15 @@ $('.finder').on 'diagnosticSelected', (t, e) ->
   $('#select-area-diagnostics').modal('hide')
 
 
+
+
+
 # cla autocomplete
 $(".js-finder-autocomplete").each ->
     _jScrollPane = undefined
     _jScrollPaneAPI = undefined
     _jSheight = 342
+    # _autoheight = auto
 
     # Custom autocomplete instance.
     # $.widget 'app.autocomplete', $.ui.autocomplete,
@@ -198,12 +202,30 @@ $(".js-finder-autocomplete").each ->
     #         # Create and return the custom menu item content.
     #         $li.html(label).appendTo ('.subject-scroll')
     #         $li
-    $.ui.autocomplete::_renderItem = (ul, item) ->
-      item.label = item.label.replace(new RegExp('(?![^&;]+;)(?!<[^<>]*)(' + $.ui.autocomplete.escapeRegex(@term) + ')(?![^<>]*>)(?![^&;]+;)', 'gi'), '<span class="is-active">$1</span>')
-      return $('<li></li>').append('<a>' + item.label + '</a>').appendTo ul
+
+    # $.ui.autocomplete.prototype._renderItem = (ul, item) ->
+    #   item.label = item.label.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + $.ui.autocomplete.escapeRegex(this.term) + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>")
+    #   return $('<li></li>').data('item.autocomplete', item).append('<a>' + item.label + '</a>').appendTo ul
+    $.ui.autocomplete.prototype._renderItem = (ul, item) ->
+        highlighted = item.label.split(this.term).join('<span class="is-active">' + this.term +  '</span>')
+        return $("<li></li>").data("item.autocomplete", item).append('<a>' + highlighted + '</a>').appendTo(ul);
+
+    # monkeyPatchAutocomplete = ->
+    #   # Don't really need to save the old fn, 
+    #   # but I could chain if I wanted to
+    #   oldFn = $.ui.autocomplete::_renderItem
+
+    #   $.ui.autocomplete::_renderItem = (ul, item) ->
+    #     re = new RegExp('^' + @term, 'i')
+    #     t = item.label.replace(re, '<span class="is-active">' + @term + '</span>')
+    #     $('<li>' + t + '</li>').data('item.autocomplete', item).appendTo ul
+
+    #   return
+
+    # monkeyPatchAutocomplete()
 
     availableTags = [
-        '(Биохимия для ФиброМакса) (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза'
+        '(Биохимия для ФиброМакса) (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза'
         'ФиброМакс (Холестерин; Глюкоза (сыворотка); Триглицериды; Гаптоглог γ-глутаматтрансфераза '
         'γ-глутаматтрансфераза'
         'γ-глутаматтрансфераза (ГГТ, GGT)'
@@ -219,16 +241,26 @@ $(".js-finder-autocomplete").each ->
 
     $('.js-finder-autocomplete').autocomplete 
         source: availableTags,
-        highlightClass: 'is-active'
+        appendTo: ".finder"
         open: ->
-            $('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 2);
             $(this).data('uiAutocomplete').menu.element.addClass 'subject-scroll'
-            if undefined != _jScrollPane
-                _jScrollPaneAPI.destroy()
-            $('.subject-scroll > li').wrapAll $('<ul class="scroll-panel"></ul>').height(_jSheight)
-            _jScrollPane = $('.scroll-panel').jScrollPane()
-            _jScrollPaneAPI = _jScrollPane.data('jsp')
-            return
+            if undefined != _jScrollPane 
+                _jScrollPaneAPI.destroy() 
+            if  $('.subject-scroll').height() <= _jSheight
+                $('.subject-scroll > li').wrapAll $('<ul class="scroll-panel"></ul>').css('height', 'auto')
+                console.log('aa')
+            else 
+                console.log('go')
+                $('.subject-scroll > li').wrapAll $('<ul class="scroll-panel"></ul>').height(_jSheight)
+                _jScrollPane = $('.scroll-panel').jScrollPane()
+                _jScrollPaneAPI = _jScrollPane.data('jsp')
+
+            if $('.ui-menu-item').height() >= 80
+                _this = $('.ui-menu-item')
+                _this.addClass 'js-text-hidden' 
+                _this.dotdotdot
+                    elipsis: " ..."
+            return 
         close: (event, ui) ->
             _jScrollPaneAPI.destroy()
             _jScrollPane = undefined
@@ -236,4 +268,6 @@ $(".js-finder-autocomplete").each ->
         select: (event, ui) -> 
             $(this).val ui.item.label
             false
+
+    
 

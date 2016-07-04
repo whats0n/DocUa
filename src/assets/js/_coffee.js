@@ -1321,13 +1321,14 @@ $(".js-autocomplete-subject").each(function() {
   availableTags = ['Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия', 'Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия', 'Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия'];
   return $('.js-autocomplete-subject').autocomplete({
     source: availableTags,
+    appendTo: ".tab-content",
     open: function() {
-      $('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 2);
-      $(this).data('uiAutocomplete').menu.element.addClass('subject-scroll');
+      $(this).find('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 4);
+      $(this).data('uiAutocomplete').menu.element.addClass('subject-scroll1');
       if (void 0 !== _jScrollPane) {
         _jScrollPaneAPI.destroy();
       }
-      $('.subject-scroll > li').wrapAll($('<ul class="scroll-panel"></ul>').height(_jSheight));
+      $('.subject-scroll1 > li').wrapAll($('<ul class="scroll-panel"></ul>').height(_jSheight));
       _jScrollPane = $('.scroll-panel').jScrollPane();
       _jScrollPaneAPI = _jScrollPane.data('jsp');
     },
@@ -1937,22 +1938,36 @@ $(".js-finder-autocomplete").each(function() {
   _jScrollPaneAPI = void 0;
   _jSheight = 342;
   $.ui.autocomplete.prototype._renderItem = function(ul, item) {
-    item.label = item.label.replace(new RegExp('(?![^&;]+;)(?!<[^<>]*)(' + $.ui.autocomplete.escapeRegex(this.term) + ')(?![^<>]*>)(?![^&;]+;)', 'gi'), '<span class="is-active">$1</span>');
-    return $('<li></li>').append('<a>' + item.label + '</a>').appendTo(ul);
+    var highlighted;
+    highlighted = item.label.split(this.term).join('<span class="is-active">' + this.term + '</span>');
+    return $("<li></li>").data("item.autocomplete", item).append('<a>' + highlighted + '</a>').appendTo(ul);
   };
-  availableTags = ['(Биохимия для ФиброМакса) (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза', 'ФиброМакс (Холестерин; Глюкоза (сыворотка); Триглицериды; Гаптоглог γ-глутаматтрансфераза ', 'γ-глутаматтрансфераза', 'γ-глутаматтрансфераза (ГГТ, GGT)', 'γ-глутаматтрансфераза (ГГТ)', 'Тиреоидная панель', 'Тиреоглобулин (ТГ)', 'Тиреоглобулин, антитела (АТТГ)', 'Тиреоидный: ТТГ, Т4 св., АМСт (тиреотропный гормон (ТТГ); Тироксин свободный (T4 свободный) Тирокси', 'Тиреотропный гормон (ТТГ)', 'Тироксин общий', 'Тироксин свободный (T4 свободный)'];
+  availableTags = ['(Биохимия для ФиброМакса) (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза', 'ФиброМакс (Холестерин; Глюкоза (сыворотка); Триглицериды; Гаптоглог γ-глутаматтрансфераза ', 'γ-глутаматтрансфераза', 'γ-глутаматтрансфераза (ГГТ, GGT)', 'γ-глутаматтрансфераза (ГГТ)', 'Тиреоидная панель', 'Тиреоглобулин (ТГ)', 'Тиреоглобулин, антитела (АТТГ)', 'Тиреоидный: ТТГ, Т4 св., АМСт (тиреотропный гормон (ТТГ); Тироксин свободный (T4 свободный) Тирокси', 'Тиреотропный гормон (ТТГ)', 'Тироксин общий', 'Тироксин свободный (T4 свободный)'];
   return $('.js-finder-autocomplete').autocomplete({
     source: availableTags,
-    highlightClass: 'is-active',
+    appendTo: ".finder",
     open: function() {
-      $('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 2);
+      var _this;
       $(this).data('uiAutocomplete').menu.element.addClass('subject-scroll');
       if (void 0 !== _jScrollPane) {
         _jScrollPaneAPI.destroy();
       }
-      $('.subject-scroll > li').wrapAll($('<ul class="scroll-panel"></ul>').height(_jSheight));
-      _jScrollPane = $('.scroll-panel').jScrollPane();
-      _jScrollPaneAPI = _jScrollPane.data('jsp');
+      if ($('.subject-scroll').height() <= _jSheight) {
+        $('.subject-scroll > li').wrapAll($('<ul class="scroll-panel"></ul>').css('height', 'auto'));
+        console.log('aa');
+      } else {
+        console.log('go');
+        $('.subject-scroll > li').wrapAll($('<ul class="scroll-panel"></ul>').height(_jSheight));
+        _jScrollPane = $('.scroll-panel').jScrollPane();
+        _jScrollPaneAPI = _jScrollPane.data('jsp');
+      }
+      if ($('.ui-menu-item').height() >= 80) {
+        _this = $('.ui-menu-item');
+        _this.addClass('js-text-hidden');
+        _this.dotdotdot({
+          elipsis: " ..."
+        });
+      }
     },
     close: function(event, ui) {
       _jScrollPaneAPI.destroy();
