@@ -2,12 +2,27 @@
     layout: layouts/main
     title: Центр лабораторных анализов в Киеве
     finder: cla  
-    activeMenuItem: 0
+    activeMenuItem: 3
     modals: feedback, select-specialization, clinic-location-map
     page_name: cla-item
 
 
-.row.main-content             
+.row.main-content  
+    article.col-md-12  
+        +b("header").article-header  
+            h1= file.title
+                span &nbsp;(220 94)  
+    .col-md-9      
+        .catalog-controls.cla_catalog-controls          
+          .catalog-controls__column 
+            .catalog-controls__results Найдено <strong>112 центров</strong>, 
+            | отсортированы         
+            select.select7      
+              option(value="rate_desc", selected) по рейтингу    
+              option(value="rate_az") по названию (А-Я) 
+              option(value="rate_za") по названию (Я-А) 
+          .catalog-controls__right-side
+            +b.catalog-checkboxes: +i({items: ["Детская медсестра", "Воскресенье", "Суббота"]})           
     section.col-md-9.affilliate-wrap  
         +b.section-action.u-card-mobile
                 +e.item.action-card.card.affilliate.affilliate-item_mod
@@ -57,7 +72,7 @@
                         +b.price-about Наведений нижче прайс-лист є неповним, і представлений для загального ознайомлення з цінами клініки. Точну вартість необхідних послуг Вам озвучить оператор нашого колл-центру при підтвердженні запису.
                         +b.about-in.about-in_mod
                             +e("span").price-update Прайс обновлен  14.01.2016
-                        +b.cla-search  
+                        +b.cla-search    
                             +e.item
                                 +e("input")(type="text" placeholder="Введите название анализа").subject.form-item.js-autocomplete-subject
                                     

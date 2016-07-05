@@ -200,6 +200,7 @@ docMaps =
         $('#map-canvas-right, .widget-map').height(600)
       else
         $('#map-canvas-right, .widget-map').height($('.card').outerHeight(true))
+        $('#map-canvas-right, .widget-map').css('border-radius', '4px')
 
     bigMap: ->
       docMaps.mapHeight = $(window).height() - $('header.header').outerHeight(true) - $('.header__nav').outerHeight(true)

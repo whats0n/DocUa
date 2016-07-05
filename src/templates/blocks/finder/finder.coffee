@@ -237,11 +237,12 @@ $(".js-finder-autocomplete").each ->
         'Тиреотропный гормон (ТТГ)'
         'Тироксин общий'
         'Тироксин свободный (T4 свободный)'
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo facilis necessitatibus omnis unde? Et nobis, placeat odio non corrupti molestiae iure earum repellendus tempora velit voluptate iusto deserunt. Accusantium, maiores!'
     ]
 
     $('.js-finder-autocomplete').autocomplete 
         source: availableTags,
-        appendTo: ".finder"
+        appendTo: ".finder__field"
         open: ->
             $(this).data('uiAutocomplete').menu.element.addClass 'subject-scroll'
             if undefined != _jScrollPane 
@@ -253,11 +254,12 @@ $(".js-finder-autocomplete").each ->
                 _jScrollPane = $('.scroll-panel').jScrollPane()
                 _jScrollPaneAPI = _jScrollPane.data('jsp')
 
-            if $('.ui-menu-item').height() >= 70
+            if $('.ui-menu-item').height() >= 20
                 _this = $('.ui-menu-item')
                 _this.addClass 'js-text-hidden' 
                 _this.dotdotdot
                     elipsis: " ...",
+                    fallbackToLetter: true,
             return 
         close: (event, ui) ->
             _jScrollPaneAPI.destroy()

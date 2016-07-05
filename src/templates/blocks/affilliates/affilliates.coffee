@@ -38,7 +38,7 @@ $(".js-autocomplete-subject").each ->
 		source: availableTags,
 		appendTo: ".tab-content"
 		open: ->
-			$(this).find('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 4);
+			# $('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 8);
 			$(this).data('uiAutocomplete').menu.element.addClass 'subject-scroll1'
 			if undefined != _jScrollPane
 				_jScrollPaneAPI.destroy()
