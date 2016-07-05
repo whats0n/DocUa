@@ -15623,6 +15623,9 @@ ul.footer-menu {
   width: 220px;
   font-weight: 800;
 }
+.modal {
+  min-width: 320px;
+}
 .modal form .control-label,
 .modal .form-horizontal .control-label {
   font-size: 15px;
@@ -16837,20 +16840,39 @@ ul.footer-menu {
 }
 @media only screen and (max-width: 560px) {
   .modal-cla .info__item {
-    width: 100%;
-  }
-  .modal-cla .info__item:last-child {
     text-align: left;
-    padding-left: 20px;
-    margin-top: 5px;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .modal-cla .info__item {
+    width: 100%;
+    float: none;
+    text-align: center;
   }
 }
 .modal-cla .info__item:first-child {
   padding-left: 20px;
 }
+@media only screen and (max-width: 560px) {
+  .modal-cla .info__item:first-child {
+    padding-left: 10px;
+  }
+}
 .modal-cla .info__item:last-child {
   text-align: right;
   padding-right: 20px;
+}
+@media only screen and (max-width: 560px) {
+  .modal-cla .info__item:last-child {
+    text-align: left;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .modal-cla .info__item:last-child {
+    padding: 0;
+    text-align: center;
+  }
 }
 .modal-cla .info__icon {
   position: relative;
@@ -16862,6 +16884,11 @@ ul.footer-menu {
   background-color: #fffdf6;
   -webkit-box-shadow: 1px 1.7px 5px rgba(0,0,0,0.04);
   box-shadow: 1px 1.7px 5px rgba(0,0,0,0.04);
+}
+@media only screen and (max-width: 560px) {
+  .modal-cla .info__icon {
+    display: none;
+  }
 }
 .modal-cla .info__icon:before {
   content: "";
@@ -16887,6 +16914,12 @@ ul.footer-menu {
   padding-left: 50px;
   line-height: 38px;
 }
+@media only screen and (max-width: 560px) {
+  .modal-cla .info__text {
+    padding: 0;
+    line-height: 30px;
+  }
+}
 .modal-cla .cla-form__mod .form-group {
   margin-bottom: 20px;
 }
@@ -16897,12 +16930,12 @@ ul.footer-menu {
 }
 @media only screen and (max-width: 767px) {
   .modal-cla .cla-form__mod .form-group div {
-    margin-top: 0;
+    margin-top: 0 !important;
   }
 }
 @media only screen and (max-width: 640px) {
   .modal-cla .cla-form__mod .form-group div {
-    margin-top: 15px;
+    margin-top: 15px !important;
     margin-bottom: 0;
   }
 }
@@ -16918,21 +16951,22 @@ ul.footer-menu {
   box-shadow: none;
   -webkit-box-shadow: none;
   -webkit-appearance: none;
+  color: #86989b;
 }
 .modal-cla .cla-form__mod .form-group input::-webkit-input-placeholder {
-  color: #5e6e71 !important;
+  color: rgba(94,110,113,0.75) !important;
   font_size: 14px;
 }
 .modal-cla .cla-form__mod .form-group input:-moz-placeholder {
-  color: #5e6e71 !important;
+  color: rgba(94,110,113,0.75) !important;
   font_size: 14px;
 }
 .modal-cla .cla-form__mod .form-group input::-moz-placeholder {
-  color: #5e6e71 !important;
+  color: rgba(94,110,113,0.75) !important;
   font_size: 14px;
 }
 .modal-cla .cla-form__mod .form-group input:-ms-input-placeholder {
-  color: #5e6e71 !important;
+  color: rgba(94,110,113,0.75) !important;
   font_size: 14px;
 }
 .modal-cla .cla-form__mod .form-group p {
@@ -16949,8 +16983,13 @@ ul.footer-menu {
   border-radius: 4px;
 }
 .modal-cla .promo-info {
-  padding: 35px 0 20px 0;
+  padding: 36px 0 20px 0;
   text-align: center;
+}
+@media only screen and (max-width: 560px) {
+  .modal-cla .promo-info {
+    padding: 0 0 20px 0;
+  }
 }
 .modal-cla .promo-info__title {
   font-size: 18px;
@@ -17045,7 +17084,7 @@ ul.footer-menu {
   }
 }
 .modal-cla .social__right {
-  float: right;
+  text-align: center;
 }
 @media only screen and (max-width: 470px) {
   .modal-cla .social__right {
@@ -17076,17 +17115,7 @@ ul.footer-menu {
   filter: alpha(opacity=80);
 }
 .modal-cla .social__icon:last-child {
-  margin-right: 20px;
-}
-@media only screen and (max-width: 560px) {
-  .modal-cla .social__icon:last-child {
-    margin-right: 10px;
-  }
-}
-@media only screen and (max-width: 470px) {
-  .modal-cla .social__icon:last-child {
-    margin-right: 0;
-  }
+  margin-right: 0;
 }
 @media only screen and (max-width: 470px) {
   .modal-cla .social__icon {
@@ -17139,6 +17168,18 @@ ul.footer-menu {
   -webkit-justify-content: stretch;
   justify-content: stretch;
 }
+@media only screen and (max-width: 560px) {
+  .modal-cla_promo.modal.bs-modal-cla .modal-content {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
 .modal-cla_promo.modal.bs-modal-cla .close__mod {
   right: 16px;
   top: 16px;
@@ -17155,22 +17196,26 @@ ul.footer-menu {
   right: -10px;
   top: -10px;
 }
+@media only screen and (max-width: 560px) {
+  .modal-cla_promo.modal.bs-modal-cla .modal-pref-left:before {
+    top: auto;
+    bottom: -10px;
+    left: -10px;
+  }
+}
 .modal-cla_promo.modal.bs-modal-cla .modal-pref-left:after {
   right: -10px;
   bottom: -10px;
 }
 @media only screen and (max-width: 560px) {
-  .modal-cla_promo.modal.bs-modal-cla .modal-pref-left.mobile-hidden {
-    display: none;
+  .modal-cla_promo.modal.bs-modal-cla .modal-pref-left {
+    padding: 10px;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 560px) {
   .modal-cla_promo.modal.bs-modal-cla .modal-pref-left.modal-pref-left_mobile {
     width: 100%;
-  }
-  .modal-cla_promo.modal.bs-modal-cla .modal-pref-left.modal-pref-left_mobile:before,
-  .modal-cla_promo.modal.bs-modal-cla .modal-pref-left.modal-pref-left_mobile:after {
-    display: none;
   }
 }
 @media only screen and (max-width: 560px) {
@@ -17222,6 +17267,12 @@ ul.footer-menu {
   width: 390px;
   text-align: center;
 }
+@media only screen and (max-width: 560px) {
+  .modal-cla_promo.modal.bs-modal-cla .modal-pref-right {
+    width: 100%;
+    padding: 20px 10px;
+  }
+}
 .modal-cla_promo.modal.bs-modal-cla .modal-pref-right:before {
   left: -10px;
   top: -10px;
@@ -17231,13 +17282,20 @@ ul.footer-menu {
   bottom: -10px;
 }
 @media only screen and (max-width: 560px) {
-  .modal-cla_promo.modal.bs-modal-cla .modal-pref-right.modal-pref-right_mobile {
-    display: none;
+  .modal-cla_promo.modal.bs-modal-cla .modal-pref-right:after {
+    left: auto;
+    right: -10px;
+    top: -10px;
   }
 }
 @media only screen and (max-width: 670px) {
   .modal-cla_promo.modal.bs-modal-cla .modal-pref-right.modal-pref-right_mobile {
     padding: 40px 20px 20px 20px;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .modal-cla_promo.modal.bs-modal-cla .modal-pref-right.modal-pref-right_mobile {
+    padding: 20px 10px;
   }
 }
 .modal-cla_promo.modal.bs-modal-cla .modal-pref-right .caption {
@@ -17246,23 +17304,16 @@ ul.footer-menu {
   line-height: 25px;
   margin-bottom: 27px;
 }
+@media only screen and (max-width: 560px) {
+  .modal-cla_promo.modal.bs-modal-cla .modal-pref-right .caption {
+    margin-bottom: 0;
+  }
+}
 .modal-cla_promo.modal.bs-modal-cla .modal-pref-right .cla-form__mod button {
   padding: 10px 0;
 }
 .modal-cla_promo.modal.bs-modal-cla .modal-pref-right_mod {
   padding: 0 23px 20px 30px;
-}
-@media only screen and (max-width: 560px) {
-  .modal-cla_promo.modal.bs-modal-cla .modal-pref-right_mod {
-    width: 100%;
-  }
-  .modal-cla_promo.modal.bs-modal-cla .modal-pref-right_mod .pref-full_right {
-    display: none;
-  }
-  .modal-cla_promo.modal.bs-modal-cla .modal-pref-right_mod:before,
-  .modal-cla_promo.modal.bs-modal-cla .modal-pref-right_mod:after {
-    display: none;
-  }
 }
 .modal-cla_promo.modal.bs-modal-cla .modal-pref-right_mod .promo-info__title {
   font-size: 20px;
@@ -17333,11 +17384,6 @@ ul.footer-menu {
   height: 100%;
   width: 3px;
 }
-@media only screen and (max-width: 560px) {
-  .cla-angles .pref-border {
-    display: none;
-  }
-}
 .cla-angles .pref-border.pos-left {
   left: 0;
   top: -8.8px;
@@ -17385,8 +17431,28 @@ ul.footer-menu {
 .cla-angles .pref-border.pref-full.pref-full_left {
   right: -3px;
 }
+@media only screen and (max-width: 560px) {
+  .cla-angles .pref-border.pref-full.pref-full_left {
+    right: 1px;
+    bottom: -3px;
+    top: auto;
+  }
+}
 .cla-angles .pref-border.pref-full.pref-full_right {
   left: -3px;
+}
+@media only screen and (max-width: 560px) {
+  .cla-angles .pref-border.pref-full.pref-full_right {
+    left: -1px;
+    top: -3px;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .cla-angles .pref-border.pref-full {
+    background: url("i/cla/preforation-full-mob.png") 100% 100% repeat;
+    width: 100%;
+    height: 7px;
+  }
 }
 .more-toggle {
   display: none;

@@ -14,6 +14,7 @@ modal_font_size = 15px
     width 220px 
     font-weight 800         
 .modal
+    min-width 320px
     form, .form-horizontal
         .control-label
             font-size modal_font_size
@@ -30,7 +31,7 @@ modal_font_size = 15px
                 margin-top 15px
         &__last-child
             margin-bottom 0
-            
+       
     .form-group__modals
         margin-bottom 23px
     .form-group__modals-login
@@ -858,16 +859,30 @@ modal_font_size = 15px
             float left
             width 50%
             @media screen560
+                // width 100%
+                // float none
+                text-align left
+            @media only screen and (max-width: 370px)
                 width 100%
-                &:last-child
-                    text-align left
-                    padding-left 20px
-                    margin-top 5px
+                float none
+                text-align center
+            //     &:last-child
+            //         text-align left
+            //         padding-left 20px
+            //         margin-top 5px
             &:first-child
                 padding-left 20px
+                @media screen560
+                    padding-left 10px 
             &:last-child
                 text-align right
                 padding-right 20px
+                @media screen560
+                    text-align left
+                    padding 0
+                @media only screen and (max-width: 370px)
+                    padding 0
+                    text-align center
         &__icon
             position relative
             float left
@@ -876,6 +891,8 @@ modal_font_size = 15px
             border-radius 50%
             background-color: #fffdf6
             box-shadow: 1px 1.7px 5px rgba(0, 0, 0, 0.04)
+            @media screen560
+                display none
             &:before
                 content ""
                 position absolute
@@ -894,6 +911,9 @@ modal_font_size = 15px
         &__text
             padding-left 50px
             line-height 38px
+            @media screen560
+                padding 0
+                line-height 30px
     .cla-form__mod
         .form-group
             margin-bottom 20px
@@ -901,10 +921,11 @@ modal_font_size = 15px
                 margin-bottom 0
             div
                 @media only screen and (max-width: 767px)
-                    margin-top 0
+                    margin-top 0  !important
                 @media only screen and (max-width: 640px)
-                    margin-top 15px
+                    margin-top 15px !important
                     margin-bottom 0
+
             input
                 background-color: #eff9fb
                 border: 1px solid rgba(61, 160, 180, 0.27)
@@ -914,8 +935,8 @@ modal_font_size = 15px
                 box-shadow: none
                 -webkit-box-shadow: none
                 -webkit-appearance: none
-                
-                placeholder(#5e6e71, 14px)
+                placeholder(rgba(#5e6e71, 0.75), 14px)
+                color: #86989b
             p
                 font-size 13px
                 color: #5e6e71
@@ -926,8 +947,10 @@ modal_font_size = 15px
                 font-weight 700
                 border-radius 4px 
     .promo-info
-        padding 35px 0 20px 0
+        padding 36px 0 20px 0
         text-align center
+        @media screen560
+            padding 0 0 20px 0 
         &__title 
             font-size: 18px
             font-weight: 700
@@ -991,7 +1014,8 @@ modal_font_size = 15px
             @media screen560
                 padding 0 10px 
         &__right
-            float right
+            // float right
+            text-align center
             @media only screen and (max-width: 470px)
                 // float left
                 // padding 0 20px 
@@ -1007,11 +1031,11 @@ modal_font_size = 15px
             &:hover
                 opacity .8
             &:last-child
-                margin-right 20px 
-                @media screen560
-                    margin-right 10px
-                @media only screen and (max-width: 470px)
-                    margin-right 0
+                margin-right 0 
+                // @media screen560
+                //     margin-right 10px
+                // @media only screen and (max-width: 470px)
+                //     margin-right 0
             @media only screen and (max-width: 470px)
                 margin 11px 12px 11px 0 
             &.vk
@@ -1029,13 +1053,14 @@ modal_font_size = 15px
             max-width 660px
         .modal-content
             border-radius 0
-            // display inline-table 
             display flex
             flex-direction row
             flex-wrap: nowrap
             justify-content stretch
-            // @media screen560
-            //     flex-direction column
+            @media screen560
+                -webkit-flex-direction column 
+                -ms-flex-direction column 
+                flex-direction column 
         .close__mod
             right 16px
             top 16px
@@ -1046,28 +1071,27 @@ modal_font_size = 15px
             padding 20px 
             margin-right -1px
             background-color: #ecf6f8
-            // border: 3px solid transparent
-            // border-image: url('i/cla/preforation.png')
-            // border-image-slice: 5
-            // border-image-repeat: round
-            // box-shadow: 0 0 8px rgba(0, 0, 0, 0.15)
             &:before
                 right -10px
                 top -10px
+                @media screen560
+                    top auto
+                    bottom -10px
+                    left -10px
             &:after
                 right -10px
                 bottom -10px
-            
-                    
-                
-            &.mobile-hidden
-                @media screen560
-                    display none
+            // &.mobile-hidden
+            //     @media screen560
+            //         display none
+            @media screen560
+                padding 10px
+                width 100%
             &.modal-pref-left_mobile
                 @media screen560
                     width 100%
-                    &:before, &:after
-                        display none
+                    // &:before, &:after
+                    //     display none
                 .pref-body__picture, .pref-body__percent
                     @media screen560
                         display inline-block
@@ -1107,34 +1131,38 @@ modal_font_size = 15px
             width 390px 
             // margin-left 270px 
             text-align center
-             
+            @media screen560
+                width 100%
+                padding 20px 10px 
             &:before
                 left -10px
                 top -10px
             &:after
                 left -10px
                 bottom -10px
-            &.modal-pref-right_mobile
                 @media screen560
-                    display none
+                    left auto
+                    right -10px
+                    top -10px
+            &.modal-pref-right_mobile
+                // @media screen560
+                //     display none
                 @media only screen and (max-width: 670px)
-                    padding 40px 20px 20px 20px  
+                    padding 40px 20px 20px 20px 
+                @media screen560
+                    padding 20px 10px  
             .caption
                 font-size: 20px
                 font-weight: 700
                 line-height: 25px
                 margin-bottom 27px
+                @media screen560
+                    margin-bottom 0
             .cla-form__mod
                 button
                     padding 10px 0 
         .modal-pref-right_mod
             padding 0 23px 20px 30px 
-            @media screen560
-                width 100%
-                .pref-full_right
-                    display none
-                &:before, &:after
-                    display none
             .promo-info__title
                 font-size: 20px
             .promo-info__number   
@@ -1186,8 +1214,8 @@ modal_font_size = 15px
         background: url("i/cla/preforation-left.png") 100% 100% repeat
         height 100%
         width 3px
-        @media screen560
-            display none
+        // @media screen560
+        //     display none
         &.pos-left
             left 0
             top -8.8px
@@ -1217,7 +1245,19 @@ modal_font_size = 15px
             top -0.5px 
             &.pref-full_left
                 right -3px
+                @media screen560
+                    right 1px
+                    bottom: -3px 
+                    top auto
             &.pref-full_right
                 left -3px
+                @media screen560
+                    left -1px
+                    top: -3px 
+                    
+            @media screen560
+                background: url("i/cla/preforation-full-mob.png") 100% 100% repeat
+                width: 100%
+                height: 7px
                     
                     
