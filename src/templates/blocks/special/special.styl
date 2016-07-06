@@ -28,7 +28,7 @@
         
     .special-left-side
         padding 0
-        float left
+        float left 
         width auto 
     .special-title  
         padding-right 5%
@@ -44,32 +44,45 @@
         // margin-top 15px
         @media screen560
             width 100%
-        .price
-            margin-bottom 10px
-            text-align right
+    .price
+        margin-bottom 10px
+        text-align right
+        @media screen560
+            margin-bottom 0
+            display none
+        &.price_left
+            display none
+            margin 0
+            float right
             @media screen560
-                margin-bottom 0
-            &__old
                 display inline-block
-                color: #91b5bc
-                font-size: 17px
-                font-weight: 400
-                text-decoration: line-through
-            &__new
-                display inline-block
-                margin-left 10px
-                color: #5e6e71
-                font-size: 20px
-                font-weight: 700
-        .btn
-            background-color: #ffab3e
-            border-color #ffab3e
-            text-shadow: 0.5px 0.9px 0 rgba(0, 0, 0, 0.1)
-            color: white
-            font-size: 15px
+                margin-top -3px
+        &__old
+            display inline-block
+            color: #91b5bc
+            font-size: 17px
+            font-weight: 400
+            text-decoration: line-through
+        &__new
+            display inline-block
+            margin-left 10px
+            color: #5e6e71
+            font-size: 20px
             font-weight: 700
-            padding 7px 15px 6px 
-            &:hover
-                opacity .85 
-            @media phone
-                width 100%
+            @media screen560
+                margin-left 0px
+    .address-info
+        @media screen560
+            display block   
+    .btn
+        background-color: #ffab3e
+        border-color #ffab3e
+        text-shadow: 0.5px 0.9px 0 rgba(0, 0, 0, 0.1)
+        color: white
+        font-size: 15px
+        font-weight: 700
+        padding 7px 15px 6px 
+        &:hover
+            opacity .85 
+        @media phone
+            width 100%

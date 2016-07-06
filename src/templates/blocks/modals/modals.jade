@@ -2236,12 +2236,17 @@ mixin modal(name, classes, dialogClasses)
             fieldset
                 .form-group
                     .col-sm-12
-                        input.form-control(type="text", placeholder="ФИО")
+                        .input-validation_modals
+                            input.form-control.input-validation__border(type="text", placeholder="ФИО")
+                            .input-validation_message Необходимо заполнить имя
                 .form-group
-                    .col-sm-6 
-                        input.form-control.phone-input-mask(type="text", placeholder="Телефон")
                     .col-sm-6
-                        input.form-control(type="text", placeholder="Email")
+                        .input-validation_modals 
+                            input.form-control.phone-input-mask(type="text", placeholder="Телефон")
+                            .input-validation_message Необходимо заполнить телефон
+                    .col-sm-6
+                        .input-validation_modals 
+                            input.form-control(type="text", placeholder="Email")
                 .form-group.margin-bottom-0
                     .col-sm-6
                         p Отправляя заявку, вы принимаете 
@@ -2288,19 +2293,23 @@ mixin modal(name, classes, dialogClasses)
             +e.title Пакет №4.12. «Скрининг для женщин после 50 лет» + ректороманоскопия со скидкой 50%
 
     .modal-pref-right.modal-pref-right_mobile.cla-angles
-        .pref-border.pref-full.pref-full_right
+        //- .pref-border.pref-full.pref-full_right
         .caption Для получения скидки заполните форму и получите промо-код
         form.form-horizontal.cla-form__mod(action="/")
             fieldset 
                 .form-group
                     .col-sm-12
-                        input.form-control(type="text", placeholder="ФИО")
+                        .input-validation_modals
+                            input.input-validation__border.form-control(type="text", placeholder="ФИО")
+                            .input-validation_message Необходимо заполнить имя
                 .form-group
                     .col-sm-12
-                        input.form-control.phone-input-mask(type="text", placeholder="Телефон")
+                        .input-validation_modals
+                            input.form-control.phone-input-mask(type="text", placeholder="Телефон")
                 .form-group
                     .col-sm-12
-                        input.form-control(type="text", placeholder="Email")
+                        .input-validation_modals
+                            input.form-control(type="text", placeholder="Email")
                 .form-group      
                     .col-sm-12.submits
                         button.btn.btn-primary.btn-xs-block(type="button") Получить промо-код
@@ -2309,6 +2318,10 @@ mixin modal(name, classes, dialogClasses)
                         p Отправляя заявку, вы принимаете 
                             | <br> 
                             a(href="#") правила работы сервиса.
+
+
+
+
 +modal("cla-promo_step2", "bs-modal-cla modal-cla modal-cla_promo")
     .modal-header_close
         button.close.modal-close.close__mod(aria-hidden="true", data-dismiss="modal", type="button")
@@ -2325,7 +2338,7 @@ mixin modal(name, classes, dialogClasses)
             +e.title Пакет №4.12. «Скрининг для женщин после 50 лет» + ректороманоскопия со скидкой 50%
 
     .modal-pref-right.modal-pref-right_mod.cla-angles
-        .pref-border.pref-full.pref-full_right
+        //- .pref-border.pref-full.pref-full_right
         +b.promo-info
             +e.title Ваш промо-код:
             +e.number S321000

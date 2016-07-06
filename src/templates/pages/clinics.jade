@@ -137,11 +137,13 @@
                         h1
                             a(href="", title="") Консультация маммолога с УЗИ  молочных желез со скидкой 10%!
                     .address-info
-                        +e.address.adr
-                            a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title="") г.Киев, пр.Науки 30
-                        +e.location.card__location_metro.blue Димеевская
+                        //- +e.address.adr
+                        //-     a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title="") г.Киев, пр.Науки 30
+                        //- +e.location.card__location_metro.blue Димеевская
                         +e.location Голосеевский
-
+                        +b.price.price_left  
+                            +e.old 1645 грн
+                            +e.new 1 178 грн
                 +e.footer.special-block-btn
                         +b.price
                             +e.old 1645 грн
@@ -152,7 +154,7 @@
         +b("a").load-items(href="#"): +i 
 
         +b("ul").pagination: +i 
-    aside.col-md-3.hidden-sm.hidden-xs 
+    aside.col-md-3.hidden-sm.hidden-xs  
         .widget.widget-map
             #map-canvas-right
             a.btn.btn-success(href="/map.html") Развернуть карту

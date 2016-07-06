@@ -768,11 +768,11 @@ modal_font_size = 15px
 .input-validation_modals
     position relative
     .input-validation__border
-        border 1px solid #e74a37
-        border-top-left-radius 4px
-        border-top-right-radius 4px
-        border-bottom-right-radius 0px
-        border-bottom-left-radius 0px
+        border 1px solid #e74a37 !important
+        border-top-left-radius 4px !important
+        border-top-right-radius 4px !important
+        border-bottom-right-radius 0px !important
+        border-bottom-left-radius 0px !important
 .input-validation_message
     position absolute
     width 100% 
@@ -923,7 +923,7 @@ modal_font_size = 15px
                 @media only screen and (max-width: 767px)
                     margin-top 0  !important
                 @media only screen and (max-width: 640px)
-                    margin-top 15px !important
+                    margin-top 20px !important
                     margin-bottom 0
 
             input
@@ -950,7 +950,7 @@ modal_font_size = 15px
         padding 36px 0 20px 0
         text-align center
         @media screen560
-            padding 0 0 20px 0 
+            padding 20px 0 20px 0 
         &__title 
             font-size: 18px
             font-weight: 700
@@ -1057,6 +1057,7 @@ modal_font_size = 15px
             flex-direction row
             flex-wrap: nowrap
             justify-content stretch
+            overflow hidden
             @media screen560
                 -webkit-flex-direction column 
                 -ms-flex-direction column 
@@ -1066,11 +1067,12 @@ modal_font_size = 15px
             top 16px
         .modal-pref-left
             position relative
-            overflow hidden
+            // overflow hidden
             width 270px 
             padding 20px 
             margin-right -1px
             background-color: #ecf6f8
+            
             &:before
                 right -10px
                 top -10px
@@ -1107,6 +1109,7 @@ modal_font_size = 15px
                 text-align center
                 margin 0 auto
                 padding 20px 5px 
+                min-height 100%
                 &__pictute
                     display inline-block
                     width 140px
@@ -1126,7 +1129,7 @@ modal_font_size = 15px
                     line-height: 20px
         .modal-pref-right
             position relative
-            overflow hidden
+            // overflow hidden
             padding 40px 
             width 390px 
             // margin-left 270px 
@@ -1183,7 +1186,7 @@ modal_font_size = 15px
             .social__icon
                 margin 13px 7px 0 0
                 &:last-child
-                    margin-right 15px
+                    margin-right 0
                 @media only screen and (max-width: 670px)    
                     margin 13px 7px 12px 0
                     &:last-child
