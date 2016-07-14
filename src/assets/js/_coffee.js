@@ -1280,10 +1280,6 @@ if (typeof define === 'function' && define.amd) {
   window.waitForWebFonts = waitForWebFonts;
 }
 
-$(document).each(function() {
-  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
-});
-
 $("#select-specialization").on("click", "li a", function() {
   var item;
   item = $(this);
@@ -1314,10 +1310,11 @@ $('.info-cla').each(function() {
 });
 
 $(".js-autocomplete-subject").each(function() {
-  var _jScrollPane, _jScrollPaneAPI, _jSheight, availableTags;
+  var __response, _jScrollPane, _jScrollPaneAPI, _jSheight, availableTags;
   _jScrollPane = void 0;
   _jScrollPaneAPI = void 0;
   _jSheight = 162;
+  __response = $.ui.autocomplete.prototype._response;
   availableTags = ['Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия', 'Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия', 'Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия'];
   return $('.js-autocomplete-subject').autocomplete({
     source: availableTags,
@@ -1338,6 +1335,16 @@ $(".js-autocomplete-subject").each(function() {
     select: function(event, ui) {
       $(this).val(ui.item.label);
       return false;
+    },
+    source: function(request, response) {
+      var results;
+      results = $.ui.autocomplete.filter(availableTags, request.term);
+      if (!results.length) {
+        $('#no-results').text('Совпадений не найдено!');
+      } else {
+        $('#no-results').empty();
+      }
+      response(results);
     }
   });
 });
@@ -1473,85 +1480,6 @@ $(document).on('click', '.js-cla-btn', function() {
   return false;
 });
 
-if (window.matchMedia('screen and (max-width: 767px)').matches) {
-  $('.js-tab__mobile-c').addClass('js-tab__header-c');
-}
-
-$('.js-tab__header-c').click(function() {
-  var item, parent;
-  parent = $(this).parent(".js-tab__parent-index");
-  item = parent.children('.js-content_hide-index');
-  item.slideToggle('fast');
-  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
-  $(this).toggleClass('tab__header_open');
-  return false;
-});
-
-var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-
-$(function() {
-  var $block, activeItemIndex, setActiveElement;
-  $block = $(".comment-quotes");
-  activeItemIndex = 0;
-  setActiveElement = function(el) {
-    $block.find(".comment-quotes__item.active").removeClass("active");
-    $block.find(".comment-quotes__pane.active").removeClass("active");
-    $(el).addClass("active");
-    activeItemIndex = $(el).parent().index();
-    return $block.find(".comment-quotes__pane").eq(activeItemIndex).addClass("active");
-  };
-  $(".comment-quotes__item").on("click", function() {
-    return setActiveElement(this);
-  });
-  return $(".comment-quotes__header").owlCarousel({
-    navigation: true,
-    pagination: false,
-    navigationText: ["", ""],
-    rewindNav: false,
-    lazyLoad: false,
-    items: 5,
-    itemsDesktop: [1215, 5],
-    itemsTablet: [979, 5],
-    itemsMobile: [767, 2],
-    afterAction: function(el) {
-      var activateIndex, owl;
-      owl = $(el).data("owlCarousel");
-      if (owl) {
-        if (indexOf.call(owl.owl.visibleItems, activeItemIndex) < 0) {
-          activateIndex = activeItemIndex < owl.owl.visibleItems[0] ? owl.owl.visibleItems[0] : owl.owl.visibleItems[owl.owl.visibleItems.length - 1];
-          return setActiveElement($block.find(".comment-quotes__item").eq(activateIndex).get());
-        }
-      }
-    }
-  });
-});
-
-$(function() {
-  return $('.js-datepicker').daterangepicker({
-    autoUpdateInput: true,
-    alwaysShowCalendars: true,
-    startDate: moment(),
-    opens: "left",
-    applyClass: "apply-btn",
-    cancelClass: "cancel-btn",
-    ranges: {
-      'Последние :': [],
-      '7 дней': [moment(), moment().add(6, 'days')],
-      '14 дней': [moment(), moment().add(13, 'days')],
-      '30 дней': [moment(), moment().add(29, 'days')]
-    },
-    locale: {
-      format: 'YYYY.MM.DD',
-      separator: ' - ',
-      applyLabel: 'Подтвердить',
-      cancelLabel: 'Отменить',
-      daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
-      monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-      firstDay: 1
-    }
-  });
-});
-
 $("#select-area").on("change", "input", function() {
   var spanMain, spanText;
   spanText = $(this).siblings('span').text();
@@ -1615,6 +1543,85 @@ $(".js-remove").on("click", function() {
   $(this).removeClass('is-active');
   $('.js-btn-special').text('Выберите специальность');
   return false;
+});
+
+var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
+$(function() {
+  var $block, activeItemIndex, setActiveElement;
+  $block = $(".comment-quotes");
+  activeItemIndex = 0;
+  setActiveElement = function(el) {
+    $block.find(".comment-quotes__item.active").removeClass("active");
+    $block.find(".comment-quotes__pane.active").removeClass("active");
+    $(el).addClass("active");
+    activeItemIndex = $(el).parent().index();
+    return $block.find(".comment-quotes__pane").eq(activeItemIndex).addClass("active");
+  };
+  $(".comment-quotes__item").on("click", function() {
+    return setActiveElement(this);
+  });
+  return $(".comment-quotes__header").owlCarousel({
+    navigation: true,
+    pagination: false,
+    navigationText: ["", ""],
+    rewindNav: false,
+    lazyLoad: false,
+    items: 5,
+    itemsDesktop: [1215, 5],
+    itemsTablet: [979, 5],
+    itemsMobile: [767, 2],
+    afterAction: function(el) {
+      var activateIndex, owl;
+      owl = $(el).data("owlCarousel");
+      if (owl) {
+        if (indexOf.call(owl.owl.visibleItems, activeItemIndex) < 0) {
+          activateIndex = activeItemIndex < owl.owl.visibleItems[0] ? owl.owl.visibleItems[0] : owl.owl.visibleItems[owl.owl.visibleItems.length - 1];
+          return setActiveElement($block.find(".comment-quotes__item").eq(activateIndex).get());
+        }
+      }
+    }
+  });
+});
+
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.js-tab__mobile-c').addClass('js-tab__header-c');
+}
+
+$('.js-tab__header-c').click(function() {
+  var item, parent;
+  parent = $(this).parent(".js-tab__parent-index");
+  item = parent.children('.js-content_hide-index');
+  item.slideToggle('fast');
+  parent.find('.btn__mobile').toggleClass('btn__mobile_open');
+  $(this).toggleClass('tab__header_open');
+  return false;
+});
+
+$(function() {
+  return $('.js-datepicker').daterangepicker({
+    autoUpdateInput: true,
+    alwaysShowCalendars: true,
+    startDate: moment(),
+    opens: "left",
+    applyClass: "apply-btn",
+    cancelClass: "cancel-btn",
+    ranges: {
+      'Последние :': [],
+      '7 дней': [moment(), moment().add(6, 'days')],
+      '14 дней': [moment(), moment().add(13, 'days')],
+      '30 дней': [moment(), moment().add(29, 'days')]
+    },
+    locale: {
+      format: 'YYYY.MM.DD',
+      separator: ' - ',
+      applyLabel: 'Подтвердить',
+      cancelLabel: 'Отменить',
+      daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
+      monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+      firstDay: 1
+    }
+  });
 });
 
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
@@ -1939,7 +1946,7 @@ $(".js-finder-autocomplete").each(function() {
   $.ui.autocomplete.prototype._renderItem = function(ul, item) {
     var highlighted;
     highlighted = item.label.split(this.term).join('<span class="is-active">' + this.term + '</span>');
-    return $("<li></li>").data("item.autocomplete", item).append('<a>' + highlighted + '</a>').appendTo(ul);
+    return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.label + '">' + highlighted + '</a>').appendTo(ul);
   };
   availableTags = ['(Биохимия для ФиброМакса) (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза', 'ФиброМакс (Холестерин; Глюкоза (сыворотка); Триглицериды; Гаптоглог γ-глутаматтрансфераза', 'γ-глутаматтрансфераза', 'γ-глутаматтрансфераза (ГГТ, GGT)', 'γ-глутаматтрансфераза (ГГТ)', 'Тиреоидная панель', 'Тиреоглобулин (ТГ)', 'Тиреоглобулин, антитела (АТТГ)', 'Тиреоидный: ТТГ, Т4 св., АМСт (тиреотропный гормон (ТТГ); Тироксин свободный (T4 свободный) ', 'Тиреотропный гормон (ТТГ)', 'Тироксин общий', 'Тироксин свободный (T4 свободный)', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo facilis necessitatibus omnis unde? Et nobis, placeat odio non corrupti molestiae iure earum repellendus tempora velit voluptate iusto deserunt. Accusantium, maiores!'];
   return $('.js-finder-autocomplete').autocomplete({
@@ -1953,6 +1960,7 @@ $(".js-finder-autocomplete").each(function() {
       }
       if ($('.subject-scroll').height() <= _jSheight) {
         $('.subject-scroll > li').wrapAll($('<ul class="scroll-panel"></ul>').css('height', 'auto'));
+        $('.ui-menu-item').addClass('no-scroll');
       } else {
         $('.subject-scroll > li').wrapAll($('<ul class="scroll-panel"></ul>').height(_jSheight));
         _jScrollPane = $('.scroll-panel').jScrollPane();
@@ -2886,6 +2894,10 @@ $("body").on("smallCardInit", smallCardInit);
     setGender();
   }
 }).call(this);
+
+$(document).each(function() {
+  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
+});
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 

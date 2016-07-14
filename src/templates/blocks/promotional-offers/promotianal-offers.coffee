@@ -1,4 +1,4 @@
-
+# tabs with atrr
 $(document).on 'click', '.js-offers-btn', ->
   drop = $(this).parents('.js-offers-tabs').find('.js-offers-content')
   changeText = $(this).children('.dotted')
@@ -18,3 +18,4 @@ $(document).on 'click', '.js-offers-btn', ->
     changeText.text(getTextAttr) 
 
   false
+

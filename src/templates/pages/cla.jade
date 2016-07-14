@@ -37,10 +37,15 @@
                                     +e.value.value 4.9
                                     +e.stars 
                                         +e.stars-bg
-                                        +e.stars-overlay(style="width: 80%;")    
+                                        +e.stars-overlay(style="width: 80%;")     
                                 +b.card__testimonials  
                                     a(href="", title="") 10 отзывов
                                     a(href='#').card__info
+                                +b.like-box(style="margin-top: 10px")
+                                    +e.like
+                                        +e.votes 1
+                                    +e.dislike
+                                        +e.votes 0
                         +e.middle.affilliate-middle_mod
                             +b.main-title.affilliate-title
                                 +e("a").link(href="#") Медицинская лаборатория Дiла 
@@ -61,7 +66,8 @@
                     +b.promotional-offers.promotional-offers_action
                         +e.title 
                             b Акционные предложения Дiла   
-                        include ../blocks/promotional-offers/promotional-offers.jade       
+                        include ../blocks/promotional-offers/promotional-offers.jade  
+
     aside.col-md-3.hidden-sm.hidden-xs
         .widget.widget-map
             #map-canvas-right

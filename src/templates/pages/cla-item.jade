@@ -40,6 +40,11 @@
                                 +b.card__testimonials  
                                     a(href="", title="") 10 отзывов
                                     a(href='#').card__info
+                                +b.like-box(style="margin-top: 10px")
+                                    +e.like
+                                        +e.votes 1
+                                    +e.dislike
+                                        +e.votes 0
                         +e.middle.affilliate-middle_mod 
                             +b.main-title.affilliate-title
                                 +e("a").link(href="#") Медицинская лаборатория Дiла
@@ -75,19 +80,19 @@
                         +b.cla-search    
                             +e.item
                                 +e("input")(type="text" placeholder="Введите название анализа").subject.form-item.js-autocomplete-subject
-                                    
+                                #no-results(style=" font-size: 14px;") 
                             +e.item.js-section-choice
                                 +e.fillials-choise.everyone-header.js-field-child.js-selection-main.form-item Все филиалы сети Synevo
                                 +b('ul').everyone-lists.section-choice.js-choice-scroll
                                     +e("li").list.js-selection-city Все филиалы сети Synevo
                                     +e("li").list.js-selection-city Поликлиника для взрослых
-                                    +e("li").list.js-selection-city Детская поликлиника на Голосеевском районе
-                                    +e("li").list.js-selection-city Лечебно - диагностический центр
-                                    +e("li").list.js-selection-city Реабилитационный центр
-                                    +e("li").list.js-selection-city Поликлиника для взрослых
-                                    +e("li").list.js-selection-city Детская поликлиника на Голосеевском районе
-                                    +e("li").list.js-selection-city Лечебно - диагностический центр
-                                    +e("li").list.js-selection-city Реабилитационный центр
+                                    //- +e("li").list.js-selection-city Детская поликлиника на Голосеевском районе
+                                    //- +e("li").list.js-selection-city Лечебно - диагностический центр
+                                    //- +e("li").list.js-selection-city Реабилитационный центр
+                                    //- +e("li").list.js-selection-city Поликлиника для взрослых
+                                    //- +e("li").list.js-selection-city Детская поликлиника на Голосеевском районе
+                                    //- +e("li").list.js-selection-city Лечебно - диагностический центр
+                                    //- +e("li").list.js-selection-city Реабилитационный центр
                             +e('a')(href="#").btn-search.btn Искать
                         include ../blocks/cla-package/cla-package.jade      
 
@@ -110,6 +115,11 @@
                                                     +b.card__testimonials 
                                                         a(href="", title="") 10 отзывов
                                                         a(href='#').card__info
+                                                    +b.like-box(style="margin-top: 10px")
+                                                        +e.like
+                                                            +e.votes 1
+                                                        +e.dislike
+                                                            +e.votes 0
                                         +e.middle.affilliate-middle_mod 
                                             +b.main-title.cla-main-title
                                                 +e("a").link(href="#") Пакет № 38.1 (Урогенітальне здоров'я 2: ПЛР, у/г зішкріб)
@@ -141,97 +151,85 @@
                                                 +e.new 450грн 
                                                 +e("a").btn(href="#") Получить скидку
                                     +b.hide-content.hide-content_modifie.js-offers-content 
-                                        +b("ul").analysis-list
-                                            +e("li").item 
-                                                span 1004. 
-                                                | Тиреотропний гормон (ТТГ)
-                                            +e("li").item 
-                                                span 1073. 
-                                                | Холестерин
-                                            +e("li").item 
-                                                span 1079. 
-                                                | Глюкоза (сироватка)
-                                            +e("li").item 
-                                                span 4001. 
-                                                | Аналіз крові розгорнутий (ЗАК)
-                                            +e("li").item 
-                                                span 1001. 
-                                                | Пероксидаза щитоподібної залози, антитіла (ATПO)
-                                            +e("li").item 
-                                                span 1019. 
-                                                | Інсулін
-                                            +e("li").item 
-                                                span 2010. 
-                                                | Вірус гепатиту B (HBV), HBcorAg, антитіла сумарні
-                                            +e("li").item 
-                                                span 1042. 
-                                                | Аланінамінотрансфераза (АЛТ, ALT)
-                                            +e("li").item 
-                                                span 1043. 
-                                                | Альбумін
-                                            +e("li").item 
-                                                span 1046. 
-                                                | Аспартатамінотрансфераза (АСТ, AST) 
-                                            +e("li").item 
-                                                span 1047. 
-                                                | Білок загальний
-                                            +e("li").item 
-                                                span 1048. 
-                                                | Білірубін загальний
-                                            +e("li").item 
-                                                span 1049. 
-                                                | Білірубін прямий
-                                            +e("li").item 
-                                                span 1051. 
-                                                | γ-глутаматтрансфераза (ГГТ, GGT)
-                                            +e("li").item 
-                                                span 1055. 
-                                                | Креатинін
-                                            +e("li").item 
-                                                span 1064. 
-                                                | C-реактивний білок (СРБ) 
-                                            +e("li").item 
-                                                span 1068. 
-                                                | Лужна фосфатаза (ЛФ, ALP)
-                                            +e("li").item 
-                                                span 1074. 
-                                                | Ліпопротеїди високої щільності (ЛПВЩ, HDL)
-                                            +e("li").item 
-                                                span 1075. 
-                                                | Ліпопротеїди низької щільності (ЛПНЩ, LDL)
-                                            +e("li").item 
-                                                span 1072. 
-                                                | Тригліцериди
-                                            +e("li").item 
-                                                span 1080. 
-                                                | Глікований гемоглобін (HbA1c)
-                                            +e("li").item 
-                                                span 2013. 
-                                                | Вірус гепатиту C (HCV), антитіла сумарні
-                                            +e("li").item 
-                                                span 1076. 
-                                                | Ліпопротеїди дуже низької щільності (VLDL)
-                                            +e("li").item 
-                                                span 1077. 
-                                                | Коефіцієнт атерогенності (КА) 
-                                            +e("li").item 
-                                                span 1050. 
-                                                | Білірубін непрямий
-                                            +e("li").item 
-                                                span 4017. 
-                                                | Швидкість осідання еритроцитів (ШОЕ, ESR)
-                                            +e("li").item 
-                                                span 1156. 
-                                                | Кальцій іонізований (сироватка)
-                                            +e("li").item 
-                                                span 1172. 
-                                                | Розрахунок індексу НОМА
-                                            +e("li").item 
-                                                span 1228. 
-                                                | Вітамін D загальний (D2+D3)
-                                            +e("li").item 
-                                                span 1716. 
-                                                | Примітка
+                                        ul.analysis-list
+                                              li.analysis-list__item
+                                                span 4008.
+                                                |  Анализ кала на кишечные паразиты(метод концентрирования Parasep)
+                                              li.analysis-list__item
+                                                span 4007.
+                                                |  Анализ кала на скрытую кровь
+                                              li.analysis-list__item
+                                                span 4101.
+                                                |  Анализ крови развернутый (для пакета)
+                                              li.analysis-list__item
+                                                span 4002.
+                                                |  Анализ крови на LE-клетки
+                                              li.analysis-list__item
+                                                span 4001.
+                                                |  Анализ крови развернутый (ОАК)
+                                              li.analysis-list__item
+                                                span 4005.
+                                                |  Анализ мочи по Зимницкому
+                                              li.analysis-list__item
+                                                span 4006.
+                                                |  Анализ мочи по Нечипоренко
+                                              li.analysis-list__item
+                                                span 4012.
+                                                |  Анализ секрета простаты
+                                              li.analysis-list__item
+                                                span 4009.
+                                                |  Анализ соскоба на яйца остриц (энтеробиоз)
+                                              li.analysis-list__item
+                                                span 4011.
+                                                |  Анализ у/г мазка на микрофлору (на стекле)
+                                              li.analysis-list__item
+                                                span 9096.
+                                                |  Ананас, антитела IgE
+                                              li.analysis-list__item
+                                                span 2001.
+                                                |  Антимикросомальные антитела (АМС тиреоидная)
+                                              li.analysis-list__item
+                                                span 4016.
+                                                |  Антирезусные антитела
+                                              li.analysis-list__item
+                                                span 9161.
+                                                |  Базальная мембрана альвеолярного аппарата, антитела IgG
+                                              li.analysis-list__item
+                                                span 9162.
+                                                |  Базальная мембрана гломерулярного аппарата (GBM), антитела IgG
+                                              li.analysis-list__item
+                                                span 9163.
+                                                |  Базальная мембрана трубчатого аппарата, антитела IgG
+                                              li.analysis-list__item
+                                                span 9109.
+                                                |  Банан, антитела IgE
+                                              li.analysis-list__item
+                                                span 1394.
+                                                |  Банан, антитела IgG
+                                              li.analysis-list__item
+                                                span 1477.
+                                                |  Банан, антитела IgG4
+                                              li.analysis-list__item
+                                                span 4018.
+                                                |  Клинический анализ крови (автоматизированный)
+                                              li.analysis-list__item
+                                                span 1059.
+                                                |  Мочевая кислота
+                                              li.analysis-list__item
+                                                span 9259.
+                                                |  Ржаная мука, антитела IgE
+                                              li.analysis-list__item
+                                                span 9254.
+                                                |  Смесь фруктов (земляника, груша, лимон, ананас), антитела IgE
+                                              li.analysis-list__item
+                                                span 1003.
+                                                |  Тиреоглобулин (ТГ)
+                                              li.analysis-list__item
+                                                span 1002.
+                                                |  Тиреоглобулин, антитела (АТТГ)
+                                              li.analysis-list__item
+                                                span 1004.
+                                                |  Тиреотропный гормон (ТТГ)
                                         .offers-color
                                             span Примечание: Какое-то примечание которое мы получаем автоматически из ЦЛА
                                 +e.item.card.action-card.card.affilliate.js-offers-tabs
@@ -249,6 +247,11 @@
                                                 +b.card__testimonials 
                                                     a(href="", title="") 10 отзывов
                                                     a(href='#').card__info
+                                                +b.like-box(style="margin-top: 10px")
+                                                    +e.like
+                                                        +e.votes 1
+                                                    +e.dislike
+                                                        +e.votes 0
                                         +e.middle.affilliate-middle_mod 
                                             +b.main-title.cla-main-title
                                                 +e("a").link(href="#") Пакет № 38.1 (Урогенітальне здоров'я 2: ПЛР, у/г зішкріб)
@@ -389,6 +392,11 @@
                                                 +b.card__testimonials 
                                                     a(href="", title="") 10 отзывов
                                                     a(href='#').card__info
+                                                +b.like-box(style="margin-top: 10px")
+                                                    +e.like
+                                                        +e.votes 1
+                                                    +e.dislike
+                                                        +e.votes 0
                                         +e.middle.affilliate-middle_mod 
                                             +b.main-title.cla-main-title
                                                 +e("a").link(href="#") Пакет № 38.1 (Урогенітальне здоров'я 2: ПЛР, у/г зішкріб)
@@ -516,7 +524,7 @@
                                             span Примечание: Какое-то примечание которое мы получаем автоматически из ЦЛА
 
 
-                    #tab-fillials.tab-pane 
+                    #tab-fillials.tab-pane    
                         +b.cla-fillials
                             +e.item
                                 +e.left

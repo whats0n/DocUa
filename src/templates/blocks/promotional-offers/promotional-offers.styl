@@ -26,8 +26,10 @@
 		&__item
 			background #FFF
 			border-bottom 1px solid #e6edef
+			// &:first-child
+			// 	border-top 1px solid transparent
 			&:last-child
-				border-color transparent 
+				// border-color transparent 
 				border-radius 0 0 3px 3px
 				&:hover
 					border-color #e5f2f5
@@ -37,6 +39,8 @@
 				outline 1px solid green_base
 			.offers-wrap
 				padding 15px 21px 15px 39px
+				// &:hover .offers__item
+				// 	border-top-color: #fff
 				&:hover
 					background-color: #f3f8fb
 					cursor pointer
@@ -162,10 +166,18 @@
 	padding 28px 21px 19px 39px 
 	.analysis-list
 		columns 2 
+		column-gap: 60px
 		@media screen560
 			columns 1
+		clearfix()
 		&__item
+			// float left
+			// display inline-block
+			// vertical-align top
+			// width 49%
+			// display: inline-table
 			margin-bottom 12px
+			padding-right 20px
 			span 
 				color: #73868a
 	&.hide-content_modifie

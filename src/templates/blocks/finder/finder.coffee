@@ -208,7 +208,7 @@ $(".js-finder-autocomplete").each ->
     #   return $('<li></li>').data('item.autocomplete', item).append('<a>' + item.label + '</a>').appendTo ul
     $.ui.autocomplete.prototype._renderItem = (ul, item) ->
         highlighted = item.label.split(this.term).join('<span class="is-active">' + this.term +  '</span>')
-        return $("<li></li>").data("item.autocomplete", item).append('<a>' + highlighted + '</a>').appendTo(ul);
+        return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.label + '">' + highlighted + '</a>').appendTo(ul);
 
     # monkeyPatchAutocomplete = ->
     #   # Don't really need to save the old fn, 
@@ -249,6 +249,7 @@ $(".js-finder-autocomplete").each ->
                 _jScrollPaneAPI.destroy() 
             if  $('.subject-scroll').height() <= _jSheight
                 $('.subject-scroll > li').wrapAll $('<ul class="scroll-panel"></ul>').css('height', 'auto')
+                $('.ui-menu-item').addClass 'no-scroll'
             else 
                 $('.subject-scroll > li').wrapAll $('<ul class="scroll-panel"></ul>').height(_jSheight)
                 _jScrollPane = $('.scroll-panel').jScrollPane()

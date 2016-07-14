@@ -15,6 +15,12 @@ $(".js-autocomplete-subject").each ->
 	_jScrollPane = undefined
 	_jScrollPaneAPI = undefined
 	_jSheight = 162
+	__response = $.ui.autocomplete::_response
+
+	# $.ui.autocomplete::_response = (content) ->
+	# 	__response.apply this, [ content ]
+	# 	@element.trigger 'autocompletesearchcomplete', [ content ]
+	# 	return
 
 	availableTags = [
 		'Реовазография (РВГ)'
@@ -34,7 +40,7 @@ $(".js-autocomplete-subject").each ->
 		'Ректороманоскопия'
 	]
 
-	$('.js-autocomplete-subject').autocomplete 
+	$('.js-autocomplete-subject').autocomplete
 		source: availableTags,
 		appendTo: ".tab-content"
 		open: ->
@@ -46,6 +52,7 @@ $(".js-autocomplete-subject").each ->
 			_jScrollPane = $('.scroll-panel').jScrollPane()
 			_jScrollPaneAPI = _jScrollPane.data('jsp')
 			return
+
 		close: (event, ui) ->
 			_jScrollPaneAPI.destroy()
 			_jScrollPane = undefined
@@ -53,3 +60,20 @@ $(".js-autocomplete-subject").each ->
 		select: (event, ui) -> 
 			$(this).val ui.item.label
 			false
+		source: (request, response) ->
+			results = $.ui.autocomplete.filter(availableTags, request.term)
+			if !results.length
+				$('#no-results').text 'Совпадений не найдено!'
+			else
+				$('#no-results').empty()
+			response results
+			return
+
+
+	# ).bind 'autocompletesearchcomplete', (event, contents) ->
+	# 	if contents.length < 1
+	# 		$('#results').html 'No Entries Found'
+	# 	else
+	# 		$('#results').html ''
+	# 	return 
+	# return
