@@ -269,6 +269,14 @@ $(".js-finder-autocomplete").each ->
         select: (event, ui) -> 
             $(this).val ui.item.label
             false
+        source: (request, response) ->
+            results = $.ui.autocomplete.filter(availableTags, request.term)
+            if !results.length
+                $('.no-results-finder').text 'Совпадений не найдено!'
+            else
+                $('.no-results-finder').empty()
+            response results
+            return
 
     
 # $('#dot5 .pathname').each ->

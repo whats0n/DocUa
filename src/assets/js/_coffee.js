@@ -1280,6 +1280,10 @@ if (typeof define === 'function' && define.amd) {
   window.waitForWebFonts = waitForWebFonts;
 }
 
+$(document).each(function() {
+  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
+});
+
 $("#select-specialization").on("click", "li a", function() {
   var item;
   item = $(this);
@@ -1310,11 +1314,15 @@ $('.info-cla').each(function() {
 });
 
 $(".js-autocomplete-subject").each(function() {
-  var __response, _jScrollPane, _jScrollPaneAPI, _jSheight, availableTags;
+  var _jScrollPane, _jScrollPaneAPI, _jSheight, availableTags;
   _jScrollPane = void 0;
   _jScrollPaneAPI = void 0;
   _jSheight = 162;
-  __response = $.ui.autocomplete.prototype._response;
+  $.ui.autocomplete.prototype._renderItem = function(ul, item) {
+    var highlighted;
+    highlighted = item.label.split(this.term).join('<span class="is-active">' + this.term + '</span>');
+    return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.label + '">' + highlighted + '</a>').appendTo(ul);
+  };
   availableTags = ['Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия', 'Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия', 'Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия'];
   return $('.js-autocomplete-subject').autocomplete({
     source: availableTags,
@@ -1905,22 +1913,22 @@ $("#select-area").on("areaSelected", function(e, arg) {
   var title, value, values;
   values = arg.values;
   title = ((function() {
-    var j, len, results;
-    results = [];
+    var j, len, results1;
+    results1 = [];
     for (j = 0, len = values.length; j < len; j++) {
       value = values[j];
-      results.push(value.title);
+      results1.push(value.title);
     }
-    return results;
+    return results1;
   })()).join(", ");
   value = ((function() {
-    var j, len, results;
-    results = [];
+    var j, len, results1;
+    results1 = [];
     for (j = 0, len = values.length; j < len; j++) {
       value = values[j];
-      results.push(value.value);
+      results1.push(value.value);
     }
-    return results;
+    return results1;
   })()).join(", ");
   $(".finder [data-target='#select-area'] input[type='hidden']").val(value);
   $(".finder [data-target='#select-area']").parent().find('.finder__field-text:last').val(values.length > 0 ? title : $(".finder [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
@@ -1982,6 +1990,16 @@ $(".js-finder-autocomplete").each(function() {
     select: function(event, ui) {
       $(this).val(ui.item.label);
       return false;
+    },
+    source: function(request, response) {
+      var results;
+      results = $.ui.autocomplete.filter(availableTags, request.term);
+      if (!results.length) {
+        $('.no-results-finder').text('Совпадений не найдено!');
+      } else {
+        $('.no-results-finder').empty();
+      }
+      response(results);
     }
   });
 });
@@ -2894,10 +2912,6 @@ $("body").on("smallCardInit", smallCardInit);
     setGender();
   }
 }).call(this);
-
-$(document).each(function() {
-  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
-});
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 

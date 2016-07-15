@@ -15,8 +15,11 @@ $(".js-autocomplete-subject").each ->
 	_jScrollPane = undefined
 	_jScrollPaneAPI = undefined
 	_jSheight = 162
-	__response = $.ui.autocomplete::_response
+	# __response = $.ui.autocomplete::_response
 
+	$.ui.autocomplete.prototype._renderItem = (ul, item) ->
+	    highlighted = item.label.split(this.term).join('<span class="is-active">' + this.term +  '</span>')
+	    return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.label + '">' + highlighted + '</a>').appendTo(ul);
 	# $.ui.autocomplete::_response = (content) ->
 	# 	__response.apply this, [ content ]
 	# 	@element.trigger 'autocompletesearchcomplete', [ content ]
