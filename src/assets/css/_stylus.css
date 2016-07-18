@@ -4935,7 +4935,7 @@ article.static-page .header-styled.header-styled-mod {
 }
 .info-cla {
   position: relative;
-  margin-left: 21px;
+  margin-left: 14px;
 }
 .info-cla:before {
   content: "";
@@ -5190,6 +5190,85 @@ article.static-page .header-styled.header-styled-mod {
 .article-header__meta {
   color: #96b8bf;
   margin: 15px 0;
+}
+.badge-label {
+  position: absolute;
+  top: -4px;
+  right: 15px;
+  font-size: 12px;
+  line-height: 1.16;
+  text-align: center;
+  color: #fff;
+  padding: 3px 7px;
+  height: 40px;
+}
+.badge-label:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.badge-label:before {
+  right: 100%;
+  border-width: 0 0 4px 3px;
+}
+.badge-label_background_green {
+  background-color: rgba(53,191,174,0.9);
+}
+.badge-label_background_green:before {
+  border-color: transparent transparent #169081 transparent;
+}
+.badge-label_background_green .badge-label__arrow {
+  border-top-color: rgba(53,191,174,0.9);
+}
+.badge-label_background_blue {
+  background-color: rgba(0,130,155,0.9);
+}
+.badge-label_background_blue:before {
+  border-color: transparent transparent #00829b transparent;
+}
+.badge-label_background_blue .badge-label__arrow {
+  border-top-color: rgba(0,130,155,0.9);
+}
+.badge-label_background_yellow {
+  background-color: rgba(255,192,42,0.9);
+}
+.badge-label_background_yellow:before {
+  border-color: transparent transparent #ffc02a transparent;
+}
+.badge-label_background_yellow:after {
+  border-color: transparent transparent transparent #ffc02a;
+}
+.badge-label_background_yellow .badge-label__arrow {
+  border-top-color: rgba(255,192,42,0.9);
+}
+.badge-label__arrow {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #000 transparent transparent;
+}
+.badge-label .big {
+  font-size: 20px;
+  line-height: 1;
+}
+.badge-label .middle {
+  font-size: 14px;
+  line-height: 1;
+}
+.badge-label p {
+  margin: 0 0 4px;
+}
+.badge-label img:first-child {
+  margin-top: 4px;
+}
+.card .badge-label p {
+  margin: 0 0 4px;
 }
 .articles-list,
 .med-articles-list {
@@ -5517,85 +5596,6 @@ article.static-page .header-styled.header-styled-mod {
   .med-articles-list.blog-page .article-list-item__inner {
     position: relative;
   }
-}
-.badge-label {
-  position: absolute;
-  top: -4px;
-  right: 15px;
-  font-size: 12px;
-  line-height: 1.16;
-  text-align: center;
-  color: #fff;
-  padding: 3px 7px;
-  height: 40px;
-}
-.badge-label:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-}
-.badge-label:before {
-  right: 100%;
-  border-width: 0 0 4px 3px;
-}
-.badge-label_background_green {
-  background-color: rgba(53,191,174,0.9);
-}
-.badge-label_background_green:before {
-  border-color: transparent transparent #169081 transparent;
-}
-.badge-label_background_green .badge-label__arrow {
-  border-top-color: rgba(53,191,174,0.9);
-}
-.badge-label_background_blue {
-  background-color: rgba(0,130,155,0.9);
-}
-.badge-label_background_blue:before {
-  border-color: transparent transparent #00829b transparent;
-}
-.badge-label_background_blue .badge-label__arrow {
-  border-top-color: rgba(0,130,155,0.9);
-}
-.badge-label_background_yellow {
-  background-color: rgba(255,192,42,0.9);
-}
-.badge-label_background_yellow:before {
-  border-color: transparent transparent #ffc02a transparent;
-}
-.badge-label_background_yellow:after {
-  border-color: transparent transparent transparent #ffc02a;
-}
-.badge-label_background_yellow .badge-label__arrow {
-  border-top-color: rgba(255,192,42,0.9);
-}
-.badge-label__arrow {
-  display: block;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  border-width: 8px;
-  border-style: solid;
-  border-color: #000 transparent transparent;
-}
-.badge-label .big {
-  font-size: 20px;
-  line-height: 1;
-}
-.badge-label .middle {
-  font-size: 14px;
-  line-height: 1;
-}
-.badge-label p {
-  margin: 0 0 4px;
-}
-.badge-label img:first-child {
-  margin-top: 4px;
-}
-.card .badge-label p {
-  margin: 0 0 4px;
 }
 .benefits {
   margin: 20px 0 0;
@@ -9472,6 +9472,11 @@ hr {
 .cla-tabs__drop .offers-wrap {
   padding: 12px 21px 12px 50px !important;
 }
+@media only screen and (max-width: 560px) {
+  .cla-tabs__drop .offers-wrap {
+    padding: 12px 21px 12px 35px !important;
+  }
+}
 .logo__mod .logo__text {
   display: none;
 }
@@ -13291,6 +13296,10 @@ hr {
   width: 18px;
   height: 21px;
   background: url("i/icons/finder-doc.png") no-repeat center center;
+}
+.finder-map .finder__field-icon-clinics > span {
+  right: 3px;
+  top: 7px;
 }
 .finder-map .finder__submit {
   width: 114px;
@@ -22783,6 +22792,11 @@ __thumbs .owl-next {
 .promotional-offers .offers__item .offers-wrap {
   padding: 15px 21px 15px 39px;
 }
+@media only screen and (max-width: 560px) {
+  .promotional-offers .offers__item .offers-wrap {
+    padding: 15px 21px;
+  }
+}
 .promotional-offers .offers__item .offers-wrap:hover {
   background-color: #f3f8fb;
   cursor: pointer;
@@ -23005,6 +23019,8 @@ __thumbs .owl-next {
   clear: both;
 }
 .hide-content .analysis-list__item {
+  width: 100%;
+  display: inline-table;
   margin-bottom: 12px;
   padding-right: 20px;
 }
