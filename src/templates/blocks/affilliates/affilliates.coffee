@@ -71,6 +71,20 @@ $(".js-autocomplete-subject").each ->
 				$('#no-results').empty()
 			response results
 			return
+		# source: (request, response) ->
+		# 	$.post '/analysis/search/live', {
+		# 		json: partTags
+		# 		delay: 1
+		# 	}, (data) ->
+		# 		response $.map(data, (item) ->
+		# 			{
+		# 				id: item.num
+		# 				label: pn.part
+		# 				value: pn.dwg
+		# 			}
+		# 		)
+		# 		return
+		# 	return
 
 
 	# ).bind 'autocompletesearchcomplete', (event, contents) ->
