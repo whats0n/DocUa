@@ -1320,12 +1320,41 @@ $(".js-autocomplete-subject").each(function() {
   _jSheight = 162;
   $.ui.autocomplete.prototype._renderItem = function(ul, item) {
     var highlighted;
-    highlighted = item.label.split(this.term).join('<span class="is-active">' + this.term + '</span>');
-    return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.label + '">' + highlighted + '</a>').appendTo(ul);
+    highlighted = item.value.split(this.term).join('<span class="is-active">' + this.term + '</span>');
+    return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.value + '">' + highlighted + '</a>').appendTo(ul);
   };
-  availableTags = ['Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия', 'Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия', 'Реовазография (РВГ)', 'Реоэнцофалография (РЭГ)', 'Ректороманоскопия', 'Ректосигмоскопия', 'Ректороманоскопия'];
+  availableTags = [
+    {
+      id: 1,
+      label: 'Реовазография (РВГ)',
+      value: 'Реовазография (РВГ)2'
+    }, {
+      id: 2,
+      label: 'Реоэнцофалография (РЭГ)',
+      value: 'Реоэнцофалография (РЭГ)2'
+    }, {
+      id: 3,
+      label: 'Ректороманоскопия',
+      value: 'Ректороманоскопия2'
+    }, {
+      id: 4,
+      label: 'Ректороманоскопия',
+      value: 'Ректороманоскопия2'
+    }, {
+      id: 4,
+      label: 'Ректороманоскопия',
+      value: 'Ректороманоскопия2'
+    }, {
+      id: 4,
+      label: 'Ректороманоскопия',
+      value: 'Ректороманоскопия2'
+    }, {
+      id: 4,
+      label: 'Ректороманоскопия',
+      value: 'Ректороманоскопия2'
+    }
+  ];
   return $('.js-autocomplete-subject').autocomplete({
-    source: availableTags,
     appendTo: ".tab-content",
     open: function() {
       $(this).data('uiAutocomplete').menu.element.addClass('subject-scroll1');
@@ -1341,7 +1370,7 @@ $(".js-autocomplete-subject").each(function() {
       _jScrollPane = void 0;
     },
     select: function(event, ui) {
-      $(this).val(ui.item.label);
+      $(this).val(ui.item.value);
       return false;
     },
     source: function(request, response) {
@@ -2497,6 +2526,34 @@ $(document).on('click', '.js-offers-btn', function() {
   return false;
 });
 
+$(function() {
+  $('.js-search-btn').click(function() {
+    if ($('.js-form').hasClass('is-search-open')) {
+      return true;
+    } else {
+      $('.js-form').addClass('is-search-open');
+      return false;
+    }
+  });
+  $('.js-search-input').focus(function() {
+    if ($('.js-form').hasClass('is-search-active')) {
+      return true;
+    } else {
+      $('.js-form').addClass('is-search-active');
+      return false;
+    }
+  });
+  $(document).on("click", function() {
+    return $(".js-form").removeClass("is-search-active");
+  });
+  $(document).on("click", function() {
+    return $(".js-form").removeClass("is-search-open");
+  });
+  return $('.js-form').on("click", function(e) {
+    return e.stopPropagation();
+  });
+});
+
 $("#select-area").on("areaSelected", function(e, arg) {
   var title, value, values;
   values = arg.values;
@@ -2543,34 +2600,6 @@ $(window).resize(smallCardInit);
 smallCardInit();
 
 $("body").on("smallCardInit", smallCardInit);
-
-$(function() {
-  $('.js-search-btn').click(function() {
-    if ($('.js-form').hasClass('is-search-open')) {
-      return true;
-    } else {
-      $('.js-form').addClass('is-search-open');
-      return false;
-    }
-  });
-  $('.js-search-input').focus(function() {
-    if ($('.js-form').hasClass('is-search-active')) {
-      return true;
-    } else {
-      $('.js-form').addClass('is-search-active');
-      return false;
-    }
-  });
-  $(document).on("click", function() {
-    return $(".js-form").removeClass("is-search-active");
-  });
-  $(document).on("click", function() {
-    return $(".js-form").removeClass("is-search-open");
-  });
-  return $('.js-form').on("click", function(e) {
-    return e.stopPropagation();
-  });
-});
 
 (function() {
   var $bodyMap, $commonPill, $skinPill, IE, detailed, gender, map, otherZoneClickHandler, refreshView, selectZone, selected, setGender, side, toggleDetailed, toggleSide, unselectZones, zones;

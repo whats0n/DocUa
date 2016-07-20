@@ -18,33 +18,62 @@ $(".js-autocomplete-subject").each ->
 	# __response = $.ui.autocomplete::_response
 
 	$.ui.autocomplete.prototype._renderItem = (ul, item) ->
-	    highlighted = item.label.split(this.term).join('<span class="is-active">' + this.term +  '</span>')
-	    return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.label + '">' + highlighted + '</a>').appendTo(ul);
+		highlighted = item.value.split(this.term).join('<span class="is-active">' + this.term +  '</span>')
+		return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.value + '">' + highlighted + '</a>').appendTo(ul);
+	
 	# $.ui.autocomplete::_response = (content) ->
 	# 	__response.apply this, [ content ]
 	# 	@element.trigger 'autocompletesearchcomplete', [ content ]
 	# 	return
 
 	availableTags = [
-		'Реовазография (РВГ)'
-		'Реоэнцофалография (РЭГ)'
-		'Ректороманоскопия'
-		'Ректосигмоскопия'
-		'Ректороманоскопия'
-		'Реовазография (РВГ)'
-		'Реоэнцофалография (РЭГ)'
-		'Ректороманоскопия'
-		'Ректосигмоскопия'
-		'Ректороманоскопия'
-		'Реовазография (РВГ)'
-		'Реоэнцофалография (РЭГ)'
-		'Ректороманоскопия'
-		'Ректосигмоскопия'
-		'Ректороманоскопия'
-	]
+		{
+			id: 1,
+			label: 'Реовазография (РВГ)',
+			value: 'Реовазография (РВГ)2' },
+		{
+			id: 2,
+			label: 'Реоэнцофалография (РЭГ)',
+			value: 'Реоэнцофалография (РЭГ)2' },
+		{
+			id: 3,
+			label: 'Ректороманоскопия',
+			value: 'Ректороманоскопия2'} 
+		{
+			id: 4,
+			label: 'Ректороманоскопия',
+			value: 'Ректороманоскопия2'} 
+		{
+			id: 4,
+			label: 'Ректороманоскопия',
+			value: 'Ректороманоскопия2'} 
+		{
+			id: 4,
+			label: 'Ректороманоскопия',
+			value: 'Ректороманоскопия2'} 
+		{
+			id: 4,
+			label: 'Ректороманоскопия',
+			value: 'Ректороманоскопия2'} 
+	];
+		# 'Реовазография (РВГ)'
+		# 'Реоэнцофалография (РЭГ)'
+		# 'Ректороманоскопия'
+		# 'Ректосигмоскопия'
+		# 'Ректороманоскопия'
+		# 'Реовазография (РВГ)'
+		# 'Реоэнцофалография (РЭГ)'
+		# 'Ректороманоскопия'
+		# 'Ректосигмоскопия'
+		# 'Ректороманоскопия'
+		# 'Реовазография (РВГ)'
+		# 'Реоэнцофалография (РЭГ)'
+		# 'Ректороманоскопия'
+		# 'Ректосигмоскопия'
+		# 'Ректороманоскопия'
 
 	$('.js-autocomplete-subject').autocomplete
-		source: availableTags,
+		# source: availableTags,
 		appendTo: ".tab-content"
 		open: ->
 			# $('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 8);
@@ -61,7 +90,7 @@ $(".js-autocomplete-subject").each ->
 			_jScrollPane = undefined
 			return
 		select: (event, ui) -> 
-			$(this).val ui.item.label
+			$(this).val ui.item.value
 			false
 		source: (request, response) ->
 			results = $.ui.autocomplete.filter(availableTags, request.term)
@@ -71,9 +100,23 @@ $(".js-autocomplete-subject").each ->
 				$('#no-results').empty()
 			response results
 			return
+			# $.ajax
+			# 	url: '../../data/affilliates.json',
+			# 	dataType: 'json',
+			# 	method: 'GET',
+			# 	# data: {term: request.term}
+			# 	success: (data) ->
+			# 		response $.map(data, (item) ->
+			# 			{
+			# 				id: item.id
+			# 				label: item.label
+			# 				value: item.value 
+			# 			}
+			# 		)
 		# source: (request, response) ->
-		# 	$.post '/analysis/search/live', {
-		# 		json: partTags
+		# source: (request, response) ->
+		# 	$.post "/echo/json/", {
+		# 		json: partTags,
 		# 		delay: 1
 		# 	}, (data) ->
 		# 		response $.map(data, (item) ->
@@ -86,6 +129,11 @@ $(".js-autocomplete-subject").each ->
 		# 		return
 		# 	return
 
+	# ).data("autocomplete")._renderItem = (ul, item) ->
+	# 	return $("<li>").data("item.autocomplete", item).append("<a>" + item.url + "</a>").appendTo(ul);
+
+	# 	highlighted = item.value.split(this.term).join('<span class="is-active">' + this.term +  '</span>')
+	# 	return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.value + '">' + highlighted + '</a>').appendTo(ul);
 
 	# ).bind 'autocompletesearchcomplete', (event, contents) ->
 	# 	if contents.length < 1
