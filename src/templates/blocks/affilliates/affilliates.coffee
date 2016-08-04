@@ -92,13 +92,18 @@ $(".js-autocomplete-subject").each ->
 		select: (event, ui) -> 
 			$(this).val ui.item.value
 			false
+			
 		source: (request, response) ->
+			noResult = $('.no-results')  
 			results = $.ui.autocomplete.filter(availableTags, request.term)
 			if !results.length
-				$('#no-results').text 'Совпадений не найдено!'
+				noResult.addClass('is-hide')
 			else
-				$('#no-results').empty()
+				noResult.removeClass('is-hide')
 			response results
+
+			if !($('.js-autocomplete-subject').val().length >= 2)
+				noResult.removeClass('is-hide')
 			return
 			# $.ajax
 			# 	url: '../../data/affilliates.json',
@@ -142,3 +147,4 @@ $(".js-autocomplete-subject").each ->
 	# 		$('#results').html ''
 	# 	return 
 	# return
+	

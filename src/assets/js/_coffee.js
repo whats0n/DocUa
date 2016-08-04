@@ -1374,14 +1374,18 @@ $(".js-autocomplete-subject").each(function() {
       return false;
     },
     source: function(request, response) {
-      var results;
+      var noResult, results;
+      noResult = $('.no-results');
       results = $.ui.autocomplete.filter(availableTags, request.term);
       if (!results.length) {
-        $('#no-results').text('Совпадений не найдено!');
+        noResult.addClass('is-hide');
       } else {
-        $('#no-results').empty();
+        noResult.removeClass('is-hide');
       }
       response(results);
+      if (!($('.js-autocomplete-subject').val().length >= 2)) {
+        noResult.removeClass('is-hide');
+      }
     }
   });
 });

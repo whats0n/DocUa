@@ -853,36 +853,40 @@ modal_font_size = 15px
         padding 5px 0 
         margin-bottom 25px
         clearfix()
+        @media screen560
+            padding-top 10px
         @media only screen and (max-width: 640px)
             margin-bottom 0
         &__item
             float left
             width 50%
-            @media screen560
+            @media only screen and (max-width: 560px)
                 // width 100%
                 // float none
-                text-align left
-            @media only screen and (max-width: 370px)
-                width 100%
-                float none
                 text-align center
+                width 250px
+                margin: 0 auto
+                text-align left
+                height 50px
+                float none
+                display block
             //     &:last-child
             //         text-align left
             //         padding-left 20px
             //         margin-top 5px
-            &:first-child
-                padding-left 20px
-                @media screen560
-                    padding-left 10px 
-            &:last-child
-                text-align right
-                padding-right 20px
-                @media screen560
-                    text-align left
-                    padding 0
-                @media only screen and (max-width: 370px)
-                    padding 0
-                    text-align center
+            // &:first-child
+            //     padding-left 20px
+            //     @media screen560
+            //         padding-left 10px 
+            // &:last-child
+            //     text-align right
+            //     padding-right 20px
+            //     @media screen560
+            //         text-align left
+            //         padding 0
+            //     @media only screen and (max-width: 370px)
+            //         padding 0
+            //         text-align center
         &__icon
             position relative
             float left
@@ -892,7 +896,9 @@ modal_font_size = 15px
             background-color: #fffdf6
             box-shadow: 1px 1.7px 5px rgba(0, 0, 0, 0.04)
             @media screen560
-                display none
+                float none
+                display inline-block
+                vertical-align middle
             &:before
                 content ""
                 position absolute
@@ -912,8 +918,9 @@ modal_font_size = 15px
             padding-left 50px
             line-height 38px
             @media screen560
-                padding 0
-                line-height 30px
+                display inline-block
+                // line-height 43px
+                padding-left 20px
     .cla-form__mod
         .form-group
             margin-bottom 20px
@@ -1189,15 +1196,15 @@ modal_font_size = 15px
                 padding 0
                 margin-bottom: 17px
                 @media screen560
-                    padding 0 5px
-            .social__icon
-                margin 13px 7px 0 0
-                &:last-child
-                    margin-right 0
-                @media only screen and (max-width: 670px)    
-                    margin 13px 7px 12px 0
-                    &:last-child
-                        margin-right 0
+                    padding 0 10px
+            // .social__icon
+            //     margin 13px 7px 0 0
+            //     &:last-child
+            //         margin-right 0
+            //     @media only screen and (max-width: 670px)    
+            //         margin 13px 7px 12px 0
+            //         &:last-child
+            //             margin-right 0
             .social__left
                 @media only screen and (max-width: 670px)
                     display none 

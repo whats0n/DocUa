@@ -66,7 +66,44 @@
                     +b.promotional-offers.promotional-offers_action
                         +e.title 
                             b Акционные предложения Дiла   
-                        include ../blocks/promotional-offers/promotional-offers.jade  
+                        include ../blocks/promotional-offers/promotional-offers.jade
+                +e.item.action-card.card.affilliate(data-id='a' + cla.id) 
+                    +e.in
+                        +e.left.item-left__mod.affilliate-left_mod       
+                            .card__left-side   
+                                .card__image  
+                                    a(href="#")  
+                                        img(src='i/_isida.jpg').photo 
+                                +b.rating.value-size_big 
+                                    +e.value.value 4.9
+                                    +e.stars 
+                                        +e.stars-bg
+                                        +e.stars-overlay(style="width: 80%;")     
+                                +b.card__testimonials  
+                                    a(href="", title="") 10 отзывов
+                                    a(href='#').card__info
+                                +b.like-box(style="margin-top: 10px")
+                                    +e.like
+                                        +e.votes 1
+                                    +e.dislike
+                                        +e.votes 0
+                        +e.middle.affilliate-middle_mod
+                            +b.main-title.affilliate-title
+                                +e("a").link(href="#") Медицинская лаборатория Дiла 
+                                +e("span").clinic
+                                    b 271 филиал в Киеве   
+                                a(href="#clinic-location-map" data-toggle="modal").dotted.go-map Показать на карте   
+                                +b.about Бесплатный прием специалиста по вопросам лечения спины с диагностикой позвоночника, а также занятия и массаж по акционной цене.
+                            .section-action__right.affilliate-right_mod     
+                                +b.right-info
+
+                                    .benefit__wrap
+                                        +e("p").benefit.affilliate-benefit_mod 10% скидка 
+                                            span на весь перечень анализов
+                                        +e("p").benefit.affilliate-benefit_mod от 10 до 15% скидка 
+                                            span на специальные предложения
+                            +b.price
+                                +e("a").btn(href="#") Получить скидку  
 
     aside.col-md-3.hidden-sm.hidden-xs
         .widget.widget-map
