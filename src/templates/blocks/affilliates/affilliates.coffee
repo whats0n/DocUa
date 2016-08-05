@@ -96,28 +96,55 @@ $(".js-autocomplete-subject").each ->
 		source: (request, response) ->
 			noResult = $('.no-results')  
 			results = $.ui.autocomplete.filter(availableTags, request.term)
+
 			if !results.length
 				noResult.addClass('is-hide')
 			else
 				noResult.removeClass('is-hide')
 			response results
-
-			if !($('.js-autocomplete-subject').val().length >= 2)
-				noResult.removeClass('is-hide')
-			return
 			# $.ajax
-			# 	url: '../../data/affilliates.json',
+			# 	url: 'http://gd.geobytes.com/AutoCompleteCity'
+			# 	dataType: 'jsonp'
+			# 	data: q: request.term
+			# 	success: (data) ->
+			# 		# Handle 'no match' indicated by [ "" ] response
+			# 		response if data.length == 1 and data[0].length == 0 then [] else data
+			# 		return
+			# return
+			# var finalData =$.map(data.users, function(item) {
+				
+			# 	  return {
+			# 		   label:item.displayName,
+			# 		   value:item.uid,
+			# 		   mail:item.mail	   
+			# 	}
+				
+			# 	});
+			# $.ajax
+			# 	url: '/affilliates.json',
 			# 	dataType: 'json',
 			# 	method: 'GET',
-			# 	# data: {term: request.term}
+			# 	data: {term: request.term}
 			# 	success: (data) ->
-			# 		response $.map(data, (item) ->
-			# 			{
+			# 		response $.map(data.list, (item) ->
+			# 			return {
 			# 				id: item.id
 			# 				label: item.label
 			# 				value: item.value 
 			# 			}
 			# 		)
+
+			if !($('.js-autocomplete-subject').val().length >= 2)
+				noResult.removeClass('is-hide')
+				$('.js-rezult-delete').hide()
+			else
+				$('.js-rezult-delete').show()
+				
+
+			# if $('.js-autocomplete-subject').val().length >= 2
+			# else
+			return
+
 		# source: (request, response) ->
 		# source: (request, response) ->
 		# 	$.post "/echo/json/", {
@@ -147,4 +174,13 @@ $(".js-autocomplete-subject").each ->
 	# 		$('#results').html ''
 	# 	return 
 	# return
+	$('.js-rezult-delete').on 'click', (event) ->
+		autocompleteInput = $(this).siblings('.js-autocomplete-subject')
+		rezult = $(this).siblings('.no-results')
+
+		$(this).hide()
+		rezult.removeClass('is-hide')
+		autocompleteInput.val(' ') 
+		event.stopPropagation()
+		false
 	

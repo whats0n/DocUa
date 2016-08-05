@@ -270,12 +270,16 @@ $(".js-finder-autocomplete").each ->
             $(this).val ui.item.label
             false
         source: (request, response) ->
+            noResultFinder = $('.no-results-finder')
             results = $.ui.autocomplete.filter(availableTags, request.term)
             if !results.length
-                $('.no-results-finder').text 'Совпадений не найдено!'
+                noResultFinder.addClass('is-hide')
             else
-                $('.no-results-finder').empty()
+                noResultFinder.removeClass('is-hide')
             response results
+
+            if !($('.js-finder-autocomplete').val().length >= 2)
+                noResultFinder.removeClass('is-hide') 
             return
 
     

@@ -1354,7 +1354,7 @@ $(".js-autocomplete-subject").each(function() {
       value: 'Ректороманоскопия2'
     }
   ];
-  return $('.js-autocomplete-subject').autocomplete({
+  $('.js-autocomplete-subject').autocomplete({
     appendTo: ".tab-content",
     open: function() {
       $(this).data('uiAutocomplete').menu.element.addClass('subject-scroll1');
@@ -1385,8 +1385,21 @@ $(".js-autocomplete-subject").each(function() {
       response(results);
       if (!($('.js-autocomplete-subject').val().length >= 2)) {
         noResult.removeClass('is-hide');
+        $('.js-rezult-delete').hide();
+      } else {
+        $('.js-rezult-delete').show();
       }
     }
+  });
+  return $('.js-rezult-delete').on('click', function(event) {
+    var autocompleteInput, rezult;
+    autocompleteInput = $(this).siblings('.js-autocomplete-subject');
+    rezult = $(this).siblings('.no-results');
+    $(this).hide();
+    rezult.removeClass('is-hide');
+    autocompleteInput.val(' ');
+    event.stopPropagation();
+    return false;
   });
 });
 
@@ -2025,19 +2038,25 @@ $(".js-finder-autocomplete").each(function() {
       return false;
     },
     source: function(request, response) {
-      var results;
+      var noResultFinder, results;
+      noResultFinder = $('.no-results-finder');
       results = $.ui.autocomplete.filter(availableTags, request.term);
       if (!results.length) {
-        $('.no-results-finder').text('Совпадений не найдено!');
+        noResultFinder.addClass('is-hide');
       } else {
-        $('.no-results-finder').empty();
+        noResultFinder.removeClass('is-hide');
       }
       response(results);
+      if (!($('.js-finder-autocomplete').val().length >= 2)) {
+        noResultFinder.removeClass('is-hide');
+      }
     }
   });
 });
 
-
+if ($(document).height() <= $(window).height()) {
+  $(".container-fluid_footer-bg").addClass("sticky-footer");
+}
 
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
   $('.js-tab__mobile-f').addClass('js-tab__header-f');
