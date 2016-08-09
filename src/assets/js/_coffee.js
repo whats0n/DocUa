@@ -1374,15 +1374,26 @@ $(".js-autocomplete-subject").each(function() {
       return false;
     },
     source: function(request, response) {
-      var noResult, results;
+      var noResult;
       noResult = $('.no-results');
-      results = $.ui.autocomplete.filter(availableTags, request.term);
-      if (!results.length) {
-        noResult.addClass('is-hide');
-      } else {
-        noResult.removeClass('is-hide');
-      }
-      response(results);
+      $.ajax({
+        url: '/data/affilliates.json',
+        dataType: 'json',
+        method: 'GET',
+        data: {
+          term: request.term
+        },
+        success: function(data) {
+          var results;
+          results = $.ui.autocomplete.filter(data.list, request.term);
+          if (!results.length) {
+            noResult.addClass('is-hide');
+          } else {
+            noResult.removeClass('is-hide');
+          }
+          return response(results);
+        }
+      });
       if (!($('.js-autocomplete-subject').val().length >= 2)) {
         noResult.removeClass('is-hide');
         $('.js-rezult-delete').hide();
@@ -2038,15 +2049,26 @@ $(".js-finder-autocomplete").each(function() {
       return false;
     },
     source: function(request, response) {
-      var noResultFinder, results;
+      var noResultFinder;
       noResultFinder = $('.no-results-finder');
-      results = $.ui.autocomplete.filter(availableTags, request.term);
-      if (!results.length) {
-        noResultFinder.addClass('is-hide');
-      } else {
-        noResultFinder.removeClass('is-hide');
-      }
-      response(results);
+      $.ajax({
+        url: '/data/finder.json',
+        dataType: 'json',
+        method: 'GET',
+        data: {
+          term: request.term
+        },
+        success: function(data) {
+          var results;
+          results = $.ui.autocomplete.filter(data.list, request.term);
+          if (!results.length) {
+            noResultFinder.addClass('is-hide');
+          } else {
+            noResultFinder.removeClass('is-hide');
+          }
+          return response(results);
+        }
+      });
       if (!($('.js-finder-autocomplete').val().length >= 2)) {
         noResultFinder.removeClass('is-hide');
       }

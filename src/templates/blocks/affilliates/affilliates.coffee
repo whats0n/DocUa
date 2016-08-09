@@ -90,49 +90,32 @@ $(".js-autocomplete-subject").each ->
 			_jScrollPane = undefined
 			return
 		select: (event, ui) -> 
-			$(this).val ui.item.value
+			$(this).val ui.item.value 
 			false
 			
 		source: (request, response) ->
 			noResult = $('.no-results')  
-			results = $.ui.autocomplete.filter(availableTags, request.term)
 
-			if !results.length
-				noResult.addClass('is-hide')
-			else
-				noResult.removeClass('is-hide')
-			response results
-			# $.ajax
-			# 	url: 'http://gd.geobytes.com/AutoCompleteCity'
-			# 	dataType: 'jsonp'
-			# 	data: q: request.term
-			# 	success: (data) ->
-			# 		# Handle 'no match' indicated by [ "" ] response
-			# 		response if data.length == 1 and data[0].length == 0 then [] else data
-			# 		return
-			# return
-			# var finalData =$.map(data.users, function(item) {
-				
-			# 	  return {
-			# 		   label:item.displayName,
-			# 		   value:item.uid,
-			# 		   mail:item.mail	   
-			# 	}
-				
-			# 	});
-			# $.ajax
-			# 	url: '/affilliates.json',
-			# 	dataType: 'json',
-			# 	method: 'GET',
-			# 	data: {term: request.term}
-			# 	success: (data) ->
-			# 		response $.map(data.list, (item) ->
-			# 			return {
-			# 				id: item.id
-			# 				label: item.label
-			# 				value: item.value 
-			# 			}
-			# 		)
+			$.ajax
+				url: '/data/affilliates.json',
+				dataType: 'json',
+				method: 'GET',
+				data: {term: request.term}
+				success: (data) ->
+					results = $.ui.autocomplete.filter(data.list, request.term)
+					
+					if !results.length
+						noResult.addClass('is-hide')
+					else
+						noResult.removeClass('is-hide')
+					response results
+					# response $.map(data.list, (item) ->
+					# 	return {
+					# 		id: item.id
+					# 		label: item.label
+					# 		value: item.value 
+					# 	}
+					# )
 
 			if !($('.js-autocomplete-subject').val().length >= 2)
 				noResult.removeClass('is-hide')

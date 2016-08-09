@@ -271,12 +271,26 @@ $(".js-finder-autocomplete").each ->
             false
         source: (request, response) ->
             noResultFinder = $('.no-results-finder')
-            results = $.ui.autocomplete.filter(availableTags, request.term)
-            if !results.length
-                noResultFinder.addClass('is-hide')
-            else
-                noResultFinder.removeClass('is-hide')
-            response results
+            # results = $.ui.autocomplete.filter(availableTags, request.term)
+            # if !results.length
+            #     noResultFinder.addClass('is-hide')
+            # else
+            #     noResultFinder.removeClass('is-hide')
+            # response results
+
+            $.ajax
+                url: '/data/finder.json',
+                dataType: 'json',
+                method: 'GET',
+                data: {term: request.term}
+                success: (data) ->
+                    results = $.ui.autocomplete.filter(data.list, request.term)
+                    
+                    if !results.length
+                        noResultFinder.addClass('is-hide')
+                    else
+                        noResultFinder.removeClass('is-hide')
+                    response results
 
             if !($('.js-finder-autocomplete').val().length >= 2)
                 noResultFinder.removeClass('is-hide') 
