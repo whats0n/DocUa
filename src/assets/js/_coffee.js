@@ -1355,7 +1355,7 @@ $(".js-autocomplete-subject").each(function() {
     }
   ];
   $('.js-autocomplete-subject').autocomplete({
-    appendTo: ".tab-content",
+    appendTo: ".js-input-cla",
     open: function() {
       $(this).data('uiAutocomplete').menu.element.addClass('subject-scroll1');
       if (void 0 !== _jScrollPane) {
@@ -1377,7 +1377,7 @@ $(".js-autocomplete-subject").each(function() {
       var noResult;
       noResult = $('.no-results');
       $.ajax({
-        url: '/data/affilliates.json',
+        url: '/analysis/search/live/affilliates.json',
         dataType: 'json',
         method: 'GET',
         data: {
@@ -2052,7 +2052,7 @@ $(".js-finder-autocomplete").each(function() {
       var noResultFinder;
       noResultFinder = $('.no-results-finder');
       $.ajax({
-        url: '/data/finder.json',
+        url: '/analysis/search/live/finder.json',
         dataType: 'json',
         method: 'GET',
         data: {

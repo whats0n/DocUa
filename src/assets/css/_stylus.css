@@ -281,7 +281,7 @@ ul.style-disc li:before {
 }
 @media only screen and (max-width: 767px) and (max-width: 767px) {
   .row-finder .container {
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 }
 a {
@@ -5153,13 +5153,24 @@ article.static-page .header-styled.header-styled-mod {
     width: 100%;
   }
 }
+.subject-scroll1 {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}
+.subject-scroll1 .scroll-panel .jspPane,
 .subject-scroll1 .jspContainer .jspPane {
   width: 100% !important;
 }
+.subject-scroll1 .scroll-panel .jspVerticalBar,
 .subject-scroll1 .jspContainer .jspVerticalBar {
   right: 10px;
 }
+.subject-scroll1 .scroll-panel .jspTrack,
 .subject-scroll1 .jspContainer .jspTrack,
+.subject-scroll1 .scroll-panel .jspDrag,
 .subject-scroll1 .jspContainer .jspDrag {
   background-color: #a9d1da;
 }
@@ -9511,7 +9522,7 @@ hr {
   margin-top: 1px;
 }
 .cla-tabs__drop .offers-wrap {
-  padding: 12px 21px !important;
+  padding: 12px 21px 12px 24px !important;
 }
 .logo__mod .logo__text {
   display: none;
@@ -12833,6 +12844,11 @@ hr {
 .navbar-fixed-top .feedback__link span {
   border-bottom: none;
 }
+@media only screen and (max-width: 880px) {
+  .main-page_feedback {
+    display: none;
+  }
+}
 .main-page_feedback.feedback .feedback__link {
   float: none;
   display: inline-block;
@@ -13406,6 +13422,11 @@ hr {
 }
 .finder_inner-pages .finder {
   margin: 20px 0;
+}
+@media only screen and (max-width: 767px) {
+  .finder_inner-pages .finder {
+    margin: 20px 0 30px 0;
+  }
 }
 .finder_inner-pages .finder__search-title {
   height: 50px;
@@ -15038,7 +15059,7 @@ ul.footer-menu {
 }
 @media only screen and (max-width: 1000px) {
   .main-menu__item-link {
-    margin-right: 25px;
+    margin-right: 20px;
     padding-top: 2px;
     font-size: 14px;
   }
@@ -16972,6 +16993,9 @@ ul.footer-menu {
   float: left;
   width: 50%;
 }
+.modal-cla .info__item:first-child {
+  padding-left: 20px;
+}
 @media only screen and (max-width: 560px) {
   .modal-cla .info__item {
     text-align: center;
@@ -16981,6 +17005,9 @@ ul.footer-menu {
     height: 50px;
     float: none;
     display: block;
+  }
+  .modal-cla .info__item:first-child {
+    padding-left: 0;
   }
 }
 .modal-cla .info__icon {
@@ -24357,9 +24384,7 @@ __thumbs .owl-next {
 }
 @media only screen and (max-width: 560px) {
   .rez-search .tab-content__search .tab-pane .favorites-block {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    display: none;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -24380,7 +24405,7 @@ __thumbs .owl-next {
   -webkit-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  background: background-image url("i/grey_texture_orig.png");
+  background: transparent;
 }
 .rez-search .search-page .article-list-item {
   padding: 21px;
@@ -25170,8 +25195,8 @@ __thumbs .owl-next {
   color: #91b5bc;
 }
 @media only screen and (max-width: 767px) {
-  .search__field {
-    width: 100%;
+  .search__field width 100% {
+    border: 1px solid transparent;
   }
 }
 .search__button {
@@ -25207,6 +25232,11 @@ __thumbs .owl-next {
 }
 .search__button:hover {
   background-color: #f5fafa;
+}
+@media only screen and (max-width: 880px) {
+  .search__button {
+    border-left: 1px solid #d9ecf0;
+  }
 }
 .header__nav-right .search__field {
   -webkit-border-radius: 0;
@@ -25835,6 +25865,9 @@ select.select7 {
     margin-bottom: 5px;
   }
 }
+.services .services-about .text-list__item .description__item:last-child {
+  margin-bottom: 0;
+}
 .services .services-about .text-list__item .description__item:before {
   content: "";
   position: absolute;
@@ -26030,12 +26063,10 @@ select.select7 {
   margin-bottom: 40px;
 }
 .services-block__in {
-  padding: 50px 39px 40px 40px;
+  padding: 20px 39px 24px 40px;
 }
-@media only screen and (max-width: 560px) {
-  .services-block__in {
-    padding: 35px 20px 25px 20px;
-  }
+.services-block__in h1 {
+  margin-bottom: 0;
 }
 .services-block__search .select7__current-value {
   color: #4b89d3;
@@ -26148,6 +26179,7 @@ select.select7 {
 }
 .services-block .services_about-mod .text-list__item {
   padding-right: 0;
+  margin-bottom: 0px;
 }
 .services-about-this {
   margin-top: 40px;

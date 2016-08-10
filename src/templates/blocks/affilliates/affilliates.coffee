@@ -74,7 +74,7 @@ $(".js-autocomplete-subject").each ->
 
 	$('.js-autocomplete-subject').autocomplete
 		# source: availableTags,
-		appendTo: ".tab-content"
+		appendTo: ".js-input-cla"
 		open: ->
 			# $('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 8);
 			$(this).data('uiAutocomplete').menu.element.addClass 'subject-scroll1'
@@ -97,7 +97,7 @@ $(".js-autocomplete-subject").each ->
 			noResult = $('.no-results')  
 
 			$.ajax
-				url: '/data/affilliates.json',
+				url: '/analysis/search/live/affilliates.json',
 				dataType: 'json',
 				method: 'GET',
 				data: {term: request.term}
