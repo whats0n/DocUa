@@ -3440,6 +3440,8 @@ article.static-page .header-styled.header-styled-mod {
   float: left;
   width: 30%;
   background-color: #fdfefe;
+  -webkit-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
   z-index: 5;
 }
 @media only screen and (max-width: 767px) {
@@ -3450,6 +3452,7 @@ article.static-page .header-styled.header-styled-mod {
     left: 0;
     bottom: 0;
     max-width: none;
+    background-color: transparent;
   }
 }
 @media only screen and (max-width: 560px) {
@@ -4477,10 +4480,6 @@ article.static-page .header-styled.header-styled-mod {
 }
 .section-action .affilliate .section-action__middle:after {
   display: none;
-}
-.section-action .affilliate .section-action__right {
-  -webkit-border-radius: 0 3px 3px 0;
-  border-radius: 0 3px 3px 0;
 }
 .section-action .affilliate .section-action__right .affilliate-benefit_mod {
   border: 1px dashed #9ebfc6;
@@ -23892,6 +23891,63 @@ __thumbs .owl-next {
     font-size: 14px;
   }
 }
+.rem-password {
+  position: relative;
+  max-width: 520px;
+  width: 100%;
+  margin: 20px 20% 45px;
+}
+@media only screen and (max-width: 1024px) {
+  .rem-password {
+    margin-left: 137px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .rem-password {
+    margin-left: 97px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .rem-password {
+    margin: 20px auto 45px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .rem-password {
+    margin: 10px auto 35px;
+  }
+}
+.rem-password:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -177px;
+  width: 137px;
+  height: 289px;
+  background-image: url("i/doc-attention.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (max-width: 959px) {
+  .rem-password:after {
+    display: none;
+  }
+}
+.rem-password__content {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 767px) {
+  .rem-password__content {
+    font-size: 16px;
+  }
+}
+.rem-password .form-group_remember {
+  margin-bottom: 35px;
+}
+.rem-password .btn_remember {
+  padding: 2% 12%;
+}
 .reviews-list {
   margin: 0;
   padding: 0;
@@ -24854,63 +24910,6 @@ __thumbs .owl-next {
   border-top: 1px dotted;
   border-bottom: 1px dotted;
   padding: 10px 0;
-}
-.rem-password {
-  position: relative;
-  max-width: 520px;
-  width: 100%;
-  margin: 20px 20% 45px;
-}
-@media only screen and (max-width: 1024px) {
-  .rem-password {
-    margin-left: 137px;
-  }
-}
-@media only screen and (max-width: 960px) {
-  .rem-password {
-    margin-left: 97px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .rem-password {
-    margin: 20px auto 45px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .rem-password {
-    margin: 10px auto 35px;
-  }
-}
-.rem-password:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -177px;
-  width: 137px;
-  height: 289px;
-  background-image: url("i/doc-attention.png");
-  background-repeat: no-repeat;
-}
-@media only screen and (max-width: 959px) {
-  .rem-password:after {
-    display: none;
-  }
-}
-.rem-password__content {
-  font-size: 18px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-@media only screen and (max-width: 767px) {
-  .rem-password__content {
-    font-size: 16px;
-  }
-}
-.rem-password .form-group_remember {
-  margin-bottom: 35px;
-}
-.rem-password .btn_remember {
-  padding: 2% 12%;
 }
 .rules-content ol {
   padding-left: 0;
@@ -26065,7 +26064,7 @@ select.select7 {
   margin-bottom: 40px;
 }
 .services-block__in {
-  padding: 20px 39px 24px 40px;
+  padding: 20px 39px 20px 40px;
 }
 .services-block__in h1 {
   margin-bottom: 0;

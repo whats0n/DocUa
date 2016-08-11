@@ -97,7 +97,7 @@ $(".js-autocomplete-subject").each ->
 			noResult = $('.no-results')  
 
 			$.ajax
-				url: '/analysis/search/live/affilliates.json',
+				url: '/analysis/search/live',
 				dataType: 'json',
 				method: 'GET',
 				data: {term: request.term}
