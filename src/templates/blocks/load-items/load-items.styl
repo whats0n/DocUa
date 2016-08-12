@@ -12,6 +12,8 @@
   // box-shadow: 0 2px 4px rgba(0, 64, 76, 0.15)
   transition border-color 0.2s ease, box-shadow 0.2s ease
   margin-bottom 20px
+  @media only screen and (max-width: 560px)
+    font-size 18px
   &:hover
     color text_blue
     // box-shadow 0 10px 15px #e3e4ed
@@ -27,7 +29,9 @@
       position absolute
       top 8px
       sprite($arrows_down2)
-      @media only screen and (max-width: 639px)
+      @media only screen and (max-width: 560px)
+        top 3px
+      @media only screen and (max-width: 400px)
         display none
 
     &:before
