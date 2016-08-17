@@ -1,11 +1,11 @@
 //---
   layout: layouts/main
   finder: doctors
-  modals: feedback, callback, doctor-request, clinic-request, diagnostic-request, doc-request-schedule, request-thanks, login, select-area, select-area-diagnostics, select-branch, select-specialization, select-actions, select-services, notification, rating, rating-clinic, info, info-var-2, info-var-3, info-var-4, select-other-spec, select-other-area, password, confirm-number, finishing-registration, request-dialog, cla-clinic_step1, cla-clinic_step2, cla-promo_step1, cla-promo_step2 , cla-promo-step3 
+  modals: feedback, callback, doctor-request, clinic-request, diagnostic-request, doc-request-schedule, request-thanks, login, select-area, select-area-diagnostics, select-branch, select-specialization, select-actions, select-services, notification, rating, rating-clinic, info, info-var-2, info-var-3, info-var-4, select-other-spec, select-other-area, password, confirm-number, finishing-registration, request-dialog, cla-clinic_step1, cla-clinic_step2, cla-promo_step1, cla-promo_step2 , cla-promo-step3, discount, discount-form
     
 .wrap                                                     
-    .breadcrumbs                                  
-      ol.breadcrumb                                    
+    .breadcrumbs                                     
+      ol.breadcrumb                                      
         li(itemscope='', itemtype='http://data-vocabulary.org/Breadcrumb')
           a(href='/', title='Главная', itemprop='url')
             span(itemprop='title') Главная
@@ -14,9 +14,19 @@
             span(itemprop='title') Модальные окна                                
     .row 
       article.col-sm-12                                                         
-        h1 Модальные окна                                        
+        h1 Модальные окна     
+        h3 CLA last     
+        ol      
+          li                                
+            p
+              a(href="#discount-form", data-toggle='modal').btn.btn-default.btn-sm  popup №1 
+          li
+            p
+              a(href="#discount", data-toggle='modal').btn.btn-default.btn-sm  popup №2     
+
+
         h3 CLA 
-        ol 
+        ol  
           li
             p
               a.btn.btn-default.btn-sm(href='#cla-clinic_step1', data-toggle='modal') cla-clinic_step1

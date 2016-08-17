@@ -835,7 +835,6 @@ modal_font_size = 15px
                 float none
                 text-align center
                 display inline-block
-                
             img
                 width 100%
         p
@@ -863,8 +862,6 @@ modal_font_size = 15px
             &:first-child
                 padding-left 20px
             @media only screen and (max-width: 560px)
-                // width 100%
-                // float none
                 text-align center
                 width 250px
                 margin: 0 auto
@@ -874,23 +871,6 @@ modal_font_size = 15px
                 display block
                 &:first-child
                     padding-left 0
-            //     &:last-child
-            //         text-align left
-            //         padding-left 20px
-            //         margin-top 5px
-            // &:first-child
-            //     padding-left 20px
-            //     @media screen560
-            //         padding-left 10px 
-            // &:last-child
-            //     text-align right
-            //     padding-right 20px
-            //     @media screen560
-            //         text-align left
-            //         padding 0
-            //     @media only screen and (max-width: 370px)
-            //         padding 0
-            //         text-align center
         &__icon
             position relative
             float left
@@ -936,7 +916,6 @@ modal_font_size = 15px
                 @media only screen and (max-width: 640px)
                     margin-top 20px !important
                     margin-bottom 0
-
             input
                 background-color: #eff9fb
                 border: 1px solid rgba(61, 160, 180, 0.27)
@@ -997,7 +976,6 @@ modal_font_size = 15px
                 position absolute
                 top 50%
                 left 50%
-                // transform translate(-50%, -50%) 
                 margin-top -9px 
                 margin-left -10px 
                 width 22px
@@ -1029,8 +1007,6 @@ modal_font_size = 15px
             text-align center
             padding 13px 0 0 0  
             @media only screen and (max-width: 470px)
-                // float left
-                // padding 0 20px 
                 float none
                 display flex
                 justify-content center
@@ -1045,12 +1021,6 @@ modal_font_size = 15px
                 opacity .8
             &:last-child
                 margin-right 0 
-                // @media screen560
-                //     margin-right 10px
-                // @media only screen and (max-width: 470px)
-                //     margin-right 0
-            // @media only screen and (max-width: 470px)
-            //     margin 11px 12px 11px 0 
             &.vk
                 background url(i/cla/cla-vk.png) no-repeat
             &.fb
@@ -1096,17 +1066,12 @@ modal_font_size = 15px
             &:after
                 right -10px
                 bottom -10px
-            // &.mobile-hidden
-            //     @media screen560
-            //         display none
             @media screen560
                 padding 10px
                 width 100%
             &.modal-pref-left_mobile
                 @media screen560
                     width 100%
-                    // &:before, &:after
-                    //     display none
                 .pref-body__picture, .pref-body__percent
                     @media screen560
                         display inline-block
@@ -1143,10 +1108,8 @@ modal_font_size = 15px
                     line-height: 20px
         .modal-pref-right
             position relative
-            // overflow hidden
             padding 40px 
             width 408px 
-            // margin-left 270px 
             text-align center
             @media screen560
                 width 100%
@@ -1162,8 +1125,6 @@ modal_font_size = 15px
                     right -10px
                     top -10px
             &.modal-pref-right_mobile
-                // @media screen560
-                //     display none
                 @media only screen and (max-width: 670px)
                     padding 40px 20px 20px 20px 
                 @media screen560
@@ -1201,14 +1162,6 @@ modal_font_size = 15px
                 margin-bottom: 17px
                 @media screen560
                     padding 0 10px
-            // .social__icon
-            //     margin 13px 7px 0 0
-            //     &:last-child
-            //         margin-right 0
-            //     @media only screen and (max-width: 670px)    
-            //         margin 13px 7px 12px 0
-            //         &:last-child
-            //             margin-right 0
             .social__left
                 @media only screen and (max-width: 670px)
                     display none 
@@ -1280,5 +1233,395 @@ modal_font_size = 15px
                 background: url("i/cla/preforation-full-mob.png") 100% 100% repeat
                 width: 100%
                 height: 7px
+
+//discount
+.discount.modal.bs-modal-cla 
+    .modal-dialog
+        max-width 677px
+    .modal-content
+        border-radius 0
+        display flex
+        flex-direction row
+        flex-wrap: nowrap
+        justify-content stretch
+        overflow hidden
+        @media screen560
+            -webkit-flex-direction column 
+            -ms-flex-direction column 
+            flex-direction column 
+    .close__mod
+        right 16px
+        top 16px
+    .modal-pref-left
+        position relative
+        // overflow hidden
+        width 270px 
+        padding 20px 
+        margin-right -1px
+        background-color: #ecf6f8
+        &:before
+            right -10px
+            top -10px
+            @media screen560
+                top auto
+                bottom -10px
+                left -10px
+        &:after
+            right -10px
+            bottom -10px
+        @media screen560
+            padding 10px
+            width 100%
+        &.modal-pref-left_mobile
+            @media screen560
+                width 100%
+            .pref-body__picture
+                @media screen560
+                    display inline-block
+                    width 49%
+                    text-align center
+                    padding 0 
+                    vertical-align middle
+            .pref-body__title
+                @media screen560
+                    margin-top 10px 
+        .pref-body
+            background-color: white
+            border: 1px solid #e1edf0
+            text-align center
+            margin 0 auto
+            padding 20px 5px 
+            min-height 100%
+            clearfix()
+            @media screen560
+                font-size 0
+            &.pref-body_mod
+                padding 20px 5px 50px 5px
+                @media screen560
+                    padding 20px 5px 20px 5px    
+                
+            // &.pref-body_form
+            //     padding 60px 5px 50px 5px
+            //     .pref-body__picture-caption
+            //         margin-top 60px
+            &__picture
+                position relative
+                width 140px
+                height 140px
+                margin 0 auto
+                img
+                    position absolute
+                    top 50%
+                    left 50%
+                    transform: translate(-50%, -50%) 
+                    max-width 100%
+                    max-height 100%
+            &__picture-caption
+                color: #5e6e71
+                font-size: 20px
+                font-weight: 700
+                margin-top 19px
+                text-transform: uppercase
+                letter-spacing: 0.5px
+            &__percent
+                color: #00829b
+                font-size: 60px
+                padding 21px 0
+                &.percent_mod
+                    width: 129px
+                    height: 129px
+                    background-color: #ecf6f8
+                    border-radius: 50%
+                    margin 29px auto
+                    @media screen560
+                        margin 10px auto
+                span
+                    font-size: 29px
+                    line-height 44px
+                    display inline-block
+                    vertical-align middle
+                    margin-top -10px 
+            &__title
+                font-size: 16px
+                line-height: 20px
+            &__picture-wrap
+                @media screen560
+                    width 50% 
+                    display inline-block
+                    vertical-align top
+                    .pref-body__picture
+                        width 100px
+                        height 100px
+            &__persent-wrap
+                @media screen560
+                    display inline-block
+                    vertical-align top
+                    width 50% 
+                    .pref-body__percent
+                        margin 0 auto
+                        width: 100px
+                        height: 100px
+                        font-size: 41px
+                    .pref-body__title
+                        margin-top 23px
+    .modal-pref-right
+        position relative
+        padding 38px 40px 40px 40px 
+        width 408px 
+        text-align center
+        @media screen560
+            width 100%
+            padding 20px 10px 
+        &:before
+            left -10px
+            top -10px
+        &:after
+            left -10px
+            bottom -10px
+            @media screen560
+                left auto
+                right -10px
+                top -10px
+        &.modal-pref-right_mobile
+            @media only screen and (max-width: 710px)
+                padding 40px 20px 20px 20px 
+            @media screen560
+                padding 20px 10px  
+        .caption
+            font-size: 20px
+            font-weight: 700
+            line-height: 25px
+            margin-bottom 15px
+            // @media screen560
+            //     margin-bottom 0
+        .cla-form__mod
+            button
+                padding 10px 0 
+    .modal-pref-right_mod
+        padding 0 40px 20px 40px 
+        .promo-info
+            @media screen560
+                padding: 0 0  0 20px
+        .promo-info__title
+            font-size: 20px
+        .promo-info__number   
+            font-size: 60px
+            font-weight: 400
+            line-height: 80px
+            letter-spacing 2px 
+        .promo-info__about
+            padding 12px 0px
+            border-top 1px solid #daedf1 
+            border-bottom 1px solid #daedf1 
+            margin-top 10px
+            @media screen560
+                padding 0 5px
+        .note
+            background-color transparent
+            text-align left
+            padding 0
+            margin-bottom: 58px
+            @media screen560
+                padding 0 10px
+                margin-bottom: 20px
+        .social__left
+            @media only screen and (max-width: 670px)
+                display none 
+                float none
+                &:last-child
+                    margin-right 0
+        .social__right
+            @media only screen and (max-width: 670px)
+                float none
+                &:last-child    
+                    margin-right 0 
+    .social
+        border: 1px solid #daedf1
+        clearfix()
+        &__left
+            float left
+            border-right: 1px solid #daedf1
+            @media only screen and (max-width: 470px)
+                display none
+        &__text
+            padding 0 12px
+            font-size: 16px
+            font-weight: 700
+            line-height: 51px
+            @media screen560
+                padding 0 10px 
+        &__right
+            // float right
+            text-align center
+            padding 10px 0 0 
+            @media only screen and (max-width: 670px)
+                float none
+                display flex
+                justify-content center
+                padding 10px 0
+                space-between
+                
+        &__icon
+            display inline-block
+            width: 32px
+            height: 31px
+            margin-right 6px
+            @media screen560
+                margin-right 15px
+            &:hover
+                opacity .8
+            &:last-child
+                margin-right 0 
+            &.vk
+                background url(i/cla/cla-vk.png) no-repeat
+            &.fb
+                background url(i/cla/cla-fb.png) no-repeat
+            &.google
+                background url(i/cla/cla-google.png) no-repeat 
+            &.tw
+                background url(i/cla/cla-tw.png) no-repeat
+            &.mail
+                background url(i/cla/cla-mail.png) no-repeat 
+    .form-horizontal
+        .form-section
+            margin-bottom 9px
+            clearfix()
+            &.submits
+                margin-top 17px
+            &.input-validation_modals
+                .form-section__control
+                    border-color: #e74a37
+            &__text
+                float left
+                width 32%
+                text-align left
+                padding: 7px 0 6px 0
+            &__control
+                background-color: #eff9fb
+                border: 1px solid rgba(61, 160, 180, 0.27)
+                border-radius: 2px
+                padding 0 12px 
+                height 33px
+                width: 68%
+                float right
+                box-shadow: none
+                -webkit-box-shadow: none
+                -webkit-appearance: none
+                placeholder(rgba(#5e6e71, 0.75), 14px)
+                color: #86989b
+                &:focus
+                    box-shadow: none
+                    outline: none
+            &__in
+                float right
+                width: 68%
+            &__unit
+                position relative
+                float left
+                margin-right 7px
+                text-align right
+                @media only screen and (max-width: 710px) 
+                    float none
+                    width 100%
+                    margin-right 0
+                    &:after
+                        margin-top -4px
+                &:after
+                    content: ''
+                    position absolute
+                    right 7px
+                    top 50%
+                    margin-top -3px 
+                    width: 0
+                    height: 0
+                    border-left: 3px solid transparent
+                    border-right: 3px solid transparent
+                    border-top: 5px solid #00829b
+                &:last-child    
+                    margin-right 0 
+                &.years
+                    // width 28%
+                    select
+                        width: 64px
+                        margin-bottom 0
+                &.month
+                    // width 42%
+                    select
+                        width: 94px
+                &.date
+                    // width 23%
+                    select
+                        width: 51px
+                &.input-validation_modals
+                    select
+                        border-color: #e74a37
+                select
+                    height 33px
+                    padding-left 9px 
+                    background-color: #eff9fb
+                    border: 1px solid rgba(61, 160, 180, 0.27)
+                    border-radius: 2px
+                    color: #5e6e71
+                    font-size: 14px
+                    webkit-appearance: none
+                    appearance: none
+                    &:focus
+                        outline none
+                    @media only screen and (max-width: 710px) 
+                        width 100% !important
+                        margin-bottom 9px 
+                        // &:last-child
+                        //     margin-bottom 0
+            &__gender
+                margin 6px auto
+                
+                &.input-validation_modals
+                    .checkbox:not(checked) + label:before
+                        content: ''
+                        background url('i/cla-input-validate.png') no-repeat 
+                        width 17px
+                        height 17px 
+                .checkbox + label
+                    position relative
+                    cursor pointer
+                    margin-right 20px
+                    &:last-child
+                        margin-right 0
+                input[type=radio]
+                    display none
+                // .checkbox:not(checked)
+                //     position absolute
+                //     opacity 0
+                .checkbox:not(checked) + label
+                    position relative
+                    padding: 0 0 0 23px
                     
+                .checkbox:not(checked) + label:before
+                    content: ""
+                    position absolute
+                    left 0
+                    top 50%
+                    width 17px 
+                    height 17px  
+                    margin-top -8px  
+                    background url('i/cla-input.png') no-repeat
+                .checkbox:checked + label:after    
+                    background url('i/cla-input-check.png') no-repeat
+                    content: ""
+                    position absolute
+                    margin-top -8px  
+                    left 0
+                    top 50%
+                    width 17px 
+                    height 17px 
+            p
+                font-size 13px
+                color: #5e6e71
+            a
+                color: #3da0b4
+            button
+                width 100%
+                font-weight 700
+                border-radius 4px  
+                padding 10px 0                   
                     
