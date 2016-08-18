@@ -1,105 +1,45 @@
 .search
     position relative
     float right 
-    width 50px 
-    height 48px 
-    z-index 5
-    background-image url(/i/icons/search-main.png)
-    background-repeat no-repeat 
-    background-position 50% 50%
-    transition all .2s ease-in-out
-    border 1px solid  transparent
-    
-    .is-search-open
-        .search__field
-            display block
-    .is-search-active
-        .search__button
-            border 1px solid transparent
-            &:hover
-                border-color #00829b
-                border-left-color transparent
-                &:before
-                    content ""
-                    position absolute
-                    top -1px
-                    left -1px
-                    width 1px 
-                    height 1px
-                    background-color #00829b
-            &:active
-                border 1px solid transparent
-                border-right 1px solid #d9ecf0 
-
-    &:hover
-        background-color #f5fafa
+    margin 4px 0
     &__field
-        position absolute
-        display none
-        width 445px 
-        top -1px
-        right -1px
-        height 48px
-        // height auto
-        padding 0 50px 0 20px
-        color lighten(text_color, 26%)
+        display block
+        width 428px 
+        height 42px
+        padding 0 40px 0 20px
         font-size 16px 
         line-height 2.9 
         background #fff
-        // transition opacity 0.2s ease
         border none
         z-index 6
-        box-shadow none
-        border 1px solid transparent
-        border-left 1px solid #d9ecf0 
-        border-right 1px solid #d9ecf0 
+        box-shadow none 
+        placeholder(tomato, 16px)
+        
         &:focus, &:active
             box-shadow none
-            border-left 1px solid #00829b
-            border-top 1px solid #00829b
-            border-right 1px solid #00829b
-        &::-webkit-input-placeholder
-            color #91b5bc
+            // color: tomato !important
+                
+        &:focus
+            placeholder(transparent, 0px)
         @media phone
             width 100% 
-            
-             border 1px solid transparent
     &__button
         position absolute
-        display block
-        top -1px
-        right -1px
-        width 50px 
-        height 48px 
-        padding 22px 24px 
+        top 50%
+        right 12px
+        margin-top -10px 
         border 0 none
         transition opacity 0.2s ease 
         background none
-        background-image url(/i/icons/search-main.png)
+        background-image url('i/icons/search-main.png')
+        width 21px
+        height 21px
         background-repeat no-repeat 
         background-position 50% 50% 
         outline none
         transition all .2s ease-in-out
         box-sizing border-box 
-        z-index 6 
-        border 1px solid transparent
-        border-right 1px solid #d9ecf0 
-        &:hover
-            background-color #f5fafa
-        @media only screen and (max-width: 880px)
-            border-left 1px solid #d9ecf0 
-        // &:after
-        //     content ""
-        //     position absolute
-        //     top 0
-        //     right -1px 
-        //     height 100% 
-        //     width 1px 
-        //     background-color transparent
-        //     transition all .2s ease-in-out
-            // &:after
-            //     background-color #d9ecf0
-
+        z-index 2 
 .header__nav-right
     .search
         &__field

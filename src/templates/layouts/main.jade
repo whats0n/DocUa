@@ -58,19 +58,19 @@ body
         //-   span (044) 3370707
         hr.header__line
         +b.phones.phones_mobile.js-phones.visible-xs: +i
-        +b("a").favorites-link(href="/", title="Избранное")
-          span 14
+        //- +b("a").favorites-link(href="/", title="Избранное")
+        //-   span 14
         .user-panel.hidden-xs
           +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
           //- if file.isCabinet
           //-   +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
           //- else
           //-   +b.user-panel-auth: +i
-        +b.feedback
-          +e("a").link._callback(href="#{linkPrefix}callback", data-toggle=modalToggle, title="Обратный звонок")
-              span.dotted Обратный звонок
-          +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку")
-              span.dotted Оставить заявку
+        //- +b.feedback
+        //-   +e("a").link._callback(href="#{linkPrefix}callback", data-toggle=modalToggle, title="Обратный звонок")
+        //-       span.dotted Обратный звонок
+        //-   +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку")
+        //-       span.dotted Оставить заявку
               
 
     +b.navbar-collapse(class="navbar-mobile collapse"): +i
@@ -94,8 +94,8 @@ body
                       +e("span").loc-icon.hidden-xs
                       +b.location: +i
                     +b.phones.js-phones.hidden-xs: +i
-                    +b("a").favorites-link(href="/", title="Избранное")
-                      span 14
+                    //- +b("a").favorites-link(href="/", title="Избранное")
+                    //-   span 14
                     .user-panel.hidden-xs
                       +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
                       //- if file.isCabinet
@@ -104,17 +104,17 @@ body
                       //-   +b.user-panel-auth: +i
     //- Menu
     .container-fluid.container-menu.hidden-xs
-      .row.row-white.row_border
+      .row.row_border
         .container
           nav.header__nav
             +b.menu: +i({ prefix: "main", items: mainMenu, activeIndex: file.activeMenuItem })
             .header__nav-right
               +b.feedback.main-page_feedback
-                +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку") Оставить заявку
+                //- +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку") Оставить заявку
               if file.indexPage || file.main
-                +b.search.search_main-page.js-search: +i
+                +b.search.search_main-page: +i
               else
-                +b.search.js-search: +i
+                +b.search: +i
                 
     //- pages texture
     .page-bg

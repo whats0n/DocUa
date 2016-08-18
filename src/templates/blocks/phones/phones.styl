@@ -1,7 +1,7 @@
 .phones
     position: relative
     display inline-block
-    margin-right: 25px
+    margin-right: 18px
     height: 28px
     // float: left
     font-size: 12px
@@ -9,13 +9,14 @@
     color: #b1b1b1
     font-weight: bold
     white-space: nowrap
+    padding: 3px 0 0 0
     @media only screen and (max-width: 800px)
         margin-right 0 
         // float right 
     &__current
         display: inline-block
         vertical-align: middle
-        margin: 0 6px 0 0
+        margin: 0 20px 0 0
         text-decoration: none
         color: blue_base
         transition: color .2s ease
@@ -36,7 +37,7 @@
                 display block
     &__item
         display: inline-block
-        margin-right: 5px
+        margin-right: 6px
         margin-top: 1px
         text-decoration: none
         vertical-align: middle
@@ -65,12 +66,14 @@
         background-size: 63px 21px
         background-repeat: no-repeat
     &__item-value
-        color: blue_base
+        color: #5e6e71
         transition: all .2s ease
         display: block
-        margin-top: 2px
+        // margin-top: 2px
+        // line-height 31px
         font-weight normal
-        font-size 15px  
+        font-size 16px  
+        padding-left 35px
     &__toggle
         position relative
         display: inline-block
@@ -101,14 +104,14 @@
         display: none
         position: absolute
         top: 100%
-        margin-top: -5px
-        padding: 5px 0
+        margin-top: -2px
+        // padding: 5px 0
         right: 0
-        width: 190px 
+        width: 204px 
         border 1px solid #ccc
-        border-radius 3px
+        // border-radius 3px
         background #fff
-        box-shadow 0 3px 4px rgba(0,0,0,.1)
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25)
         background-clip padding-box
         z-index 2 
         // @media only screen and (max-width: 1200px)
@@ -125,24 +128,24 @@
             float: none
             overflow: hidden
             margin: 0
-            padding: 5px 15px
+            padding: 6px 13px
             &.phones__item_hover
                 background-color #deeff2
             &.phones__item_life 
-                background-position 10px
+                background-position 13px
             &.phones__item_mts
-                background-position 10px
+                background-position 13px
             &.phones__item_kyivstar
-                background-position 10px
+                background-position 13px
             &.phones__item_civic
-                background-position 10px
+                background-position 13px
         .phones__item-icon
             float: left
-            margin-right: 10px
+            // margin-right: 16px
         &:hover
-            background #deeff2
+            background: rgba(#1f8199, 0.25)
             .phones__item-value
-                color blue_select 
+                color: #5e6e71
     &__item_hover
         .phones__item-value
             color blue_select 
