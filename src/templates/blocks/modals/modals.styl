@@ -1039,7 +1039,7 @@ modal_font_size = 15px
             display flex
             flex-direction row
             flex-wrap: nowrap
-            justify-content stretch
+            align-items: stretch 
             overflow hidden
             @media screen560
                 -webkit-flex-direction column 
@@ -1056,19 +1056,19 @@ modal_font_size = 15px
             margin-right -1px
             background-color: #ecf6f8
             
-            &:before
-                right -10px
-                top -10px
-                @media screen560
-                    top auto
-                    bottom -10px
-                    left -10px
-            &:after
-                right -10px
-                bottom -10px
-            @media screen560
-                padding 10px
-                width 100%
+            // &:before
+            //     right -10px
+            //     top -10px
+            //     @media screen560
+            //         top auto
+            //         bottom -10px
+            //         left -10px
+            // &:after
+            //     right -10px
+            //     bottom -10px
+            // @media screen560
+            //     padding 10px
+            //     width 100%
             &.modal-pref-left_mobile
                 @media screen560
                     width 100%
@@ -1236,29 +1236,35 @@ modal_font_size = 15px
 
 //discount
 .discount.modal.bs-modal-cla 
+    // position relative
+    
     .modal-dialog
         max-width 677px
     .modal-content
         border-radius 0
-        display flex
-        flex-direction row
-        flex-wrap: nowrap
-        justify-content stretch
+        display: inline-table
+        // display flex
+        // flex-direction row
+        // flex-wrap: nowrap
+        // justify-content stretch
         overflow hidden
         @media screen560
-            -webkit-flex-direction column 
-            -ms-flex-direction column 
-            flex-direction column 
+            display block
+            // -webkit-flex-direction column 
+            // -ms-flex-direction column 
+            // flex-direction column 
     .close__mod
         right 16px
         top 16px
     .modal-pref-left
+        display: table-cell
         position relative
         // overflow hidden
+        border: 20px solid #ecf6f8
         width 270px 
-        padding 20px 
+        // padding 20px 
         margin-right -1px
-        background-color: #ecf6f8
+        // background-color: #ecf6f8
         &:before
             right -10px
             top -10px
@@ -1270,8 +1276,10 @@ modal_font_size = 15px
             right -10px
             bottom -10px
         @media screen560
-            padding 10px
+            // padding 10px
             width 100%
+            display block
+            border: 10px solid #ecf6f8
         &.modal-pref-left_mobile
             @media screen560
                 width 100%
@@ -1285,13 +1293,56 @@ modal_font_size = 15px
             .pref-body__title
                 @media screen560
                     margin-top 10px 
+        &.cla-angles
+            &:before, &:after
+                display none
+        .pref-border.pos-top 
+            top -20px
+            left -20px
+            right -20px
+            width auto
+            // @media screen560
+            //     right: -20px
+            //     left: -20px
+            //     top: 104%
+            //     width: auto
+            //     height 7px
+        .pref-border.pos-bottom 
+            left -20px
+            right -20px
+            bottom -20px
+            width auto
+        .pref-border.pos-left
+            left -20px
+            top -20px
+            bottom -20px
+            height auto
+        .pref-border.pref-full.pref-full_left
+            right -24px
+            top -20px
+            bottom -20px
+            height auto
+            @media screen560
+                // display none
+                right: -20px
+                left: -0
+                top: 104%
+                // width: auto
+                height 7px
         .pref-body
+            // position absolute
+            // left 0
+            // right 0
+            // top 0
+            // bottom 0
+            
             background-color: white
-            border: 1px solid #e1edf0
+            // border: 1px solid #e1edf0
             text-align center
             margin 0 auto
             padding 20px 5px 
-            min-height 100%
+            height 100%
+            box-sizing: border-box
             clearfix()
             @media screen560
                 font-size 0
@@ -1369,7 +1420,10 @@ modal_font_size = 15px
         padding 38px 40px 40px 40px 
         width 408px 
         text-align center
+        display: table-cell
+        vertical-align: top
         @media screen560
+            display block
             width 100%
             padding 20px 10px 
         &:before
@@ -1399,9 +1453,9 @@ modal_font_size = 15px
                 padding 10px 0 
     .modal-pref-right_mod
         padding 0 40px 20px 40px 
-        .promo-info
-            @media screen560
-                padding: 0 0  0 20px
+        // .promo-info
+        //     @media screen560
+        //         padding: 0 0  0 20px
         .promo-info__title
             font-size: 20px
         .promo-info__number   
@@ -1422,7 +1476,7 @@ modal_font_size = 15px
             padding 0
             margin-bottom: 58px
             @media screen560
-                padding 0 10px
+                // padding 0 10px
                 margin-bottom: 20px
         .social__left
             @media only screen and (max-width: 670px)
@@ -1519,8 +1573,10 @@ modal_font_size = 15px
                 position relative
                 float left
                 margin-right 7px
-                text-align right
-                @media only screen and (max-width: 710px) 
+                text-align left
+                @media only screen and (max-width: 710px)
+                    margin-right 2.5%
+                @media only screen and (max-width: 480px) 
                     float none
                     width 100%
                     margin-right 0
@@ -1540,38 +1596,93 @@ modal_font_size = 15px
                 &:last-child    
                     margin-right 0 
                 &.years
-                    // width 28%
-                    select
+                    @media only screen and (max-width: 710px)
+                        width 35% 
+                        .select7
+                            width 100%
+                    @media only screen and (max-width: 480px) 
+                        width 100%   
+                    .select7
                         width: 64px
                         margin-bottom 0
                 &.month
-                    // width 42%
-                    select
-                        width: 94px
+                    @media only screen and (max-width: 710px)
+                        width 40% 
+                        .select7
+                            width 100%
+                    @media only screen and (max-width: 480px) 
+                        width 100%  
+                    .select7
+                        width: 94px 
                 &.date
-                    // width 23%
-                    select
+                    @media only screen and (max-width: 710px)
+                        width 20% 
+                        .select7
+                            width 100%
+                    @media only screen and (max-width: 480px) 
+                        width 100%  
+                    .select7
                         width: 51px
                 &.input-validation_modals
-                    select
+                    .select7
                         border-color: #e74a37
-                select
-                    height 33px
-                    padding-left 9px 
+                        &__current-value
+                            color: #a6b3b6
+                .select7
+                    // height 33px
+                    max-width: 100%
+                    min-width: 10px 
+                    margin 0
+                     
+                    // width 100% !important 
+                    // padding-left 9px 
+                    padding: 5px 15px 6px 10px 
                     background-color: #eff9fb
                     border: 1px solid rgba(61, 160, 180, 0.27)
                     border-radius: 2px
-                    color: #5e6e71
-                    font-size: 14px
+                    
                     webkit-appearance: none
                     appearance: none
+                    box-shadow: none
+                    &:-moz-focusring
+                        color: transparent
+                        text-shadow: 0 0 0 #000
                     &:focus
                         outline none
-                    @media only screen and (max-width: 710px) 
+                    @media only screen and (max-width: 480px) 
                         width 100% !important
                         margin-bottom 9px 
                         // &:last-child
                         //     margin-bottom 0
+                    &__current
+                        padding 0
+                    &__current-value
+                        line-height normal
+                        border-bottom-color: transparent
+                        color: #5e6e71
+                        font-size: 14px
+                        &:hover
+                            color: #5e6e71 !important
+                    &__caret
+                        display none
+                    &__drop
+                        background-color: #eff9fb
+                    &__option
+                        background-color: #eff9fb
+                        padding 2px 15px 2px 10px 
+                        &:hover
+                            background-color: #fff
+            // &__list
+            //     background-color: #eff9fb
+            //     border: 1px solid rgba(61, 160, 180, 0.27)
+            //     width 100% !important 
+            //     border-radius: 2px
+            //     top 32px
+            //     li
+            //         padding: 2px 15px 2px 10px  
+            //         &:hover
+            //             cursor pointer 
+            //             background #FFF 
             &__gender
                 margin 6px auto
                 

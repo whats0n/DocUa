@@ -44,6 +44,7 @@ $(window).resize ->
 
 
 
+
 $("#select-area-diagnostics").on "click", "li a", ->
   return $("#select-area-diagnostics").modal "hide"
    

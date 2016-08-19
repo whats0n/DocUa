@@ -1440,8 +1440,6 @@ $(document).on('click', '.js-services-btn', function() {
   return false;
 });
 
-
-
 $('.js-add-tel').click(function() {
   $('.add-tel').addClass('is-active');
 });
@@ -1703,6 +1701,8 @@ $('.js-tab__header-d').click(function() {
   $(this).toggleClass('tab__header_open');
   return false;
 });
+
+
 
 $('.js-nav a').on('click', function() {
   var section;
