@@ -1440,6 +1440,8 @@ $(document).on('click', '.js-services-btn', function() {
   return false;
 });
 
+
+
 $('.js-add-tel').click(function() {
   $('.add-tel').addClass('is-active');
 });
@@ -1701,8 +1703,6 @@ $('.js-tab__header-d').click(function() {
   $(this).toggleClass('tab__header_open');
   return false;
 });
-
-
 
 $('.js-nav a').on('click', function() {
   var section;
@@ -2539,11 +2539,6 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
-$('.js-truncate').dotdotdot({
-  lines: 2,
-  responsive: true
-});
-
 
 
 $(function() {
@@ -2552,24 +2547,7 @@ $(function() {
   });
 });
 
-$(document).on('click', '.js-offers-btn', function() {
-  var changeText, drop, getAttr, getText, getTextAttr;
-  drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
-  changeText = $(this).children('.dotted');
-  getAttr = changeText.data('hidden');
-  getText = changeText.text();
-  getTextAttr = changeText.data('name');
-  drop.slideToggle('fast');
-  $(this).parents('.js-offers-tabs').toggleClass('is-active');
-  changeText.toggleClass('is-change');
-  if (changeText.hasClass('is-change')) {
-    changeText.attr("data-name", getText);
-    changeText.text(getAttr);
-  } else {
-    changeText.text(getTextAttr);
-  }
-  return false;
-});
+
 
 $(function() {
   $('.js-search-btn').click(function() {
@@ -2986,6 +2964,25 @@ $("body").on("smallCardInit", smallCardInit);
     setGender();
   }
 }).call(this);
+
+$(document).on('click', '.js-offers-btn', function() {
+  var changeText, drop, getAttr, getText, getTextAttr;
+  drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
+  changeText = $(this).children('.dotted');
+  getAttr = changeText.data('hidden');
+  getText = changeText.text();
+  getTextAttr = changeText.data('name');
+  drop.slideToggle('fast');
+  $(this).parents('.js-offers-tabs').toggleClass('is-active');
+  changeText.toggleClass('is-change');
+  if (changeText.hasClass('is-change')) {
+    changeText.attr("data-name", getText);
+    changeText.text(getAttr);
+  } else {
+    changeText.text(getTextAttr);
+  }
+  return false;
+});
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
