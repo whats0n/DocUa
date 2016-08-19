@@ -2,51 +2,107 @@
   // margin 0 0 10px
   padding 0
   list-style none
+  clearfix()
   &__item
-    overflow hidden
     border-top 1px solid #d9ecf0
-    padding 20px 20px
     transition all .2s ease-in-out
     &:hover
       background #deeff2
-    @media only screen and (max-width: 768px)
-      padding 15px 
-    // &.first-child
-    //   border-color transparent
-    // &:last-child
-    //   border-bottom 1px solid rgba(0, 130, 155, 0.31)
     &-link
+      // display block
+      width 100%
+      height 100%
       text-decoration none
-    &-image
-      float left
-      width 55px
-      height 65px 
-      overflow hidden
-      background-color: #CCE7F6
-      margin-right 15px
-      img
-        width 100%
-        height 100%
-    &-title
-      overflow hidden
-      padding 7px 0
-      font-size 14px
+      padding 12px 10px 12px 15px 
+      clearfix()
+      display flex
+      -webkit-flex-direction row 
+      -ms-flex-direction row 
+      flex-direction row 
+      justify-content: center 
+      align-items center
+    &.main-items
+      .top-list__picture
+        border-radius: 50%
+        overflow hidden 
+        img
+          max-width: 100%
+          max-height: 100%
+      
+  &__left
+    // float left
+    font-size 0
+    width 74% 
+    @media only screen and (max-width: 1100px)
+      width 100%
+  &__right
+    // float right
+    width 26%
+    @media only screen and (max-width: 1100px)
+      width 28%
+    @media only screen and (max-width: 960px)
+      width 38%
+    @media only screen and (max-width: 860px)
+      display none
+    
+  &__title
+    // display inline-block
+    // vertical-align middle
+    // margin-left 12px
+    font-size: 14px
+    color: #5e6e71
+    font-weight: 400
+    line-height: 18px
+    span
+      text-decoration underline 
       font-weight bold
-      line-height 20px
-      color blue_link
-      text-decoration none
-      .top-list__item:hover &
-        text-decoration underline
-    .specialty
-      margin-top 4px
-      margin-bottom 3px
-    .rating__stars
-      margin 3px 0 0  
-  &__rating
-    display inline-block
-    margin 0
-    font-size 16px
-    line-height 20px
-    font-weight bold
-    color #00829b
+      color: #00829e 
+      font-size: 14px
+  &__picture
+    width 27px
+    // height 25px
+    margin-right 12px
+    text-align center
+  &__subject
+    color: #7fc0ce
+    font-size: 14px
+    font-weight: 400
+    padding-top: 2px  
+    text-align right
+    line-height: 18px
+
+
+
+    // &-image
+    //   float left
+    //   width 55px
+    //   height 65px 
+    //   overflow hidden
+    //   background-color: #CCE7F6
+    //   margin-right 15px
+    //   img
+    //     width 100%
+    //     height 100%
+    // &-title
+    //   overflow hidden
+    //   padding 7px 0
+    //   font-size 14px
+    //   font-weight bold
+    //   line-height 20px
+    //   color blue_link
+    //   text-decoration none
+    //   .top-list__item:hover &
+    //     text-decoration underline
+    // .specialty
+    //   margin-top 4px
+    //   margin-bottom 3px
+    // .rating__stars
+    //   margin 3px 0 0  
+  // &__rating
+  //   display inline-block
+  //   margin 0
+  //   font-size 16px
+  //   line-height 20px
+  //   font-weight bold
+  //   color #00829b
     // float right

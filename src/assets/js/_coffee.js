@@ -2541,13 +2541,32 @@ postLocationWidthFix();
 
 
 
+
+
 $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {
     return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
   });
 });
 
-
+$(document).on('click', '.js-offers-btn', function() {
+  var changeText, drop, getAttr, getText, getTextAttr;
+  drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
+  changeText = $(this).children('.dotted');
+  getAttr = changeText.data('hidden');
+  getText = changeText.text();
+  getTextAttr = changeText.data('name');
+  drop.slideToggle('fast');
+  $(this).parents('.js-offers-tabs').toggleClass('is-active');
+  changeText.toggleClass('is-change');
+  if (changeText.hasClass('is-change')) {
+    changeText.attr("data-name", getText);
+    changeText.text(getAttr);
+  } else {
+    changeText.text(getTextAttr);
+  }
+  return false;
+});
 
 $(function() {
   $('.js-search-btn').click(function() {
@@ -2964,25 +2983,6 @@ $("body").on("smallCardInit", smallCardInit);
     setGender();
   }
 }).call(this);
-
-$(document).on('click', '.js-offers-btn', function() {
-  var changeText, drop, getAttr, getText, getTextAttr;
-  drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
-  changeText = $(this).children('.dotted');
-  getAttr = changeText.data('hidden');
-  getText = changeText.text();
-  getTextAttr = changeText.data('name');
-  drop.slideToggle('fast');
-  $(this).parents('.js-offers-tabs').toggleClass('is-active');
-  changeText.toggleClass('is-change');
-  if (changeText.hasClass('is-change')) {
-    changeText.attr("data-name", getText);
-    changeText.text(getAttr);
-  } else {
-    changeText.text(getTextAttr);
-  }
-  return false;
-});
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 

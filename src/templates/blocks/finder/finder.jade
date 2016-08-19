@@ -15,8 +15,11 @@ form(action="/")
     fieldset
         case data.page
             when "doctors"
+                +e.field
+                    +e("input").field-text(type="text", placeholder="Поиск диагностики" class="form-control")
+                    span.finder__field_img(data-target="#select-specialization"  data-toggle="modal")
                 +e.field.finder__field-icon-doctors
-                    +e("input").field-text(type="text" placeholder="Выберите специальность врача" class="form-control")
+                    +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control")
                     span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
                     +b.search-result.hidden: +i
                 +e.field.finder__field-icon-location
@@ -24,7 +27,7 @@ form(action="/")
                     span.finder__field_img(data-target="#select-area", data-toggle="modal")
                     +b.search-result.hidden: +i
                 +e.submit
-                    button.btn.btn-warning.form-control(type="submit") Найти врача
+                    button.btn.btn-warning.form-control(type="submit") Найти 
             when "map"
                 +e.field.finder__field-icon-doctors
                     +e("input").field-text(type="text" placeholder="Выберите специальность врача" class="form-control")
