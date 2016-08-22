@@ -1,0 +1,48 @@
+.location-lists
+	display none
+	position absolute
+	top 100%
+	left 0
+	right 0
+	width 100% !important 
+	background #FFF 
+	height 216px
+	overflow hidden
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25)
+	border-top 1px solid #d9ecf0
+	&__item
+		border-top 1px solid #d9ecf0
+		padding 0 18px
+		color: #5e6e71
+		font-size: 14px 
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+		&:first-child
+			border-top-color: transparent
+		&:hover
+			opacity .8 
+		&.is-red, &.is-green, &.is-blue, &.is-area
+			&:before
+				content: ''
+				display inline-block
+				width 20px
+				height 13px
+				margin-right 20px
+				margin-bottom -2px  
+		&.is-red
+			&:before
+				background url(i/icons/underground-red.png) center left
+		&.is-green
+			&:before
+				background url(i/icons/underground-green.png) center left
+		&.is-blue
+			&:before
+				background url(i/icons/underground-blue.png) center left
+		&.is-area
+			&:before
+				background url(i/new-search/search-location.png) center left
+				width 13px
+				height 18px
+				margin-left 3px 
+		 

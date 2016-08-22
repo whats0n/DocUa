@@ -179,6 +179,75 @@ $('.finder').on 'diagnosticSelected', (t, e) ->
 
 
 
+  # $('.js-section-choice').each ->
+  #   removeClass = true
+  #   item = $(this).find('.section-choice')
+  #   $('body').click ->
+  #       if removeClass
+  #           item.removeClass 'is-open'
+  #           removeClass = true
+  #   $(this).find('.js-field-child').click ->
+  #       if $(this).hasClass 'is-active'
+  #           $('.js-field-child').removeClass 'is-active' 
+  #           $('.section-choice').removeClass 'is-open' 
+  #           removeClass = false
+  #       else
+  #           # $('.js-section-choice').width($('.js-field-child').width())
+  #           $('.js-field-child').removeClass 'is-active'
+  #           $('.section-choice').removeClass 'is-open'
+  #           $(this).siblings('.section-choice').addClass 'is-open'
+  #           removeClass = true
+  #       return false
+  #   item.click ->
+  #       return false
+#personal dropdown
+# $('.js-personal-dropdown').each ->
+#     parent = $(this)
+#     dropdown = parent.children('.js-dropdown-content')
+#     dropdownItem = dropdown.children('.js-dropdown-item')
+#     changeText = parent.find('.js-change-text')
+#     flags = true
+
+
+#     # $('body').on 'click', ->
+#     #     if flags
+#     #         parent.removeClass 'is-active'
+#     #         dropdown.hide()
+#     #         console.log('body')
+#             # flags = true
+
+
+#     $('body').on 'click', dropdown, ->
+#         if parent.hasClass 'is-active'
+#             dropdown.hide()
+#             parent.removeClass 'is-active'
+#             flags = false
+#         else
+#             dropdown.show()
+#             parent.addClass 'is-active'
+#             flags = true
+#         return false
+
+#     dropdownItem.on 'click', ->
+#         value = $(this).text()
+#         input = $(this).parent().siblings('.js-hidden-input')
+
+
+#         changeText.text(value)
+#         input.val(value)
+#         $(this).addClass 'is-active'
+
+#         dropdown.hide()
+#         parent.removeClass 'is-active'
+
+#         if dropdownItem.hasClass 'is-active'
+#             dropdownItem.removeClass 'is-active'
+#             $(this).addClass 'is-active'
+
+        # else
+        #     $(this).addClass 'is-active'
+
+
 
 
 # cla autocomplete

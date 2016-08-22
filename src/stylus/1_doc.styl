@@ -2066,5 +2066,87 @@ article.static-page
   overflow: hidden
   max-width: 100%
 
-
-
+// index-scroll
+.js-lists
+    padding-right 20px
+    &:focus
+        outline: none
+        border: none
+    .jspPane
+        width 92% !important
+    .jspContainer
+        .jspVerticalBar
+            right 7px
+        .jspTrack
+            background-color #d9ecf0   
+            .jspDrag
+                background-color: #3ebfac
+                border-radius: 0 0 0 0
+                width 3px
+                left -1px
+.navbar-main
+    .user-panel, .user-panel-menu
+        float none !important
+        display inline-block
+        vertical-align middle
+        font-size 0  
+        @media (max-width 768px)
+            display none
+    // .user-panel-menu
+    //     margin-top 11px
+.user-panel-menu    
+    margin-left 12px 
+    // margin-top 5px
+    max-width 210px 
+    &:focus
+        border none
+        background transparent  
+        outline none
+    &__button
+        display block
+        padding 0
+        padding-left 22px
+        color blue_base
+        text-align left
+        background-color transparent !important
+        border none !important
+        outline none !important
+        -webkit-box-shadow none !important
+        box-shadow none !important
+        font-size 16px 
+        line-height 1
+        &:active
+            color blue_select !important
+        &:hover
+            color blue_select
+            background-color transparent
+            span
+                border-color transparent
+        span
+            display inline-block
+            line-height 1 
+            border-bottom 1px dotted
+            transition all .2s ease-in-out
+            &:focus
+                border-color transparent 
+                background transparent  
+        &:before
+            content ''
+            position absolute
+            left 0px
+            top 1px
+            sprite($user_main)
+            box-shadow 2px 1px 0 6px #fff
+    .dropdown.open 
+        >.btn
+            color blue_select
+            background-color transparent 
+    .dropdown-menu>li>a
+        color blue_select
+        &:hover
+            background #deeff2
+    .dropdown
+        &:focus
+            border none
+            background transparent  
+            outline none

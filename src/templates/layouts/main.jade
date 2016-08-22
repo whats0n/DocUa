@@ -61,12 +61,13 @@ body
         //- +b("a").favorites-link(href="/", title="Избранное")
         //-   span 14
         .user-panel.hidden-xs
-          +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
+          //- include ../blocks/user-panel-menu/user-panel-menu.jade
+          +b.user-panel-menu: +i
           //- if file.isCabinet
           //-   +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
           //- else
           //-   +b.user-panel-auth: +i
-        //- +b.feedback
+        //- +b.feedback 
         //-   +e("a").link._callback(href="#{linkPrefix}callback", data-toggle=modalToggle, title="Обратный звонок")
         //-       span.dotted Обратный звонок
         //-   +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку")
@@ -130,7 +131,7 @@ body
           .container-bg
           .container
             .wrap
-              +b.finder-title.hidden-xs: +i({ page: file.finder })
+              +b.finder-title.finder-title_mod.hidden-xs: +i({ page: file.finder })
               +b.finder.finder_main-page.search-title_none: +i({ page: file.finder })
             .row.row-counters.hidden-xs
               .col-sm-4

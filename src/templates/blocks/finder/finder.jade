@@ -16,16 +16,42 @@ form(action="/")
         case data.page
             when "doctors"
                 +e.field
-                    +e("input").field-text(type="text", placeholder="Поиск диагностики" class="form-control")
-                    span.finder__field_img(data-target="#select-specialization"  data-toggle="modal")
+                    select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск диагностики
+                        option.select-type__item Поиск клиники 
+                        option.select-type__item Поиск анализа
+                        option.select-type__item Поиск центра
+                    +e.right-block
+                        span 
+                        i.triagle
+                    //- ul.js-dropdown-content.dropdown-content 
+                    //-     li.js-dropdown-item Поиск клиники 
+                    //-     li.js-dropdown-item Поиск анализа
+                    //-     li.js-dropdown-item Поиск центра
+
+                    //- +e("input").field-text.field-type(type="text", placeholder="Поиск диагностики" class="form-control")
+                    //- span.finder__field_img(data-target="#select-specialization"  data-toggle="modal")
                 +e.field.finder__field-icon-doctors
                     +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control")
-                    span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
-                    +b.search-result.hidden: +i
-                +e.field.finder__field-icon-location
+                    +e.right-block(data-target="#select-specialization", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img
+                    //- +b.search-result.hidden: +i
+                    //- span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
+                +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    span.finder__field_img(data-target="#select-area", data-toggle="modal")
-                    +b.search-result.hidden: +i
+                    //- select.select7.select7_dropdown.select-type
+                    //-     option.select-type__item Поиск диагностики
+                    //-     option.select-type__item Поиск клиники 
+                    //-     option.select-type__item Поиск анализа
+                    //-     option.select-type__item Поиск центра
+                    +e.right-block(data-target="#select-area", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img
+                    //- +b.search-location: +i  
+                    include ../blocks/search-location/search-location.jade
                 +e.submit
                     button.btn.btn-warning.form-control(type="submit") Найти 
             when "map"
