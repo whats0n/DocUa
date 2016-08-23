@@ -178,120 +178,15 @@ $('.finder').on 'diagnosticSelected', (t, e) ->
   $('#select-area-diagnostics').modal('hide')
 
 
-
-  # $('.js-section-choice').each ->
-  #   removeClass = true
-  #   item = $(this).find('.section-choice')
-  #   $('body').click ->
-  #       if removeClass
-  #           item.removeClass 'is-open'
-  #           removeClass = true
-  #   $(this).find('.js-field-child').click ->
-  #       if $(this).hasClass 'is-active'
-  #           $('.js-field-child').removeClass 'is-active' 
-  #           $('.section-choice').removeClass 'is-open' 
-  #           removeClass = false
-  #       else
-  #           # $('.js-section-choice').width($('.js-field-child').width())
-  #           $('.js-field-child').removeClass 'is-active'
-  #           $('.section-choice').removeClass 'is-open'
-  #           $(this).siblings('.section-choice').addClass 'is-open'
-  #           removeClass = true
-  #       return false
-  #   item.click ->
-  #       return false
-#personal dropdown
-# $('.js-personal-dropdown').each ->
-#     parent = $(this)
-#     dropdown = parent.children('.js-dropdown-content')
-#     dropdownItem = dropdown.children('.js-dropdown-item')
-#     changeText = parent.find('.js-change-text')
-#     flags = true
-
-
-#     # $('body').on 'click', ->
-#     #     if flags
-#     #         parent.removeClass 'is-active'
-#     #         dropdown.hide()
-#     #         console.log('body')
-#             # flags = true
-
-
-#     $('body').on 'click', dropdown, ->
-#         if parent.hasClass 'is-active'
-#             dropdown.hide()
-#             parent.removeClass 'is-active'
-#             flags = false
-#         else
-#             dropdown.show()
-#             parent.addClass 'is-active'
-#             flags = true
-#         return false
-
-#     dropdownItem.on 'click', ->
-#         value = $(this).text()
-#         input = $(this).parent().siblings('.js-hidden-input')
-
-
-#         changeText.text(value)
-#         input.val(value)
-#         $(this).addClass 'is-active'
-
-#         dropdown.hide()
-#         parent.removeClass 'is-active'
-
-#         if dropdownItem.hasClass 'is-active'
-#             dropdownItem.removeClass 'is-active'
-#             $(this).addClass 'is-active'
-
-        # else
-        #     $(this).addClass 'is-active'
-
-
-
-
 # cla autocomplete
 $(".js-finder-autocomplete").each ->
     _jScrollPane = undefined
     _jScrollPaneAPI = undefined
     _jSheight = 342
-    # _autoheight = auto
-
-    # Custom autocomplete instance.
-    # $.widget 'app.autocomplete', $.ui.autocomplete,
-    #     options: highlightClass: 'ui-state-highlight'
-    #     _renderItem: (ul, item) ->
-    #         # Replace the matched text with a custom span. This
-    #         # span uses the class found in the "highlightClass" option.
-    #         re = new RegExp('(' + @term + ')', 'gi')
-    #         cls = @options.highlightClass
-    #         template = '<span class=\'' + cls + '\'>$1</span>'
-    #         label = item.label.replace(re, template)
-    #         $li = $('<li/>').appendTo(ul)
-    #         # Create and return the custom menu item content.
-    #         $li.html(label).appendTo ('.subject-scroll')
-    #         $li
-
-    # $.ui.autocomplete.prototype._renderItem = (ul, item) ->
-    #   item.label = item.label.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + $.ui.autocomplete.escapeRegex(this.term) + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>")
-    #   return $('<li></li>').data('item.autocomplete', item).append('<a>' + item.label + '</a>').appendTo ul
+    
     $.ui.autocomplete.prototype._renderItem = (ul, item) ->
         highlighted = item.label.split(this.term).join('<span class="is-active">' + this.term +  '</span>')
         return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.label + '">' + highlighted + '</a>').appendTo(ul);
-
-    # monkeyPatchAutocomplete = ->
-    #   # Don't really need to save the old fn, 
-    #   # but I could chain if I wanted to
-    #   oldFn = $.ui.autocomplete::_renderItem
-
-    #   $.ui.autocomplete::_renderItem = (ul, item) ->
-    #     re = new RegExp('^' + @term, 'i')
-    #     t = item.label.replace(re, '<span class="is-active">' + @term + '</span>')
-    #     $('<li>' + t + '</li>').data('item.autocomplete', item).appendTo ul
-
-    #   return
-
-    # monkeyPatchAutocomplete()
 
     availableTags = [
         '(Биохимия для ФиброМакса) (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза (Холестерин; Глюкоза (сыворотка); Билирубин γ-глутаматтрансфераза'
@@ -348,7 +243,7 @@ $(".js-finder-autocomplete").each ->
             # response results
 
             $.ajax
-                url: '/analysis/search/live',
+                url: '/analysis/search/live/finder.json',
                 dataType: 'json',
                 method: 'GET',
                 data: {term: request.term}
@@ -364,14 +259,117 @@ $(".js-finder-autocomplete").each ->
             if !($('.js-finder-autocomplete').val().length >= 2)
                 noResultFinder.removeClass('is-hide') 
             return
+# index autocomplete
+$(".js-index-autocomplete").each ->
+    complete = $(this)
+    searchHidden = complete.siblings('.search-result')
 
+
+    projects = [
+        {
+            value: 'Врач нетрадиционной медицины'
+            label: 'Врач нетрадиционной медицины'
+            desc: 'Список врачей'
+            icon: 'icon-list-doctors.png'
+        }
+        {
+            value: 'Кардиология'
+            label: 'Кардиология'
+            desc: 'Диагностические центры'
+            icon: 'icon-list-diagnostic-centers.png'
+        }
+        {
+            value: 'Калиниченко Владислав Петрович'
+            label: 'Калиниченко Владислав Петрович'
+            desc: 'Врач'
+            icon: 'doc.png'
+        }
+    ]
+
+    complete.autocomplete
+        minLength: 2,
+        # source: projects,
+        open: ->
+            $('.ui-autocomplete').addClass 'is-active index-autocomplete'
+        focus: (event, ui) -> 
+            complete.val( ui.item.label )
+            return false
+        select: (event, ui) -> 
+            $(this).val ui.item.label
+            false
+        source: (request, response)-> 
+            $.ajax
+                url: '/analysis/search/live/index-search.json',
+                dataType: 'json',
+                method: 'GET',
+                data: {term: request.term} 
+                success: (data) -> 
+                    results = $.ui.autocomplete.filter(data.projects, request.term)
+                    noResult = complete.siblings('.index-no-result')
+                    if !results.length
+                        noResult.show()
+                    else
+                        noResult.hide()
+                    response results
+
+            if !($(".js-index-autocomplete").val().length >= 3)
+                # searchHidden.addClass('hidden')
+                console.log('bla')
+                # console.log($(".js-index-autocomplete").val())
+                searchHidden.hide()
+            # else
+            #     console.log('nebla')
+            #     searchHidden.show()
+            return
+
+
+    complete.data( "ui-autocomplete")._renderItem =( ul, item ) -> 
+        $li = $('<li>')
+        $img = $('<img>')
+        newText = String(item.value).replace(new RegExp(@term, 'gi'), '<span class=\'ui-menu-item-highlight\'>$&</span>')
+
+
+        # $('<li></li>').data('item.autocomplete', item).append('<a>' + newText + '</a>').appendTo ul
+
+        $img.attr
+            src: 'i/new-search/' + item.icon,
+            alt: item.label
+
+        # $li.attr('data-value', item.label)
+        # $li.append('<div class="wrap">')
+        # $li.find('.wrap').append('<p>')
+        # $li.find('.wrap').append('<a href="#">')
+        # $li.find('.wrap').append($img)
+        # $li.find('.wrap').data('item.autocomplete', item).append('<a>' + newText + '</a>')
+        # $li.find('p').append(item.desc)
+        # return $li.appendTo(ul)  
+
+        $li.attr('data-value', item.label)
+        $li.append('<div class="top-list__item-link">')
+        # $li.find('< div class="top-list__item-link">').append('<p>') 
+        # $li.find('.wrap').append('<a href="#">')
+        $li.find('.top-list__item-link').append('<div class="top-list__picture">').append($img)
+        $li.find('.top-list__item-link').append('<div class="top-list__title">').data('item.autocomplete', item).append('<a href="#">' + newText + '</a>')
+        $li.find('.top-list__item-link').append('<div class="top-list__right>').append('<div class="top-list__subject"').append(item.desc)
+        return $li.appendTo(ul) 
+    searchHidden.hide()
+
+    complete.on "click", ->
+        searchHidden.show()
+
+
+    # monkeyPatchAutocomplete = ->
+    #     $.ui.autocomplete::_renderItem = (ul, item) ->
+    #         cleanTerm = @term.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+    #         keywords = $.trim(cleanTerm).replace('  ', ' ').split(' ').join('|')
+    #         re = new RegExp('(' + keywords + ')', 'gi')
+    #         output = item.label.replace(re, '<span class="ui-menu-item-highlight">$1</span>')
+    #         $('<li>').children('.wrap').append($('<a>').html(output)).appendTo ul
+    #     return
+
+    # monkeyPatchAutocomplete()
+
+
+    # if !($('.js-autocomplete-subject').val().length >= 2)
     
-# $('#dot5 .pathname').each ->
-#   path = $(this).html().split('/')
-#   if path.length > 1
-#     name = path.pop()
-#     $(this).html path.join('/') + '<span class="filename">/' + name + '</span>'
-#     $(this).dotdotdot
-#       after: 'span.filename'
-#       wrap: 'letter'
-#   return
+    #     searchHidden.addClass('bla')
