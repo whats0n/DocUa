@@ -1,17 +1,17 @@
 $(function() {
-    $('.search__field').focus(function(){
-        $(this).closest('.search').find('.search-result').removeClass('hidden')
-    })
-    $('.search__field').blur(function(){
-        $(this).closest('.search').find('.search-result').addClass('hidden')
-    })
+    // $('.search__field').focus(function(){
+    //     $(this).closest('.search').find('.search-result').removeClass('hidden')
+    // })
+    // $('.search__field').blur(function(){
+    //     $(this).closest('.search').find('.search-result').addClass('hidden')
+    // })
 
-    $('.finder__field-text').focus(function(){
-        $(this).closest('.finder__field').find('.search-result').removeClass('hidden')
-    })
-    $('.finder__field-text').blur(function(){
-        $(this).closest('.finder__field').find('.search-result').addClass('hidden')
-    })
+    // $('.finder__field-text').focus(function(){
+    //     $(this).closest('.finder__field').find('.search-result').removeClass('hidden')
+    // })
+    // $('.finder__field-text').blur(function(){
+    //     $(this).closest('.finder__field').find('.search-result').addClass('hidden')
+    // })
     //$('#select-area').modal();
 
     function my_callback_function(s){

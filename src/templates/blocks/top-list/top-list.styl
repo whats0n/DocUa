@@ -8,6 +8,9 @@
     transition all .2s ease-in-out
     &:hover
       background #deeff2
+    &:first-child
+      border-top-color: transparent
+    
     &-link
       // display block
       width 100%
@@ -24,6 +27,8 @@
       align-items center
       @media only screen and (max-width: 960px)
         height auto
+      &:active, &:focus
+        text-decoration none
     &.main-items
       .top-list__picture
         border-radius: 50%
@@ -58,6 +63,9 @@
     line-height: 18px
     max-height: 51px 
     overflow hidden 
+    a
+      text-decoration none
+      
     span
       text-decoration underline 
       font-weight bold

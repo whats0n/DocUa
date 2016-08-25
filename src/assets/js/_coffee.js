@@ -1284,22 +1284,6 @@ $(document).each(function() {
   return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
 });
 
-$("#select-specialization").on("click", "li a", function() {
-  var item;
-  item = $(this);
-  $('.js-clone span').text(item.text());
-  $('.js-clear').addClass('is-active');
-  $('.direction__title').text('Выбрано направление');
-  return $("#select-specialization").modal("hide");
-});
-
-$(".js-clear").on("click", function() {
-  $(this).siblings("span").text("Выберите направление");
-  $(this).removeClass('is-active');
-  $('.direction__title').text('Направление');
-  return false;
-});
-
 $('.cla-fillials a').tooltip({
   container: '.main-content'
 });
@@ -1414,6 +1398,22 @@ $(".js-autocomplete-subject").each(function() {
   });
 });
 
+$("#select-specialization").on("click", "li a", function() {
+  var item;
+  item = $(this);
+  $('.js-clone span').text(item.text());
+  $('.js-clear').addClass('is-active');
+  $('.direction__title').text('Выбрано направление');
+  return $("#select-specialization").modal("hide");
+});
+
+$(".js-clear").on("click", function() {
+  $(this).siblings("span").text("Выберите направление");
+  $(this).removeClass('is-active');
+  $('.direction__title').text('Направление');
+  return false;
+});
+
 $(function() {
   var updateBadgeLabels;
   updateBadgeLabels = function() {
@@ -1432,6 +1432,8 @@ $(function() {
   return updateBadgeLabels();
 });
 
+
+
 $(document).on('click', '.js-services-btn', function() {
   var drop;
   drop = $(this).siblings('.js-services-block');
@@ -1439,8 +1441,6 @@ $(document).on('click', '.js-services-btn', function() {
   $(this).parents('.js-services').toggleClass('active');
   return false;
 });
-
-
 
 $('.js-add-tel').click(function() {
   $('.add-tel').addClass('is-active');
@@ -2049,8 +2049,15 @@ $(".js-finder-autocomplete").each(function() {
       return false;
     },
     source: function(request, response) {
-      var noResultFinder;
+      var noResultFinder, results;
       noResultFinder = $('.no-results-finder');
+      results = $.ui.autocomplete.filter(availableTags, request.term);
+      if (!results.length) {
+        noResultFinder.addClass('is-hide');
+      } else {
+        noResultFinder.removeClass('is-hide');
+      }
+      response(results);
       $.ajax({
         url: '/analysis/search/live/finder.json',
         dataType: 'json',
@@ -2059,7 +2066,6 @@ $(".js-finder-autocomplete").each(function() {
           term: request.term
         },
         success: function(data) {
-          var results;
           results = $.ui.autocomplete.filter(data.list, request.term);
           if (!results.length) {
             noResultFinder.addClass('is-hide');
@@ -2077,9 +2083,17 @@ $(".js-finder-autocomplete").each(function() {
 });
 
 $(".js-index-autocomplete").each(function() {
-  var complete, projects, searchHidden;
+  var _jScrollPane, _jScrollPaneAPI, _jSheight, complete, projects, searchHidden;
   complete = $(this);
   searchHidden = complete.siblings('.search-result');
+  _jScrollPane = void 0;
+  _jScrollPaneAPI = void 0;
+  _jSheight = 250;
+  jQuery.ui.autocomplete.prototype._resizeMenu = function() {
+    var ul;
+    ul = this.menu.element;
+    ul.outerWidth(this.element.outerWidth());
+  };
   projects = [
     {
       value: 'Врач нетрадиционной медицины',
@@ -2101,7 +2115,21 @@ $(".js-index-autocomplete").each(function() {
   complete.autocomplete({
     minLength: 2,
     open: function() {
-      return $('.ui-autocomplete').addClass('is-active index-autocomplete');
+      $(this).data('uiAutocomplete').menu.element.addClass('index-autocomplete js-lists');
+      if (void 0 !== _jScrollPane) {
+        _jScrollPaneAPI.destroy();
+      }
+      if ($('.index-autocomplete').height() <= _jSheight) {
+        $('.index-autocomplete > li').wrapAll($('<ul class="scroll-panel"></ul>').css('height', 'auto'));
+      } else {
+        $('.index-autocomplete > li').wrapAll($('<ul class="scroll-panel"></ul>').height(_jSheight));
+        _jScrollPane = $('.scroll-panel').jScrollPane();
+        _jScrollPaneAPI = _jScrollPane.data('jsp');
+      }
+    },
+    close: function(event, ui) {
+      _jScrollPaneAPI.destroy();
+      _jScrollPane = void 0;
     },
     focus: function(event, ui) {
       complete.val(ui.item.label);
@@ -2123,17 +2151,11 @@ $(".js-index-autocomplete").each(function() {
           var noResult, results;
           results = $.ui.autocomplete.filter(data.projects, request.term);
           noResult = complete.siblings('.index-no-result');
-          if (!results.length) {
-            noResult.show();
-          } else {
-            noResult.hide();
-          }
           return response(results);
         }
       });
       if (!($(".js-index-autocomplete").val().length >= 3)) {
-        console.log('bla');
-        searchHidden.hide();
+        searchHidden.hide('slow');
       }
     }
   });
@@ -2147,16 +2169,62 @@ $(".js-index-autocomplete").each(function() {
       alt: item.label
     });
     $li.attr('data-value', item.label);
-    $li.append('<div class="top-list__item-link">');
-    $li.find('.top-list__item-link').append('<div class="top-list__picture">').append($img);
-    $li.find('.top-list__item-link').append('<div class="top-list__title">').data('item.autocomplete', item).append('<a href="#">' + newText + '</a>');
-    $li.find('.top-list__item-link').append('<div class="top-list__right>').append('<div class="top-list__subject"').append(item.desc);
+    $li.addClass('top-list__item');
+    $li.append('<a href="#" class="top-list__item-link">');
+    $li.find('.top-list__item-link').append('<div class="top-list__picture">');
+    $li.find('.top-list__picture').append($img);
+    $li.find('.top-list__item-link').append('<div class="top-list__left">');
+    $li.find('.top-list__left').append('<div class="top-list__title">');
+    $li.find('.top-list__title').data('item.autocomplete', item).append('<a href="#" class="js-search-title">' + newText + '</a>');
+    $li.find('.top-list__item-link').append('<div class="top-list__right">');
+    $li.find('.top-list__right').append('<div class="top-list__subject">');
+    $li.find('.top-list__subject').append(item.desc);
     return $li.appendTo(ul);
   };
-  searchHidden.hide();
-  return complete.on("click", function() {
-    return searchHidden.show();
+  complete.on("click", function() {
+    searchHidden.show();
+    return $('.top-list__title').dotdotdot({
+      lines: 2,
+      responsive: true
+    });
   });
+  $('.js-static-search').on("click", '.top-list__item', function() {
+    var completeThis, thisItem, thisText;
+    thisItem = $(this).find('.top-list__title');
+    thisText = $(this).find('.top-list__title').text();
+    completeThis = $(this).parents('.search-result').siblings(".js-index-autocomplete");
+    completeThis.val(thisText);
+    return searchHidden.hide();
+  });
+  return complete.on('click', function() {
+    if ($(this).val().length) {
+      return searchHidden.hide();
+    } else {
+      return searchHidden.show();
+    }
+  });
+});
+
+$(document).mouseup(function(e) {
+  var container;
+  container = $('.search-result');
+  if (container.has(e.target).length === 0) {
+    container.hide();
+  }
+});
+
+$(document).on('click', '.js-select-scroll', function() {
+  var list;
+  list = $('.js-select-scroll').find('.select7__drop-list');
+  if (!list.hasClass('jspScrollable')) {
+    list.addClass('jspScrollable');
+    list.addClass('js-lists');
+    list.jScrollPane();
+  }
+});
+
+$('body').on('scroll', '.location', function(e) {
+  return e.stopPropagation();
 });
 
 if ($(document).height() <= $(window).height()) {
@@ -2622,7 +2690,7 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
-$('.top-list__title').dotdotdot({
+$('.js-truncate').dotdotdot({
   lines: 2,
   responsive: true
 });
@@ -3106,6 +3174,14 @@ $("body").on("smallCardInit", smallCardInit);
     setGender();
   }
 }).call(this);
+
+$('.js-city-close').on('click', function(e) {
+  var block;
+  block = $(this).closest('.your-city');
+  block.addClass('is-hide');
+  e.stopPropagation();
+  return false;
+});
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 

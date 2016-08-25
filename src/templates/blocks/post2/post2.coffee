@@ -3,12 +3,8 @@
 # 	responsive: true
 # });
 
-# $('.js-truncate').dotdotdot({ 
-# 	lines: 2,
-# 	responsive: true 
-# }); 
-
-$('.top-list__title').dotdotdot({ 
+$('.js-truncate').dotdotdot({ 
 	lines: 2,
 	responsive: true 
 });  
+

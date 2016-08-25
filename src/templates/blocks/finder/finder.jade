@@ -31,8 +31,14 @@ form(action="/")
 
                     //- +e("input").field-text.field-type(type="text", placeholder="Поиск диагностики" class="form-control")
                     //- span.finder__field_img(data-target="#select-specialization"  data-toggle="modal")
-                +e.field.finder__field-icon-doctors
+                +e.field.finder__field-icon-doctors.js-location-lists 
                     +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    .helper-autocomplete Например:  
+                        span Валихновский Ростистислав
+                        |, 
+                        span Добробут
+                        |, 
+                        span Колоноскопия
                     +e.right-block(data-target="#select-specialization", data-toggle="modal")
                         span 
                         i.triagle

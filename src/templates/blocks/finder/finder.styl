@@ -8,7 +8,7 @@ $finder_input_padding = 8px
     white-space nowrap
     clearfix()
     &.finder_main-page
-        max-width 1063px 
+        max-width 1150px 
         width 100% 
         // margin 20px auto 45px
         padding 0 
@@ -314,14 +314,23 @@ $finder_input_padding = 8px
     &.finder_main-page 
         form
             padding 0 
-            &:after
+            &:after, &:before
+                
                 display none
         .select-type 
             font-weight bold
             color: #5e6e71
             .select7__current
                 padding 0 30px 0 20px 
+                overflow: hidden
+                text-overflow: ellipsis
+                white-space: nowrap
             .select7__current-value
+                line-height normal
+                vertical-align: text-bottom
+                
+                @media phone
+                    font-size: 14px
                 &:hover
                     color: #5e6e71 !important
                 
@@ -355,17 +364,29 @@ $finder_input_padding = 8px
             cursor pointer
             &:hover
                 box-shadow: none
+            @media phone
+                &:first-child
+                    width 100%
+                &:nth-child(2)
+                    width 100%
+                &:nth-child(3)
+                    width 100%
+                    
             &:first-child
                 border-radius 2px 0 0 2px
-                width 18.6%
+                width 17.1%
+                // width 196px 
             &:nth-child(2)
-                width 44.8%
+                width 41.2%
+                // width 474px
             &:nth-child(3)
-                width 28.2% 
+                width 26% 
+                // width 299px
             input.form-control
                 padding 6px 60px 6px 20px  
                 height 42px
                 color: #5e6e71
+                background: transparent
                 // &.is-change
                 //     &::placeholder
                 //         color: transparent !important
@@ -380,7 +401,7 @@ $finder_input_padding = 8px
                     opacity 1
         .finder__right-block
             position absolute
-            z-index 10 
+            z-index: 9999 
             right 0
             top 5px
             bottom 0
@@ -389,6 +410,8 @@ $finder_input_padding = 8px
             border-left 1px solid #d9ecf0
             text-align center 
             background #FFF 
+            @media phone
+                width: 62px
             i.triagle
                 display inline-block
                 vertical-align super
@@ -422,9 +445,11 @@ $finder_input_padding = 8px
         .finder-text
             width auto
         .finder__submit
-            width 16.5% 
+            width 15% 
+            @media phone
+                width 100%
             .btn
-                height 42px
+                height 42px 
         
     
 
@@ -584,4 +609,20 @@ $finder_input_padding = 8px
     box-shadow: 0 3px 8px rgba(0,0,0,.02)
     &.is-hide
         display block
-        
+.helper-autocomplete
+    float left
+    color: #e8e8e8
+    font-size: 12px
+    font-weight: 400
+    line-height: 15px
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    width 100%
+    @media phone
+        display none
+    &:hover
+        cursor default
+    span
+        text-decoration: underline
+            

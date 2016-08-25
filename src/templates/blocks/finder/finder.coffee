@@ -235,12 +235,12 @@ $(".js-finder-autocomplete").each ->
             false
         source: (request, response) ->
             noResultFinder = $('.no-results-finder')
-            # results = $.ui.autocomplete.filter(availableTags, request.term)
-            # if !results.length
-            #     noResultFinder.addClass('is-hide')
-            # else
-            #     noResultFinder.removeClass('is-hide')
-            # response results
+            results = $.ui.autocomplete.filter(availableTags, request.term)
+            if !results.length
+                noResultFinder.addClass('is-hide')
+            else
+                noResultFinder.removeClass('is-hide')
+            response results
 
             $.ajax
                 url: '/analysis/search/live/finder.json',
@@ -259,12 +259,20 @@ $(".js-finder-autocomplete").each ->
             if !($('.js-finder-autocomplete').val().length >= 2)
                 noResultFinder.removeClass('is-hide') 
             return
+
 # index autocomplete
 $(".js-index-autocomplete").each ->
     complete = $(this)
     searchHidden = complete.siblings('.search-result')
+    _jScrollPane = undefined
+    _jScrollPaneAPI = undefined
+    _jSheight = 250
 
-
+    # autocomplete width
+    jQuery.ui.autocomplete::_resizeMenu = ->
+        ul = @menu.element
+        ul.outerWidth @element.outerWidth()
+        return
     projects = [
         {
             value: 'Врач нетрадиционной медицины'
@@ -288,9 +296,21 @@ $(".js-index-autocomplete").each ->
 
     complete.autocomplete
         minLength: 2,
-        # source: projects,
         open: ->
-            $('.ui-autocomplete').addClass 'is-active index-autocomplete'
+            $(this).data('uiAutocomplete').menu.element.addClass 'index-autocomplete js-lists'
+            if undefined != _jScrollPane
+                _jScrollPaneAPI.destroy()
+            if  $('.index-autocomplete').height() <= _jSheight
+                $('.index-autocomplete > li').wrapAll $('<ul class="scroll-panel"></ul>').css('height', 'auto')
+            else
+                $('.index-autocomplete > li').wrapAll $('<ul class="scroll-panel"></ul>').height(_jSheight)
+                _jScrollPane = $('.scroll-panel').jScrollPane()
+                _jScrollPaneAPI = _jScrollPane.data('jsp')
+            return
+        close: (event, ui) ->
+            _jScrollPaneAPI.destroy()
+            _jScrollPane = undefined
+            return
         focus: (event, ui) -> 
             complete.val( ui.item.label )
             return false
@@ -306,70 +326,80 @@ $(".js-index-autocomplete").each ->
                 success: (data) -> 
                     results = $.ui.autocomplete.filter(data.projects, request.term)
                     noResult = complete.siblings('.index-no-result')
-                    if !results.length
-                        noResult.show()
-                    else
-                        noResult.hide()
+                    # if !results.length
+                    #     noResult.show()
+                    # else
+                    #     noResult.hide()
                     response results
 
             if !($(".js-index-autocomplete").val().length >= 3)
-                # searchHidden.addClass('hidden')
-                console.log('bla')
-                # console.log($(".js-index-autocomplete").val())
-                searchHidden.hide()
-            # else
-            #     console.log('nebla')
-            #     searchHidden.show()
+                # console.log('bla')
+                searchHidden.hide('slow')
+
             return
-
-
+            
     complete.data( "ui-autocomplete")._renderItem =( ul, item ) -> 
         $li = $('<li>')
         $img = $('<img>')
         newText = String(item.value).replace(new RegExp(@term, 'gi'), '<span class=\'ui-menu-item-highlight\'>$&</span>')
 
-
-        # $('<li></li>').data('item.autocomplete', item).append('<a>' + newText + '</a>').appendTo ul
-
         $img.attr
             src: 'i/new-search/' + item.icon,
-            alt: item.label
-
-        # $li.attr('data-value', item.label)
-        # $li.append('<div class="wrap">')
-        # $li.find('.wrap').append('<p>')
-        # $li.find('.wrap').append('<a href="#">')
-        # $li.find('.wrap').append($img)
-        # $li.find('.wrap').data('item.autocomplete', item).append('<a>' + newText + '</a>')
-        # $li.find('p').append(item.desc)
-        # return $li.appendTo(ul)  
+            alt: item.label 
 
         $li.attr('data-value', item.label)
-        $li.append('<div class="top-list__item-link">')
-        # $li.find('< div class="top-list__item-link">').append('<p>') 
-        # $li.find('.wrap').append('<a href="#">')
-        $li.find('.top-list__item-link').append('<div class="top-list__picture">').append($img)
-        $li.find('.top-list__item-link').append('<div class="top-list__title">').data('item.autocomplete', item).append('<a href="#">' + newText + '</a>')
-        $li.find('.top-list__item-link').append('<div class="top-list__right>').append('<div class="top-list__subject"').append(item.desc)
+        $li.addClass('top-list__item')
+        $li.append('<a href="#" class="top-list__item-link">')
+        # insert img
+        $li.find('.top-list__item-link').append('<div class="top-list__picture">')
+        $li.find('.top-list__picture').append($img)
+        # insert content
+        $li.find('.top-list__item-link').append('<div class="top-list__left">')
+        $li.find('.top-list__left').append('<div class="top-list__title">')
+        $li.find('.top-list__title').data('item.autocomplete', item).append('<a href="#" class="js-search-title">' + newText + '</a>')
+        # insert type
+        $li.find('.top-list__item-link').append('<div class="top-list__right">')
+        $li.find('.top-list__right').append('<div class="top-list__subject">')
+        $li.find('.top-list__subject').append(item.desc)
         return $li.appendTo(ul) 
-    searchHidden.hide()
 
     complete.on "click", ->
         searchHidden.show()
+        $('.top-list__title').dotdotdot
+            lines: 2,
+            responsive: true 
+
+    $('.js-static-search').on "click", '.top-list__item', ->
+        thisItem = $(this).find('.top-list__title')
+        thisText = $(this).find('.top-list__title').text()
+        completeThis = $(this).parents('.search-result').siblings(".js-index-autocomplete")
+
+        completeThis.val(thisText)
+        searchHidden.hide() 
+
+    complete.on 'click', ->
+        if $(this).val().length
+            searchHidden.hide()
+        else
+            searchHidden.show() 
+
+$(document).mouseup (e) ->
+    container = $('.search-result')
+    if container.has(e.target).length == 0
+        container.hide()
+    return
 
 
-    # monkeyPatchAutocomplete = ->
-    #     $.ui.autocomplete::_renderItem = (ul, item) ->
-    #         cleanTerm = @term.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
-    #         keywords = $.trim(cleanTerm).replace('  ', ' ').split(' ').join('|')
-    #         re = new RegExp('(' + keywords + ')', 'gi')
-    #         output = item.label.replace(re, '<span class="ui-menu-item-highlight">$1</span>')
-    #         $('<li>').children('.wrap').append($('<a>').html(output)).appendTo ul
-    #     return
+$(document).on 'click', '.js-select-scroll',->
+    list = $('.js-select-scroll').find('.select7__drop-list')
 
-    # monkeyPatchAutocomplete()
+    # select7_open
 
+    if !list.hasClass 'jspScrollable'
+        list.addClass 'jspScrollable'
+        list.addClass 'js-lists'
+        list.jScrollPane()
+        return
 
-    # if !($('.js-autocomplete-subject').val().length >= 2)
-    
-    #     searchHidden.addClass('bla')
+$('body').on 'scroll', '.location', (e) ->
+    e.stopPropagation()

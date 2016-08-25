@@ -2069,6 +2069,14 @@ article.static-page
 // index-scroll
 .js-lists
     padding-right 20px
+    &.index-autocomplete
+        padding-right 0
+        .jspPane
+            width 96% !important
+    &.select7__drop-list
+        .jspContainer
+            .jspVerticalBar
+                right: 3px
     &:focus
         outline: none
         border: none
@@ -2084,6 +2092,7 @@ article.static-page
                 border-radius: 0 0 0 0
                 width 3px
                 left -1px
+    
 .navbar-main
     .user-panel, .user-panel-menu
         float none !important
@@ -2158,6 +2167,12 @@ article.static-page
     right 0
     background #FFF 
     z-index 10 
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25)
+    border-top 1px solid #d9ecf0
+    height auto 
+    .top-list__title
+        a
+            overflow hidden
     .ui-menu-item-highlight
         text-decoration: underline
         font-weight: 700
@@ -2166,3 +2181,78 @@ article.static-page
     li > a
         color: text_color
         text-decoration none
+        
+.index-no-result
+    position absolute
+    left 0
+    right 0
+    background #FFF 
+    z-index 10 
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25)
+    font-size: 14px
+    padding 7px 10px 7px 15px
+    height 51px
+    border-top 1px solid #d9ecf0 
+
+.your-city
+    position absolute
+    top 28px
+    left 50%
+    margin-left -150px
+    background #FFF 
+    font-size 16px
+    border: 1px solid #ccc
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25)
+    &.is-hide
+        display none
+    &:after, &:before
+        position absolute
+        left: 50%
+        margin-left -3px
+    &:before
+        content: ''
+        width: 0
+        height: 0
+        top -6px
+        border-left: 6px solid transparent
+        border-right: 6px solid transparent
+        border-bottom: 6px solid #ccc
+    &:after
+        content: ''
+        width: 0
+        height: 0
+        top -5px
+        border-left: 6px solid transparent
+        border-right: 6px solid transparent
+        border-bottom: 6px solid #fff
+    &__container
+        padding 12px 
+        text-align center
+        min-width 270px 
+    &__title
+        color: #5e6e71
+        font-size: 20px
+        font-weight 700 
+    &__block-btns
+        margin: 20px 0 4px 0
+    &__btn
+        vertical-align middle
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+        color: white
+        font-size: 20px
+        font-weight: 700
+        background-color: #fd8f2e
+        padding 5px 40px 
+        border-radius: 2px
+        text-decoration none
+        margin-right 17px
+        &:active
+            text-decoration none
+        &:hover
+            opacity .8 
+    &__change-city
+        color: #02839c
+        font-size: 16px
+        text-decoration: underline
+        &:hover
+            text-decoration none
