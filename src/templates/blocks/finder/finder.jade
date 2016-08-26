@@ -1,16 +1,16 @@
-case data.page
-    when "doctors"
-        +e.search-title Поиск врачей
-    when "map"
-        +e.search-title Поиск врачей
-    when "clinics"
-        +e.search-title Поиск клиник
-    when "actions"
-        +e.search-title Поиск акции
-    when "bundles"
-        +e.search-title Поиск пакетов
-    when "cla"
-        +e.search-title Поиск клиник
+//- case data.page
+//-     when "doctors"
+//-         +e.search-title Поиск врачей
+//-     when "map"
+//-         +e.search-title Поиск врачей
+//-     when "clinics"
+//-         +e.search-title Поиск клиник
+//-     when "actions"
+//-         +e.search-title Поиск акции
+//-     when "bundles"
+//-         +e.search-title Поиск пакетов
+//-     when "cla"
+//-         +e.search-title Поиск клиник
 form(action="/")
     fieldset
         case data.page
@@ -24,13 +24,6 @@ form(action="/")
                     +e.right-block
                         span 
                         i.triagle
-                    //- ul.js-dropdown-content.dropdown-content 
-                    //-     li.js-dropdown-item Поиск клиники 
-                    //-     li.js-dropdown-item Поиск анализа
-                    //-     li.js-dropdown-item Поиск центра
-
-                    //- +e("input").field-text.field-type(type="text", placeholder="Поиск диагностики" class="form-control")
-                    //- span.finder__field_img(data-target="#select-specialization"  data-toggle="modal")
                 +e.field.finder__field-icon-doctors.js-location-lists 
                     +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
                     .helper-autocomplete Например:  
@@ -45,91 +38,368 @@ form(action="/")
                         span.finder__field_img
                     +b.search-result(style="display: none;"): +i
                     .index-no-result(style="display: none;") нет результатов
-                    //- span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
                 +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    //- select.select7.select7_dropdown.select-type
-                    //-     option.select-type__item Поиск диагностики
-                    //-     option.select-type__item Поиск клиники 
-                    //-     option.select-type__item Поиск анализа
-                    //-     option.select-type__item Поиск центра
                     +e.right-block(data-target="#select-area", data-toggle="modal")
                         span 
                         i.triagle
+                        span.finder__field_img 
+                    include ../blocks/search-location/search-location.jade
+                +e.submit
+                    button.btn.btn-warning.form-control(type="submit") Найти 
+
+            when "index2"
+                +e.field
+                    select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск диагностики
+                        option.select-type__item Поиск клиники 
+                        option.select-type__item Поиск анализа
+                        option.select-type__item Поиск центра
+                    +e.right-block
+                        span 
+                        i.triagle
+                +e.field.finder__field-icon-doctors.js-location-lists.finder-field-single
+                    +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    .helper-autocomplete Например:  
+                        span Валихновский Ростистислав
+                        |, 
+                        span Добробут
+                        |, 
+                        span Колоноскопия
+                    +e.right-block(data-target="#select-specialization", data-toggle="modal")
+                        span 
+                        i.triagle
                         span.finder__field_img
-                    //- +b.search-location: +i  
+                    +b.search-result(style="display: none;"): +i
+                    .index-no-result(style="display: none;") нет результатов
+                //- +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
+                //-     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                //-     +e.right-block(data-target="#select-area", data-toggle="modal")
+                //-         span 
+                //-         i.triagle
+                //-         span.finder__field_img 
                     include ../blocks/search-location/search-location.jade
                 +e.submit
                     button.btn.btn-warning.form-control(type="submit") Найти 
             when "doctors"
-                +e.field.finder__field-icon-doctors
-                    +e("input").field-text(type="text" placeholder="Выберите специальность врача" class="form-control")
-                    span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
-                    +b.search-result.hidden: +i
-                +e.field.finder__field-icon-location
+                //- +e.field.finder__field-icon-doctors
+                //-     +e("input").field-text(type="text" placeholder="Выберите специальность врача" class="form-control")
+                //-     span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
+                //-     +b.search-result.hidden: +i
+                //- +e.field.finder__field-icon-location
+                //-     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                //-     span.finder__field_img(data-target="#select-area", data-toggle="modal")
+                //-     +b.search-result.hidden: +i
+                //- +e.submit
+                //-     button.btn.btn-warning.form-control(type="submit") Найти врача
+                +e.field
+                    select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск диагностики
+                        option.select-type__item Поиск клиники 
+                        option.select-type__item Поиск анализа
+                        option.select-type__item Поиск центра
+                    +e.right-block
+                        span 
+                        i.triagle
+                +e.field.finder__field-icon-doctors.js-location-lists 
+                    +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    +e.right-block(data-target="#select-specialization", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img
+                    +b.search-result(style="display: none;"): +i
+                    .index-no-result(style="display: none;") нет результатов
+                +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    span.finder__field_img(data-target="#select-area", data-toggle="modal")
-                    +b.search-result.hidden: +i
+                    +e.right-block(data-target="#select-area", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img 
+                    include ../blocks/search-location/search-location.jade
                 +e.submit
-                    button.btn.btn-warning.form-control(type="submit") Найти врача
+                    button.btn.btn-warning.form-control(type="submit") Найти 
             when "map"
-                +e.field.finder__field-icon-doctors
-                    +e("input").field-text(type="text" placeholder="Выберите специальность врача" class="form-control")
-                    span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
-                +e.submit
-                    a.finder__btn-map.btn.btn-success.form-control(href="/clinics.html") К списку
-            when "countries"
-                +e.field.finder__field-icon-doctors(data-target="#select-specialization", data-toggle="modal")
-                    +e("span").field-text специальность
-                +e.field.finder__field-icon-location(data-target="#select-countries", data-toggle="modal")
-                    +e("span").field-text выберите страну
-                +e.submit
-                    button.btn.btn-warning.form-control(type="submit") Найти врача
-            when "clinics"
-                +e.field.finder__field-icon-clinics
-                    +e("input").field-text(type="text" placeholder="Выберите направление" class="form-control")
-                    span.finder__field_img(data-target="#select-branch", data-toggle="modal")
-                +e.field.finder__field-icon-location
+                //- +e.field.finder__field-icon-doctors
+                //-     +e("input").field-text(type="text" placeholder="Выберите специальность врача" class="form-control")
+                //-     span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
+                //- +e.submit
+                //-     a.finder__btn-map.btn.btn-success.form-control(href="/clinics.html") К списку
+                +e.field
+                    select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск диагностики
+                        option.select-type__item Поиск клиники 
+                        option.select-type__item Поиск анализа
+                        option.select-type__item Поиск центра
+                    +e.right-block
+                        span 
+                        i.triagle
+                +e.field.finder__field-icon-doctors.js-location-lists 
+                    +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    .helper-autocomplete Например:  
+                        span Валихновский Ростистислав
+                        |, 
+                        span Добробут
+                        |, 
+                        span Колоноскопия
+                    +e.right-block(data-target="#select-specialization", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img
+                    +b.search-result(style="display: none;"): +i
+                    .index-no-result(style="display: none;") нет результатов
+                +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    span.finder__field_img(data-target="#select-area", data-toggle="modal")
+                    +e.right-block(data-target="#select-area", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img 
+                    include ../blocks/search-location/search-location.jade
                 +e.submit
-                    button.btn.btn-warning.form-control(type="submit") Найти клинику
+                    button.btn.btn-warning.form-control(type="submit") Найти 
+            when "countries"
+                //- +e.field.finder__field-icon-doctors(data-target="#select-specialization", data-toggle="modal")
+                //-     +e("span").field-text специальность
+                //- +e.field.finder__field-icon-location(data-target="#select-countries", data-toggle="modal")
+                //-     +e("span").field-text выберите страну
+                //- +e.submit
+                //-     button.btn.btn-warning.form-control(type="submit") Найти врача
+                +e.field
+                    select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск диагностики
+                        option.select-type__item Поиск клиники 
+                        option.select-type__item Поиск анализа
+                        option.select-type__item Поиск центра
+                    +e.right-block
+                        span 
+                        i.triagle
+                +e.field.finder__field-icon-doctors.js-location-lists 
+                    +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    .helper-autocomplete Например:  
+                        span Валихновский Ростистислав
+                        |, 
+                        span Добробут
+                        |, 
+                        span Колоноскопия
+                    +e.right-block(data-target="#select-specialization", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img
+                    +b.search-result(style="display: none;"): +i
+                    .index-no-result(style="display: none;") нет результатов
+                +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
+                    +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                    +e.right-block(data-target="#select-area", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img 
+                    include ../blocks/search-location/search-location.jade
+                +e.submit
+                    button.btn.btn-warning.form-control(type="submit") Найти 
+            when "clinics"
+                +e.field
+                    select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск диагностики
+                        option.select-type__item Поиск клиники 
+                        option.select-type__item Поиск анализа
+                        option.select-type__item Поиск центра
+                    +e.right-block
+                        span 
+                        i.triagle
+                +e.field.finder__field-icon-doctors.js-location-lists 
+                    +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    .helper-autocomplete Например:  
+                        span Валихновский Ростистислав
+                        |, 
+                        span Добробут
+                        |, 
+                        span Колоноскопия
+                    +e.right-block(data-target="#select-specialization", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img
+                    +b.search-result(style="display: none;"): +i
+                    .index-no-result(style="display: none;") нет результатов
+                +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
+                    +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                    +e.right-block(data-target="#select-area", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img 
+                    include ../blocks/search-location/search-location.jade
+                +e.submit
+                    button.btn.btn-warning.form-control(type="submit") Найти 
+                //- +e.field.finder__field-icon-clinics
+                //-     +e("input").field-text(type="text" placeholder="Выберите направление" class="form-control")
+                //-     span.finder__field_img(data-target="#select-branch", data-toggle="modal")
+                //- +e.field.finder__field-icon-location
+                //-     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                //-     span.finder__field_img(data-target="#select-area", data-toggle="modal")
+                //- +e.submit
+                //-     button.btn.btn-warning.form-control(type="submit") Найти клинику
             when "diagnostics"
-                +e.field.finder__field-icon-clinics(data-target="#select-area-diagnostics", data-toggle="modal")
-                    +e("span").field-text выберите диагностику
-                +e.field.finder__field-icon-location(data-target="#select-area", data-toggle="modal")
-                    +e("span").field-text район
+                //- +e.field.finder__field-icon-clinics(data-target="#select-area-diagnostics", data-toggle="modal")
+                //-     +e("span").field-text выберите диагностику
+                //- +e.field.finder__field-icon-location(data-target="#select-area", data-toggle="modal")
+                //-     +e("span").field-text район
+                //- +e.submit
+                //-     button.btn.btn-warning.form-control(type="submit") Найти клинику
+                +e.field
+                    select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск диагностики
+                        option.select-type__item Поиск клиники 
+                        option.select-type__item Поиск анализа
+                        option.select-type__item Поиск центра
+                    +e.right-block
+                        span 
+                        i.triagle
+                +e.field.finder__field-icon-doctors.js-location-lists 
+                    +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    .helper-autocomplete Например:  
+                        span Валихновский Ростистислав
+                        |, 
+                        span Добробут
+                        |, 
+                        span Колоноскопия
+                    +e.right-block(data-target="#select-specialization", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img
+                    +b.search-result(style="display: none;"): +i
+                    .index-no-result(style="display: none;") нет результатов
+                +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
+                    +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                    +e.right-block(data-target="#select-area", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img 
+                    include ../blocks/search-location/search-location.jade
                 +e.submit
-                    button.btn.btn-warning.form-control(type="submit") Найти клинику
+                    button.btn.btn-warning.form-control(type="submit") Найти 
             when "analyzes"
                 h1 analyzes
             when "bundles"
 
-                +e.field.finder__field-icon-aim
-                    +e("input").field-text(type="text" placeholder="Выберите тип пакета" class="form-control")
-                    span.finder__field_img(data-target="#select-bundles", data-toggle="modal")
-                +e.field.finder__field-icon-location
+                //- +e.field.finder__field-icon-aim
+                //-     +e("input").field-text(type="text" placeholder="Выберите тип пакета" class="form-control")
+                //-     span.finder__field_img(data-target="#select-bundles", data-toggle="modal")
+                //- +e.field.finder__field-icon-location
+                //-     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                //-     span.finder__field_img(data-target="#select-area", data-toggle="modal")
+                //- +e.submit
+                //-     button.btn.btn-warning.form-control(type="submit") Найти услугу
+                +e.field
+                    select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск диагностики
+                        option.select-type__item Поиск клиники 
+                        option.select-type__item Поиск анализа
+                        option.select-type__item Поиск центра
+                    +e.right-block
+                        span 
+                        i.triagle
+                +e.field.finder__field-icon-doctors.js-location-lists 
+                    +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    .helper-autocomplete Например:  
+                        span Валихновский Ростистислав
+                        |, 
+                        span Добробут
+                        |, 
+                        span Колоноскопия
+                    +e.right-block(data-target="#select-specialization", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img
+                    +b.search-result(style="display: none;"): +i
+                    .index-no-result(style="display: none;") нет результатов
+                +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    span.finder__field_img(data-target="#select-area", data-toggle="modal")
+                    +e.right-block(data-target="#select-area", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img 
+                    include ../blocks/search-location/search-location.jade
                 +e.submit
-                    button.btn.btn-warning.form-control(type="submit") Найти услугу
+                    button.btn.btn-warning.form-control(type="submit") Найти 
             when "actions"
-                +e.field.finder__field-icon-aim
-                    +e("input").field-text(type="text" placeholder="Выберите тему акции" class="form-control")
-                    span.finder__field_img(data-target="#select-actions", data-toggle="modal")
-                +e.field.finder__field-icon-location
+                //- +e.field.finder__field-icon-aim
+                //-     +e("input").field-text(type="text" placeholder="Выберите тему акции" class="form-control")
+                //-     span.finder__field_img(data-target="#select-actions", data-toggle="modal")
+                //- +e.field.finder__field-icon-location
+                //-     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                //-     span.finder__field_img(data-target="#select-area", data-toggle="modal")
+                //- +e.submit
+                //-     button.btn.btn-warning.form-control(type="submit") Найти акцию
+                +e.field
+                    select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск диагностики
+                        option.select-type__item Поиск клиники 
+                        option.select-type__item Поиск анализа
+                        option.select-type__item Поиск центра
+                    +e.right-block
+                        span 
+                        i.triagle
+                +e.field.finder__field-icon-doctors.js-location-lists 
+                    +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    .helper-autocomplete Например:  
+                        span Валихновский Ростистислав
+                        |, 
+                        span Добробут
+                        |, 
+                        span Колоноскопия
+                    +e.right-block(data-target="#select-specialization", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img
+                    +b.search-result(style="display: none;"): +i
+                    .index-no-result(style="display: none;") нет результатов
+                +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    span.finder__field_img(data-target="#select-area", data-toggle="modal")
+                    +e.right-block(data-target="#select-area", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img 
+                    include ../blocks/search-location/search-location.jade
                 +e.submit
-                    button.btn.btn-warning.form-control(type="submit") Найти акцию
+                    button.btn.btn-warning.form-control(type="submit") Найти 
             when "cla"
-                +e.field.finder__field-icon-cla
-                    +e("input").field-text.js-finder-autocomplete(type="text" placeholder="Выберите направление" class="form-control")
-                    span.finder__field_img(data-target="#select-branch", data-toggle="modal")
-                    .no-results-finder Совпадений не найдено!  
+                //- +e.field.finder__field-icon-cla
+                //-     +e("input").field-text.js-finder-autocomplete(type="text" placeholder="Выберите направление" class="form-control")
+                //-     span.finder__field_img(data-target="#select-branch", data-toggle="modal")
+                //-     .no-results-finder Совпадений не найдено!  
 
-                +e.field.finder__field-icon-location
+                //- +e.field.finder__field-icon-location
+                //-     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                //-     span.finder__field_img(data-target="#select-area", data-toggle="modal")
+                //- +e.submit
+                //-     button.btn.btn-warning.form-control(type="submit") Найти клинику
+                +e.field
+                    select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск диагностики
+                        option.select-type__item Поиск клиники 
+                        option.select-type__item Поиск анализа
+                        option.select-type__item Поиск центра
+                    +e.right-block
+                        span 
+                        i.triagle
+                +e.field.finder__field-icon-doctors.js-location-lists 
+                    +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    .helper-autocomplete Например:  
+                        span Валихновский Ростистислав
+                        |, 
+                        span Добробут
+                        |, 
+                        span Колоноскопия
+                    +e.right-block(data-target="#select-specialization", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img
+                    +b.search-result(style="display: none;"): +i
+                    .index-no-result(style="display: none;") нет результатов
+                +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
                     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    span.finder__field_img(data-target="#select-area", data-toggle="modal")
+                    +e.right-block(data-target="#select-area", data-toggle="modal")
+                        span 
+                        i.triagle
+                        span.finder__field_img 
+                    include ../blocks/search-location/search-location.jade
                 +e.submit
-                    button.btn.btn-warning.form-control(type="submit") Найти клинику
+                    button.btn.btn-warning.form-control(type="submit") Найти 

@@ -153,6 +153,17 @@ body
             if file.finder || file.chooser
               .wrap
                 +b.finder: +i({ page: file.finder })
+      else if file.page_name == 'index2' 
+        .row.row-finder.row-finder_main 
+          .container-bg
+          .container
+            .wrap
+              +b.finder-title Бесплатный сервис поиска врачей
+                p Найдите врача и запишитесь на прием. 
+                  a(href="#") Как это работает?
+              //- +b.finder-title.finder-title_mod.hidden-xs: +i({ page: file.finder }) 
+              +b.finder.finder_main-page2.search-title_none: +i({ page: file.finder })
+
 
 
       //- Chooser container
@@ -181,7 +192,7 @@ body
           if !file.indexPage 
             .row
               .col-md-9
-                if file.page_name != 'search' && file.page_name != 'search_no_rezult'
+                
                   +b.breadcrumbs: +i({ breadcrumbs: [{ title: file.title, url: '#' }] })
               if file.page_name == 'clinics' || file.page_name == 'doctors' || file.page_name == 'promo' || file.page_name == 'bundles'
                 .col-md-9

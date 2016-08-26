@@ -7,6 +7,8 @@ $finder_input_padding = 8px
     z-index 2
     white-space nowrap
     clearfix()
+    @media phone
+        margin-bottom 20px 
     &.finder_main-page
         max-width 1150px 
         width 100% 
@@ -50,21 +52,22 @@ $finder_input_padding = 8px
         position relative 
         float left
         width 100%
-        padding 20px 
+        padding 0 
         @media phone_tablet
             width 100%
-        &:before
-            content ""
-            position absolute
-            top 0
-            left 0
-            bottom 0
-            right 0  
-            width 100% 
-            background-color rgba(255, 255, 255, 0.18)
-            opacity 0.29
-            border 1px dashed white
-            border-radius 2px
+        &:before, &:after
+            display none
+            // content ""
+            // position absolute
+            // top 0
+            // left 0
+            // bottom 0
+            // right 0  
+            // width 100% 
+            // background-color rgba(255, 255, 255, 0.18)
+            // opacity 0.29
+            // border 1px dashed white
+            // border-radius 2px
 
         fieldset
             position relative
@@ -75,84 +78,149 @@ $finder_input_padding = 8px
         float left
         // display inline-block
         margin-right 2px
-        width 42%
-        height 50px
-        
+        width 28%
+        height 42px
+        color: #5e6e71
         font-size 16px
-        line-height 38px
+        line-height 42px
         box-shadow 0 0 20px transparent
         transition box-shadow .2s ease-in-out
         background-color #fff
         white-space nowrap
         cursor pointer
+        &:hover
+            box-shadow: none
+        &.finder-field-single
+            &:nth-child(2)
+                width 67.5%
+            @media phone
+                &:nth-child(2)
+                    width 100%
+                
+        @media phone
+            &:first-child
+                width 100%
+            &:nth-child(2)
+                width 100%
+            &:nth-child(3)
+                width 100%
         &:first-child
-            border-radius 2px 0 0 2px     
+            border-radius 2px 0 0 2px
+            // width 17.7%
+            width 17.1%
+            // width 196px 
+        &:nth-child(2)
+            // width 42.4%
+            width 41.3%
+            // width 474px
+        &:nth-child(3)
+            width 26% 
+            // width 299px
+               
         input.form-control
-            width 100%
-            height 50px 
+            // width 100%
+            height 42px 
             // padding-left 0
             font-size 16px
             border 0
             box-shadow none
+            padding 6px 60px 6px 20px  
+            color: #5e6e71
+            background: transparent
             // padding 0 45px 0 18px
+            &::placeholder 
+                color: #5e6e71 !important
+                opacity 1
             @media phone 
                 font-size 14px
+                height auto
 
-        @media tablet
-            width 39%
+        // @media tablet
+        //     width 39%
         @media phone
             width auto
             float: none
             display: block
             margin: 0 0 20px
-        &:before
-            content ""
+        // &:before
+        //     content ""
+        //     position absolute
+        //     transition opacity .2s ease-in-out
+        //     background-repeat no-repeat
+        //     width 35px
+        // &:before
+        //     height 27px
+        //     right $finder_input_padding
+        //     top 6px
+        // &:hover
+        //     box-shadow 0 0 20px rgba(53, 191, 174, 1)
+        //     .finder__field_img
+        //         opacity .75
+        .finder__right-block
             position absolute
-            transition opacity .2s ease-in-out
-            background-repeat no-repeat
-            width 35px
-        &:before
-            height 27px
-            right $finder_input_padding
-            top 6px
-        &:hover
-            box-shadow 0 0 20px rgba(53, 191, 174, 1)
-            .finder__field_img
-                opacity .75
+            z-index: 10000
+            right 0
+            top 5px
+            bottom 0
+            // min-width 28px
+            height 32px
+            border-left 1px solid #d9ecf0
+            text-align center 
+            background #FFF 
+            @media phone
+                width: 62px
+            i.triagle
+                display inline-block
+                vertical-align super
+                width: 0
+                height: 0
+                border-left: 4px solid transparent
+                border-right: 4px solid transparent
+                border-top: 4px solid #00829b
+                margin 0 10px 2px 10px 
         &_img
-            position absolute
-            top 50%
-            right 50% 
-            transition opacity .2s ease-in-out
-            background-repeat no-repeat
+            // position absolute
+            // top 50%
+            // right 50% 
+            // transition opacity .2s ease-in-out
+            // background-repeat no-repeat
+            position relative
+            top auto
+            right auto
+            display inline-block
+            margin-right 10px
         &-icon
             &-doctors
-                >span
-                    right $finder_input_padding + 4
-                    top 11px
-                    sprite($finder_doctor)
+                .finder__right-block
+                    >span
+                        background-image url('i/new-search/icon-list-doctors.png') 
+                        // margin-bottom  2px 
+                        width 23px
+                        height 24px
             &-location
-                >span
-                    right $finder_input_padding + 4
-                    top 11px
-                    sprite($finder_location)
-            &-clinics
-                >span
-                    right $finder_input_padding
-                    top 12px
-                    sprite($finder_clinic)
-            &-aim
-                >span
-                    right 4px
-                    top 8px
-                    sprite($finder_aim)
-            &-cla
-                >span
-                    right 12px
-                    top 12px
-                    background url('i/cla/cla-finder.png')
-                    width 20px
-                    height 26px 
+                .finder__right-block
+                    >span
+                        background-image url('i/new-search/search-location.png') 
+                        margin-bottom  2px 
+                        width 13px
+                        height 18px
+            // &-clinics
+            //     >span
+            //         right $finder_input_padding
+            //         top 12px
+            //         sprite($finder_clinic)
+            // &-aim
+            //     >span
+            //         right 4px
+            //         top 8px
+            //         sprite($finder_aim)
+            // &-cla
+            //     >span
+            //         right 12px
+            //         top 12px
+            //         background url('i/cla/cla-finder.png')
+            //         width 20px
+            //         height 26px 
                 
         &-text
             display inline-block
@@ -160,10 +228,47 @@ $finder_input_padding = 8px
             overflow hidden
             text-overflow ellipsis
             white-space nowrap
-            width 260px
-            @media phone_tablet
-                width 100%
+            // width auto
+            // @media phone_tablet
+            //     width 100%
                 
+        .select-type 
+            font-weight bold
+            color: #5e6e71
+            .select7__current
+                padding 0 30px 0 20px 
+                overflow: hidden
+                text-overflow: ellipsis
+                white-space: nowrap
+            .select7__current-value
+                line-height normal
+                vertical-align: text-bottom
+                overflow: hidden
+                text-overflow: ellipsis
+                white-space: nowrap
+                width: 100%
+                
+                @media phone
+                    font-size: 14px
+                &:hover
+                    color: #5e6e71 !important
+                
+            .select7__drop
+                border-radius: 0 0 0 0
+                max-height: 168px
+                overflow-y: auto
+                .select7__drop-list
+                    
+                    .select-type__item
+                        font-size 16px
+                        color #5e6e71 
+                        border-top 1px solid #d9ecf0
+                        font-weight: 400
+                        line-height 40px
+                        padding 0 20px 
+                        &:hover
+                            background transparent 
+                            opacity .8        
         .select7
             position absolute
             top 0
@@ -185,6 +290,7 @@ $finder_input_padding = 8px
                 margin -5px 0 0 0
                 border-radius 0 0 border_radius_sm border_radius_sm
                 overflow hidden
+                z-index: 10001
             &__option
                 font-size 18px
                 line-height 38px
@@ -252,16 +358,15 @@ $finder_input_padding = 8px
                     color: #00829b
                     font-weight: 700
     &__submit
-        display inline-block
-        width 15.8%
+        display inline-block 
+        width 15% 
         
         // @media tablet
         //     width 21.5%
         @media phone
-            float left
             width 100%
         .btn
-            height 50px
+            height 42px
             font-size 20px
             padding 0
             font-weight: 700
@@ -272,7 +377,7 @@ $finder_input_padding = 8px
             border-radius 0 2px 2px 0
             border-color #fd8f2e 
             @media phone
-                font-size 20px
+                width 100%
             @media only screen and (min-width: 992px) and (max-width: 1100px)
                 font-size 19px 
             &:hover
@@ -311,145 +416,145 @@ $finder_input_padding = 8px
         width 100% !important
         
     // !!!!!!  
-    &.finder_main-page 
-        form
-            padding 0 
-            &:after, &:before
+    // &.finder_main-page 
+    //     form
+    //         padding 0 
+    //         &:after, &:before
                 
-                display none
-        .select-type 
-            font-weight bold
-            color: #5e6e71
-            .select7__current
-                padding 0 30px 0 20px 
-                overflow: hidden
-                text-overflow: ellipsis
-                white-space: nowrap
-            .select7__current-value
-                line-height normal
-                vertical-align: text-bottom
+    //             display none
+    //     .select-type 
+    //         font-weight bold
+    //         color: #5e6e71
+    //         .select7__current
+    //             padding 0 30px 0 20px 
+    //             overflow: hidden
+    //             text-overflow: ellipsis
+    //             white-space: nowrap
+    //         .select7__current-value
+    //             line-height normal
+    //             vertical-align: text-bottom
                 
-                @media phone
-                    font-size: 14px
-                &:hover
-                    color: #5e6e71 !important
+    //             @media phone
+    //                 font-size: 14px
+    //             &:hover
+    //                 color: #5e6e71 !important
                 
-            .select7__drop
-                border-radius: 0 0 0 0
-                max-height: 168px
-                overflow-y: auto
-                .select7__drop-list
+    //         .select7__drop
+    //             border-radius: 0 0 0 0
+    //             max-height: 168px
+    //             overflow-y: auto
+    //             .select7__drop-list
                     
-                    .select-type__item
-                        font-size 16px
-                        color #5e6e71 
-                        border-top 1px solid #d9ecf0
-                        font-weight: 400
-                        line-height 40px
-                        padding 0 20px 
-                        &:hover
-                            background transparent 
-                            opacity .8
-        .finder__field
-            position relative
-            float left
-            margin-right 2px
-            width 28%
-            height 42px
-            color: #5e6e71
-            font-size 16px
-            line-height 42px
-            background-color #fff
-            white-space nowrap
-            cursor pointer
-            &:hover
-                box-shadow: none
-            @media phone
-                &:first-child
-                    width 100%
-                &:nth-child(2)
-                    width 100%
-                &:nth-child(3)
-                    width 100%
+    //                 .select-type__item
+    //                     font-size 16px
+    //                     color #5e6e71 
+    //                     border-top 1px solid #d9ecf0
+    //                     font-weight: 400
+    //                     line-height 40px
+    //                     padding 0 20px 
+    //                     &:hover
+    //                         background transparent 
+    //                         opacity .8
+    //     .finder__field
+    //         position relative
+    //         float left
+    //         margin-right 2px
+    //         width 28%
+    //         height 42px
+    //         color: #5e6e71
+    //         font-size 16px
+    //         line-height 42px
+    //         background-color #fff
+    //         white-space nowrap
+    //         cursor pointer
+    //         &:hover
+    //             box-shadow: none
+    //         @media phone
+    //             &:first-child
+    //                 width 100%
+    //             &:nth-child(2)
+    //                 width 100%
+    //             &:nth-child(3)
+    //                 width 100%
                     
-            &:first-child
-                border-radius 2px 0 0 2px
-                width 17.1%
-                // width 196px 
-            &:nth-child(2)
-                width 41.2%
-                // width 474px
-            &:nth-child(3)
-                width 26% 
-                // width 299px
-            input.form-control
-                padding 6px 60px 6px 20px  
-                height 42px
-                color: #5e6e71
-                background: transparent
-                // &.is-change
-                //     &::placeholder
-                //         color: transparent !important
-                // &:focus, &:active
-                //     &::placeholder 
-                //         color transparent !important
-                //         opacity 0 !important
+    //         &:first-child
+    //             border-radius 2px 0 0 2px
+    //             width 17.1%
+    //             // width 196px 
+    //         &:nth-child(2)
+    //             width 41.2%
+    //             // width 474px
+    //         &:nth-child(3)
+    //             width 26% 
+    //             // width 299px
+    //         input.form-control
+    //             padding 6px 60px 6px 20px  
+    //             height 42px
+    //             color: #5e6e71
+    //             background: transparent
+    //             // &.is-change
+    //             //     &::placeholder
+    //             //         color: transparent !important
+    //             // &:focus, &:active
+    //             //     &::placeholder 
+    //             //         color transparent !important
+    //             //         opacity 0 !important
                          
                     
-                &::placeholder 
-                    color: #5e6e71 !important
-                    opacity 1
-        .finder__right-block
-            position absolute
-            z-index: 9999 
-            right 0
-            top 5px
-            bottom 0
-            // min-width 28px
-            height 32px
-            border-left 1px solid #d9ecf0
-            text-align center 
-            background #FFF 
-            @media phone
-                width: 62px
-            i.triagle
-                display inline-block
-                vertical-align super
-                width: 0
-                height: 0
-                border-left: 4px solid transparent
-                border-right: 4px solid transparent
-                border-top: 4px solid #00829b
-                margin 0 10px 2px 10px 
-        .finder__field_img
-            position relative
-            top auto
-            right auto
-            display inline-block
-            margin-right 10px
-        .finder__field-icon
-            &-doctors
-                .finder__right-block
-                    >span
-                        background-image url('i/new-search/icon-list-doctors.png') 
-                        // margin-bottom  2px 
-                        width 23px
-                        height 24px
-            &-location
-                .finder__right-block
-                    >span
-                        background-image url('i/new-search/search-location.png') 
-                        margin-bottom  2px 
-                        width 13px
-                        height 18px
-        .finder-text
-            width auto
-        .finder__submit
-            width 15% 
-            @media phone
-                width 100%
-            .btn
-                height 42px 
+    //             &::placeholder 
+    //                 color: #5e6e71 !important
+    //                 opacity 1
+    //     .finder__right-block
+    //         position absolute
+    //         z-index: 9999 
+    //         right 0
+    //         top 5px
+    //         bottom 0
+    //         // min-width 28px
+    //         height 32px
+    //         border-left 1px solid #d9ecf0
+    //         text-align center 
+    //         background #FFF 
+    //         @media phone
+    //             width: 62px
+    //         i.triagle
+    //             display inline-block
+    //             vertical-align super
+    //             width: 0
+    //             height: 0
+    //             border-left: 4px solid transparent
+    //             border-right: 4px solid transparent
+    //             border-top: 4px solid #00829b
+    //             margin 0 10px 2px 10px 
+    //     .finder__field_img
+    //         position relative
+    //         top auto
+    //         right auto
+    //         display inline-block
+    //         margin-right 10px
+    //     .finder__field-icon
+    //         &-doctors
+    //             .finder__right-block
+    //                 >span
+    //                     background-image url('i/new-search/icon-list-doctors.png') 
+    //                     // margin-bottom  2px 
+    //                     width 23px
+    //                     height 24px
+    //         &-location
+    //             .finder__right-block
+    //                 >span
+    //                     background-image url('i/new-search/search-location.png') 
+    //                     margin-bottom  2px 
+    //                     width 13px
+    //                     height 18px
+    //     .finder-text
+    //         width auto
+    //     .finder__submit
+    //         width 15% 
+    //         @media phone
+    //             width 100%
+    //         .btn
+    //             height 42px 
         
     
 
@@ -577,7 +682,7 @@ $finder_input_padding = 8px
             &:after
                 content none
     form 
-        width 85% 
+        width 100% 
         padding 0 
         &:before
             content none

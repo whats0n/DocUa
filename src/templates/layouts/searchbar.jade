@@ -100,15 +100,17 @@ body
 
     //- Menu
     .container-fluid.container-menu.hidden-xs
-      .row.row-white.row_border
+      .row.row_border
         .container
           nav.header__nav
             +b.menu: +i({ prefix: "main", items: mainMenu, activeIndex: file.activeMenuItem })
             .header__nav-right
               +b.feedback.main-page_feedback
-                +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку") Оставить заявку
-
-              +b.search.js-search: +i
+                //- +e("a").link._feedback.mobile-none(href="#{linkPrefix}doc-request-schedule", data-toggle=modalToggle, title="Оставить заявку") Оставить заявку
+              if file.indexPage || file.main
+                +b.search.search_main-page: +i
+              else
+                +b.search: +i
     
     //- pages texture
     .page-bg

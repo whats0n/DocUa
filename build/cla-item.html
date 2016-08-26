@@ -413,19 +413,122 @@
       <div class="container">
         <div class="wrap">
           <div class="finder">
-            <div class="finder__search-title">Поиск клиник
-            </div>
             <form action="/">
               <fieldset>
-                <div class="finder__field finder__field-icon-cla">
-                  <input type="text" placeholder="Выберите направление" class="finder__field-text form-control js-finder-autocomplete"/><span data-target="#select-branch" data-toggle="modal" class="finder__field_img"></span>
-                  <div class="no-results-finder">Совпадений не найдено!  </div>
+                <div class="finder__field">
+                  <select class="select7 select7_dropdown select-type">
+                    <option class="select-type__item">Поиск диагностики</option>
+                    <option class="select-type__item">Поиск клиники </option>
+                    <option class="select-type__item">Поиск анализа</option>
+                    <option class="select-type__item">Поиск центра</option>
+                  </select>
+                  <div class="finder__right-block"><span> </span><i class="triagle"></i>
+                  </div>
                 </div>
-                <div class="finder__field finder__field-icon-location">
-                  <input type="text" placeholder="Выберите район или метро" class="finder__field-text form-control"/><span data-target="#select-area" data-toggle="modal" class="finder__field_img"></span>
+                <div class="finder__field finder__field-icon-doctors js-location-lists"> 
+                  <input type="text" placeholder="Введите исследование или название лаборатории" class="finder__field-text form-control js-index-autocomplete"/>
+                  <div data-target="#select-specialization" data-toggle="modal" class="finder__right-block"><span> </span><i class="triagle"></i><span class="finder__field_img"></span>
+                  </div>
+                  <div style="display: none;" class="search-result">
+                    <ul class="livesearch top-list js-static-search"><span class="last-child"></span>
+                      <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
+                          <div class="top-list__picture"><img src="i/new-search/icon-list-doctors.png" alt=""></div>
+                          <div class="top-list__left">
+                            <div class="top-list__title">Врач нетрадиционной медицины   </div>
+                          </div>
+                          <div class="top-list__right">
+                            <div class="top-list__subject">Список врачей</div>
+                          </div></a></li>
+                      <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
+                          <div class="top-list__picture"><img src="i/new-search/icon-list-diagnostic-centers.png" alt=""></div>
+                          <div class="top-list__left">
+                            <div class="top-list__title">Кардиология  </div>
+                          </div>
+                          <div class="top-list__right">
+                            <div class="top-list__subject">Диагностические<br>центры</div>
+                          </div></a></li>
+                      <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
+                          <div class="top-list__picture"><img src="i/new-search/icon-servise.png" alt=""></div>
+                          <div class="top-list__left">
+                            <div class="top-list__title">Реабилитация после удаления межпозвоночной грыжи</div>
+                          </div>
+                          <div class="top-list__right">
+                            <div class="top-list__subject">Услуга</div>
+                          </div></a></li>
+                      <li class="top-list__item main-items"><a href="#" title="" class="top-list__item-link">
+                          <div class="top-list__picture"><img src="i/new-search/doc.png" alt=""></div>
+                          <div class="top-list__left">
+                            <div class="top-list__title"> Калиниченко Владислав Петрович стоматолог</div>
+                          </div>
+                          <div class="top-list__right">
+                            <div class="top-list__subject">Врач</div>
+                          </div></a></li>
+                      <li class="top-list__item main-items"><a href="#" title="" class="top-list__item-link">
+                          <div class="top-list__picture"><img src="i/new-search/boris.png" alt=""></div>
+                          <div class="top-list__left">
+                            <div class="top-list__title">Ортопедический институт Калиновского хирургия, пластическая хирургия </div>
+                          </div>
+                          <div class="top-list__right">
+                            <div class="top-list__subject">Клиника</div>
+                          </div></a></li>
+                      <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
+                          <div class="top-list__picture"><img src="i/new-search/icon-servise.png" alt=""></div>
+                          <div class="top-list__left">
+                            <div class="top-list__title">Лекарственная обработка задней стенки глотки и миндалин при острой респираторной вирусной</div>
+                          </div>
+                          <div class="top-list__right">
+                            <div class="top-list__subject">Услуга</div>
+                          </div></a></li>
+                      <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
+                          <div class="top-list__picture"><img src="i/new-search/icon-disease.png" alt=""></div>
+                          <div class="top-list__left">
+                            <div class="top-list__title">Аллергический контактный дерматит</div>
+                          </div>
+                          <div class="top-list__right">
+                            <div class="top-list__subject">Болезнь</div>
+                          </div></a></li>
+                      <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
+                          <div class="top-list__picture"><img src="i/new-search/icon-article.png" alt=""></div>
+                          <div class="top-list__left">
+                            <div class="top-list__title">Хронический калькулезный холецистит</div>
+                          </div>
+                          <div class="top-list__right">
+                            <div class="top-list__subject">Статья</div>
+                          </div></a></li>
+                      <li class="top-list__item main-items"><a href="#" title="" class="top-list__item-link">
+                          <div class="top-list__picture"><img src="i/new-search/sale.png" alt=""></div>
+                          <div class="top-list__left">
+                            <div class="top-list__title">25% скидки на комплекс «Здоровая щитовидка»!</div>
+                          </div>
+                          <div class="top-list__right">
+                            <div class="top-list__subject">Акция</div>
+                          </div></a>
+                      </li>
+                      <div class="more-toggle show more-toggle_mod"><span class="more-toggle__found"> <span class="more-toggle__hidden">Найдено </span><span class="more-toggle__found-number">10 </span>результатов</span><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span></span></a></div>
+                    </ul>
+                  </div>
+                  <div style="display: none;" class="index-no-result">нет результатов</div>
+                </div>
+                <div class="finder__field finder__field-icon-location js-finder-scroll js-location-lists">
+                  <input type="text" placeholder="Выберите район или метро" class="finder__field-text form-control"/>
+                  <div data-target="#select-area" data-toggle="modal" class="finder__right-block"><span> </span><i class="triagle"></i><span class="finder__field_img"> </span>
+                  </div>
+                  <ul class="location-lists js-lists">
+                    <li class="location-lists__item js-lists-item is-area">Южноборщаговский массив</li>
+                    <li class="location-lists__item js-lists-item is-area">Дарницкий</li>
+                    <li class="location-lists__item js-lists-item is-red">Дарница</li>
+                    <li class="location-lists__item js-lists-item is-red">Дарница</li>
+                    <li class="location-lists__item js-lists-item is-red">Дарница</li>
+                    <li class="location-lists__item js-lists-item is-green">Дорогожичи  </li>
+                    <li class="location-lists__item js-lists-item is-green">Дорогожичи  </li>
+                    <li class="location-lists__item js-lists-item is-green">Дорогожичи  </li>
+                    <li class="location-lists__item js-lists-item is-red">Дарница </li>
+                    <li class="location-lists__item js-lists-item is-red">Дарница </li>
+                    <li class="location-lists__item js-lists-item is-blue">Дарница </li>
+                  </ul>
                 </div>
                 <div class="finder__submit">
-                  <button type="submit" class="btn btn-warning form-control">Найти клинику</button>
+                  <button type="submit" class="btn btn-warning form-control">Найти </button>
                 </div>
               </fieldset>
             </form>
@@ -459,7 +562,7 @@
             </div>
           </div>
         </div>
-        <div class="row main-content">   
+        <div class="row main-content">      
           <article class="col-md-12"> 
             <header class="article-header"> 
               <h1>Центр лабораторных анализов в Киеве<span>&nbsp;(220 94)  </span></h1>
@@ -2303,6 +2406,693 @@
                 <div id="modal-map"></div>
               </div>
               <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+        <div id="select-area" aria-hidden="true" role="dialog" tabindex="-1" class="modal fade bs-modal-md">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" type="button" class="close close__select"></button>
+                <div class="modal-title">Место приема врача</div>
+                <ul class="nav nav-pills inline-block">
+                  <li>Выберите нажатием</li>
+                  <li class="active"><a href="#select-area-districts" data-toggle="tab"><span>районы</span></a></li>
+                  <li>&nbsp;или&nbsp;</li>
+                  <li><a href="#select-area-metro" data-toggle="tab"><span>станции метро</span></a></li>
+                </ul>
+              </div>
+              <div class="modal-body"> 
+                <div class="tab-content clear">
+                  <div id="select-area-districts" class="tab-pane active js-list-scroll">
+                    <ul data-columns="5" data-min-column-width="0" data-adaptive-column-count="true" class="districts-check-list district-list__mod columnize">
+                      <li class="pill-group">
+                        <label class="pill with-icon">
+                          <input type="checkbox"><span><span>Голосеевский район</span></span>
+                        </label>
+                        <ul>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Багриновая гора</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Голосеево</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Голосеевский (Центр)</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Демеевка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Добрый путь</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Кибцентр</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Китаев</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Корчеватое</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Мышеловка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Пирогово</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Саперная слободка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Теремки-1</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Теремки-2</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Университетский городок</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Феофания</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Чапаевка</span></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="pill-group">
+                        <label class="pill with-icon">
+                          <input type="checkbox"><span><span>Дарницкий район</span></span>
+                        </label>
+                        <ul>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Бортничи</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Красный Хутор</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Новая Дариница</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Осокорки</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Позняки</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Харьковский массив</span></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="pill-group">
+                        <label class="pill with-icon">
+                          <input type="checkbox"><span><span>Деснянский район</span></span>
+                        </label>
+                        <ul>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Вигуровщина-Троещина</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Куликово</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Лесной массив</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Троещина</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Быковня</span></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="pill-group">
+                        <label class="pill with-icon">
+                          <input type="checkbox"><span><span>Днепровский район</span></span>
+                        </label>
+                        <ul>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Березняки</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Воскресенка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>ДВРЗ</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Комсомольский массив</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Левобережный массив</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Никольская Слободка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Радужный</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Русановка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Соцгородок</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Старая Дарница</span></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="pill-group">
+                        <label class="pill with-icon">
+                          <input type="checkbox"><span><span>Оболонский район</span></span>
+                        </label>
+                        <ul>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Вышгородский массив</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Куреневка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Минский массив</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Оболонь</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Приорка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Пуща Водица</span></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="pill-group">
+                        <label class="pill with-icon">
+                          <input type="checkbox"><span><span>Печерский район</span></span>
+                        </label>
+                        <ul>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Верхняя Теличка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Зверинец</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Липки</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Печерск</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Печерский (центр)</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Черная Гора</span></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="pill-group">
+                        <label class="pill with-icon">
+                          <input type="checkbox"><span><span>Подольский район</span></span>
+                        </label>
+                        <ul>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Подол</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Куреневка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Цветоводство</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Мостицкий массив</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Виноградарь</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Ветряные горы</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Шевченка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Берковец</span></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="pill-group">
+                        <label class="pill with-icon">
+                          <input type="checkbox"><span><span>Шевченковский район</span></span>
+                        </label>
+                        <ul>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Лукьяновка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Нивки</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Сырец</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Татарка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Шевченковский (КПИ)</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Шевченковский (Центр)</span></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="pill-group">
+                        <label class="pill with-icon">
+                          <input type="checkbox"><span><span>Святошинский район</span></span>
+                        </label>
+                        <ul>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Никольская Борщаговка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Михайловская Борщаговка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Южноборщаговский массив</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Жовтневое</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Святошино</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Академгородок</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Беличи</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Новобеличи</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Галаганы</span></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="pill-group">
+                        <label class="pill with-icon">
+                          <input type="checkbox"><span><span>Соломенский район</span></span>
+                        </label>
+                        <ul>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Александровская Слободка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Батыева Гора</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Железнодорожный</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Жуляны</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Кадетский Гай</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Караваевы Дачи</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Монтажник</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Нижняя Соломенка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Отрадный</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Первомайский</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Совки</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Соломенка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Чоколовка</span></span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="pill with-icon">
+                              <input type="checkbox"><span><span>Шулявка</span></span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  <div id="select-area-metro" class="tab-pane">
+                    <div class="metro-map-min metro-map">
+                      <label style="left: 18px; top: 99px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Академгородок</span></span>
+                      </label>
+                      <label style="left: 18px; top: 124px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Житомирская</span></span>
+                      </label>
+                      <label style="left: 18px; top: 150px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Святошин</span></span>
+                      </label>
+                      <label style="left: 32px; top: 176px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Нивки</span></span>
+                      </label>
+                      <label style="left: 22px; top: 217px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Берестейская</span></span>
+                      </label>
+                      <label style="left: 90px; top: 176px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Шулявская</span></span>
+                      </label>
+                      <label style="left: 32px; top: 242px;" class="pill with-icon color-red icon-left">
+                        <input type="checkbox"><span><span>Политехнический институт</span></span>
+                      </label>
+                      <label style="left: 174px; top: 257px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Вокзальная</span></span>
+                      </label>
+                      <label style="left: 175px; top: 221px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Университет</span></span>
+                      </label>
+                      <label style="left: 206px; top: 199px;" class="pill with-icon color-red icon-left">
+                        <input type="checkbox"><span><span>Театральная</span></span>
+                      </label>
+                      <label style="left: 338px; top: 217px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Крещатик</span></span>
+                      </label>
+                      <label style="left: 402px; top: 217px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Арсенальная</span></span>
+                      </label>
+                      <label style="left: 491px; top: 217px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Днепр</span></span>
+                      </label>
+                      <label style="left: 551px; top: 217px;" class="pill with-icon color-red">
+                        <input type="checkbox"><span><span>Гидропарк</span></span>
+                      </label>
+                      <label style="left: 557px; top: 170px;" class="pill with-icon color-red icon-left">
+                        <input type="checkbox"><span><span>Левобережная</span></span>
+                      </label>
+                      <label style="left: 624px; top: 135px;" class="pill with-icon color-red icon-left">
+                        <input type="checkbox"><span><span>Дарница</span></span>
+                      </label>
+                      <label style="left: 636px; top: 96px;" class="pill with-icon color-red icon-left">
+                        <input type="checkbox"><span><span>Черниговская</span></span>
+                      </label>
+                      <label style="left: 681px; top: 46px;" class="pill with-icon color-red icon-left">
+                        <input type="checkbox"><span><span>Лесная</span></span>
+                      </label>
+                      <label style="left: 361px; top: -7px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Героев Днепра</span></span>
+                      </label>
+                      <label style="left: 362px; top: 19px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Минская</span></span>
+                      </label>
+                      <label style="left: 362px; top: 44px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Оболонь</span></span>
+                      </label>
+                      <label style="left: 362px; top: 70px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Петровка</span></span>
+                      </label>
+                      <label style="left: 362px; top: 95px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Тараса Шевченко</span></span>
+                      </label>
+                      <label style="left: 362px; top: 121px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Контрактовая площадь</span></span>
+                      </label>
+                      <label style="left: 362px; top: 146px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Почтовая площадь</span></span>
+                      </label>
+                      <label style="left: 362px; top: 171px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Площадь Независимости</span></span>
+                      </label>
+                      <label style="left: 177px; top: 281px;" class="pill with-icon color-blue icon-left">
+                        <input type="checkbox"><span><span>Площадь Льва Толстого</span></span>
+                      </label>
+                      <label style="left: 226px; top: 306px;" class="pill with-icon color-blue icon-left">
+                        <input type="checkbox"><span><span>Олимпийская</span></span>
+                      </label>
+                      <label style="left: 210px; top: 341px;" class="pill with-icon color-blue icon-left">
+                        <input type="checkbox"><span><span>Дворец Украина</span></span>
+                      </label>
+                      <label style="left: 238px; top: 376px;" class="pill with-icon color-blue icon-left">
+                        <input type="checkbox"><span><span>Лыбедская</span></span>
+                      </label>
+                      <label style="left: 215px; top: 401px;" class="pill with-icon color-blue icon-left">
+                        <input type="checkbox"><span><span>Демиевская</span></span>
+                      </label>
+                      <label style="left: 285px; top: 445px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Голосеевская</span></span>
+                      </label>
+                      <label style="left: 159px; top: 434px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Васильковская</span></span>
+                      </label>
+                      <label style="left: 86px; top: 477px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Выставочный центр</span></span>
+                      </label>
+                      <label style="left: 83px; top: 419px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Ипподром</span></span>
+                      </label>
+                      <label style="left: 52px; top: 383px;" class="pill with-icon color-blue">
+                        <input type="checkbox"><span><span>Теремки</span></span>
+                      </label>
+                      <label style="left: 230px; top: 36px;" class="pill with-icon color-green">
+                        <input type="checkbox"><span><span>Сырец</span></span>
+                      </label>
+                      <label style="left: 229px; top: 80px;" class="pill with-icon color-green">
+                        <input type="checkbox"><span><span>Дорогожичи</span></span>
+                      </label>
+                      <label style="left: 252px; top: 125px;" class="pill with-icon color-green">
+                        <input type="checkbox"><span><span>Лукьяновская</span></span>
+                      </label>
+                      <label style="left: 185px; top: 178px;" class="pill with-icon color-green icon-left">
+                        <input type="checkbox"><span><span>Золотые ворота</span></span>
+                      </label>
+                      <label style="left: 378px; top: 247px;" class="pill with-icon color-green">
+                        <input type="checkbox"><span><span>Дворец спорта</span></span>
+                      </label>
+                      <label style="left: 406px; top: 272px;" class="pill with-icon color-green">
+                        <input type="checkbox"><span><span>Кловская</span></span>
+                      </label>
+                      <label style="left: 428px; top: 300px;" class="pill with-icon color-green">
+                        <input type="checkbox"><span><span>Печерская</span></span>
+                      </label>
+                      <label style="left: 437px; top: 346px;" class="pill with-icon color-green">
+                        <input type="checkbox"><span><span>Дружбы народов</span></span>
+                      </label>
+                      <label style="left: 455px; top: 387px;" class="pill with-icon color-green">
+                        <input type="checkbox"><span><span>Выдубичи</span></span>
+                      </label>
+                      <label style="left: 482px; top: 434px;" class="pill with-icon color-green">
+                        <input type="checkbox"><span><span>Славутич</span></span>
+                      </label>
+                      <label style="left: 525px; top: 391px;" class="pill with-icon color-green icon-left">
+                        <input type="checkbox"><span><span>Осокорки</span></span>
+                      </label>
+                      <label style="left: 556px; top: 376px;" class="pill with-icon color-green icon-left">
+                        <input type="checkbox"><span><span>Позняки</span></span>
+                      </label>
+                      <label style="left: 558px; top: 350px;" class="pill with-icon color-green icon-left">
+                        <input type="checkbox"><span><span>Харьковская</span></span>
+                      </label>
+                      <label style="left: 607px; top: 324px;" class="pill with-icon color-green icon-left">
+                        <input type="checkbox"><span><span>Вырлица</span></span>
+                      </label>
+                      <label style="left: 595px; top: 293px;" class="pill with-icon color-green icon-left">
+                        <input type="checkbox"><span><span>Бориспольская</span></span>
+                      </label>
+                      <label style="left: 595px; top: 264px;" class="pill with-icon color-green icon-left">
+                        <input type="checkbox"><span><span>Красный хутор</span></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer footer-default footer-def__mod">
+                <button data-dismiss="modal" type="button" class="btn btn-primary modal-btn-190 btn-lg js-btn-clone">Выбрать</button><span class="abs-helper"><span class="abs"> <a data-action="reset" class="dotted js-btn-clear">Сбросить выбранное</a></span></span>
+              </div>
             </div>
           </div>
         </div>
