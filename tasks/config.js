@@ -13,14 +13,14 @@ module.exports = {
         // './src/templates/pages/partners.jade'
         // '!./src/templates/pages/modals.jade'
     ],
-    jadeListAll: [
-        './src/templates/**/*.jade'
-    ],
     htmlList: [
         './src/templates/pages/**/*.html',
     ],
     layoutsList: [
         './src/templates/layouts/*.jade',
+    ],
+    jadeListAll: [
+        './src/**/*.jade',
     ]
   },
 
@@ -76,11 +76,6 @@ module.exports = {
         './src/assets/css/_stylus_cabinet.css',
         './src/assets/css/_less_cabinet.css'
     ],
-    styles: [
-        './src/templates/blocks/**/*.styl',
-        './src/assets/vendor/**/*.less',
-        './src/assets/css/**/*.css'
-    ],
   },
 
   js: {
@@ -107,7 +102,6 @@ module.exports = {
         "./src/assets/vendor/jquery.inputmask/inputmask/jquery.inputmask.js",
         "./src/assets/vendor/moment/moment.js",
         "./src/assets/vendor/daterangepicker/daterangepicker.js",
-        "./src/assets/vendor/jquery.dotdotdot/jquery.dotdotdot.min.js",
         "./src/assets/vendor/jquery.ellipsis/jquery.ellipsis.min.js",
         './src/assets/vendor/popups/plugins.js',
         "./src/assets/js/_coffee.js"
@@ -128,13 +122,7 @@ module.exports = {
         './src/templates/blocks/**/*.coffee',
         './src/coffee/doc-markup.coffee',
         './src/coffee/maps.coffee'
-    ],
-    jsAll: [
-        './src/coffee/**/*.coffee',
-        './src/templates/blocks/**/*.coffee',
-        "./src/assets/**/*.js",
     ]
-
   }
 
 }

@@ -8,7 +8,7 @@ $.fn.panElement = function(arg) {
     if ($el.data("panElement")) {
       return;
     }
-    $el.data("panElement", true);
+    $el.data("panElement", true); 
     return $el.on("mousedown", function(downEvent) {
       var minLeft, minTop, moveHandler, startLeft, startTop, startX, startY;
       startX = downEvent.pageX;
