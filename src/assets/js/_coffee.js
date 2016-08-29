@@ -1284,6 +1284,22 @@ $(document).each(function() {
   return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
 });
 
+$("#select-specialization").on("click", "li a", function() {
+  var item;
+  item = $(this);
+  $('.js-clone span').text(item.text());
+  $('.js-clear').addClass('is-active');
+  $('.direction__title').text('Выбрано направление');
+  return $("#select-specialization").modal("hide");
+});
+
+$(".js-clear").on("click", function() {
+  $(this).siblings("span").text("Выберите направление");
+  $(this).removeClass('is-active');
+  $('.direction__title').text('Направление');
+  return false;
+});
+
 $('.cla-fillials a').tooltip({
   container: '.main-content'
 });
@@ -1398,22 +1414,6 @@ $(".js-autocomplete-subject").each(function() {
   });
 });
 
-$("#select-specialization").on("click", "li a", function() {
-  var item;
-  item = $(this);
-  $('.js-clone span').text(item.text());
-  $('.js-clear').addClass('is-active');
-  $('.direction__title').text('Выбрано направление');
-  return $("#select-specialization").modal("hide");
-});
-
-$(".js-clear").on("click", function() {
-  $(this).siblings("span").text("Выберите направление");
-  $(this).removeClass('is-active');
-  $('.direction__title').text('Направление');
-  return false;
-});
-
 $(function() {
   var updateBadgeLabels;
   updateBadgeLabels = function() {
@@ -1432,8 +1432,6 @@ $(function() {
   return updateBadgeLabels();
 });
 
-
-
 $(document).on('click', '.js-services-btn', function() {
   var drop;
   drop = $(this).siblings('.js-services-block');
@@ -1441,6 +1439,8 @@ $(document).on('click', '.js-services-btn', function() {
   $(this).parents('.js-services').toggleClass('active');
   return false;
 });
+
+
 
 $('.js-add-tel').click(function() {
   $('.add-tel').addClass('is-active');
@@ -2128,11 +2128,9 @@ $(".js-index-autocomplete").each(function() {
       }
     },
     close: function(event, ui) {
-      _jScrollPaneAPI.destroy();
       _jScrollPane = void 0;
     },
     focus: function(event, ui) {
-      complete.val(ui.item.label);
       return false;
     },
     select: function(event, ui) {
@@ -2334,9 +2332,16 @@ if (window.matchMedia('screen and (max-width: 767px)').matches) {
   $('.navbar-fixed-top').addClass('navbar-main_slide');
 }
 
-$(window).scroll(function() {
-  if (!$(".navbar-main_slide").length) {
-    return $("body").trigger('click');
+$(window).on('scroll', function() {
+  if ($('.header .select7_open').length) {
+    if ($(window).scrollTop() >= 50) {
+      $(".header .select7").trigger('click');
+    }
+  }
+  if ($('.navbar-fixed-top .select7_open').length) {
+    if ($(window).scrollTop() <= 50) {
+      return $(".navbar-fixed-top .select7").trigger('click');
+    }
   }
 });
 
@@ -2760,7 +2765,9 @@ $('.js-location-lists').on('click', function() {
   list.show();
   if (!list.hasClass('jspScrollable')) {
     list.addClass('jspScrollable');
-    list.jScrollPane();
+    list.jScrollPane({
+      autoReinitialise: true
+    });
     $(this).addClass('is-active');
     return;
   }
@@ -4055,7 +4062,6 @@ docMaps = {
             });
           }
         }
-        google.maps.event.trigger(google_maps.map, "resize");
       } else {
         mapHeight = ($('#map-canvas-right').position().top + $(window).scrollTop()) + ($(window).height() - ($('.container-header').outerHeight() + $('.container-menu').outerHeight() + ($('.container-finder').outerHeight() + 50) + 115));
         docMaps.canAnimateTop = true;

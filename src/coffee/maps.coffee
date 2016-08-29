@@ -182,7 +182,7 @@ docMaps =
             docMaps.canAnimateTop = false 
             $('.widget-map').animate
               top: navbarHeight + 20
-        google.maps.event.trigger(google_maps.map, "resize")
+        #google.maps.event.trigger(google_maps.map, "resize")
       else
         mapHeight = ($('#map-canvas-right').position().top + $(window).scrollTop()) + ($(window).height() - ($('.container-header').outerHeight() + $('.container-menu').outerHeight() + ($('.container-finder').outerHeight() + 50) + 115 )) 
         docMaps.canAnimateTop = true

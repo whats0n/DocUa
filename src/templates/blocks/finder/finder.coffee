@@ -308,11 +308,11 @@ $(".js-index-autocomplete").each ->
                 _jScrollPaneAPI = _jScrollPane.data('jsp')
             return
         close: (event, ui) ->
-            _jScrollPaneAPI.destroy()
+            # _jScrollPaneAPI.destroy()
             _jScrollPane = undefined
             return
         focus: (event, ui) -> 
-            complete.val( ui.item.label )
+            # complete.val( ui.item.label )
             return false
         select: (event, ui) -> 
             $(this).val ui.item.label

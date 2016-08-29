@@ -7,7 +7,9 @@ $('.js-location-lists').on 'click', ->
 
 	if !list.hasClass 'jspScrollable'
 		list.addClass 'jspScrollable'
-		list.jScrollPane()
+		list.jScrollPane({
+			autoReinitialise: true
+			})
 		$(this).addClass 'is-active'
 		return
 	flags = false

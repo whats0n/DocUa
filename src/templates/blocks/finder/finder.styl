@@ -130,7 +130,9 @@ $finder_input_padding = 8px
             // padding 0 45px 0 18px
             &::placeholder 
                 color: #5e6e71 !important
-                opacity 1
+                opacity 1 
+                -ms-text-overflow: ellipsis !important
+                text-overflow: ellipsis !important
             @media phone 
                 font-size 14px
                 height auto
@@ -228,6 +230,8 @@ $finder_input_padding = 8px
             overflow hidden
             text-overflow ellipsis
             white-space nowrap
+            &:focus
+                text-overflow ellipsis !important
             // width auto
             // @media phone_tablet
             //     width 100%
@@ -254,9 +258,11 @@ $finder_input_padding = 8px
                     color: #5e6e71 !important
                 
             .select7__drop
+                right: 0
                 border-radius: 0 0 0 0
                 max-height: 168px
                 overflow-y: auto
+                max-width: auto
                 .select7__drop-list
                     
                     .select-type__item
@@ -266,6 +272,9 @@ $finder_input_padding = 8px
                         font-weight: 400
                         line-height 40px
                         padding 0 20px 
+                        white-space: nowrap
+                        text-overflow: ellipsis
+                        overflow: hidden
                         &:hover
                             background transparent 
                             opacity .8        
