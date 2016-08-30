@@ -1,7 +1,7 @@
 "use strict";
 
 var gulp   = require('gulp'),
-    config = require('./config');
+    config = require('./config'); 
 
 gulp.task('default', ['browser-sync'], function (){
 // gulp.task('dev', function (){
