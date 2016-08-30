@@ -243,7 +243,7 @@ $(".js-finder-autocomplete").each ->
             response results
 
             $.ajax
-                url: '/analysis/search/live/finder.json',
+                url: '/analysis/search/live',
                 dataType: 'json',
                 method: 'GET',
                 data: {term: request.term}

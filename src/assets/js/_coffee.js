@@ -8,7 +8,7 @@ $.fn.panElement = function(arg) {
     if ($el.data("panElement")) {
       return;
     }
-    $el.data("panElement", true); 
+    $el.data("panElement", true);
     return $el.on("mousedown", function(downEvent) {
       var minLeft, minTop, moveHandler, startLeft, startTop, startX, startY;
       startX = downEvent.pageX;
@@ -1689,6 +1689,28 @@ $(function() {
   });
 });
 
+$.fn.initFavoritesBlock = function() {
+  return this.each(function() {
+    var favored, favoritesBlockInitialized, ref;
+    ref = $(this).data(), favored = ref.favored, favoritesBlockInitialized = ref.favoritesBlockInitialized;
+    if (favoritesBlockInitialized) {
+      return;
+    }
+    $(this).toggleClass("favorites-block_favored", !!favored);
+    $(this).data("favoritesBlockInitialized", true);
+    return $(this).on('click', function(e) {
+      favored = $(this).data().favored;
+      favored = !favored;
+      $(this).toggleClass("favorites-block_favored", !!favored);
+      $(this).data('favored', !!favored);
+      $(this).trigger(!!favored ? 'favored' : 'unfavored');
+      return e.preventDefault();
+    });
+  });
+};
+
+$(".favorites-block").initFavoritesBlock();
+
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
   $('.js-tab__mobile-d').addClass('js-tab__header-d');
 }
@@ -1713,27 +1735,34 @@ $('.js-nav a').on('click', function() {
   return false;
 });
 
-$.fn.initFavoritesBlock = function() {
-  return this.each(function() {
-    var favored, favoritesBlockInitialized, ref;
-    ref = $(this).data(), favored = ref.favored, favoritesBlockInitialized = ref.favoritesBlockInitialized;
-    if (favoritesBlockInitialized) {
-      return;
-    }
-    $(this).toggleClass("favorites-block_favored", !!favored);
-    $(this).data("favoritesBlockInitialized", true);
-    return $(this).on('click', function(e) {
-      favored = $(this).data().favored;
-      favored = !favored;
-      $(this).toggleClass("favorites-block_favored", !!favored);
-      $(this).data('favored', !!favored);
-      $(this).trigger(!!favored ? 'favored' : 'unfavored');
-      return e.preventDefault();
-    });
-  });
-};
+if ($(document).height() <= $(window).height()) {
+  $(".container-fluid_footer-bg").addClass("sticky-footer");
+}
 
-$(".favorites-block").initFavoritesBlock();
+var $goTop, SHOW_GOTOP_AFTER, goTopShown;
+
+SHOW_GOTOP_AFTER = 500;
+
+$goTop = $(".go-top");
+
+$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
+
+$goTop.click(function() {
+  $('html,body').animate({
+    scrollTop: 0
+  }, 800);
+  return false;
+});
+
+$(window).scroll(function() {
+  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
+    $goTop.stop(true, true).fadeIn("fast");
+    return goTopShown = true;
+  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
+    $goTop.stop(true, true).fadeOut("fast");
+    return goTopShown = false;
+  }
+});
 
 var trim;
 
@@ -2059,7 +2088,7 @@ $(".js-finder-autocomplete").each(function() {
       }
       response(results);
       $.ajax({
-        url: '/analysis/search/live/finder.json',
+        url: '/analysis/search/live',
         dataType: 'json',
         method: 'GET',
         data: {
@@ -2225,10 +2254,6 @@ $('body').on('scroll', '.location', function(e) {
   return e.stopPropagation();
 });
 
-if ($(document).height() <= $(window).height()) {
-  $(".container-fluid_footer-bg").addClass("sticky-footer");
-}
-
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
   $('.js-tab__mobile-f').addClass('js-tab__header-f');
 }
@@ -2242,31 +2267,6 @@ $('.js-tab__header-f').click(function() {
   parent.find('.btn__mobile').toggleClass('btn__mobile_open');
   $(this).toggleClass('tab__header_open');
   return false;
-});
-
-var $goTop, SHOW_GOTOP_AFTER, goTopShown;
-
-SHOW_GOTOP_AFTER = 500;
-
-$goTop = $(".go-top");
-
-$goTop.toggle(goTopShown = $(window).scrollTop() > SHOW_GOTOP_AFTER);
-
-$goTop.click(function() {
-  $('html,body').animate({
-    scrollTop: 0
-  }, 800);
-  return false;
-});
-
-$(window).scroll(function() {
-  if (!goTopShown && $(window).scrollTop() > SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeIn("fast");
-    return goTopShown = true;
-  } else if (goTopShown && $(window).scrollTop() <= SHOW_GOTOP_AFTER) {
-    $goTop.stop(true, true).fadeOut("fast");
-    return goTopShown = false;
-  }
 });
 
 var myFunctionResize;
@@ -2363,22 +2363,6 @@ $(document).ready(function() {
       }
       return false;
     });
-  });
-});
-
-$(".js-autocomplete-doc").each(function() {
-  var availableTags;
-  availableTags = ['Аллерголог', 'Андролог', 'Анестезиолог', 'Венеролог', 'Вертебролог', 'Гастроэнтеролог', 'Гематолог', 'Генетик', 'Дерматолог', 'Диетолог', 'Иммунолог', 'Кардиолог', 'Кинезитерапевт', 'Логопед', 'Маммолог', 'Нарколог', 'Невролог', 'Ортопед', 'Педиатр', 'Подолог', 'Ревматолог', 'Терапевт'];
-  return $('.js-autocomplete-doc').autocomplete({
-    source: availableTags
-  });
-});
-
-$(".js-autocomplete-clinic").each(function() {
-  var availableTags;
-  availableTags = ['Инсайт Медикал', 'Саперная слободка', 'Исида', 'Феврония Клинская', 'Валерия Ильинишна Колмагорова', 'Феврония Клинская', 'Добробут'];
-  return $('.js-autocomplete-clinic').autocomplete({
-    source: availableTags
   });
 });
 
@@ -3188,6 +3172,22 @@ $('.js-city-close').on('click', function(e) {
   block.addClass('is-hide');
   e.stopPropagation();
   return false;
+});
+
+$(".js-autocomplete-doc").each(function() {
+  var availableTags;
+  availableTags = ['Аллерголог', 'Андролог', 'Анестезиолог', 'Венеролог', 'Вертебролог', 'Гастроэнтеролог', 'Гематолог', 'Генетик', 'Дерматолог', 'Диетолог', 'Иммунолог', 'Кардиолог', 'Кинезитерапевт', 'Логопед', 'Маммолог', 'Нарколог', 'Невролог', 'Ортопед', 'Педиатр', 'Подолог', 'Ревматолог', 'Терапевт'];
+  return $('.js-autocomplete-doc').autocomplete({
+    source: availableTags
+  });
+});
+
+$(".js-autocomplete-clinic").each(function() {
+  var availableTags;
+  availableTags = ['Инсайт Медикал', 'Саперная слободка', 'Исида', 'Феврония Клинская', 'Валерия Ильинишна Колмагорова', 'Феврония Клинская', 'Добробут'];
+  return $('.js-autocomplete-clinic').autocomplete({
+    source: availableTags
+  });
 });
 
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
