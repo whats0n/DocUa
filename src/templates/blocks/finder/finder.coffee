@@ -325,17 +325,16 @@ $(".js-index-autocomplete").each ->
                 data: {term: request.term} 
                 success: (data) -> 
                     results = $.ui.autocomplete.filter(data.projects, request.term)
-                    noResult = complete.siblings('.index-no-result')
-                    # if !results.length
-                    #     noResult.show()
-                    # else
-                    #     noResult.hide()
+                    noResult = complete.siblings('.no-results-finder')
+                    if !results.length
+                        noResult.show()
+                    else
+                        noResult.hide()
                     response results
 
             if !($(".js-index-autocomplete").val().length >= 3)
                 # console.log('bla')
                 searchHidden.hide('slow')
-
             return
             
     complete.data( "ui-autocomplete")._renderItem =( ul, item ) -> 
@@ -389,6 +388,15 @@ $(document).mouseup (e) ->
         container.hide()
     return
 
+$('body').on 'click', ->
+    noResult = $('.no-results-finder')
+    noResult.hide()
+
+$(".js-index-autocomplete").on 'keyup', ->
+    _this = $(this)
+    if (_this.val().length < 3)
+        noResult = _this.siblings('.no-results-finder')
+        noResult.hide()
 
 $(document).on 'click', '.js-select-scroll',->
     list = $('.js-select-scroll').find('.select7__drop-list')

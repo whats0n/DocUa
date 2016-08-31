@@ -25,4 +25,4 @@ $.fn.initScheduleBlock = ->
 			opts.itemsTablet = [979,5]
 			opts.itemsMobile = [767,2]
 
-		$(@).owlCarousel opts
+		$(@).owlCarousel opts 
