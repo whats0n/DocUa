@@ -4583,3 +4583,5 @@ docMaps = {
     return map.setZoom(zoom);
   }
 };
+
+$('.js-tooltip').tooltip();
