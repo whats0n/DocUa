@@ -4,13 +4,149 @@
     page_name: clinic-profile_current 
     modals: feedback, select-specialization, select-area, select-specialization 
 
-.containet-fluid                 
+.containet-fluid                  
     .row              
       .container.clinic-current__content                           
         
         .tab-content.tab-content__mod 
-            #tab-current.tab-pane.clinic-tab.active 
+            #tab-current.ui-tab-mod.tab-pane.clinic-tab.active 
                 +b("ul").application.application__current
+                    +e("table").item-big.item-big_mod
+                        tr 
+                            td
+
+                                +b.title
+                                    +e.number 197750 
+                                    +e.info Cогласован
+                                    +e.time 
+                                        //- 04:10
+                                    +e.picture
+                                        img(src='i/icons/agreed.png')
+                            td
+                                strong Информация о приеме:
+
+                                form.form-horizontal
+                                    .form-group.has-error
+                                        label(for="exampleInputName1").col-sm-3.control-label Филиал*:
+                                        .col-sm-9
+                                            input(type="text" id="exampleInputName1").form-control.js-clinic-autocomplete 
+                                            //- option Добробут "Дитяча клініка на Лівому березі"
+                                    .form-group
+                                        label(for="exampleInputName2").col-sm-3.control-label Врач*:
+                                        .col-sm-9
+                                            input(type="text" id="exampleInputName2").form-control.js-clinic-autocomplete 
+                                            //- option Леонов Олексій валентинович
+                                    .form-group
+                                        label(for="exampleInputName3").col-sm-3.control-label Спец-сть*:
+                                        .col-sm-9
+                                            input(type="text"  id="exampleInputName3").form-control.js-clinic-autocomplete 
+                                            //- option Лікар нетрадиційной медицини
+                                    .form-group  
+                                        label(for="exampleInputName4").col-sm-3.control-label Врач для*:
+                                        .col-sm-9
+                                            label.radio-inline взрослого 
+                                                input(type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked) 
+                                            label.radio-inline ребенка
+                                                input(type="radio" name="optionsRadios" id="optionsRadios2" value="option2")  
+                                    .form-group
+                                        label(for="exampleInputName5").col-sm-3.label-group_mod Дата и время*:
+                                        .col-sm-9
+                                            .input-group
+                                                input(type="text" ).form-control.js-clinic-datepicker(data-date-format="dd MM yyyy - HH:ii p")
+                                                span.input-group-addon.input-addon_mod
+                                                    i.glyphicon.glyphicon-calendar
+                                        //- .col-sm-4
+                                        //-     .input-group
+                                        //-         input(type="text").form-control
+                                        //-         span.input-group-btn
+                                        //-             button.btn.defoult
+                                                        //- i.glyphicon.glyphicon-time
+                                    .form-group
+                                        label(for="exampleInputName6").col-sm-3.control-label Цена*:
+                                        .col-sm-3
+                                            input(type="text").form-control
+                                        .col-sm-1.control-label
+                                            strong грн.
+                                //- table.table-text    
+                                //-     tr 
+                                //-         td Филиал: 
+                                //-         td Здравица (Zdravica), медицинский центр медицинский центр
+                                    
+                            td
+                                strong Информация о пациенте:
+
+                                form.form-horizontal
+                                    .form-group
+                                        label(for="exampleInputName7").col-sm-3.control-label Фамилия*:
+                                        .col-sm-9
+                                            input(type="text" id="exampleInputName1").form-control
+                                            //- option Добробут "Дитяча клініка на Лівому березі"
+                                    .form-group
+                                        label(for="exampleInputName8").col-sm-3.control-label Имя*:
+                                        .col-sm-9
+                                            input(type="text" id="exampleInputName2").form-control
+                                            //- option Леонов Олексій валентинович
+                                    .form-group
+                                        label(for="exampleInputName9").col-sm-3.control-label Отчество:
+                                        .col-sm-9
+                                            input(type="text"  id="exampleInputName3").form-control
+                                            //- option Лікар нетрадиційной медицини
+                                    .form-group
+                                        label(for="exampleInputName10").col-sm-3.label-group_mod Дата рождения*:
+                                        .application-l.l-2
+                                            .select-wrap 
+                                                .form-control
+                                                    select(name="days").select7.select7_dropdown
+                                                        option 1
+                                                        option 2
+                                                        option 3
+                                                        option 4
+                                                        option 4
+                                                        option 4
+                                                        option 4
+                                                        option 4
+                                                        option 4
+                                                        option 4
+                                                        option 4
+                                                        option 4
+                                                        option 4
+                                                        option 31
+                                        .application-l.l-4
+                                            .form-control
+                                                select(name="month").select7.select7_dropdown
+                                                    option Январь
+                                                    option Февраль 
+                                                    option Cентябрь 
+                                                    option Март
+                                        .application-l.l-3
+                                            .form-control
+                                                select(name="years").select7.select7_dropdown
+                                                    option 2000
+                                                    option 2001
+                                                    option 2002
+                                    .form-group
+                                        label(for="exampleInputName11").col-sm-3 Телефон:
+                                        .col-sm-9 
+                                            strong +380966871200
+
+
+
+                            td
+                                +b.comment-block
+                                    +e.item
+                                        strong Комментарий пациента:
+                                        br
+                                        span.no-comment нет комментария
+                                    +e.item
+                                        strong Комментарий оператора:
+                                        br
+                                        span.no-comment нет комментария
+                                +b("form").alternative-block(metod="post")
+                                    strong Комментарий клиники:
+                                    +e("textarea").enter-text 
+                                    +e("a").button.btn(href="#") Согласовать
+                                    +e("a").button.btn.bg-grey(href="#") Отменить
+
                     +e("table").item-big
                         tr 
                             td
@@ -64,7 +200,7 @@
                             td
                                 +b("form").alternative-block(metod="post")
                                     strong Aльтернатива
-                                    +e("textarea").enter-text
+                                    +e("textarea").enter-text 
                                     +e("a").button.btn(href="#") Подтвердить
                                     +e("a").button.btn.bg-blue(href="#") Aльтернатива
 
@@ -109,7 +245,7 @@
                             td
                                 +b("form").alternative-block(metod="post")
                                     strong Aльтернатива
-                                    +e("textarea").enter-text
+                                    +e("textarea").enter-text 
                                     +e("a").button.btn(href="#") Подтвердить
                                     +e("a").button.btn.bg-blue(href="#") Aльтернатив
                     +e("table").item-big
@@ -153,7 +289,7 @@
                             td
                                 +b("form").alternative-block(metod="post")
                                     strong Aльтернатива
-                                    +e("textarea").enter-text
+                                    +e("textarea").enter-text 
                                     +e("a").button.btn(href="#") Подтвердить
                                     +e("a").button.btn.bg-blue(href="#") Aльтернатив
                     +e("table").item-big.item-small
@@ -298,7 +434,7 @@
                                         td Акушер-гинеколог
                                     tr
                                         td Цена: 
-                                        td 500 грн.
+                                        td 500 грн. 
                                     tr
                                         td Дата и время:
                                         td 22.09.2015 утро (10:00, 11:00, 12:00)
@@ -306,23 +442,20 @@
                                         td Для кого врач:
                                         td для взрослог
                             td
-                                +b.comment-block
+                                +b.comment-block     
                                     +e.item
                                         strong Комментарий пациента:
-                                        span Гастроскопия + узи + узи органов малого таза для первой пац., для второй пациентки органов малого таза для первой пац. для второй.
+                                        span Гастроскопия + узи + узи органов малого таза для первой пац., для второй пациентки органов малого таза для первой пац. для второй.  
                                     +e.item
-                                        strong Комментарий оператора:
+                                        strong Комментарий оператора: 
                             td.last-child
                                 +b("form").alternative-block(metod="post")
                                     strong Aльтернатива
-                                    +e("textarea").enter-text
-                                    +e("a").button.btn(href="#") Подтвердить
+                                    +e("textarea").enter-text 
+                                    +e("a").button.btn(href="#") Подтвердить 
                                     +e("a").button.btn.bg-blue(href="#") Aльтернатив
 
-
-
-
-                            //- td
+                            //- td 
                                 //- +b("form").alternative-block(metod="post")
                                 //-     strong Aльтернатива
                                 //-     +e("textarea").enter-text
@@ -528,7 +661,7 @@
                             td
                                 strong Aльтернатива
                                 +b("form").alternative-block(metod="post")
-                                    +e("textarea").enter-text
+                                    +e("textarea").enter-text 
                                     +e("a").button.btn.bg-blue(href="#") Aльтернатива
 
                     +e('table').item-big
@@ -564,7 +697,7 @@
                             td
                                 strong Aльтернатива
                                 +b("form").alternative-block(metod="post")
-                                    +e("textarea").enter-text
+                                    +e("textarea").enter-text 
                                     +e("a").button.btn.bg-blue(href="#") Aльтернатива
                     +e('table').item-big
                         tr 

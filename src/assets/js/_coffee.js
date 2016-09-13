@@ -1610,6 +1610,41 @@ $(".js-remove").on("click", function() {
   return false;
 });
 
+$('.js-clinic-autocomplete').each(function() {
+  jQuery.ui.autocomplete.prototype._resizeMenu = function() {
+    var ul;
+    ul = this.menu.element;
+    ul.outerWidth(this.element.outerWidth());
+  };
+  return $(this).autocomplete({
+    minLength: 2,
+    appendTo: ".application",
+    source: function(request, response) {
+      return $.ajax({
+        url: '/analysis/search/live/clinic-profile.json',
+        dataType: 'json',
+        method: 'GET',
+        data: request,
+        success: function(data) {
+          return response($.map(data.profile, function(item) {
+            return {
+              value: item.value,
+              label: item.label
+            };
+          }));
+        }
+      });
+    }
+  });
+});
+
+$('.js-clinic-datepicker').datetimepicker({
+  format: "dd MM yyyy - hh:ii",
+  weekStart: 1,
+  todayBtn: 0,
+  autoclose: 1
+});
+
 var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
 $(function() {
@@ -1701,6 +1736,15 @@ $('.js-tab__header-d').click(function() {
   item.toggleClass('tab-active_info-index');
   parent.find('.btn__mobile').toggleClass('btn__mobile_open');
   $(this).toggleClass('tab__header_open');
+  return false;
+});
+
+$('.js-nav a').on('click', function() {
+  var section;
+  section = $(this).attr('href');
+  $('html, body').animate({
+    scrollTop: $(section).offset().top - 35
+  }, 500);
   return false;
 });
 
@@ -2278,15 +2322,6 @@ $(window).scroll(function() {
     $goTop.stop(true, true).fadeOut("fast");
     return goTopShown = false;
   }
-});
-
-$('.js-nav a').on('click', function() {
-  var section;
-  section = $(this).attr('href');
-  $('html, body').animate({
-    scrollTop: $(section).offset().top - 35
-  }, 500);
-  return false;
 });
 
 var myFunctionResize;

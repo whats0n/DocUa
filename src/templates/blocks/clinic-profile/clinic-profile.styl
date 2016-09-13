@@ -15,7 +15,16 @@
     background-color #FFF
     clearfix() 
 
-     
+.comment-block
+    &__item
+        font-size 14px
+        color text_color
+        min-height 100px 
+        span
+            font-style italic
+            line-height 17px
+            &.no-comment
+               color rgba(#5e6e71, 0.6)     
 .clinics-profile__tabs
     margin-left 151px 
     border-bottom none 
@@ -119,246 +128,472 @@
         .tab-pane
             box-shadow none
             background grey_texture
-            
+                        
 .application
     margin-bottom 80px
     background grey_texture
-    &__item-big
-        position relative
-        margin-top 20px
-        border-radius 3px
-        box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
-        background-color white
-        min-height 180px
-        clearfix()
-        .left-side
+    &__current
+        .item-big_mod
+            .input-addon_mod
+                i
+                    color: text_color
+            .select-wrap 
+                // height: 100px
+                // overflow-y scroll 
+            select.form-control
+                padding 6px 2px
+            tr
+                td
+                    &:nth-child(2)
+                        width 34%
+            .form-control
+                -webkit-border-radius 2px 
+                border-radius 2px 
+            .select7
+                &__current
+                    padding 0 7px 
+                &__drop-list
+                    max-height 250px
+                    overflow-y: auto
+            .application-l
+                float left
+                padding-left: 10px
+                // padding-right: 10px
+                &.l-2
+                    width 18% 
+                &.l-3
+                    width 27% 
+                &.l-4
+                    width 30% 
+                
+            .form-horizontal
+                margin-top 10px
+                label
+                    text-align left
+                    &.label-group_mod
+                        line-height 16px    
+            .radio-inline
+                input
+                    top 0
+                    margin-top 12px
+        .application__item-big
+            position relative
+            margin-top 20px
+            border-radius 3px
+            box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
             background-color white
-            float left
-            width 51%
-            border-radius 3px 0 0 3px
-            @media only screen and (max-width: 1200px)
-                float none
-                width 100%
-            .left-side__wrap
-                clearfix()
-                .title
-                    position absolute
-                    z-index 2
-                    width 161px
-                    float left
-                    padding 20px
-                    text-align center
-                    @media only screen and (max-width: 1200px)
-                        float left
-                        position static
-                        background-color green_base
-                        border-radius 3px 0 0 0
-                    &__number
-                        font-size 22px
-                        font-weight 700
-                        color #fff
-                        padding-bottom 10px
-                        &:before
-                            content ""
-                            display inline-block
-                            background url('i/icons/item-number.png') center center
-                            width 19px
-                            height 18px
-                            margin 0 5px -1px 0 
-                    &__info
-                        font-size 12px
-                        font-weight 700
-                        padding 3px 0
-                        color #FFF 
-                        display block
-                        width 100%
-                        border 1px solid rgba(#FFF, 0.88) 
-                        border-radius 3px 
-                    &__time
-                        font-size 54px
-                        min-height 77px
-                        font-weight 300
-                        color #FFF
-                        font-family Roboto, Arial,  sans-serif
-                        font-weight 100 
-                        letter-spacing -1px
-                .table-info
-                    padding 20px
-                    margin-left 161px
-                    min-height 180px
-                    // @media only screen and (max-width: 1200px)
-                    //     margin-left 0 
-                    table
-                        width 100%
-                        table-layout fixed
-                        tr 
-                            line-height 28px
-                            td
-                                &.no-info
-                                    color #b5b9ba
-                                &:first-child
-                                    font-size 14px
-                                    font-weight 400
-                                    color text_color
-                                    width 110px
-                                &:last-child
-                                    font-size 14px
-                                    font-weight 700
-                                    padding-left 10px
-                                    // white-space nowrap
-                                    // overflow hidden
-                                    // -ms-text-overflow ellipsis
-                                    // text-overflow ellipsis
-        .right-side
-            float left
-            background #fcfdfd
-            width 49%
-            -webkit-border-radius 0 3px 3px 0  
-            border-radius 0 3px 3px 0
-            @media only screen and (max-width: 1200px)
-                float none
-                width 100%
-                &:after
-                    position static 
-            &:after
-                content ''
-                position absolute
-                top 0
-                left 0
-                bottom 0
-                height 100%  
-                width 161px
-                background green_base
-                -webkit-border-radius 3px 0 0 3px  
-                border-radius 3px 0 0 3px
-                z-index 1     
-            .right-side__wrap
-                position relative
-                strong
-                    display block
-                .comment-block
-                    width 55%
-                    float left
-                    padding 20px
-                    padding-right 20px
-                    &__item
-                        font-size 14px
-                        color text_color
-                        &:first-child
-                            min-height 115px
-                            padding-top 4px 
-                            @media only screen and (max-width: 1200px)
-                                min-height auto
-                        span
-                            font-style italic
-                            line-height 17px
-                            &.no-comment
-                               color rgba(#5e6e71, 0.6)
-                .alternative-block
-                    margin-left 55%
-                    width 45%
-                    border-left 1px dashed rgba(29,137,160,.45)
-                    padding 20px
-                    -webkit-border-radius 0 3px 3px 0  
-                    border-radius 0 3px 3px 0
-                    min-height 215px
-                        &:after
-                            position static
-                            border-left none 
-                    &:after
-                        content ''
-                        position absolute
-                        top 0
-                        left 0
-                        bottom 0
-                        height 100%  
-                        width 50%
-                        z-index 1 
-                        border-left 1px dashed rgba(29,137,160,.45) 
-                        @media  only screen and (max-width: 1200px)
-                            border-left none
-                    &__enter-text
-                        width 100%
-                        height 69px
-                        background #FFF
-                        border 1px solid rgba(61, 160, 180, 0.27)
-                        border-radius 3px
-                        box-shadow inset 2px 2.3px 1px rgba(43, 151, 173, 0.12) 
-                        outline none 
-                        text-align left
-                        font-style italic
-                        padding 10px
-                        margin 10px 0
-                    &__button
-                        width 100%
-                        font-size 16px
-                        font-weight 700
-                        color #FFF 
-                        background-color green_base 
-                        margin-bottom 10px
-                        &:hover
-                            background-color #3ab3a2
-                            border-color #3ab3a2
-                        &:last-child
-                            margin-bottom 0
-                        &.bg-blue   
-                            background-color #168da4 
-                            &:hover
-                                background-color #1b7f94
-                                border-color #1b7f94
-    .item-small
-        .left-side
-            .left-side__wrap
-                .title
-                    .item-small__number
-                        color text_color
-                        &:before
-                            background url('i/icons/item-number_black.png') center center
-                    .item-small__info
-                        color text_color
-                        border 1px solid rgba(#5e6e71,0.59)
-                    &__picture
-                        line-height 7
-                    &.item-small__title-time
-                        @media only screen and (max-width: 1200px)
-                            background-color #fbf4e1
-                    &.item-small__title-canceled
-                        @media only screen and (max-width: 1200px)
-                            background-color rgba(#909191, 0.26)
-        .right-side
-            .right-side__wrap  
-                .comment-block
-                    border-left 1px dashed rgba(29,137,160,.45)
-                    width 100%
-                    &__item
-                        &:last-child
-                            width 50%
-            &.right-side__time
-                &:after
-                    background-color #fbf4e1
-            
+            min-height 180px
+            clearfix()
+            // .left-side
+                // background-color white
+                // float left
+                // width 51%
+                // border-radius 3px 0 0 3px
+                // @media only screen and (max-width: 1200px)
+                    // float none
+                    // width 100%
+                // .left-side__wrap
+                    // clearfix()
+                tr
                     
-            &.right-side__cancel
-                &:after
-                    background-color rgba(#909191, 0.26) 
-            &.right-side__small
-                border-left none
-                .right-side__wrap 
-                    // .alternative-block
-                    //     &:after
-                    //         display none 
+                    td 
+                        vertical-align top
+                        &:first-child
+                            vertical-align middle
+                            // width 14%
+                            background green_base
+                            -webkit-border-radius 3px 0 0 3px  
+                            border-radius 3px 0 0 3px
+                            padding 20px
+                            .title
+                                // padding 20px
+                                text-align center
+                                // @media only screen and (max-width: 1200px)
+                                //     // float left
+                                //     // position static
+                                //     background-color green_base
+                                //     border-radius 3px 0 0 0
+                                min-width 123px 
+                                &__number
+                                    font-size 22px
+                                    font-weight 700
+                                    color #fff
+                                    padding-bottom 10px
+                                    &:before
+                                        content ""
+                                        display inline-block
+                                        background url('i/icons/item-number.png') center center
+                                        width 19px
+                                        height 18px
+                                        margin 0 5px -1px 0 
+                                &__info
+                                    font-size 12px
+                                    font-weight 700
+                                    padding 3px 0
+                                    color #FFF 
+                                    display block
+                                    width 100%
+                                    border 1px solid rgba(#FFF, 0.88) 
+                                    border-radius 3px 
+                                &__time
+                                    font-size 54px
+                                    min-height 77px
+                                    font-weight 300
+                                    color #FFF
+                                    font-family Roboto, Arial,  sans-serif
+                                    font-weight 100 
+                                    letter-spacing -1px
+                        &:nth-child(2)
+                            padding 20px
+                            background #FFF 
+                            table 
+                                width 100%
+                                table-layout fixed
+                                tr 
+                                    td
+                                        padding 0
+                                        width auto
+                                        border-left none 
+                                        &.no-info
+                                            color #b5b9ba
+                                        &:first-child
+                                            font-size 14px
+                                            font-weight 400
+                                            color text_color
+                                            // width 110px
+                                            background-color #FFF 
+                                            width 14%
+                                        &:last-child
+                                            font-size 14px
+                                            font-weight 700
+                                            padding-left 10px
+                                            width 22%
+                        &:nth-child(3)
+                            background #fcfdfd
+                            -webkit-border-radius 0 3px 3px 0  
+                            border-radius 0 3px 3px 0
+                            padding 20px  
+                            border-left 1px dashed rgba(29,137,160,.45)
+                            width 30%
+                            
+                        &:last-child
+                            border-left 1px dashed rgba(29,137,160,.45)
+                            width 22%
+                            padding 20px
+                            
+    .item-small
+        tr
+            td
+                &:first-child
+                    width 161px
+                    .title
+                        .item-small__number
+                            color text_color
+                            &:before
+                                background url('i/icons/item-number_black.png') center center
+                        .item-small__info
+                            color text_color
+                            border 1px solid rgba(#5e6e71,0.59)
+                        &__picture
+                            line-height 7
+                    &.item-small__title-time 
+                        background-color #fbf4e1
+                    &.item-small__title-canceled
+                        background-color rgba(#909191, 0.26)
+            
                     .comment-block
-                        // border-left none
-                        border-right 1px dashed rgba(29,137,160,.45)
-                        min-height 236px 
-                        width 55%
+                        border-left 1px dashed rgba(29,137,160,.45)
+                        width 100%
                         &__item
                             &:last-child
-                                width auto
-                    .alternative-block
-                        border-left none
-                        &:after
-                            display none 
+                                width 50%
+                &:last-child
+                    width 52%
+                &.last-child
+                    width 22%
+.alternative-block 
+    -webkit-border-radius 0 3px 3px 0  
+    border-radius 0 3px 3px 0
+    &__enter-text
+        width 100%
+        height 69px
+        background #FFF
+        border 1px solid rgba(61, 160, 180, 0.27)
+        border-radius 3px
+        box-shadow inset 2px 2.3px 1px rgba(43, 151, 173, 0.12) 
+        outline none 
+        text-align left
+        font-style italic
+        padding 10px 
+        margin 10px 0
+    &__button
+        width 100%
+        font-size 16px
+        font-weight 700
+        color #FFF 
+        background-color green_base 
+        margin-bottom 10px
+        &:hover
+            background-color #3ab3a2
+            border-color #3ab3a2
+            color: #fff
+        &:last-child
+            margin-bottom 0
+        &.bg-blue   
+            background-color #168da4 
+            &:hover
+                background-color #1b7f94
+                border-color #1b7f94
+                color: #fff
+        &.bg-grey
+            background-color rgba(144,145,145,.34)
+            &:hover
+                border-color: rgba(144,145,145,.44)
+                background-color rgba(144,145,145,.44)
+                color: #fff
+.ui-tab-mod
+    .ui-autocomplete
+        margin-top -2px                
+         
+// .application
+//     margin-bottom 80px
+//     background grey_texture
+//     &__item-big
+//         position relative
+//         margin-top 20px
+//         border-radius 3px
+//         box-shadow 0 2px 4px rgba(0, 64, 76, 0.15)
+//         background-color white
+//         min-height 180px
+//         clearfix()
+//         .left-side
+//             background-color white
+//             float left
+//             width 51%
+//             border-radius 3px 0 0 3px
+//             @media only screen and (max-width: 1200px)
+//                 float none
+//                 width 100%
+//             .left-side__wrap
+//                 clearfix()
+//                 .title
+//                     position absolute
+//                     z-index 2
+//                     width 161px
+//                     float left
+//                     padding 20px
+//                     text-align center
+//                     @media only screen and (max-width: 1200px)
+//                         float left
+//                         position static
+//                         background-color green_base
+//                         border-radius 3px 0 0 0
+//                     &__number
+//                         font-size 22px
+//                         font-weight 700
+//                         color #fff
+//                         padding-bottom 10px
+//                         &:before
+//                             content ""
+//                             display inline-block
+//                             background url('i/icons/item-number.png') center center
+//                             width 19px
+//                             height 18px
+//                             margin 0 5px -1px 0 
+//                     &__info
+//                         font-size 12px
+//                         font-weight 700
+//                         padding 3px 0
+//                         color #FFF 
+//                         display block
+//                         width 100%
+//                         border 1px solid rgba(#FFF, 0.88) 
+//                         border-radius 3px 
+//                     &__time
+//                         font-size 54px
+//                         min-height 77px
+//                         font-weight 300
+//                         color #FFF
+//                         font-family Roboto, Arial,  sans-serif
+//                         font-weight 100 
+//                         letter-spacing -1px
+//                 .table-info
+//                     padding 20px
+//                     margin-left 161px
+//                     min-height 180px
+//                     // @media only screen and (max-width: 1200px)
+//                     //     margin-left 0 
+//                     table
+//                         width 100%
+//                         table-layout fixed
+//                         tr 
+//                             line-height 28px
+//                             td
+//                                 &.no-info
+//                                     color #b5b9ba
+//                                 &:first-child
+//                                     font-size 14px
+//                                     font-weight 400
+//                                     color text_color
+//                                     width 110px
+//                                 &:last-child
+//                                     font-size 14px
+//                                     font-weight 700
+//                                     padding-left 10px
+//                                     // white-space nowrap
+//                                     // overflow hidden
+//                                     // -ms-text-overflow ellipsis
+//                                     // text-overflow ellipsis
+//         .right-side
+//             float left
+//             background #fcfdfd
+//             width 49%
+//             -webkit-border-radius 0 3px 3px 0  
+//             border-radius 0 3px 3px 0
+//             @media only screen and (max-width: 1200px)
+//                 float none
+//                 width 100%
+//                 &:after
+//                     position static 
+//             &:after
+//                 content ''
+//                 position absolute
+//                 top 0
+//                 left 0
+//                 bottom 0
+//                 height 100%  
+//                 width 161px
+//                 background green_base
+//                 -webkit-border-radius 3px 0 0 3px  
+//                 border-radius 3px 0 0 3px
+//                 z-index 1     
+//             .right-side__wrap
+//                 position relative
+//                 strong
+//                     display block
+//                 .comment-block
+//                     width 55%
+//                     float left
+//                     padding 20px
+//                     padding-right 20px
+//                     &__item
+//                         font-size 14px
+//                         color text_color
+//                         &:first-child
+//                             min-height 115px
+//                             padding-top 4px 
+//                             @media only screen and (max-width: 1200px)
+//                                 min-height auto
+//                         span
+//                             font-style italic
+//                             line-height 17px
+//                             &.no-comment
+//                                color rgba(#5e6e71, 0.6)
+//                 .alternative-block
+//                     margin-left 55%
+//                     width 45%
+//                     border-left 1px dashed rgba(29,137,160,.45)
+//                     padding 20px
+//                     -webkit-border-radius 0 3px 3px 0  
+//                     border-radius 0 3px 3px 0
+//                     min-height 215px
+//                         &:after
+//                             position static
+//                             border-left none 
+//                     &:after
+//                         content ''
+//                         position absolute
+//                         top 0
+//                         left 0
+//                         bottom 0
+//                         height 100%  
+//                         width 50%
+//                         z-index 1 
+//                         border-left 1px dashed rgba(29,137,160,.45) 
+//                         @media  only screen and (max-width: 1200px)
+//                             border-left none
+//                     &__enter-text
+//                         width 100%
+//                         height 69px
+//                         background #FFF
+//                         border 1px solid rgba(61, 160, 180, 0.27)
+//                         border-radius 3px
+//                         box-shadow inset 2px 2.3px 1px rgba(43, 151, 173, 0.12) 
+//                         outline none 
+//                         text-align left
+//                         font-style italic
+//                         padding 10px
+//                         margin 10px 0
+//                     &__button
+//                         width 100%
+//                         font-size 16px
+//                         font-weight 700
+//                         color #FFF 
+//                         background-color green_base 
+//                         margin-bottom 10px
+//                         &:hover
+//                             background-color #3ab3a2
+//                             border-color #3ab3a2
+//                         &:last-child
+//                             margin-bottom 0
+//                         &.bg-blue   
+//                             background-color #168da4 
+//                             &:hover
+//                                 background-color #1b7f94
+//                                 border-color #1b7f94
+//     .item-small
+//         .left-side
+//             .left-side__wrap
+//                 .title
+//                     .item-small__number
+//                         color text_color
+//                         &:before
+//                             background url('i/icons/item-number_black.png') center center
+//                     .item-small__info
+//                         color text_color
+//                         border 1px solid rgba(#5e6e71,0.59)
+//                     &__picture
+//                         line-height 7
+//                     &.item-small__title-time
+//                         @media only screen and (max-width: 1200px)
+//                             background-color #fbf4e1
+//                     &.item-small__title-canceled
+//                         @media only screen and (max-width: 1200px)
+//                             background-color rgba(#909191, 0.26)
+//         .right-side
+//             .right-side__wrap  
+//                 .comment-block
+//                     border-left 1px dashed rgba(29,137,160,.45)
+//                     width 100%
+//                     &__item
+//                         &:last-child
+//                             width 50%
+//             &.right-side__time
+//                 &:after
+//                     background-color #fbf4e1
+            
+                    
+//             &.right-side__cancel
+//                 &:after
+//                     background-color rgba(#909191, 0.26) 
+//             &.right-side__small
+//                 border-left none
+//                 .right-side__wrap 
+//                     // .alternative-block
+//                     //     &:after
+//                     //         display none 
+//                     .comment-block
+//                         // border-left none
+//                         border-right 1px dashed rgba(29,137,160,.45)
+//                         min-height 236px 
+//                         width 55%
+//                         &__item
+//                             &:last-child
+//                                 width auto
+//                     .alternative-block
+//                         border-left none
+//                         &:after
+//                             display none 
                 
                 
                                 
@@ -446,7 +681,13 @@
                     margin 12px 0
 
 .application__alternative
+    li
+        margin-bottom 20px
+        &:last-child
+            margin-bottom 0 
     table.application__item-big
+        background #FFF
+        
         tr 
             td 
                 padding 20px
@@ -489,25 +730,25 @@
                     width 22%
                     border-left 1px dashed rgba(29,137,160,.45)
                     background-color #fcfdfd 
-                    .alternative-block 
-                        &__enter-text
+                    .alternative-block
+                        .alternative-block __enter-text
                             margin: 12px 0
-                            width: 100%;
-                            min-height: 80px;
-                            background: #fff;
-                            border: 1px solid rgba(61,160,180,.27);
-                            border-radius: 3px;
-                            box-shadow: inset 2px 2.3px 1px rgba(43,151,173,.12);
-                            outline: 0;
-                            text-align: left;
-                            font-style: italic;
-                            padding: 10px;
-                        &__button
-                            width: 100%;
-                            font-size: 16px;
-                            font-weight: 700;
-                            color: #fff;
-                            background-color: #168da4;
+                            width: 100%
+                            min-height: 80px
+                            background: #fff
+                            border: 1px solid rgba(61,160,180,.27)
+                            border-radius: 3px
+                            box-shadow: inset 2px 2.3px 1px rgba(43,151,173,.12)
+                            outline: 0
+                            text-align: left
+                            font-style: italic
+                            padding: 10px
+                        .alternative-block __button
+                            width: 100%
+                            font-size: 16px
+                            font-weight: 700
+                            color: #fff
+                            background-color: #168da4
                     
                     
 
@@ -645,3 +886,4 @@
         &:focus
             outline none
             border none
+

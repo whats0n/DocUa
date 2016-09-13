@@ -68,9 +68,35 @@ $(".js-remove").on "click", ->
 	$('.js-btn-special').text('Выберите специальность')
 	return false
 
+# autocomplete for input
+$('.js-clinic-autocomplete').each ->	
 
+	jQuery.ui.autocomplete::_resizeMenu = ->
+	    ul = @menu.element
+	    ul.outerWidth @element.outerWidth()
+	    return
+	$(this).autocomplete
+		minLength: 2,
+		appendTo: ".application"
+		source: (request, response) ->
+			$.ajax
+				url: '/analysis/search/live/clinic-profile.json',
+				dataType: 'json',
+				method: 'GET',
+				data: request
+				success: (data) -> 
+					response $.map(data.profile, (item) ->
+						return {
+							value: item.value 
+							label: item.label 
+						}
+					) 
 	
-
-	
+#datetimepicker
+$('.js-clinic-datepicker').datetimepicker  
+	format: "dd MM yyyy - hh:ii",
+	weekStart: 1,
+	todayBtn:  0,
+	autoclose: 1
 
 		

@@ -128,35 +128,7 @@ $(".js-autocomplete-subject").each ->
 			# else
 			return
 
-		# source: (request, response) ->
-		# source: (request, response) ->
-		# 	$.post "/echo/json/", {
-		# 		json: partTags,
-		# 		delay: 1
-		# 	}, (data) ->
-		# 		response $.map(data, (item) ->
-		# 			{
-		# 				id: item.num
-		# 				label: pn.part
-		# 				value: pn.dwg
-		# 			}
-		# 		)
-		# 		return
-		# 	return
-
-	# ).data("autocomplete")._renderItem = (ul, item) ->
-	# 	return $("<li>").data("item.autocomplete", item).append("<a>" + item.url + "</a>").appendTo(ul);
-
-	# 	highlighted = item.value.split(this.term).join('<span class="is-active">' + this.term +  '</span>')
-	# 	return $("<li></li>").data("item.autocomplete", item).append('<a class="search-select" data-search="' + item.value + '">' + highlighted + '</a>').appendTo(ul);
-
-	# ).bind 'autocompletesearchcomplete', (event, contents) ->
-	# 	if contents.length < 1
-	# 		$('#results').html 'No Entries Found'
-	# 	else
-	# 		$('#results').html ''
-	# 	return 
-	# return
+		
 	$('.js-rezult-delete').on 'click', (event) ->
 		autocompleteInput = $(this).siblings('.js-autocomplete-subject')
 		rezult = $(this).siblings('.no-results')
