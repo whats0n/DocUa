@@ -224,7 +224,7 @@ $(".js-finder-autocomplete").each ->
                 _this.addClass 'js-text-hidden' 
                 _this.dotdotdot
                     elipsis: " ...",
-                    fallbackToLetter: true,
+                    fallbackToLetter: true
             return 
         close: (event, ui) ->
             _jScrollPaneAPI.destroy()
@@ -263,6 +263,7 @@ $(".js-finder-autocomplete").each ->
 # index autocomplete
 $(".js-index-autocomplete").each ->
     complete = $(this)
+    dotText = complete.find('.js-search-title')
     searchHidden = complete.siblings('.search-result')
     _jScrollPane = undefined
     _jScrollPaneAPI = undefined
@@ -273,30 +274,31 @@ $(".js-index-autocomplete").each ->
         ul = @menu.element
         ul.outerWidth @element.outerWidth()
         return
-    projects = [
-        {
-            value: 'Врач нетрадиционной медицины'
-            label: 'Врач нетрадиционной медицины'
-            desc: 'Список врачей'
-            icon: 'icon-list-doctors.png'
-        }
-        {
-            value: 'Кардиология'
-            label: 'Кардиология'
-            desc: 'Диагностические центры'
-            icon: 'icon-list-diagnostic-centers.png'
-        }
-        {
-            value: 'Калиниченко Владислав Петрович'
-            label: 'Калиниченко Владислав Петрович'
-            desc: 'Врач'
-            icon: 'doc.png'
-        }
-    ]
+    # projects = [
+    #     {
+    #         value: 'Врач нетрадиционной медицины'
+    #         label: 'Врач нетрадиционной медицины'
+    #         desc: 'Список врачей'
+    #         icon: 'icon-list-doctors.png'
+    #     }
+    #     {
+    #         value: 'Кардиология'
+    #         label: 'Кардиология'
+    #         desc: 'Диагностические центры'
+    #         icon: 'icon-list-diagnostic-centers.png'
+    #     }
+    #     {
+    #         value: 'Калиниченко Владислав Петрович'
+    #         label: 'Калиниченко Владислав Петрович'
+    #         desc: 'Врач'
+    #         icon: 'doc.png'
+    #     }
+    # ]
 
     complete.autocomplete
         minLength: 2,
         open: ->
+            
             $(this).data('uiAutocomplete').menu.element.addClass 'index-autocomplete js-lists'
             if undefined != _jScrollPane
                 _jScrollPaneAPI.destroy()
@@ -306,7 +308,22 @@ $(".js-index-autocomplete").each ->
                 $('.index-autocomplete > li').wrapAll $('<ul class="scroll-panel"></ul>').height(_jSheight)
                 _jScrollPane = $('.scroll-panel').jScrollPane()
                 _jScrollPaneAPI = _jScrollPane.data('jsp')
-            return
+        #     return
+            dotText.addClass('bla')
+            dotText.dotdotdot
+                lines: 2
+            console.log('bla')
+            # $('.top-list__title a').dotdotdot
+            #     lines: 2,
+            #     responsive: true
+            # if $('')
+            # if $('.ui-menu-item').height() >= 20
+            #     console.log('bla')
+            #     _this = $('.ui-menu-item')
+            #     _this.addClass 'js-text-hidden' 
+            #     _this.dotdotdot
+            #         elipsis: " ...",
+            #         fallbackToLetter: true
         close: (event, ui) ->
             # _jScrollPaneAPI.destroy()
             _jScrollPane = undefined
@@ -355,7 +372,7 @@ $(".js-index-autocomplete").each ->
         # insert content
         $li.find('.top-list__item-link').append('<div class="top-list__left">')
         $li.find('.top-list__left').append('<div class="top-list__title">')
-        $li.find('.top-list__title').data('item.autocomplete', item).append('<a href="#" class="js-search-title">' + newText + '</a>')
+        $li.find('.top-list__title').data('item.autocomplete', item).append('<a href="#" class="js-search-title" style="height: 51px;">' + newText + '</a>')
         # insert type
         $li.find('.top-list__item-link').append('<div class="top-list__right">')
         $li.find('.top-list__right').append('<div class="top-list__subject">')
@@ -387,6 +404,10 @@ $(document).mouseup (e) ->
     if container.has(e.target).length == 0
         container.hide()
     return
+
+# $('.js-search-title').dotdotdot
+#     lines: 2,
+#     responsive: true 
 
 $('body').on 'click', ->
     noResult = $('.no-results-finder')

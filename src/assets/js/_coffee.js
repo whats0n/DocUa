@@ -2118,8 +2118,9 @@ $(".js-finder-autocomplete").each(function() {
 });
 
 $(".js-index-autocomplete").each(function() {
-  var _jScrollPane, _jScrollPaneAPI, _jSheight, complete, projects, searchHidden;
+  var _jScrollPane, _jScrollPaneAPI, _jSheight, complete, dotText, searchHidden;
   complete = $(this);
+  dotText = complete.find('.js-search-title');
   searchHidden = complete.siblings('.search-result');
   _jScrollPane = void 0;
   _jScrollPaneAPI = void 0;
@@ -2129,24 +2130,6 @@ $(".js-index-autocomplete").each(function() {
     ul = this.menu.element;
     ul.outerWidth(this.element.outerWidth());
   };
-  projects = [
-    {
-      value: 'Врач нетрадиционной медицины',
-      label: 'Врач нетрадиционной медицины',
-      desc: 'Список врачей',
-      icon: 'icon-list-doctors.png'
-    }, {
-      value: 'Кардиология',
-      label: 'Кардиология',
-      desc: 'Диагностические центры',
-      icon: 'icon-list-diagnostic-centers.png'
-    }, {
-      value: 'Калиниченко Владислав Петрович',
-      label: 'Калиниченко Владислав Петрович',
-      desc: 'Врач',
-      icon: 'doc.png'
-    }
-  ];
   complete.autocomplete({
     minLength: 2,
     open: function() {
@@ -2161,6 +2144,11 @@ $(".js-index-autocomplete").each(function() {
         _jScrollPane = $('.scroll-panel').jScrollPane();
         _jScrollPaneAPI = _jScrollPane.data('jsp');
       }
+      dotText.addClass('bla');
+      dotText.dotdotdot({
+        lines: 2
+      });
+      return console.log('bla');
     },
     close: function(event, ui) {
       _jScrollPane = void 0;
@@ -2213,7 +2201,7 @@ $(".js-index-autocomplete").each(function() {
     $li.find('.top-list__picture').append($img);
     $li.find('.top-list__item-link').append('<div class="top-list__left">');
     $li.find('.top-list__left').append('<div class="top-list__title">');
-    $li.find('.top-list__title').data('item.autocomplete', item).append('<a href="#" class="js-search-title">' + newText + '</a>');
+    $li.find('.top-list__title').data('item.autocomplete', item).append('<a href="#" class="js-search-title" style="height: 51px;">' + newText + '</a>');
     $li.find('.top-list__item-link').append('<div class="top-list__right">');
     $li.find('.top-list__right').append('<div class="top-list__subject">');
     $li.find('.top-list__subject').append(item.desc);
