@@ -9577,53 +9577,6 @@ hr {
     height: 117px;
   }
 }
-@media only screen and (max-width: 767px) {
-  .catalog-checkboxes {
-    float: left;
-  }
-}
-.catalog-checkboxes__label {
-  float: right;
-  -webkit-user-select: none;
-}
-@media only screen and (max-width: 560px) {
-  .catalog-checkboxes__label {
-    float: none;
-  }
-}
-.catalog-checkboxes__label:not(:last-child) {
-  margin-left: 24px;
-}
-@media only screen and (max-width: 560px) {
-  .catalog-checkboxes__label:not(:last-child) {
-    margin: 0 24px 0 0;
-  }
-}
-.catalog-checkboxes__label input {
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-}
-.catalog-checkboxes__label span {
-  position: relative;
-  padding-left: 7px;
-}
-.catalog-checkboxes__label span:after {
-  content: '';
-  position: absolute;
-  left: -13px;
-  top: 4px;
-  background-image: url("/i/sprites-general.png");
-  background-position: -430px -346px;
-  width: 13px;
-  height: 13px;
-}
-.catalog-checkboxes__label input:checked + span:after {
-  background-image: url("/i/sprites-general.png");
-  background-position: -430px -313px;
-  width: 13px;
-  height: 13px;
-}
 .chooser {
   position: relative;
   margin-bottom: 20px;
@@ -9777,6 +9730,53 @@ hr {
     border-top: 8px solid #3ebfac;
   }
 }
+@media only screen and (max-width: 767px) {
+  .catalog-checkboxes {
+    float: left;
+  }
+}
+.catalog-checkboxes__label {
+  float: right;
+  -webkit-user-select: none;
+}
+@media only screen and (max-width: 560px) {
+  .catalog-checkboxes__label {
+    float: none;
+  }
+}
+.catalog-checkboxes__label:not(:last-child) {
+  margin-left: 24px;
+}
+@media only screen and (max-width: 560px) {
+  .catalog-checkboxes__label:not(:last-child) {
+    margin: 0 24px 0 0;
+  }
+}
+.catalog-checkboxes__label input {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.catalog-checkboxes__label span {
+  position: relative;
+  padding-left: 7px;
+}
+.catalog-checkboxes__label span:after {
+  content: '';
+  position: absolute;
+  left: -13px;
+  top: 4px;
+  background-image: url("/i/sprites-general.png");
+  background-position: -430px -346px;
+  width: 13px;
+  height: 13px;
+}
+.catalog-checkboxes__label input:checked + span:after {
+  background-image: url("/i/sprites-general.png");
+  background-position: -430px -313px;
+  width: 13px;
+  height: 13px;
+}
 .cla-tabs__item {
   position: relative;
   border-bottom: 1px solid #e6edef;
@@ -9815,79 +9815,6 @@ hr {
 }
 .cla-tabs__drop .offers-wrap {
   padding: 12px 21px 12px 24px !important;
-}
-.clinic-nav {
-  width: 100%;
-  height: 48px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 0;
-  border-top: 1px solid #f2f9fa;
-}
-.clinic-nav__item {
-  display: inline-block;
-  height: 100%;
-  position: relative;
-}
-.clinic-nav__item.active:after {
-  border: 1px solid #00829b;
-  content: '';
-  width: 100%;
-  height: 0;
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-}
-.clinic-nav__item.active a {
-  color: #00829b;
-  font-weight: 700;
-}
-.clinic-nav__item.active a:before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  width: 0;
-  height: 0;
-  bottom: -17px;
-  margin-left: -10px;
-  border: 8px solid transparent;
-  border-top: 7px solid #00829b;
-  z-index: 2;
-}
-.clinic-nav__item.active a:after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -14px;
-  width: 0;
-  height: 0;
-  margin-left: -10px;
-  border: 8px solid transparent;
-  border-top: 7px solid #fff;
-  z-index: 2;
-}
-.clinic-nav__link {
-  position: relative;
-  display: block;
-  height: 100%;
-  padding: 0 20px;
-  font-size: 16px;
-  line-height: 51px;
-  white-space: nowrap;
-  color: #5e6e71;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .clinic-nav__link {
-    padding: 0 8px;
-    font-size: 15px;
-  }
-}
-.clinic-nav__link:hover {
-  text-decoration: underline;
-  color: #00829b;
 }
 .logo__mod .logo__text {
   display: none;
@@ -10661,6 +10588,79 @@ hr {
 .completed-header .date-picker:focus {
   outline: none;
   border: none;
+}
+.clinic-nav {
+  width: 100%;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0;
+  border-top: 1px solid #f2f9fa;
+}
+.clinic-nav__item {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+}
+.clinic-nav__item.active:after {
+  border: 1px solid #00829b;
+  content: '';
+  width: 100%;
+  height: 0;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+.clinic-nav__item.active a {
+  color: #00829b;
+  font-weight: 700;
+}
+.clinic-nav__item.active a:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 0;
+  height: 0;
+  bottom: -17px;
+  margin-left: -10px;
+  border: 8px solid transparent;
+  border-top: 7px solid #00829b;
+  z-index: 2;
+}
+.clinic-nav__item.active a:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  width: 0;
+  height: 0;
+  margin-left: -10px;
+  border: 8px solid transparent;
+  border-top: 7px solid #fff;
+  z-index: 2;
+}
+.clinic-nav__link {
+  position: relative;
+  display: block;
+  height: 100%;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 51px;
+  white-space: nowrap;
+  color: #5e6e71;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .clinic-nav__link {
+    padding: 0 8px;
+    font-size: 15px;
+  }
+}
+.clinic-nav__link:hover {
+  text-decoration: underline;
+  color: #00829b;
 }
 .comment-quotes {
   position: relative;
@@ -21656,6 +21656,54 @@ article a {
   text-align: right;
   padding-right: 30px;
 }
+.partner-registration__title {
+  color: #5e6e71;
+  font-style: italic;
+  display: inline-block;
+  font-size: 22px;
+  font-weight: bold;
+  max-width: 290px;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .partner-registration__title {
+    max-width: 230px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .partner-registration__title {
+    display: block;
+    text-align: center;
+    max-width: 100%;
+    font-size: 20px;
+    margin: -10px 0 20px 0;
+  }
+}
+.partner-registration__image {
+  margin: 0 20px 0 20px;
+  display: inline-block;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .partner-registration__image {
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .partner-registration__image {
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .partner-registration__image {
+    display: none;
+  }
+}
+.partner-registration .partners-reg-mod {
+  background: #e5f2f5;
+  border: 0;
+}
 .partners {
   margin-top: 15px;
 }
@@ -21769,54 +21817,6 @@ article a {
 .partner-how-it-work .how-its-made__item.even:after {
   top: 20px;
   right: -30px;
-}
-.partner-registration__title {
-  color: #5e6e71;
-  font-style: italic;
-  display: inline-block;
-  font-size: 22px;
-  font-weight: bold;
-  max-width: 290px;
-  line-height: 1.2;
-  vertical-align: middle;
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .partner-registration__title {
-    max-width: 230px;
-    text-align: center;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .partner-registration__title {
-    display: block;
-    text-align: center;
-    max-width: 100%;
-    font-size: 20px;
-    margin: -10px 0 20px 0;
-  }
-}
-.partner-registration__image {
-  margin: 0 20px 0 20px;
-  display: inline-block;
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .partner-registration__image {
-    margin: 0;
-  }
-}
-@media only screen and (max-width: 991px) {
-  .partner-registration__image {
-    margin: 0;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .partner-registration__image {
-    display: none;
-  }
-}
-.partner-registration .partners-reg-mod {
-  background: #e5f2f5;
-  border: 0;
 }
 .phones {
   position: relative;
@@ -26321,7 +26321,6 @@ __thumbs .owl-next {
   right: 0;
   width: 100% !important;
   background: #fff;
-  height: 216px;
   overflow: hidden;
   -webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.25);
   box-shadow: 0 3px 3px rgba(0,0,0,0.25);
