@@ -103,7 +103,7 @@ docMaps =
     map= new (google.maps.Map)(document.getElementById('modal-map'), mapOptions)
 
     $('#clinic-location-map').on 'shown.bs.modal', (e) ->
-      google.maps.event.trigger(map, "resize")
+      # google.maps.event.trigger(map, "resize")
       index = docMaps.findMarker('id', $(e.relatedTarget).closest("[data-id]").data('id'))
       contentString = '<div class="map-marker-content"> <div class="image"><img src="i/_isida.jpg" class="marker-logo"></div> <a href="/clinic-inner.html" class="title">ИСИДА</a> <div class="card__address">' + '<span>ул. Теодора Драйзера, 4</span></div> <div class="rating"> <div class="rating__value value">3</div> <div class="rating__stars"> <div class="rating__stars-bg"></div> <div style="width: '  + '%;" class="rating__stars-overlay"></div> </div> </div><a href="#" class="marker-review"> 17 отзыва</a><div class="big-map__button"><a href="#clinic-request" data-toggle="mod al" class="btn btn-success">Записаться в клинику</a></div></div>'
 

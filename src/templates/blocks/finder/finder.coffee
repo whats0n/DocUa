@@ -263,7 +263,7 @@ $(".js-finder-autocomplete").each ->
 # index autocomplete
 $(".js-index-autocomplete").each ->
     complete = $(this)
-    dotText = complete.find('.js-search-title')
+    dotText = complete.children('.js-search-title')
     searchHidden = complete.siblings('.search-result')
     _jScrollPane = undefined
     _jScrollPaneAPI = undefined
@@ -309,13 +309,14 @@ $(".js-index-autocomplete").each ->
                 _jScrollPane = $('.scroll-panel').jScrollPane()
                 _jScrollPaneAPI = _jScrollPane.data('jsp')
         #     return
-            dotText.addClass('bla')
-            dotText.dotdotdot
-                lines: 2
-            console.log('bla')
-            # $('.top-list__title a').dotdotdot
-            #     lines: 2,
-            #     responsive: true
+            $(this).data('uiAutocomplete').menu.element.find('.js-search-title').addClass('bla')
+            # dotText.dotdotdot
+            #     lines: 2
+            # console.log('bla')
+            $(this).data('uiAutocomplete').menu.element.find('.js-search-title').dotdotdot
+                height: 36,
+                lines: 2,
+                responsive: true
             # if $('')
             # if $('.ui-menu-item').height() >= 20
             #     console.log('bla')
@@ -372,7 +373,7 @@ $(".js-index-autocomplete").each ->
         # insert content
         $li.find('.top-list__item-link').append('<div class="top-list__left">')
         $li.find('.top-list__left').append('<div class="top-list__title">')
-        $li.find('.top-list__title').data('item.autocomplete', item).append('<a href="#" class="js-search-title" style="height: 51px;">' + newText + '</a>')
+        $li.find('.top-list__title').data('item.autocomplete', item).append('<a href="#" class="js-search-title">' + newText + '</a>')
         # insert type
         $li.find('.top-list__item-link').append('<div class="top-list__right">')
         $li.find('.top-list__right').append('<div class="top-list__subject">')
@@ -381,9 +382,9 @@ $(".js-index-autocomplete").each ->
 
     complete.on "click", ->
         searchHidden.show()
-        $('.top-list__title').dotdotdot
-            lines: 2,
-            responsive: true 
+        # $('.top-list__title').dotdotdot
+        #     lines: 2,
+        #     responsive: true 
 
     $('.js-static-search').on "click", '.top-list__item', ->
         thisItem = $(this).find('.top-list__title')
@@ -405,9 +406,9 @@ $(document).mouseup (e) ->
         container.hide()
     return
 
-# $('.js-search-title').dotdotdot
-#     lines: 2,
-#     responsive: true 
+$('.top-list__title').dotdotdot
+    lines: 2,
+    responsive: true 
 
 $('body').on 'click', ->
     noResult = $('.no-results-finder')
