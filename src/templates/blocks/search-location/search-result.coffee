@@ -3,23 +3,16 @@ flags = true
 $('.js-location-lists').on 'click', ->
 	list = $(this).children('.js-lists')
 	paneHeight = 216
+	
 	list.show() 
 
 	if list.height() <= paneHeight
-		# console.log('bla')
 		list.css('height', 'auto')
 		list.css('padding', '0')
 	else
-		# console.log('nebla')
 		list.height(paneHeight)
 		list.jScrollPane()
-		# list.addClass 'jspScrollable'
-		# list.jScrollPane({
-		# 	autoReinitialise: true
-		# 	})
 		$(this).addClass 'is-active'
-	
-	# if !list.hasClass 'jspScrollable'
 		return
 	flags = false
 	return 

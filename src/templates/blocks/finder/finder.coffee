@@ -382,9 +382,9 @@ $(".js-index-autocomplete").each ->
 
     complete.on "click", ->
         searchHidden.show()
-        # $('.top-list__title').dotdotdot
-        #     lines: 2,
-        #     responsive: true 
+        $('.top-list__title').dotdotdot
+            lines: 2,
+            responsive: true 
 
     $('.js-static-search').on "click", '.top-list__item', ->
         thisItem = $(this).find('.top-list__title')
