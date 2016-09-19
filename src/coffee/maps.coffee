@@ -7,7 +7,7 @@ docMaps =
   mapOffsetTop: 0
   canAnimateTop: true
   popupMarker: ''
-  pageName: ''
+  pageName: '' 
   markersList: []
   allItemsList: []
   map: {}

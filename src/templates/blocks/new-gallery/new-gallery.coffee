@@ -1,0 +1,11 @@
+lightGallery document.getElementById('lightgallery'),
+	thumbnail: true
+	animateThumb: false
+	showThumbByDefault: true 
+	width: '825px',
+	height: '565px',
+	mode: 'lg-fade',
+	addClass: 'fixed-size',
+	download: false,
+	enableSwipe: false,
+	enableDrag: false

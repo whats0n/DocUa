@@ -11,13 +11,15 @@
         +b.card.card-mod.u-card-mobile: +i({card: doctors[0], landing: false, doctors_page: true})  
 
         ul.nav.nav-tabs.nav-doctor 
-            li.active: a(href="#tab-about", data-toggle="tab") О враче
+            li 
+                a(href="#tab-about", data-toggle="tab") О враче
             li
                 a(href="#tab-reviews", data-toggle="tab") Отзывы
             li.is-action
                 a(href="#tab-actions", data-toggle="tab") Акции к врачу (4) 
+            li.active: a(href="#tab-rezults", data-toggle="tab") Результаты операций (54)
         .tab-content 
-            #tab-about.tab-pane.active  
+            #tab-about.tab-pane  
                 +b.rating-block 
                     .row 
                         .col-sm-7  
@@ -103,13 +105,70 @@
                     strong Почему Вы не можете оставить отзыв?
                     | Отзывы на сайте могут оставлять только пациенты, побывавшие на приеме у врача. Это исключает публикацию заказных и неправдивых отзывов. Мы собираем отзывы путем обзвона реальных пациентов, которые посетили врача, записавшись через наш сервис.  
             #tab-actions.tab-pane
-                .offers-list
+                .offers-list 
                     .row
                         - var limit = 4
                         each action, i in actionsData
                             if i < limit
                                 .col-sm-4.col-xs-6 
-                                    +b("article").post: +i(action)
+                                    +b("article").post: +i(action) 
+            #tab-rezults.tab-pane.active
+                +b.gallery-wrap
+                    +e.title 
+                        strong Фотографии до и после пластики груди 
+                    +b.fresco-gallery
+                        +e.lists#lightgallery
+                            +e("a")(href="i/gallery/gallery1.jpg").link
+                                //- +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                                img(src="i/gallery/gallery1.jpg", alt="")
+                            +e("a")(href="i/gallery/gallery2.jpg").link
+                                //- +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                                img(src="i/gallery/gallery2.jpg", alt="")
+                            +e("a")(href="i/gallery/gallery3.jpg").link 
+                                //- +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                                img(src="i/gallery/gallery3.jpg", alt="")
+                            +e("a")(href="i/gallery/gallery4.jpg").link 
+                                //- +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                                img(src="i/gallery/gallery4.jpg", alt="")
+                        //-     +e("li").item
+                        //-         +e("a")(href="i/gallery/gallery1.jpg" data-fresco-group="example").link.fresco 
+                        //-             +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                        //-             //- img(src="i/gallery/gallery1.jpg", alt="")
+                        //-     +e("li").item
+                        //-         +e("a")(href="i/gallery/gallery2.jpg" data-fresco-group="example").link.fresco 
+                        //-             +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                        //-             //- img(src="i/gallery/gallery2.jpg", alt="")
+                        //-     +e("li").item
+                        //-         +e("a")(href="i/gallery/gallery3.jpg" data-fresco-group="example").link.fresco 
+                        //-             +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                        //-             //- img(src="i/gallery/gallery3.jpg", alt="")
+                        //-     +e("li").item
+                        //-         +e("a")(href="i/gallery/gallery4.jpg" data-fresco-group="example").link.fresco 
+                        //-             +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                        //-     +e("li").item
+                        //-         +e("a")(href="i/gallery/gallery4.jpg" data-fresco-group="example").link.fresco 
+                        //-             +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                        //-             img(src="i/gallery/gallery4.jpg", alt="")
+                        //-     +e("li").item
+                        //-         +e("a")(href="i/gallery/gallery1.jpg" data-fresco-group="example").link.fresco 
+                        //-             img(src="i/gallery/gallery1.jpg", alt="")
+                        //-     +e("li").item
+                        //-         +e("a")(href="i/gallery/gallery2.jpg" data-fresco-group="example").link.fresco 
+                        //-             img(src="i/gallery/gallery2.jpg", alt="")
+                        //-     +e("li").item
+                        //-         +e("a")(href="i/gallery/gallery3.jpg" data-fresco-group="example").link.fresco 
+                        //-             img(src="i/gallery/gallery3.jpg", alt="")
+                        //-     +e("li").item
+                        //-         +e("a")(href="i/gallery/gallery4.jpg" data-fresco-group="example").link.fresco 
+                        //-             img(src="i/gallery/gallery4.jpg", alt="") 
+                    +e.text 2,5 месяца после увеличивающей маммопластики в сочетании с подтяжкой молочных желёз. Использованы небольшие анатомические (каплевидные) имплантаты объёмом 180 мл.
+                //- #lightgallery
+                //-     a(href="i/gallery/gallery1.jpg" )
+                //-         img(src="i/gallery/thumb/thumb1.jpg", alt="")
+                //-     a(href="i/gallery/gallery2.jpg")
+                //-         img(src="i/gallery/thumb/thumb2.jpg", alt="")
+                //-     a(href="i/gallery/gallery3.jpg" data-sub-html="sdsdsd")
+                //-         img(src="i/gallery/thumb/thumb1.jpg", alt="") 
     aside.col-md-3.hidden-sm.hidden-xs 
         .widget.widget-map
             #map-canvas-right

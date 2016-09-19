@@ -2394,6 +2394,19 @@ $(window).on('scroll', function() {
   }
 });
 
+lightGallery(document.getElementById('lightgallery'), {
+  thumbnail: true,
+  animateThumb: false,
+  showThumbByDefault: true,
+  width: '825px',
+  height: '565px',
+  mode: 'lg-fade',
+  addClass: 'fixed-size',
+  download: false,
+  enableSwipe: false,
+  enableDrag: false
+});
+
 $(document).ready(function() {
   $('.js-tab-container').each(function() {
     $(this).find('.js-tab-link').first().addClass('active');
