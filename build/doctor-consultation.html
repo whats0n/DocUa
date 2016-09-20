@@ -967,13 +967,13 @@
               </article>
             </div>
             <ul class="nav nav-tabs nav-doctor"> 
-              <li> <a href="#tab-about" data-toggle="tab">О враче</a></li>
+              <li class="active"><a href="#tab-about" data-toggle="tab">О враче</a></li>
               <li><a href="#tab-reviews" data-toggle="tab">Отзывы</a></li>
               <li class="is-action"><a href="#tab-actions" data-toggle="tab">Акции к врачу (4) </a></li>
-              <li class="active"><a href="#tab-rezults" data-toggle="tab">Результаты операций (54)</a></li>
+              <li> <a href="#tab-rezults" data-toggle="tab" class="js-slider-refresh">Результаты операций (54)</a></li>
             </ul>
             <div class="tab-content"> 
-              <div id="tab-about" class="tab-pane"> 
+              <div id="tab-about" class="tab-pane active"> 
                 <div class="rating-block"> 
                   <div class="row"> 
                     <div class="col-sm-7"> 
@@ -1655,13 +1655,165 @@
                   </div>
                 </div>
               </div>
-              <div id="tab-rezults" class="tab-pane active">
+              <div id="tab-rezults" class="tab-pane tab-rezults_mod">
                 <div class="gallery-wrap">
                   <div class="gallery-wrap__title"> <strong>Фотографии до и после пластики груди </strong>
                   </div>
-                  <div class="fresco-gallery">
-                    <div id="lightgallery" class="fresco-gallery__lists"><a href="i/gallery/gallery1.jpg" class="fresco-gallery__link"><img src="i/gallery/gallery1.jpg" alt=""></a><a href="i/gallery/gallery2.jpg" class="fresco-gallery__link"><img src="i/gallery/gallery2.jpg" alt=""></a><a href="i/gallery/gallery3.jpg" class="fresco-gallery__link"> <img src="i/gallery/gallery3.jpg" alt=""></a><a href="i/gallery/gallery4.jpg" class="fresco-gallery__link"> <img src="i/gallery/gallery4.jpg" alt=""></a>
-                    </div>
+                  <div class="light-gallery">
+                    <ul id="js-lightgallery" class="js-light-slider light-gallery__lists">
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="gallery-wrap__text">2,5 месяца после увеличивающей маммопластики в сочетании с подтяжкой молочных желёз. Использованы небольшие анатомические (каплевидные) имплантаты объёмом 180 мл.
+                  </div>
+                </div>
+                <div class="gallery-wrap">
+                  <div class="gallery-wrap__title"> <strong>Фотографии до и после пластики груди </strong>
+                  </div>
+                  <div class="light-gallery">
+                    <ul id="js-lightgallery2" class="js-light-slider2 light-gallery__lists"> 
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"> </span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="gallery-wrap__text">2,5 месяца после увеличивающей маммопластики в сочетании с подтяжкой молочных желёз. Использованы небольшие анатомические (каплевидные) имплантаты объёмом 180 мл.
+                  </div>
+                </div>
+                <div class="gallery-wrap">
+                  <div class="gallery-wrap__title"> <strong>Фотографии до и после пластики груди </strong>
+                  </div>
+                  <div class="light-gallery">
+                    <p style="display: none;" class="light-gallery__caption">До
+                    </p>
+                    <p style="display: none;" class="light-gallery__caption2">После
+                    </p>
+                    <ul id="js-lightgallery3" class="js-light-slider3 light-gallery__lists"> 
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" data-sub-html=".light-gallery__caption2" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture">
+                            <p class="light-gallery__image-caption">После 
+                            </p></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" data-sub-html=".light-gallery__caption" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture">
+                            <p class="light-gallery__image-caption">До  
+                            </p></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" data-sub-html=".light-gallery__caption2" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture">
+                            <p class="light-gallery__image-caption">После 
+                            </p></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" data-sub-html=".light-gallery__caption" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture">
+                            <p class="light-gallery__image-caption">До  
+                            </p></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"> <span style="background-image: url('i/gallery/gallery1.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery2.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery3.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                      <li data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" class="light-gallery__item"><a href="#" class="light-gallery__link"><span style="background-image: url('i/gallery/gallery4.jpg')" class="light-gallery__picture"></span></a>
+                      </li>
+                    </ul>
                   </div>
                   <div class="gallery-wrap__text">2,5 месяца после увеличивающей маммопластики в сочетании с подтяжкой молочных желёз. Использованы небольшие анатомические (каплевидные) имплантаты объёмом 180 мл.
                   </div>

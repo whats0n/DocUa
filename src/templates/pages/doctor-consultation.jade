@@ -11,15 +11,15 @@
         +b.card.card-mod.u-card-mobile: +i({card: doctors[0], landing: false, doctors_page: true})  
 
         ul.nav.nav-tabs.nav-doctor 
-            li 
-                a(href="#tab-about", data-toggle="tab") О враче
+            li.active: a(href="#tab-about", data-toggle="tab") О враче
             li
                 a(href="#tab-reviews", data-toggle="tab") Отзывы
             li.is-action
                 a(href="#tab-actions", data-toggle="tab") Акции к врачу (4) 
-            li.active: a(href="#tab-rezults", data-toggle="tab") Результаты операций (54)
+            li 
+                a(href="#tab-rezults", data-toggle="tab").js-slider-refresh Результаты операций (54)
         .tab-content 
-            #tab-about.tab-pane  
+            #tab-about.tab-pane.active 
                 +b.rating-block 
                     .row 
                         .col-sm-7  
@@ -112,63 +112,212 @@
                             if i < limit
                                 .col-sm-4.col-xs-6 
                                     +b("article").post: +i(action) 
-            #tab-rezults.tab-pane.active
+            #tab-rezults.tab-pane.tab-rezults_mod
                 +b.gallery-wrap
                     +e.title 
                         strong Фотографии до и после пластики груди 
-                    +b.fresco-gallery
-                        +e.lists#lightgallery
-                            +e("a")(href="i/gallery/gallery1.jpg").link
-                                //- +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
-                                img(src="i/gallery/gallery1.jpg", alt="")
-                            +e("a")(href="i/gallery/gallery2.jpg").link
-                                //- +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
-                                img(src="i/gallery/gallery2.jpg", alt="")
-                            +e("a")(href="i/gallery/gallery3.jpg").link 
-                                //- +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
-                                img(src="i/gallery/gallery3.jpg", alt="")
-                            +e("a")(href="i/gallery/gallery4.jpg").link 
-                                //- +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
-                                img(src="i/gallery/gallery4.jpg", alt="")
-                        //-     +e("li").item
-                        //-         +e("a")(href="i/gallery/gallery1.jpg" data-fresco-group="example").link.fresco 
-                        //-             +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
-                        //-             //- img(src="i/gallery/gallery1.jpg", alt="")
-                        //-     +e("li").item
-                        //-         +e("a")(href="i/gallery/gallery2.jpg" data-fresco-group="example").link.fresco 
-                        //-             +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
-                        //-             //- img(src="i/gallery/gallery2.jpg", alt="")
-                        //-     +e("li").item
-                        //-         +e("a")(href="i/gallery/gallery3.jpg" data-fresco-group="example").link.fresco 
-                        //-             +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
-                        //-             //- img(src="i/gallery/gallery3.jpg", alt="")
-                        //-     +e("li").item
-                        //-         +e("a")(href="i/gallery/gallery4.jpg" data-fresco-group="example").link.fresco 
-                        //-             +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
-                        //-     +e("li").item
-                        //-         +e("a")(href="i/gallery/gallery4.jpg" data-fresco-group="example").link.fresco 
-                        //-             +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
-                        //-             img(src="i/gallery/gallery4.jpg", alt="")
-                        //-     +e("li").item
-                        //-         +e("a")(href="i/gallery/gallery1.jpg" data-fresco-group="example").link.fresco 
-                        //-             img(src="i/gallery/gallery1.jpg", alt="")
-                        //-     +e("li").item
-                        //-         +e("a")(href="i/gallery/gallery2.jpg" data-fresco-group="example").link.fresco 
-                        //-             img(src="i/gallery/gallery2.jpg", alt="")
-                        //-     +e("li").item
-                        //-         +e("a")(href="i/gallery/gallery3.jpg" data-fresco-group="example").link.fresco 
-                        //-             img(src="i/gallery/gallery3.jpg", alt="")
-                        //-     +e("li").item
-                        //-         +e("a")(href="i/gallery/gallery4.jpg" data-fresco-group="example").link.fresco 
-                        //-             img(src="i/gallery/gallery4.jpg", alt="") 
+                    +b.light-gallery
+                        +e("ul").lists#js-lightgallery.js-light-slider
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link  
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
                     +e.text 2,5 месяца после увеличивающей маммопластики в сочетании с подтяжкой молочных желёз. Использованы небольшие анатомические (каплевидные) имплантаты объёмом 180 мл.
-                //- #lightgallery
-                //-     a(href="i/gallery/gallery1.jpg" )
-                //-         img(src="i/gallery/thumb/thumb1.jpg", alt="")
-                //-     a(href="i/gallery/gallery2.jpg")
-                //-         img(src="i/gallery/thumb/thumb2.jpg", alt="")
-                //-     a(href="i/gallery/gallery3.jpg" data-sub-html="sdsdsd")
-                //-         img(src="i/gallery/thumb/thumb1.jpg", alt="") 
+                +b.gallery-wrap
+                    +e.title 
+                        strong Фотографии до и после пластики груди 
+                    +b.light-gallery
+                        +e("ul").lists#js-lightgallery2.js-light-slider2 
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" ).item
+                                +e("a")(href="#").link  
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg"  ).item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")  
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                    +e.text 2,5 месяца после увеличивающей маммопластики в сочетании с подтяжкой молочных желёз. Использованы небольшие анатомические (каплевидные) имплантаты объёмом 180 мл.
+                +b.gallery-wrap
+                    +e.title 
+                        strong Фотографии до и после пластики груди 
+                    +b.light-gallery
+                        +e("p").caption(style="display: none;") До
+                        +e("p").caption2(style="display: none;") После
+                        +e("ul").lists.js-light-slider3#js-lightgallery3 
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg" data-sub-html=".light-gallery__caption2").item
+                                +e("a")(href="#").link  
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                                        +e("p").image-caption После 
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg"  data-sub-html=".light-gallery__caption").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                                        +e("p").image-caption До  
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg" data-sub-html=".light-gallery__caption2").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                                        +e("p").image-caption После 
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg" data-sub-html=".light-gallery__caption").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                                        +e("p").image-caption До  
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                            +e("li")(data-src="i/gallery/gallery1.jpg" data-exthumbimage="i/gallery/gallery1.jpg").item
+                                +e("a")(href="#").link 
+                                    +e.picture(style="background-image: url('i/gallery/gallery1.jpg')")
+                            +e("li")(data-src="i/gallery/gallery2.jpg" data-exthumbimage="i/gallery/gallery2.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery2.jpg')")
+                            +e("li")(data-src="i/gallery/gallery3.jpg" data-exthumbimage="i/gallery/gallery3.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery3.jpg')")
+                            +e("li")(data-src="i/gallery/gallery4.jpg" data-exthumbimage="i/gallery/gallery4.jpg").item
+                                +e("a")(href="#").link
+                                    +e.picture(style="background-image: url('i/gallery/gallery4.jpg')")
+                    +e.text 2,5 месяца после увеличивающей маммопластики в сочетании с подтяжкой молочных желёз. Использованы небольшие анатомические (каплевидные) имплантаты объёмом 180 мл.
+                
     aside.col-md-3.hidden-sm.hidden-xs 
         .widget.widget-map
             #map-canvas-right

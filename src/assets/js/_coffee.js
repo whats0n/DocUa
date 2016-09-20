@@ -1645,45 +1645,6 @@ $('.js-clinic-datepicker').datetimepicker({
   autoclose: 1
 });
 
-var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-
-$(function() {
-  var $block, activeItemIndex, setActiveElement;
-  $block = $(".comment-quotes");
-  activeItemIndex = 0;
-  setActiveElement = function(el) {
-    $block.find(".comment-quotes__item.active").removeClass("active");
-    $block.find(".comment-quotes__pane.active").removeClass("active");
-    $(el).addClass("active");
-    activeItemIndex = $(el).parent().index();
-    return $block.find(".comment-quotes__pane").eq(activeItemIndex).addClass("active");
-  };
-  $(".comment-quotes__item").on("click", function() {
-    return setActiveElement(this);
-  });
-  return $(".comment-quotes__header").owlCarousel({
-    navigation: true,
-    pagination: false,
-    navigationText: ["", ""],
-    rewindNav: false,
-    lazyLoad: false,
-    items: 5,
-    itemsDesktop: [1215, 5],
-    itemsTablet: [979, 5],
-    itemsMobile: [767, 2],
-    afterAction: function(el) {
-      var activateIndex, owl;
-      owl = $(el).data("owlCarousel");
-      if (owl) {
-        if (indexOf.call(owl.owl.visibleItems, activeItemIndex) < 0) {
-          activateIndex = activeItemIndex < owl.owl.visibleItems[0] ? owl.owl.visibleItems[0] : owl.owl.visibleItems[owl.owl.visibleItems.length - 1];
-          return setActiveElement($block.find(".comment-quotes__item").eq(activateIndex).get());
-        }
-      }
-    }
-  });
-});
-
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
   $('.js-tab__mobile-c').addClass('js-tab__header-c');
 }
@@ -1720,6 +1681,45 @@ $(function() {
       daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
       monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
       firstDay: 1
+    }
+  });
+});
+
+var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
+$(function() {
+  var $block, activeItemIndex, setActiveElement;
+  $block = $(".comment-quotes");
+  activeItemIndex = 0;
+  setActiveElement = function(el) {
+    $block.find(".comment-quotes__item.active").removeClass("active");
+    $block.find(".comment-quotes__pane.active").removeClass("active");
+    $(el).addClass("active");
+    activeItemIndex = $(el).parent().index();
+    return $block.find(".comment-quotes__pane").eq(activeItemIndex).addClass("active");
+  };
+  $(".comment-quotes__item").on("click", function() {
+    return setActiveElement(this);
+  });
+  return $(".comment-quotes__header").owlCarousel({
+    navigation: true,
+    pagination: false,
+    navigationText: ["", ""],
+    rewindNav: false,
+    lazyLoad: false,
+    items: 5,
+    itemsDesktop: [1215, 5],
+    itemsTablet: [979, 5],
+    itemsMobile: [767, 2],
+    afterAction: function(el) {
+      var activateIndex, owl;
+      owl = $(el).data("owlCarousel");
+      if (owl) {
+        if (indexOf.call(owl.owl.visibleItems, activeItemIndex) < 0) {
+          activateIndex = activeItemIndex < owl.owl.visibleItems[0] ? owl.owl.visibleItems[0] : owl.owl.visibleItems[owl.owl.visibleItems.length - 1];
+          return setActiveElement($block.find(".comment-quotes__item").eq(activateIndex).get());
+        }
+      }
     }
   });
 });
@@ -2394,17 +2394,135 @@ $(window).on('scroll', function() {
   }
 });
 
-lightGallery(document.getElementById('lightgallery'), {
+var galleryOption, gallerySlider, gallerySlider2, gallerySlider3, sliderOption;
+
+galleryOption = {
   thumbnail: true,
   animateThumb: false,
   showThumbByDefault: true,
+  currentPagerPosition: 'left',
+  thumbWidth: 40,
+  thumbContHeight: 100,
+  toogleThumb: false,
+  exThumbImage: 'data-exthumbimage',
   width: '825px',
-  height: '565px',
+  height: '600px',
   mode: 'lg-fade',
-  addClass: 'fixed-size',
   download: false,
   enableSwipe: false,
-  enableDrag: false
+  enableDrag: false,
+  ubHtmlSelectorRelative: true
+};
+
+sliderOption = {};
+
+lightGallery(document.getElementById('js-lightgallery'), galleryOption);
+
+lightGallery(document.getElementById('js-lightgallery2'), galleryOption);
+
+lightGallery(document.getElementById('js-lightgallery3'), galleryOption);
+
+gallerySlider = $(".js-light-slider").lightSlider({
+  slideMargin: 0,
+  loop: false,
+  item: 4,
+  autoWidth: false,
+  controls: true,
+  pager: false,
+  adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        item: 3,
+        slideMove: 1,
+        slideMargin: 0
+      }
+    }, {
+      breakpoint: 700,
+      settings: {
+        item: 2,
+        slideMove: 1
+      }
+    }, {
+      breakpoint: 440,
+      settings: {
+        item: 1,
+        slideMove: 1
+      }
+    }
+  ]
+});
+
+gallerySlider2 = $(".js-light-slider2").lightSlider({
+  slideMargin: 0,
+  loop: false,
+  item: 4,
+  autoWidth: false,
+  controls: true,
+  pager: false,
+  adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        item: 3,
+        slideMove: 1,
+        slideMargin: 0
+      }
+    }, {
+      breakpoint: 700,
+      settings: {
+        item: 2,
+        slideMove: 1
+      }
+    }, {
+      breakpoint: 440,
+      settings: {
+        item: 1,
+        slideMove: 1
+      }
+    }
+  ]
+});
+
+gallerySlider3 = $(".js-light-slider3").lightSlider({
+  slideMargin: 0,
+  loop: false,
+  item: 4,
+  autoWidth: false,
+  controls: true,
+  pager: false,
+  adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        item: 3,
+        slideMove: 1,
+        slideMargin: 0
+      }
+    }, {
+      breakpoint: 700,
+      settings: {
+        item: 2,
+        slideMove: 1
+      }
+    }, {
+      breakpoint: 440,
+      settings: {
+        item: 1,
+        slideMove: 1
+      }
+    }
+  ]
+});
+
+$('body').on('click', '.js-slider-refresh', function() {
+  console.log('bla');
+  gallerySlider.refresh();
+  gallerySlider2.refresh();
+  return gallerySlider3.refresh();
 });
 
 $(document).ready(function() {
