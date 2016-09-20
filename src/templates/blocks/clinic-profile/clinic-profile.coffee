@@ -70,14 +70,30 @@ $(".js-remove").on "click", ->
 
 # autocomplete for input
 $('.js-clinic-autocomplete').each ->	
+	_jScrollPane = undefined
+	_jScrollPaneAPI = undefined
+	_jSheight = 200
 
 	jQuery.ui.autocomplete::_resizeMenu = ->
-	    ul = @menu.element
-	    ul.outerWidth @element.outerWidth()
-	    return
+		ul = @menu.element
+		ul.outerWidth @element.outerWidth()
+		return
 	$(this).autocomplete
 		minLength: 2,
 		appendTo: ".application"
+		open: ->
+			# $('.ui-autocomplete').css('top', $("ul.ui-autocomplete").cssUnit('top')[0] - 8);
+			$(this).data('uiAutocomplete').menu.element.addClass 'subject-scroll'
+			if undefined != _jScrollPane
+				_jScrollPaneAPI.destroy()
+			$('.subject-scroll > li').wrapAll $('<ul class="scroll-panel"></ul>').height(_jSheight)
+			_jScrollPane = $('.scroll-panel').jScrollPane()
+			_jScrollPaneAPI = _jScrollPane.data('jsp')
+			return
+		# close: (event, ui) ->
+		# 	_jScrollPaneAPI.destroy()
+		# 	_jScrollPane = undefined
+		# 	return
 		source: (request, response) ->
 			$.ajax
 				url: '/analysis/search/live/clinic-profile.json',
@@ -99,4 +115,5 @@ $('.js-clinic-datepicker').datetimepicker
 	todayBtn:  0,
 	autoclose: 1
 
-		
+$('.js-datepicker-trigger').on 'click', ->
+	$('.js-clinic-datepicker').datetimepicker('show')

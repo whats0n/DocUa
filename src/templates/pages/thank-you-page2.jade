@@ -7,10 +7,10 @@
    page_name: thank-you-page2
       
 section    
-   .col-sm-12.col-xs-12                
+   .col-sm-12.col-xs-12.tab-content                
       header.header-styled.notopmargin   
          h2.h1 Спасибо за заявку!
-      .thank-page-wrap.block-bg  
+      .thank-page-wrap.block-bg.application  
          +b.thank-page.item-elements   
             +e.content  
                p Спасибо за оставленную заявку на прием к врачу на DOC.UA. В самое ближайшее время наши специалисты рассмотрят ваш запрос и свяжутся с вами.
@@ -33,19 +33,19 @@ section
                       .col-sm-9
                           input(type="text"  id="exampleInputName3").form-control.js-clinic-autocomplete 
                           //- option Лікар нетрадиційной медицини
-                  .form-group  
+                  .form-group.form-group_inline   
                       label(for="exampleInputName4").col-sm-3.control-label Врач для*:
                       .col-sm-9
                           label.radio-inline взрослого 
                               input(type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked) 
                           label.radio-inline ребенка
-                              input(type="radio" name="optionsRadios" id="optionsRadios2" value="option2")  
+                              input(type="radio" name="optionsRadios" id="optionsRadios2" value="option2")   
                   .form-group
                       label(for="exampleInputName5").col-sm-3.label-group_mod Дата и время*:
                       .col-sm-9
                           .input-group
                               input(type="text" ).form-control.js-clinic-datepicker(data-date-format="dd MM yyyy - HH:ii p")
-                              span.input-group-addon.input-addon_mod
+                              span.input-group-addon.input-addon_mod.js-datepicker-trigger 
                                   i.glyphicon.glyphicon-calendar
                       //- .col-sm-4
                       //-     .input-group
@@ -57,7 +57,7 @@ section
                       label(for="exampleInputName6").col-sm-3.control-label Цена*:
                       .col-sm-3
                           input(type="text").form-control
-                      .col-sm-1.control-label
+                      .col-sm-1.control-label.hidden-xs
                           strong грн.
                   .form-group
                       label(for="exampleInputName7").col-sm-3.control-label Фамилия*:
@@ -74,40 +74,32 @@ section
                       .col-sm-9
                           input(type="text"  id="exampleInputName3").form-control
                           //- option Лікар нетрадиційной медицини
-                  .form-group
-                      label(for="exampleInputName10").col-sm-3.label-group_mod Дата рождения*:
-                      .application-l.l-2
-                          .select-wrap 
-                              .form-control
-                                  select(name="days").select7.select7_dropdown
-                                      option 1
-                                      option 2
-                                      option 3
-                                      option 4
-                                      option 4
-                                      option 4
-                                      option 4
-                                      option 4
-                                      option 4
-                                      option 4
-                                      option 4
-                                      option 4
-                                      option 4
-                                      option 31
-                      .application-l.l-4
-                          .form-control
-                              select(name="month").select7.select7_dropdown
-                                  option Январь
-                                  option Февраль 
-                                  option Cентябрь 
-                                  option Март
-                      .application-l.l-3
-                          .form-control
-                              select(name="years").select7.select7_dropdown
-                                  option 2000
-                                  option 2001
-                                  option 2002
-                  .form-group
+                  .form-group.form-group_date
+                    label(for="exampleInputName10").col-sm-3.label-group_mod Дата 
+                      |<br> рождения*:
+                    .application-l.application-l_mod.l-2
+                        //- - var x = 1;
+                        .select-wrap 
+                            .form-control
+                                - var x = 31;
+                                    select(name="days").select7.select7_dropdown
+                                        - for (var i=1; i<=x; i++) {
+                                            option= i
+                                        - }
+                    .application-l.application-l_mod.l-4
+                        .form-control
+                            - var month = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+                            select(name="month").select7.select7_dropdown
+                                for name in month 
+                                    option= name
+                    .application-l.application-l_mod.l-3
+                        .form-control
+                            - var x = 2016
+                                select(name="years").select7.select7_dropdown
+                                    - for (var i=1900; i<=x; i++) {
+                                        option= i
+                                    - }
+                  .form-group.form-group_phone.form-group_inline 
                       label(for="exampleInputName11").col-sm-3 Телефон:
                       .col-sm-9 
                           strong +380966871200
