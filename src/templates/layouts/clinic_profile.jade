@@ -5,7 +5,7 @@ doctype html
 html 
     head
         meta(charset="UTF-8")  
-        //- meta(content="user-scalable=no, width=device-width", name="viewport") 
+        //- meta(content="user-scalable=no, width=device-width", name="viewport")
         title
             if file.title
                 | #{file.title} | DOC.ua
@@ -34,9 +34,9 @@ body.out
             js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=224008797710815";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    .wrapper
+    .wrapper.clinic-width
         //- Navbar
-        nav.navbar.navbar-main.navbar-fixed-top
+        nav.navbar.navbar-main.navbar-fixed-top.clinic-width
           .container
             button.navbar-toggle.collapsed.visible-xs
               span.icon-bar
@@ -76,7 +76,7 @@ body.out
 
 
         //- Logo and search
-        .container-fluid.container-header.hidden-xs
+        .container-fluid.container-header.hidden-xs.clinic-width
           .row.row-white
             .container
               h1.sr-only Поиск вашего врача – DOC.ua
@@ -99,13 +99,13 @@ body.out
                           +b.user-panel-menu: +i({ loggedUserPopup: loggedUserPopup })
 
         //- Menu
-        .container-fluid.container-menu__mod.hidden-xs
+        .container-fluid.container-menu__mod.clinic-width
           .row.row-white
             .container
                 
 
                 if file.page_name == 'clinic-profile'
-                    +b("ul").clinic-nav
+                    +b("ul").clinic-nav.clinic-nav_mod
                         +e("li").item.active
                             +e("a").link(href="clinic-profile.html") Мой профиль
                         +e("li").item
@@ -119,7 +119,7 @@ body.out
                         //-     +e("a").link(href="clinic-profile_current.html") Заявки  
 
         //- nav-menu
-        .container-fluid.tabs-shadow
+        .container-fluid.tabs-shadow.clinic-width
           .row
             .container 
                 if file.page_name == 'clinic-profile_current'
@@ -144,10 +144,10 @@ body.out
                             if file.chooser
                                 +b.chooser.hidden-xs: +i({page: file.chooser, specializations: specializations})
         //- pages texture
-        .page-bg
+        .page-bg.clinic-width
 
         //- Main container
-        .container-fluid
+        .container-fluid.clinic-width
             .row
                 .container.main-content
                    
@@ -157,7 +157,7 @@ body.out
     
     
     //- Footer
-    .container-fluid.container-fluid_nopadding
+    .container-fluid.container-fluid_nopadding.clinic-width
       //- SEO
       .flex_container
         //- .row.about-this

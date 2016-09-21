@@ -132,6 +132,8 @@
 .application
     margin-bottom 80px
     background grey_texture
+    &.application-width
+        min-width: 900px
     &__current
         
         .application__item-big
@@ -307,8 +309,8 @@
                     input
                         margin-top 4px 
     .form-group_date
-        .select7
-            min-width 1px
+        // .select7
+            
         @media phone
             label
                 float left
@@ -327,10 +329,11 @@
             .select7
                 min-width 100%
     .select7
-        &__caret
-            @media only screen and (max-width: 1150px)
-                display none
-        &__current
+        min-width 1px
+        // &__caret
+        //     @media only screen and (max-width: 1150px)
+        //         display none
+        &__current 
             padding 0 7px 
         &__drop-list
             max-height 250px
@@ -352,10 +355,25 @@
             padding 6px 10px
     .form-horizontal
         margin-top 10px
+        &.form-horizontal_clinic
+            .form-group
+                @media only screen and (max-width: 1200px)
+                    margin-bottom 5px 
+            
         label
             text-align left
             &.label-group_mod
-                line-height 16px    
+                line-height 16px 
+    .label-group_date
+        label
+            @media only screen and (max-width: 1200px)
+                float left
+                width 100%
+        .application-l
+            @media only screen and (max-width: 1200px)
+                text-align center
+                width 33.33%   
+                  
     .radio-inline
         input
             top 0
