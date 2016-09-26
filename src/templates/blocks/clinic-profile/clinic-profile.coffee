@@ -12,7 +12,7 @@ $("#select-area").on "change", "input", ->
 
 	
 	else
-		$(this).parents('label').removeClass 'is-active'
+		$(this).parents('label').removeClass 'is-active' 
 		$('.js-btn-text').text('Выберете район')
 
 # $(".alternative-block__enter-text").each ->

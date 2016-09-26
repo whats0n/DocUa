@@ -2892,12 +2892,12 @@ $(document).on("shown.bs.tab", postLocationWidthFix);
 
 postLocationWidthFix();
 
+
+
 $('.js-truncate').dotdotdot({
   lines: 2,
   responsive: true
 });
-
-
 
 $(function() {
   return $(".price-block_collapse .price-block__header").on("click", function() {
