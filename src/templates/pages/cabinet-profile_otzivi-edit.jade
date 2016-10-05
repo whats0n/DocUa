@@ -87,11 +87,11 @@
                   .likebox__label.likebox__label-mod(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom')
                       | Рекомендуют врача
                   .likebox__like 
-                      .likebox__votes
-                        input(type="radio", name="likebox1")
+                        label.likebox__votes(for="like1")(style="height:100%")
+                        input(type="radio", name="likebox1", id="like1", checked="checked")
                   .likebox__dislike.likebox-dislike__mod 
-                      .likebox__votes.likebox__votes-mod
-                        input(type="radio", name="likebox1")
+                        label.likebox__votes.likebox__votes-mod(for="like2")(style="height:100%")
+                        input(type="radio", name="likebox1", id="like2")
             .content-edit__comment-in
               textarea(placeholder="Внимательность, индивидуальный подход. Рекомендую всем!").content-edit__comment
             
@@ -161,11 +161,11 @@
                     .likebox__label.likebox__label-mod(data-toggle='tooltip', data-original-title='Отношение сотрудников администратора и сотрудников клиники. Вежливость. Желание помочь.', data-placement='bottom')
                       | Рекомендуют врача 
                     .likebox__like
-                      .likebox__votes
-                        input(type="radio", name="likebox2")
+                        label.likebox__votes(style="height:100%")(for="like3")
+                        input(type="radio", name="likebox2", id="like3", checked="checked")
                     .likebox__dislike.likebox-dislike__mod 
-                      .likebox__votes.likebox__votes-mod
-                        input(type="radio", name="likebox2")
+                        label.likebox__votes.likebox__votes-mod(style="height:100%")(for="like4")
+                        input(type="radio", name="likebox2", id="like4")
               .content-edit__comment-in
                 textarea.content-edit__comment(placeholder = "Внимательность, индивидуальный подход. Рекомендую всем!")
           

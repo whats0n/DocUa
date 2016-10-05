@@ -433,3 +433,17 @@ $(document).on 'click', '.js-select-scroll',->
 
 $('body').on 'scroll', '.location', (e) ->
     e.stopPropagation()
+
+$('.js-remove-val').on 'click', (event) ->
+    input = $(this).siblings('.js-index-autocomplete')
+    noresult = $(this).siblings('.no-results-finder')
+
+    # $(this).hide()
+    console.log('bla')
+    input.val('') 
+    if input.val().length
+        noresult.hide()
+
+
+    event.stopPropagation()
+    false

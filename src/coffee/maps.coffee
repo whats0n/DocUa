@@ -182,7 +182,7 @@ docMaps =
             docMaps.canAnimateTop = false 
             $('.widget-map').animate
               top: navbarHeight + 20
-        #google.maps.event.trigger(google_maps.map, "resize")
+        google.maps.event.trigger(docMaps.map, "resize")
       else
         mapHeight = ($('#map-canvas-right').position().top + $(window).scrollTop()) + ($(window).height() - ($('.container-header').outerHeight() + $('.container-menu').outerHeight() + ($('.container-finder').outerHeight() + 50) + 115 )) 
         docMaps.canAnimateTop = true
@@ -193,6 +193,9 @@ docMaps =
 
       $(window).resize ->
         $('.widget-map').width $('.widget-map').parent('aside').width()
+        return
+      $(window).scroll ->
+        google.maps.event.trigger(docMaps.map, "resize")
         return
 
     inner: -> #one clinic or one doctor side map

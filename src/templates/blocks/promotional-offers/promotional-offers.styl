@@ -52,11 +52,16 @@
 					display none !important
 				&:hover .price-discount
 					display none !important
+					@media screen560
+						display inline-block !important
+						vertical-align middle
 				&:hover .btn-hidden
 					vertical-align: top
 					display inline-block !important
 					@media only screen and (max-width: 760px)
 						display block !important
+				&:hover .fillials
+					text-decoration none
 			.heading
 				clearfix()
 				&__left
@@ -66,7 +71,7 @@
 					@media only screen and (max-width: 1200px)
 						width 35%
 					@media only screen and (max-width: 620px)
-						width 40%
+						width 37%
 					@media only screen and (max-width: 760px)
 						min-height 55px
 					@media screen560
@@ -89,21 +94,24 @@
 					.fillials
 						position relative
 						display inline-block
-						vertical-align: top
+						vertical-align: middle
 						padding-left 19px
 						color: text_color
 						transform: translate3d(0,0,0)
 						margin-right 10px
+						line-height 26px
 						&:before
 							content ""
 							position absolute
 							left 0
-							top 3px
+							top 50%
+							margin-top -9px
 							sprite($location)
 						@media only screen and (max-width: 1100px)
 							margin-right 5px
 					.percent 
 						display inline-block
+						vertical-align middle
 						font-size: 15px
 						color text_color
 						margin-right 5px 
@@ -116,10 +124,12 @@
 							display none !important
 					.price-discount
 						display inline-block
-						width 141px
+						width 157px
 						text-align right
-						@media only screen and (max-width: 580px)
-							width 131px
+						// @media only screen and (max-width: 580px)
+						// 	width 131px
+						@media screen560
+							vertical-align middle
 						.old-price
 							display inline-block
 							color: #91b5bc
