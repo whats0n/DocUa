@@ -5,6 +5,7 @@ $('.js-location-lists').on 'click', ->
 	paneHeight = 216
 	
 	list.show() 
+	list.addClass('is-show') 
 
 	if list.height() <= paneHeight
 		list.css('height', 'auto')
@@ -27,6 +28,7 @@ $('body').on 'click', '.js-lists-item',->
 	changeText.addClass 'is-change'
 	# parent.addClass 'hidden'
 	parent.hide()
+	parent.removeClass('is-show')
 	flags = true
 
 
@@ -40,5 +42,6 @@ $(document).mouseup (e) ->
   container = $('.js-lists')
   if container.has(e.target).length == 0
     container.hide()
+    container.removeClass('is-show')
   return
 

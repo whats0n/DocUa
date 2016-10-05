@@ -2199,7 +2199,7 @@ $(".js-index-autocomplete").each(function() {
         }
       });
       if (!($(".js-index-autocomplete").val().length >= 3)) {
-        searchHidden.hide('slow');
+        return searchHidden.hide('slow');
       }
     }
   });
@@ -2269,11 +2269,26 @@ $('body').on('click', function() {
 });
 
 $(".js-index-autocomplete").on('keyup', function() {
-  var _this, noResult;
+  var _this, noResult, removeVal;
   _this = $(this);
+  removeVal = _this.siblings('.js-remove-value');
   if (_this.val().length < 3) {
     noResult = _this.siblings('.no-results-finder');
-    return noResult.hide();
+    noResult.hide();
+    return removeVal.hide();
+  } else {
+    return removeVal.show();
+  }
+});
+
+$(".js-location-input").on('keyup', function() {
+  var _this, removeVal;
+  _this = $(this);
+  removeVal = _this.siblings('.js-remove-value');
+  if (_this.val().length < 3) {
+    return removeVal.hide();
+  } else {
+    return removeVal.show();
   }
 });
 
@@ -2291,14 +2306,14 @@ $('body').on('scroll', '.location', function(e) {
   return e.stopPropagation();
 });
 
-$('.js-remove-val').on('click', function(event) {
-  var input, noresult;
-  input = $(this).siblings('.js-index-autocomplete');
-  noresult = $(this).siblings('.no-results-finder');
-  console.log('bla');
+$(document).on('click', '.js-remove-value', function(event) {
+  var input;
+  input = $(this).siblings('input');
+  $(this).hide();
   input.val('');
-  if (input.val().length) {
-    noresult.hide();
+  if ($('.js-lists').hasClass('is-show')) {
+    $('.js-lists').hide();
+    $('.js-lists').removeClass('is-show');
   }
   event.stopPropagation();
   return false;
@@ -2974,6 +2989,7 @@ $('.js-location-lists').on('click', function() {
   list = $(this).children('.js-lists');
   paneHeight = 216;
   list.show();
+  list.addClass('is-show');
   if (list.height() <= paneHeight) {
     list.css('height', 'auto');
     list.css('padding', '0');
@@ -2995,6 +3011,7 @@ $('body').on('click', '.js-lists-item', function() {
   $(this).addClass('is-active');
   changeText.addClass('is-change');
   parent.hide();
+  parent.removeClass('is-show');
   return flags = true;
 });
 
@@ -3003,6 +3020,7 @@ $(document).mouseup(function(e) {
   container = $('.js-lists');
   if (container.has(e.target).length === 0) {
     container.hide();
+    container.removeClass('is-show');
   }
 });
 

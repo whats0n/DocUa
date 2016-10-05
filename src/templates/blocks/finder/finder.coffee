@@ -265,6 +265,7 @@ $(".js-index-autocomplete").each ->
     complete = $(this)
     dotText = complete.children('.js-search-title')
     searchHidden = complete.siblings('.search-result')
+    
     _jScrollPane = undefined
     _jScrollPaneAPI = undefined
     _jSheight = 250
@@ -351,9 +352,10 @@ $(".js-index-autocomplete").each ->
                     response results
 
             if !($(".js-index-autocomplete").val().length >= 3)
-                # console.log('bla')
                 searchHidden.hide('slow')
-            return
+
+                
+            # return
             
     complete.data( "ui-autocomplete")._renderItem =( ul, item ) -> 
         $li = $('<li>')
@@ -416,9 +418,21 @@ $('body').on 'click', ->
 
 $(".js-index-autocomplete").on 'keyup', ->
     _this = $(this)
+    removeVal = _this.siblings('.js-remove-value') 
     if (_this.val().length < 3)
         noResult = _this.siblings('.no-results-finder')
         noResult.hide()
+        removeVal.hide()
+    else
+        removeVal.show()
+
+$(".js-location-input").on 'keyup', ->
+    _this = $(this)
+    removeVal = _this.siblings('.js-remove-value') 
+    if (_this.val().length < 3)
+        removeVal.hide()
+    else
+        removeVal.show()
 
 $(document).on 'click', '.js-select-scroll',->
     list = $('.js-select-scroll').find('.select7__drop-list')
@@ -434,15 +448,18 @@ $(document).on 'click', '.js-select-scroll',->
 $('body').on 'scroll', '.location', (e) ->
     e.stopPropagation()
 
-$('.js-remove-val').on 'click', (event) ->
-    input = $(this).siblings('.js-index-autocomplete')
-    noresult = $(this).siblings('.no-results-finder')
 
-    # $(this).hide()
-    console.log('bla')
+
+$(document).on 'click', '.js-remove-value', (event) ->
+    input = $(this).siblings('input')
+    # noresult = $(this).siblings('.no-results-finder')
+
+    $(this).hide()
     input.val('') 
-    if input.val().length
-        noresult.hide()
+    if ($('.js-lists').hasClass('is-show'))
+        $('.js-lists').hide()
+        $('.js-lists').removeClass('is-show')
+      # body...
 
 
     event.stopPropagation()

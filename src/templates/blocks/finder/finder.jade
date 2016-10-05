@@ -26,7 +26,6 @@ form(action="/")
                         i.triagle
                 +e.field.finder__field-icon-doctors.js-location-lists 
                     +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
-                    .icon-clean.js-remove-val 
                     .no-results-finder По запросу ничего не найдено!
                     .helper-autocomplete Например:  
                         a(href="#") 
@@ -105,12 +104,13 @@ form(action="/")
                         option.select-type__item Поиск диагностики
                         option.select-type__item Поиск клиники 
                         option.select-type__item Поиск анализа
-                        option.select-type__item Поиск центра
+                        option.select-type__item Поиск центра 
                     +e.right-block
                         span 
                         i.triagle
                 +e.field.finder__field-icon-doctors.js-location-lists 
                     +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
+                    .icon-clean.js-remove-value(style="display: none;")
                     +e.right-block(data-target="#select-specialization", data-toggle="modal")
                         span 
                         i.triagle
@@ -118,7 +118,8 @@ form(action="/")
                     +b.search-result(style="display: none;"): +i
                     .index-no-result(style="display: none;") нет результатов
                 +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
-                    +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                    +e("input").field-text.js-location-input(type="text" placeholder="Выберите район или метро" class="form-control")
+                    .icon-clean.js-remove-value(style="display: none;")
                     +e.right-block(data-target="#select-area", data-toggle="modal")
                         span 
                         i.triagle
@@ -399,16 +400,16 @@ form(action="/")
                 //-     button.btn.btn-warning.form-control(type="submit") Найти клинику
                 +e.field
                     select.select7.select7_dropdown.select-type
+                        option.select-type__item Поиск анализа
                         option.select-type__item Поиск диагностики
                         option.select-type__item Поиск клиники 
-                        option.select-type__item Поиск анализа
                         option.select-type__item Поиск центра
                     +e.right-block
                         span 
                         i.triagle
                 +e.field.finder__field-icon-doctors.js-location-lists 
                     +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
-                    .icon-clean.js-remove-val 
+                    
                     .helper-autocomplete Например:  
                         a(href="#") 
                             span Валихновский Ростистислав
