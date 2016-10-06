@@ -172,12 +172,13 @@ $finder_input_padding = 8px
             right 0
             top 5px
             bottom 0
-            // min-width 28px
+            min-width 29px
             height 32px
             border-left 1px solid #d9ecf0
             text-align center 
             background #FFF 
             transition opacity .2s ease
+            
             &:hover
                 opacity 0.5
             @media phone
@@ -317,12 +318,20 @@ $finder_input_padding = 8px
             &:hover
                 & + .finder__right-block
                     opacity 0.5
+            &.select7_open
+                .select7__caret
+                    border-color: transparent transparent #00829b    
             &__current
                 padding 2px 45px 0 18px
                 &-value
                     border 0 none
             &__caret
-                display none
+                margin-left 12px
+                margin-top 2px
+                border-color: #00829b transparent transparent
+                // display none
+                @media phone
+                    margin-left -5px
             &__placeholder
                 color #d5d5d5
             &__drop

@@ -3799,7 +3799,7 @@ article.static-page .header-styled.header-styled-mod {
   .section-action .section-action__right .right-info .benefit__wrap {
     float: none;
     width: 100%;
-    margin-bottom: 0;
+    margin-bottom: 5px;
   }
 }
 .section-action .section-action__right .right-info__benefit {
@@ -4175,7 +4175,7 @@ article.static-page .header-styled.header-styled-mod {
 }
 .action-about .action-clinics .doctors-card .doctors-card__item.clinic-in-action_card {
   padding: 21px;
-  min-height: auto;
+  min-height: 0;
   zoom: 1;
 }
 @media only screen and (max-width: 767px) {
@@ -13490,6 +13490,7 @@ hr {
   right: 0;
   top: 5px;
   bottom: 0;
+  min-width: 29px;
   height: 32px;
   border-left: 1px solid #d9ecf0;
   text-align: center;
@@ -13646,6 +13647,9 @@ hr {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
 }
+.finder__field .select7.select7_open .select7__caret {
+  border-color: transparent transparent #00829b;
+}
 .finder__field .select7__current {
   padding: 2px 45px 0 18px;
 }
@@ -13653,7 +13657,14 @@ hr {
   border: 0 none;
 }
 .finder__field .select7__caret {
-  display: none;
+  margin-left: 12px;
+  margin-top: 2px;
+  border-color: #00829b transparent transparent;
+}
+@media only screen and (max-width: 767px) {
+  .finder__field .select7__caret {
+    margin-left: -5px;
+  }
 }
 .finder__field .select7__placeholder {
   color: #d5d5d5;
@@ -15509,7 +15520,7 @@ ul.footer-menu {
   }
 }
 .location .select7__drop-list {
-  max-height: 200px;
+  max-height: 400px;
   overflow: hidden;
 }
 .location .select7__current-value {
@@ -24305,7 +24316,6 @@ __thumbs .owl-next {
   }
 }
 .promotional-offers .offers__item .offers-wrap:hover .btn-hidden {
-  vertical-align: top;
   display: inline-block !important;
 }
 @media only screen and (max-width: 760px) {
@@ -24313,8 +24323,10 @@ __thumbs .owl-next {
     display: block !important;
   }
 }
-.promotional-offers .offers__item .offers-wrap:hover .fillials {
-  text-decoration: none;
+@media only screen and (max-width: 760px) {
+  .promotional-offers .offers__item .offers-wrap:hover .fillials {
+    text-decoration: none;
+  }
 }
 .promotional-offers .offers__item .heading {
   zoom: 1;
@@ -24462,7 +24474,7 @@ __thumbs .owl-next {
   font-weight: 700;
   font-size: 16px;
   padding: 3px 7px;
-  margin: -3px 0 0 17px;
+  margin: -3px 0 0 41px;
 }
 @media only screen and (max-width: 760px) {
   .promotional-offers .offers__item .heading__right .btn {
@@ -24479,7 +24491,7 @@ __thumbs .owl-next {
 }
 @media only screen and (max-width: 1100px) {
   .promotional-offers .offers__item .heading__right .btn {
-    margin: -3px 0 0 27px;
+    margin: -3px 0 0 49px;
     font-size: 15px;
   }
 }
