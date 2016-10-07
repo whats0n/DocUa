@@ -195,7 +195,8 @@ docMaps =
         $('.widget-map').width $('.widget-map').parent('aside').width()
         return
       $(window).scroll ->
-        google.maps.event.trigger(docMaps.map, "resize")
+        # google.maps.event.trigger(docMaps.map, "resize")
+        google.maps.event.trigger(google_maps.map, "resize")
         return
 
     inner: -> #one clinic or one doctor side map

@@ -4307,7 +4307,7 @@ docMaps = {
         $('.widget-map').width($('.widget-map').parent('aside').width());
       });
       return $(window).scroll(function() {
-        google.maps.event.trigger(docMaps.map, "resize");
+        google.maps.event.trigger(google_maps.map, "resize");
       });
     },
     inner: function() {
