@@ -3,7 +3,7 @@
     title: Центр лабораторных анализов в Киеве
     finder: doctors  
     activeMenuItem: 3
-    modals: feedback, select-specialization, clinic-location-map, select-area
+    modals: feedback, select-specialization, clinic-location-map, select-area, cla-promo_step1, cla-promo_step2
     page_name: cla-item
 
 
@@ -13,7 +13,7 @@
             h1= file.title
                 span &nbsp;(220 94)  
     .col-md-9      
-        .catalog-controls.cla_catalog-controls          
+        .catalog-controls.cla_catalog-controls           
           .catalog-controls__column 
             .catalog-controls__results Найдено <strong>112 центров</strong>, 
             | отсортированы         
@@ -60,7 +60,7 @@
                                         +e("p").benefit.affilliate-benefit_mod от 10 до 15% скидка 
                                             span на специальные предложения
                             +b.price
-                                +e("a").btn(href="#") Получить скидку
+                                +e("a").btn(href="#cla-promo_step1" data-toggle="modal") Получить скидку
                         +e.right-color
         ul.nav.nav-tabs.nav-clinic.nav-cla
                     li.triangle-yellow.active: a(href="#tab-analysis", data-toggle="tab") Анализы
