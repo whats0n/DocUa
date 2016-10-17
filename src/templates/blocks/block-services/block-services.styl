@@ -23,6 +23,8 @@
                     transform: rotate(180deg) 
                     // &:before
                     //     transform: rotate(90deg)
+                &__drop-icon
+                    background-image: url(i/minus.png)
         &.is-hidden
             display: none
         &:hover .btn-hide
@@ -52,15 +54,18 @@
         padding 0 19px 0 25px 
         cursor: pointer
         user-select: none
-        background-color: #e5f2f5
+        // background-color: #e5f2f5
+        background-color: #cee7ec
         border-top: 1px solid #FFF
         &.title__mod
             border-top none
+        &-in
+            font-size: 0
         strong
             color: #5e6e71
             font-size: 15px
             line-height: 1.2
-            padding: 14px 0 14px 20px
+            padding: 15px 0 15px 30px
             display: inline-block
             overflow: hidden 
             position: relative
@@ -102,6 +107,15 @@
         //     height 8px
         //     margin-top: -4px
         //     margin-left -1px 
+    
+    &__drop-icon
+        position: absolute
+        top: 50%
+        margin-top -7px
+        left: 4px
+        width: 14px
+        height: 14px
+        background-image: url(i/plus.png) 
         
                          
     &__price-discount
@@ -126,6 +140,8 @@
         position: relative
         padding-top: 1px
         display: none
+        .promotional-offers .offers__item .offers-wrap
+            padding-left: 55px
     &__left
         display inline-block
         vertical-align middle
@@ -171,7 +187,7 @@
         display: inline-block
         vertical-align: top
     &__row
-        padding 0 20px 0 39px
+        padding 0 20px 0 55px
         margin-bottom: -1px
         position: relative
         border-bottom: 1px solid #e6edef
