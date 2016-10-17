@@ -384,6 +384,16 @@ $(".js-index-autocomplete").each ->
 
     complete.on "click", ->
         searchHidden.show()
+        list = $('.js-livesearch')
+
+
+        if !searchHidden.hasClass 'jspScrollable'
+            list.addClass 'jspScrollable'
+            list.addClass 'js-lists'
+            list.jScrollPane()
+            list.show()
+            return  
+
         $('.top-list__title').dotdotdot
             lines: 2,
             responsive: true 
@@ -425,6 +435,8 @@ $(".js-index-autocomplete").on 'keyup', ->
         removeVal.hide()
     else
         removeVal.show()
+    if undefined != _jScrollPane
+        _jScrollPaneAPI.destroy()
 
 $(".js-location-input").on 'keyup', ->
     _this = $(this)
