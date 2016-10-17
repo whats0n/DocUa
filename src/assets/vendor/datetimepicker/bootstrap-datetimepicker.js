@@ -109,8 +109,9 @@
     this.initialDate = options.initialDate || new Date();
     this.zIndex = options.zIndex || this.element.data('z-index') || undefined;
     this.title = typeof options.title === 'undefined' ? false : options.title;
-    this.defaultTimeZone = (new Date).toString().split('(')[1].slice(0, -1);
-    this.timezone = options.timezone || this.defaultTimeZone;
+    this.timezone = options.timezone;
+    // this.defaultTimeZone = (new Date).toString().split('(')[1].slice(0, -1);
+    // this.timezone = options.timezone || this.defaultTimeZone;
 
     this.icons = {
       leftArrow: this.fontAwesome ? 'fa-arrow-left' : (this.bootcssVer === 3 ? 'glyphicon-arrow-left' : 'icon-arrow-left'),
