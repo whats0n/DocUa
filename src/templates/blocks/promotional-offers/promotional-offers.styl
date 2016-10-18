@@ -27,12 +27,12 @@
 			margin-top: -1px
 		&__item
 			background #FFF
-			border-bottom 1px solid #e6edef
+			border-bottom 1px solid #dde8ea
 			// &:first-child
-			// 	border-top 1px solid transparent
+			// 	border-top none
 			&:last-child
 				// border-color transparent 
-				border-radius 0 0 3px 3px
+				// border-radius 0 0 3px 3px
 				&:hover
 					border-color #e5f2f5
 					
@@ -89,6 +89,7 @@
 				&__right
 					float right
 					text-align left
+					font-size: 0
 					@media screen560
 						float none
 						min-height: 62px
@@ -96,10 +97,11 @@
 						position relative
 						display inline-block
 						vertical-align: middle
-						padding-left 19px
-						color: text_color
-						transform: translate3d(0,0,0)
 						margin-right 10px
+						padding-left 19px
+						transform: translate3d(0,0,0)
+						color: text_color
+						font-size: 14px
 						line-height 26px
 						&:before
 							content ""
@@ -108,8 +110,6 @@
 							top 50%
 							margin-top -9px
 							sprite($location)
-						@media only screen and (max-width: 1100px)
-							margin-right 5px
 					.percent 
 						display inline-block
 						vertical-align middle
@@ -125,21 +125,27 @@
 							display none !important
 					.price-discount
 						display inline-block
-						width 157px
+						vertical-align: middle
+						width 180px
 						text-align right
+						clearfix()
 						// @media only screen and (max-width: 580px)
 						// 	width 131px
 						@media screen560
 							vertical-align middle
 						.old-price
-							display inline-block
+							float: left
+							width: 45%
 							color: #91b5bc
 							font-size: 13px
+							line-height: 22px
 							text-decoration: line-through
 							@media only screen and (max-width: 580px)
 								font-size 12px
 						.new-price
-							display inline-block
+							float: right
+							width: 55%
+							padding-left: 10px
 							color: #5e6e71
 							font-size: 16px
 							@media only screen and (max-width: 1100px)
@@ -147,7 +153,7 @@
 					.btn
 						display inline-block
 						vertical-align middle
-						width: 210px
+						width: 230px
 						font-weight 700
 						font-size 16px 
 						padding 3px 7px 
