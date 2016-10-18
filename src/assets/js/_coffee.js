@@ -2226,7 +2226,16 @@ $(".js-index-autocomplete").each(function() {
     return $li.appendTo(ul);
   };
   complete.on("click", function() {
+    var list;
     searchHidden.show();
+    list = $('.js-livesearch');
+    if (!searchHidden.hasClass('jspScrollable')) {
+      list.addClass('jspScrollable');
+      list.addClass('js-lists');
+      list.jScrollPane();
+      list.show();
+      return;
+    }
     return $('.top-list__title').dotdotdot({
       lines: 2,
       responsive: true
@@ -2275,9 +2284,12 @@ $(".js-index-autocomplete").on('keyup', function() {
   if (_this.val().length < 3) {
     noResult = _this.siblings('.no-results-finder');
     noResult.hide();
-    return removeVal.hide();
+    removeVal.hide();
   } else {
-    return removeVal.show();
+    removeVal.show();
+  }
+  if (void 0 !== _jScrollPane) {
+    return _jScrollPaneAPI.destroy();
   }
 });
 
@@ -2607,6 +2619,69 @@ $(".js-autocomplete-clinic").each(function() {
   });
 });
 
+$(".phones__item_life").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_life").toggleClass("phones__item_hover");
+});
+
+$(".phones__item_mts").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_mts").toggleClass("phones__item_hover");
+});
+
+$(".phones__item_kyivstar").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_kyivstar").toggleClass("phones__item_hover");
+});
+
+$(".phones__item_civic").hover(function() {
+  $(this).toggleClass("phones__item_hover");
+  return $(".phones__list").find(".phones__item_civic").toggleClass("phones__item_hover");
+});
+
+$(function() {
+  if (window.matchMedia('screen and (min-width: 768px)').matches) {
+    $(".js-phones").find(".phones__toggle").addClass("js-phones-btn");
+    $(".js-phones-btn").click(function() {
+      var _parent, _this;
+      _this = $(this);
+      _parent = _this.parents(".js-phones");
+      if (_parent.find(".js-phones-list").hasClass("phones__list_block")) {
+        return true;
+      } else {
+        _this.addClass("phones__toggle_open");
+        _parent.find(".js-phones-list").addClass("phones__list_block");
+        return false;
+      }
+    });
+    return $(document).on("click", function() {
+      $(".js-phones-list").removeClass("phones__list_block");
+      return $(".js-phones-btn").removeClass("phones__toggle_open");
+    });
+  }
+});
+
+$(function() {
+  if (window.matchMedia('screen and (max-width: 767px)').matches) {
+    $(".js-phones").addClass("js-phones-btn");
+    $(".js-phones-btn").click(function() {
+      var _this;
+      _this = $(this);
+      if (_this.find(".js-phones-list").hasClass("phones__list_block")) {
+        return true;
+      } else {
+        _this.find(".phones__toggle").addClass("phones__toggle_open");
+        _this.find(".js-phones-list").addClass("phones__list_block");
+        return false;
+      }
+    });
+    return $(document).on("click", function() {
+      $(".js-phones-list").removeClass("phones__list_block");
+      return $(".phones__toggle").removeClass("phones__toggle_open");
+    });
+  }
+});
+
 var galleryCount, generateMarkupForOwlCarousel, initOwlCarousel, syncOwlCarousels;
 
 galleryCount = 1;
@@ -2792,69 +2867,6 @@ $.fn.makeCustomPhotoGallery = function(_opts) {
 
 $(function() {
   return $(".photo-gallery").makeCustomPhotoGallery();
-});
-
-$(".phones__item_life").hover(function() {
-  $(this).toggleClass("phones__item_hover");
-  return $(".phones__list").find(".phones__item_life").toggleClass("phones__item_hover");
-});
-
-$(".phones__item_mts").hover(function() {
-  $(this).toggleClass("phones__item_hover");
-  return $(".phones__list").find(".phones__item_mts").toggleClass("phones__item_hover");
-});
-
-$(".phones__item_kyivstar").hover(function() {
-  $(this).toggleClass("phones__item_hover");
-  return $(".phones__list").find(".phones__item_kyivstar").toggleClass("phones__item_hover");
-});
-
-$(".phones__item_civic").hover(function() {
-  $(this).toggleClass("phones__item_hover");
-  return $(".phones__list").find(".phones__item_civic").toggleClass("phones__item_hover");
-});
-
-$(function() {
-  if (window.matchMedia('screen and (min-width: 768px)').matches) {
-    $(".js-phones").find(".phones__toggle").addClass("js-phones-btn");
-    $(".js-phones-btn").click(function() {
-      var _parent, _this;
-      _this = $(this);
-      _parent = _this.parents(".js-phones");
-      if (_parent.find(".js-phones-list").hasClass("phones__list_block")) {
-        return true;
-      } else {
-        _this.addClass("phones__toggle_open");
-        _parent.find(".js-phones-list").addClass("phones__list_block");
-        return false;
-      }
-    });
-    return $(document).on("click", function() {
-      $(".js-phones-list").removeClass("phones__list_block");
-      return $(".js-phones-btn").removeClass("phones__toggle_open");
-    });
-  }
-});
-
-$(function() {
-  if (window.matchMedia('screen and (max-width: 767px)').matches) {
-    $(".js-phones").addClass("js-phones-btn");
-    $(".js-phones-btn").click(function() {
-      var _this;
-      _this = $(this);
-      if (_this.find(".js-phones-list").hasClass("phones__list_block")) {
-        return true;
-      } else {
-        _this.find(".phones__toggle").addClass("phones__toggle_open");
-        _this.find(".js-phones-list").addClass("phones__list_block");
-        return false;
-      }
-    });
-    return $(document).on("click", function() {
-      $(".js-phones-list").removeClass("phones__list_block");
-      return $(".phones__toggle").removeClass("phones__toggle_open");
-    });
-  }
 });
 
 $(document).on("change", ".pill-group .pill input", function(e) {
