@@ -21,13 +21,13 @@ sliderOption = {
 }
 
 lightGallery document.getElementById('js-lightgallery'), 
-	galleryOption
+galleryOption
 
 lightGallery document.getElementById('js-lightgallery2'), 
-	galleryOption
+galleryOption
 
 lightGallery document.getElementById('js-lightgallery3'), 
-	galleryOption
+galleryOption
 
 
 gallerySlider = $(".js-light-slider").lightSlider
@@ -126,7 +126,7 @@ gallerySlider3 = $(".js-light-slider3").lightSlider
 			}
 		}
 	]
-
+ 
 $('body').on 'click', '.js-slider-refresh', ->
 	console.log('bla')
 	gallerySlider.refresh()

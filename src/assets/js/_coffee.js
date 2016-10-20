@@ -1537,7 +1537,7 @@ $('.js-date-mast').inputmask({
   mask: "99.99.9999 "
 });
 
-$(document).on('click', '.js-cla-btn', function() {
+$('.js-cla-btn').on('click', function() {
   var drop;
   drop = $(this).siblings('.js-cla-block');
   drop.slideToggle('fast');
@@ -2423,34 +2423,6 @@ $("#select-area-diagnostics").on("click", "li a", function() {
   return $("#select-area-diagnostics").modal("hide");
 });
 
-$(window).scroll(function() {
-  if (window.matchMedia('screen and (min-width: 768px)').matches) {
-    if ($(window).scrollTop() > 50) {
-      $('.navbar-fixed-top').addClass('navbar-main_slide');
-    } else {
-      $('.navbar-fixed-top').removeClass('navbar-main_slide');
-    }
-    return;
-  }
-});
-
-if (window.matchMedia('screen and (max-width: 767px)').matches) {
-  $('.navbar-fixed-top').addClass('navbar-main_slide');
-}
-
-$(window).on('scroll', function() {
-  if ($('.header .select7_open').length) {
-    if ($(window).scrollTop() >= 50) {
-      $(".header .select7").trigger('click');
-    }
-  }
-  if ($('.navbar-fixed-top .select7_open').length) {
-    if ($(window).scrollTop() <= 50) {
-      return $(".navbar-fixed-top .select7").trigger('click');
-    }
-  }
-});
-
 var galleryOption, gallerySlider, gallerySlider2, gallerySlider3, sliderOption;
 
 galleryOption = {
@@ -2617,6 +2589,34 @@ $(".js-autocomplete-clinic").each(function() {
   return $('.js-autocomplete-clinic').autocomplete({
     source: availableTags
   });
+});
+
+$(window).scroll(function() {
+  if (window.matchMedia('screen and (min-width: 768px)').matches) {
+    if ($(window).scrollTop() > 50) {
+      $('.navbar-fixed-top').addClass('navbar-main_slide');
+    } else {
+      $('.navbar-fixed-top').removeClass('navbar-main_slide');
+    }
+    return;
+  }
+});
+
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.navbar-fixed-top').addClass('navbar-main_slide');
+}
+
+$(window).on('scroll', function() {
+  if ($('.header .select7_open').length) {
+    if ($(window).scrollTop() >= 50) {
+      $(".header .select7").trigger('click');
+    }
+  }
+  if ($('.navbar-fixed-top .select7_open').length) {
+    if ($(window).scrollTop() <= 50) {
+      return $(".navbar-fixed-top .select7").trigger('click');
+    }
+  }
 });
 
 $(".phones__item_life").hover(function() {
