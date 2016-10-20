@@ -29,8 +29,21 @@
                                     .form-group.has-error
                                         label(for="exampleInputName1").col-lg-3.control-label Филиал*:
                                         .col-lg-9
-                                            input(type="text" id="exampleInputName1").form-control.js-clinic-autocomplete   
+                                            //- input(type="text" id="exampleInputName1").form-control.js-clinic-autocomplete   
                                             //- option Добробут "Дитяча клініка на Лівому березі"
+                                            +b.cla-search.cla-search_fillials
+                                                +e.item.js-section-choice
+                                                    +e.fillials-choise.everyone-header.js-field-child.js-selection-main.form-item.form-control 
+                                                    +b('ul').everyone-lists.section-choice.js-choice-scroll
+                                                        +e("li").list.js-selection-city Все филиалы сети Synevo
+                                                        +e("li").list.js-selection-city Поликлиника для взрослых 
+                                                        +e("li").list.js-selection-city Детская поликлиника на Голосеевском районе
+                                                        +e("li").list.js-selection-city Лечебно - диагностический центр
+                                                        +e("li").list.js-selection-city Реабилитационный центр
+                                                        +e("li").list.js-selection-city Поликлиника для взрослых
+                                                        +e("li").list.js-selection-city Детская поликлиника на Голосеевском районе
+                                                        +e("li").list.js-selection-city Лечебно - диагностический центр
+                                                        +e("li").list.js-selection-city Реабилитационный центр
                                     .form-group
                                         label(for="exampleInputName2").col-lg-3.control-label Врач*:
                                         .col-lg-9 
