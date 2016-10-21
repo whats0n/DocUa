@@ -1280,10 +1280,6 @@ if (typeof define === 'function' && define.amd) {
   window.waitForWebFonts = waitForWebFonts;
 }
 
-$(document).each(function() {
-  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
-});
-
 $("#select-specialization").on("click", "li a", function() {
   var item;
   item = $(this);
@@ -1298,6 +1294,10 @@ $(".js-clear").on("click", function() {
   $(this).removeClass('is-active');
   $('.direction__title').text('Направление');
   return false;
+});
+
+$(document).each(function() {
+  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
 });
 
 $('.cla-fillials a').tooltip({
@@ -2423,6 +2423,34 @@ $("#select-area-diagnostics").on("click", "li a", function() {
   return $("#select-area-diagnostics").modal("hide");
 });
 
+$(window).scroll(function() {
+  if (window.matchMedia('screen and (min-width: 768px)').matches) {
+    if ($(window).scrollTop() > 50) {
+      $('.navbar-fixed-top').addClass('navbar-main_slide');
+    } else {
+      $('.navbar-fixed-top').removeClass('navbar-main_slide');
+    }
+    return;
+  }
+});
+
+if (window.matchMedia('screen and (max-width: 767px)').matches) {
+  $('.navbar-fixed-top').addClass('navbar-main_slide');
+}
+
+$(window).on('scroll', function() {
+  if ($('.header .select7_open').length) {
+    if ($(window).scrollTop() >= 50) {
+      $(".header .select7").trigger('click');
+    }
+  }
+  if ($('.navbar-fixed-top .select7_open').length) {
+    if ($(window).scrollTop() <= 50) {
+      return $(".navbar-fixed-top .select7").trigger('click');
+    }
+  }
+});
+
 var galleryOption, gallerySlider, gallerySlider2, gallerySlider3, sliderOption;
 
 galleryOption = {
@@ -2548,7 +2576,6 @@ gallerySlider3 = $(".js-light-slider3").lightSlider({
 });
 
 $('body').on('click', '.js-slider-refresh', function() {
-  console.log('bla');
   gallerySlider.refresh();
   gallerySlider2.refresh();
   return gallerySlider3.refresh();
@@ -2589,34 +2616,6 @@ $(".js-autocomplete-clinic").each(function() {
   return $('.js-autocomplete-clinic').autocomplete({
     source: availableTags
   });
-});
-
-$(window).scroll(function() {
-  if (window.matchMedia('screen and (min-width: 768px)').matches) {
-    if ($(window).scrollTop() > 50) {
-      $('.navbar-fixed-top').addClass('navbar-main_slide');
-    } else {
-      $('.navbar-fixed-top').removeClass('navbar-main_slide');
-    }
-    return;
-  }
-});
-
-if (window.matchMedia('screen and (max-width: 767px)').matches) {
-  $('.navbar-fixed-top').addClass('navbar-main_slide');
-}
-
-$(window).on('scroll', function() {
-  if ($('.header .select7_open').length) {
-    if ($(window).scrollTop() >= 50) {
-      $(".header .select7").trigger('click');
-    }
-  }
-  if ($('.navbar-fixed-top .select7_open').length) {
-    if ($(window).scrollTop() <= 50) {
-      return $(".navbar-fixed-top .select7").trigger('click');
-    }
-  }
 });
 
 $(".phones__item_life").hover(function() {
@@ -3034,6 +3033,31 @@ $(document).mouseup(function(e) {
     container.hide();
     container.removeClass('is-show');
   }
+});
+
+$("#select-area").on("areaSelected", function(e, arg) {
+  var title, value, values;
+  values = arg.values;
+  title = ((function() {
+    var i, len, results;
+    results = [];
+    for (i = 0, len = values.length; i < len; i++) {
+      value = values[i];
+      results.push(value.title);
+    }
+    return results;
+  })()).join(", ");
+  value = ((function() {
+    var i, len, results;
+    results = [];
+    for (i = 0, len = values.length; i < len; i++) {
+      value = values[i];
+      results.push(value.value);
+    }
+    return results;
+  })()).join(", ");
+  $(".js-services-go [data-target='#select-area']").parent().find('.finder__field-text:last').val(values.length > 0 ? title : $(".js-services-go [data-target='#select-area'] .finder__field-text").data("emptyText")).toggleClass("grey", values.length === 0);
+  return $("#select-area").modal("hide");
 });
 
 $("#select-area").on("areaSelected", function(e, arg) {

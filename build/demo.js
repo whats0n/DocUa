@@ -246,8 +246,8 @@ if (subUrl === 'action.html')
 if (subUrl === 'action-about.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(actions, 'actionAbout', 'Киев', 'vrachi.dev.doc.ua'));
 
-if (subUrl === 'doctor-consultation.html')
-    google.maps.event.addDomListener(window, 'load', docMaps.initialize(doctors[0].affilates, 'doctorInner', 'Киев', 'vrachi.dev.doc.ua'));
+// if (subUrl === 'doctor-consultation.html')
+//     google.maps.event.addDomListener(window, 'load', docMaps.initialize(doctors[0].affilates, 'doctorInner', 'Киев', 'vrachi.dev.doc.ua'));
 
 if (subUrl === 'clinic-inner.html')
     google.maps.event.addDomListener(window, 'load', docMaps.initialize(doctors[0].affilates, 'clinicInner', 'Киев', 'vrachi.dev.doc.ua'));

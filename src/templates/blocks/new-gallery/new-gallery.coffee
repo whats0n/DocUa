@@ -128,7 +128,7 @@ gallerySlider3 = $(".js-light-slider3").lightSlider
 	]
  
 $('body').on 'click', '.js-slider-refresh', ->
-	console.log('bla')
+	# console.log('bla')
 	gallerySlider.refresh()
 	gallerySlider2.refresh()
 	gallerySlider3.refresh() 
