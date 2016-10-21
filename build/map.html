@@ -101,7 +101,7 @@
                 <input type="text" placeholder="Поиск по всем разделам сайта" class="form-control input-sm search__field js-index-autocomplete">
                 <button type="submit" class="search__button"> </button>
                 <div style="display: none;" class="search-result">
-                  <ul class="livesearch top-list js-static-search"><span class="last-child"></span>
+                  <ul class="livesearch top-list js-static-search js-livesearch"><span class="last-child"></span>
                     <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
                         <div class="top-list__picture"><img src="i/new-search/icon-list-doctors.png" alt=""></div>
                         <div class="top-list__left">
@@ -113,9 +113,9 @@
                     <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
                         <div class="top-list__picture"><img src="i/new-search/icon-list-diagnostic-centers.png" alt=""></div>
                         <div class="top-list__left">
-                          <div class="top-list__title">Кардиология  </div>
+                          <div class="top-list__title">Кардиология   </div>
                         </div>
-                        <div class="top-list__right">
+                        <div class="top-list__right"> 
                           <div class="top-list__subject">Диагностические<br>центры</div>
                         </div></a></li>
                     <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
@@ -181,7 +181,7 @@
                           <div class="top-list__subject">Акция</div>
                         </div></a>
                     </li>
-                    <div class="more-toggle show more-toggle_mod"><span class="more-toggle__found"> <span class="more-toggle__hidden">Найдено </span><span class="more-toggle__found-number">10 </span>результатов</span><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span></span></a></div>
+                    <div class="more-toggle show more-toggle_mod"> <span class="more-toggle__found"> <span class="more-toggle__hidden">Найдено </span><span class="more-toggle__found-number">10 </span>результатов</span><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span></span></a></div>
                   </ul>
                 </div>
                 <div class="no-results-finder">По запросу ничего не найдено!</div>
@@ -306,7 +306,7 @@
                     <input type="text" placeholder="Поиск по всем разделам сайта" class="form-control input-sm search__field js-index-autocomplete">
                     <button type="submit" class="search__button"> </button>
                     <div style="display: none;" class="search-result">
-                      <ul class="livesearch top-list js-static-search"><span class="last-child"></span>
+                      <ul class="livesearch top-list js-static-search js-livesearch"><span class="last-child"></span>
                         <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
                             <div class="top-list__picture"><img src="i/new-search/icon-list-doctors.png" alt=""></div>
                             <div class="top-list__left">
@@ -318,9 +318,9 @@
                         <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
                             <div class="top-list__picture"><img src="i/new-search/icon-list-diagnostic-centers.png" alt=""></div>
                             <div class="top-list__left">
-                              <div class="top-list__title">Кардиология  </div>
+                              <div class="top-list__title">Кардиология   </div>
                             </div>
-                            <div class="top-list__right">
+                            <div class="top-list__right"> 
                               <div class="top-list__subject">Диагностические<br>центры</div>
                             </div></a></li>
                         <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
@@ -386,7 +386,7 @@
                               <div class="top-list__subject">Акция</div>
                             </div></a>
                         </li>
-                        <div class="more-toggle show more-toggle_mod"><span class="more-toggle__found"> <span class="more-toggle__hidden">Найдено </span><span class="more-toggle__found-number">10 </span>результатов</span><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span></span></a></div>
+                        <div class="more-toggle show more-toggle_mod"> <span class="more-toggle__found"> <span class="more-toggle__hidden">Найдено </span><span class="more-toggle__found-number">10 </span>результатов</span><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span></span></a></div>
                       </ul>
                     </div>
                     <div class="no-results-finder">По запросу ничего не найдено!</div>
@@ -403,23 +403,14 @@
         <div class="finder finder-map">
           <form action="/">
             <fieldset>
-              <div class="finder__field">
-                <select class="select7 select7_dropdown select-type">
-                  <option class="select-type__item">Поиск диагностики</option>
-                  <option class="select-type__item">Поиск клиники </option>
-                  <option class="select-type__item">Поиск анализа</option>
-                  <option class="select-type__item">Поиск центра</option>
-                </select>
-                <div class="finder__right-block"><span> </span><i class="triagle"></i>
-                </div>
+              <div class="finder__submit"><a href="/clinics.html" class="finder__btn-map btn btn-success form-control">К списку</a>
               </div>
               <div class="finder__field finder__field-icon-doctors js-location-lists"> 
                 <input type="text" placeholder="Введите исследование или название лаборатории" class="finder__field-text form-control js-index-autocomplete"/>
-                <div class="helper-autocomplete">Например:  <a href="#"> <span>Валихновский Ростистислав</span></a>, <a href="#"> <span>Добробут</span></a>, <a href="#"> <span>Колоноскопия</span></a></div>
-                <div data-target="#select-specialization" data-toggle="modal" class="finder__right-block"><span> </span><span class="finder__field_img"></span>
+                <div data-target="#select-specialization" data-toggle="modal" class="finder__right-block"><span> </span><i class="triagle"></i><span class="finder__field_img"></span>
                 </div>
                 <div style="display: none;" class="search-result">
-                  <ul class="livesearch top-list js-static-search"><span class="last-child"></span>
+                  <ul class="livesearch top-list js-static-search js-livesearch"><span class="last-child"></span>
                     <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
                         <div class="top-list__picture"><img src="i/new-search/icon-list-doctors.png" alt=""></div>
                         <div class="top-list__left">
@@ -431,9 +422,9 @@
                     <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
                         <div class="top-list__picture"><img src="i/new-search/icon-list-diagnostic-centers.png" alt=""></div>
                         <div class="top-list__left">
-                          <div class="top-list__title">Кардиология  </div>
+                          <div class="top-list__title">Кардиология   </div>
                         </div>
-                        <div class="top-list__right">
+                        <div class="top-list__right"> 
                           <div class="top-list__subject">Диагностические<br>центры</div>
                         </div></a></li>
                     <li class="top-list__item"><a href="#" title="" class="top-list__item-link">
@@ -499,29 +490,16 @@
                           <div class="top-list__subject">Акция</div>
                         </div></a>
                     </li>
-                    <div class="more-toggle show more-toggle_mod"><span class="more-toggle__found"> <span class="more-toggle__hidden">Найдено </span><span class="more-toggle__found-number">10 </span>результатов</span><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span></span></a></div>
+                    <div class="more-toggle show more-toggle_mod"> <span class="more-toggle__found"> <span class="more-toggle__hidden">Найдено </span><span class="more-toggle__found-number">10 </span>результатов</span><a href="/search?query=%D0%B2%D0%B0%D0%BB" data-toggle="class" class="more-toggle__link"><span><span class="more_link">Все результаты</span></span></a></div>
                   </ul>
                 </div>
                 <div style="display: none;" class="index-no-result">нет результатов</div>
               </div>
-              <div class="finder__field finder__field-icon-location js-finder-scroll js-location-lists">
-                <input type="text" placeholder="Выберите район или метро" class="finder__field-text form-control"/>
-                <div data-target="#select-area" data-toggle="modal" class="finder__right-block"><span> </span><i class="triagle"></i><span class="finder__field_img"> </span>
-                </div>
-                <ul class="location-lists js-lists">
-                  <li class="location-lists__item js-lists-item is-area">Южноборщаговский массив</li>
-                  <li class="location-lists__item js-lists-item is-area">Дарницкий</li>
-                  <li class="location-lists__item js-lists-item is-red">Дарница</li>
-                </ul>
-              </div>
-              <div class="finder__submit">
-                <button type="submit" class="btn btn-warning form-control">Найти </button>
-              </div>
             </fieldset>
           </form>
         </div>
-        <div class="big-map">      
-          <div class="big-map__container">  
+        <div class="big-map"> 
+          <div class="big-map__container">
             <div id="map-canvas-big" class="map-canvas-big"> </div>
           </div>
           <div class="big-map__widget">

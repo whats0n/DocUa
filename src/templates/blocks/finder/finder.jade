@@ -131,43 +131,43 @@ form(action="/")
                 //- +e.field.finder__field-icon-doctors
                 //-     +e("input").field-text(type="text" placeholder="Выберите специальность врача" class="form-control")
                 //-     span.finder__field_img(data-target="#select-specialization", data-toggle="modal")
-                //- +e.submit
-                //-     a.finder__btn-map.btn.btn-success.form-control(href="/clinics.html") К списку
-                +e.field
-                    select.select7.select7_dropdown.select-type
-                        option.select-type__item Поиск диагностики
-                        option.select-type__item Поиск клиники 
-                        option.select-type__item Поиск анализа
-                        option.select-type__item Поиск центра
-                    +e.right-block
-                        span 
-                        i.triagle
+                +e.submit
+                    a.finder__btn-map.btn.btn-success.form-control(href="/clinics.html") К списку
+                //- +e.field
+                //-     select.select7.select7_dropdown.select-type
+                //-         option.select-type__item Поиск диагностики
+                //-         option.select-type__item Поиск клиники 
+                //-         option.select-type__item Поиск анализа
+                //-         option.select-type__item Поиск центра
+                //-     +e.right-block
+                //-         span 
+                //-         i.triagle
                 +e.field.finder__field-icon-doctors.js-location-lists 
                     +e("input").field-text(type="text" placeholder="Введите исследование или название лаборатории" class="form-control").js-index-autocomplete
-                    .helper-autocomplete Например:  
-                        a(href="#") 
-                            span Валихновский Ростистислав
-                        |, 
-                        a(href="#") 
-                            span Добробут
-                        |, 
-                        a(href="#") 
-                            span Колоноскопия
+                    //- .helper-autocomplete Например:  
+                    //-     a(href="#") 
+                    //-         span Валихновский Ростистислав
+                    //-     |, 
+                    //-     a(href="#") 
+                    //-         span Добробут
+                    //-     |,
+                    //-     a(href="#") 
+                    //-         span Колоноскопия
                     +e.right-block(data-target="#select-specialization", data-toggle="modal")
                         span 
-                        //- i.triagle
+                        i.triagle
                         span.finder__field_img
                     +b.search-result(style="display: none;"): +i
                     .index-no-result(style="display: none;") нет результатов
-                +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
-                    +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
-                    +e.right-block(data-target="#select-area", data-toggle="modal")
-                        span 
-                        i.triagle
-                        span.finder__field_img 
-                    include ../blocks/search-location/search-location.jade
-                +e.submit
-                    button.btn.btn-warning.form-control(type="submit") Найти 
+                //- +e.field.finder__field-icon-location.js-location-lists.js-finder-scroll
+                //-     +e("input").field-text(type="text" placeholder="Выберите район или метро" class="form-control")
+                //-     +e.right-block(data-target="#select-area", data-toggle="modal")
+                //-         span 
+                //-         i.triagle
+                //-         span.finder__field_img 
+                //-     include ../blocks/search-location/search-location.jade
+                //- +e.submit
+                //-     button.btn.btn-warning.form-control(type="submit") Найти 
             when "countries"
                 //- +e.field.finder__field-icon-doctors(data-target="#select-specialization", data-toggle="modal")
                 //-     +e("span").field-text специальность

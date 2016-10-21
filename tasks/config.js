@@ -18,6 +18,9 @@ module.exports = {
     ],
     layoutsList: [
         './src/templates/layouts/*.jade',
+    ],
+    jadeListAll: [
+        './src/**/*.jade',
     ]
   },
 
@@ -48,12 +51,10 @@ module.exports = {
         './src/assets/vendor/jscrollpane/jquery.jscrollpane.css',
         './src/assets/css/_stylus.css',
         './src/assets/vendor/popups/main.css', 
-        './src/assets/vendor/popups/media-queries.css', 
+        './src/assets/vendor/popups/media-queries.css',
         './src/assets/vendor/datetimepicker/bootstrap-datetimepicker.css',
         './src/assets/vendor/lightgallery/lightgallery.css',
         './src/assets/vendor/lightslider/lightslider.css'
-
-
     ],
     partnersCssList: [
         './src/assets/css/partners-branding/*.css',
@@ -69,10 +70,10 @@ module.exports = {
         './src/templates/blocks/issue/issue.styl',
         './src/templates/blocks/requests-item/requests-item.styl',
         './src/templates/blocks/statistics-timeline/statistics-timeline.styl',
-        './src/templates/blocks/user-list/user-list.styl'
+        './src/templates/blocks/user-list/user-list.styl',
     ],
     lessList: [
-        './src/assets/vendor/twitter-bootstrap/less/cabinet.less'
+        './src/assets/vendor/twitter-bootstrap/less/cabinet.less',
     ],
     cssList: [
         './src/assets/css/_stylus_cabinet.css',
@@ -104,15 +105,14 @@ module.exports = {
         "./src/assets/vendor/jquery.inputmask/inputmask/jquery.inputmask.js",
         "./src/assets/vendor/moment/moment.js",
         "./src/assets/vendor/daterangepicker/daterangepicker.js",
+        "./src/assets/vendor/jquery.ellipsis/jquery.ellipsis.min.js",
         "./src/assets/vendor/jquery.dotdotdot/jquery.dotdotdot.min.js",
         "./src/assets/vendor/datetimepicker/bootstrap-datetimepicker.js",
         "./src/assets/vendor/lightgallery/lightgallery.js",
         "./src/assets/vendor/lightgallery/lg-thumbnail.min.js",
         "./src/assets/vendor/lightslider/lightslider.min.js",
-        // "./src/assets/vendor/jquery.liColl/jquery.liColl.js",
-        // './src/assets/vendor/popups/main.js',
         './src/assets/vendor/popups/plugins.js',
-        "./src/assets/js/_coffee.js"
+        "./src/assets/js/_coffee.js",
     ],
     checkerList: [
         "./src/assets/vendor/raphael/raphael.min.js",
