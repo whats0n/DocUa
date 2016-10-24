@@ -7,7 +7,7 @@
    page_name: thank-you-page2
       
 section    
-   .col-sm-12.col-xs-12.tab-content                 
+   .col-sm-12.col-xs-12.tab-content                    
       header.header-styled.notopmargin   
          h2.h1 Спасибо за заявку!
       .thank-page-wrap.block-bg.application  
@@ -87,31 +87,32 @@ section
                       .col-sm-9
                           input(type="text"  id="exampleInputName3").form-control
                           //- option Лікар нетрадиційной медицини
-                  .form-group.form-group_date
-                    label(for="exampleInputName10").col-sm-3.col-md-3.col-xs-3.label-group_mod Дата 
+                  .form-group.form-group_date.js-validateDate
+                    label(for="exampleInputName10").col-sm-3.col-md-3.col-xs-3.label-group_mod.control-label Дата 
                       | рождения*:
                     .application-l.application-l_mod.l-2
                         //- - var x = 1;
                         .select-wrap 
-                            .form-control
-                                - var x = 31;
-                                    select(name="days").select7.select7_dropdown
-                                        - for (var i=1; i<=x; i++) {
-                                            option= i
-                                        - }
+                            .form-control.js-valDate
+                              - var x = 31;
+                                 select(name="days").select7.select7_dropdown
+                                     - for (var i=1; i<=x; i++) {
+                                         option(value= i)= i
+                                     - }
                     .application-l.application-l_mod.l-4
-                        .form-control
-                            - var month = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+                        .form-control.js-valMonth
+                            - var month = [{name :'Январь', val : '01'}, {name : 'Февраль', val : '02'}, {name : 'Март', val : '03'}, {name: 'Апрель', val : '04'}, {name: 'Май', val : '05'}, {name : 'Июнь', val : '06'}, {name: 'Июль', val : '07'}, {name : 'Август',val : '08'}, {name : 'Сентябрь', val : '09'}, {name: 'Октябрь', val : '10'}, {name :'Ноябрь',val : '11'}, {name: 'Декабрь', val : '12'}];
                             select(name="month").select7.select7_dropdown
-                                for name in month 
-                                    option= name
+                                for item in month  
+                                    option(value= item.val)= item.name
                     .application-l.application-l_mod.l-3
-                        .form-control
+                        .form-control.js-valYears
                             - var x = 2016
                                 select(name="years").select7.select7_dropdown
                                     - for (var i=1900; i<=x; i++) {
-                                        option= i
+                                        option(value= i)= i
                                     - }
+                  span.js-text
                   .form-group.form-group_phone.form-group_inline 
                       label(for="exampleInputName11").col-sm-3 Телефон:
                       .col-sm-9  
