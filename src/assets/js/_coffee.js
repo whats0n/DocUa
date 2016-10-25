@@ -2374,11 +2374,11 @@ $(window).scroll(function() {
   }
 });
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 var myFunctionResize;
-=======
-var isValidDate2, myFunctionResize;
->>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
+// =======
+// var isValidDate2, myFunctionResize;
+// >>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
 
 $(function() {
   var updateGroup1, updateGroup2;
@@ -2426,8 +2426,8 @@ $("#select-area-diagnostics").on("click", "li a", function() {
   return $("#select-area-diagnostics").modal("hide");
 });
 
-<<<<<<< HEAD
-=======
+// <<<<<<< HEAD
+// =======
 isValidDate2 = function(str) {
   var date, input;
   input = str.match(/\d+/g);
@@ -2448,7 +2448,7 @@ $('select').change(function() {
   }
 });
 
->>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
+// >>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
 $(window).scroll(function() {
   if (window.matchMedia('screen and (min-width: 768px)').matches) {
     if ($(window).scrollTop() > 50) {
@@ -2970,8 +2970,8 @@ $(function() {
   });
 });
 
-<<<<<<< HEAD
-=======
+// <<<<<<< HEAD
+// =======
 $(document).on('click', '.js-offers-btn', function() {
   var changeText, drop, getAttr, getText, getTextAttr;
   drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
@@ -2991,7 +2991,7 @@ $(document).on('click', '.js-offers-btn', function() {
   return false;
 });
 
->>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
+// >>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
 $(function() {
   $('.js-search-btn').click(function() {
     if ($('.js-form').hasClass('is-search-open')) {
@@ -3136,7 +3136,7 @@ smallCardInit();
 
 $("body").on("smallCardInit", smallCardInit);
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 $(document).on('click', '.js-offers-btn', function() {
   var changeText, drop, getAttr, getText, getTextAttr;
   drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
@@ -3156,8 +3156,8 @@ $(document).on('click', '.js-offers-btn', function() {
   return false;
 });
 
-=======
->>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
+// =======
+// >>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
 (function() {
   var $bodyMap, $commonPill, $skinPill, IE, detailed, gender, map, otherZoneClickHandler, refreshView, selectZone, selected, setGender, side, toggleDetailed, toggleSide, unselectZones, zones;
   $bodyMap = void 0;
