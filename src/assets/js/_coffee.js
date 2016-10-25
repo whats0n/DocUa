@@ -2374,7 +2374,11 @@ $(window).scroll(function() {
   }
 });
 
+<<<<<<< HEAD
 var myFunctionResize;
+=======
+var isValidDate2, myFunctionResize;
+>>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
 
 $(function() {
   var updateGroup1, updateGroup2;
@@ -2422,6 +2426,29 @@ $("#select-area-diagnostics").on("click", "li a", function() {
   return $("#select-area-diagnostics").modal("hide");
 });
 
+<<<<<<< HEAD
+=======
+isValidDate2 = function(str) {
+  var date, input;
+  input = str.match(/\d+/g);
+  date = new Date(input[2], input[1] - 1, input[0]);
+  return date.getFullYear() === +input[2] && date.getMonth() === +input[1] - 1 && date.getDate() === +input[0];
+};
+
+$('select').change(function() {
+  var all, date, month, years;
+  date = $('.js-valDate').find('select').val();
+  month = $('.js-valMonth').find('select').val();
+  years = $('.js-valYears').find('select').val();
+  all = date + '/' + month + '/' + years;
+  if (isValidDate2(all)) {
+    $(this).closest('.form-group').removeClass('has-error');
+  } else {
+    $(this).closest('.form-group').addClass('has-error');
+  }
+});
+
+>>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
 $(window).scroll(function() {
   if (window.matchMedia('screen and (min-width: 768px)').matches) {
     if ($(window).scrollTop() > 50) {
@@ -2943,6 +2970,28 @@ $(function() {
   });
 });
 
+<<<<<<< HEAD
+=======
+$(document).on('click', '.js-offers-btn', function() {
+  var changeText, drop, getAttr, getText, getTextAttr;
+  drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
+  changeText = $(this).children('.dotted');
+  getAttr = changeText.data('hidden');
+  getText = changeText.text();
+  getTextAttr = changeText.data('name');
+  drop.slideToggle('fast');
+  $(this).parents('.js-offers-tabs').toggleClass('is-active');
+  changeText.toggleClass('is-change');
+  if (changeText.hasClass('is-change')) {
+    changeText.attr("data-name", getText);
+    changeText.text(getAttr);
+  } else {
+    changeText.text(getTextAttr);
+  }
+  return false;
+});
+
+>>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
 $(function() {
   $('.js-search-btn').click(function() {
     if ($('.js-form').hasClass('is-search-open')) {
@@ -3087,6 +3136,7 @@ smallCardInit();
 
 $("body").on("smallCardInit", smallCardInit);
 
+<<<<<<< HEAD
 $(document).on('click', '.js-offers-btn', function() {
   var changeText, drop, getAttr, getText, getTextAttr;
   drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
@@ -3106,6 +3156,8 @@ $(document).on('click', '.js-offers-btn', function() {
   return false;
 });
 
+=======
+>>>>>>> 743233afc4fed6dfecd687884909a4e1d44fd506
 (function() {
   var $bodyMap, $commonPill, $skinPill, IE, detailed, gender, map, otherZoneClickHandler, refreshView, selectZone, selected, setGender, side, toggleDetailed, toggleSide, unselectZones, zones;
   $bodyMap = void 0;
