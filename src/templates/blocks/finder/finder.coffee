@@ -392,11 +392,11 @@ $(".js-index-autocomplete").each ->
             list.addClass 'js-lists'
             list.jScrollPane()
             list.show()
+            $('.top-list__title').dotdotdot
+                lines: 2,
+                responsive: true 
             return  
 
-        $('.top-list__title').dotdotdot
-            lines: 2,
-            responsive: true 
 
     $('.js-static-search').on "click", '.top-list__item', ->
         thisItem = $(this).find('.top-list__title')
