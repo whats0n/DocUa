@@ -1,9 +1,18 @@
+# $('.js-s-text-btn').on('click', function(){
+# 	$(this).toggleClass('is-open');
+# 	$(this).siblings('.js-s-text-b').toggleClass('is-open');
+# 	if ($('.js-s-text-b').hasClass('is-open')) {
+# 		$('.js-s-text-btn').text('скрыть');
+# 	} else {
+# 		$('.js-s-text-btn').text('дальше');
+# 	}
+# });
 
-$("#select-area").on "areaSelected", (e, {values}) ->
-    title = (value.title for value in values).join ", "
-    value = (value.value for value in values).join ", "
-    # $(".finder [data-target='#select-area'] input[type='hidden']").val value
-    $(".js-services-go [data-target='#select-area']").parent().find('.finder__field-text:last')
-        .val(if values.length > 0 then title else $(".js-services-go [data-target='#select-area'] .finder__field-text").data "emptyText")
-        .toggleClass("grey", values.length is 0)
-    $("#select-area").modal "hide"
+$('.js-s-text-btn').on 'click', ->
+	$(@).toggleClass 'is-open'
+	$(@).siblings('.js-s-text-b').toggleClass 'is-open'
+	if $(@).hasClass('is-open')
+		$(@).text 'скрыть'
+	else
+		$(@).text 'дальше'
+	return

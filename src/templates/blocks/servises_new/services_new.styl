@@ -64,6 +64,8 @@
 					font-weight: 400
 					&.heading
 						margin 0 0 5px 0
+					&.single
+						margin 0 0 5px 0
 					&.subheading
 						&:before
 							display none
@@ -89,7 +91,99 @@
 				box-shadow none !important
 				border-top 1px solid #d9d9d9
 				border-radius 0
+				
+.services-text
+	position relative
+	margin 0 0 35px
+	&__block
+		height 80px
+		overflow hidden
+		transition: height 300ms, overflow 300ms
+		&:after
+			content "" 
+			position absolute
+			bottom 0
+			left 0
+			right 0
+			width 100% 
+			height 20px
+			background: linear-gradient(to top,#fff 0,rgba(255,255,255,0) 100%)
+		&.is-open
+			height 100%
+			overflow visible 
+	&__in
+		position relative
+		color: #5e6e71
+		font-size: 16px
+		font-family: "PT Sans"
+		font-weight: 400
+		h2
+			margin-top 15px
+			color: #5e6e71
+			font-size: 20px
+		p
+			margin-top 15px
+		ul
+			margin-top 15px
+			li
+				position relative
+				padding-left 15px
+				list-style-type none
+				&:before
+					content ""
+					position absolute
+					top 5px
+					left 0
+					width 5px
+					height 4px
+					border-radius 1px 
+					background-color #5E6E71 
+	&__btn
+		position absolute
+		bottom -25px
+		right 0
+		padding-right 15px
+		cursor pointer
+		color: #4b89d3
+		font-size: 16px
+		line-height 1
+		&:after
+			content "" 
+			position absolute
+			top 50%
+			right 0
+			margin-top -2px
+			width 9px
+			height 5px
+			background-image: url('i/s-more.png')
+			transition: transform 300ms
+		&.is-open
+			bottom -15px
+			&:after
+				transform: rotate(180deg)
 
-
+.widget
+	&.widget-similar-diseases-new
+		.h3
+			margin 0
+			padding 15px
+			text-align left
+			color: #5e6e71
+			font-family: "PT Sans"
+			font-size: 20px
+			font-weight: 400
+		.diseases-body
+			padding 10px 15px
+			border-top 1px solid #D9D9D9 
+		.diseases-item
+			margin 0
+			.diseases-link
+				text-decoration none
+				&:before
+					width 6px
+					height 6px
+					background-color: #94b7be
+				&:hover
+					text-decoration underline
 
 

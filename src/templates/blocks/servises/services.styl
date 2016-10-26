@@ -272,6 +272,7 @@
 						background-repeat: repeat-x
 						transition: all .0s
 						&:hover
+							text-decoration underline
 							background: #fff linear-gradient(left, transparent, transparent 100%) 
 							
 					.list-in 
@@ -418,14 +419,37 @@
 			.small-card__footer
 				@media only screen and (max-width: 640px)
 					margin-top -10px
-					 
+		.small-card__address
+			&:before
+				top 0 
+		.small-card__location
+			&:before
+				top 0
+		.card__location_metro
+			&:before
+				top 2px
+	.address-info
+		display inline-block
+		vertical-align middle
+		width 100%
+		margin 5px 0
+		padding 0 0 10px
+		border-top: 1px solid #dde8ea
+		border-bottom: 1px solid #dde8ea
+		font-size 12px
 	.small-card__title
 		margin-bottom 0
-	.address-info
-		font-size 12px
+		a
+			text-decoration none
+	.small-card__footer
+		.btn
+			margin-top 5px
 	.small-card__schedule
 		&:after
-			display none	
+			display none
+		ul
+			display inline-block
+			vertical-align middle	
 	.block-services-wrapper
 		margin-top 27px	
 	.small-card__address, .small-card__location
