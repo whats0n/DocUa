@@ -1280,10 +1280,6 @@ if (typeof define === 'function' && define.amd) {
   window.waitForWebFonts = waitForWebFonts;
 }
 
-$(document).each(function() {
-  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
-});
-
 $("#select-specialization").on("click", "li a", function() {
   var item;
   item = $(this);
@@ -2374,7 +2370,11 @@ $(window).scroll(function() {
   }
 });
 
-var isValidDate2, myFunctionResize;
+$(document).each(function() {
+  return $(".js-seo").clone().appendTo('.flex_container').addClass('is-open');
+});
+
+var myFunctionResize;
 
 $(function() {
   var updateGroup1, updateGroup2;
@@ -2420,26 +2420,6 @@ $(window).resize(function() {
 
 $("#select-area-diagnostics").on("click", "li a", function() {
   return $("#select-area-diagnostics").modal("hide");
-});
-
-isValidDate2 = function(str) {
-  var date, input;
-  input = str.match(/\d+/g);
-  date = new Date(input[2], input[1] - 1, input[0]);
-  return date.getFullYear() === +input[2] && date.getMonth() === +input[1] - 1 && date.getDate() === +input[0];
-};
-
-$('select').change(function() {
-  var all, date, month, years;
-  date = $('.js-valDate').find('select').val();
-  month = $('.js-valMonth').find('select').val();
-  years = $('.js-valYears').find('select').val();
-  all = date + '/' + month + '/' + years;
-  if (isValidDate2(all)) {
-    $(this).closest('.form-group').removeClass('has-error');
-  } else {
-    $(this).closest('.form-group').addClass('has-error');
-  }
 });
 
 $(window).scroll(function() {
@@ -2982,34 +2962,6 @@ $(document).on('click', '.js-offers-btn', function() {
   return false;
 });
 
-$(function() {
-  $('.js-search-btn').click(function() {
-    if ($('.js-form').hasClass('is-search-open')) {
-      return true;
-    } else {
-      $('.js-form').addClass('is-search-open');
-      return false;
-    }
-  });
-  $('.js-search-input').focus(function() {
-    if ($('.js-form').hasClass('is-search-active')) {
-      return true;
-    } else {
-      $('.js-form').addClass('is-search-active');
-      return false;
-    }
-  });
-  $(document).on("click", function() {
-    return $(".js-form").removeClass("is-search-active");
-  });
-  $(document).on("click", function() {
-    return $(".js-form").removeClass("is-search-open");
-  });
-  return $('.js-form').on("click", function(e) {
-    return e.stopPropagation();
-  });
-});
-
 var flags;
 
 flags = true;
@@ -3110,6 +3062,34 @@ $(window).resize(smallCardInit);
 smallCardInit();
 
 $("body").on("smallCardInit", smallCardInit);
+
+$(function() {
+  $('.js-search-btn').click(function() {
+    if ($('.js-form').hasClass('is-search-open')) {
+      return true;
+    } else {
+      $('.js-form').addClass('is-search-open');
+      return false;
+    }
+  });
+  $('.js-search-input').focus(function() {
+    if ($('.js-form').hasClass('is-search-active')) {
+      return true;
+    } else {
+      $('.js-form').addClass('is-search-active');
+      return false;
+    }
+  });
+  $(document).on("click", function() {
+    return $(".js-form").removeClass("is-search-active");
+  });
+  $(document).on("click", function() {
+    return $(".js-form").removeClass("is-search-open");
+  });
+  return $('.js-form').on("click", function(e) {
+    return e.stopPropagation();
+  });
+});
 
 (function() {
   var $bodyMap, $commonPill, $skinPill, IE, detailed, gender, map, otherZoneClickHandler, refreshView, selectZone, selected, setGender, side, toggleDetailed, toggleSide, unselectZones, zones;

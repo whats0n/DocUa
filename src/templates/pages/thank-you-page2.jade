@@ -5,7 +5,7 @@
    finder: doctors
    modals: select-area, select-actions, select-specialization
    page_name: thank-you-page2
-      
+
 section    
    .col-sm-12.col-xs-12.tab-content                    
       header.header-styled.notopmargin   
@@ -88,8 +88,29 @@ section
                           input(type="text"  id="exampleInputName3").form-control
                           //- option Лікар нетрадиційной медицини
                   .form-group.form-group_date.js-validateDate
+                    //- script.
+                    //-   isValidDate2 = function(str) {
+                    //-     var date, input;
+                    //-     input = str.match(/\d+/g);
+                    //-     date = new Date(input[2], input[1] - 1, input[0]);
+                    //-     return date.getFullYear() === +input[2] && date.getMonth() === +input[1] - 1 && date.getDate() === +input[0];
+                    //-   }; 
+                    //-   $('.select').on('change' , function() {
+                    //-     var all, date, month, years;
+                    //-     date = $('.js-valDate').find('select').val();
+                    //-     month = $('.js-valMonth').find('select').val();
+                    //-     years = $('.js-valYears').find('select').val();
+                    //-     all = date + '/' + month + '/' + years;
+                    //-     if (isValidDate2(all)) {
+                    //-       $(this).closest('.form-group').removeClass('has-error');
+                    //-     } else {
+                    //-       $(this).closest('.form-group').addClass('has-error');
+                    //-     }
+                    //-   });
+
                     label(for="exampleInputName10").col-sm-3.col-md-3.col-xs-3.label-group_mod.control-label Дата 
                       | рождения*:
+
                     .application-l.application-l_mod.l-2
                         //- - var x = 1;
                         .select-wrap 
@@ -112,7 +133,7 @@ section
                                     - for (var i=1900; i<=x; i++) {
                                         option(value= i)= i
                                     - }
-                  span.js-text
+                    
                   .form-group.form-group_phone.form-group_inline 
                       label(for="exampleInputName11").col-sm-3 Телефон:
                       .col-sm-9  
@@ -125,3 +146,5 @@ section
                p Благодарим вас за выбор сервиса DOC.UA! Для связи по любым вопросам обращайтесь к нам по телефону <span>(044) 337-07-07</span> или по адресу <a href="/">info@doc.ua.</a>
             +e.content
                p С уважением, команда Doc.ua.
+  
+
