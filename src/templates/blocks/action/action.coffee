@@ -11,6 +11,6 @@ $("#select-specialization").on "click", "li a", ->
 $(".js-clear").on "click", ->
   $(this).siblings("span").text("Выберите направление")
   $(this).removeClass 'is-active'
-  $('.direction__title').text('Направление') 
+  $('.direction__title').text('Направление')   
   return false
  
