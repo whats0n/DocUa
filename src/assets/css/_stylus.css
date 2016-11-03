@@ -2576,12 +2576,14 @@ article.static-page .header-styled.header-styled-mod {
 }
 .promo-container .item-promo {
   position: relative;
-  border: 1px solid #fda82e !important;
+  -webkit-box-shadow: 0 0 0px 1px #fda82e !important;
+  box-shadow: 0 0 0px 1px #fda82e !important;
 }
 .promo-container .item-promo.item-promo_green {
   -webkit-border-radius: 0 3px 3px 3px;
   border-radius: 0 3px 3px 3px;
-  border: 1px solid #3ebfac !important;
+  -webkit-box-shadow: 0 0 0px 1px #3ebfac !important;
+  box-shadow: 0 0 0px 1px #3ebfac !important;
 }
 .promo-container .item-promo.item-promo_green .item-promo__block {
   top: -17px;
@@ -3489,7 +3491,6 @@ article.static-page .header-styled.header-styled-mod {
   box-shadow: 0 1px 1px rgba(0,64,76,0.3);
   zoom: 1;
   margin-bottom: 20px;
-  border: 1px solid transparent;
   -webkit-transition: border-color 0.2s ease, box-shadow 0.2s ease;
   -moz-transition: border-color 0.2s ease, box-shadow 0.2s ease;
   -o-transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -3505,7 +3506,8 @@ article.static-page .header-styled.header-styled-mod {
   clear: both;
 }
 .section-action__item:hover {
-  border-color: #3ebfac;
+  -webkit-box-shadow: 0 0 0px 1px #3ebfac !important;
+  box-shadow: 0 0 0px 1px #3ebfac !important;
 }
 @media only screen and (max-width: 560px) {
   .section-action__item {
@@ -8715,7 +8717,6 @@ hr {
   padding: 18px 0 21px;
   margin-bottom: 20px;
   background: #fff;
-  border: 1px solid #fff;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   -webkit-box-shadow: 0 1px 1px rgba(0,64,76,0.3);
@@ -8725,6 +8726,15 @@ hr {
   -o-transition: border-color 0.2s ease, box-shadow 0.2s ease;
   -ms-transition: border-color 0.2s ease, box-shadow 0.2s ease;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+.card:before {
+  content: "";
+  -webkit-transition: border 0.3s;
+  -moz-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  -ms-transition: border 0.3s;
+  transition: border 0.3s;
 }
 .card-mod {
   margin: 0;
@@ -8888,6 +8898,8 @@ hr {
 }
 .card-list .card:hover {
   border-color: #fda82e;
+  -webkit-box-shadow: 0 0 0px 1px #3ebfac;
+  box-shadow: 0 0 0px 1px #3ebfac;
 }
 .card-list .card:hover .more-toggle__link {
   border-color: #fda82e;

@@ -88,25 +88,7 @@ section
                           input(type="text"  id="exampleInputName3").form-control
                           //- option Лікар нетрадиційной медицини
                   .form-group.form-group_date.js-validateDate
-                    //- script.
-                    //-   isValidDate2 = function(str) {
-                    //-     var date, input;
-                    //-     input = str.match(/\d+/g);
-                    //-     date = new Date(input[2], input[1] - 1, input[0]);
-                    //-     return date.getFullYear() === +input[2] && date.getMonth() === +input[1] - 1 && date.getDate() === +input[0];
-                    //-   }; 
-                    //-   $('.select').on('change' , function() {
-                    //-     var all, date, month, years;
-                    //-     date = $('.js-valDate').find('select').val();
-                    //-     month = $('.js-valMonth').find('select').val();
-                    //-     years = $('.js-valYears').find('select').val();
-                    //-     all = date + '/' + month + '/' + years;
-                    //-     if (isValidDate2(all)) {
-                    //-       $(this).closest('.form-group').removeClass('has-error');
-                    //-     } else {
-                    //-       $(this).closest('.form-group').addClass('has-error');
-                    //-     }
-                    //-   });
+                    
 
                     label(for="exampleInputName10").col-sm-3.col-md-3.col-xs-3.label-group_mod.control-label Дата 
                       | рождения*:
@@ -116,20 +98,20 @@ section
                         .select-wrap 
                             .form-control.js-valDate
                               - var x = 31;
-                                 select(name="days").select7.select7_dropdown
+                                 select(name="days").select7.select7_dropdown.js-validate-select
                                      - for (var i=1; i<=x; i++) {
                                          option(value= i)= i
                                      - }
                     .application-l.application-l_mod.l-4
                         .form-control.js-valMonth
                             - var month = [{name :'Январь', val : '01'}, {name : 'Февраль', val : '02'}, {name : 'Март', val : '03'}, {name: 'Апрель', val : '04'}, {name: 'Май', val : '05'}, {name : 'Июнь', val : '06'}, {name: 'Июль', val : '07'}, {name : 'Август',val : '08'}, {name : 'Сентябрь', val : '09'}, {name: 'Октябрь', val : '10'}, {name :'Ноябрь',val : '11'}, {name: 'Декабрь', val : '12'}];
-                            select(name="month").select7.select7_dropdown
+                            select(name="month").select7.select7_dropdown.js-validate-select
                                 for item in month  
                                     option(value= item.val)= item.name
                     .application-l.application-l_mod.l-3
                         .form-control.js-valYears
                             - var x = 2016
-                                select(name="years").select7.select7_dropdown
+                                select(name="years").select7.select7_dropdown.js-validate-select
                                     - for (var i=1900; i<=x; i++) {
                                         option(value= i)= i
                                     - }
@@ -146,5 +128,3 @@ section
                p Благодарим вас за выбор сервиса DOC.UA! Для связи по любым вопросам обращайтесь к нам по телефону <span>(044) 337-07-07</span> или по адресу <a href="/">info@doc.ua.</a>
             +e.content
                p С уважением, команда Doc.ua.
-  
-

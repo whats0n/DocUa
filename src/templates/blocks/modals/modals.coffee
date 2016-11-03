@@ -49,19 +49,19 @@ $("#select-area-diagnostics").on "click", "li a", ->
   return $("#select-area-diagnostics").modal "hide"
    
 # validate date
-# isValidDate2 = (str) ->
-#   input = str.match(/\d+/g)
-#   date = new Date(input[2], input[1] - 1, input[0]) 
-#   date.getFullYear() == +input[2] && date.getMonth() == +input[1] - 1 && date.getDate() == +input[0]
+isValidDate2 = (str) -> 
+  input = str.match(/\d+/g)
+  date = new Date(input[2], input[1] - 1, input[0]) 
+  date.getFullYear() == +input[2] && date.getMonth() == +input[1] - 1 && date.getDate() == +input[0]
 
-# $('select').change -> 
-#   date = $('.js-valDate').find('select').val()
-#   month = $('.js-valMonth').find('select').val()
-#   years = $('.js-valYears').find('select').val() 
-#   all = date + '/' + month + '/' + years 
+$('select.js-validate-select').change -> 
+  date = $('.js-valDate').find('select').val()
+  month = $('.js-valMonth').find('select').val()
+  years = $('.js-valYears').find('select').val() 
+  all = date + '/' + month + '/' + years 
 
-#   if isValidDate2(all) 
-#     $(this).closest('.form-group').removeClass('has-error')
-#   else
-#     $(this).closest('.form-group').addClass('has-error')
-#   return 
+  if isValidDate2(all) 
+    $(this).closest('.form-group').removeClass('has-error')
+  else
+    $(this).closest('.form-group').addClass('has-error')
+  return 
