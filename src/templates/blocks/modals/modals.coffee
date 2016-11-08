@@ -49,12 +49,12 @@ $("#select-area-diagnostics").on "click", "li a", ->
   return $("#select-area-diagnostics").modal "hide"
    
 # validate date
-isValidDate2 = (str) ->
+isValidDate2 = (str) -> 
   input = str.match(/\d+/g)
-  date = new Date(input[2], input[1] - 1, input[0])
+  date = new Date(input[2], input[1] - 1, input[0]) 
   date.getFullYear() == +input[2] && date.getMonth() == +input[1] - 1 && date.getDate() == +input[0]
 
-$('select').change -> 
+$('select.js-validate-select').change -> 
   date = $('.js-valDate').find('select').val()
   month = $('.js-valMonth').find('select').val()
   years = $('.js-valYears').find('select').val() 
