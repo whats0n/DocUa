@@ -217,30 +217,31 @@
           
         
     aside.col-md-3.hidden-sm.hidden-xs
-        .widget.widget-similar-diseases
-           .h3.main-title__action Андрологические услуги
-           .diseases-body.link-more__mod
-              ul.diseases-check-list.diseases_aside
-                 li.diseases-item.alphabet-list__sub-item
-                    a.diseases-link(href="", title="") Консультации
-                 li.diseases-item.alphabet-list__sub-item
-                    a.diseases-link(href="", title="") Диагностика
-                 li.diseases-item.alphabet-list__sub-item
-                    a.diseases-link(href="", title="") Консервативное лечение
-                 li.diseases-item.alphabet-list__sub-item
-                    a.diseases-link(href="", title="") Манипуляции
-                 li.diseases-item.alphabet-list__sub-item
-                    a.diseases-link(href="", title="") Операции
-        .h3 
-            b Акции
-        .widget.widget-action
-            - var limit = 3          
-            - var postWide     
-            each offer, i in specialOffers                 
-              if !offer.postWide               
-                if i < limit 
-                  .service-mod
-                    +b("article").post2: +i(offer) 
+      .widget.widget-similar-diseases
+        .h3.main-title__action Андрологические услуги
+        .diseases-body.link-more__mod
+          ul.diseases-check-list.diseases_aside
+            li.diseases-item.alphabet-list__sub-item
+              a.diseases-link(href="", title="") Консультации
+            li.diseases-item.alphabet-list__sub-item
+              a.diseases-link(href="", title="") Диагностика
+            li.diseases-item.alphabet-list__sub-item
+              a.diseases-link(href="", title="") Консервативное лечение
+            li.diseases-item.alphabet-list__sub-item
+              a.diseases-link(href="", title="") Манипуляции
+            li.diseases-item.alphabet-list__sub-item
+              a.diseases-link(href="", title="") Операции
+
+      .h3 
+        b Акции
+      .widget.widget-action
+        - var limit = 3          
+        - var postWide     
+        each offer, i in specialOffers                 
+          if !offer.postWide               
+            if i < limit 
+              .service-mod
+                +b("article").post2: +i(offer) 
         
 
 

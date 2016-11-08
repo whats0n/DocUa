@@ -41,7 +41,7 @@ body, html
     .cabinet-enter__link-icon  
         &:before
             content ''
-            background url('i/cabinet/cabinet-user.png')
+            sprite($cabinet-user)
             display inline-block
             width 13px
             height 15px
@@ -135,12 +135,15 @@ body, html
             display inline-block 
             width 17px
             height 19px
-            background url('i/cabinet/profile-icon.png') no-repeat center left
+            sprite($profile-icon) 
+            background-position center left
             transition all 0.3s
         &-profile:hover:after
-                background url('i/cabinet/profile-icon-hover.png') no-repeat center left
+                sprite($profile-icon-hover)
+                background-position center left
         &-profile.is-active:after
-                background url('i/cabinet/profile-icon-hover.png') no-repeat center left 
+                sprite($profile-icon-hover)
+                background-position center left 
         &-note:after
             content ''
             position absolute
@@ -149,11 +152,14 @@ body, html
             display inline-block
             width 19px 
             height 19px
-            background url('i/cabinet/pencil-icon.png') no-repeat center left
+            sprite($pencil-icon)
+            background-position center left
         &-note:hover:after
-                background url('i/cabinet/pencil-icon-hover.png') no-repeat center left
+                sprite($pencil-icon-hover)
+                background-position center left
         &-note.is-active:after
-                background url('i/cabinet/pencil-icon-hover.png') no-repeat center left
+                sprite($pencil-icon-hover)
+                background-position center left
                 
         &-reviews:after
             content ''
@@ -163,11 +169,13 @@ body, html
             display inline-block
             width 19px
             height 20px
-            background url('i/cabinet/star-icon.png') no-repeat
+            sprite($star-icon)
         &-reviews:hover:after
-                background url('i/cabinet/star-icon-hover.png') no-repeat center left
+                sprite($star-icon-hover)
+                background-position center left
         &-reviews.is-active:after
-                background url('i/cabinet/star-icon-hover.png') no-repeat center left  
+                sprite($star-icon-hover)
+                background-position center left  
         &-like:after 
             content ''
             position absolute
@@ -176,11 +184,13 @@ body, html
             display inline-block
             width 19px
             height 16px
-            background url('i/cabinet/like-icon.png') no-repeat
+            sprite($like-icon.png')
         &-like:hover:after
-                background url('i/cabinet/like-icon-hover.png') no-repeat center left
+                sprite($like-icon-hover)
+                background-position center left
         &-like.is-active:after
-                background url('i/cabinet/like-icon-hover.png') no-repeat center left
+                sprite($like-icon-hover)
+                background-position center left
 
 //profile
 .cabinet-section 
@@ -246,7 +256,7 @@ body, html
             width 20px
             height 20px
             cursor pointer 
-            background url('i/cabinet/piker-calendar.png') no-repeat
+            sprite($piker-calendar)
         .field-text__child 
             position relative 
             padding 0 0 0 20px
@@ -340,7 +350,7 @@ body, html
             width 20px
             height 20px
             cursor pointer 
-            background url('i/cabinet/piker-calendar.png') no-repeat
+            sprite($piker-calendar)
         .profile-parol
             position absolute
             right -138px
@@ -358,7 +368,7 @@ body, html
                 width 14px
                 height 14px
                 margin 0 5px -3px 0
-                background url('i/cabinet/parol.png') no-repeat 
+                sprite($parol) 
         .profile-tel
             right -158px
             @media only screen and (max-width: 1150px)  
@@ -369,7 +379,7 @@ body, html
                 width 10px
                 height 16px
                 margin 0 6px -3px 0
-                background url('i/cabinet/tel.png') no-repeat  
+                sprite($tel)  
         .add-tel
             display none
             margin-top 15px
@@ -400,7 +410,7 @@ body, html
                 top 6px
                 width 21px
                 height 21px
-                background url('i/cabinet/add-tel.png') no-repeat
+                sprite($add-tel)
         
         .item-in__right
             float right
@@ -457,14 +467,14 @@ body, html
         &:before
             content ''
             display inline-block
-            background url('i/cabinet/checkbox.png') no-repeat
+            sprite($checkbox)
             position absolute
             left -30px
             top -1px
             width 20px
             height 20px 
     .modal-radio:checked + label::before 
-        background url('i/cabinet/checkbox-active.png') no-repeat 
+        sprite($checkbox-active)
     
 
             
@@ -623,7 +633,7 @@ hr
                 top 13px
                 width 18px
                 height 18px
-                background url('i/cabinet/calendar-icon.png') no-repeat center
+                sprite($calendar-icon)
         &__right-side
             background-color green_base
             position absolute
@@ -659,7 +669,7 @@ hr
                     width 16px
                     height 16px
                     display block
-                    background url('i/cabinet/ok-icon.png') no-repeat center
+                    sprite($ok-icon)
                 &__icon-mod
                     position absolute
                     left 20px
@@ -667,7 +677,7 @@ hr
                     width 16px
                     height 16px
                     display block
-                    background url('i/cabinet/rewiews-icon-moderation.png') no-repeat center
+                    sprite($rewiews-icon-moderation)
                 &__icon-cancel
                     position absolute
                     left 20px
@@ -675,7 +685,7 @@ hr
                     width 16px
                     height 16px
                     display block
-                    background url('i/cabinet/rewiews-icon-cancel.png') no-repeat center
+                    sprite($rewiews-icon-cancel)
                 &__link
                     color #FFF
                     font-style italic
@@ -685,7 +695,7 @@ hr
                         left 20px
                         top 12px 
                         display block
-                        background url('i/cabinet/pencil-icon-white.png') no-repeat center
+                        sprite($pencil-icon-white)
                         width 16px
                         height 16px 
         .right-side__cancel 
@@ -695,7 +705,7 @@ hr
                 color #5e6e71 
                 font-style italic
                 &:before
-                    background url('i/cabinet/pencil-icon-cancel.png') no-repeat center
+                    sprite($pencil-icon-cancel)
                     
     .comment
        border-left 1px solid rgba(0, 130, 155, 0.32)
@@ -749,7 +759,7 @@ hr
                         height 19px
                         margin-right 7px
                         margin-bottom -3px
-                        background url('i/icons/like-box-like.png') no-repeat center
+                        sprite($like-box-like)
                 &__norecomend
                     color #ff5858 
                     margin-bottom 10px
@@ -761,7 +771,7 @@ hr
                         height 19px
                         margin-right 7px
                         margin-bottom -3px
-                        background url('i/icons/like-box-dislike.png') no-repeat center
+                        sprite($like-box-dislike)
                           
             .doctor-right 
                 padding 15px 0 5px 15px 
@@ -864,13 +874,13 @@ hr
                 &:before
                     background none 
         .likebox-dislike__mod 
-            background url('i/cabinet/cabinet-dislike.png') no-repeat center 
+            sprite($cabinet-dislike) 
             width 24px
             height 26px
             display inline-block
             transition all 0.1s
             &:hover
-                background url('i/cabinet/cabinet-dislike_hover.png') no-repeat center 
+                sprite($cabinet-dislike_hover) 
     
     .content-footer
         padding 20px 0
@@ -1045,7 +1055,7 @@ hr
             content ''
             display inline-block
             margin 0 12px -2px 0 
-            background url('i/cabinet/attention.png') no-repeat center 
+            sprite($attention)
             width 17px
             height 17px
 .no-favorites

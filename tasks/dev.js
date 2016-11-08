@@ -14,6 +14,7 @@ gulp.task('default', ['browser-sync'], function (){
     gulp.watch(config.js.checkerList, ['js_checker']);
 
     gulp.watch(['./src/assets/img/**/*.*'], ['images']);
+    gulp.watch(['./src/assets/sprite-png/*.png'], ['sprite:watch']);
     gulp.watch(config.css.stylusList, ['stylus']);
     gulp.watch(config.css.lessList, ['less']);
     gulp.watch(config.css.cssList, ['css']);
