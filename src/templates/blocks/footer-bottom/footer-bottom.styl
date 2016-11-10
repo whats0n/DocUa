@@ -73,29 +73,43 @@
             margin-right 12px 
             width 35px 
             height 35px 
-            background-color rgba(255, 255, 255, .75) 
+            background rgba(255, 255, 255, .75) 
             border-radius 50%
             border 1px solid rgba(255, 255, 255, .6) 
             box-sizing border-box
+            &:after
+                content ""
+                position absolute
+                top 50%
+                left 50% 
             &:last-child
                 margin-right 0
             &-social
                 &-fb
-                    sprite($footer_fb_icon)
+                    &:after
+                        margin -7px 0 0 -3px
+                        sprite($footer_fb_icon)
     
                     &:hover
-                        sprite($footer_fb_hover)
+                        &:after
+                            sprite($footer_fb_hover)
                 &-vk
-                    sprite($footer_vk_icon)
+                    &:after
+                        margin -5px 0 0 -9px
+                        sprite($footer_vk_icon)
     
                     &:hover
-                        sprite($footer_vk_hover)
+                        &:after
+                            sprite($footer_vk_hover)
 
                 &-gplus
-                    sprite($footer_g_icon)
+                    &:after
+                        margin -7px 0 0 -11px
+                        sprite($footer_g_icon)
     
                     &:hover
-                        sprite($footer_g_hover)
+                        &:after
+                            sprite($footer_g_hover)
             &:hover
                 background-color transparent 
                 opacity .75 
