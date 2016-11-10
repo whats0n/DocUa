@@ -353,9 +353,16 @@
     border-bottom 0 none
 
 .symptoms__list-item_selected
-  sprite($check) 
+  position relative
   font-weight bold
   color #168da4
+  &:after
+    content "" 
+    position absolute
+    right 0
+    top 50%
+    margin-top -11px
+    sprite($check) 
 
 .symptoms-selected
   margin-bottom 15px
