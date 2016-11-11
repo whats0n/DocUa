@@ -125,8 +125,9 @@
 				margin 3px auto 10px
 				@media screen560
 					float left
+					max-height 120px
 					margin-left 20px
-					margin-right 10px 
+					margin-right 20px 
 		.rating
 			@media phone
 				display block
@@ -140,6 +141,11 @@
 			.card__testimonials
 				@media screen560
 					position static
+		.rating-wrapper
+			@media screen560
+				.rating
+					margin 0
+					padding 0
 		.rating
 			@media screen560
 				right 25px
@@ -177,6 +183,9 @@
 			width 100%
 			padding 0 25px
 		.main-title
+			&__top
+				@media screen560
+					display none
 			&__link
 				font-size 18px
 				font-weight 700
@@ -284,6 +293,7 @@
 			left 0
 			bottom 0
 			max-width none 
+			padding-bottom 33px
 			background-color transparent
 			
 			// &:before
@@ -699,4 +709,35 @@
 		.btn
 			@media only screen and (max-width: 450px) 
 				width 100%
+				
+.is-mobile
+	display none
+	overflow hidden
+	text-align left
+	@media screen560
+		display block
+		.main-title
+			&__link
+				font-size 18px
+				font-weight 700
+				line-height 26px
+				color blue_link
+			&__clinic
+				display block
+				padding-top 5px 
+				font-size 14px
+				color text_color
+			&__special
+				line-height 18px
+				color rgba(#5e6e71, 0.79)
+
+.rating-wrapper
+	float left
+	width 120px
+	margin -40px 20px 0
+
+
+
+
+
 		
