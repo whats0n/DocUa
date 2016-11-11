@@ -13,15 +13,16 @@ minWidth = 15px
     &__icon
         display block
         position fixed
-        top 36px
-        left 0
+        top 50px
+        left 10px
         margin 0 auto 4px
         width 63px
         height 100%
         background-repeat no-repeat
-        background-image url('i/go-top.png')
-        background-position -63px 0
         color #afb7bc
+        // background-image url('i/go-top.png')
+        // background-position -63px 0
+        sprite($go-top)
     &__title
         text-align center
         text-decoration none
@@ -32,10 +33,11 @@ minWidth = 15px
         transition none
         display block
     &:hover
+        background-color rgba(60, 50, 50, 0.1)
         .go-top__icon
             color #008fa5
-            background-color rgba(60, 50, 50, 0.1)
-            background-position 0 -63px
+            // background-position 0 -63px
+            sprite($go-top-hover)
     @media (min-width: 768px) and (max-width: 868px), (min-width: 980px) and (max-width: 1085px)
         width minWidth
         .go-top__icon
