@@ -1,0 +1,241 @@
+.block-prices
+    &__item
+        clearfix()
+        &.is-hidden
+            display: none
+        &:hover 
+            background-color #f3f8fb
+            cursor pointer
+            .btn-hide
+                display inline-block
+            .block-prices__heading-right
+                .percent
+                    display none
+                .price-discount
+                    display none
+            .btn-hidden
+                display inline-block
+        &:last-child
+            > .block-prices__title
+                border-bottom: 1px solid #bbd1d5
+        &.item-level-1
+            padding 15px 20px 15px 55px
+        &.item-level-2
+            padding 15px 20px 15px 80px
+    &__category
+        &:last-child
+            > .block-prices__title
+                border-bottom: 1px solid #bbd1d5
+            > .block-prices__drop > .block-prices__wrap > .block-prices__item:last-child
+                border-bottom 1px solid #dde8ea
+            .block-prices__subcategory 
+                &:last-child
+                    > .block-prices__title
+                        border-bottom: 1px solid #ccdde0
+                    .block-prices__item
+                        &:last-child
+                            border-bottom: 1px solid #dde8ea
+        &.active
+            > .block-prices__title
+                border-bottom: 1px solid #bbd1d5
+            .block-prices__drop-icon
+                sprite($minus)
+        > .block-prices__title
+            background-color: #cee7ec
+        .block-prices__item
+            border-top 1px solid #dde8ea
+            &:first-child
+                border none
+        .block-prices__subcategory 
+            &:first-child
+                > .block-prices__title
+                    border-top: none
+            .block-prices__drop-icon
+                sprite($plus)
+            &.active
+                .block-prices__drop-icon
+                    sprite($minus)
+        .block-prices__drop-icon
+            sprite($plus)
+    &__subcategory
+        &.active
+            > .block-prices__title
+                border-bottom: 1px solid #ccdde0
+        > .block-prices__title
+            padding-left 80px
+            background-color: #e6f3f5
+            border-top: 1px solid #ccdde0
+    &__title
+        clearfix()
+        padding 15px 20px 15px 55px 
+        border-top: 1px solid #bbd1d5
+        cursor: pointer
+        user-select: none
+        font-size: 0
+        &-in
+            position: relative
+            display: inline-block
+            color: #5e6e71
+            font-size: 15px
+            line-height: 1.4
+            // overflow: hidden 
+            @media screen560
+                width 60%
+            strong
+                span
+                    color: #90b1b8
+                    font-weight normal 
+    &__drop-icon
+        position: absolute
+        top: 50%
+        margin-top -8px
+        left: -25px
+        width: 14px
+        height: 14px                
+    &__price-discount
+        float: right
+        margin-left: 10px 
+        text-align: right
+        color: #5e6e71
+        font-size: 15px
+        span
+            color: #a9bbc2
+            text-decoration: line-through
+            padding: 0 5px
+        a.btn-hide
+            display none
+            @media screen560
+                position absolute
+                top 8px
+                right 0
+        @media only screen and (max-width:640px)
+            margin-left 0
+        @media screen560
+            position relative
+    &__drop
+        position: relative
+        display: none    
+    .btn
+        font-size: 16px
+        font-weight: 700
+        padding: 2px 22px 4px
+        display: inline-block
+        vertical-align: top
+    .btn-hide
+        margin -5px 0 -5px 20px
+        padding 2px 22px 4px
+        font-weight: 400 
+        @media screen560
+            margin 0px 0 0px 10px   
+    &__heading
+        clearfix()
+        &-left
+            float left
+            width 50%
+            min-height 27px 
+            @media only screen and (max-width: 1200px)
+                width 35%
+            @media only screen and (max-width: 620px)
+                width 40%
+            @media only screen and (max-width: 760px)
+                min-height 55px
+            @media screen560
+                float none
+                width auto
+                min-height 27px
+            .names
+                font-size 15px
+                color text_color
+                padding: 3px 0
+                span 
+                    color: #90b1b8           
+        &-right
+            float right
+            text-align left
+            font-size: 0
+            @media screen560
+                float none
+                min-height: 62px
+                margin-top: 5px
+                padding: 0
+            .fillials
+                position relative
+                display inline-block
+                vertical-align: middle
+                margin-right 20px
+                padding-left 23px
+                transform: translate3d(0,0,0)
+                color: text_color
+                font-size: 14px
+                line-height 26px
+                @media only screen and (max-width: 640px)
+                    display: none
+                &:before
+                    content ""
+                    position absolute
+                    left 0
+                    top 50%
+                    margin-top -9px
+                    sprite($location)
+            .percent 
+                display inline-block
+                vertical-align middle
+                font-size: 15px
+                color text_color
+                margin-right 5px 
+                width 35px
+                @media only screen and (max-width: 1100px)
+                    margin-right 5px
+                @media only screen and (max-width: 580px)
+                    margin-right 2px
+                @media screen560
+                    display none !important
+            .price-discount
+                display inline-block
+                vertical-align: middle
+                width 160px
+                text-align right
+                clearfix()
+                @media screen560
+                    vertical-align middle
+                @media only screen and (max-width: 560px)
+                    text-align: left
+                .old-price
+                    float: left
+                    width: 48%
+                    color: #91b5bc
+                    font-size: 13px
+                    line-height: 22px
+                    text-decoration: line-through
+                    @media only screen and (max-width: 580px)
+                        font-size 12px
+                .new-price
+                    float: right
+                    width: 52%
+                    padding-left: 3px
+                    color: #5e6e71
+                    font-size: 16px
+                    @media only screen and (max-width: 1100px)
+                        font-size 15px
+            .btn
+                display none
+                vertical-align middle
+                width: 200px
+                margin -4px 0 -4px 0px
+                padding 3px 7px 
+                color: #feffff
+                font-size 16px 
+                font-weight 400
+                @media screen560
+                    margin 5px 0 0 0  
+                @media only screen and (max-width: 1100px)
+                    margin -3px 0 0 0px
+                    font-size 15px
+                @media screen560
+                    display block !important
+    .promotional-offers .offers__item .offers-wrap
+        padding-left 55px
+      
+                
+                
+          
