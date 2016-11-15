@@ -338,6 +338,17 @@
             +e.price-discount 
                 | 820 грн
                 a(href="#").btn.btn-success.btn-hide Записаться 
+    +e("li").category.js-prices
+        +e.title.js-prices-btn
+            +e.title-in
+                strong 
+                    //- +e("i").icon
+                    +e("i").drop-icon
+                    | Акционные предложения
+            +e.price-discount 820 грн 
+        +e.drop.js-prices-block
+            +b.promotional-offers
+                include ../promotional-offers/promotional-offers.jade 
     +e("li").category.js-prices 
         +e.title.js-prices-btn
             +e.title-in
@@ -595,18 +606,7 @@
                                             .old-price 820 грн 
                                             .new-price 820 грн 
                                         a(href="#").btn.btn-success.btn-hidden Получить скидку 
-                                            span 15%      
-    //- +e("li").category.js-prices
-    //-     +e.title.js-prices-btn
-    //-         +e.title-in
-    //-             strong 
-    //-                 //- +e("i").icon
-    //-                 +e("i").drop-icon
-    //-                 | Акционные предложения
-    //-         +e.price-discount 820 грн 
-    //-     +e.drop.js-prices-block
-    //-         +b.promotional-offers
-    //-             include ../promotional-offers/promotional-offers.jade    
+                                            span 15%         
 +b.load-more
     +e('span').text 180 услуг диагностического центра
     +e('a').link(href="#") Посмотреть весь прайс-лист 
