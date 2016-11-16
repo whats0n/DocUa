@@ -6,13 +6,15 @@
         &:hover 
             background-color #f3f8fb
             cursor pointer
-            .btn-hide
+            .btn.btn-hide
                 display inline-block
             .block-prices__heading-right
                 .percent
                     display none
                 .price-discount
                     display none
+                    @media screen560
+                        display inline-block
             .btn-hidden
                 display inline-block
         &:last-child
@@ -21,18 +23,27 @@
         &.item-level-1
             border-top: 1px solid #dde8ea
             .block-prices__title
-                height 42px
-                padding 5px 20px 5px 50px
+                min-height 41px
+                padding 11px 20px 10px 50px
         &.item-level-2
-            height 43px
-            padding 5px 20px 5px 50px
+            min-height 41px
+            padding 12px 20px 10px 50px
             vertical()
             text-align left
         &.item-level-3
-            min-height 43px
+            min-height 41px
             height 100% 
-            padding 6px 20px 4px 80px
-        // .block-prices__title
+            padding 13px 20px 10px 80px
+        .block-prices__title
+            .block-prices__title-in
+                @media only screen and (max-width: 360px)
+                    width 100%
+            .block-prices__price-discount
+                @media only screen and (max-width: 360px)
+                    width 100%
+                    margin 10px 0 5px
+                    padding 0
+                    text-align left
     &__category
         &:last-child
             > .block-prices__title
@@ -59,12 +70,26 @@
             padding 5px 20px 5px 50px
             border-top: 1px solid #bbd1d5
             background-color: #cee7ec
+            > .block-prices__title-in
+                @media only screen and (max-width: 360px)
+                    width 50%
+            > .block-prices__price-discount
+                @media only screen and (max-width: 360px)
+                    width 50%
+                    margin 0
+                    padding-left 10px
+                    text-align right
         .block-prices__item
             border-top 1px solid #dde8ea
             &:first-child
                 border none
         .block-prices__price-discount
             line-height 1.4
+            @media only screen and (max-width: 360px)
+                width 100%
+                margin 10px 0 5px
+                padding 0
+                text-align left
         .block-prices__subcategory 
             &:first-child
                 > .block-prices__title
@@ -81,11 +106,15 @@
             > .block-prices__title
                 border-bottom: 1px solid #ccdde0
         > .block-prices__title
-            padding-left 80px
             background-color: #e6f3f5
             border-top: 1px solid #ccdde0
         .block-prices__title
-            padding: 5px 20px 5px 80px
+            min-height 45px 
+            height auto
+            padding: 13px 20px 10px 80px
+            .block-prices__title-in
+                // @media only screen and (max-width: 1200px)
+                width 100%
     &__title
         clearfix() 
         vertical()
@@ -100,11 +129,19 @@
             color: #5e6e71
             font-size: 14px
             line-height: 1.4 
+            @media only screen and (max-width: 1200px)
+                width 60%
             span
                 color: #90b1b8
                 font-weight normal 
-            @media screen560
+            @media only screen and (max-width: 640px)
+                width 70%
+            @media only screen and (max-width: 480px)
                 width 60%
+            @media only screen and (max-width: 420px)
+                width 50%
+            @media only screen and (max-width: 360px)
+                width 100%
     &__drop-icon
         position: absolute
         top: 50%
@@ -125,16 +162,25 @@
             color: #a9bbc2
             text-decoration: line-through
             padding: 0 5px
-        a.btn-hide
+        .btn.btn-hide
             display none
-            @media screen560
+            @media only screen and (max-width:640px)
                 position absolute
-                top 8px
+                top -5px
                 right 0
+                margin 0 0 0 20px
+            @media only screen and (max-width:360px)
+                margin 0
+        @media only screen and (max-width: 1200px)
+            width 40%
         @media only screen and (max-width:640px)
-            margin-left 0
-        @media screen560
             position relative
+            width 30%
+            margin-left 0
+        @media only screen and (max-width: 480px)
+            width 40%
+        @media only screen and (max-width: 420px)
+            width 50%
     &__drop
         position: relative
         display: none    
@@ -145,7 +191,7 @@
         display: inline-block
         vertical-align: top
     .btn-hide
-        margin -5px 0 -5px 20px
+        margin -6px 0 -6px 20px
         padding 2px 22px 4px
         font-weight: 400 
         @media screen560
@@ -164,22 +210,29 @@
             width 60%
             min-height 27px 
             @media only screen and (max-width: 1200px)
-                width 35%
-            @media only screen and (max-width: 620px)
+                width 50%
+            @media only screen and (max-width: 710px)
                 width 40%
-            @media only screen and (max-width: 760px)
-                min-height 55px
+            @media only screen and (max-width: 640px)
+                width 50%
+            @media only screen and (max-width: 560px)
+                width 100%
+            // @media only screen and (max-width: 760px)
+            //     min-height 55px
             @media screen560
                 float none
                 width auto
                 min-height 27px
         .names
-            padding: 7px 0
+            padding: 3px 0
             color text_color
             font-size 14px
             line-height 1.2
             span 
-                color: #90b1b8           
+                color: #90b1b8 
+        .tooltip
+            &.top .tooltip-arrow   
+               bottom 0px       
         &-right
             // float right
             display inline-block
@@ -187,11 +240,18 @@
             width 40%
             text-align right
             font-size: 0
+            @media only screen and (max-width: 1200px)
+                width 50%
+            @media only screen and (max-width: 710px)
+                width 60%
+            @media only screen and (max-width: 640px)
+                width 50%
             @media screen560
-                float none
-                min-height: 62px
-                margin-top: 5px
+                width 100% 
+                // min-height: 62px
+                // margin-top: 5px
                 padding: 0
+                text-align left
             .fillials
                 position relative
                 display inline-block
@@ -230,10 +290,9 @@
                 width 160px
                 text-align right
                 clearfix()
-                @media screen560
-                    vertical-align middle
                 @media only screen and (max-width: 560px)
-                    text-align: left
+                    padding-bottom 5px
+                    text-align left
                 .old-price
                     float: left
                     width: 48%
@@ -261,14 +320,50 @@
                 font-size 16px 
                 font-weight 400
                 @media screen560
-                    margin 5px 0 0 0  
+                    display block !important
+                    margin 5px 0 10px 0  
                 @media only screen and (max-width: 1100px)
                     margin -3px 0 0 0px
                     font-size 15px
-                @media screen560
-                    display block !important
     .promotional-offers .offers__item .offers-wrap
         padding-left 55px
+        
+.price-info
+    position relative
+    padding 20px 0 15px
+    border-bottom 1px solid #d9d9d9
+    background-color #fff9e9
+    clearfix()
+    &__left
+        float left
+    &__icon
+        padding 5px 25px 0
+        &:after
+            content ""
+            display inline-block
+            vertical-align middle
+            sprite($price-info)
+    &__wrap
+        overflow hidden
+        padding 2px 0
+    &__text
+        padding 0 15px 5px 0
+        font-size: 16px
+        font-weight: 400
+        line-height 1.2
+    &__update
+        font-size: 14px
+        font-weight: 700
+.about-in
+    background-color #fff9e9
+    text-align center
+    border-bottom 1px solid #c0d2d6
+    &__price-update
+        background #FFF
+        color #96b8bf
+        font-size 14px
+        font-weight 700
+        padding 1px 10px
       
                 
                 
