@@ -35,10 +35,10 @@
             height 100% 
             padding 13px 20px 10px 80px
         .block-prices__title
-            .block-prices__title-in
+            .block-prices__title-left
                 @media only screen and (max-width: 360px)
                     width 100%
-            .block-prices__price-discount
+            .block-prices__title-right
                 @media only screen and (max-width: 360px)
                     width 100%
                     margin 10px 0 5px
@@ -70,10 +70,10 @@
             padding 5px 20px 5px 50px
             border-top: 1px solid #bbd1d5
             background-color: #cee7ec
-            > .block-prices__title-in
+            > .block-prices__title-left
                 @media only screen and (max-width: 360px)
                     width 50%
-            > .block-prices__price-discount
+            > .block-prices__title-right
                 @media only screen and (max-width: 360px)
                     width 50%
                     margin 0
@@ -83,7 +83,7 @@
             border-top 1px solid #dde8ea
             &:first-child
                 border none
-        .block-prices__price-discount
+        .block-prices__title-right
             line-height 1.4
             @media only screen and (max-width: 360px)
                 width 100%
@@ -112,7 +112,7 @@
             min-height 45px 
             height auto
             padding: 13px 20px 10px 80px
-            .block-prices__title-in
+            .block-prices__title-left
                 // @media only screen and (max-width: 1200px)
                 width 100%
     &__title
@@ -122,18 +122,19 @@
         user-select: none
         text-align left
         &-in
+            color: #5e6e71
+            font-size: 14px
+            line-height: 1.4 
+            span
+                color: #90b1b8
+                font-weight normal 
+        &-left
             position: relative
             display: inline-block
             vertical-align middle
             width 70%
-            color: #5e6e71
-            font-size: 14px
-            line-height: 1.4 
             @media only screen and (max-width: 1200px)
                 width 60%
-            span
-                color: #90b1b8
-                font-weight normal 
             @media only screen and (max-width: 640px)
                 width 70%
             @media only screen and (max-width: 480px)
@@ -142,6 +143,22 @@
                 width 50%
             @media only screen and (max-width: 360px)
                 width 100%
+        &-right
+            display inline-block
+            vertical-align middle
+            width 30%
+            padding-left: 10px 
+            text-align: right
+            @media only screen and (max-width: 1200px)
+                width 40%
+            @media only screen and (max-width:640px)
+                position relative
+                width 30%
+                margin-left 0
+            @media only screen and (max-width: 480px)
+                width 40%
+            @media only screen and (max-width: 420px)
+                width 50%
     &__drop-icon
         position: absolute
         top: 50%
@@ -150,11 +167,6 @@
         width: 14px
         height: 14px                
     &__price-discount
-        display inline-block
-        vertical-align middle
-        width 30%
-        padding-left: 10px 
-        text-align: right
         color: #5e6e71
         font-size: 16px
         line-height 1.2
@@ -171,16 +183,8 @@
                 margin 0 0 0 20px
             @media only screen and (max-width:360px)
                 margin 0
-        @media only screen and (max-width: 1200px)
-            width 40%
         @media only screen and (max-width:640px)
             position relative
-            width 30%
-            margin-left 0
-        @media only screen and (max-width: 480px)
-            width 40%
-        @media only screen and (max-width: 420px)
-            width 50%
     &__drop
         position: relative
         display: none    
@@ -328,6 +332,37 @@
     .promotional-offers .offers__item .offers-wrap
         padding-left 55px
         
+.price-offer
+    padding 5px 0
+    &__icon
+        float left
+        padding-right 15px
+        span
+            position relative
+            display inline-block
+            vertical-align middle
+            width 43px
+            height 18px
+            border-radius 1px
+            background-color #FFB546
+            text-align center 
+            color: #fefefe
+            font-size: 12px
+            font-weight: 400
+            &:after
+                content ""
+                position absolute
+                top 50%
+                right -6.5px
+                margin-top -9px
+                arr(7, 18, r, #ffb546) 
+    &__text
+        overflow hidden
+        a
+            color: #4b89d3
+            font-size: 14px
+            font-weight: 400
+            text-decoration: underline
 .price-info
     position relative
     padding 20px 0 15px
@@ -354,16 +389,7 @@
     &__update
         font-size: 14px
         font-weight: 700
-.about-in
-    background-color #fff9e9
-    text-align center
-    border-bottom 1px solid #c0d2d6
-    &__price-update
-        background #FFF
-        color #96b8bf
-        font-size 14px
-        font-weight 700
-        padding 1px 10px
+
       
                 
                 
