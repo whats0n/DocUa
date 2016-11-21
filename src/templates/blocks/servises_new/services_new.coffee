@@ -10,9 +10,15 @@
 
 $('.js-s-text-btn').on 'click', ->
 	$(@).toggleClass 'is-open'
+	$(@).parents('.js-s-text').toggleClass 'is-open'
 	$(@).siblings('.js-s-text-b').toggleClass 'is-open'
 	if $(@).hasClass('is-open')
 		$(@).text 'скрыть'
 	else
 		$(@).text 'дальше'
-	return
+	false
+
+$('.js-s-link-more').on 'click', ->
+	$(@).addClass 'is-open'
+	$(@).siblings('.js-s-items-more').addClass 'is-open'
+	false

@@ -54,6 +54,12 @@
 			border-color: #4b89d3 transparent transparent transparent 
 		&:hover
 			border none
+		&.is-open
+			display none
+	&__items-more
+		display none
+		&.is-open
+			display block
 			
 .services-block	
 	&.services-block_new
@@ -65,18 +71,27 @@
 				font-family: "PT Sans"
 				font-size: 28px
 				font-weight: 400
+			.services_about-mod
+				margin-top 15px
+			.services_about-contents
+				display block
+				margin 0
+				padding-bottom 5px
 		.services-about
 			.description
+				padding-top 15px
 				&__item
 					margin 0 0 5px 15px
 					color: #5e6e71
 					font-family: "PT Sans"
 					font-size: 16px
 					font-weight: 400
+					&:before
+						bottom 6px
 					&.heading
 						margin 0 0 5px 0
 					&.single
-						margin 0 0 5px 0
+						margin 0 0 3px 0
 					&.subheading
 						&:before
 							display none
@@ -89,8 +104,8 @@
 				&__link
 					color: #4b89d3
 					font-size: 16px
-				&__list-in
-					margin-left 15px
+				// &__list-in
+				// 	margin-left 15px
 			.text-list
 				&__item
 					margin-bottom 5px
@@ -105,7 +120,9 @@
 				
 .services-text
 	position relative
-	margin 0 0 35px
+	margin 0 0 25px
+	&.is-open
+		margin 0 0 15px
 	&__block
 		height 80px
 		overflow hidden
@@ -129,25 +146,27 @@
 		font-family: "PT Sans"
 		font-weight: 400
 		h2
-			margin-top 15px
+			margin-bottom 17px
 			color: #5e6e71
 			font-size: 20px
 		p
-			margin-top 15px
+			margin-bottom 17px
+			line-height 1.3
 		ul
-			margin-top 15px
+			padding 5px 0 20px
 			li
 				position relative
 				padding-left 15px
+				line-height 1.2
 				list-style-type none
 				&:before
 					content ""
 					position absolute
-					top 5px
+					top 7px
 					left 0
 					width 5px
 					height 4px
-					border-radius 1px 
+					border-radius 50%
 					background-color #5E6E71 
 	&__btn
 		position absolute
@@ -167,28 +186,48 @@
 			// width 9px
 			// height 5px 
 			// background-image: url('i/s-more.png')
-			sprite($s_more)  
 			transition: transform 300ms
+			sprite($s-more)  
 		&.is-open
-			bottom -15px
+			bottom -12px
 			&:after
 				transform: rotate(180deg)
+				
+
+.services-new-subtitle
+	margin 30px 0 15px
+	color: #5e6e71
+	font-size: 24px
+	font-weight: 400
+	
+.services-new-card-list
+	.block-services-wrapper
+		margin-top 0
+	.small-card
+		padding 0 !important
+		margin-bottom 15px
+		&__wrap
+			padding 10px 0 20px
 
 .widget
 	&.widget-similar-diseases-new
+		margin-bottom 30px
 		.h3
 			margin 0
-			padding 15px
+			padding 15px 15px 13px 19px
 			text-align left
 			color: #5e6e71
 			font-family: "PT Sans"
 			font-size: 20px
 			font-weight: 400
+			line-height 1.2
 		.diseases-body
-			padding 10px 15px
+			padding 11px 15px 17px
 			border-top 1px solid #D9D9D9 
 		.diseases-item
 			margin 0
+			padding-left 17px
+			line-height 1.4
 			.diseases-link
 				text-decoration none
 				&:before
