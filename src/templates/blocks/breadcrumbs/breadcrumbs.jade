@@ -1,28 +1,28 @@
-- breadcrumbs = data.breadcrumbs
-ol.breadcrumb
-    li(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
-        a(href="/", title="Главная", itemprop="url")
-            span(itemprop="title") Главная
-    each crumb, i in breadcrumbs
-        if i < breadcrumbs.length - 1
-            li(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
-                a(href=crumb.url, title=crumb.title, itemprop="url")
-                    span(itemprop="title")= crumb.title
-        else
-            li
-                    span(itemprop="title")= crumb.title
-
-
-//-  - breadcrumbs = data.breadcrumbs
-//- .breadcrumb(xmlns:v="http://rdf.data-vocabulary.org/#")
-//-     span(typeof="v:Breadcrumb")
-//-         a(href="/", rel="v:url", property="v:title") Главная
+//- - breadcrumbs = data.breadcrumbs
+//- ol.breadcrumb
+//-     li(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
+//-         a(href="/", title="Главная", itemprop="url")
+//-             span(itemprop="title") Главная
 //-     each crumb, i in breadcrumbs
 //-         if i < breadcrumbs.length - 1
-//-             span(typeof="v:Breadcrumb")= crumb.title
-//-                 a(href=crumb.url, title=crumb.title, rel="v:url", property="v:title")
+//-             li(itemscope, itemtype="http://data-vocabulary.org/Breadcrumb")
+//-                 a(href=crumb.url, title=crumb.title, itemprop="url")
+//-                     span(itemprop="title")= crumb.title
 //-         else
-//-             span(typeof="v:Breadcrumb")= crumb.title
+//-             li
+//-                     span(itemprop="title")= crumb.title
+
+
+- breadcrumbs = data.breadcrumbs
+.breadcrumb(xmlns:v="http://rdf.data-vocabulary.org/#")
+    span(typeof="v:Breadcrumb")
+        a(href="/", rel="v:url", property="v:title") Главная
+    each crumb, i in breadcrumbs
+        if i < breadcrumbs.length - 1
+            span(typeof="v:Breadcrumb")= crumb.title
+                a(href=crumb.url, title=crumb.title, rel="v:url", property="v:title")
+        else
+            span(typeof="v:Breadcrumb")= crumb.title
 
 
 
