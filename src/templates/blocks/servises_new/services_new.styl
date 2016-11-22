@@ -1,4 +1,4 @@
-.services-new
+.services
 	padding 10px 20px
 	background-color #FFF
 	border-radius: 2px
@@ -28,10 +28,19 @@
 		font-size: 16px
 	&__caption
 		display block
-		border-bottom 1px solid #d9d9d9 
-		font-size: 20px
+		border-bottom 1px solid #d9d9d9
+		&:hover
+			a
+				text-decoration underline
+		a 
+			text-decoration none
+			color: #4b89d3
+			font-size: 20px
 	&__item
 		padding-top 5px
+		&:hover
+			a
+				text-decoration underline
 		a
 			text-decoration none
 			color: #4b89d3
@@ -40,9 +49,6 @@
 			font-size: 16px
 			line-height 1.35
 			cursor pointer
-		&:hover
-			a
-				text-decoration underline
 	&__link-more
 		position relative
 		text-decoration none
@@ -71,62 +77,62 @@
 		&.is-open
 			display block
 			
+// &.services-block_new
 .services-block	
-	&.services-block_new
-		margin-bottom 15px
-		.services-block__in
-			padding 20px
-			h1
+	margin-bottom 15px
+	.services-block__in
+		padding 20px
+		h1
+			color: #5e6e71
+			font-family: "PT Sans"
+			font-size: 28px
+			font-weight: 400
+		.services_about-mod
+			margin-top 15px
+		.services_about-contents
+			display block
+			margin 0
+			padding-bottom 5px
+	.services-about
+		.description
+			padding-top 15px
+			&__item
+				margin 0 0 5px 15px
 				color: #5e6e71
 				font-family: "PT Sans"
-				font-size: 28px
+				font-size: 16px
 				font-weight: 400
-			.services_about-mod
-				margin-top 15px
-			.services_about-contents
-				display block
-				margin 0
-				padding-bottom 5px
-		.services-about
-			.description
-				padding-top 15px
-				&__item
-					margin 0 0 5px 15px
-					color: #5e6e71
-					font-family: "PT Sans"
-					font-size: 16px
-					font-weight: 400
+				&:before
+					bottom 6px
+				&.heading
+					margin 0 0 5px 0
+				&.single
+					margin 0 0 3px 0
+				&.subheading
 					&:before
-						bottom 6px
-					&.heading
-						margin 0 0 5px 0
-					&.single
-						margin 0 0 3px 0
-					&.subheading
-						&:before
-							display none
-				&__title
-					color: #4b89d3
-					font-size: 20px
-				&__subtitle
-					margin-bottom 5px
-					color: #4b89d3
-				&__link
-					color: #4b89d3
-					font-size: 16px
-				// &__list-in
-				// 	margin-left 15px
-			.text-list
-				&__item
-					margin-bottom 5px
-					&.last-child
-						margin-bottom 0
-		.services-block__search
-			.direction
-				background-color: #fafafa
-				box-shadow none !important
-				border-top 1px solid #d9d9d9
-				border-radius 0
+						display none
+			&__title
+				color: #4b89d3
+				font-size: 20px
+			&__subtitle
+				margin-bottom 5px
+				color: #4b89d3
+			&__link
+				color: #4b89d3
+				font-size: 16px
+			// &__list-in
+			// 	margin-left 15px
+		.text-list
+			&__item
+				margin-bottom 5px
+				&.last-child
+					margin-bottom 0
+	.services-block__search
+		.direction
+			background-color: #fafafa
+			box-shadow none !important
+			border-top 1px solid #d9d9d9
+			border-radius 0
 				
 .services-text
 	position relative
