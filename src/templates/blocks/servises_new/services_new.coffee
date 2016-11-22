@@ -19,6 +19,10 @@ $('.js-s-text-btn').on 'click', ->
 	false
 
 $('.js-s-link-more').on 'click', ->
-	$(@).addClass 'is-open'
-	$(@).siblings('.js-s-items-more').addClass 'is-open'
+	$(@).toggleClass 'is-open'
+	$(@).siblings('.js-s-items-more').toggleClass 'is-open'
+	if $(@).hasClass('is-open')
+		$(@).text 'Свернуть'
+	else
+		$(@).text 'Показать все'
 	false

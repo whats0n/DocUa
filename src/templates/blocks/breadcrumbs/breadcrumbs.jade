@@ -11,3 +11,23 @@ ol.breadcrumb
         else
             li
                     span(itemprop="title")= crumb.title
+
+
+//-  - breadcrumbs = data.breadcrumbs
+//- .breadcrumb(xmlns:v="http://rdf.data-vocabulary.org/#")
+//-     span(typeof="v:Breadcrumb")
+//-         a(href="/", rel="v:url", property="v:title") Главная
+//-     each crumb, i in breadcrumbs
+//-         if i < breadcrumbs.length - 1
+//-             span(typeof="v:Breadcrumb")= crumb.title
+//-                 a(href=crumb.url, title=crumb.title, rel="v:url", property="v:title")
+//-         else
+//-             span(typeof="v:Breadcrumb")= crumb.title
+
+
+
+//- <div xmlns:v="http://rdf.data-vocabulary.org/#">
+//-     <span typeof="v:Breadcrumb"><a href="https://doc.ua/" rel="v:url" property="v:title">https://doc.ua/</a> › </span>
+//-     <span typeof="v:Breadcrumb"><a href="https://doc.ua/odessa" rel="v:url" property="v:title">Одесса</a> › </span>
+//-     <span typeof="v:Breadcrumb">И так далее</span>
+//- </div>
