@@ -1561,45 +1561,6 @@ $('.js-cla-btn').on('click', function() {
   return false;
 });
 
-var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-
-$(function() {
-  var $block, activeItemIndex, setActiveElement;
-  $block = $(".comment-quotes");
-  activeItemIndex = 0;
-  setActiveElement = function(el) {
-    $block.find(".comment-quotes__item.active").removeClass("active");
-    $block.find(".comment-quotes__pane.active").removeClass("active");
-    $(el).addClass("active");
-    activeItemIndex = $(el).parent().index();
-    return $block.find(".comment-quotes__pane").eq(activeItemIndex).addClass("active");
-  };
-  $(".comment-quotes__item").on("click", function() {
-    return setActiveElement(this);
-  });
-  return $(".comment-quotes__header").owlCarousel({
-    navigation: true,
-    pagination: false,
-    navigationText: ["", ""],
-    rewindNav: false,
-    lazyLoad: false,
-    items: 5,
-    itemsDesktop: [1215, 5],
-    itemsTablet: [979, 5],
-    itemsMobile: [767, 2],
-    afterAction: function(el) {
-      var activateIndex, owl;
-      owl = $(el).data("owlCarousel");
-      if (owl) {
-        if (indexOf.call(owl.owl.visibleItems, activeItemIndex) < 0) {
-          activateIndex = activeItemIndex < owl.owl.visibleItems[0] ? owl.owl.visibleItems[0] : owl.owl.visibleItems[owl.owl.visibleItems.length - 1];
-          return setActiveElement($block.find(".comment-quotes__item").eq(activateIndex).get());
-        }
-      }
-    }
-  });
-});
-
 $("#select-area").on("change", "input", function() {
   var spanMain, spanText;
   spanText = $(this).siblings('span').text();
@@ -1717,6 +1678,45 @@ $('.js-datepicker-trigger').on('click', function() {
   return $('.js-clinic-datepicker').datetimepicker('show');
 });
 
+var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
+$(function() {
+  var $block, activeItemIndex, setActiveElement;
+  $block = $(".comment-quotes");
+  activeItemIndex = 0;
+  setActiveElement = function(el) {
+    $block.find(".comment-quotes__item.active").removeClass("active");
+    $block.find(".comment-quotes__pane.active").removeClass("active");
+    $(el).addClass("active");
+    activeItemIndex = $(el).parent().index();
+    return $block.find(".comment-quotes__pane").eq(activeItemIndex).addClass("active");
+  };
+  $(".comment-quotes__item").on("click", function() {
+    return setActiveElement(this);
+  });
+  return $(".comment-quotes__header").owlCarousel({
+    navigation: true,
+    pagination: false,
+    navigationText: ["", ""],
+    rewindNav: false,
+    lazyLoad: false,
+    items: 5,
+    itemsDesktop: [1215, 5],
+    itemsTablet: [979, 5],
+    itemsMobile: [767, 2],
+    afterAction: function(el) {
+      var activateIndex, owl;
+      owl = $(el).data("owlCarousel");
+      if (owl) {
+        if (indexOf.call(owl.owl.visibleItems, activeItemIndex) < 0) {
+          activateIndex = activeItemIndex < owl.owl.visibleItems[0] ? owl.owl.visibleItems[0] : owl.owl.visibleItems[owl.owl.visibleItems.length - 1];
+          return setActiveElement($block.find(".comment-quotes__item").eq(activateIndex).get());
+        }
+      }
+    }
+  });
+});
+
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
   $('.js-tab__mobile-c').addClass('js-tab__header-c');
 }
@@ -1729,6 +1729,32 @@ $('.js-tab__header-c').click(function() {
   parent.find('.btn__mobile').toggleClass('btn__mobile_open');
   $(this).toggleClass('tab__header_open');
   return false;
+});
+
+$(function() {
+  return $('.js-datepicker').daterangepicker({
+    autoUpdateInput: true,
+    alwaysShowCalendars: true,
+    startDate: moment(),
+    opens: "left",
+    applyClass: "apply-btn",
+    cancelClass: "cancel-btn",
+    ranges: {
+      'Последние :': [],
+      '7 дней': [moment(), moment().add(6, 'days')],
+      '14 дней': [moment(), moment().add(13, 'days')],
+      '30 дней': [moment(), moment().add(29, 'days')]
+    },
+    locale: {
+      format: 'YYYY.MM.DD',
+      separator: ' - ',
+      applyLabel: 'Подтвердить',
+      cancelLabel: 'Отменить',
+      daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
+      monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+      firstDay: 1
+    }
+  });
 });
 
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
@@ -1776,10 +1802,6 @@ $.fn.initFavoritesBlock = function() {
 };
 
 $(".favorites-block").initFavoritesBlock();
-
-if ($(document).height() <= $(window).height()) {
-  $(".container-fluid_footer-bg").addClass("sticky-footer");
-}
 
 var trim;
 
@@ -2324,6 +2346,10 @@ $(document).on('click', '.js-remove-value', function(event) {
   return false;
 });
 
+if ($(document).height() <= $(window).height()) {
+  $(".container-fluid_footer-bg").addClass("sticky-footer");
+}
+
 if (window.matchMedia('screen and (max-width: 767px)').matches) {
   $('.js-tab__mobile-f').addClass('js-tab__header-f');
 }
@@ -2364,30 +2390,72 @@ $(window).scroll(function() {
   }
 });
 
+var isValidDate2, myFunctionResize;
+
 $(function() {
-  return $('.js-datepicker').daterangepicker({
-    autoUpdateInput: true,
-    alwaysShowCalendars: true,
-    startDate: moment(),
-    opens: "left",
-    applyClass: "apply-btn",
-    cancelClass: "cancel-btn",
-    ranges: {
-      'Последние :': [],
-      '7 дней': [moment(), moment().add(6, 'days')],
-      '14 дней': [moment(), moment().add(13, 'days')],
-      '30 дней': [moment(), moment().add(29, 'days')]
-    },
-    locale: {
-      format: 'YYYY.MM.DD',
-      separator: ' - ',
-      applyLabel: 'Подтвердить',
-      cancelLabel: 'Отменить',
-      daysOfWeek: ['ВC', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
-      monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-      firstDay: 1
-    }
-  });
+  var updateGroup1, updateGroup2;
+  updateGroup1 = function() {
+    return $(".x-check-group1").toggle($(".x-check-group1-toggle").prop("checked"));
+  };
+  updateGroup1();
+  $(".x-check-group1-toggle").change(updateGroup1);
+  updateGroup2 = function() {
+    return $(".x-check-group2").toggle($(".x-check-group2-toggle").prop("checked"));
+  };
+  updateGroup2();
+  return $(".x-check-group2-toggle").change(updateGroup2);
+});
+
+$('.bs-modal-md').on('show.bs.modal', function(e) {
+  setTimeout(function() {
+    $('.js-list-scroll').jScrollPane({
+      autoReinitialise: true
+    });
+  }, 10);
+});
+
+myFunctionResize = function() {
+  var api, pane;
+  pane = $('.js-list-scroll');
+  pane.jScrollPane();
+  api = pane.data('jsp');
+  api.reinitialise();
+};
+
+$(".dropdown__btn").on("click", function() {
+  if ($(window).width() < 560) {
+    setTimeout(function() {
+      myFunctionResize();
+    }, 15);
+  }
+});
+
+$(window).resize(function() {
+  myFunctionResize();
+});
+
+$("#select-area-diagnostics").on("click", "li a", function() {
+  return $("#select-area-diagnostics").modal("hide");
+});
+
+isValidDate2 = function(str) {
+  var date, input;
+  input = str.match(/\d+/g);
+  date = new Date(input[2], input[1] - 1, input[0]);
+  return date.getFullYear() === +input[2] && date.getMonth() === +input[1] - 1 && date.getDate() === +input[0];
+};
+
+$('select.js-validate-select').change(function() {
+  var all, date, month, years;
+  date = $('.js-valDate').find('select').val();
+  month = $('.js-valMonth').find('select').val();
+  years = $('.js-valYears').find('select').val();
+  all = date + '/' + month + '/' + years;
+  if (isValidDate2(all)) {
+    $(this).closest('.form-group').removeClass('has-error');
+  } else {
+    $(this).closest('.form-group').addClass('has-error');
+  }
 });
 
 $(window).scroll(function() {
@@ -2548,74 +2616,6 @@ $('body').on('click', '.js-slider-refresh', function() {
   return gallerySlider3.refresh();
 });
 
-var isValidDate2, myFunctionResize;
-
-$(function() {
-  var updateGroup1, updateGroup2;
-  updateGroup1 = function() {
-    return $(".x-check-group1").toggle($(".x-check-group1-toggle").prop("checked"));
-  };
-  updateGroup1();
-  $(".x-check-group1-toggle").change(updateGroup1);
-  updateGroup2 = function() {
-    return $(".x-check-group2").toggle($(".x-check-group2-toggle").prop("checked"));
-  };
-  updateGroup2();
-  return $(".x-check-group2-toggle").change(updateGroup2);
-});
-
-$('.bs-modal-md').on('show.bs.modal', function(e) {
-  setTimeout(function() {
-    $('.js-list-scroll').jScrollPane({
-      autoReinitialise: true
-    });
-  }, 10);
-});
-
-myFunctionResize = function() {
-  var api, pane;
-  pane = $('.js-list-scroll');
-  pane.jScrollPane();
-  api = pane.data('jsp');
-  api.reinitialise();
-};
-
-$(".dropdown__btn").on("click", function() {
-  if ($(window).width() < 560) {
-    setTimeout(function() {
-      myFunctionResize();
-    }, 15);
-  }
-});
-
-$(window).resize(function() {
-  myFunctionResize();
-});
-
-$("#select-area-diagnostics").on("click", "li a", function() {
-  return $("#select-area-diagnostics").modal("hide");
-});
-
-isValidDate2 = function(str) {
-  var date, input;
-  input = str.match(/\d+/g);
-  date = new Date(input[2], input[1] - 1, input[0]);
-  return date.getFullYear() === +input[2] && date.getMonth() === +input[1] - 1 && date.getDate() === +input[0];
-};
-
-$('select.js-validate-select').change(function() {
-  var all, date, month, years;
-  date = $('.js-valDate').find('select').val();
-  month = $('.js-valMonth').find('select').val();
-  years = $('.js-valYears').find('select').val();
-  all = date + '/' + month + '/' + years;
-  if (isValidDate2(all)) {
-    $(this).closest('.form-group').removeClass('has-error');
-  } else {
-    $(this).closest('.form-group').addClass('has-error');
-  }
-});
-
 $(document).ready(function() {
   $('.js-tab-container').each(function() {
     $(this).find('.js-tab-link').first().addClass('active');
@@ -2652,69 +2652,6 @@ $(".js-autocomplete-clinic").each(function() {
     source: availableTags
   });
 });
-
-$(document).on("change", ".pill-group .pill input", function(e) {
-  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
-  $pill = $(e.target).closest(".pill");
-  checked = $(e.target).is(":checked");
-  $childrenPills = $pill.siblings("ul").find(".pill");
-  if ($childrenPills.length > 0) {
-    return $childrenPills.find("input").prop("checked", checked);
-  } else {
-    $parentPill = $pill.closest("ul").siblings(".pill");
-    if ($parentPill.length === 1) {
-      $pillsGroup = $parentPill.siblings("ul").find(".pill");
-      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
-      return $parentPill.find("input").prop("checked", allChecked);
-    }
-  }
-});
-
-var postLocationWidthFix;
-
-postLocationWidthFix = function() {
-  return $(".post").each(function() {
-    var locationValueWidth, locationWidth, px;
-    if ($(this).hasClass("post_single")) {
-      if ($(window).width() > 767) {
-        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() - $(this).find(".post__submits").width() - 10;
-        locationValueWidth = locationWidth - 35;
-        px = "px";
-      } else {
-        locationWidth = 'auto';
-        locationValueWidth = 245;
-        px = '';
-      }
-    } else {
-      if (($(window).width() > 979) || ($(window).width() < 768)) {
-        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() + 10;
-        locationValueWidth = locationWidth - 35;
-        px = "px";
-      } else {
-        locationWidth = 'auto';
-        if ($(this).closest(".widget").length) {
-          locationValueWidth = 130;
-        } else {
-          locationValueWidth = 180;
-        }
-        px = '';
-      }
-    }
-    $(this).find(".post__location").attr('style', "width: " + locationWidth + px + " !important");
-    $(this).find(".post__location-title").css({
-      maxWidth: locationValueWidth + "px"
-    });
-    return $(this).find(".select7__current-value").css({
-      maxWidth: locationValueWidth + "px"
-    });
-  });
-};
-
-$(window).resize(postLocationWidthFix);
-
-$(document).on("shown.bs.tab", postLocationWidthFix);
-
-postLocationWidthFix();
 
 $(".phones__item_life").hover(function() {
   $(this).toggleClass("phones__item_hover");
@@ -2777,38 +2714,6 @@ $(function() {
       return $(".phones__toggle").removeClass("phones__toggle_open");
     });
   }
-});
-
-$('.js-truncate').dotdotdot({
-  lines: 2,
-  responsive: true
-});
-
-
-
-$(function() {
-  return $(".price-block_collapse .price-block__header").on("click", function() {
-    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
-  });
-});
-
-$(document).on('click', '.js-offers-btn', function() {
-  var changeText, drop, getAttr, getText, getTextAttr;
-  drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
-  changeText = $(this).children('.dotted');
-  getAttr = changeText.data('hidden');
-  getText = changeText.text();
-  getTextAttr = changeText.data('name');
-  drop.slideToggle('fast');
-  $(this).parents('.js-offers-tabs').toggleClass('is-active');
-  changeText.toggleClass('is-change');
-  if (changeText.hasClass('is-change')) {
-    changeText.attr("data-name", getText);
-    changeText.text(getAttr);
-  } else {
-    changeText.text(getTextAttr);
-  }
-  return false;
 });
 
 var galleryCount, generateMarkupForOwlCarousel, initOwlCarousel, syncOwlCarousels;
@@ -2998,6 +2903,101 @@ $(function() {
   return $(".photo-gallery").makeCustomPhotoGallery();
 });
 
+$(document).on("change", ".pill-group .pill input", function(e) {
+  var $childrenPills, $parentPill, $pill, $pillsGroup, allChecked, checked;
+  $pill = $(e.target).closest(".pill");
+  checked = $(e.target).is(":checked");
+  $childrenPills = $pill.siblings("ul").find(".pill");
+  if ($childrenPills.length > 0) {
+    return $childrenPills.find("input").prop("checked", checked);
+  } else {
+    $parentPill = $pill.closest("ul").siblings(".pill");
+    if ($parentPill.length === 1) {
+      $pillsGroup = $parentPill.siblings("ul").find(".pill");
+      allChecked = $pillsGroup.length === $pillsGroup.find(":checked").length;
+      return $parentPill.find("input").prop("checked", allChecked);
+    }
+  }
+});
+
+var postLocationWidthFix;
+
+postLocationWidthFix = function() {
+  return $(".post").each(function() {
+    var locationValueWidth, locationWidth, px;
+    if ($(this).hasClass("post_single")) {
+      if ($(window).width() > 767) {
+        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() - $(this).find(".post__submits").width() - 10;
+        locationValueWidth = locationWidth - 35;
+        px = "px";
+      } else {
+        locationWidth = 'auto';
+        locationValueWidth = 245;
+        px = '';
+      }
+    } else {
+      if (($(window).width() > 979) || ($(window).width() < 768)) {
+        locationWidth = $(this).find(".post__footer").width() - $(this).find(".post__price").width() + 10;
+        locationValueWidth = locationWidth - 35;
+        px = "px";
+      } else {
+        locationWidth = 'auto';
+        if ($(this).closest(".widget").length) {
+          locationValueWidth = 130;
+        } else {
+          locationValueWidth = 180;
+        }
+        px = '';
+      }
+    }
+    $(this).find(".post__location").attr('style', "width: " + locationWidth + px + " !important");
+    $(this).find(".post__location-title").css({
+      maxWidth: locationValueWidth + "px"
+    });
+    return $(this).find(".select7__current-value").css({
+      maxWidth: locationValueWidth + "px"
+    });
+  });
+};
+
+$(window).resize(postLocationWidthFix);
+
+$(document).on("shown.bs.tab", postLocationWidthFix);
+
+postLocationWidthFix();
+
+$('.js-truncate').dotdotdot({
+  lines: 2,
+  responsive: true
+});
+
+
+
+$(function() {
+  return $(".price-block_collapse .price-block__header").on("click", function() {
+    return $(this).closest(".price-block").toggleClass("price-block_collapse_open");
+  });
+});
+
+$(document).on('click', '.js-offers-btn', function() {
+  var changeText, drop, getAttr, getText, getTextAttr;
+  drop = $(this).parents('.js-offers-tabs').find('.js-offers-content');
+  changeText = $(this).children('.dotted');
+  getAttr = changeText.data('hidden');
+  getText = changeText.text();
+  getTextAttr = changeText.data('name');
+  drop.slideToggle('fast');
+  $(this).parents('.js-offers-tabs').toggleClass('is-active');
+  changeText.toggleClass('is-change');
+  if (changeText.hasClass('is-change')) {
+    changeText.attr("data-name", getText);
+    changeText.text(getAttr);
+  } else {
+    changeText.text(getTextAttr);
+  }
+  return false;
+});
+
 $(function() {
   $('.js-search-btn').click(function() {
     if ($('.js-form').hasClass('is-search-open')) {
@@ -3103,6 +3103,9 @@ $('.js-s-text-btn').on('click', function() {
     $(this).text('скрыть');
   } else {
     $(this).text('дальше');
+    $('body').animate({
+      scrollTop: 0
+    });
   }
   return false;
 });

@@ -16,6 +16,7 @@ $('.js-s-text-btn').on 'click', ->
 		$(@).text 'скрыть'
 	else
 		$(@).text 'дальше'
+		$('body').animate scrollTop: 0
 	false
 
 $('.js-s-link-more').on 'click', ->
