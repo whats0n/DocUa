@@ -15,6 +15,14 @@
         background-position: center 
         background-repeat: no-repeat
         background-size: cover
+        &:after
+            content ""
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0
+            left: 0
+            background-image linear-gradient(to bottom, rgba(#000, 0), rgba(#000, 0.25) )    
     &__wrap
         position: absolute
         top: 0
@@ -35,7 +43,7 @@
             z-index 7
         &:hover
             &:before
-                background-color: rgba(#000, 0.1)
+                background-color: rgba(#000, 0.25)
                 // background-image: linear-gradient(to top, rgba(#be8734, 0.19) 0%, rgba(#906628, 0.11) 100%)
                 // background-color: rgba(#906628, 0.5) 
     &__title
@@ -53,14 +61,15 @@
         &:hover
             text-decoration: none
     &__bottom
-        clearfix()
         position: absolute
         bottom: 0
         left: 0
         right: 0
         z-index 9
     &__discount
-        float: left
+        position absolute
+        bottom 0
+        left 0
         width: 65px
         height: 50px
         padding: 5px
@@ -80,11 +89,13 @@
                 font-size: 18px
                 font-weight: 700
     &__price
-        float: right
+        position absolute
+        bottom 0
+        right 0
         padding: 5px 10px
         text-align: right
         color: white
-        font-family: "PT Sans"
+        font-size 0
     &__old-price
         display: inline-block
         vertical-align: baseline
