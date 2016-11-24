@@ -502,14 +502,37 @@ mixin modal(name, classes, dialogClasses)
                         .input-password 
                             input#field-login-password.form-control.form-control__modals(type="password", placeholder="Пароль")
                             span.password-eye
-                    .col-sm-12.offset-0
-                        a.remind-password-link.modals-a-color.remind-password-link__mod(href="/", title="Напомнить пароль"): span Напомнить пароль
+                    //- .col-sm-12.offset-0
+                    //-     a.remind-password-link.modals-a-color.remind-password-link__mod(href="/", title="Напомнить пароль"): span Напомнить пароль
                 .form-group.offset-top-10.form-group__last-child
-                    .col-sm-12
+                    //- .col-sm-12
+                    .col-sm-6.submits
                         button.btn.btn-success.btn-lg.btn-xs-block(type="submit") Войти
-                        //- span.abs-helper
-                        span.modal-span__mod или
-                        a.modals-a-color.btn-registration(href="/registration.html", title="Регистрация") Регистрация
+                        a.remind-password-link.modals-a-color.remind-password-link__mod(href="/", title="Напомнить пароль"): span Напомнить пароль
+                    //- span.abs-helper
+                    //- span.modal-span__mod или
+                    .col-sm-6.submits
+                        a.modals-a-color.btn-registration(href="/registration.html", title="Регистрация") Зарегистрироваться
+    .modal-social
+        .col-sm-12.offset-0
+            .login-text Или войдите, используя:
+        .col-sm-12.offset-0
+            +b.social-login
+                +e.item
+                    +e.wrap.fb
+                        +e.icon-wrap
+                            +e.icon
+                        +e.title Facebook
+                +e.item
+                    +e.wrap.vk
+                        +e.icon-wrap
+                            +e.icon
+                        +e.title Вконтакте
+                +e.item
+                    +e.wrap.gp
+                        +e.icon-wrap
+                            +e.icon
+                        +e.title Google +
 
 +modal("select-area", "bs-modal-md")
     .modal-header

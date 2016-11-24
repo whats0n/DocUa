@@ -36,6 +36,13 @@ modal_font_size = 15px
         margin-bottom 23px
     .form-group__modals-login
         margin-bottom 20px 
+        .form-control
+            height: 40px
+            padding 15px 20px
+            background-color: white
+            border: 1px solid #bbb
+            border-radius 0
+            box-shadow: none
     &-dialog
         width 96%
         max-width 600px
@@ -176,6 +183,60 @@ modal_font_size = 15px
                  margin 10px 0 0 0 !important
                  .abs
                      position static
+    
+    &-social
+        clearfix()
+        padding 20px
+        background-color #FAFAFA
+        .login-text
+            display block
+            padding-bottom 15px
+            color: #7d7d7d
+            font-size: 14px
+            font-weight: 400
+            line-height: 20px 
+        .social-login
+            font-size 0
+            margin 0 -2px
+            &__item
+                display inline-block
+                vertical-align middle
+                width 33%
+                padding 0 2px
+            &__wrap
+                height 35px
+                border-radius 1px
+                vertical()
+                &.fb
+                    background-color: #3b5998 
+                    .social-login__icon
+                        sprite($fb-l)
+                &.vk
+                    background-color: #4d76a1
+                    .social-login__icon
+                        sprite($vk-l)
+                &.gp
+                    background-color: #dc4e41
+                    .social-login__icon
+                        sprite($gp-l)
+            &__icon-wrap
+                display inline-block
+                vertical-align middle
+                width percentage(36/109)
+                height 16px
+                border-right 1px solid rgba(#FFF, 0.25)
+                vertical()
+            &__icon
+                display inline-block
+                vertical-align middle
+            &__title
+                display inline-block
+                vertical-align middle
+                width percentage(73/109) 
+                color: white
+                font-size: 10px
+                font-weight: 400
+                line-height: 20px
 
     .request
         &__card
@@ -513,9 +574,13 @@ modal_font_size = 15px
 .login-form-popup
     .remind-password-link
         display inline-block
-        padding-top 15px
+        padding-top 5px
         font-size modal_font_size
     .remind-password-link__mod
+        color: #4b89d3
+        font-size: 12px
+        font-weight: 400
+        line-height: 20px
         @media phone
             margin-top -15px    
     .abs-helper
@@ -524,7 +589,15 @@ modal_font_size = 15px
             position absolute
             left 50%
             margin-left -79px
-            bottom -5px
+            bottom -5px 
+    .btn-registration
+        display inline-block
+        vertical-align middle
+        margin-top 10px
+        color: #4b89d3
+        font-size: 14px
+        font-weight: 400
+        line-height: 20px   
 
 .rating-modal
     .rating-block .rating-list
@@ -1719,5 +1792,6 @@ modal_font_size = 15px
                 width 100%
                 font-weight 700
                 border-radius 4px  
-                padding 10px 0                   
+                padding 10px 0
+                
                     
