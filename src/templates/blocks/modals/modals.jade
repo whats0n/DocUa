@@ -47,12 +47,11 @@ mixin modal(name, classes, dialogClasses)
 +modal("dont-leave", "dont-leave-modal bs-modal-sm")
     .modal-body
         button.close(aria-hidden="true", data-dismiss="modal", type="button")
-        
-        p.ocean-blue.offset-0.modals-text Оставьте свое имя и номер телефона, и мы свяжемся с вами.
+        h1 
+            strong Подождите уходить!
+        p.ocean-blue.offset-0.modals-text Давайте мы поможем Вам подобрать необходимого врача
         form.form-horizontal(action="/")
             fieldset
-                .form-group.form-group__modals
-                    .col-sm-12: input.form-control.form-control__modals(type="text", placeholder="Имя, фамилия*")
                 .form-group.form-group__modals
                     .col-sm-12: input.form-control.form-control__modals(type="text", placeholder="Телефон")
                 .form-group.margin-bottom-0.form-group__modals
