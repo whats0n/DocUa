@@ -112,16 +112,17 @@
                                         label: "Рекомендуют клинику"
                                     })  
                         .text
-                            each about in clinics[0].about
-                                if about.paragraphs
-                                    each paragraph in about.paragraphs
-                                        p= paragraph
-                                else
-                                    p
-                                        strong= about.title
-                                        ul.style-disc
-                                            each item in about.items
-                                                li= item
+                            .rich-content
+                                each about in clinics[0].about
+                                    if about.paragraphs
+                                        each paragraph in about.paragraphs
+                                            p= paragraph
+                                    else
+                                        p
+                                            strong= about.title
+                                            ul.style-disc
+                                                each item in about.items
+                                                    li= item
                     #tab-price.tab-pane
                         +b.block-package: +i       
                     #tab-reviews.tab-pane 

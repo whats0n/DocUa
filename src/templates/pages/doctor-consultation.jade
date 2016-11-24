@@ -47,12 +47,13 @@
                                     +b.rating: +i({ label: rating.label, value: rating.value, tooltip: rating.tooltip })
                             +b.likebox: +i({ likes: doctors[0].likes, dislikes: doctors[0].dislikes, label: "Рекомендуют врача" })
                 .text
-                    each about in doctors[0].about
-                        p.doctor-title
-                            strong= about.title
-                            ul.doctor-list
-                                each item in about.items
-                                    li= item
+                    .rich-content    
+                        each about in doctors[0].about
+                            p.doctor-title
+                                strong= about.title
+                                ul.doctor-list
+                                    each item in about.items
+                                        li= item
 
             #tab-reviews.tab-pane
                 +b.rating-block

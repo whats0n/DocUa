@@ -671,7 +671,19 @@
                                         +e.unliked.cla-unliked.cla-like_mod Не рекомендует
                                         p  Не совсем удобная парковка, на проезжей части машину оставлять не хочется, а возле самой клиники мест для парковки практически и нет. Не совсем удобная парковка, на проезжей части машину оставлять не хочется, а возле самой клиники мест для парковки практически и нет. Не совсем удобная парковка, на проезжей части машину оставлять не хочется, а возле самой клиники мест для парковки практически и нет. Не совсем удобная парковка а возле самой клиники мест для парковки практически и нет. 
 
-                    #tab-about.tab-pane  
+                    #tab-about.tab-pane 
+                        .text
+                            .rich-content
+                                each about in clinics[0].about
+                                    if about.paragraphs
+                                        each paragraph in about.paragraphs
+                                            p= paragraph
+                                    else
+                                        p
+                                            strong= about.title
+                                            ul.style-disc
+                                                each item in about.items
+                                                    li= item
                         +b("ul").articles-list.news-list
                             - var limit = 3
                             each article, i in articlesData
