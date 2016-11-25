@@ -8,34 +8,42 @@
         font-size 18px
         margin 20px 0
     h1
-        font-weight 700
+        margin 20px 0
         font-size 28px
-        margin 20px 0
+        font-weight 400
+        strong
+            font-weight 700 
     h2
-        font-weight 700
+        margin 20px 0
         font-size 24px
-        line-height 18px
-        margin 20px 0
+        font-weight 400
+        strong
+            font-weight 700
     h3
-        font-weight 700
-        font-size 18px
-        line-height 18px 
         margin 20px 0
+        font-size 20px
+        font-weight 400 
+        strong
+            font-weight 700
         
     h4
-        font-weight 700
-        font-size 15px
-        line-height 18px
         margin 20px 0
+        font-size 16px
+        font-weight 400
+        strong
+            font-weight 700
     h5
-        font-weight 700
-        font-size 13px
         margin 20px 0
-    h6
         font-size 14px
         font-weight 400
-        line-height 20px
+        strong
+            font-weight 700
+    h6
         margin 20px 0
+        font-size 12px
+        font-weight 400
+        strong
+            font-weight 700
     .div-color
         padding 35px 40px
         border-radius 3px
@@ -90,48 +98,35 @@
         width 100% 
         margin 20px 0
         outline none 
-        border-radius 3px 
-        moz-border-radius 3px
-        -webkit-border-radius 3px
         border-collapse separate 
-        margin-bottom 30px
         border 1px solid rgba(0,130,155,.16) 
         th
-            height 49px
+            height 40px
             background-color #00829b
-            border 1px solid #00829b 
             color #FFF
-            font-size 17px
-            font-weight 700
+            font-size 14px
+            font-weight 400
             text-align center
+            line-height 1
             &:first-child
-                background-color #00829b
-                padding-left 29px  
+                padding-left 20px  
                 text-align left
-                border-top-left-radius 3px
-                moz-border-top-left-radius 3px
-                -webkit-border-top-left-radius 3px 
             &:last-child
-                text-align center
-                background-color #00829b
-                border-top-right-radius 3px
-                moz-border-top-right-radius 3px
-                -webkit-border-top-right-radius 3px  
-                border-left 1px solid rgba(#fff, 0.2)
                 padding 0 10px 
+                background-color #00829b
         tr
-            // height 47px
-            background-color rgba(#e5f2f5, 0.48)
             color text_color
-            font-size 15px
+            font-size 14px
             font-weight 400 
             
-            &:nth-child(even)
-                background-color white
+            &:first-child
+                td
+                    border-top none
             td
                 text-align center
+                border-top 1px solid #dde8ea
                 &:first-child
-                    padding 10px 10px 10px 29px
+                    padding 10px 10px 10px 20px
                     text-align left
                     border-right 1px solid rgba(#00829b, 0.14)
                 &:nth-child(2)
@@ -147,24 +142,11 @@
                     padding 10px 15px
                     text-align center
                     border-right 1px solid transparent 
-            &:last-child
-                td
-                    &:first-child
-                        border-bottom-left-radius 3px
-                        moz-border-bottom-left-radius 3px
-                        -webkit-border-bottom-left-radius 3px 
-                    &:last-child
-                        border-bottom-right-radius 3px
-                        moz-border-bottom-right-radius 3px
-                        -webkit-border-bottom-right-radius 3px 
-        .border-left-white
-            border-left 1px solid rgba(#fff, 0.2)
-        .border-right-white
-            border-right 1px solid rgba(#fff, 0.2)
-        .border-left-blue
-            border-left 1px solid rgba(#00829b, 0.14)
-        .border-right-blue
-            border-right 1px solid rgba(#00829b, 0.14)
+            td[colspan="4"]
+                text-align left
+                color: #09859d
+                font-size: 14px
+                font-weight: 700
     img.full-width
         margin 10px -20px
     ul
@@ -174,26 +156,35 @@
             position: relative
             margin-bottom: 4px
             padding-left: 20px
-            line-height: 1.75
+            // line-height: 1.75
+            color: #5e6e71
+            font-size: 16px
+            font-weight: 400
+            line-height: 24px
+            list-style-type none
             &:before
-                content "•"
+                content ""
                 position: absolute
-                top: 0
+                top: 10px
                 left: 0
-                font-size: 22px
-                line-height: 24px
-                color: #96b8bf
+                width 5px
+                height 5px
+                border-radius 50%
+                background-color #96B8BF 
+                // font-size: 22px
+                // line-height: 24px
+                // color: #96b8bf
             >ul
                 padding-left 0
                 margin 0
                 >li
                     &:before
                         content ""
+                        width 5px
+                        height 5px
                         border 1px solid #96b8bf
                         border-radius 50%
-                        width 7px
-                        height 7px
-                        top 9px
+                        background-color transparent 
     .style-numeric
         counter-reset li
         list-style none
@@ -206,96 +197,23 @@
             &:before
                 content counter(li) '. '
                 counter-increment li
-                font-weight bold
                 position absolute
                 left 0
                 top 0
+                border none
+                background-color transparent 
+                font-weight bold
     .hyphen-lists
         li
             padding-left 15px
             &:before
                 content "-"
+                top 0
                 color text_color
-    .doctor-prifile
-        width 140px
-        padding 10px 10px 15px 
-        margin 5px 20px 20px 0
-        -webkit-border-radius 3px
-        border-radius 3px
-        background-color #def5f2
-        -webkit-box-shadow 5px 5px 0 #f0fbfa
-        box-shadow 5px 5px 0 #f0fbfa
-        font-size 14px
-        line-height 1.285
-        &__image
-            margin -10px -10px 10px
-            overflow hidden
-            height 185px
-            -webkit-border-radius 3px 3px 0 0
-            border-radius 3px 3px 0 0
-        &__row
-            margin-bottom 10px
-        &__label
-            font-weight bold
-            color #000002
-    .doctors-card, .card-list
-        padding 0
-        margin 20px 0
-        .doctors-card__item
-            line-height normal
-            padding 21px 21px 19px 110px 
-            &:before
-                content ''
-            @media screen560
-                padding-left 21px
-            .doctors-card__container
-                .doctors-card__list
-                    padding 0
-                    margin 0
-                    li
-                        padding-left 0
-                        line-height normal 
-                        &:before
-                            content ''
-                .favorites-block
-                    @media phone
-                        width auto
-                        display block
-                    @media only screen and (max-width: 450px)   
-                        position absolute
-                        top 20px
-                        right 20px
-    .card-list
-        .small-card
-            line-height normal
-            padding-left 0
-            &:before
-                content ''
-            .small-card__right-side
-                font-size 14px
-                // @media phone_tablet
-                //     margin-left 180px
-                @media screen560
-                    margin-left 0
-                    padding-left 20px
-                .favorites-block
-                    @media phone
-                        width auto
-                        display block
-                    @media only screen and (max-width: 560px)   
-                        position absolute
-                        top 20px
-                        right 20px
-            .small-card__schedule
-                ul
-                    padding 0
-                    margin 0
-                    li
-                        padding-left 0
-                        line-height normal 
-                        &:before
-                            content ''
-                 
+                border none
+                border-radius 0
+                background-color transparent 
+                font-size 22px
     .note
         position relative
         margin 28px 0 28px 75px
@@ -328,7 +246,11 @@
 //     text-decoration none !important
 //     &:hover
 //         text-decoration underline !important
-        
+ 
+
+.content-style
+    padding 20px 40px
+
 em
     font-weight 400
     font-size 18px
@@ -343,14 +265,12 @@ h2
     margin 20px 0
     font-size 24px
     font-weight 400
-    line-height 18px
     strong
         font-weight 700
 h3
     margin 20px 0
     font-size 20px
-    font-weight 400
-    line-height 18px 
+    font-weight 400 
     strong
         font-weight 700
     
@@ -358,7 +278,6 @@ h4
     margin 20px 0
     font-size 16px
     font-weight 400
-    line-height 18px
     strong
         font-weight 700
 h5
@@ -371,14 +290,14 @@ h6
     margin 20px 0
     font-size 12px
     font-weight 400
-    line-height 1.4
+    // line-height 1.4
     strong
         font-weight 700
 h7
     margin 20px 0 40px
     font-size 16px
     font-weight 400
-    line-height 20px
+    // line-height 20px
     strong
         font-weight 700
         
