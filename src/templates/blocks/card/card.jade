@@ -1,9 +1,9 @@
 - card = data.card
-- clinic= data.clinic
-- diagnost= data.diagnosList
-- action= data.actionsList
-- clinicFilials= data.clinicFilials
-- clinicInnerFilials= data.clinicInnerFilials
+- clinic = data.clinic
+- diagnost = data.diagnosList
+- action = data.actionsList
+- clinicFilials = data.clinicFilials
+- clinicInnerFilials = data.clinicInnerFilials
 - doctorWorld = data.doctorWorld
 - landing = data.landing
 - clinicDiagnostic = data.clinicDiagnostic
@@ -310,9 +310,6 @@ if clinicInnerFilials
         +b.more-toggle: +i({ title: "Все филиалы", className: "show-hidden-small-cards", absSelector: "[data-uid='" + uid + "']" })
 if file.page_name == 'diagnostic-list'
     .block-services-wrapper(data-uid=uid)
-        include ../blocks/block-services/block-services.jade 
-        +b.load-more
-            +e('span').text 180 услуг диагностического центра
-            +e('a').link(href="#") Посмотреть весь прайс-лист
+        include ../blocks/block-prices/block-prices.jade 
 
 

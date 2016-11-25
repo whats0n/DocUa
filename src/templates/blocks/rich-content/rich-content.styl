@@ -1,5 +1,9 @@
 .title-style
     padding 40px 0
+    
+.article-content
+    border-radius 2px
+    box-shadow: 0 1px 1px rgba(0,0,0,.25)
 
 .rich-content
     font-size 15px
@@ -46,7 +50,7 @@
             font-weight 700
     .div-color
         padding 35px 40px
-        border-radius 3px
+        // border-radius 2px
         margin 20px 0
         &.bg-blue
             background-color #e5f2f5
@@ -59,29 +63,37 @@
         &:after
             content ""
             clear: left
+    .blockquote
+        margin-bottom 20px
+        padding 20px 40px 
+        background-color #CCEFEA
+        &:before
+            content: ""
+            top 35px
+            left 40px
+            sprite($quote)
     blockquote 
-        padding: 29px 
-        margin-left 50px 
+        // padding: 29px 
         position: relative
-        font-style: italic
+        margin 0 0 0 70px
+        padding 0
         border-left none
-        border-radius 3px
-        font-size: 15px
-        line-height: 24px 
+        font-size: 16px
+        font-weight: 400
+        line-height: 24px
+        font-style normal
         @media phone
            margin-left 20px 
            padding 10px
-        &:before
-            content: "“"
-            color: #a3c1c7
-            font-size: 120px
-            line-height: 0.8
-            position: absolute
-            top: 0
-            left: -60px        
-            @media phone
-                font-size: 70px
-                left -31px
+            // color: #a3c1c7
+            // font-size: 120px
+            // line-height: 0.8
+            // position: absolute
+            // top: 0
+            // left: -60px        
+            // @media phone
+            //     font-size: 70px
+            //     left -31px
         &:after
             content "" 
             position absolute
@@ -99,7 +111,6 @@
         margin 20px 0
         outline none 
         border-collapse separate 
-        border 1px solid rgba(0,130,155,.16) 
         th
             height 40px
             background-color #00829b
@@ -124,24 +135,25 @@
                     border-top none
             td
                 text-align center
-                border-top 1px solid #dde8ea
+                border 1px solid rgba(0,130,155,.16) 
+                border-top none
+                border-right none
+                line-height 18px
+                // border-top 1px solid #dde8ea
                 &:first-child
                     padding 10px 10px 10px 20px
                     text-align left
-                    border-right 1px solid rgba(#00829b, 0.14)
+                    border-left 1px solid rgba(#00829b, 0.14)
                 &:nth-child(2)
                     padding 10px 15px
-                    border-right 1px solid rgba(#00829b, 0.14)
                 &:nth-child(3)
                     padding 10px 15px
-                    border-right 1px solid rgba(#00829b, 0.14)
                 &:nth-child(4)
-                    padding 10px 15px
-                    border-right 1px solid rgba(#00829b, 0.14) 
+                    padding 10px 15px 
                 &:last-child
                     padding 10px 15px
                     text-align center
-                    border-right 1px solid transparent 
+                    border-right 1px solid rgba(0,130,155,.16) 
             td[colspan="4"]
                 text-align left
                 color: #09859d
@@ -184,7 +196,14 @@
                         height 5px
                         border 1px solid #96b8bf
                         border-radius 50%
-                        background-color transparent 
+                        background-color transparent
+    ol
+        li 
+            color: #5e6e71
+            font-size: 16px
+            font-weight: 400
+            line-height: 24px
+            list-style-type none
     .style-numeric
         counter-reset li
         list-style none
@@ -193,7 +212,7 @@
         li
             position relative
             padding-left 20px
-            line-height: 2
+            // line-height: 2
             &:before
                 content counter(li) '. '
                 counter-increment li
@@ -203,6 +222,8 @@
                 border none
                 background-color transparent 
                 font-weight bold
+            > .style-numeric
+                padding-left 0
     .hyphen-lists
         li
             padding-left 15px
@@ -304,7 +325,7 @@ h7
 hr
     width: 100%
     border: none
-    border-top: 1px dotted rgba(29,137,160,.45)
+    border-top: 1px solid rgba(29,137,160,.45)
     color: #fff
     background-color: #fff
     height: 1px
