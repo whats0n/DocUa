@@ -33,122 +33,124 @@
 
                 - var uid = "uid-130146"
                 if clinic.address  
-                    +b.card.card-underline.item-promo.item-promo_green(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, moreLink: true, clinicFilials: affilatesIsida, uid: uid })
+                    +b.card.item-promo.item-promo_green(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, moreLink: true, clinicFilials: affilatesIsida, uid: uid })
+                    //- .card-underline
                 else 
-                    +b.card.card-underline.item-promo(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, clinicFilials: affilatesIsida, uid: uid }) 
-            +b.small-card.small-card_mod.item-promo
-                .item-promo__block 
-                    a(href="#").item-promo__title промо 
-                    .item-promo__hidden Ресторан размещен  вверху списка на правах рекламы 
+                    +b.card.item-promo(class=classes, data-uid=uid, data-id= 'c' + clinic.id): +i({ card: clinic, landing: true, clinic: true, clinicFilials: affilatesIsida, uid: uid })
+                    //- .card-underline
+            //- +b.small-card.small-card_mod.item-promo
+            //-     .item-promo__block 
+            //-         a(href="#").item-promo__title промо 
+            //-         .item-promo__hidden Ресторан размещен  вверху списка на правах рекламы 
             
-                +e.left-side.hidden-xs 
-                    +e.image(class=card.gender).small-card__image-mod
-                        img.photo(src="i/small-card-img1.jpg", alt="")
-                    +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+            //-     +e.left-side.hidden-xs 
+            //-         +e.image(class=card.gender).small-card__image-mod
+            //-             img.photo(src="i/small-card-img1.jpg", alt="")
+            //-         +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
 
-                    +e.testimonials(class=testimonialsClass)
-                        a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
-                            span.count= item.testimonialsCount
-                            |  отзывов
-                +e.right-side
-                    +b.favorites-block.pull-right: +i
-                    +e.title.fn.org 
-                        h1
-                            a(href=pageLink, title=item.name)= item.name
-                    .right-side-rating.visible-xs
-                        +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
-                        +e.testimonials(class=testimonialsClass)
-                            a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
-                                span.count= item.testimonialsCount 
-                                |  отзывов
-                    +e.label-description.small-card__description-mod
-                        span #{item.labelDescription}&nbsp;
-                        a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
-                    .address-info.small-card__address-mod
-                        if item.address && !clinicWorld
-                            +e.address.adr
-                                a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
-                        if item.metro && !clinicWorld
-                            +e.location.card__location_metro(class=item.metroType)
-                                = item.metro.join(", ")
-                        if !onlineConsultation && !doctorWorld && !clinicWorld
-                            +e.location= item.location.join(", ")
-                    +e.footer
-                        if file.page_name != clinics
-                            +e.schedule
-                                ul
-                                    each item1 in item.schedule 
-                                        li
-                                            span.left #{item1.day}:
-                                            span.right= item1.time
-                        a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
-            +b.small-card.small-card_mod
-                +e.left-side.hidden-xs
-                    +e.image(class=card.gender).small-card__image-mod
-                        img.photo(src="i/small-card-img1.jpg", alt="")
-                    +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+            //-         +e.testimonials(class=testimonialsClass)
+            //-             a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+            //-                 span.count= item.testimonialsCount
+            //-                 |  отзывов
+            //-     +e.right-side
+            //-         +b.favorites-block.pull-right: +i
+            //-         +e.title.fn.org 
+            //-             h1
+            //-                 a(href=pageLink, title=item.name)= item.name
+            //-         .right-side-rating.visible-xs
+            //-             +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+            //-             +e.testimonials(class=testimonialsClass)
+            //-                 a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+            //-                     span.count= item.testimonialsCount 
+            //-                     |  отзывов
+            //-         +e.label-description.small-card__description-mod
+            //-             span #{item.labelDescription}&nbsp;
+            //-             a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+            //-         .address-info.small-card__address-mod
+            //-             if item.address && !clinicWorld
+            //-                 +e.address.adr
+            //-                     a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
+            //-             if item.metro && !clinicWorld
+            //-                 +e.location.card__location_metro(class=item.metroType)
+            //-                     = item.metro.join(", ")
+            //-             if !onlineConsultation && !doctorWorld && !clinicWorld
+            //-                 +e.location= item.location.join(", ")
+            //-         +e.footer
+            //-             if file.page_name != clinics
+            //-                 +e.schedule
+            //-                     ul
+            //-                         each item1 in item.schedule 
+            //-                             li
+            //-                                 span.left #{item1.day}:
+            //-                                 span.right= item1.time
+            //-             a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
+            //- +b.small-card.small-card_mod
+            //-     +e.left-side.hidden-xs
+            //-         +e.image(class=card.gender).small-card__image-mod
+            //-             img.photo(src="i/small-card-img1.jpg", alt="")
+            //-         +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
 
-                    +e.testimonials(class=testimonialsClass)
-                        a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
-                            span.count= item.testimonialsCount 
-                            |  отзывов
-                +e.right-side
-                    +b.favorites-block.pull-right: +i
-                    +e.title.fn.org
-                        h1
-                            a(href=pageLink, title=item.name)= item.name
-                    .right-side-rating.visible-xs
-                        +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
-                        +e.testimonials(class=testimonialsClass)
-                            a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
-                                span.count= item.testimonialsCount
-                                |  отзывов
-                    +e.label-description.small-card__description-mod
-                        span #{item.labelDescription}&nbsp;
-                        a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
-                    .address-info.small-card__address-mod
-                        if item.address && !clinicWorld
-                            +e.address.adr
-                                a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
-                        if item.metro && !clinicWorld
-                            +e.location.card__location_metro(class=item.metroType)
-                                = item.metro.join(", ")
-                        if !onlineConsultation && !doctorWorld && !clinicWorld
-                            +e.location= item.location.join(", ")
-                    +e.footer
-                        if file.page_name != clinics
-                            +e.schedule
-                                ul
-                                    each item1 in item.schedule
-                                        li
-                                            span.left #{item1.day}:
-                                            span.right= item1.time
-                        a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
+            //-         +e.testimonials(class=testimonialsClass)
+            //-             a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+            //-                 span.count= item.testimonialsCount 
+            //-                 |  отзывов
+            //-     +e.right-side
+            //-         +b.favorites-block.pull-right: +i
+            //-         +e.title.fn.org
+            //-             h1
+            //-                 a(href=pageLink, title=item.name)= item.name
+            //-         .right-side-rating.visible-xs
+            //-             +b.rating(class=ratingColorBlack): +i({ value: card.averageRating })
+            //-             +e.testimonials(class=testimonialsClass)
+            //-                 a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
+            //-                     span.count= item.testimonialsCount
+            //-                     |  отзывов
+            //-         +e.label-description.small-card__description-mod
+            //-             span #{item.labelDescription}&nbsp;
+            //-             a(href="#", data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+            //-         .address-info.small-card__address-mod
+            //-             if item.address && !clinicWorld
+            //-                 +e.address.adr
+            //-                     a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title=item.adress)= item.address
+            //-             if item.metro && !clinicWorld
+            //-                 +e.location.card__location_metro(class=item.metroType)
+            //-                     = item.metro.join(", ")
+            //-             if !onlineConsultation && !doctorWorld && !clinicWorld
+            //-                 +e.location= item.location.join(", ")
+            //-         +e.footer
+            //-             if file.page_name != clinics
+            //-                 +e.schedule
+            //-                     ul
+            //-                         each item1 in item.schedule
+            //-                             li
+            //-                                 span.left #{item1.day}:
+            //-                                 span.right= item1.time
+            //-             a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
 
 
-            +b.small-card.special.item-promo.item-promo_green
-                .item-promo__block   
-                    a(href="#").item-promo__title спецпредложение 
-                +e.left-side.hidden-xs.special-left-side
-                    +e("a")(href="#").image.special-picture
-                        img.photo(src="i/widget-img.png", alt="")
-                +e.right-side.special-right-side
-                    +e.title.fn.org.special-title
-                        h1
-                            a(href="", title="") Консультация маммолога с УЗИ  молочных желез со скидкой 10%!
-                    .address-info
-                        //- +e.address.adr
-                        //-     a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title="") г.Киев, пр.Науки 30
-                        //- +e.location.card__location_metro.blue Димеевская
-                        +e.location Голосеевский
-                        +b.price.price_left  
-                            +e.old 1645 грн
-                            +e.new 1 178 грн
-                +e.footer.special-block-btn
-                        +b.price
-                            +e.old 1645 грн
-                            +e.new 1 178 грн
-                        a.btn.btn-success(href="/modals.html#doctor-request", title="") Записаться в клинику
+            //- +b.small-card.special.item-promo.item-promo_green
+            //-     .item-promo__block   
+            //-         a(href="#").item-promo__title спецпредложение 
+            //-     +e.left-side.hidden-xs.special-left-side
+            //-         +e("a")(href="#").image.special-picture
+            //-             img.photo(src="i/widget-img.png", alt="")
+            //-     +e.right-side.special-right-side
+            //-         +e.title.fn.org.special-title
+            //-             h1
+            //-                 a(href="", title="") Консультация маммолога с УЗИ  молочных желез со скидкой 10%!
+            //-         .address-info
+            //-             //- +e.address.adr
+            //-             //-     a.dotted.grey.street-address(href="#clinic-location-map" data-toggle="modal" title="") г.Киев, пр.Науки 30
+            //-             //- +e.location.card__location_metro.blue Димеевская
+            //-             +e.location Голосеевский
+            //-             +b.price.price_left  
+            //-                 +e.old 1645 грн
+            //-                 +e.new 1 178 грн
+            //-     +e.footer.special-block-btn
+            //-             +b.price
+            //-                 +e.old 1645 грн
+            //-                 +e.new 1 178 грн
+            //-             a.btn.btn-success(href="/modals.html#doctor-request", title="") Записаться в клинику
 
 
         +b("a").load-items(href="#"): +i 

@@ -76,10 +76,13 @@ article.hreview-aggregate.vcard.hcard
                     a(href="#{card.filename}#tab-reviews", title="#{card.testimonialsCount} отзывов")
                         span.count= card.testimonialsCount
                         |  отзывов
-                    if !doctorWorld && !clinicWorld && file.page_name != 'diagnostic-list'
+                    if !doctorWorld && !clinicWorld 
+                        //- && file.page_name != 'diagnostic-list'
                         +e("a").info(href="/modals.html#rating-clinic")
             if card.schedule && !clinic_inner & !doctors_page
                 +e.schedule(class=additionalClass)
+                    +e.schedule-top
+                        span Режим работы:
                     ul
                         each item in card.schedule 
                             li
@@ -114,6 +117,9 @@ article.hreview-aggregate.vcard.hcard
                         span #{card.labelDescription}&nbsp;
                             if clinic || clinic_inner
                                 a(href="#" data-toggle="tooltip", data-original-title="Гастроэнтерология, гинекология, кардиология, неврология, отоларингология, пластическая хирургия.", data-placement="top") +17 направлений
+            if file.page_name == 'diagnostic-list'
+                +e.label-description.card__label-descroption-mod
+                    span #{card.labelDescription}&nbsp;
             if card.benefits
                 if clinicWorld
                     - var benefitsClasses = "benefits_width_auto"
@@ -123,6 +129,8 @@ article.hreview-aggregate.vcard.hcard
                             +e("img").icon(src="#{benefit.image}", alt="")
                             +e("span").title
                                 != benefit.title
+            //- if file.page_name == 'diagnostic-list'
+            //-     hr.solid
             if file.page_name == 'diagnostic-list'
                 .address-info
                     if card.address 
@@ -132,13 +140,13 @@ article.hreview-aggregate.vcard.hcard
                             .latitude: span.value-title(title=card.googleMapCordinates.lat)
                             .longitude: span.value-title(title=card.googleMapCordinates.lng)
                         if card.metro 
-                            +e.location= card.location.join(", ")
                             +e.location.card__location_metro(class=card.metroType)
                                 = card.metro.join(", ")
-            if clinic || clinic_inner  
-                hr.dashed
-            if file.page_name == 'diagnostic-list'
-                hr.dashed
+                            +e.location= card.location.join(", ")
+            //- if clinic || clinic_inner  
+            //-     hr.solid
+            //- if file.page_name == 'diagnostic-list'
+            //-     hr.solid
             if clinic || clinic_inner
                 .address-info
                     if card.address && !clinicWorld
@@ -195,12 +203,43 @@ article.hreview-aggregate.vcard.hcard
                             +b.label-great: +i
             if file.page_name == 'diagnostic-list'
                 .small-card__action.small-card__action-mod
-                    +e.action
-                        span.orange Акция
-                        a(href="#", title="") Скидки на все услуги -15%
+                    +b.price-offer
+                        +e.icon
+                            span Акция
+                        +e.text
+                +e.socwrap
+                    +e.socitem
+                        a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
+                        script.
+                            !function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                if (!d.getElementById(id)) {
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = p + '://platform.twitter.com/widgets.js';
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, 'script', 'twitter-wjs');
+                    +e.socitem
+                        .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-layout='button_count', data-action='like', data-show-faces='true', data-share='false')
+                    +e.socitem
+                        div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="175")
+                            a(href="#") Пакет «Сосудистый» со скидкой 13%
+            //- if clinics
+            //-     .small-card__action
+            //-         +b.price-offer
+            //-             +e.icon
+            //-                 span Акция
+            //-             +e.text
+            //-                 a(href="#") Пакет «Сосудистый» со скидкой 13%
+            //-         +b.price-offer
+            //-             +e.icon
+            //-                 span Акция
+            //-             +e.text
+            //-                 a(href="#") Пакет «Сосудистый» со скидкой 13%
             if !clinic_inner
                 +e.footer
-                    if (doctors_page && !landing) || file.page_name == 'disease' || file.page_name == 'diagnostic-list'
+                    if (doctors_page && !landing) || file.page_name == 'disease'
                         +e.socwrap
                             +e.socitem
                                 a.twitter-share-button(href='https://twitter.com/share', data-via='VladiGoal') Tweet
@@ -219,9 +258,9 @@ article.hreview-aggregate.vcard.hcard
                             +e.socitem
                                 div(class="g-plusone" data-size="medium" data-annotation="inline" data-width="175")
             
-                    if clinic
-                        a.link(href="#") Акции клиники (17)
-                        a.link.link-border(href="#") Пакеты услуг (2)
+                    //- if clinic
+                    //-     a.link(href="#") Акции клиники (17)
+                    //-     a.link.link-border(href="#") Пакеты услуг (2)
                     if !card.hasFilials && (clinicDiagnosticSingle != "big") && (clinicDiagnosticSingle != "small")
                         if card.status == 'inactive' && !onlineConsultation && !clinicDiagnostic 
                             .pull-right(data-toggle="tooltip", data-original-title="Извините, но этот врач временно недоступен", data-placement="bottom")
@@ -234,6 +273,9 @@ article.hreview-aggregate.vcard.hcard
                             a.btn.btn-primary.pull-right(href="/modals.html#diagnostic-request", title="") Записаться на диагностику
                         else if file.page_name == 'diagnostic-list'
                             button.btn.btn-primary.pull-right(href="/modals.html#diagnostic-request", title="") Записаться
+                            +e.phones.pull-right 
+                                a(href="tel:+38 (044) 337-07-07") +38 (044) 337-07-07
+                                span Записаться по телефону
                         else if onlineConsultation
                             a.btn.btn-primary.pull-right(href="/modals.html#doctor-request-online", title="") Задать вопрос
                             +e.reply
@@ -244,6 +286,9 @@ article.hreview-aggregate.vcard.hcard
                         else
                             if clinic
                                 a.btn.btn-success.pull-right(href="#clinic-request" data-toggle="modal" title="") Записаться в клинику
+                                +e.phones.pull-right 
+                                    a(href="tel:+38 (044) 337-07-07") +38 (044) 337-07-07
+                                    span Записаться по телефону
                             else if !clinic_inner
                                 a.btn.btn-success.pull-right(href="#doctor-request" data-toggle="modal" title="") Записаться на прием
         if !clinic_inner

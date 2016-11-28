@@ -23,10 +23,10 @@ gulp.task('sprite:watch', function() {
     gulp.watch('./src/assets/sprite-png/*.png', ['sprite']);
 });
 
-// gulp.task('images', function(){
-//     gulp.src(['./src/assets/img/**/*.*'])
-//     .pipe(gulp.dest('./build/i'))
-// });
+gulp.task('images', function(){
+    gulp.src(['./src/assets/img/**/*.*'])
+    .pipe(gulp.dest('./build/i'))
+});
 
 // gulp.task('sprites_general', function () {
 //   var spriteData = gulp.src('./src/assets/sprites/general/*.png').pipe(spritesmith({

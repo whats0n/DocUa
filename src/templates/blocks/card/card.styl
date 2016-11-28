@@ -35,28 +35,35 @@
             padding 10px 23px
             line-height 23px
     .h6
-        font-size 18px
+        position: relative
         margin 10px 0 0
         padding: 0
-        font-weight 700
         text-align center
-        position: relative
+        font-size 18px
+        font-weight 700
         // background beige_light
         // border-top 1px solid #e9eff0
         &:before
+            content: "" 
             position: absolute
-            top: 50%
-            margin-top: -1px
+            bottom 0
             left: 0
             right: 0
+            margin-top: -1px
             border-top: 1px solid #c0d2d6
-            content: "" 
         span
             position: relative
-            z-index: 1
-            padding: 0 9px
             display: inline-block
-            background: #fff  
+            width: 200px
+            height: 30px
+            padding: 0 9px
+            background-color: #09859d
+            border-radius: 2px 2px 0 0
+            color: white
+            font-size: 16px
+            font-weight: 700
+            line-height 1.8
+            z-index: 1
     &__bottom
         margin 0 20px
         clearfix()
@@ -101,8 +108,8 @@
     &__socwrap
         float left
         clearfix()
-        .card__socitem
-            margin-top 13px
+        // .card__socitem
+        //     margin-top 13px
         @media phone
             // float none
             margin-bottom 10px
@@ -114,6 +121,23 @@
             margin-top 5px
         &_last
             max-width: 55px
+    &__phones
+        margin-right 25px
+        padding 5px 0
+        text-align center
+        a
+            display block
+            text-decoration none
+            color: #00829b
+            font-size: 16px
+            font-weight: 400
+            line-height 1.2
+        span
+            display block
+            color: #94b7be
+            font-size: 12px
+            font-weight: 400
+            line-height 1.2
     &-list
         margin 0
         padding 0
@@ -215,7 +239,7 @@
         margin-bottom: 10px
     p
         font-size: 14px
-        margin-bottom: 18px
+        margin-bottom: 10px
         margin-top: 8px
         
         a
@@ -249,6 +273,7 @@
                 height: 20px
     &__footer
         margin-top 21px
+        clearfix()
         @media phone
             margin-top: 10px
     &__share-bottom
@@ -268,38 +293,48 @@
     &__schedule
         position relative
         margin-top 21px
-        padding 13px 10px
         font-size 13px
-        border 1px dashed text_blue
-        border-radius border_radius_sm
+        border 1px solid #dde8ea
+        border-radius 3px
         @media screen560
             font-size 11px
             padding 10px 5px
-        &:before
-            content ''
-            position absolute
-            top -11px
-            left 59px
-            sprite($calendar)
-            @media phone
-                left 50%
-                margin-left -7px
-        
-        li
-            clearfix()
-            span
+        // &:before
+        //     content ''
+        //     position absolute
+        //     top -11px
+        //     left 59px
+        //     sprite($calendar)
+        //     @media phone
+        //         left 50%
+        //         margin-left -7px
+        ul
+            padding 13px 10px
+            li
+                clearfix()
+                .left
+                    float left
+                    width 42px
+                    color text_blue
+                    text-align left
+                .right
+                    float left
+                    width 76px
+                    @media screen560
+                        float right
+                        width auto
+    &__schedule-top
+        padding 5px 10px
+        background-color: #dde8ea
+        span
+            display inline-block
+            vertical-align middle
+            &:before
+                content "" 
                 display inline-block
-            .left
-                float left
-                width 38px
-                color text_blue
-                text-align left
-            .right
-                float left
-                width 75px
-                @media screen560
-                    float right
-                    width auto
+                vertical-align middle
+                margin-right 10px
+                sprite($schedule)
     @media screen560
         &__right-side
             .right-side-rating
@@ -360,6 +395,12 @@
         p
             @media only screen and (max-width: 640px)
                 display none
+        .card__socwrap
+            float none
+            display block
+            margin 10px 0
+        .small-card__action
+            padding 0
         
     &__title
         display block
@@ -395,7 +436,8 @@
         top 3px
         margin-left 5px
         display inline-block
-        sprite($info)
+        // sprite($info)
+        sprite($card-info)
         outline none
         @media only screen and (max-width: 639px)
             display none
@@ -420,40 +462,45 @@
     &__address, &__location, &__metro
         float left
         position relative
+        margin-top 7px
+        margin-right 30px
+        padding-left 20px
         &:before
             content ''
             position absolute
+            top 50%
             left 0
-            top 2px
         // @media only screen and (max-width: 640px)
         //     float none
     &__address
-        margin-right 16px
-        padding-left ($location_width + 8)
         &:before
-            sprite($location)
+            margin-top -6px
+            left 4px
+            sprite($card-loc)
+            // sprite($location)
         a
             display inline
     &__location
-        margin-right 16px
-        padding-left ($district_width + 8)
+        // padding-left ($district_width + 8)
         &:before
-            top 2px
-            sprite($district)
+            margin-top -7px
+            sprite($card-adress)
+            // sprite($district)
         &_metro
-            padding-left ($metro_blue_width + 8)
+            // padding-left ($metro_blue_width + 8)
             &:before
-                top 3px
-                sprite($metro_default)
-            &.blue
-                &:before
-                    sprite($metro_blue)
-            &.red
-                &:before
-                    sprite($metro_red)
-            &.green
-                &:before
-                    sprite($metro_green)
+                margin-top -5px
+                sprite($card-metro)
+                // sprite($metro_default)
+            // &.blue
+            //     &:before
+            //         sprite($metro_blue)
+            // &.red
+            //     &:before
+            //         sprite($metro_red)
+            // &.green
+            //     &:before
+            //         sprite($metro_green)
     &__short-summary
         padding 0
         // p:last-child
@@ -506,12 +553,16 @@
                 margin-left 0
     hr
         margin 5px -4px 8px
-        border none
-        background url('i/icons/dashed.png') left bottom repeat-x
+        // border none
+        // background url('i/icons/dashed.png') left bottom repeat-x
         @media screen560
             clear: both
     .address-info 
         display inline-block
+        width 100% 
+        padding-bottom 7px
+        border-top: 1px solid #dde8ea
+        border-bottom: 1px solid #dde8ea
         clearfix()
 
     &.inner h6, &.inner .filials-list

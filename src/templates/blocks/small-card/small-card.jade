@@ -38,14 +38,16 @@ article
                 a(href="#{item.filename}#tab-reviews", title="#{item.testimonialsCount} отзывов")
                     span.count= item.testimonialsCount
                     |  отзывов
-
+                    +e("a").info(href="/modals.html#rating-clinic")
             if !clinic_inner
-                //- +e.schedule
-                //-     ul
-                //-         each item1 in item.schedule
-                //-             li
-                //-                 span.left= item1.day
-                //-                 span.right= item1.time
+                +e.schedule(class=additionalClass)
+                    +e.schedule-top
+                        span Режим работы:
+                    ul
+                        each item in card.schedule 
+                            li
+                                span.left= item.day
+                                span.right= item.time
         +e.right-side.main-content
             if !item.hasFilials 
                 +b.favorites-block.pull-right: +i
@@ -88,6 +90,36 @@ article
                 if !onlineConsultation && !doctorWorld && !clinicWorld
                     +e.location= item.location.join(", ")
 
+            if clinic_inner
+                +e.schedule
+                    ul
+                        each item1 in item.schedule
+                            li
+                                span.left #{item1.day}:
+                                span.right= item1.time
+                +e.action
+                    +b.price-offer
+                        +e.icon
+                            span Акция
+                        +e.text
+                            a(href="#") Пакет «Сосудистый» со скидкой 13%
+                    +b.price-offer
+                        +e.icon
+                            span Акция
+                        +e.text
+                            a(href="#") Пакет «Сосудистый» со скидкой 13%
+            else
+                +e.action
+                    +b.price-offer
+                        +e.icon
+                            span Акция
+                        +e.text
+                            a(href="#") Пакет «Сосудистый» со скидкой 13%
+                    +b.price-offer
+                        +e.icon
+                            span Акция
+                        +e.text
+                            a(href="#") Пакет «Сосудистый» со скидкой 13%
             +e.footer
                 //- if file.page_name != clinics
                 //-     +e.schedule.small-card__schedule-mod
@@ -96,18 +128,4 @@ article
                 //-                 li
                 //-                     span.left #{item1.day}:
                 //-                     span.right= item1.time
-                if clinic_inner
-                    +e.schedule
-                        ul
-                            each item1 in item.schedule
-                                li
-                                    span.left #{item1.day}:
-                                    span.right= item1.time
-                    +e.action
-                        span.orange Акция
-                        a(href="#{item.url}#tab-actions", title=item.actions[0].title)= item.actions[0].title
-                else
-                    +e.action
-                        span.orange Акция
-                        a(href="#{item.url}#tab-actions", title=item.actions[0].title)= item.actions[0].title
                 a.btn.btn-success.pull-right(href="/modals.html#doctor-request", title="") Записаться в клинику
