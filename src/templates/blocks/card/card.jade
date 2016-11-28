@@ -79,7 +79,7 @@ article.hreview-aggregate.vcard.hcard
                     if !doctorWorld && !clinicWorld 
                         //- && file.page_name != 'diagnostic-list'
                         +e("a").info(href="/modals.html#rating-clinic")
-            if card.schedule && !clinic_inner & !doctors_page
+            if card.schedule && !clinic_inner 
                 +e.schedule(class=additionalClass)
                     +e.schedule-top
                         span Режим работы:
@@ -173,12 +173,9 @@ article.hreview-aggregate.vcard.hcard
             if file.page_name == 'diagnostic-list'
                 p= card.about_general
 
-            //- if landing
-            //-     +e.short-summary
-            //-         p
-            //-             | #{card.shortSummary} &nbsp;
-            //-             if moreLink
-            //-                 a(href="#") далее
+            if doctors_page
+                +e.long-summary
+                    p #{card.longSummary} &nbsp;
             if !clinic
                 if card.jobs && !doctorWorld
                     each job in card.jobs
@@ -191,7 +188,7 @@ article.hreview-aggregate.vcard.hcard
                                 +e('div').job-price__mobile
                                     b (#{job.price} 
                                         | грн)
-                                +b.job-schedule: +i
+                                //- +b.job-schedule: +i
                             if landing
                                 +e.desc= job.desc
                             .address-info
@@ -200,7 +197,17 @@ article.hreview-aggregate.vcard.hcard
                                 +e.location.card__location_metro(class=job.metroType)
                                     = job.metro
                                 +e.location= job.location
-                            +b.label-great: +i
+                            //- +b.label-great: +i
+                            +b.price-offer
+                                +e.icon
+                                    span Акция
+                                +e.text
+                                    a(href="#") Пакет «Сосудистый» со скидкой 13%
+                            +b.price-offer
+                                +e.icon
+                                    span Акция
+                                +e.text
+                                    a(href="#") Пакет «Сосудистый» со скидкой 13%
             if file.page_name == 'diagnostic-list'
                 .small-card__action.small-card__action-mod
                     +b.price-offer
@@ -290,6 +297,8 @@ article.hreview-aggregate.vcard.hcard
                                 +e.phones.pull-right 
                                     a(href="tel:+38 (044) 337-07-07") +38 (044) 337-07-07
                                     span Записаться по телефону
+                            else if doctors_page
+                                a.btn.btn-success.pull-right(href="#clinic-request" data-toggle="modal" title="") Записаться в клинику
                             else if !clinic_inner
                                 a.btn.btn-success.pull-right(href="#doctor-request" data-toggle="modal" title="") Записаться на прием
         if !clinic_inner
